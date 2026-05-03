@@ -80,7 +80,7 @@ class TTSRequest(BaseModel):
 
 
 @app.post("/tts")
-async def synthesize(req: TTSRequest, raw: bool = False):
+async def synthesize(req: TTSRequest):
     if _model is None:
         raise HTTPException(503, "Model not loaded")
 
@@ -92,9 +92,6 @@ async def synthesize(req: TTSRequest, raw: bool = False):
 
     wav_buf = io.BytesIO()
     sf.write(wav_buf, wav.squeeze().cpu().numpy(), _model.sr, format="wav")
-
-    if raw:
-        return Response(content=wav_buf.getvalue(), media_type="audio/wav")
 
     proc = subprocess.run(
         ["ffmpeg", "-y", "-f", "wav", "-i", "pipe:0",
