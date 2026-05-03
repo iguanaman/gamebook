@@ -8,18 +8,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - [docs/engine.md](docs/engine.md) — boot sequence, state shape, navigation, effects, undo, audio
 - [docs/frontend.md](docs/frontend.md) — layout, CSS variables, HUD, choices, rendering approach
 
-## Running locally
+## Tech stack
 
-No build step. Serve the repo root with any static file server — `fetch()` is used for YAML loading so `file://` won't work:
-
-```
-npx serve .
-# or VS Code Live Server (right-click index.html → Open with Live Server)
-```
+Pure static site — HTML, CSS, vanilla JS. No build step, no framework, no bundler. One CDN dependency: `js-yaml`. Backend: Python TTS server (`tts_server.py`) for audio generation only.
 
 ## Architecture
-
-Pure static site. No framework, no bundler. One CDN dependency: `js-yaml` (loaded via `<script>` in `index.html`).
 
 - `index.html` — single page shell, loads js-yaml CDN then `engine.js`
 - `engine.js` — entire engine in one file, runs on page load
@@ -39,6 +32,14 @@ Pure static site. No framework, no bundler. One CDN dependency: `js-yaml` (loade
 5. State shape: `{ scene, stats, flags, history }` — persisted to `localStorage` as `gamebook.state.{id}`
 6. Undo pops `history` stack and re-navigates without pushing a new entry
 
+## Workflow
+
+Commit changes when a task is done.
+
+## Visual companion
+
+Never offer the visual companion / browser mockup feature. The user has declined it permanently.
+
 ## Adding or editing stories
 
 Use the `/storycraft` skill — it covers new stories, adding scenes, editing existing content, and commit conventions.
@@ -47,43 +48,7 @@ Templates in `templates/` — copy `templates/story.yaml` for new stories, `temp
 
 ## Scene YAML shape
 
-```yaml
-id: scene_id
-text: |
-  Narrative text. Blank line between paragraphs renders as <p> break.
-choices:
-  - text: Choice label
-    next: target_scene_id          # string, or weighted list (see below)
-    requires:
-      flags: [flag_name]           # all must be set
-      flags_unset: [flag_name]     # all must NOT be set
-      stats:
-        gold: 5
-    effects:
-      stats:
-        gold: -5
-      flags:
-        has_item: true
-
-  # weighted random next — engine picks one on each playthrough:
-  - text: Head into the forest
-    next:
-      - scene: forest_quiet
-        weight: 3
-      - scene: forest_ambush
-        weight: 1
-```
-
-For multi-voice scenes, `text:` accepts a list of blocks:
-
-```yaml
-text:
-  - "Narrator text."
-  - male1: "A character speaks."
-  - "Back to narrator."
-```
-
-`requires` and `effects` are optional. Empty `choices` list triggers the end-of-story screen.
+See `templates/scene.yaml` for the full annotated schema.
 
 ## Audio generation
 
@@ -95,4 +60,4 @@ python generate_audio.py --force      # regenerate everything
 python generate_audio.py --story demo # one story only
 ```
 
-Requires the TTS server running (`python tts_server.py`, port 5500). Voice files live in `tts_voices/{name}.wav`. The script generates one `.opus` file per text block — `audio/{sceneId}_block_0.opus`, `audio/{sceneId}_block_1.opus`, etc. No fields are written back to scene YAMLs.
+Requires the TTS server running (`python tts_server.py`, port 5500). Voice files live in `tts_voices/{name}.wav`. The TTS server encodes output as Opus at 48kbps via ffmpeg. The script generates one `.opus` file per text block — `audio/{sceneId}_block_0.opus`, `audio/{sceneId}_block_1.opus`, etc. — and writes a `timings` list back to each scene YAML (seconds from audio start, one entry per text block).
