@@ -18,11 +18,14 @@ EXAGGERATION  = 2.0  # max expressiveness; turbo may ignore but worth sending
 # ─────────────────────────────────────────────────────────────────────────────
 
 import argparse
+import io
 import sys
 import time
 from pathlib import Path
 
+import numpy as np
 import requests
+import soundfile as sf
 import yaml
 
 
@@ -112,8 +115,6 @@ def process_story(story_id, force):
 
         out_abs.parent.mkdir(parents=True, exist_ok=True)
 
-        # If multiple blocks with same voice, we could concatenate — but simpler
-        # to just join text and send as one request per contiguous voice run
         runs = []
         for text, voice in scene_blocks:
             if runs and runs[-1][1] == voice:
@@ -122,39 +123,51 @@ def process_story(story_id, force):
                 runs.append((text, voice))
 
         if len(runs) == 1:
-            # Single voice — one file
             print(f"  [gen]  {scene_id} ({runs[0][1]})")
-            audio = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
-            out_abs.write_bytes(audio)
+            wav = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
+            out_abs.write_bytes(wav)
+            arr, rate = sf.read(io.BytesIO(wav))
+            run_durations = [(runs[0][0], runs[0][1], len(arr) / rate)]
         else:
-            # Multiple voices — fetch raw WAV, concatenate, encode to opus
-            import io
-            import subprocess
-            import soundfile as sf
-            import numpy as np
             print(f"  [gen]  {scene_id} ({len(runs)} voice runs)")
-            arrays = []
-            sr = None
+            wavs = []
+            run_durations = []
             for i, (text, voice) in enumerate(runs):
                 print(f"         run {i+1}: {voice!r}")
-                wav_bytes = synthesize(text, voice, EXAGGERATION, raw=True)
+                wav_bytes = synthesize(text, voice, EXAGGERATION)
+                wavs.append(wav_bytes)
                 arr, rate = sf.read(io.BytesIO(wav_bytes))
-                if sr is None:
-                    sr = rate
-                arrays.append(arr)
+                run_durations.append((text, voice, len(arr) / rate))
+            arrays = [sf.read(io.BytesIO(w))[0] for w in wavs]
+            sr = sf.read(io.BytesIO(wavs[0]))[1]
             combined = np.concatenate(arrays)
-            wav_buf = io.BytesIO()
-            sf.write(wav_buf, combined, sr, format="wav")
-            proc = subprocess.run(
-                ["ffmpeg", "-y", "-f", "wav", "-i", "pipe:0",
-                 "-c:a", "libopus", "-b:a", "48k", "-f", "opus", "pipe:1"],
-                input=wav_buf.getvalue(), capture_output=True, check=True,
-            )
-            out_abs.write_bytes(proc.stdout)
+            buf = io.BytesIO()
+            sf.write(buf, combined, sr, format="wav")
+            out_abs.write_bytes(buf.getvalue())
 
-        # Update scene yaml with audio field
-        scene["audio"] = out_rel
+        # Compute per-block timings: each block gets the start time of its run
+        block_run_indices = []
+        run_i = 0
+        prev_voice = None
+        for text, voice in scene_blocks:
+            if voice != prev_voice:
+                if prev_voice is not None:
+                    run_i += 1
+                prev_voice = voice
+            block_run_indices.append(run_i)
+
+        run_starts = []
+        acc = 0.0
+        for _, _, dur in run_durations:
+            run_starts.append(acc)
+            acc += dur
+
+        timings = [round(run_starts[ri], 3) for ri in block_run_indices]
+
+        scene["timings"] = timings
+        scene.pop("audio", None)  # remove legacy field if present
         save_yaml(scene_file, scene)
+        print(f"         timings → {timings}")
         print(f"         saved → {out_rel}")
 
 
