@@ -78,8 +78,34 @@ Base variables (from `style.css`):
 --btn-secondary-bg
 --btn-secondary-hover
 --radius
---font-body       /* serif stack — narrative and choices */
+--font-body       /* serif stack — narrative and choices (default: EB Garamond) */
 --font-ui         /* sans-serif stack — HUD, labels, buttons */
+--font-heading    /* heading stack — act titles, HUD keys (default: Cinzel) */
+
+/* Parchment frame */
+--border-outer          /* outer ring colour */
+--border-inner          /* inner ring colour */
+--border-corner-radius  /* frame corner rounding */
+--frame-inset           /* gap between frame and viewport edge */
+
+/* Narrative / choices divider */
+--divider-color         /* colour of the horizontal rule between text and choices */
+--divider-style         /* full border shorthand, e.g. 2px solid var(--divider-color) */
+
+/* Drop cap */
+--drop-cap-color        /* colour of the large first letter (defaults to --accent) */
+--drop-cap-size         /* size in em units (default: 3.5em) */
+
+/* Act title */
+--act-title-size        /* font size of act heading (default: 2rem) */
+--act-rule-color        /* colour of decorative rules around act title */
+--act-rule-style        /* full border shorthand for act rules */
+
+/* Animations — override to slow down or speed up */
+--anim-block-duration       /* text block fade+slide in (default: 350ms) */
+--anim-choice-duration      /* choice list slide up (default: 300ms) */
+--anim-act-title-duration   /* act title fade+scale (default: 600ms) */
+--anim-choice-fade-duration /* unchosen choice fade (default: 250ms) */
 ```
 
 Add a Google Fonts `@import` at the top if needed. Keep fonts readable at 16px — atmosphere is secondary to legibility.
