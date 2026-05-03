@@ -2,6 +2,8 @@
 
 const app = document.getElementById('app');
 
+let currentNarrativeOffset = 0;
+
 // ── Manifest / selector ───────────────────────────────────────────────────────
 
 async function fetchYaml(url) {
@@ -274,19 +276,44 @@ function renderNarrative(scene) {
   const el = document.getElementById('narrative');
   if (!el) return;
   const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
-  const texts = blocks.map(b => typeof b === 'string' ? b : Object.values(b)[0]);
-  el.innerHTML = texts.map((t, i) => {
-    const cls = i > 0 ? ' class="block-hidden"' : '';
-    return `<p${cls}>${t.replace(/\n\n/g, '</p><p>')}</p>`;
-  }).join('');
-  el.scrollTop = 0;
+
+  currentNarrativeOffset = el.querySelectorAll('p').length;
+
+  // Add scene separator if narrative already has content
+  if (el.children.length > 0) {
+    const sep = document.createElement('hr');
+    sep.className = 'scene-separator';
+    el.appendChild(sep);
+  }
+
+  const isFirstBlock = el.children.length === 0 || (el.children.length === 1 && el.children[0].tagName === 'HR');
+
+  blocks.forEach((b, i) => {
+    const text = typeof b === 'string' ? b : Object.values(b)[0];
+    const isSpeech = typeof b === 'object';
+    const isOpener = i === 0 && isFirstBlock;
+
+    const html = text.replace(/\n\n/g, '</p><p>');
+    const p = document.createElement('p');
+    if (i > 0) p.classList.add('block-hidden');
+    if (isOpener) p.classList.add('scene-opener');
+    if (isSpeech) {
+      p.classList.add('speech-block');
+      p.innerHTML = `"${html}"`;
+    } else {
+      p.innerHTML = html;
+    }
+    el.appendChild(p);
+  });
 }
 
 function revealBlock(index) {
   const paras = document.querySelectorAll('#narrative p');
-  if (paras[index]) {
-    paras[index].classList.remove('block-hidden');
-    paras[index].classList.add('block-visible');
+  const para = paras[currentNarrativeOffset + index];
+  if (para) {
+    para.classList.remove('block-hidden');
+    para.classList.add('block-visible');
+    para.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 }
 
