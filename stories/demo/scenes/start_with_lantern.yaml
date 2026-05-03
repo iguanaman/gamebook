@@ -14,4 +14,3 @@ choices:
   next: path_a
 - text: Take the road to the village
   next: path_b
-audio: audio/start_with_lantern.wav

@@ -15,4 +15,3 @@ choices:
       has_letter: true
 - text: Leave it. Turn back.
   next: end
-audio: audio/path_a.wav

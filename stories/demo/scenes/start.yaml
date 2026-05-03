@@ -22,4 +22,3 @@ choices:
       gold: -5
     flags:
       has_lantern: true
-audio: audio/start.wav

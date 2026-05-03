@@ -15,6 +15,7 @@ async function loadManifest() {
 }
 
 async function showSelector() {
+  removeStoryTheme();
   const manifest = await loadManifest();
   app.innerHTML = `
     <div class="selector">
@@ -146,6 +147,11 @@ function meetsRequirements(requires) {
       if (!state.flags[flag]) return false;
     }
   }
+  if (requires.flags_unset) {
+    for (const flag of requires.flags_unset) {
+      if (state.flags[flag]) return false;
+    }
+  }
   if (requires.stats) {
     for (const [k, min] of Object.entries(requires.stats)) {
       if ((state.stats[k] ?? 0) < min) return false;
@@ -158,22 +164,36 @@ function meetsRequirements(requires) {
 
 let currentAudio = null;
 
-function playAudio(scene) {
+function playAudio(sceneId) {
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.src = '';
     currentAudio = null;
   }
-  if (!scene.audio) return;
-  currentAudio = new Audio(`stories/${currentStoryId}/${scene.audio}`);
+  const safeName = sceneId.replace(/\//g, '-');
+  currentAudio = new Audio(`stories/${currentStoryId}/audio/${safeName}.wav`);
   currentAudio.play().catch(() => { /* autoplay blocked — silent fail */ });
 }
 
 // ── Game shell ────────────────────────────────────────────────────────────────
 
+function applyStoryTheme(storyId) {
+  document.getElementById('story-theme')?.remove();
+  const link = document.createElement('link');
+  link.id = 'story-theme';
+  link.rel = 'stylesheet';
+  link.href = `stories/${storyId}/theme.css`;
+  document.head.appendChild(link);
+}
+
+function removeStoryTheme() {
+  document.getElementById('story-theme')?.remove();
+}
+
 async function startStory(storyId) {
   const meta = await loadStoryMeta(storyId);
   currentStoryId = storyId;
+  applyStoryTheme(storyId);
 
   const saved = loadState(storyId);
   if (saved) {
@@ -212,7 +232,7 @@ async function navigateTo(sceneId) {
   renderHud();
   renderNarrative(scene);
   renderChoices(scene);
-  playAudio(scene);
+  playAudio(sceneId);
 }
 
 function renderHud() {
@@ -264,11 +284,23 @@ function renderChoices(scene) {
   document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
 }
 
+function resolveNext(next) {
+  if (typeof next === 'string') return next;
+  // weighted random: [{scene, weight}, ...] — weight defaults to 1
+  const total = next.reduce((sum, e) => sum + (e.weight ?? 1), 0);
+  let roll = Math.random() * total;
+  for (const entry of next) {
+    roll -= (entry.weight ?? 1);
+    if (roll <= 0) return entry.scene;
+  }
+  return next[next.length - 1].scene;
+}
+
 async function handleChoice(choice) {
   pushHistory();
   applyEffects(choice.effects);
   saveState();
-  await navigateTo(choice.next);
+  await navigateTo(resolveNext(choice.next));
 }
 
 async function handleUndo() {
