@@ -1,8 +1,10 @@
 id: path_b
-text: |
-  The village road opens onto warm light and woodsmoke. The inn is full — a festival, someone explains. Strangers buy you a drink.
-
-  By midnight your purse is lighter, but you know the name of every person in the room.
+blocks:
+  - |
+    The village road opens onto warm light and woodsmoke. The inn is full — a festival, someone explains. Strangers buy you a drink.
+  - text: "First time at the Harvest Fair? You picked a good year. Sit down, sit down — you look like you've been walking since morning."
+    voice: female
+  - "By midnight your purse is lighter, but you know the name of every person in the room."
 choices:
   - text: Stay the night
     next: end
