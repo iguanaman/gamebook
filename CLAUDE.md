@@ -35,7 +35,7 @@ Pure static site. No framework, no bundler. One CDN dependency: `js-yaml` (loade
 1. `showSelector()` fetches `manifest.yaml`, renders story cards, checks LocalStorage for saves
 2. `startStory(id)` loads `story.yaml`, restores or initialises state, calls `navigateTo()`
 3. `navigateTo(sceneId)` fetches the scene YAML, re-renders HUD + narrative + choices
-4. Choices may have `effects` (stat deltas, flag sets) and `requires` (stat minimums, flag checks) — filtered before rendering
+4. Choices may have `effects` (stat deltas, flag sets) and `requires` (stat minimums, flag checks, flags_unset) — filtered before rendering
 5. State shape: `{ scene, stats, flags, history }` — persisted to `localStorage` as `gamebook.state.{id}`
 6. Undo pops `history` stack and re-navigates without pushing a new entry
 
@@ -54,9 +54,10 @@ text: |
 audio: audio/scene.mp3   # set by generate_audio.py — do not edit manually
 choices:
   - text: Choice label
-    next: target_scene_id
+    next: target_scene_id          # string, or weighted list (see below)
     requires:
-      flags: [flag_name]
+      flags: [flag_name]           # all must be set
+      flags_unset: [flag_name]     # all must NOT be set
       stats:
         gold: 5
     effects:
@@ -64,6 +65,14 @@ choices:
         gold: -5
       flags:
         has_item: true
+
+  # weighted random next — engine picks one on each playthrough:
+  - text: Head into the forest
+    next:
+      - scene: forest_quiet
+        weight: 3
+      - scene: forest_ambush
+        weight: 1
 ```
 
 For multi-voice scenes, `text:` accepts a list of blocks:
