@@ -2,6 +2,12 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Detailed docs
+
+- [docs/foundation.md](docs/foundation.md) — design philosophy, story model, what this is and isn't
+- [docs/engine.md](docs/engine.md) — boot sequence, state shape, navigation, effects, undo, audio
+- [docs/frontend.md](docs/frontend.md) — layout, CSS variables, HUD, choices, rendering approach
+
 ## Running locally
 
 No build step. Serve the repo root with any static file server — `fetch()` is used for YAML loading so `file://` won't work:
