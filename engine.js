@@ -176,11 +176,12 @@ function playAudio(sceneId) {
 }
 
 function attachTimingListeners(scene) {
-  if (!scene.timings || scene.timings.length <= 1) return;
+  if (!currentAudio || !scene.timings || scene.timings.length <= 1) return;
   const timings = scene.timings;
   let nextIndex = 1; // index 0 already visible
 
   function onTimeUpdate() {
+    if (!currentAudio) return;
     while (nextIndex < timings.length && currentAudio.currentTime >= timings[nextIndex]) {
       const paras = document.querySelectorAll('#narrative p');
       if (paras[nextIndex]) {
