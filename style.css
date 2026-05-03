@@ -154,6 +154,29 @@ button {
 .hud-key { font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em; font-family: var(--font-heading); }
 .hud-val { font-size: 1rem; font-weight: 600; }
 
+.hud-divider {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+  margin: 0 0.25rem;
+}
+
+.hud-flag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.hud-flag-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  font-family: var(--font-heading);
+  white-space: nowrap;
+}
+
 /* ── Game layout ──────────────────────────────────────────────────────────── */
 
 .game-wrap {

@@ -86,6 +86,7 @@ function handleCardAction(action, storyId) {
 
 let currentStoryId = null;
 let currentAct = null;
+let storyMeta = null;
 let state = null;
 
 function stateKey(storyId) {
@@ -276,6 +277,8 @@ function removeStoryTheme() {
 async function startStory(storyId) {
   const meta = await loadStoryMeta(storyId);
   currentStoryId = storyId;
+  storyMeta = meta;
+  if (!storyMeta.flags) storyMeta.flags = {};
   applyStoryTheme(storyId);
 
   const saved = loadState(storyId);
@@ -377,9 +380,22 @@ async function navigateTo(sceneId) {
 function renderHud() {
   const hud = document.getElementById('hud');
   if (!hud) return;
-  hud.innerHTML = Object.entries(state.stats)
+
+  const statsHtml = Object.entries(state.stats)
     .map(([k, v]) => `<span class="hud-stat"><span class="hud-key">${k}</span><span class="hud-val">${v}</span></span>`)
     .join('');
+
+  const visibleFlags = Object.entries(storyMeta.flags ?? {})
+    .filter(([key, meta]) => meta.visible && state.flags[key]);
+
+  const flagsHtml = visibleFlags.length > 0
+    ? `<span class="hud-divider"></span>` +
+      visibleFlags.map(([, meta]) =>
+        `<span class="hud-flag"><span class="hud-flag-label">${meta.label}</span></span>`
+      ).join('')
+    : '';
+
+  hud.innerHTML = statsHtml + flagsHtml;
 }
 
 function renderNarrative(scene) {
