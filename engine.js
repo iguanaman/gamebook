@@ -418,8 +418,28 @@ function renderChoices(scene) {
     </div>
   `;
 
+  const choiceList = el.querySelector('.choice-list');
+  if (choiceList) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => choiceList.classList.add('choices-visible'));
+    });
+  }
+
   visible.forEach((choice, i) => {
-    el.querySelector(`[data-index="${i}"]`).addEventListener('click', () => handleChoice(choice));
+    el.querySelector(`[data-index="${i}"]`).addEventListener('click', (e) => {
+      const allBtns = el.querySelectorAll('.btn-choice');
+      const fadeDuration = parseFloat(
+        getComputedStyle(document.documentElement)
+          .getPropertyValue('--anim-choice-fade-duration')
+      ) || 250;
+
+      allBtns.forEach(btn => {
+        btn.style.transition = `opacity ${fadeDuration}ms ease`;
+        btn.style.opacity = btn === e.currentTarget ? '0' : '0.2';
+      });
+
+      setTimeout(() => handleChoice(choice), fadeDuration);
+    });
   });
   document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
 }
