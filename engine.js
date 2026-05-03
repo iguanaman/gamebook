@@ -175,6 +175,25 @@ function playAudio(sceneId) {
   currentAudio.play().catch(() => { /* autoplay blocked — silent fail */ });
 }
 
+function attachTimingListeners(scene) {
+  if (!scene.timings || scene.timings.length <= 1) return;
+  const timings = scene.timings;
+  let nextIndex = 1; // index 0 already visible
+
+  function onTimeUpdate() {
+    while (nextIndex < timings.length && currentAudio.currentTime >= timings[nextIndex]) {
+      const paras = document.querySelectorAll('#narrative p');
+      if (paras[nextIndex]) {
+        paras[nextIndex].classList.remove('block-hidden');
+        paras[nextIndex].classList.add('block-visible');
+      }
+      nextIndex++;
+    }
+  }
+
+  currentAudio.addEventListener('timeupdate', onTimeUpdate);
+}
+
 // ── Game shell ────────────────────────────────────────────────────────────────
 
 function applyStoryTheme(storyId) {
@@ -231,8 +250,15 @@ async function navigateTo(sceneId) {
   const scene = await loadScene(currentStoryId, sceneId);
   renderHud();
   renderNarrative(scene);
-  renderChoices(scene);
   playAudio(sceneId);
+
+  const timed = scene.timings && scene.timings.length > 1;
+  if (timed) {
+    attachTimingListeners(scene);
+    currentAudio.addEventListener('ended', () => renderChoices(scene), { once: true });
+  } else {
+    renderChoices(scene);
+  }
 }
 
 function renderHud() {
@@ -248,7 +274,11 @@ function renderNarrative(scene) {
   if (!el) return;
   const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
   const texts = blocks.map(b => typeof b === 'string' ? b : Object.values(b)[0]);
-  el.innerHTML = texts.map(t => `<p>${t.replace(/\n\n/g, '</p><p>')}</p>`).join('');
+  const timed = scene.timings && scene.timings.length > 1;
+  el.innerHTML = texts.map((t, i) => {
+    const cls = timed && i > 0 ? ' class="block-hidden"' : '';
+    return `<p${cls}>${t.replace(/\n\n/g, '</p><p>')}</p>`;
+  }).join('');
   el.scrollTop = 0;
 }
 
