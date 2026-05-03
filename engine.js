@@ -168,6 +168,33 @@ function meetsRequirements(requires) {
   return true;
 }
 
+function resolveBlock(block, sceneId) {
+  // Plain string — no condition
+  if (typeof block === 'string') return { content: block, isSpeech: false };
+
+  // Conditional block: has an 'if' key
+  if ('if' in block) {
+    const cond = block.if;
+    const pass = cond === 'visited'
+      ? state.visited.includes(sceneId)
+      : meetsRequirements(cond);
+
+    if (!pass) {
+      if (block.else === undefined) return null;
+      return { content: block.else, isSpeech: false };
+    }
+
+    if (block.text !== undefined) return { content: block.text, isSpeech: false };
+    const voiceKey = Object.keys(block).find(k => k !== 'if' && k !== 'else' && k !== 'text');
+    if (voiceKey) return { content: block[voiceKey], isSpeech: true };
+    return null;
+  }
+
+  // Voice-tagged block (no condition): e.g. {male1: "..."}
+  const key = Object.keys(block)[0];
+  return { content: block[key], isSpeech: true };
+}
+
 // ── Audio ─────────────────────────────────────────────────────────────────────
 
 const ACT_TITLE_PAUSE_MS = 2000;
@@ -325,22 +352,22 @@ async function navigateTo(sceneId) {
   const scene = await loadScene(currentStoryId, sceneId);
   renderHud();
 
-  const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
-
   if (scene.act && scene.act !== currentAct) {
     currentAct = scene.act;
     saveState();
     injectActTitle(scene.act);
     renderNarrative(scene);
+    const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
     playActTitleAudio(scene.act, () => {
-      playBlocks(sceneId, blocks.length,
+      playBlocks(sceneId, renderedBlockCount,
         (i) => revealBlock(i),
         () => renderChoices(scene),
       );
     });
   } else {
     renderNarrative(scene);
-    playBlocks(sceneId, blocks.length,
+    const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
+    playBlocks(sceneId, renderedBlockCount,
       (i) => revealBlock(i),
       () => renderChoices(scene),
     );
@@ -358,11 +385,10 @@ function renderHud() {
 function renderNarrative(scene) {
   const el = document.getElementById('narrative');
   if (!el) return;
-  const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
+  const rawBlocks = Array.isArray(scene.text) ? scene.text : [scene.text];
 
   currentNarrativeOffset = el.querySelectorAll('p').length;
 
-  // Add scene separator only between scenes (not after act title)
   if (el.querySelector('p') !== null) {
     const sep = document.createElement('hr');
     sep.className = 'scene-separator';
@@ -370,13 +396,16 @@ function renderNarrative(scene) {
   }
 
   const isFirstBlock = el.querySelector('p') === null;
+  let renderedCount = 0;
 
-  blocks.forEach((b, i) => {
-    const text = typeof b === 'string' ? b : Object.values(b)[0];
-    const isSpeech = typeof b === 'object';
-    const isOpener = i === 0 && isFirstBlock;
+  rawBlocks.forEach((b) => {
+    const resolved = resolveBlock(b, scene.id);
+    if (!resolved) return;
 
-    const html = text.replace(/\n\n/g, '</p><p>');
+    const { content, isSpeech } = resolved;
+    const isOpener = renderedCount === 0 && isFirstBlock;
+
+    const html = content.replace(/\n\n/g, '</p><p>');
     const p = document.createElement('p');
     p.classList.add('block-hidden');
     if (isOpener) p.classList.add('scene-opener');
@@ -387,7 +416,10 @@ function renderNarrative(scene) {
       p.innerHTML = html;
     }
     el.appendChild(p);
+    renderedCount++;
   });
+
+  el.dataset.renderedBlocks = renderedCount;
 }
 
 function revealBlock(index) {
