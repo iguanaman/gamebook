@@ -295,7 +295,7 @@ function renderNarrative(scene) {
 
     const html = text.replace(/\n\n/g, '</p><p>');
     const p = document.createElement('p');
-    if (i > 0) p.classList.add('block-hidden');
+    p.classList.add('block-hidden');
     if (isOpener) p.classList.add('scene-opener');
     if (isSpeech) {
       p.classList.add('speech-block');
@@ -371,6 +371,8 @@ async function handleChoice(choice) {
 async function handleUndo() {
   const ok = undo();
   if (!ok) return;
+  const el = document.getElementById('narrative');
+  if (el) { el.innerHTML = ''; currentNarrativeOffset = 0; }
   await navigateTo(state.scene);
 }
 
