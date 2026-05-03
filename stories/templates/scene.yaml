@@ -1,0 +1,43 @@
+# Scene template — copy to stories/{id}/scenes/{scene-id}.yaml
+# Required: id, text, choices
+# Optional: audio
+
+id: scene_id          # matches filename (without .yaml)
+text: |
+  First paragraph of narrative text.
+
+  Second paragraph. Blank lines become <p> breaks.
+  Single newlines within a paragraph are fine.
+
+# audio: audio/filename.mp3   # path relative to stories/{id}/
+
+choices:
+  - text: Choice the player will see
+    next: target_scene_id
+
+  # Choice with stat requirement
+  - text: Choice requiring gold >= 5
+    next: another_scene
+    requires:
+      stats:
+        gold: 5
+    effects:
+      stats:
+        gold: -5
+
+  # Choice with flag requirement
+  - text: Choice requiring a flag
+    next: another_scene
+    requires:
+      flags:
+        - flag_name
+
+  # Choice that sets a flag
+  - text: Choice that sets a flag
+    next: another_scene
+    effects:
+      flags:
+        flag_name: true
+
+# Empty choices list = end-of-story screen
+# choices: []

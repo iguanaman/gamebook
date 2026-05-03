@@ -39,11 +39,11 @@ Pure static site. No framework, no bundler. One CDN dependency: `js-yaml` (loade
 5. State shape: `{ scene, stats, flags, history }` — persisted to `localStorage` as `gamebook.state.{id}`
 6. Undo pops `history` stack and re-navigates without pushing a new entry
 
-## Adding a story
+## Adding or editing stories
 
-1. Add the story ID to `stories/manifest.yaml`
-2. Create `stories/{id}/story.yaml` with `id`, `title`, `description`, `start`, `stats`
-3. Create `stories/{id}/scenes/{sceneId}.yaml` for each scene
+Use the `/storycraft` skill — it covers new stories, adding scenes, editing existing content, and commit conventions.
+
+Scene template at `stories/templates/scene.yaml` — copy it for each new scene.
 
 ## Scene YAML shape
 
