@@ -236,7 +236,8 @@ function renderShell(meta) {
     <div class="game-wrap">
       <div class="narrative-area">
         <div class="narrative" id="narrative"></div>
-        <div class="choices" id="choices"></div>
+        <div class="choices-divider"></div>
+        <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
   `;
@@ -290,7 +291,7 @@ function revealBlock(index) {
 }
 
 function renderChoices(scene) {
-  const el = document.getElementById('choices');
+  const el = document.getElementById('choices-footer');
   if (!el) return;
 
   const visible = (scene.choices ?? []).filter(c => meetsRequirements(c.requires));

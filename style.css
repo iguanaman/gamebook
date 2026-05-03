@@ -159,20 +159,42 @@ button {
 .game-wrap {
   display: flex;
   justify-content: center;
-  padding: 3rem 1rem 2rem;
+  padding: calc(var(--frame-inset) + 1.5rem) 1rem;
   min-height: 100vh;
+  box-sizing: border-box;
 }
+
 .narrative-area {
   width: min(680px, 100%);
+  height: calc(100vh - (var(--frame-inset) + 1.5rem) * 2);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+}
+
+.narrative {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  line-height: 1.85;
+  font-size: 1.05rem;
+}
+
+.narrative p { margin: 0 0 1em; }
+
+.choices-divider {
+  flex-shrink: 0;
+  border: none;
+  border-top: var(--divider-style);
+  margin: 0.75rem 0;
+  opacity: 0.6;
+}
+
+.choices-footer {
+  flex-shrink: 0;
+  padding-bottom: 0.5rem;
 }
 
 /* ── Narrative ────────────────────────────────────────────────────────────── */
-
-.narrative { line-height: 1.85; font-size: 1.05rem; }
-.narrative p { margin: 0 0 1em; }
 
 #narrative p.block-hidden {
   opacity: 0;
