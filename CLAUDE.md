@@ -43,7 +43,7 @@ Pure static site. No framework, no bundler. One CDN dependency: `js-yaml` (loade
 
 Use the `/storycraft` skill — it covers new stories, adding scenes, editing existing content, and commit conventions.
 
-Scene template at `scene.template.yaml` — copy it for each new scene.
+Templates in `templates/` — copy `templates/story.yaml` for new stories, `templates/scene.yaml` for new scenes.
 
 ## Scene YAML shape
 

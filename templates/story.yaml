@@ -1,0 +1,11 @@
+# Story template — copy to stories/{id}/story.yaml
+
+id: story_id
+narrator: darkest_dungeon   # default voice for all scenes; must match a file in tts_voices/
+title: Story Title
+description: One or two sentences shown on the selector screen.
+cover: images/cover.jpg     # optional — silently hidden if missing
+start: start                # ID of the first scene (can include subfolder: act1/opening)
+stats:
+  gold: 10                  # author-defined numeric stats; omit block entirely if none needed
+  stamina: 20
