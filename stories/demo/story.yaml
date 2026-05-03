@@ -1,5 +1,5 @@
 id: demo
-narrator: darkest-dungeon    # default voice for all scenes
+narrator: darkest_dungeon    # default voice for all scenes
 title: The Crossroads
 description: A short demo — a traveller at a fork in the road.
 cover: images/cover.jpg

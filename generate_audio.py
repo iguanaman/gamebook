@@ -11,8 +11,9 @@ Usage:
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-TTS_URL     = "http://localhost:5500/tts"
-STORIES_DIR = "stories"
+TTS_URL       = "http://localhost:5500/tts"
+STORIES_DIR   = "stories"
+EXAGGERATION  = 2.0  # max expressiveness; turbo may ignore but worth sending
 
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -122,7 +123,7 @@ def process_story(story_id, force):
         if len(runs) == 1:
             # Single voice — one file
             print(f"  [gen]  {scene_id} ({runs[0][1]})")
-            wav = synthesize(runs[0][0], runs[0][1])
+            wav = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
             out_abs.write_bytes(wav)
         else:
             # Multiple voices — generate per run and concatenate wav bytes
@@ -130,7 +131,7 @@ def process_story(story_id, force):
             wavs = []
             for i, (text, voice) in enumerate(runs):
                 print(f"         run {i+1}: {voice!r}")
-                wavs.append(synthesize(text, voice))
+                wavs.append(synthesize(text, voice, EXAGGERATION))
             # Simple wav concatenation via soundfile
             import io
             import soundfile as sf

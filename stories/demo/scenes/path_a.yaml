@@ -1,13 +1,18 @@
 id: path_a
-text: |
-  The forest road is dark and close. Roots catch your feet. Something rustles in the undergrowth — then goes silent.
+text: 'The forest road is dark and close. Roots catch your feet. Something rustles
+  in the undergrowth — then goes silent.
 
-  Deep in the trees you find a clearing. At its centre, a stone altar. On the altar: a sealed letter.
+
+  Deep in the trees you find a clearing. At its centre, a stone altar. On the altar:
+  a sealed letter.
+
+  '
 choices:
-  - text: Take the letter and press on
-    next: end
-    effects:
-      flags:
-        has_letter: true
-  - text: Leave it. Turn back.
-    next: end
+- text: Take the letter and press on
+  next: end
+  effects:
+    flags:
+      has_letter: true
+- text: Leave it. Turn back.
+  next: end
+audio: audio/path_a.wav

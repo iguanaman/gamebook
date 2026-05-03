@@ -1,18 +1,23 @@
 id: path_b
 text:
-  - |
-    The village road opens onto warm light and woodsmoke. The inn is full — a festival, someone explains. Strangers buy you a drink.
-  - female1: "First time at the Harvest Fair? You picked a good year. Sit down, sit down — you look like you've been walking since morning."
-  - "By midnight your purse is lighter, but you know the name of every person in the room."
+- 'The village road opens onto warm light and woodsmoke. The inn is full — a festival,
+  someone explains. Strangers buy you a drink.
+
+  '
+- female1: First time at the Harvest Fair? You picked a good year. Sit down, sit down
+    — you look like you've been walking since morning.
+- By midnight your purse is lighter, but you know the name of every person in the
+  room.
 choices:
-  - text: Stay the night
-    next: end
-    effects:
-      stats:
-        gold: -2
-        stamina: 5
-  - text: Press on through the night
-    next: end
-    effects:
-      stats:
-        stamina: -3
+- text: Stay the night
+  next: end
+  effects:
+    stats:
+      gold: -2
+      stamina: 5
+- text: Press on through the night
+  next: end
+  effects:
+    stats:
+      stamina: -3
+audio: audio/path_b.wav

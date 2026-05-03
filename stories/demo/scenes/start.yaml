@@ -1,21 +1,25 @@
 id: start
 text:
-  - |
-    You stand at a crossroads as dusk falls. The road splits ahead — left toward the forest, right toward the village. A merchant sits by a fire nearby.
-  - male1: "Evening, traveller. Cold night to be standing at crossroads. I've got a lantern — good tin, holds a flame in wind. Five gold and it's yours."
-  - "He eyes your coin purse."
+- 'You stand at a crossroads as dusk falls. The road splits ahead — left toward the
+  forest, right toward the village. A merchant sits by a fire nearby.
+
+  '
+- male1: Evening, traveller. Cold night to be standing at crossroads. I've got a lantern
+    — good tin, holds a flame in wind. Five gold and it's yours.
+- He eyes your coin purse.
 choices:
-  - text: Take the road to the forest
-    next: path_a
-  - text: Take the road to the village
-    next: path_b
-  - text: Buy a lantern from the merchant (5 gold)
-    next: start_with_lantern
-    requires:
-      stats:
-        gold: 5
-    effects:
-      stats:
-        gold: -5
-      flags:
-        has_lantern: true
+- text: Take the road to the forest
+  next: path_a
+- text: Take the road to the village
+  next: path_b
+- text: Buy a lantern from the merchant (5 gold)
+  next: start_with_lantern
+  requires:
+    stats:
+      gold: 5
+  effects:
+    stats:
+      gold: -5
+    flags:
+      has_lantern: true
+audio: audio/start.wav
