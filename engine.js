@@ -4,9 +4,14 @@ const app = document.getElementById('app');
 
 // ── Manifest / selector ───────────────────────────────────────────────────────
 
+async function fetchYaml(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to load: ${url}`);
+  return jsyaml.load(await res.text());
+}
+
 async function loadManifest() {
-  const res = await fetch('stories/manifest.json');
-  return res.json();
+  return fetchYaml('stories/manifest.yaml');
 }
 
 async function showSelector() {
@@ -29,8 +34,7 @@ function hasSave(storyId) {
 }
 
 async function loadStoryMeta(storyId) {
-  const res = await fetch(`stories/${storyId}/story.json`);
-  return res.json();
+  return fetchYaml(`stories/${storyId}/story.yaml`);
 }
 
 function renderStoryCard(storyId) {
@@ -197,9 +201,7 @@ function renderShell(meta) {
 }
 
 async function loadScene(storyId, sceneId) {
-  const res = await fetch(`stories/${storyId}/scenes/${sceneId}.json`);
-  if (!res.ok) throw new Error(`Scene not found: ${sceneId}`);
-  return res.json();
+  return fetchYaml(`stories/${storyId}/scenes/${sceneId}.yaml`);
 }
 
 async function navigateTo(sceneId) {
