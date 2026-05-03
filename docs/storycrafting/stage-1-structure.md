@@ -18,7 +18,7 @@ Cover:
 2. **Turning points** — the 2–4 moments where the story pivots (player makes a big choice, revelation lands, etc.)
 3. **Branch map** — where the major forks are and what they lead toward (not scene IDs, just outcomes)
 4. **Ending paths** — which act/fork leads to which ending and roughly why
-5. **Stats/flags in play** — which mechanics gate what, and when they matter
+5. **Stats/flags in play** — which mechanics gate what, and when they matter. When planning flags, mark any that gate a **consumable choice** — a choice that should disappear after being taken (the merchant sold their last potion; the door was only unlocked once). These require deliberate `flags_unset` + `effects` pairing in scene YAML. A consumable choice that isn't planned is easy to forget, leaving the option available indefinitely. Also note which flags should be **player-visible** (shown in HUD — e.g. "Lantern", "Password to the vault") and which gated choices should **grey out** vs **stay hidden** when failed — grey out when the player should know the option exists; hide when the option's existence would be a spoiler.
 
 If something in the brief is underspecified for structure (e.g. "multiple endings" but no sense of what differentiates them), ask before writing.
 

@@ -45,5 +45,36 @@ choices:
       flags:
         flag_name: true
 
+  # Consumable choice — appears once, gone after taken
+  # The choice requires the flag to be unset; taking it sets the flag.
+  # On any return visit the flag is set so the choice no longer appears.
+  - text: Buy the last potion (3 gold)
+    next: bought_potion
+    requires:
+      flags_unset: [potion_sold]
+      stats:
+        gold: 3
+    effects:
+      stats:
+        gold: -3
+      flags:
+        potion_sold: true
+
+  # Choice that greys out when failed (shows failure flavour text)
+  - text: Climb the wall
+    next: rooftop
+    requires:
+      stats:
+        agility: 8
+    failed_text: "*(Your legs won't carry you that high)*"
+
+  # Choice that stays hidden when failed (original behaviour — use for spoiler gates)
+  - text: Speak the old tongue
+    next: inner_sanctum
+    requires:
+      flags:
+        - knows_elvish
+    hide_if_failed: true
+
 # Empty choices list = end-of-story screen
 # choices: []
