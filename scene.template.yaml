@@ -12,8 +12,7 @@ text: "Single block of narrative text. Blank lines become paragraph breaks."
 # Multi-block form — use when voice changes are needed
 # text:
 #   - "Narrator text, uses default narrator voice."
-#   - text: "A character speaks."
-#     voice: male
+#   - male1: "A character speaks."
 #   - "Back to narrator."
 
 # audio: audio/scene-id.wav   # set by generate_audio.py — do not edit manually

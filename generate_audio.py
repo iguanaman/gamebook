@@ -47,9 +47,8 @@ def blocks_for_scene(scene, default_voice):
 
     text: "plain string"        -> one block, default_voice
     text:                       -> list of blocks
-      - "plain string"          -> default_voice
-      - text: "string"          -> default_voice (with optional voice override)
-        voice: override
+      - "narrator text"         -> default_voice
+      - male1: "spoken text"    -> voice male1
     """
     if "text" not in scene:
         return []
@@ -60,7 +59,9 @@ def blocks_for_scene(scene, default_voice):
         if isinstance(b, str):
             result.append((b, default_voice))
         else:
-            result.append((b["text"], b.get("voice", default_voice)))
+            # single-key dict: {voice_name: "text"}
+            voice, text = next(iter(b.items()))
+            result.append((text, voice))
     return result
 
 

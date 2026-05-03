@@ -2,8 +2,7 @@ id: start
 text:
   - |
     You stand at a crossroads as dusk falls. The road splits ahead — left toward the forest, right toward the village. A merchant sits by a fire nearby.
-  - text: "Evening, traveller. Cold night to be standing at crossroads. I've got a lantern — good tin, holds a flame in wind. Five gold and it's yours."
-    voice: male
+  - male1: "Evening, traveller. Cold night to be standing at crossroads. I've got a lantern — good tin, holds a flame in wind. Five gold and it's yours."
   - "He eyes your coin purse."
 choices:
   - text: Take the road to the forest

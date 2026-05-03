@@ -227,7 +227,7 @@ function renderNarrative(scene) {
   const el = document.getElementById('narrative');
   if (!el) return;
   const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
-  const texts = blocks.map(b => typeof b === 'string' ? b : b.text);
+  const texts = blocks.map(b => typeof b === 'string' ? b : Object.values(b)[0]);
   el.innerHTML = texts.map(t => `<p>${t.replace(/\n\n/g, '</p><p>')}</p>`).join('');
   el.scrollTop = 0;
 }

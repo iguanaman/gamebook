@@ -71,8 +71,7 @@ For multi-voice scenes, `text:` accepts a list of blocks:
 ```yaml
 text:
   - "Narrator text."
-  - text: "A character speaks."
-    voice: merchant
+  - male1: "A character speaks."
   - "Back to narrator."
 ```
 
