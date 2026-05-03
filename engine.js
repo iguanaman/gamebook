@@ -183,11 +183,15 @@ function playBlocks(sceneId, blockCount, onBlockStart, onDone) {
   function playNext() {
     stopAudio();
     if (index >= blockCount) { onDone(); return; }
-    currentAudio = new Audio(blockAudioUrl(sceneId, index));
-    onBlockStart(index);
-    index++;
+    const i = index++;
+    onBlockStart(i);
+    currentAudio = new Audio(blockAudioUrl(sceneId, i));
     currentAudio.addEventListener('ended', playNext, { once: true });
-    currentAudio.play().catch(onDone); // autoplay blocked — skip to choices
+    currentAudio.play().catch(() => {
+      // Audio missing or autoplay blocked — reveal remaining blocks and finish
+      for (let j = index; j < blockCount; j++) onBlockStart(j);
+      onDone();
+    });
   }
 
   playNext();
