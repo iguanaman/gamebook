@@ -9,3 +9,11 @@ start: start                # ID of the first scene (can include subfolder: act1
 stats:
   gold: 10                  # author-defined numeric stats; omit block entirely if none needed
   stamina: 20
+
+# flags:                      # optional — declare flags that should appear in the HUD
+#   has_lantern:
+#     label: "Lantern"        # text shown to the player
+#     visible: true           # if false or omitted, flag is engine-only (never shown)
+#   knows_password:
+#     label: "Password to the vault"
+#     visible: true
