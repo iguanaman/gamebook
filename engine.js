@@ -85,6 +85,7 @@ function handleCardAction(action, storyId) {
 // ── State ─────────────────────────────────────────────────────────────────────
 
 let currentStoryId = null;
+let currentAct = null;
 let state = null;
 
 function stateKey(storyId) {
@@ -93,11 +94,12 @@ function stateKey(storyId) {
 
 function initState(storyId, startingStats) {
   currentStoryId = storyId;
+  currentAct = null;
   state = { scene: null, stats: { ...startingStats }, flags: {}, history: [] };
 }
 
 function saveState() {
-  localStorage.setItem(stateKey(currentStoryId), JSON.stringify(state));
+  localStorage.setItem(stateKey(currentStoryId), JSON.stringify({ ...state, act: currentAct }));
 }
 
 function loadState(storyId) {
@@ -222,6 +224,7 @@ async function startStory(storyId) {
   const saved = loadState(storyId);
   if (saved) {
     state = saved;
+    currentAct = saved.act ?? null;
   } else {
     initState(storyId, meta.stats ?? {});
     state.scene = meta.start;
@@ -249,12 +252,41 @@ async function loadScene(storyId, sceneId) {
   return fetchYaml(`stories/${storyId}/scenes/${sceneId}.yaml`);
 }
 
+function injectActTitle(actText) {
+  const el = document.getElementById('narrative');
+  if (!el) return;
+  el.innerHTML = '';
+  currentNarrativeOffset = 0;
+  const div = document.createElement('div');
+  div.className = 'act-title act-title-hidden';
+  div.dataset.act = actText;
+  div.innerHTML = `
+    <hr class="act-rule act-rule-top">
+    <h2 class="act-heading">${actText}</h2>
+    <hr class="act-rule act-rule-bottom">
+  `;
+  el.appendChild(div);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      div.classList.remove('act-title-hidden');
+      div.classList.add('act-title-visible');
+    });
+  });
+}
+
 async function navigateTo(sceneId) {
   state.scene = sceneId;
   saveState();
 
   const scene = await loadScene(currentStoryId, sceneId);
   renderHud();
+
+  if (scene.act && scene.act !== currentAct) {
+    currentAct = scene.act;
+    saveState();
+    injectActTitle(scene.act);
+  }
+
   renderNarrative(scene);
 
   const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];

@@ -272,3 +272,39 @@ button {
   margin-bottom: 1rem;
   font-size: 1.05rem;
 }
+
+/* ── Act title ────────────────────────────────────────────────────────────── */
+
+.act-title {
+  text-align: center;
+  padding: 2rem 0 1.5rem;
+}
+
+.act-title-hidden {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.act-title-visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity var(--anim-act-title-duration) ease,
+              transform var(--anim-act-title-duration) ease;
+}
+
+.act-heading {
+  font-family: var(--font-heading);
+  font-size: var(--act-title-size);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0.75rem 0;
+}
+
+.act-rule {
+  border: none;
+  border-top: var(--act-rule-style);
+  margin: 0 2rem;
+  opacity: 0.6;
+}
