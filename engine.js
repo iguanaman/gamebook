@@ -253,8 +253,8 @@ async function navigateTo(sceneId) {
   renderNarrative(scene);
   playAudio(sceneId);
 
-  const timed = scene.timings && scene.timings.length > 1;
-  if (timed) {
+  const timed = Array.isArray(scene.timings) && scene.timings.length > 0;
+  if (timed && currentAudio) {
     attachTimingListeners(scene);
     currentAudio.addEventListener('ended', () => renderChoices(scene), { once: true });
   } else {
