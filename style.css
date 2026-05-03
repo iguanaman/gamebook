@@ -287,6 +287,23 @@ button {
 }
 .btn-choice:hover { background: var(--hover-bg); }
 
+.btn-choice-failed {
+  opacity: 0.45;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.btn-choice-failed:hover { background: var(--surface); }
+
+.choice-failed-text {
+  font-size: 0.8rem;
+  font-family: var(--font-ui);
+  font-style: italic;
+  color: var(--text-muted);
+}
+
 .choice-meta { margin-top: 1rem; display: flex; justify-content: flex-end; }
 
 .btn-ghost {

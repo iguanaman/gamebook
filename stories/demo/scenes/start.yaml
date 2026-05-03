@@ -15,6 +15,7 @@ choices:
   next: path_b
 - text: Buy a lantern from the merchant (5 gold)
   next: start_with_lantern
+  hide_if_failed: true
   requires:
     stats:
       gold: 5

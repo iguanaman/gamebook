@@ -169,6 +169,26 @@ function meetsRequirements(requires) {
   return true;
 }
 
+function buildFailureText(requires) {
+  const parts = [];
+  if (requires.stats) {
+    for (const [k, min] of Object.entries(requires.stats)) {
+      parts.push(`${k} ≥ ${min}`);
+    }
+  }
+  if (requires.flags) {
+    for (const flag of requires.flags) {
+      parts.push(flag.replace(/_/g, ' '));
+    }
+  }
+  if (requires.flags_unset) {
+    for (const flag of requires.flags_unset) {
+      parts.push(`not ${flag.replace(/_/g, ' ')}`);
+    }
+  }
+  return `*(Requires: ${parts.join(', ')})*`;
+}
+
 function resolveBlock(block, sceneId) {
   // Plain string — no condition
   if (typeof block === 'string') return { content: block, isSpeech: false };
@@ -452,9 +472,11 @@ function renderChoices(scene) {
   const el = document.getElementById('choices-footer');
   if (!el) return;
 
-  const visible = (scene.choices ?? []).filter(c => meetsRequirements(c.requires));
+  const allChoices = scene.choices ?? [];
+  const passing = allChoices.filter(c => meetsRequirements(c.requires));
+  const failing = allChoices.filter(c => !meetsRequirements(c.requires) && !c.hide_if_failed);
 
-  if (visible.length === 0) {
+  if (passing.length === 0 && failing.length === 0) {
     el.innerHTML = `
       <p class="end-message">— The End —</p>
       <button class="btn btn-secondary" id="btn-selector">Back to Stories</button>
@@ -465,9 +487,22 @@ function renderChoices(scene) {
     return;
   }
 
+  const passingHtml = passing.map((c, i) =>
+    `<button class="btn-choice" data-index="${i}">${c.text}</button>`
+  ).join('');
+
+  const failingHtml = failing.map(c => {
+    const failText = c.failed_text ?? buildFailureText(c.requires);
+    return `<button class="btn-choice btn-choice-failed" disabled>
+      ${c.text}
+      <span class="choice-failed-text">${failText}</span>
+    </button>`;
+  }).join('');
+
   el.innerHTML = `
     <div class="choice-list">
-      ${visible.map((c, i) => `<button class="btn-choice" data-index="${i}">${c.text}</button>`).join('')}
+      ${passingHtml}
+      ${failingHtml}
     </div>
     <div class="choice-meta">
       <button class="btn btn-ghost" id="btn-undo" ${state.history.length === 0 ? 'disabled' : ''}>↩ Undo</button>
@@ -481,7 +516,7 @@ function renderChoices(scene) {
     });
   }
 
-  visible.forEach((choice, i) => {
+  passing.forEach((choice, i) => {
     el.querySelector(`[data-index="${i}"]`).addEventListener('click', (e) => {
       const allBtns = el.querySelectorAll('.btn-choice');
       allBtns.forEach(b => { b.disabled = true; });
