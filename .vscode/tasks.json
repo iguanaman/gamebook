@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "npx serve .",
       "icon": { "id": "server", "color": "terminal.ansiGreen" },
+      "group": { "kind": "build", "isDefault": true },
       "isBackground": true,
       "problemMatcher": [],
       "presentation": {
@@ -30,13 +31,6 @@
         "panel": "dedicated",
         "showReuseMessage": false
       }
-    },
-    {
-      "label": "START GAME",
-      "icon": { "id": "rocket", "color": "terminal.ansiYellow" },
-      "group": { "kind": "build", "isDefault": true },
-      "dependsOn": ["Serve"],
-      "problemMatcher": []
     }
   ]
 }

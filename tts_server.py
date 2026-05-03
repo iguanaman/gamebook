@@ -1,0 +1,99 @@
+import asyncio
+import io
+import os
+import warnings
+from contextlib import asynccontextmanager
+from pathlib import Path
+
+# Suppress noisy warnings from dependencies
+warnings.filterwarnings("ignore", category=FutureWarning, module="diffusers")
+os.environ.setdefault("HF_HUB_DISABLE_PROGRESS_BARS", "1")
+os.environ.setdefault("HF_HUB_DISABLE_SYMLINKS_WARNING", "1")
+
+# Skip network check if model is already cached
+def _check_model_cached(repo_id: str) -> bool:
+    try:
+        from huggingface_hub import scan_cache_dir
+        cache = scan_cache_dir()
+        return any(r.repo_id == repo_id for r in cache.repos)
+    except Exception:
+        return False
+
+if _check_model_cached("ResembleAI/chatterbox-turbo"):
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+
+import logging
+import soundfile as sf
+import torch
+
+logging.getLogger("torch.utils.flop_counter").setLevel(logging.ERROR)
+from chatterbox.tts_turbo import ChatterboxTurboTTS
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import Response
+from pydantic import BaseModel
+
+VOICES_DIR = Path(__file__).parent / "tts_voices"
+PORT = 5500
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+_DEFAULT_VOICE = os.environ.get("TTS_DEFAULT_VOICE", "narrator")
+
+_model: ChatterboxTurboTTS | None = None
+_lock: asyncio.Lock | None = None
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global _model, _lock
+    print(f"[tts] Loading Chatterbox Turbo on {DEVICE}...")
+    if DEVICE == "cuda":
+        torch.set_float32_matmul_precision("high")
+        torch.backends.cuda.matmul.allow_fp16_reduced_precision_reduction = True
+    _model = ChatterboxTurboTTS.from_pretrained(DEVICE)
+    if DEVICE == "cuda":
+        print("[tts] Compiling models...")
+        _model.t3 = torch.compile(_model.t3)
+        _model.s3gen = torch.compile(_model.s3gen)
+    _lock = asyncio.Lock()
+    print("[tts] Model ready.")
+    yield
+    _model = None
+
+
+app = FastAPI(lifespan=lifespan)
+
+
+def _voice_path(voice_id: str) -> Path | None:
+    p = VOICES_DIR / f"{voice_id}.wav"
+    if p.exists():
+        return p
+    fallback = VOICES_DIR / f"{_DEFAULT_VOICE}.wav"
+    if fallback.exists():
+        return fallback
+    return None
+
+
+class TTSRequest(BaseModel):
+    text: str
+    voice_id: str = _DEFAULT_VOICE
+    exaggeration: float = 1.0
+
+
+@app.post("/tts")
+async def synthesize(req: TTSRequest):
+    if _model is None:
+        raise HTTPException(503, "Model not loaded")
+
+    voice_path = _voice_path(req.voice_id)
+    kwargs = {"audio_prompt_path": str(voice_path)} if voice_path else {}
+
+    async with _lock:
+        wav = await asyncio.to_thread(_model.generate, req.text, **kwargs)
+
+    buf = io.BytesIO()
+    sf.write(buf, wav.squeeze().cpu().numpy(), _model.sr, format="wav")
+    return Response(content=buf.getvalue(), media_type="audio/wav")
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=PORT)

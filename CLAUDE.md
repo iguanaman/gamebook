@@ -51,7 +51,7 @@ Scene template at `scene.template.yaml` — copy it for each new scene.
 id: scene_id
 text: |
   Narrative text. Blank line between paragraphs renders as <p> break.
-audio: audio/scene.mp3
+audio: audio/scene.mp3   # set by generate_audio.py — do not edit manually
 choices:
   - text: Choice label
     next: target_scene_id
@@ -66,4 +66,26 @@ choices:
         has_item: true
 ```
 
+For multi-voice scenes, replace `text:` with `blocks:`:
+
+```yaml
+blocks:
+  - "Narrator text."
+  - text: "A character speaks."
+    voice: merchant
+  - "Back to narrator."
+```
+
 `audio`, `requires`, and `effects` are all optional. Empty `choices` list triggers the end-of-story screen.
+
+## Audio generation
+
+Set `narrator: voice-name` in `story.yaml` (defaults to `"narrator"` if omitted). Then run:
+
+```
+python generate_audio.py              # skip scenes that already have audio
+python generate_audio.py --force      # regenerate everything
+python generate_audio.py --story demo # one story only
+```
+
+Requires the TTS server running (`python tts_server.py`, port 5500). Voice files live in `tts_voices/{name}.wav`. The script writes `audio:` fields back into scene YAML files automatically.

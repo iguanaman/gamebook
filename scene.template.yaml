@@ -1,17 +1,26 @@
 # Scene template — copy to stories/{id}/scenes/{scene-id}.yaml
 # Scenes can be organised into subfolders: scenes/act1/scene-id.yaml
 # The scene ID then includes the subfolder: act1/scene-id
-# Required: id, text, choices
-# Optional: audio
+# Required: id, (text or blocks), choices
+# Optional: audio (set automatically by generate_audio.py)
 
 id: scene_id          # if in a subfolder: act1/scene_id
+
+# Simple form — narrator voice only
 text: |
   First paragraph of narrative text.
 
   Second paragraph. Blank lines become <p> breaks.
   Single newlines within a paragraph are fine.
 
-# audio: audio/filename.mp3   # path relative to stories/{id}/
+# Multi-voice form — use instead of text:
+# blocks:
+#   - "Narrator text, uses default narrator voice."
+#   - text: "A character speaks."
+#     voice: merchant
+#   - "Back to narrator."
+
+# audio: audio/scene-id.wav   # set by generate_audio.py — do not edit manually
 
 choices:
   - text: Choice the player will see

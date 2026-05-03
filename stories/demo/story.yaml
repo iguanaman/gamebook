@@ -1,4 +1,5 @@
 id: demo
+narrator: darkest-dungeon    # default voice for all scenes; override per block with blocks: [{voice: x}]
 title: The Crossroads
 description: A short demo — a traveller at a fork in the road.
 cover: images/cover.jpg
