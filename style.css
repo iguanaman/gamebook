@@ -214,6 +214,24 @@ button {
   margin: 1.25rem 0;
 }
 
+/* ── Drop cap ──────────────────────────────────────────────────────────────── */
+
+.scene-opener::first-letter {
+  font-family: var(--font-heading);
+  font-size: var(--drop-cap-size);
+  font-weight: 600;
+  color: var(--drop-cap-color);
+  float: left;
+  line-height: 0.75;
+  margin: 0.05em 0.08em 0 0;
+}
+
+/* ── Speech ───────────────────────────────────────────────────────────────── */
+
+.speech-block {
+  font-style: italic;
+}
+
 /* ── Choices ──────────────────────────────────────────────────────────────── */
 
 .choice-list { display: flex; flex-direction: column; gap: 0.75rem; }
