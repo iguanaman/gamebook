@@ -35,8 +35,7 @@
       "label": "START GAME",
       "icon": { "id": "rocket", "color": "terminal.ansiYellow" },
       "group": { "kind": "build", "isDefault": true },
-      "dependsOn": ["Serve", "Chatterbox TTS"],
-      "dependsOrder": "parallel",
+      "dependsOn": ["Serve"],
       "problemMatcher": []
     }
   ]
