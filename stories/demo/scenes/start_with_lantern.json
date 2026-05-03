@@ -1,0 +1,8 @@
+{
+  "id": "start_with_lantern",
+  "text": "You hand over five gold coins and receive a battered tin lantern. Its flame catches immediately. The merchant nods and returns to his fire.\n\nThe crossroads waits.",
+  "choices": [
+    { "text": "Take the road to the forest", "next": "path_a" },
+    { "text": "Take the road to the village", "next": "path_b" }
+  ]
+}

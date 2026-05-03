@@ -1,0 +1,8 @@
+{
+  "id": "path_b",
+  "text": "The village road opens onto warm light and woodsmoke. The inn is full — a festival, someone explains. Strangers buy you a drink.\n\nBy midnight your purse is lighter, but you know the name of every person in the room.",
+  "choices": [
+    { "text": "Stay the night", "next": "end", "effects": { "stats": { "gold": -2, "stamina": 5 } } },
+    { "text": "Press on through the night", "next": "end", "effects": { "stats": { "stamina": -3 } } }
+  ]
+}
