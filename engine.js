@@ -166,6 +166,7 @@ function meetsRequirements(requires) {
 
 // ── Audio ─────────────────────────────────────────────────────────────────────
 
+const ACT_TITLE_PAUSE_MS = 2000;
 let currentAudio = null;
 
 function stopAudio() {
@@ -179,6 +180,18 @@ function stopAudio() {
 function blockAudioUrl(sceneId, index) {
   const safe = sceneId.replace(/\//g, '-');
   return `stories/${currentStoryId}/audio/${safe}_block_${index}.opus`;
+}
+
+function actAudioSlug(actText) {
+  return actText.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+}
+
+function playActTitleAudio(actText, onDone) {
+  const slug = actAudioSlug(actText);
+  const url = `stories/${currentStoryId}/audio/${slug}.opus`;
+  const audio = new Audio(url);
+  audio.addEventListener('ended', () => setTimeout(onDone, ACT_TITLE_PAUSE_MS), { once: true });
+  audio.play().catch(() => setTimeout(onDone, ACT_TITLE_PAUSE_MS));
 }
 
 function playBlocks(sceneId, blockCount, onBlockStart, onDone) {
@@ -291,19 +304,26 @@ async function navigateTo(sceneId) {
   const scene = await loadScene(currentStoryId, sceneId);
   renderHud();
 
+  const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
+
   if (scene.act && scene.act !== currentAct) {
     currentAct = scene.act;
     saveState();
     injectActTitle(scene.act);
+    renderNarrative(scene);
+    playActTitleAudio(scene.act, () => {
+      playBlocks(sceneId, blocks.length,
+        (i) => revealBlock(i),
+        () => renderChoices(scene),
+      );
+    });
+  } else {
+    renderNarrative(scene);
+    playBlocks(sceneId, blocks.length,
+      (i) => revealBlock(i),
+      () => renderChoices(scene),
+    );
   }
-
-  renderNarrative(scene);
-
-  const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
-  playBlocks(sceneId, blocks.length,
-    (i) => revealBlock(i),
-    () => renderChoices(scene),
-  );
 }
 
 function renderHud() {
