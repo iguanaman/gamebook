@@ -1,0 +1,25 @@
+{
+  "planPath": "docs/superpowers/plans/2026-05-03-group-b-conditional-text-blocks.md",
+  "tasks": [
+    {
+      "id": 0,
+      "subject": "Task 1: Add visited to state and persist it",
+      "status": "pending",
+      "description": "**Goal:** Track visited scenes in state with full undo support.\n\n**Files:**\n- Modify: `engine.js`\n\n**Acceptance Criteria:**\n- [ ] `state.visited` initialised as `[]` on new game\n- [ ] `navigateTo()` pushes previous scene to `visited` before moving\n- [ ] `pushHistory()` snapshots `visited`\n- [ ] `undo()` restores `visited`\n- [ ] Old saves default `visited` to `[]`\n\n**Verify:** Load demo, visit start → path_a → undo → path_a. Check localStorage — `visited` contains `[\"start\"]`.\n\n```json:metadata\n{\"files\": [\"engine.js\"], \"verifyCommand\": \"\", \"acceptanceCriteria\": [\"state.visited initialised as []\", \"navigateTo pushes previous scene\", \"pushHistory snapshots visited\", \"undo restores visited\", \"old saves default to []\"]}\n```"
+    },
+    {
+      "id": 1,
+      "subject": "Task 2: Evaluate conditional blocks at render time",
+      "status": "pending",
+      "blockedBy": [0],
+      "description": "**Goal:** renderNarrative evaluates each block's if condition, rendering text/else/nothing accordingly.\n\n**Files:**\n- Modify: `engine.js`\n\n**Acceptance Criteria:**\n- [ ] Plain/voice-tagged blocks without `if` render as before\n- [ ] `if: visited` checks `state.visited.includes(sceneId)`\n- [ ] flags/flags_unset/stats conditions work\n- [ ] `else` renders when condition fails; no else = skip\n- [ ] playBlocks gets rendered count not raw count\n\n**Verify:** Add `if: visited` block to demo start scene. First visit shows else, undo+revisit shows if-branch.\n\n```json:metadata\n{\"files\": [\"engine.js\"], \"verifyCommand\": \"\", \"acceptanceCriteria\": [\"plain blocks unchanged\", \"if:visited evaluates correctly\", \"else renders on failure\", \"missing else skips block\", \"playBlocks uses rendered count\"]}\n```"
+    },
+    {
+      "id": 2,
+      "subject": "Task 3: Update template and stage-3 docs",
+      "status": "pending",
+      "description": "**Goal:** Add conditional block YAML examples to scene template and authoring guidance to stage-3.\n\n**Files:**\n- Modify: `templates/scene.yaml`\n- Modify: `docs/storycrafting/stage-3-scene-writing.md`\n\n**Acceptance Criteria:**\n- [ ] Template has conditional block examples for visited, flags, stats\n- [ ] Stage-3 has Conditional Blocks section with guidance\n- [ ] Guidance warns against gating critical info in conditional blocks\n\n**Verify:** Read both files.\n\n```json:metadata\n{\"files\": [\"templates/scene.yaml\", \"docs/storycrafting/stage-3-scene-writing.md\"], \"verifyCommand\": \"\", \"acceptanceCriteria\": [\"template has conditional examples\", \"stage-3 has conditional blocks section\", \"no-critical-gates warning present\"]}\n```"
+    }
+  ],
+  "lastUpdated": "2026-05-03T00:00:00Z"
+}
