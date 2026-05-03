@@ -95,7 +95,7 @@ function stateKey(storyId) {
 function initState(storyId, startingStats) {
   currentStoryId = storyId;
   currentAct = null;
-  state = { scene: null, stats: { ...startingStats }, flags: {}, history: [] };
+  state = { scene: null, stats: { ...startingStats }, flags: {}, visited: [], history: [] };
 }
 
 function saveState() {
@@ -113,6 +113,7 @@ function pushHistory() {
     scene: state.scene,
     stats: { ...state.stats },
     flags: { ...state.flags },
+    visited: [...state.visited],
     act: currentAct
   });
 }
@@ -123,6 +124,7 @@ function undo() {
   state.scene = prev.scene;
   state.stats = prev.stats;
   state.flags = prev.flags;
+  state.visited = prev.visited ?? [];
   currentAct = prev.act ?? null;
   saveState();
   return true;
@@ -252,6 +254,7 @@ async function startStory(storyId) {
   const saved = loadState(storyId);
   if (saved) {
     state = saved;
+    if (!Array.isArray(state.visited)) state.visited = [];
     currentAct = saved.act ?? null;
   } else {
     initState(storyId, meta.stats ?? {});
@@ -313,6 +316,9 @@ function injectActTitle(actText) {
 }
 
 async function navigateTo(sceneId) {
+  if (state.scene && !state.visited.includes(state.scene)) {
+    state.visited.push(state.scene);
+  }
   state.scene = sceneId;
   saveState();
 
