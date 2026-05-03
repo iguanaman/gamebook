@@ -171,7 +171,7 @@ function playAudio(sceneId) {
     currentAudio = null;
   }
   const safeName = sceneId.replace(/\//g, '-');
-  currentAudio = new Audio(`stories/${currentStoryId}/audio/${safeName}.wav`);
+  currentAudio = new Audio(`stories/${currentStoryId}/audio/${safeName}.opus`);
   currentAudio.play().catch(() => { /* autoplay blocked — silent fail */ });
 }
 

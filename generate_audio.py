@@ -18,14 +18,13 @@ EXAGGERATION  = 2.0  # max expressiveness; turbo may ignore but worth sending
 # ─────────────────────────────────────────────────────────────────────────────
 
 import argparse
-import io
+import json
+import subprocess
 import sys
-import time
+import tempfile
 from pathlib import Path
 
-import numpy as np
 import requests
-import soundfile as sf
 import yaml
 
 
@@ -39,11 +38,21 @@ def save_yaml(path, data):
         yaml.dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
 
-def synthesize(text, voice_id, exaggeration=1.0, raw=False):
+def synthesize(text, voice_id, exaggeration=1.0):
     resp = requests.post(TTS_URL, json={"text": text, "voice_id": voice_id, "exaggeration": exaggeration},
-                         params={"raw": "true"} if raw else {}, timeout=120)
+                         timeout=120)
     resp.raise_for_status()
     return resp.content
+
+
+def probe_duration(path):
+    """Return duration in seconds of an audio file via ffprobe."""
+    result = subprocess.run(
+        ["ffprobe", "-v", "quiet", "-print_format", "json", "-show_streams", str(path)],
+        capture_output=True, check=True,
+    )
+    streams = json.loads(result.stdout)["streams"]
+    return float(streams[0]["duration"])
 
 
 def blocks_for_scene(scene, default_voice):
@@ -71,7 +80,6 @@ def blocks_for_scene(scene, default_voice):
 
 
 def audio_path_for_scene(scene_id):
-    """audio/act1-crossroads.opus from scene ID act1/crossroads"""
     safe = scene_id.replace("/", "-")
     return f"audio/{safe}.opus"
 
@@ -87,8 +95,6 @@ def process_story(story_id, force):
     story = load_yaml(story_file)
     default_voice = story.get("narrator", "narrator")
     print(f"  narrator voice: {default_voice}")
-
-    audio_dir = story_dir / "audio"
 
     scenes_dir = story_dir / "scenes"
     scene_files = list(scenes_dir.rglob("*.yaml"))
@@ -124,26 +130,32 @@ def process_story(story_id, force):
 
         if len(runs) == 1:
             print(f"  [gen]  {scene_id} ({runs[0][1]})")
-            wav = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
-            out_abs.write_bytes(wav)
-            arr, rate = sf.read(io.BytesIO(wav))
-            run_durations = [(runs[0][0], runs[0][1], len(arr) / rate)]
+            opus = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
+            out_abs.write_bytes(opus)
+            run_durations = [(runs[0][0], runs[0][1], probe_duration(out_abs))]
         else:
             print(f"  [gen]  {scene_id} ({len(runs)} voice runs)")
-            wavs = []
             run_durations = []
-            for i, (text, voice) in enumerate(runs):
-                print(f"         run {i+1}: {voice!r}")
-                wav_bytes = synthesize(text, voice, EXAGGERATION)
-                wavs.append(wav_bytes)
-                arr, rate = sf.read(io.BytesIO(wav_bytes))
-                run_durations.append((text, voice, len(arr) / rate))
-            arrays = [sf.read(io.BytesIO(w))[0] for w in wavs]
-            sr = sf.read(io.BytesIO(wavs[0]))[1]
-            combined = np.concatenate(arrays)
-            buf = io.BytesIO()
-            sf.write(buf, combined, sr, format="wav")
-            out_abs.write_bytes(buf.getvalue())
+            with tempfile.TemporaryDirectory() as tmp:
+                parts = []
+                for i, (text, voice) in enumerate(runs):
+                    print(f"         run {i+1}: {voice!r}")
+                    opus = synthesize(text, voice, EXAGGERATION)
+                    part = Path(tmp) / f"run{i}.opus"
+                    part.write_bytes(opus)
+                    dur = probe_duration(part)
+                    run_durations.append((text, voice, dur))
+                    parts.append(part)
+                # Concatenate with ffmpeg
+                inputs = []
+                for p in parts:
+                    inputs += ["-i", str(p)]
+                filter_graph = f"concat=n={len(parts)}:v=0:a=1[out]"
+                subprocess.run(
+                    ["ffmpeg", "-y"] + inputs +
+                    ["-filter_complex", filter_graph, "-map", "[out]", str(out_abs)],
+                    capture_output=True, check=True,
+                )
 
         # Compute per-block timings: each block gets the start time of its run
         block_run_indices = []
