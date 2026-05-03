@@ -38,8 +38,8 @@ State is persisted to `localStorage` as `gamebook.state.{storyId}` after every m
 `navigateTo(sceneId)` is the central transition function:
 1. Sets `state.scene` and saves state
 2. Fetches the scene YAML
-3. Re-renders HUD, narrative, and choices
-4. Plays audio if `scene.audio` is set
+3. Re-renders HUD and narrative (all blocks except the first are hidden)
+4. Starts sequential block audio playback; reveals each block as its clip begins; renders choices after the last clip ends
 
 ## Conditional Logic
 
@@ -61,7 +61,7 @@ Before any choice is acted on, `pushHistory()` snapshots `{ scene, stats, flags 
 
 ## Audio
 
-A single `<Audio>` element is kept in `currentAudio`. On each navigation, the previous audio is stopped and replaced. Autoplay errors are silently swallowed (browser policy varies).
+Each text block has its own `.opus` file: `audio/{sceneId}_block_0.opus`, `audio/{sceneId}_block_1.opus`, etc. (slashes in sceneId replaced with `-`). `playBlocks()` plays them sequentially — each clip's `ended` event reveals the next narrative block and starts the next clip. Choices are rendered after the final clip ends. Autoplay errors skip straight to choices. On navigation, the current audio is stopped and replaced.
 
 ## Rendering
 
