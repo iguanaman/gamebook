@@ -36,8 +36,9 @@ def save_yaml(path, data):
         yaml.dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
 
-def synthesize(text, voice_id, exaggeration=1.0):
-    resp = requests.post(TTS_URL, json={"text": text, "voice_id": voice_id, "exaggeration": exaggeration}, timeout=120)
+def synthesize(text, voice_id, exaggeration=1.0, raw=False):
+    resp = requests.post(TTS_URL, json={"text": text, "voice_id": voice_id, "exaggeration": exaggeration},
+                         params={"raw": "true"} if raw else {}, timeout=120)
     resp.raise_for_status()
     return resp.content
 
@@ -67,9 +68,9 @@ def blocks_for_scene(scene, default_voice):
 
 
 def audio_path_for_scene(scene_id):
-    """audio/act1-crossroads.wav from scene ID act1/crossroads"""
+    """audio/act1-crossroads.opus from scene ID act1/crossroads"""
     safe = scene_id.replace("/", "-")
-    return f"audio/{safe}.wav"
+    return f"audio/{safe}.opus"
 
 
 def process_story(story_id, force):
@@ -123,30 +124,33 @@ def process_story(story_id, force):
         if len(runs) == 1:
             # Single voice — one file
             print(f"  [gen]  {scene_id} ({runs[0][1]})")
-            wav = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
-            out_abs.write_bytes(wav)
+            audio = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
+            out_abs.write_bytes(audio)
         else:
-            # Multiple voices — generate per run and concatenate wav bytes
-            print(f"  [gen]  {scene_id} ({len(runs)} voice runs)")
-            wavs = []
-            for i, (text, voice) in enumerate(runs):
-                print(f"         run {i+1}: {voice!r}")
-                wavs.append(synthesize(text, voice, EXAGGERATION))
-            # Simple wav concatenation via soundfile
+            # Multiple voices — fetch raw WAV, concatenate, encode to opus
             import io
+            import subprocess
             import soundfile as sf
             import numpy as np
+            print(f"  [gen]  {scene_id} ({len(runs)} voice runs)")
             arrays = []
             sr = None
-            for wav_bytes in wavs:
+            for i, (text, voice) in enumerate(runs):
+                print(f"         run {i+1}: {voice!r}")
+                wav_bytes = synthesize(text, voice, EXAGGERATION, raw=True)
                 arr, rate = sf.read(io.BytesIO(wav_bytes))
                 if sr is None:
                     sr = rate
                 arrays.append(arr)
             combined = np.concatenate(arrays)
-            buf = io.BytesIO()
-            sf.write(buf, combined, sr, format="wav")
-            out_abs.write_bytes(buf.getvalue())
+            wav_buf = io.BytesIO()
+            sf.write(wav_buf, combined, sr, format="wav")
+            proc = subprocess.run(
+                ["ffmpeg", "-y", "-f", "wav", "-i", "pipe:0",
+                 "-c:a", "libopus", "-b:a", "48k", "-f", "opus", "pipe:1"],
+                input=wav_buf.getvalue(), capture_output=True, check=True,
+            )
+            out_abs.write_bytes(proc.stdout)
 
         # Update scene yaml with audio field
         scene["audio"] = out_rel

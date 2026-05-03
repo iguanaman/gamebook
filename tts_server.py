@@ -23,6 +23,7 @@ if _check_model_cached("ResembleAI/chatterbox-turbo"):
     os.environ.setdefault("HF_HUB_OFFLINE", "1")
 
 import logging
+import subprocess
 import soundfile as sf
 import torch
 
@@ -79,7 +80,7 @@ class TTSRequest(BaseModel):
 
 
 @app.post("/tts")
-async def synthesize(req: TTSRequest):
+async def synthesize(req: TTSRequest, raw: bool = False):
     if _model is None:
         raise HTTPException(503, "Model not loaded")
 
@@ -89,9 +90,18 @@ async def synthesize(req: TTSRequest):
     async with _lock:
         wav = await asyncio.to_thread(_model.generate, req.text, **kwargs)
 
-    buf = io.BytesIO()
-    sf.write(buf, wav.squeeze().cpu().numpy(), _model.sr, format="wav")
-    return Response(content=buf.getvalue(), media_type="audio/wav")
+    wav_buf = io.BytesIO()
+    sf.write(wav_buf, wav.squeeze().cpu().numpy(), _model.sr, format="wav")
+
+    if raw:
+        return Response(content=wav_buf.getvalue(), media_type="audio/wav")
+
+    proc = subprocess.run(
+        ["ffmpeg", "-y", "-f", "wav", "-i", "pipe:0",
+         "-c:a", "libopus", "-b:a", "48k", "-f", "opus", "pipe:1"],
+        input=wav_buf.getvalue(), capture_output=True, check=True,
+    )
+    return Response(content=proc.stdout, media_type="audio/ogg; codecs=opus")
 
 
 if __name__ == "__main__":
