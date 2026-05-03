@@ -164,35 +164,33 @@ function meetsRequirements(requires) {
 
 let currentAudio = null;
 
-function playAudio(sceneId) {
+function stopAudio() {
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.src = '';
     currentAudio = null;
   }
-  const safeName = sceneId.replace(/\//g, '-');
-  currentAudio = new Audio(`stories/${currentStoryId}/audio/${safeName}.opus`);
-  currentAudio.play().catch(() => { /* autoplay blocked — silent fail */ });
 }
 
-function attachTimingListeners(scene) {
-  if (!currentAudio || !scene.timings || scene.timings.length <= 1) return;
-  const timings = scene.timings;
-  let nextIndex = 1; // index 0 already visible
+function blockAudioUrl(sceneId, index) {
+  const safe = sceneId.replace(/\//g, '-');
+  return `stories/${currentStoryId}/audio/${safe}_block_${index}.opus`;
+}
 
-  function onTimeUpdate() {
-    if (!currentAudio) return;
-    while (nextIndex < timings.length && currentAudio.currentTime >= timings[nextIndex]) {
-      const paras = document.querySelectorAll('#narrative p');
-      if (paras[nextIndex]) {
-        paras[nextIndex].classList.remove('block-hidden');
-        paras[nextIndex].classList.add('block-visible');
-      }
-      nextIndex++;
-    }
+function playBlocks(sceneId, blockCount, onBlockStart, onDone) {
+  let index = 0;
+
+  function playNext() {
+    stopAudio();
+    if (index >= blockCount) { onDone(); return; }
+    currentAudio = new Audio(blockAudioUrl(sceneId, index));
+    onBlockStart(index);
+    index++;
+    currentAudio.addEventListener('ended', playNext, { once: true });
+    currentAudio.play().catch(onDone); // autoplay blocked — skip to choices
   }
 
-  currentAudio.addEventListener('timeupdate', onTimeUpdate);
+  playNext();
 }
 
 // ── Game shell ────────────────────────────────────────────────────────────────
@@ -251,15 +249,12 @@ async function navigateTo(sceneId) {
   const scene = await loadScene(currentStoryId, sceneId);
   renderHud();
   renderNarrative(scene);
-  playAudio(sceneId);
 
-  const timed = Array.isArray(scene.timings) && scene.timings.length > 0;
-  if (timed && currentAudio) {
-    attachTimingListeners(scene);
-    currentAudio.addEventListener('ended', () => renderChoices(scene), { once: true });
-  } else {
-    renderChoices(scene);
-  }
+  const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
+  playBlocks(sceneId, blocks.length,
+    (i) => revealBlock(i),
+    () => renderChoices(scene),
+  );
 }
 
 function renderHud() {
@@ -275,12 +270,19 @@ function renderNarrative(scene) {
   if (!el) return;
   const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
   const texts = blocks.map(b => typeof b === 'string' ? b : Object.values(b)[0]);
-  const timed = scene.timings && scene.timings.length > 1;
   el.innerHTML = texts.map((t, i) => {
-    const cls = timed && i > 0 ? ' class="block-hidden"' : '';
+    const cls = i > 0 ? ' class="block-hidden"' : '';
     return `<p${cls}>${t.replace(/\n\n/g, '</p><p>')}</p>`;
   }).join('');
   el.scrollTop = 0;
+}
+
+function revealBlock(index) {
+  const paras = document.querySelectorAll('#narrative p');
+  if (paras[index]) {
+    paras[index].classList.remove('block-hidden');
+    paras[index].classList.add('block-visible');
+  }
 }
 
 function renderChoices(scene) {

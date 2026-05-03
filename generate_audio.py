@@ -18,10 +18,7 @@ EXAGGERATION  = 2.0  # max expressiveness; turbo may ignore but worth sending
 # ─────────────────────────────────────────────────────────────────────────────
 
 import argparse
-import json
-import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 import requests
@@ -45,25 +42,8 @@ def synthesize(text, voice_id, exaggeration=1.0):
     return resp.content
 
 
-def probe_duration(path):
-    """Return duration in seconds of an audio file via ffprobe."""
-    result = subprocess.run(
-        ["ffprobe", "-v", "quiet", "-print_format", "json", "-show_streams", str(path)],
-        capture_output=True, check=True,
-    )
-    streams = json.loads(result.stdout)["streams"]
-    return float(streams[0]["duration"])
-
-
 def blocks_for_scene(scene, default_voice):
-    """
-    Return list of (text, voice) tuples for a scene.
-
-    text: "plain string"        -> one block, default_voice
-    text:                       -> list of blocks
-      - "narrator text"         -> default_voice
-      - male1: "spoken text"    -> voice male1
-    """
+    """Return list of (text, voice) tuples for a scene."""
     if "text" not in scene:
         return []
     raw = scene["text"]
@@ -73,15 +53,14 @@ def blocks_for_scene(scene, default_voice):
         if isinstance(b, str):
             result.append((b, default_voice))
         else:
-            # single-key dict: {voice_name: "text"}
             voice, text = next(iter(b.items()))
             result.append((text, voice))
     return result
 
 
-def audio_path_for_scene(scene_id):
+def block_audio_path(scene_id, index):
     safe = scene_id.replace("/", "-")
-    return f"audio/{safe}.opus"
+    return f"audio/{safe}_block_{index}.opus"
 
 
 def process_story(story_id, force):
@@ -100,7 +79,6 @@ def process_story(story_id, force):
     scene_files = list(scenes_dir.rglob("*.yaml"))
 
     for scene_file in sorted(scene_files):
-        # Derive scene ID from path relative to scenes/
         rel = scene_file.relative_to(scenes_dir)
         scene_id = str(rel.with_suffix("")).replace("\\", "/")
 
@@ -111,76 +89,25 @@ def process_story(story_id, force):
             print(f"  [skip] {scene_id} — no text")
             continue
 
-        # Determine output path
-        out_rel = audio_path_for_scene(scene_id)
-        out_abs = story_dir / out_rel
-
-        if out_abs.exists() and not force:
+        # Check if all block files already exist
+        out_paths = [story_dir / block_audio_path(scene_id, i) for i in range(len(scene_blocks))]
+        if all(p.exists() for p in out_paths) and not force:
             print(f"  [skip] {scene_id} — audio exists")
             continue
 
-        out_abs.parent.mkdir(parents=True, exist_ok=True)
+        out_paths[0].parent.mkdir(parents=True, exist_ok=True)
+        print(f"  [gen]  {scene_id} ({len(scene_blocks)} block(s))")
 
-        runs = []
-        for text, voice in scene_blocks:
-            if runs and runs[-1][1] == voice:
-                runs[-1] = (runs[-1][0] + "\n\n" + text, voice)
-            else:
-                runs.append((text, voice))
+        for i, (text, voice) in enumerate(scene_blocks):
+            print(f"         block {i}: {voice!r}")
+            opus = synthesize(text, voice, EXAGGERATION)
+            out_paths[i].write_bytes(opus)
 
-        if len(runs) == 1:
-            print(f"  [gen]  {scene_id} ({runs[0][1]})")
-            opus = synthesize(runs[0][0], runs[0][1], EXAGGERATION)
-            out_abs.write_bytes(opus)
-            run_durations = [(runs[0][0], runs[0][1], probe_duration(out_abs))]
-        else:
-            print(f"  [gen]  {scene_id} ({len(runs)} voice runs)")
-            run_durations = []
-            with tempfile.TemporaryDirectory() as tmp:
-                parts = []
-                for i, (text, voice) in enumerate(runs):
-                    print(f"         run {i+1}: {voice!r}")
-                    opus = synthesize(text, voice, EXAGGERATION)
-                    part = Path(tmp) / f"run{i}.opus"
-                    part.write_bytes(opus)
-                    dur = probe_duration(part)
-                    run_durations.append((text, voice, dur))
-                    parts.append(part)
-                # Concatenate with ffmpeg
-                inputs = []
-                for p in parts:
-                    inputs += ["-i", str(p)]
-                filter_graph = f"concat=n={len(parts)}:v=0:a=1[out]"
-                subprocess.run(
-                    ["ffmpeg", "-y"] + inputs +
-                    ["-filter_complex", filter_graph, "-map", "[out]", str(out_abs)],
-                    capture_output=True, check=True,
-                )
-
-        # Compute per-block timings: each block gets the start time of its run
-        block_run_indices = []
-        run_i = 0
-        prev_voice = None
-        for text, voice in scene_blocks:
-            if voice != prev_voice:
-                if prev_voice is not None:
-                    run_i += 1
-                prev_voice = voice
-            block_run_indices.append(run_i)
-
-        run_starts = []
-        acc = 0.0
-        for _, _, dur in run_durations:
-            run_starts.append(acc)
-            acc += dur
-
-        timings = [round(run_starts[ri], 3) for ri in block_run_indices]
-
-        scene["timings"] = timings
-        scene.pop("audio", None)  # remove legacy field if present
+        # Remove legacy fields
+        scene.pop("audio", None)
+        scene.pop("timings", None)
         save_yaml(scene_file, scene)
-        print(f"         timings → {timings}")
-        print(f"         saved → {out_rel}")
+        print(f"         saved → {[block_audio_path(scene_id, i) for i in range(len(scene_blocks))]}")
 
 
 def main():
