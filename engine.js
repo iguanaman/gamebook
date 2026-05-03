@@ -260,12 +260,22 @@ function injectActTitle(actText) {
   const div = document.createElement('div');
   div.className = 'act-title act-title-hidden';
   div.dataset.act = actText;
-  div.innerHTML = `
-    <hr class="act-rule act-rule-top">
-    <h2 class="act-heading">${actText}</h2>
-    <hr class="act-rule act-rule-bottom">
-  `;
+
+  const ruleTop = document.createElement('hr');
+  ruleTop.className = 'act-rule act-rule-top';
+
+  const h2 = document.createElement('h2');
+  h2.className = 'act-heading';
+  h2.textContent = actText;
+
+  const ruleBottom = document.createElement('hr');
+  ruleBottom.className = 'act-rule act-rule-bottom';
+
+  div.appendChild(ruleTop);
+  div.appendChild(h2);
+  div.appendChild(ruleBottom);
   el.appendChild(div);
+
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       div.classList.remove('act-title-hidden');
