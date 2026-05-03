@@ -12,8 +12,36 @@
   --btn-secondary-bg: #ede9e3;
   --btn-secondary-hover: #ddd8d0;
   --radius: 4px;
-  --font-body: Georgia, 'Times New Roman', serif;
+  --font-body: 'EB Garamond', Georgia, serif;
   --font-ui: system-ui, -apple-system, sans-serif;
+
+  /* Fantasy typography */
+  --font-heading: 'Cinzel', serif;
+
+  /* Parchment frame */
+  --border-outer: #8b6914;
+  --border-inner: #c9a84c;
+  --border-corner-radius: 4px;
+  --frame-inset: 1.5rem;
+
+  /* Narrative / choices divider */
+  --divider-color: #c9a84c;
+  --divider-style: 2px solid var(--divider-color);
+
+  /* Drop cap */
+  --drop-cap-color: var(--accent);
+  --drop-cap-size: 3.5em;
+
+  /* Act title */
+  --act-title-size: 2rem;
+  --act-rule-color: var(--divider-color);
+  --act-rule-style: 1px solid var(--act-rule-color);
+
+  /* Animations */
+  --anim-block-duration: 350ms;
+  --anim-choice-duration: 300ms;
+  --anim-act-title-duration: 600ms;
+  --anim-choice-fade-duration: 250ms;
 }
 
 html, body {
@@ -27,7 +55,7 @@ html, body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-weight: normal;
   margin: 0 0 0.5em;
   line-height: 1.3;
@@ -107,7 +135,7 @@ button {
   font-family: var(--font-ui);
 }
 .hud-stat { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
-.hud-key { font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em; }
+.hud-key { font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em; font-family: var(--font-heading); }
 .hud-val { font-size: 1rem; font-weight: 600; }
 
 /* ── Game layout ──────────────────────────────────────────────────────────── */
