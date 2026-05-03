@@ -189,9 +189,22 @@ function actAudioSlug(actText) {
 function playActTitleAudio(actText, onDone) {
   const slug = actAudioSlug(actText);
   const url = `stories/${currentStoryId}/audio/${slug}.opus`;
-  const audio = new Audio(url);
-  audio.addEventListener('ended', () => setTimeout(onDone, ACT_TITLE_PAUSE_MS), { once: true });
-  audio.play().catch(() => setTimeout(onDone, ACT_TITLE_PAUSE_MS));
+  const animDuration = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--anim-act-title-duration')
+  ) || 600;
+
+  setTimeout(() => {
+    currentAudio = new Audio(url);
+    let settled = false;
+    function settle() {
+      if (settled) return;
+      settled = true;
+      setTimeout(onDone, ACT_TITLE_PAUSE_MS);
+    }
+    currentAudio.addEventListener('ended', settle, { once: true });
+    currentAudio.addEventListener('error', settle, { once: true });
+    currentAudio.play().catch(settle);
+  }, animDuration);
 }
 
 function playBlocks(sceneId, blockCount, onBlockStart, onDone) {
