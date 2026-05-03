@@ -28,8 +28,9 @@ Pure static site — HTML, CSS, vanilla JS. No build step, no framework, no bund
 1. `showSelector()` fetches `manifest.yaml`, renders story cards, checks LocalStorage for saves
 2. `startStory(id)` loads `story.yaml`, restores or initialises state, calls `navigateTo()`
 3. `navigateTo(sceneId)` fetches the scene YAML, re-renders HUD + narrative + choices
-4. Choices may have `effects` (stat deltas, flag sets) and `requires` (stat minimums, flag checks, flags_unset) — filtered before rendering
-5. State shape: `{ scene, stats, flags, history }` — persisted to `localStorage` as `gamebook.state.{id}`
+4. Choices may have `effects` (stat deltas, flag sets) and `requires` (stat minimums, flag checks, flags_unset) — failing choices grey out with failure text unless `hide_if_failed: true` hides them entirely
+5. Text blocks support `if`/`else` conditions (flags, stats, or built-in `visited`) for conditional narrative
+6. State shape: `{ scene, stats, flags, visited, history }` — persisted to `localStorage` as `gamebook.state.{id}`
 6. Undo pops `history` stack and re-navigates without pushing a new entry
 
 ## Workflow

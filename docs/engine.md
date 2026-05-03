@@ -27,21 +27,23 @@ Files loaded on demand — nothing is preloaded:
   scene:   string        // current scene ID
   stats:   { [key]: number }  // author-defined numeric stats
   flags:   { [key]: boolean } // arbitrary boolean markers
-  history: snapshot[]    // undo stack — each entry is { scene, stats, flags, act }
+  visited: string[]      // scene IDs visited this playthrough (not including current scene)
+  history: snapshot[]    // undo stack — each entry is { scene, stats, flags, visited, act }
   act:     string|null   // serialised currentAct (written by saveState, restored on load)
 }
 ```
 
-State is persisted to `localStorage` as `gamebook.state.{storyId}` after every mutation. On story start, saved state is restored if present, otherwise `story.yaml` supplies the starting stats and first scene.
+State is persisted to `localStorage` as `gamebook.state.{storyId}` after every mutation. On story start, saved state is restored if present, otherwise `story.yaml` supplies the starting stats and first scene. Old saves without `visited` default to `[]`.
 
 Module-level variables that are NOT in the state object but are tracked separately:
+- `storyMeta` — the parsed `story.yaml` object, including any `flags` metadata. Available after `startStory()` completes.
 - `currentAct` — the act string of the last scene that carried an `act:` field, or `null`. Persisted via `saveState` and restored on load. Included in `pushHistory` snapshots so undo correctly reverts act boundaries.
 - `currentNarrativeOffset` — count of `<p>` elements in `#narrative` before the current scene's blocks were appended. Used by `revealBlock` to target the right paragraph after narrative accumulation.
 
 ## Navigation
 
 `navigateTo(sceneId)` is the central transition function:
-1. Sets `state.scene` and saves state
+1. Pushes the previous scene into `state.visited` (if not already present), then sets `state.scene` and saves state
 2. Fetches the scene YAML
 3. Re-renders HUD
 4. If `scene.act` differs from `currentAct`: updates `currentAct`, calls `injectActTitle` (clears narrative, injects animated title block), then plays act title audio + waits `ACT_TITLE_PAUSE_MS` before starting scene blocks
@@ -52,11 +54,30 @@ Module-level variables that are NOT in the state object but are tracked separate
 
 ## Conditional Logic
 
-Before rendering choices, each choice is tested against `meetsRequirements()`:
+### Choices
+
+Each choice is tested against `meetsRequirements()`:
 - `requires.flags` — all listed flags must be truthy in state
+- `requires.flags_unset` — all listed flags must be falsy in state
 - `requires.stats` — each listed stat must meet the minimum value
 
-Choices that fail are silently hidden (not greyed out).
+Choices that fail are rendered as disabled greyed-out buttons with failure text, unless `hide_if_failed: true` is set (which hides them entirely — the original behaviour). `failed_text` on the choice supplies author-written failure flavour; if absent, the engine auto-generates e.g. `*(Requires: gold ≥ 5)*`.
+
+### Text blocks
+
+Any block in a scene's `text` array can be conditional via an `if` key. Conditions use the same syntax as `requires`, plus a built-in `if: visited` that is true on any return visit to the scene.
+
+```yaml
+- if: visited
+  text: "You've been here before."
+  else: "You've never seen this place."
+- if: {flags: [perceptive]}
+  text: "You notice something odd."
+- if: {stats: {strength: 8}}
+  text: "The boulder looks moveable."
+```
+
+If the condition fails and no `else` is present, the block is skipped. The block count passed to `playBlocks()` reflects only the blocks that actually rendered.
 
 ## Effects
 
@@ -66,7 +87,7 @@ Choices that fail are silently hidden (not greyed out).
 
 ## Undo
 
-Before any choice is acted on, `pushHistory()` snapshots `{ scene, stats, flags, act }` onto the history stack. `undo()` pops the last snapshot, restores scene/stats/flags/currentAct, clears `#narrative` and resets `currentNarrativeOffset`, then re-navigates. History is part of persisted state so undo survives a reload.
+Before any choice is acted on, `pushHistory()` snapshots `{ scene, stats, flags, visited, act }` onto the history stack. `undo()` pops the last snapshot, restores scene/stats/flags/visited/currentAct, clears `#narrative` and resets `currentNarrativeOffset`, then re-navigates. History is part of persisted state so undo survives a reload.
 
 ## Audio
 

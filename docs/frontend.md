@@ -33,7 +33,11 @@ Single `style.css` defines defaults. Stories can override via `stories/{id}/them
 
 ## HUD
 
-Fixed-position, top-right. Renders one `hud-stat` element per stat key in `state.stats`. Re-renders on every navigation. Hidden when on the selector screen. Uses `--font-heading` for stat labels.
+Fixed-position, top-right. Re-renders on every navigation. Hidden on the selector screen. Uses `--font-heading` for labels.
+
+**Stats** — one `hud-stat` element per key in `state.stats`.
+
+**Knowledge flags** — flags declared in `story.yaml` under `flags:` with `visible: true` that are currently `true` in state render as `hud-flag` elements to the right of stats, separated by a `hud-divider`. Each shows its `label` string. The section is absent when no visible flags are currently true.
 
 ## Narrative
 
@@ -59,7 +63,9 @@ The act title is part of the narrative scroll area, not a separate overlay.
 
 ## Choices
 
-Choices are rendered as full-width left-aligned buttons in the serif body font — they read like prose options, not UI buttons. Choices that fail `requires` checks are not rendered at all.
+Choices are rendered as full-width left-aligned buttons in the serif body font — they read like prose options, not UI buttons.
+
+Choices that fail `requires` checks are rendered as disabled greyed-out buttons (`.btn-choice-failed`) with failure text below the choice label, unless `hide_if_failed: true` hides them entirely. Failure text comes from `failed_text` on the choice, or is auto-generated from the `requires` shape (e.g. `*(Requires: gold ≥ 5)*`).
 
 The choice list (`.choice-list`) slides up as a group when rendered (opacity + translateY animation). On click, all buttons are immediately disabled; unchosen options fade to 20% opacity, the chosen option fades to 0%, then navigation fires after `--anim-choice-fade-duration`.
 
