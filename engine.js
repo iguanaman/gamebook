@@ -428,6 +428,8 @@ function renderChoices(scene) {
   visible.forEach((choice, i) => {
     el.querySelector(`[data-index="${i}"]`).addEventListener('click', (e) => {
       const allBtns = el.querySelectorAll('.btn-choice');
+      allBtns.forEach(b => { b.disabled = true; });
+
       const fadeDuration = parseFloat(
         getComputedStyle(document.documentElement)
           .getPropertyValue('--anim-choice-fade-duration')
