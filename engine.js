@@ -226,9 +226,8 @@ function renderHud() {
 function renderNarrative(scene) {
   const el = document.getElementById('narrative');
   if (!el) return;
-  const texts = scene.blocks
-    ? scene.blocks.map(b => typeof b === 'string' ? b : b.text)
-    : [scene.text];
+  const blocks = Array.isArray(scene.text) ? scene.text : [scene.text];
+  const texts = blocks.map(b => typeof b === 'string' ? b : b.text);
   el.innerHTML = texts.map(t => `<p>${t.replace(/\n\n/g, '</p><p>')}</p>`).join('');
   el.scrollTop = 0;
 }

@@ -45,24 +45,23 @@ def blocks_for_scene(scene, default_voice):
     """
     Return list of (text, voice) tuples for a scene.
 
-    Scene text formats:
-      text: "plain string"          -> one block, default_voice
-      blocks:                       -> explicit blocks
-        - "plain string"            -> default_voice
-        - text: "string"            -> default_voice
-          voice: override           -> named voice
+    text: "plain string"        -> one block, default_voice
+    text:                       -> list of blocks
+      - "plain string"          -> default_voice
+      - text: "string"          -> default_voice (with optional voice override)
+        voice: override
     """
-    if "blocks" in scene:
-        result = []
-        for b in scene["blocks"]:
-            if isinstance(b, str):
-                result.append((b, default_voice))
-            else:
-                result.append((b["text"], b.get("voice", default_voice)))
-        return result
-    elif "text" in scene:
-        return [(scene["text"], default_voice)]
-    return []
+    if "text" not in scene:
+        return []
+    raw = scene["text"]
+    items = raw if isinstance(raw, list) else [raw]
+    result = []
+    for b in items:
+        if isinstance(b, str):
+            result.append((b, default_voice))
+        else:
+            result.append((b["text"], b.get("voice", default_voice)))
+    return result
 
 
 def audio_path_for_scene(scene_id):

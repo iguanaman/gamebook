@@ -66,10 +66,10 @@ choices:
         has_item: true
 ```
 
-For multi-voice scenes, replace `text:` with `blocks:`:
+For multi-voice scenes, `text:` accepts a list of blocks:
 
 ```yaml
-blocks:
+text:
   - "Narrator text."
   - text: "A character speaks."
     voice: merchant
