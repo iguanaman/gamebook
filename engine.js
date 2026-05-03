@@ -112,7 +112,8 @@ function pushHistory() {
   state.history.push({
     scene: state.scene,
     stats: { ...state.stats },
-    flags: { ...state.flags }
+    flags: { ...state.flags },
+    act: currentAct
   });
 }
 
@@ -122,6 +123,7 @@ function undo() {
   state.scene = prev.scene;
   state.stats = prev.stats;
   state.flags = prev.flags;
+  currentAct = prev.act ?? null;
   saveState();
   return true;
 }
@@ -354,14 +356,14 @@ function renderNarrative(scene) {
 
   currentNarrativeOffset = el.querySelectorAll('p').length;
 
-  // Add scene separator if narrative already has content
-  if (el.children.length > 0) {
+  // Add scene separator only between scenes (not after act title)
+  if (el.querySelector('p') !== null) {
     const sep = document.createElement('hr');
     sep.className = 'scene-separator';
     el.appendChild(sep);
   }
 
-  const isFirstBlock = el.children.length === 0 || (el.children.length === 1 && el.children[0].tagName === 'HR');
+  const isFirstBlock = el.querySelector('p') === null;
 
   blocks.forEach((b, i) => {
     const text = typeof b === 'string' ? b : Object.values(b)[0];
