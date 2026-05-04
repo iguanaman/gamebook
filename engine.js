@@ -107,7 +107,7 @@ function renderStoryCard(storyId) {
         <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
         <div class="story-info">
           <div class="story-info-header">
-            <h2 class="story-title" data-story-title="${storyId}">Loading...</h2>
+            <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}"></span><span data-story-title="${storyId}">Loading...</span></h2>
             <span class="story-genre" data-story-genre="${storyId}"></span>
           </div>
           <p class="story-desc" data-story-desc="${storyId}"></p>
@@ -171,9 +171,11 @@ async function attachCardHandlers(storyId) {
   try {
     const meta = await loadStoryMeta(storyId);
     const titleEl = document.querySelector(`[data-story-title="${storyId}"]`);
+    const prefixEl = document.querySelector(`[data-story-prefix="${storyId}"]`);
     const descEl = document.querySelector(`[data-story-desc="${storyId}"]`);
     const genreEl = document.querySelector(`[data-story-genre="${storyId}"]`);
     if (titleEl) titleEl.textContent = meta.title;
+    if (prefixEl && meta.prefix) prefixEl.textContent = meta.prefix + ' ';
     if (descEl) descEl.textContent = meta.description;
     if (genreEl && meta.genre) genreEl.textContent = meta.genre;
   } catch (e) { /* story.yaml missing — skip */ }

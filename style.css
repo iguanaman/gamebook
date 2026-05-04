@@ -198,6 +198,7 @@ button {
 .story-info { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
 .story-info-header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .story-title { margin: 0; font-size: 1.2rem; }
+.story-prefix { opacity: 0.5; }
 .story-genre {
   flex-shrink: 0;
   font-family: var(--font-ui);
