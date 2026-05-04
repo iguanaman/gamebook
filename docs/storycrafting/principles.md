@@ -22,6 +22,30 @@ There should be at least two meaningfully different routes through the story —
 
 ---
 
+## Prose Style
+
+General canon for authored prose — narrator text, journal entries, cast bios, conditional blocks, brief/setting prose. NPC *dialogue* is governed by the cast sheet (each character's voice can break these rules deliberately). Choice text is terse by design and exempt.
+
+- **Economy of words.** Every line earns its place. If it doesn't shift mood, reveal something, or invite action, cut it.
+- **Suggest, don't inventory.** Don't list objects, fixtures, or features in a space. Pick one or two concrete details that carry the scene; trust the reader to fill the rest.
+- **Specific over general.** One concrete image beats three vague ones — "a cracked bell hangs above the door," not "various old fixtures line the walls."
+- **Texture through implication, not catalogue.** A room's history comes from a single off-note (a scorched floorboard, a name scratched out), not from a list of contents.
+- **Show, not state.** Physical detail over abstraction. "His hand shook on the cup" beats "he was nervous."
+
+These are defaults, not laws. Override when the brief calls for it: a maximalist narrator, a comic register, a kid-voice with deliberate run-on hype, a setting whose voice is gleeful inventory (a wizard's curio shop, a hoarder's apartment). Whatever the override, name it in `brief.md` so the scene writer knows the canon is being bent on purpose.
+
+---
+
+## Pacing and Choice Density
+
+Short scenes, frequent choices. The player should be making decisions often, not reading long passages between them. Aim for roughly 15–30 seconds of reading per scene before a choice point — if a beat is running long, split it across two scenes rather than padding one.
+
+Offer more choices per scene than feels strictly necessary — 3–6 options is the target, not 2. Convergent branching is encouraged: several choices can resolve to the same next scene as long as each is a distinct expression of player intent (cautious vs. blunt vs. sly, or fight vs. flee vs. parley that all end at the same hub). The freedom to *choose how* matters even when the destination is fixed. Variety of voice keeps replays fresh.
+
+This shapes earlier stages too: when planning acts and beats (stages 1–2), favour many small decision points over fewer long set-pieces. A beat with one big choice usually wants to be three beats with a choice each.
+
+---
+
 ## Hubs and Loops
 
 Not every story is a corridor. Some stories have a city, a tavern, a ship — a place the player returns to between events. Model these as hub scenes: a scene with multiple choices that all eventually return to it (directly or via a chain). 

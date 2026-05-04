@@ -1,23 +1,36 @@
-# Stage 4: Scene Writing
+# Stage 5: Scene Writing
 
 **Goal:** Write the actual YAML scene files for one beat or act. Output is `stories/{id}/scenes/` files.
 
-**Prerequisite:** The relevant `act-{n}.md` breakdown must exist, AND `stories/{id}/cast.md` must exist (Stage 3 output).
+**Prerequisite:** The relevant `act-{n}.md` (beats), `act-{n}-scenes.md` (scene breakdown), AND `stories/{id}/cast.md` must all exist.
+
+---
+
+## Hands-off mode
+
+Stage 0 was the question stage. From Stage 1 onward, run hands-off:
+
+- **Do not ask the user questions.** Render the prose from upstream docs. If something is missing or ambiguous, make the most reasonable choice consistent with the brief, structure, beats, breakdown, and cast — and continue.
+- **Auto-fix issues.** If validation fails or a problem is found (broken `next:` targets, missing voice prefixes, consumable choices missing their `flags_unset`/`effects` pair, scenes longer than the 15–30s budget), fix it and keep going — don't halt for confirmation.
+- Only stop and surface if upstream docs are contradictory in a way no reasonable interpretation resolves.
+
+Each Stage-5 subagent writes exactly ONE beat, then returns. The orchestrator dispatches the next beat immediately — no user check-in between beats unless the user proactively interrupts.
 
 ---
 
 ## What to do
 
-Read `brief.md`, `structure.md`, the act breakdown for the target act, `cast.md` (NPC voices and characterisation — load this every time, voice IDs go directly into scene YAML as block prefixes), `docs/foundation.md` for tone, and `docs/storycrafting/principles.md` for structural patterns (hubs, conversations, random events, permadeath).
+Read `brief.md`, `structure.md`, the target act's `act-{n}.md` and `act-{n}-scenes.md`, `cast.md` (NPC voices and characterisation — load this every time, voice IDs go directly into scene YAML as block prefixes), `docs/foundation.md` for tone, and `docs/storycrafting/principles.md` for structural patterns (hubs, conversations, random events, permadeath).
 
-Write scenes one beat at a time — not the whole act at once. After each beat, stop and let the user review before continuing.
+Write scenes one beat at a time — not the whole act at once. The subagent writes one beat then returns; the orchestrator dispatches the next beat as a fresh subagent. No user review between beats.
 
-**For each scene, plan mechanics before writing prose.** Prose written without knowing the choice structure often ends awkwardly or requires rewriting. Do this first:
+**The scene breakdown (`act-{n}-scenes.md`) already specifies the choices, gating, convergent groupings, and weighted destinations.** Your job at this stage is to write the prose that earns those choices and to render the structure into YAML — not to redesign the choice set. If a scene as written doesn't fit the breakdown, raise it before deviating.
 
-1. **List the choices** — what options will the player see? 2–4 is the target.
-2. **Note each choice's mechanics** — `requires`, `effects`, `flags_unset` (consumable?), weighted `next` (random destination?), grey-out or `hide_if_failed`
-3. **Note any conditional text blocks** — which flags/stats/`visited` trigger alternate text? What does each branch say in a sentence?
-4. **Then write prose** — knowing the endpoint of the scene, write narrative text that earns each choice and ends at a decision point (not "do you go left or right?" as the final line)
+For each scene:
+
+1. **Re-read the scene's entry in the breakdown** — choices, gates, convergent groups, effects, weighted destinations
+2. **Note conditional text blocks** — which flags/stats/`visited` trigger alternate text? What does each branch say in a sentence? (These weren't necessarily fixed in Stage 3.)
+3. **Write prose** — knowing the endpoint of the scene, write narrative text that earns each choice and ends at a decision point (not "do you go left or right?" as the final line). Convergent choices need genuinely distinct framings — write the cautious, blunt, and sly versions as different lines, not three rephrasings of the same sentence.
 5. Use descriptive scene IDs (`forest_edge`, not `scene_03`)
 6. Place files at `stories/{id}/scenes/{act-folder}/{scene-id}.yaml`
 
@@ -34,7 +47,8 @@ After planning mechanics, before writing prose:
 After writing prose:
 - Does the text end in a way that makes each choice feel live? (Not "do you go left or right?" as the last line)
 - Are all `next:` targets either an existing file or a scene you're about to write in this batch?
-- Is the text long enough to be worth the page, but short enough to read in 30–60 seconds?
+- Is the text short enough to read in roughly 15–30 seconds? Prefer brevity — scenes should be tight beats that hand control back to the player quickly, not long passages of narration. If a scene runs long, split it: end on a decision, continue the rest in the next scene.
+- Does the prose follow the **Prose Style** canon in `principles.md`? Specific over general; suggest don't inventory; one concrete detail over a list; show don't state. Apply to narrator text, journal entries, conditional blocks. NPC dialogue follows the cast sheet — voice can override the canon. The brief may also override (named maximalist register, kid-voice hype, etc.) — check it.
 
 ---
 
@@ -86,19 +100,30 @@ NPCs with opinions reward curiosity even when nothing mechanical happens. NPCs w
 
 ## Journal Entries
 
-A scene may include an optional `journal:` field — a single string, written in second person, recorded once on the player's first visit. The player can open a sidebar to read these in order.
+The journal is a player-visible sidebar that records key beats in order. Three places can write to it:
+
+1. **`story.yaml` — mandatory.** A single `journal:` field that records the opening entry on new game. Sets the player's starting situation in their own voice.
+2. **`_act.yaml` — mandatory.** Every act folder's `_act.yaml` must include `journal:`, recorded once when the player first enters that act. Marks the act transition.
+3. **Scene `journal:` — optional, sparing.** Individual scenes can add an entry on first visit for turning points only.
 
 ```yaml
+# story.yaml
+journal: "You are a security officer in Vault 34. The reactor is dying. The overseer has not told anyone."
+
+# _act.yaml
+journal: "Act One — The Sealed Door. The vault has hours. The overseer has the only key."
+
+# scene.yaml
 journal: "You met the old librarian. She knew your name before you gave it."
 ```
 
-**Use sparingly.** Most scenes get no journal entry. Add one only for:
+**Scene-level — use sparingly.** Add only for:
 - Turning points (a betrayal, a revelation, a death)
 - First meetings with named NPCs who matter later
 - Choices whose consequences the player should remember sessions later
 - Discoveries that recontextualise earlier scenes
 
-Skip journal entries for transitional scenes, hubs the player will revisit, ambient texture, or anything the narrative will reiterate naturally. If a beat earns a journal line, every line in the journal should feel earned the same way — a wall of trivial entries dilutes the meaningful ones.
+Skip scene journal entries for transitional scenes, hubs the player will revisit, ambient texture, or anything the narrative will reiterate naturally. If a beat earns a journal line, every line in the journal should feel earned the same way — a wall of trivial entries dilutes the meaningful ones.
 
 Second person, past tense, terse. One or two sentences. Match the story's voice but don't over-write — the journal is a memory aid, not a recap.
 
@@ -147,9 +172,10 @@ When writing the first scene in a new act subfolder (e.g. `scenes/act1/`), creat
 
 ```yaml
 title: Act One — The Sealed Door
+journal: "Act One — The Sealed Door. The vault has hours. The overseer has the only key."
 ```
 
-The engine fetches this when the player first enters the folder — it clears the narrative and displays the act title with animation and audio. Only one `_act.yaml` per folder. Scenes themselves have no `act:` field.
+The engine fetches this when the player first enters the folder — it clears the narrative and displays the act title with animation and audio, and writes the `journal:` entry to the journal sidebar. Both fields are mandatory. Only one `_act.yaml` per folder. Scenes themselves have no `act:` field.
 
 ---
 
@@ -159,19 +185,56 @@ If this is the first scene of the whole story, also:
 - Create `stories/{id}/story.yaml` (copy from `templates/story.yaml`)
 - Add the story ID to `stories/manifest.yaml`
 - Set `start:` to the first scene's path
+- Include a `journal:` field on `story.yaml` — this is mandatory, and is recorded as the journal's opening entry on new game
 
 ---
 
-## YAML quoting
+## YAML text format
 
-Any text block containing a colon (`:`) must be quoted — YAML will misparse `running itself: requisitions` as a mapping key. Use double quotes or a block scalar (`|`). Single quotes work too but require escaping internal single quotes as `''`. When in doubt, quote it.
+**`text` is always a list. Each list item = one paragraph on screen.** Do not put multiple paragraphs in one item — split them into separate list items instead.
+
+**Always use `|-` for all string values** — `text:`, `else:`, `failed_text:`, choice `text:`, `journal:`. `|-` accepts any content literally (quotes, colons, apostrophes, `#`) with no escaping needed.
 
 ```yaml
-# BAD — colon in unquoted multiline string
+# BAD — multiple paragraphs in one block
+- if: {flags: [dismissed_once]}
+  text: 'You step out again.\n\nMira is still there.'
+
+# GOOD — one paragraph per list item
+- if: {flags: [dismissed_once]}
+  text: |-
+    You step out again.
+- if: {flags: [dismissed_once]}
+  text: |-
+    Mira is still there.
+```
+
+```yaml
+# BAD — quoted strings with escaping
+text: 'She can''t take it back. If it''s in her locker: trouble.'
+
+# BAD — bare unquoted, colons break YAML parsing
 - The vault runs itself: lights, locks, rations.
 
-# GOOD
-- "The vault runs itself: lights, locks, rations."
+# GOOD — |- accepts everything, no escaping ever
+- |-
+  She can't take it back. If it's in her locker: trouble.
+```
+
+For NPC voice lines, `|-` goes on the value side of the voice prefix:
+
+```yaml
+- male_midlife_english_posh: |-
+    Officer. You are not on the schedule.
+```
+
+Choice `text:` and `failed_text:` use `|-` too:
+
+```yaml
+- text: |-
+    Reach across the desk. (Strength 7)
+  failed_text: |-
+    *(The maths is not in your favour.)*
 ```
 
 ---
@@ -187,4 +250,4 @@ One YAML file per scene. Follow the schema in `CLAUDE.md`. No extras — only fi
 - All scenes in the beat are written
 - Every `next:` points to a real file (existing or just written)
 - No choice is a dead end unless intentional (`choices: []`)
-- User has reviewed and approved before moving to the next beat
+- Subagent returns after the beat is complete (no user review gate — orchestrator dispatches next beat immediately)

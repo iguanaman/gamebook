@@ -7,32 +7,48 @@
 
 id: scene_id          # if in a subfolder: act1/scene_id
 
-# Simple form — narrator voice only
-text: "Single block of narrative text. Blank lines become paragraph breaks."
+# text is always a list. Each list item = one paragraph rendered on screen.
+# Do NOT put multiple paragraphs in one item — use one item per paragraph.
+# Always use |- for string values (no quoting, no escaping needed).
+text:
+  - |-
+    First paragraph of narrator text.
+  - |-
+    Second paragraph. Each item becomes its own <p> element.
 
-# Multi-block form — use when voice changes are needed
+# Multi-block form — voice changes, conditionals
 # text:
-#   - "Narrator text, uses default narrator voice."
-#   - male1: "A character speaks."
-#   - "Back to narrator."
+#   - |-
+#     Narrator text.
+#   - male1: |-
+#       A character speaks.
+#   - |-
+#     Back to narrator.
 #   - if: {flags: [perceptive]}
-#     text: "You notice something odd."
+#     text: |-
+#       You notice something odd.
 #   - if: {stats: {strength: 8}}
-#     text: "The boulder looks moveable."
-#     else: "The boulder is immovable."
+#     text: |-
+#       The boulder looks moveable.
+#     else: |-
+#       The boulder is immovable.
 #   - if: visited
-#     text: "You've been here before."
+#     text: |-
+#       You've been here before.
 
 # Optional journal entry — added once on first visit. Use sparingly for
 # notable events / turning points. Written in second person.
-# journal: "You met the old librarian. She knew your name before you gave it."
+# journal: |
+#   You met the old librarian. She knew your name before you gave it.
 
 choices:
-  - text: Choice the player will see
+  - text: |
+      Choice the player will see
     next: target_scene_id   # string = go directly; array = weighted random (see below)
 
   # Weighted random destination
-  # - text: Enter the forest
+  # - text: |
+  #     Enter the forest
   #   next:
   #     - scene: forest_path
   #       weight: 3
@@ -40,7 +56,8 @@ choices:
   #       weight: 1
 
   # Choice with stat requirement
-  - text: Choice requiring gold >= 5
+  - text: |
+      Choice requiring gold >= 5
     next: another_scene
     requires:
       stats:
@@ -50,14 +67,16 @@ choices:
         gold: -5
 
   # Choice with flag requirement
-  - text: Choice requiring a flag
+  - text: |
+      Choice requiring a flag
     next: another_scene
     requires:
       flags:
         - flag_name
 
   # Choice that sets a flag
-  - text: Choice that sets a flag
+  - text: |
+      Choice that sets a flag
     next: another_scene
     effects:
       flags:
@@ -66,7 +85,8 @@ choices:
   # Consumable choice — appears once, gone after taken
   # The choice requires the flag to be unset; taking it sets the flag.
   # On any return visit the flag is set so the choice no longer appears.
-  - text: Buy the last potion (3 gold)
+  - text: |
+      Buy the last potion (3 gold)
     next: bought_potion
     requires:
       flags_unset: [potion_sold]
@@ -79,15 +99,18 @@ choices:
         potion_sold: true
 
   # Choice that greys out when failed (shows failure flavour text)
-  - text: Climb the wall
+  - text: |
+      Climb the wall
     next: rooftop
     requires:
       stats:
         agility: 8
-    failed_text: "*(Your legs won't carry you that high)*"
+    failed_text: |
+      *(Your legs won't carry you that high)*
 
   # Choice that stays hidden when failed (original behaviour — use for spoiler gates)
-  - text: Speak the old tongue
+  - text: |
+      Speak the old tongue
     next: inner_sanctum
     requires:
       flags:

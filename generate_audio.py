@@ -41,8 +41,13 @@ def save_yaml(path, data):
         yaml.dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
 
+def normalize_text(text):
+    """Lowercase all-caps words so TTS doesn't shout them."""
+    return re.sub(r'\b[A-Z]{2,}\b', lambda m: m.group().lower(), text)
+
+
 def synthesize(text, voice_id, exaggeration=1.0):
-    resp = requests.post(TTS_URL, json={"text": text, "voice_id": voice_id, "exaggeration": exaggeration},
+    resp = requests.post(TTS_URL, json={"text": normalize_text(text), "voice_id": voice_id, "exaggeration": exaggeration},
                          timeout=120)
     resp.raise_for_status()
     return resp.content
@@ -61,10 +66,30 @@ def blocks_for_scene(scene, default_voice):
         elif "if" in b:
             if_text = b.get("text", "")
             else_text = b.get("else", "")
-            if if_text:
-                result.append((if_text, default_voice, raw_index, "a"))
-            if else_text:
-                result.append((else_text, default_voice, raw_index, "b"))
+            if isinstance(if_text, list):
+                sub_i = 0
+                for sub in if_text:
+                    if isinstance(sub, str):
+                        result.append((sub, default_voice, raw_index, f"a{sub_i}"))
+                        sub_i += 1
+                    elif isinstance(sub, dict) and "if" not in sub:
+                        voice, text = next(iter(sub.items()))
+                        result.append((text, voice, raw_index, f"a{sub_i}"))
+                        sub_i += 1
+            elif if_text:
+                result.append((if_text, default_voice, raw_index, "a0"))
+            if isinstance(else_text, list):
+                sub_i = 0
+                for sub in else_text:
+                    if isinstance(sub, str):
+                        result.append((sub, default_voice, raw_index, f"b{sub_i}"))
+                        sub_i += 1
+                    elif isinstance(sub, dict) and "if" not in sub:
+                        voice, text = next(iter(sub.items()))
+                        result.append((text, voice, raw_index, f"b{sub_i}"))
+                        sub_i += 1
+            elif else_text:
+                result.append((else_text, default_voice, raw_index, "b0"))
         else:
             voice, text = next(iter(b.items()))
             result.append((text, voice, raw_index, ""))
@@ -76,7 +101,7 @@ def block_audio_path(scene_id, raw_index, suffix=""):
     return f"audio/{safe}_block_{raw_index}{suffix}.opus"
 
 
-def process_story(story_id, force):
+def process_story(story_id, force, suffix_filter=None):
     story_dir = Path(STORIES_DIR) / story_id
     story_file = story_dir / "story.yaml"
 
@@ -109,7 +134,12 @@ def process_story(story_id, force):
 
         out_paths = [story_dir / block_audio_path(scene_id, raw_index, suffix)
                      for (_, _, raw_index, suffix) in scene_blocks]
-        todo = list(range(len(scene_blocks))) if force else [i for i, p in enumerate(out_paths) if not p.exists()]
+        if suffix_filter:
+            todo = [i for i, (_, _, _, sfx) in enumerate(scene_blocks) if sfx.startswith(suffix_filter)]
+        elif force:
+            todo = list(range(len(scene_blocks)))
+        else:
+            todo = [i for i, p in enumerate(out_paths) if not p.exists()]
         if not todo:
             continue
 
@@ -168,10 +198,72 @@ def process_act_titles(story_id, story, default_voice, force):
         print(f"         saved → audio/{slug}.opus")
 
 
+def migrate_conditional(story_id):
+    """Delete old _block_Na/Nb.opus files and regen conditional sub-blocks for scenes that have other audio done."""
+    import re as _re
+    story_dir = Path(STORIES_DIR) / story_id
+    story_file = story_dir / "story.yaml"
+    if not story_file.exists():
+        print(f"  [skip] no story.yaml found")
+        return
+
+    story = load_yaml(story_file)
+    default_voice = story.get("narrator", "narrator")
+    audio_dir = story_dir / "audio"
+
+    # Delete old single-letter conditional files: _block_N[ab].opus (no digit after letter)
+    old_pattern = _re.compile(r'_block_\d+[ab]\.opus$')
+    deleted = 0
+    for f in audio_dir.glob("*.opus"):
+        if old_pattern.search(f.name):
+            f.unlink()
+            print(f"  [del]  {f.name}")
+            deleted += 1
+    if deleted:
+        print(f"  deleted {deleted} legacy conditional file(s)")
+
+    scenes_dir = story_dir / "scenes"
+    scene_files = list(scenes_dir.rglob("*.yaml"))
+
+    for scene_file in sorted(scene_files):
+        if scene_file.name.startswith('_'):
+            continue
+
+        rel = scene_file.relative_to(scenes_dir)
+        scene_id = str(rel.with_suffix("")).replace("\\", "/")
+        scene = load_yaml(scene_file)
+        scene_blocks = blocks_for_scene(scene, default_voice)
+        if not scene_blocks:
+            continue
+
+        out_paths = [story_dir / block_audio_path(scene_id, raw_index, suffix)
+                     for (_, _, raw_index, suffix) in scene_blocks]
+
+        # Only process scenes where at least one non-conditional block already exists
+        non_conditional = [p for (_, _, _, sfx), p in zip(scene_blocks, out_paths) if not sfx]
+        if not any(p.exists() for p in non_conditional):
+            continue
+
+        todo = [i for i, p in enumerate(out_paths) if not p.exists()]
+        if not todo:
+            continue
+
+        out_paths[0].parent.mkdir(parents=True, exist_ok=True)
+        print(f"  [gen]  {scene_id} ({len(todo)} new block(s))")
+        for i in todo:
+            text, voice, raw_index, suffix = scene_blocks[i]
+            print(f"         block {raw_index}{suffix}: {voice!r}")
+            opus = synthesize(text, voice, EXAGGERATION)
+            out_paths[i].write_bytes(opus)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", action="store_true", help="Regenerate existing audio")
     parser.add_argument("--story", help="Process one story only")
+    parser.add_argument("--suffix", help="Regenerate only blocks whose suffix matches this pattern (e.g. 'a0')")
+    parser.add_argument("--migrate-conditional", action="store_true",
+                        help="Delete old _block_Na/Nb.opus files and regen conditional blocks for scenes that already have other audio")
     args = parser.parse_args()
 
     manifest_path = Path(STORIES_DIR) / "manifest.yaml"
@@ -190,7 +282,10 @@ def main():
 
     for story_id in story_ids:
         print(f"\n── {story_id} ──")
-        process_story(story_id, force=args.force)
+        if args.migrate_conditional:
+            migrate_conditional(story_id)
+        else:
+            process_story(story_id, force=args.force, suffix_filter=args.suffix)
 
     print("\nDone.")
 

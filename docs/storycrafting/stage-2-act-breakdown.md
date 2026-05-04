@@ -1,70 +1,86 @@
-# Stage 2: Act Breakdown
+# Stage 2: Act Beats
 
-**Goal:** Expand one act into its scenes, choices, and paths. Output appended to `stories/{id}/structure.md` or written to `stories/{id}/act-{n}.md`.
+**Goal:** Expand one act into its beats — the high-level emotional/narrative units. No scene lists yet, no choice-by-choice mapping. Output: `stories/{id}/act-{n}.md`.
 
-**Prerequisite:** `structure.md` must exist. Run this stage once per act.
+**Prerequisite:** `structure.md` must exist. Run this stage once per act, in order (Act 1 → Act 2 → ...). Each act's entry depends on the previous act's exits.
+
+---
+
+## Hands-off mode
+
+Stage 0 was the question stage. From Stage 1 onward, run hands-off:
+
+- **Do not ask the user questions.** Everything fundamental should already be in `brief.md` / `structure.md`. If something is missing, make the most reasonable choice consistent with prior outputs, note it inline, and continue.
+- **Auto-fix issues.** If validation fails or a problem is found (broken handoffs, missing pieces, internal contradictions), fix it and keep going — don't halt for confirmation.
+- Only stop and surface if upstream docs are contradictory in a way no reasonable interpretation resolves.
+
+---
+
+## Why beats first
+
+Stage 2 plans the *shape* of an act: what beats it contains, how the player enters and leaves, which beats branch. Scene-level detail (named scenes, individual choice points, gating) is deferred to Stage 3 — designing scenes before the beats are agreed wastes effort if a beat shifts.
+
+Acts also have to interlock: Act N+1's entry must match Act N's exits. Locking exit configurations at this stage keeps acts independently designable downstream.
 
 ---
 
 ## What to do
 
-Read `brief.md`, `structure.md`, and `docs/storycrafting/principles.md`. Pick the act being expanded (specified by the user). Expand it into:
+Read `brief.md`, `structure.md`, `docs/storycrafting/principles.md`, and (if N > 1) all previous `act-{M}.md` files. Expand the target act into:
 
-1. **Scene list** — named scenes (not YAML IDs yet, just descriptive names), in rough order
-2. **Scene purposes** — one line each: what happens, what the reader learns or decides
-3. **Choice points** — which scenes branch, what the choices are, where each branch goes. For each gated choice, note:
-   - **Grey out vs hide** — grey out when the player should know the option exists but can't take it; hide (`hide_if_failed`) when its existence would be a spoiler
-   - **Consumable choices** — choices that should vanish after being taken (sold item, one-time action). Mark these explicitly — they require `flags_unset` on `requires` AND the same flag set on `effects`. Easy to forget; plan them now.
-   - **Weighted random** — choices where the destination is uncertain (travel, exploration, NPC mood). Note the likely outcomes and rough odds.
-4. **How it enters and exits** — first scene (what arrives from previous act), last scene(s) (what feeds next act or endings)
-5. **Flags/stats touched** — what changes in this act and why. Note which flags should be **player-visible** in the HUD.
+1. **Beats** — the 4–8 narrative units that make up the act. Each beat is a clear chunk of story (an arrival, a confrontation, a discovery, a hub stay). One sentence on what happens, one on what the player decides or learns.
+2. **Beat connections** — which beats follow which. Linear chain, branching, hub-and-spoke. A beat may have multiple downstream beats based on player choice — note the branch condition (flag, stat, or simply the player's pick), not the choice text yet.
+3. **Hubs and conversations** — name any hub or conversation node the act needs. These will be designed as looping structures in Stage 3.
+4. **Entry** — what the player arrives with (carried flags, stats, allies). Match to previous act's exits.
+5. **Exits** — define each distinct exit configuration explicitly: who exited with the player, which flags are set, stat shifts, which beat/scene the player leaves from. Aim for 4–6 distinct exit states. The next act's author needs these to design clean entry branching.
+6. **Flags/stats touched** — what changes in this act and why. Note which flags should be **player-visible** in the HUD.
 
-Keep it narrative, not technical. No YAML, no engine syntax. Just a clear map a writer could follow.
+Keep it narrative, not technical. No YAML, no engine syntax, no scene names. Just the act's bones.
 
-If the act is large (10+ scenes), it's fine to group scenes into "beats" rather than listing every individual scene.
+**Pacing context.** When considering how many beats an act needs, remember scenes will be short (~15–30 seconds of reading) with frequent choices (3–6 per scene, including convergent ones). Don't try to cram a beat's worth of story into one big set-piece — beats expand to multiple scenes in Stage 3, so a beat can be small.
 
 ---
 
 ## Output
 
-Write or append `stories/{id}/act-{n}.md`:
+Write `stories/{id}/act-{n}.md`:
 
 ```markdown
 # {Title} — Act {N}: {Name}
 
-## Entry
-Arrives from: {previous act exit or story start}
-Player state: what flags/stats are set entering this act
+## Journal Entry
+One line, second person, marks this act's transition for the player. Recorded to the journal sidebar when the player first enters this act. Will be copied verbatim into `_act.yaml`'s `journal:` field at Stage 5. Mandatory.
 
-## Scenes
+## Entry
+Arrives from: {previous act exit name(s) or story start}
+Player state: which flags/stats are set entering this act
+
+## Beats
 
 ### Beat 1 — {name}
-Scenes: {Scene A}, {Scene B}
 What happens: ...
-Choice point: [choice text] → {outcome A} or {outcome B}
-Gating: {which choices are gated, grey-out or hidden, consumable or not}
-Random: {any weighted destinations and rough odds}
+What the player decides/learns: ...
+Connects to: Beat 2 (linear) | Beat 2 or Beat 3 depending on {condition}
 
 ### Beat 2 — {name}
 ...
 
 ### Hub — {name} (if applicable)
-Returns to: this scene after each branch
-Choices available: {list topics/actions}
-Gating: {which options open/close as flags change}
-Exit: {what choice finally leaves the hub}
+Purpose: ...
+Returned to from: {which beats loop back here}
+Exits to: {which beats can leave here, under what conditions}
 
-### Conversation — {NPC name} (if applicable)
-Topics: {list question topics}
-Each topic: sets a flag, loops back; topic disappears once exhausted
-Exit: always-available "walk away" choice
+### Conversation — {NPC} (if applicable)
+Purpose: ...
+Where it sits in the beat flow: ...
 
 ## Exits
-- Path A → Act {N+1} / Ending {X}
-- Path B → Act {N+1} / Ending {Y}
+- **Exit A — {name}:** leaves from Beat {X}; player carries {flags/allies/stats}; → Act {N+1} entry / Ending {Y}
+- **Exit B — {name}:** ...
+- (4–6 distinct exit states recommended)
 
 ## Flags/Stats Changed
-- `flag_name` set when: ...
+- `flag_name` set when: ... (player-visible? Y/N)
 - `stat_name` changes: ...
 ```
 
@@ -72,10 +88,11 @@ Exit: always-available "walk away" choice
 
 ## Done when
 
-- Every beat has a purpose and at least one choice
-- Entry and exits align with `structure.md`
-- No orphan paths (every branch resolves to a named exit)
-- All consumable choices are flagged (not left to be caught in Stage 3)
-- Grey-out vs hide decision is noted for every gated choice
-- Weighted random scenes are identified with intended odds
-- Act can be handed to a scene-writer without further clarification
+- Journal Entry written (one line, second person, marks the act transition)
+- All beats listed, each with a one-line purpose and at least one decision/learning point
+- Beat connections form a coherent map (no orphans, no dead ends unless intentional)
+- Entry aligns with previous act's exits (or story start)
+- Exits are distinct, named, and specify carried state — Stage 3 and the next act can both use them
+- Hubs and conversations are named (full design happens in Stage 3)
+- All flags/stats changes are listed with player-visible marking
+- A scene-breakdown writer (Stage 3) could expand any beat without further clarification

@@ -856,7 +856,7 @@ function renderChoices(scene) {
   const choiceList = el.querySelector('.choice-list');
   if (choiceList) {
     requestAnimationFrame(() => {
-      if (divider) divider.classList.remove('choices-hidden');
+      if (divider) { divider.style.opacity = ''; divider.style.transition = ''; divider.classList.remove('choices-hidden'); }
       requestAnimationFrame(() => choiceList.classList.add('choices-visible'));
     });
   }
@@ -872,6 +872,12 @@ function renderChoices(scene) {
       const fastMs = parseFloat(root.getPropertyValue('--anim-choice-fade-fast')) || 250;
       const lingerMs = parseFloat(root.getPropertyValue('--anim-choice-linger-ms')) || 1200;
       const slowMs = parseFloat(root.getPropertyValue('--anim-choice-fade-slow')) || 500;
+
+      const divider = document.getElementById('choices-divider');
+      if (divider) {
+        divider.style.transition = `opacity ${fastMs}ms ease`;
+        divider.style.opacity = '0';
+      }
 
       allBtns.forEach(btn => {
         if (btn === chosenBtn) return;

@@ -3,3 +3,4 @@
 # Audio: generate_audio.py reads title and outputs audio/{slug}.opus automatically.
 
 title: Act One — The Title
+journal: "Act-opening journal entry — second person, marks the act transition for the player. Mandatory on every _act.yaml."

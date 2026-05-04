@@ -1,6 +1,8 @@
 # Stage 0: Discovery
 
-**Goal:** Understand the story and establish its visual identity. Outputs: `stories/{id}/brief.md` and `stories/{id}/theme.css`.
+**Goal:** Explore the story in broad strokes. Don't settle on specifics yet — that's Stage 1's job. Output: `stories/{id}/brief.md`.
+
+This stage is exploratory. Capture the shape of the idea, not the final form. Specific commitments (exact narrator voice, opening journal line, CSS palette) belong in Stage 1 once the premise has solidified.
 
 ---
 
@@ -19,8 +21,8 @@ Cover:
    - These are *total authored scenes* across all branches — a player sees maybe 30–40% in one run
    - Short (~30) ≈ 10–15 min playthrough; medium (~80) ≈ 20–30 min; long (~150+) ≈ 45–60 min per run
 7. **Tone reference** — a book, game, or film this should feel like
-8. **Visual feel** — colours, fonts, mood (e.g. "amber on black like a terminal", "parchment and ink", "cold neon sci-fi")
-9. **Narrator voice** — pick from `narrator/` voices in `tts_voices/voices.yaml` (e.g. `narrator_male_ron_perlman` for Fallout-style gravel; `narrator_male_wayne_june` for cosmic horror). Use the leaf-key ID exactly as it appears in the file — the audio script resolves it to `tts_voices/{voice_id}.wav`. Record the chosen ID in the brief. NPC voices are assigned later in Stage 3 (cast).
+8. **Visual feel** — broad mood only (e.g. "amber on black like a terminal", "parchment and ink", "cold neon sci-fi"). Exact palette and fonts come in Stage 1.
+9. **Narrator voice** — discuss the ideal narrator for this story (tone, age, gender, accent, delivery — e.g. "gravelly post-apoc", "cosmic-horror dread", "warm storyteller"). Then look at what's actually available under `narrator/` in `tts_voices/voices.yaml` and propose the closest matches. **Always also propose 3–5 candidate new narrators by name** — real people whose voices could be cloned from publicly available recordings (interviews, podcasts, audiobooks, actual-play streams, film/TV). Don't use vague archetypes ("warm DM voice"); name actual humans (e.g. Matthew Mercer, Brennan Lee Mulligan, Patrick Stewart, Stephen Fry, Brian Blessed, Roy Dotrice, Rob Inglis). For each, note: who they are, what kind of recording is available to clip from, register/tone, why they fit this story, and any tradeoff. Recommend one. The user can then pick an existing voice, commission cloning from a real-person clip, or compromise. Record the chosen voice ID (leaf-key from voices.yaml, or a placeholder ID for a to-be-cloned voice) in the brief, and note any gap. NPC voices are assigned later in Stage 4.
 
 ---
 
@@ -55,10 +57,10 @@ Flags: yes/no — examples
 ...
 
 ## Visual Feel
-...
+Broad mood — colours, atmosphere. Exact palette decided in Stage 1.
 
 ## Narrator Voice
-TTS voice ID from `tts_voices/voices.yaml` (must be under `narrator/`)
+Ideal-narrator description (tone, age, gender, accent, delivery) + chosen voice ID from `tts_voices/voices.yaml` (leaf-key under `narrator/`). Note any gap between ideal and available.
 
 ## Open Questions
 Any unresolved decisions the author needs to make before Stage 1.
@@ -66,69 +68,10 @@ Any unresolved decisions the author needs to make before Stage 1.
 
 ---
 
-## Step 3: Write theme.css
-
-Translate the Visual Feel into `stories/{id}/theme.css`. Override all base CSS variables — a partial override lets the defaults bleed through.
-
-Base variables (from `style.css`):
-
-```css
---bg              /* page background */
---surface         /* card / panel surfaces */
---text            /* primary text */
---text-muted      /* secondary / dimmed text */
---border          /* borders and dividers */
---hover-bg        /* subtle hover highlight */
---accent          /* primary action colour */
---accent-hover
---btn-secondary-bg
---btn-secondary-hover
---radius
---font-body       /* serif stack — narrative and choices (default: EB Garamond) */
---font-ui         /* sans-serif stack — HUD, labels, buttons */
---font-heading    /* heading stack — act titles, HUD keys (default: Cinzel) */
-
-/* Parchment frame */
---border-outer          /* outer ring colour */
---border-inner          /* inner ring colour */
---border-corner-radius  /* frame corner rounding */
---frame-inset           /* gap between frame and viewport edge */
-
-/* Narrative / choices divider */
---divider-color         /* colour of the horizontal rule between text and choices */
---divider-style         /* full border shorthand, e.g. 2px solid var(--divider-color) */
-
-/* Drop cap */
---drop-cap-color        /* colour of the large first letter (defaults to --accent) */
---drop-cap-size         /* size in em units (default: 3.5em) */
-
-/* Act title */
---act-title-size        /* font size of act heading (default: 2rem) */
---act-rule-color        /* colour of decorative rules around act title */
---act-rule-style        /* full border shorthand for act rules */
-
-/* Animations — override to slow down or speed up */
---anim-block-duration       /* text block fade+slide in (default: 350ms) */
---anim-choice-duration      /* choice list slide up (default: 300ms) */
---anim-act-title-duration   /* act title fade+scale (default: 600ms) */
---anim-choice-fade-duration /* unchosen choice fade (default: 250ms) */
-```
-
-Add a Google Fonts `@import` at the top if needed. Keep fonts readable at 16px — atmosphere is secondary to legibility.
-
-Theme guidelines:
-- **Dark/post-apoc (Fallout-style):** dark desaturated bg, amber/green text, monospace or slab-serif body
-- **Gothic/horror:** near-black bg, deep red accent, old-style serif
-- **Fantasy:** parchment bg, ink-brown text, humanist serif
-- **Sci-fi:** dark navy, cyan/blue accent, clean sans-serif body
-
-Present the palette to the user for approval before saving. Adjust if needed.
-
----
-
 ## Done when
 
 - `brief.md` exists and all sections are filled
 - "Open Questions" is empty or user has acknowledged they'll decide later
-- `theme.css` exists with all variables overridden, user has approved the palette
 - Story ID and title are confirmed
+- Narrator voice is chosen (or gap is acknowledged)
+- **Hard confirmation from the user** that Stage 0 is complete before moving to Stage 1. Do not proceed without explicit sign-off.

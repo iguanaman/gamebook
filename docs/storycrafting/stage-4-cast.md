@@ -1,8 +1,18 @@
-# Stage 3: Cast Sheet
+# Stage 4: Cast Sheet
 
 **Goal:** Define every named NPC the player will meet — voice, contradiction, body, mannerism, motive — and assign each a TTS voice. Output: `stories/{id}/cast.md`.
 
-**Prerequisite:** All `act-{n}.md` files must exist. The cast is gathered from across all acts, so it cannot be written until the act breakdowns are complete.
+**Prerequisite:** All `act-{n}.md` (beats) and `act-{n}-scenes.md` (scene breakdowns) files must exist. The cast is gathered from across all acts — each scene-breakdown's "NPCs in this act" section is the authoritative list to draw from.
+
+---
+
+## Hands-off mode
+
+Stage 0 was the question stage. From Stage 1 onward, run hands-off:
+
+- **Do not ask the user questions.** Pick voices and characterisation from the available library and prior outputs. If a voice gap exists, note it in the cast entry and continue with the closest match.
+- **Auto-fix issues.** If validation fails or a problem is found (NPC missing characterisation, voice clashes between major NPCs sharing scenes), fix it and keep going — don't halt for confirmation.
+- Only stop and surface if upstream docs are contradictory in a way no reasonable interpretation resolves.
 
 ---
 
@@ -16,8 +26,8 @@ It also fixes TTS voice assignments. Without a fixed assignment, beat writers wi
 
 ## What to do
 
-1. Read `brief.md`, `structure.md`, every `act-{n}.md`, and `docs/storycrafting/principles.md` (the "Characters" section).
-2. List every named NPC across all acts. Include any NPC with at least one line of dialogue or one decision the player makes about them.
+1. Read `brief.md`, `structure.md`, every `act-{n}.md`, every `act-{n}-scenes.md`, and `docs/storycrafting/principles.md` (the "Characters" section).
+2. Compile the NPC roster from each scene-breakdown's "NPCs in this act" section. Include any NPC with at least one line of dialogue or one decision the player makes about them.
 3. Run `python list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. Voice IDs are leaf keys in the file (e.g. `female_adult_american_cool`, `male_midlife_english_posh`). The `narrator/` and `robot/` branches are **off-limits** for NPC assignment — narrator voices are reserved for the story's narrator (set in `story.yaml`), and robot voices are reserved for in-world computer/screen text (used directly as a voice ID prefix in scene YAML).
 4. Assign a voice to each NPC. **Avoid reuse where possible** — if there are more NPCs than voices, only then double up, and only on NPCs who never share a scene. Match voice traits to character: a posh English accent fits an overseer better than a chirpy Scottish one.
 5. Write `cast.md`.

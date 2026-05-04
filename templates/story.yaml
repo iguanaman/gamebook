@@ -6,6 +6,7 @@ title: Story Title
 description: One or two sentences shown on the selector screen.
 cover: images/cover.jpg     # optional — must be named cover.jpg; silently hidden if missing
 start: start                # ID of the first scene (can include subfolder: act1/opening)
+journal: "Opening journal entry — written in second person, sets the scene the player starts in. Mandatory."
 stats:
   gold: 10                  # author-defined numeric stats; omit block entirely if none needed
   stamina: 20

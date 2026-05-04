@@ -2,7 +2,5 @@
 Thumbs.db
 tmp/
 *.log
-*.opus
 docs/superpowers/
-stories/
 tts_voices/
