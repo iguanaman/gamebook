@@ -4,3 +4,4 @@ tmp/
 *.log
 *.opus
 docs/superpowers/
+tts_voices/
