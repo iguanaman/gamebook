@@ -18,11 +18,17 @@ EXAGGERATION  = 2.0  # max expressiveness; turbo may ignore but worth sending
 # ─────────────────────────────────────────────────────────────────────────────
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
 import requests
 import yaml
+
+
+def act_audio_slug(text):
+    """Convert act title to audio slug (matching engine.js actAudioSlug)."""
+    return re.sub(r'[^a-z0-9]+', '_', text.lower()).strip('_')
 
 
 def load_yaml(path):
@@ -82,6 +88,9 @@ def process_story(story_id, force):
     default_voice = story.get("narrator", "narrator")
     print(f"  narrator voice: {default_voice}")
 
+    process_story_title(story_id, story, default_voice, force)
+    process_act_titles(story_id, story, default_voice, force)
+
     scenes_dir = story_dir / "scenes"
     scene_files = list(scenes_dir.rglob("*.yaml"))
 
@@ -115,6 +124,44 @@ def process_story(story_id, force):
         scene.pop("timings", None)
         save_yaml(scene_file, scene)
         print(f"         saved → {[block_audio_path(scene_id, ri, s) for (_, _, ri, s) in scene_blocks]}")
+
+
+def process_story_title(story_id, story, default_voice, force):
+    """Generate story_title.opus from story.yaml title field."""
+    story_dir = Path(STORIES_DIR) / story_id
+    title = story.get("title", "")
+    if not title:
+        return
+    out_path = story_dir / "audio" / "story_title.opus"
+    if out_path.exists() and not force:
+        return
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    print(f"  [gen]  story_title: {default_voice!r}")
+    opus = synthesize(title, default_voice, EXAGGERATION)
+    out_path.write_bytes(opus)
+    print(f"         saved → audio/story_title.opus")
+
+
+def process_act_titles(story_id, story, default_voice, force):
+    """Generate act title audio from _act.yaml files."""
+    story_dir = Path(STORIES_DIR) / story_id
+    scenes_dir = story_dir / "scenes"
+    if not scenes_dir.exists():
+        return
+    for act_file in sorted(scenes_dir.rglob("_act.yaml")):
+        act = load_yaml(act_file)
+        title = act.get("title", "")
+        if not title:
+            continue
+        slug = act_audio_slug(title)
+        out_path = story_dir / "audio" / f"{slug}.opus"
+        if out_path.exists() and not force:
+            continue
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        print(f"  [gen]  act title '{title}': {default_voice!r}")
+        opus = synthesize(title, default_voice, EXAGGERATION)
+        out_path.write_bytes(opus)
+        print(f"         saved → audio/{slug}.opus")
 
 
 def main():
