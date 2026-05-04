@@ -1,29 +1,27 @@
 text:
-- |-
-  He holds for the first two, and the third, and the third is the one that finds the gap — a bone-wight's claw, black and longer than it has any right to be, hooked up through the bottom of his helm and into the back of his neck.
-- |-
-  Korsa goes down slowly. Not falling — kneeling. His axe doesn't leave his hand.
-- |-
-  The wight gets your blade through its skull a half-second later. You make sure of that. The rest of the fight is fast and ugly and you barely feel it happening.
-- |-
-  When it's done you go back to him. His eyes are open. The mourning-band in his beard is the last thing you see clearly before you have to look at something else.
+- He holds for the first two, and the third, and the third is the one that finds the
+  gap — a bone-wight's claw, black and longer than it has any right to be, hooked
+  up through the bottom of his helm and into the back of his neck.
+- Korsa goes down slowly. Not falling — kneeling. His axe doesn't leave his hand.
+- The wight gets your blade through its skull a half-second later. You make sure of
+  that. The rest of the fight is fast and ugly and you barely feel it happening.
+- When it's done you go back to him. His eyes are open. The mourning-band in his beard
+  is the last thing you see clearly before you have to look at something else.
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died, vesna_left]
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - vesna_left
   text:
-  - female_adult_american_gentle_tender_sweet: |-
-      [sigh] Tymora keep you, Korsa Ironbrow. She keeps the brave ones close.
-  - |-
-    Vesna's voice doesn't waver. She's prayed for the dead before.
-- |-
-  The far door stands open. The steps beyond it go down.
-- journal: |-
-    Korsa died in the cellar beneath Undermountain. A bone-wight's claw, a gap in the plate. He didn't let go of his axe.
-
-
+  - female_adult_american_gentle_tender_sweet: '[sigh] Tymora keep you, Korsa Ironbrow.
+      She keeps the brave ones close.'
+  - Vesna's voice doesn't waver. She's prayed for the dead before.
+- The far door stands open. The steps beyond it go down.
+- journal: Korsa died in the cellar beneath Undermountain. A bone-wight's claw, a
+    gap in the plate. He didn't let go of his axe.
 choices:
-- text: |-
-    Carry him out — through the door
+- text: Carry him out — through the door
   next: act2/deep_chamber_enter
   effects:
     flags:
@@ -33,9 +31,7 @@ choices:
       body_recovered: true
     stats:
       Vigor: -3
-
-- text: |-
-    Leave him. He'd say go.
+- text: Leave him. He'd say go.
   next: act2/deep_chamber_enter
   effects:
     flags:
