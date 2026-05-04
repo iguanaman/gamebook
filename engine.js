@@ -253,26 +253,6 @@ function actAudioSlug(actText) {
   return actText.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 }
 
-function playActTitleAudio(actText, onDone) {
-  const slug = actAudioSlug(actText);
-  const url = `stories/${currentStoryId}/audio/${slug}.opus`;
-  const animDuration = parseFloat(
-    getComputedStyle(document.documentElement).getPropertyValue('--anim-act-title-duration')
-  ) || 600;
-
-  setTimeout(() => {
-    currentAudio = new Audio(url);
-    let settled = false;
-    function settle() {
-      if (settled) return;
-      settled = true;
-      setTimeout(onDone, ACT_TITLE_PAUSE_MS);
-    }
-    currentAudio.addEventListener('ended', settle, { once: true });
-    currentAudio.addEventListener('error', settle, { once: true });
-    currentAudio.play().catch(settle);
-  }, animDuration);
-}
 
 function showTitleSplash(text, audioUrl, onDone) {
   app.innerHTML = '';
@@ -406,37 +386,6 @@ async function loadScene(storyId, sceneId) {
   return fetchYaml(`stories/${storyId}/scenes/${sceneId}.yaml`);
 }
 
-function injectActTitle(actText) {
-  const el = document.getElementById('narrative');
-  if (!el) return;
-  el.innerHTML = '';
-  currentNarrativeOffset = 0;
-  const div = document.createElement('div');
-  div.className = 'act-title act-title-hidden';
-  div.dataset.act = actText;
-
-  const ruleTop = document.createElement('hr');
-  ruleTop.className = 'act-rule act-rule-top';
-
-  const h2 = document.createElement('h2');
-  h2.className = 'act-heading';
-  h2.textContent = actText;
-
-  const ruleBottom = document.createElement('hr');
-  ruleBottom.className = 'act-rule act-rule-bottom';
-
-  div.appendChild(ruleTop);
-  div.appendChild(h2);
-  div.appendChild(ruleBottom);
-  el.appendChild(div);
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      div.classList.remove('act-title-hidden');
-      div.classList.add('act-title-visible');
-    });
-  });
-}
 
 async function navigateTo(sceneId) {
   stopAudio();

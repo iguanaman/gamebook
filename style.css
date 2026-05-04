@@ -32,11 +32,6 @@
   --drop-cap-color: var(--accent);
   --drop-cap-size: 3.5em;
 
-  /* Act title */
-  --act-title-size: 2rem;
-  --act-rule-color: var(--divider-color);
-  --act-rule-style: 1px solid var(--act-rule-color);
-
   /* Animations */
   --anim-block-duration: 350ms;
   --anim-choice-duration: 300ms;
@@ -118,7 +113,7 @@ button {
     inset 0 0 0 8px var(--bg),
     0 0 0 2px var(--border-outer);
   pointer-events: none;
-  z-index: 100;
+  z-index: 300;
 }
 
 /* ── Selector ─────────────────────────────────────────────────────────────── */
@@ -330,41 +325,6 @@ button {
   font-size: 1.05rem;
 }
 
-/* ── Act title ────────────────────────────────────────────────────────────── */
-
-.act-title {
-  text-align: center;
-  padding: 2rem 0 1.5rem;
-}
-
-.act-title-hidden {
-  opacity: 0;
-  transform: scale(1.05);
-}
-
-.act-title-visible {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity var(--anim-act-title-duration) ease,
-              transform var(--anim-act-title-duration) ease;
-}
-
-.act-heading {
-  font-family: var(--font-heading);
-  font-size: var(--act-title-size);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin: 0.75rem 0;
-}
-
-.act-rule {
-  border: none;
-  border-top: var(--act-rule-style);
-  margin: 0 2rem;
-  opacity: 0.6;
-}
 
 /* ── Story title splash ───────────────────────────────────────────────────── */
 
