@@ -1,0 +1,234 @@
+text:
+  # Body recovered — first farewell to fire
+  - if:
+      flags: [body_recovered]
+      flags_unset: [companion_body_honoured]
+    text: |-
+      Durnan moves along the bar without a word, lifts a clean cloth from under the counter,
+      and lays it over the body behind the door. He doesn't look up. He goes back to his
+      polishing.
+
+  # pip_angry layer — from caltrops incident (fires over whatever else)
+  - if:
+      flags: [pip_angry, recruited_pip]
+      flags_unset: [pip_died]
+    text: |-
+      Pip glances at you sideways, counting something on her fingers. One copper. Two.
+
+  - if:
+      flags: [pip_angry, recruited_pip]
+      flags_unset: [pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Still sore about the caltrops. Not asking for an apology. Just — noted.
+
+  # α / β-with-partner-alive: grinning, counts cut, flicks copper
+  - if:
+      flags: [recruited_pip, rescued]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      Pip is at the corner table. She has her cut laid out in three piles sorted by denomination —
+      which is either habit or showmanship; with Pip it was never clear which.
+
+  - if:
+      flags: [recruited_pip, rescued]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      She looks up when you sit across from her. Grins. She has a copper between two fingers.
+
+  - if:
+      flags: [recruited_pip, rescued]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Thirty-two copper, four silver, one ring of uncertain value. Not bad for a night's work.
+        Here — your cut, and this one's a tip. For the entertainment value.
+
+  - if:
+      flags: [recruited_pip, rescued]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      She flicks the copper to you. It catches the lamplight on the way.
+
+  - if:
+      flags: [recruited_pip, rescued]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Gone by morning, by the way. Don't take it personally — it's policy.
+
+  # β — partner died: quiet, still counts
+  - if:
+      flags: [recruited_pip]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      Pip is at the corner table. Three piles, same as always. She doesn't look up when you sit.
+
+  - if:
+      flags: [recruited_pip]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      She counts the last stack. Separates two coppers. Slides one half of the table toward you
+      without comment.
+
+  - if:
+      flags: [recruited_pip]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Go in, come out. That's the deal.
+
+  - if:
+      flags: [recruited_pip]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      She doesn't flick the copper this time. Sets it down. Two words on the empty stool across
+      from her that she hasn't touched since she sat down — not three, not four. Two.
+
+  - if:
+      flags: [recruited_pip]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Good company.
+
+  # γ — bargained, marked apprentice
+  - if:
+      flags: [recruited_pip, rescued, bargained]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      Pip is counting her cut. Slower than usual. Her eyes keep finding Linnet across the room
+      and finding something else to look at.
+
+  - if:
+      flags: [recruited_pip, rescued, bargained]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        That mark. On her hand. I'm not going to say what I think it is.
+
+  - if:
+      flags: [recruited_pip, rescued, bargained]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      She pushes her cut toward you. All of it.
+
+  - if:
+      flags: [recruited_pip, rescued, bargained]
+      flags_unset: [stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Yours. I got paid in exits — I found four. That's enough for me.
+
+  # δ — not rescued, refunds cut
+  - if:
+      flags: [recruited_pip, met_the_thing_below]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      Pip has her cut on the table. She pushes it across to you with two fingers. No ceremony.
+
+  - if:
+      flags: [recruited_pip, met_the_thing_below]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Keep it.
+
+  - if:
+      flags: [recruited_pip, met_the_thing_below]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      You start to object. She puts up one hand.
+
+  - if:
+      flags: [recruited_pip, met_the_thing_below]
+      flags_unset: [rescued, stirred_something, pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Job was to find her. We found her. Wasn't in the contract what happened next. Keep it.
+        Buy something useful.
+
+  # ε — already at the door
+  - if:
+      flags: [recruited_pip, stirred_something]
+      flags_unset: [pip_died]
+    text: |-
+      Pip has her pack on. She is at the door. She was at the door before most of the room
+      worked out something was wrong — she felt the exits change and started moving.
+
+  - if:
+      flags: [recruited_pip, stirred_something]
+      flags_unset: [pip_died]
+    text: |-
+      She sees you coming and holds up her share of the cut — three fingers. She splits it one-two,
+      the smaller share toward you, the larger into her jacket.
+
+  - if:
+      flags: [recruited_pip, stirred_something]
+      flags_unset: [pip_died]
+    text: |-
+      female_young_american_lisp: |-
+        Don't follow me. Not because I don't like you — because you'll slow me down.
+
+  - if:
+      flags: [recruited_pip, stirred_something]
+      flags_unset: [pip_died]
+    text: |-
+      She's gone before you have the coin properly pocketed.
+
+choices:
+  # ε — already leaving
+  - text: |-
+      Pocket the coin. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        pip_farewell_done: true
+        pip_farewell_already_leaving: true
+        companion_body_honoured: true
+    requires:
+      flags: [stirred_something]
+      flags_unset: [pip_died]
+    hide_if_failed: true
+
+  # δ — refunded
+  - text: |-
+      Take the cut. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        pip_farewell_done: true
+        pip_farewell_refunded: true
+        companion_body_honoured: true
+      stats:
+        Coin: 2
+    requires:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued, stirred_something, pip_died]
+    hide_if_failed: true
+
+  # γ — bargained, all paid
+  - text: |-
+      Take the lot. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        pip_farewell_done: true
+        pip_farewell_paid: true
+        companion_body_honoured: true
+      stats:
+        Coin: 2
+    requires:
+      flags: [rescued, bargained]
+      flags_unset: [stirred_something, pip_died]
+    hide_if_failed: true
+
+  # α / β / ζ — paid
+  - text: |-
+      Catch the copper. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        pip_farewell_done: true
+        pip_farewell_paid: true
+        companion_body_honoured: true

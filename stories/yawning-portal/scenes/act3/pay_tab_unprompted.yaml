@@ -1,0 +1,24 @@
+text:
+  - |-
+    You set the coin on the bar without being asked. Durnan looks at it, then at you. He picks
+    it up, holds it between two fingers, and drops it into the box under the counter.
+
+  - |-
+    male_midlife_american_deep_raspy_authentic: |-
+      Appreciated. Most people wait for me to ask.
+
+  - |-
+    He doesn't say anything else. He doesn't need to. The regulars at the nearest table caught
+    the exchange, and that is the most efficient kind of reputation-making there is.
+
+choices:
+  - text: |-
+      Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        paid_tab_unprompted: true
+        durnan_respects_you: true
+      stats:
+        Coin: -2
+        Renown: 1

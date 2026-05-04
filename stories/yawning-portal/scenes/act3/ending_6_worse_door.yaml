@@ -1,0 +1,113 @@
+journal: |-
+  Something below was stirred. The books are not closed. The night is not over.
+
+text:
+  # Dread variant — stirred_something
+  - if:
+      flags: [stirred_something]
+    text: |-
+      The Portal's door closes behind you and the sound of the well — that low pressure, more
+      felt than heard — is cut off. Just cut off. You stand on the step and listen. Nothing.
+      Waterdeep's pre-dawn streets. Gas-lamps, cobblestones, the distant sound of a cart.
+
+  - if:
+      flags: [stirred_something]
+    text: |-
+      You know the silence is not the absence of the thing. The thing does not stay in the
+      building.
+
+  # Dread — with rescued Linnet
+  - if:
+      flags: [stirred_something, rescued]
+    text: |-
+      Linnet is beside you on the step. She has not shivered since you left the rope. In the
+      street she looks up and to the left — at nothing you can see. Then she looks at you.
+
+  - if:
+      flags: [stirred_something, rescued]
+    text: |-
+      female_young_american_sweet_youthful_clear: |-
+        It knows where we're going.
+
+  - if:
+      flags: [stirred_something, rescued]
+    text: |-
+      She says it with her own voice — not the flat wrongness of the deep chamber, not the
+      marked slowness of the return. Herself, more or less. Just — aware of something you are
+      not yet.
+
+  # Dread — without rescued
+  - if:
+      flags: [stirred_something]
+      flags_unset: [rescued]
+    text: |-
+      You are alone on the step. The street is empty and the city is starting its morning, and
+      somewhere behind the closed door something breathes and breathes and breathes.
+
+  # Dead companion + body recovered, dread variant
+  - if:
+      flags: [stirred_something, body_recovered]
+      flags_unset: [companion_body_honoured]
+    text: |-
+      Inside, behind the bar, Durnan will reach for a cloth before long. The body will be
+      covered. That is the kindness he can offer tonight. He could not offer the other kind.
+
+  # Cold variant — left_without_settling, not stirred
+  - if:
+      flags: [left_without_settling]
+      flags_unset: [stirred_something]
+    text: |-
+      The Portal's door closes behind you. The lock catches. Warm light through the high
+      windows — the regulars are still in there, the fire is still going, the dice table
+      is still arguing about whatever the dice table is always arguing about.
+
+  - if:
+      flags: [left_without_settling]
+      flags_unset: [stirred_something]
+    text: |-
+      The books are open on the bar. Nobody closed them. You chose not to close them, which
+      is a different thing. The coin and the job and the night's accounting — open, all of
+      it, and you are here on the step in the pre-dawn cold with the coins you have and the
+      names you know and the door swinging shut.
+
+  - if:
+      flags: [left_without_settling]
+      flags_unset: [stirred_something]
+    text: |-
+      That's alright. You can carry open accounts. You have before.
+
+  # Both variants — the street
+  - |-
+    Waterdeep's pre-dawn streets. Gas-lamps burning steady gold along the cobbles. The harbour
+    smell — brine, pitch, the particular cold of moving water. The city is not awake yet, but
+    it is breathing.
+
+  # Final line — dread
+  - if:
+      flags: [stirred_something]
+    text: |-
+      You walk. Not running. Walking — because running would be the wrong signal to send to
+      a thing that has been patient for longer than the city has had walls. Coin in the purse.
+      The thing at your back. The door closed behind you and the thing is not behind the door.
+
+  - if:
+      flags: [stirred_something]
+    text: |-
+      Somewhere under the Yawning Portal, something breathes.
+
+  # Final line — cold
+  - if:
+      flags: [left_without_settling]
+      flags_unset: [stirred_something]
+    text: |-
+      You walk east. The city does not know your name yet, or does, or will. The night is done
+      and the books are open and you are somewhere in the middle of a story that has not
+      decided what kind of story it is.
+
+  - if:
+      flags: [left_without_settling]
+      flags_unset: [stirred_something]
+    text: |-
+      That's fine. You can work with that.
+
+choices: []

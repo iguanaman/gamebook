@@ -1,0 +1,85 @@
+text:
+  - |-
+    Mirt's table is the warmest in the room — he has been sitting at it so long it radiates
+    him. He already has a fresh tankard waiting on the opposite side. He slides the chair out
+    with one foot when you're still three steps away.
+
+  - |-
+    male_midlife_american_loud_confident_cocky: |-
+      There it is. Sit down, young blood. You look like someone who could use ten minutes off
+      their feet and a conversation that doesn't require lying.
+
+  - |-
+    He opens an envelope with one thick thumb and sets it on the table between you. Inside:
+    a folded letter, a key, five gold coins, and a small card with an address in the Trades Ward.
+
+  - |-
+    male_midlife_american_loud_confident_cocky: |-
+      Room above a tailor's shopfront — clean, warm, window looks onto the street. Paid three
+      months. The letter of introduction gets you two meetings with people whose names you'll
+      find useful — and so on, as the work comes. Nothing you can't refuse. Nothing you'll
+      regret taking.
+
+  - |-
+    He leans back. The tankard goes up; he drinks half of it without taking his eyes off you.
+
+  - |-
+    male_midlife_american_loud_confident_cocky: |-
+      I've been watching the Portal's door for thirty years, and I know a person worth placing
+      when they walk back up that rope. The city is a big room, and I'm offering you a chair
+      in it. Which is to say — the chair is there whether you take it tonight or not, but tonight
+      the offer's warm.
+
+choices:
+  - text: |-
+      Take Mirt's hand.
+    next: ending_5_sworn
+    effects:
+      flags:
+        mirt_offer_resolved: true
+        stayed_in_city: true
+      stats:
+        Coin: 5
+
+  - text: |-
+      Decline — politely, with thanks.
+    next: bar_settle_up
+    effects:
+      flags:
+        mirt_offer_resolved: true
+        mirt_offer_declined: true
+      stats:
+        Renown: 1
+    requires:
+      flags: [rescued]
+      flags_unset: [bargained]
+    hide_if_failed: true
+
+  - text: |-
+      Decline — politely, with thanks.
+    next: bar_settle_up
+    effects:
+      flags:
+        mirt_offer_resolved: true
+        mirt_offer_declined: true
+
+  - text: |-
+      Decline — bluntly. You have business elsewhere.
+    next: bar_settle_up
+    effects:
+      flags:
+        mirt_offer_resolved: true
+        mirt_offer_declined: true
+
+  - text: |-
+      Hear him out. What's the room above the shopfront like?
+    next: bar_settle_up
+    effects:
+      flags:
+        mirt_offer_resolved: true
+        mirt_offer_declined: true
+        mirt_offer_softened: true
+      stats:
+        Renown: 1
+    requires:
+      flags_unset: [mirt_offer_softened]

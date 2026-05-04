@@ -1,0 +1,187 @@
+text:
+  # All paths — Durnan reads the room before he reads you
+  - |-
+    Durnan does not ask what happened. He watched you come up the rope. He read Joren's face
+    before you crossed to the corner table. He has been doing this for thirty years and he does
+    it better than most prayers.
+
+  # α — clean rescue, high Renown: stands a drink
+  - if:
+      flags: [rescued]
+      stats:
+        Renown: 2
+      flags_unset: [bargained, stirred_something]
+    text: |-
+      He reaches under the bar. Sets a cup in front of you — the good brandy, the unlabelled
+      bottle he keeps for specific occasions. Does not pour one for himself.
+
+  - if:
+      flags: [rescued]
+      stats:
+        Renown: 2
+      flags_unset: [bargained, stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        On the house. Don't argue.
+
+  # α — clean rescue, lower Renown: quiet and good
+  - if:
+      flags: [rescued]
+      flags_unset: [bargained, stirred_something]
+      stats:
+        Renown: 1
+    text: |-
+      He pours something quiet and good — not the unlabelled bottle, but close. Sets it down
+      without ceremony. That is the ceremony.
+
+  # β — rescued, companion died: names the dead
+  - if:
+      flags: [rescued]
+      flags_unset: [bargained, stirred_something]
+    text: |-
+      # Dead companion acknowledgement — fires if any *_died flag is set
+      # Engine: this conditional checks all four; only first true renders
+    else: |-
+      He wipes the bar once, slow, in your direction. It is the closest he comes to a toast.
+
+  - if:
+      flags: [korsa_died, rescued]
+      flags_unset: [bargained, stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        Korsa. Good man. I'll remember the name.
+
+  - if:
+      flags: [vesna_died, rescued]
+      flags_unset: [bargained, stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        Vesna. She prayed the right way — for other people. I'll remember the name.
+
+  - if:
+      flags: [pip_died, rescued]
+      flags_unset: [bargained, stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        The halfling. She had good eyes. I'll remember the name.
+
+  - if:
+      flags: [thessaly_died, rescued]
+      flags_unset: [bargained, stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        The tiefling. She knew something she wasn't saying. I'll remember the name.
+
+  # γ — bargained, marked apprentice
+  - if:
+      flags: [rescued, bargained]
+      flags_unset: [stirred_something]
+    text: |-
+      His eyes go to Linnet for a moment. They take in the mark — whatever it is, whatever the
+      light shows — and come back to you without comment.
+
+  - if:
+      flags: [rescued, bargained]
+      flags_unset: [stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        We'll keep an eye on them. The both of you.
+
+  # δ — not rescued, met the thing: says the name
+  - if:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued, stirred_something]
+    text: |-
+      He sets a cup in front of you without asking what you want. Pours. Sets the bottle down
+      on the near side of the bar, within reach, in case you need it.
+
+  - if:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued, stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        Linnet.
+
+  - if:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued, stirred_something]
+    text: |-
+      Just the once. He doesn't say it again.
+
+  # ε — stirred something: the well
+  - if:
+      flags: [stirred_something]
+    text: |-
+      He isn't looking at you. He is looking at the well-mouth. Something about the angle of his
+      jaw suggests he's been looking at it since you came up the rope, and he has not yet decided
+      what to do about what he's hearing.
+
+  - if:
+      flags: [stirred_something]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        Bar a man up at the rim tonight.
+
+  - if:
+      flags: [stirred_something]
+    text: |-
+      He says it quietly. It doesn't sound like a question. He does not look away from the well.
+
+  # ζ — retreat, no descent
+  - if:
+      flags_unset: [descended_well, stirred_something, rescued, met_the_thing_below]
+    text: |-
+      He does not look up. His cloth keeps moving over the bar in the same slow circles.
+
+  - if:
+      flags_unset: [descended_well, stirred_something, rescued, met_the_thing_below]
+    text: |-
+      male_midlife_american_deep_raspy_authentic: |-
+        Another time, then.
+
+  - if:
+      flags_unset: [descended_well, stirred_something, rescued, met_the_thing_below]
+    text: |-
+      Three words. He means them as kindness, or as close as he gets.
+
+choices:
+  # Hero hinge — α + Renown ≥ 2, tab not yet cleared (Durnan stood the drink; deduct tab)
+  - text: |-
+      Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        durnan_final_done: true
+        durnan_stood_a_drink: true
+      stats:
+        Coin: -1
+    requires:
+      flags: [rescued]
+      stats:
+        Renown: 2
+        Coin: 1
+      flags_unset: [bargained, stirred_something, durnan_respects_you]
+    hide_if_failed: true
+
+  # Hero hinge — α + Renown ≥ 2, tab already cleared (durnan_respects_you means no charge)
+  - text: |-
+      Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        durnan_final_done: true
+        durnan_stood_a_drink: true
+    requires:
+      flags: [rescued, durnan_respects_you]
+      stats:
+        Renown: 2
+      flags_unset: [bargained, stirred_something]
+    hide_if_failed: true
+
+  # All other paths — no hero hinge, no tab deduction here
+  - text: |-
+      Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        durnan_final_done: true

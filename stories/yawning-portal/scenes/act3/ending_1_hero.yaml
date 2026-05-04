@@ -1,0 +1,68 @@
+journal: |-
+  You brought Linnet home. Durnan stood you a drink. The Portal remembered your name.
+
+text:
+  - |-
+    The brandy is good. You knew it would be — Durnan doesn't reach under the bar for anything
+    that isn't. You take it with both hands and the room has that quality it gets sometimes,
+    the quality of a thing that is going to be told later.
+
+  - |-
+    Joren and Linnet are at the corner table. She is talking — actually talking, herself,
+    the run-on urgency of someone who was underground for two days and has things to say about
+    it, the good version of that urgency. Joren is listening with his whole body. His collar is
+    still inside out. He will notice when he gets home.
+
+  - |-
+    male_midlife_american_deep_raspy_authentic: |-
+      You know what this place is, in the morning?
+
+  - |-
+    Durnan. You didn't hear him come over. He leans on the bar in the way of a man who has
+    owned the bar for so long he and it are the same conversation.
+
+  - |-
+    male_midlife_american_deep_raspy_authentic: |-
+      Same as it was last night. And the night before. The Portal doesn't change. People come
+      through it and some of them change, and some of them don't, and a very few of them —
+      he nods, once, toward the chair you're sitting in — get to stay.
+
+  - if:
+      flags: [korsa_farewell_warm]
+    text: |-
+      Korsa is still at the bar. He will be there until closing; you suspect he may be there
+      until breakfast. He catches your eye and raises his tankard an inch, the economy of a man
+      who has said everything with a grip.
+
+  - if:
+      flags: [vesna_farewell_blessed]
+    text: |-
+      Vesna's Tymora coin catches the firelight as she loops it back onto its cord. She gives
+      you the small smile of someone whose faith has been well-used tonight.
+
+  - if:
+      flags: [pip_farewell_paid]
+    text: |-
+      Pip is gone. The copper she flicked you is in your pocket. If you're honest, that's the
+      most satisfying part of the accounting.
+
+  - if:
+      flags: [thessaly_farewell_warning]
+    text: |-
+      Thessaly left an hour ago without ceremony — she does everything without ceremony —
+      and her last line sits at the back of your mind: *things like that remember*. You file
+      it under things to be careful about in the morning.
+
+  - |-
+    Through the high windows, a pale seam — the first suggestion of grey at the horizon.
+    The well is quiet. The rope hangs still at its rim.
+
+  - |-
+    Durnan refills your cup without being asked. He doesn't pour one for himself. He goes back
+    to the bar and the night does what nights do in places like this: it settles into the kind
+    of story someone will tell a stranger, next week, at this exact table.
+
+  - |-
+    Your chair is pulled in among the regulars now. You did not notice when that happened.
+
+choices: []

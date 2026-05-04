@@ -1,0 +1,96 @@
+journal: |-
+  You went down. You came back. Linnet did not come with you.
+
+text:
+  # δ — met the thing, Linnet is gone
+  - if:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued]
+    text: |-
+      Joren took the news the only way a person can take news like that — he folded around it,
+      quietly, while you were still finishing the sentence. He did not cry. He did not raise his
+      voice. He put the purse on the table and he left, and you heard the Portal's door close
+      behind him like a full stop.
+
+  - if:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued]
+    text: |-
+      You know what is down there. You know what Linnet found, and what it offered her, and
+      what she chose — or what was chosen for her, or what the line is between those two things
+      when the thing doing the offering is that old and that patient. You know all of it and
+      knowing it is not the same as having her at your side.
+
+  # ζ — retreat: did not witness, the not-knowing
+  - if:
+      flags_unset: [rescued, met_the_thing_below, descended_well]
+    text: |-
+      Joren took what you told him — a direction, a name, a fragment — and left with it like a
+      man who still has somewhere to go. Maybe he does. Maybe the Watch will move tomorrow, or
+      a different hired sword will go down in a week, or fortune will turn on its coin. You don't
+      know. You didn't go down. You don't know what's down there and that particular not-knowing
+      has a shape to it you will carry for a while.
+
+  # Dead companions
+  - if:
+      flags: [korsa_died]
+    text: |-
+      Korsa's axe-wedge is in the stone below level three. The door it held probably doesn't
+      hold anymore. That's fine. Korsa held it when it mattered.
+
+  - if:
+      flags: [vesna_died]
+    text: |-
+      Vesna's prayer-coin is gone from the rope. You keep thinking you should say something
+      in the direction of Tymora. You don't know the right words. You say the name — Vesna —
+      and that will have to be the prayer.
+
+  - if:
+      flags: [pip_died]
+    text: |-
+      Pip's lockpick roll is in your coat. You are going to keep it. You don't know why. You
+      just are.
+
+  - if:
+      flags: [thessaly_died]
+    text: |-
+      Thessaly knew something about what was down there. She would have figured the rest of it
+      out, given time. She didn't get the time. That's on the night, not on her.
+
+  # Body behind the bar
+  - if:
+      flags: [companion_body_honoured]
+    text: |-
+      Durnan's cloth is over the body behind the bar. In the morning, arrangements will be made.
+      Tonight, the cloth is enough.
+
+  # Durnan's final line
+  - |-
+    Durnan stays behind the bar until last call. He does what barkeeps do after a hard night —
+    he is present, he pours, he asks nothing.
+
+  - if:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued]
+    text: |-
+      He says the name once — Linnet — in the flat, respectful way he names things he can't
+      fix. Just the once. He does not say it again.
+
+  - |-
+    male_midlife_american_deep_raspy_authentic: |-
+      You went down. That counts.
+
+  - |-
+    It's a strange kind of comfort. It's the only kind he has for this, and he doesn't insult
+    you by making it more than it is.
+
+  - |-
+    Dawn comes in grey through the Portal's high windows. The well is quiet. Outside, Waterdeep
+    is waking up — carts on cobblestones, temple bells, the harbour beginning its commerce.
+    Tomorrow is already a day and you are already in it.
+
+  - |-
+    The night did not give you what you came for. The Portal is still the Portal. You are still
+    here. Tomorrow you will figure out what that means.
+
+choices: []

@@ -1,0 +1,86 @@
+journal: |-
+  You brought Linnet home. Not cleanly. Not without cost. The Portal is still the Portal.
+
+text:
+  - |-
+    Linnet's family comes just before dawn — an older woman in a night-coat who has been
+    awake since Joren sent word, and a younger man who is either a brother or a cousin and
+    has the same ink-stained hands as Linnet does. They thank you. They don't quite meet
+    your eyes, because meeting your eyes would require thinking about the alternative and
+    they are not ready to do that yet.
+
+  - |-
+    That's fine. You don't need them to meet your eyes.
+
+  - |-
+    The door closes behind them. Joren stands at the window, watching. He was going to
+    say something, but the moment passed and now the right words have somewhere else to be.
+    He nods at you — a nod with weight in it — and then he follows them out.
+
+  # Dead companion acknowledgement
+  - if:
+      flags: [korsa_died]
+    text: |-
+      Korsa. You say the name once, quietly, in the direction of the well. It is not a prayer.
+      It is the minimum.
+
+  - if:
+      flags: [vesna_died]
+    text: |-
+      Vesna. You say the name once. She would have prayed; you don't have that in you tonight.
+      But the name is said, and that has to count for something.
+
+  - if:
+      flags: [pip_died]
+    text: |-
+      Pip. You say the name once. She would have hated the sentiment. You say it anyway.
+
+  - if:
+      flags: [thessaly_died]
+    text: |-
+      Thessaly. You say the name once. She would have found the sentiment premature.
+
+  # Body behind the bar
+  - if:
+      flags: [companion_body_honoured]
+    text: |-
+      Behind the bar, under Durnan's clean cloth, your dead don't require anything more from
+      you tonight. They will be seen to. That is the most you can promise them.
+
+  # Durnan
+  - |-
+    Durnan sets a cup in front of you. Not the unlabelled bottle — something quieter, just as
+    good. He pours and puts it down and does not make it a moment.
+
+  - |-
+    male_midlife_american_deep_raspy_authentic: |-
+      You did the work. That's what the work looks like, most nights.
+
+  - |-
+    He means it as high praise. That's the thing about Durnan — he means it.
+
+  - |-
+    Dawn comes in grey through the Portal's high windows. The well is quiet. The rope hangs
+    at the rim, coiled the way you left it — functional, waiting, already forgetting tonight.
+
+  - if:
+      flags: [korsa_farewell_warm]
+    text: |-
+      Korsa is at the other end of the bar with his second cup, not looking at anything in
+      particular. That is how Korsa grieves: by being present and occupying his two feet of space.
+
+  - if:
+      flags: [vesna_farewell_blessed]
+    text: |-
+      Vesna's benediction is still sitting somewhere in the room's air. You don't believe in
+      Tymora, not exactly — but you believe in Vesna, which is close enough for tonight.
+
+  - |-
+    The right thing, the messy way. Nobody will make a story of it. The Portal will not
+    remember your name. But Linnet is home and the night is done and that is what you came
+    for, and it will have to be enough.
+
+  - |-
+    It is enough.
+
+choices: []

@@ -1,0 +1,206 @@
+text:
+  # Body recovered — first farewell to fire
+  - if:
+      flags: [body_recovered]
+      flags_unset: [companion_body_honoured]
+    text: |-
+      Durnan moves along the bar without a word, lifts a clean cloth from under the counter,
+      and lays it over the body behind the door. He doesn't look up. He goes back to his
+      polishing.
+
+  # All paths — Thessaly sits longest; always has something about recognition
+  - if:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died]
+    text: |-
+      Thessaly is at the table in the corner — not Mirt's table, her own; she claimed it the
+      moment the room quieted and nobody argued. Her hands are flat on the wood. She is not
+      drinking.
+
+  # knows_thessaly_motive — fuller recognition line
+  - if:
+      flags: [recruited_thessaly, knows_thessaly_motive]
+      flags_unset: [thessaly_died]
+    text: |-
+      She touches the burn-scar on the inside of her wrist — the sigil, the one she wouldn't
+      let you examine. Then she stops, and puts her hand flat on the table again.
+
+  - if:
+      flags: [recruited_thessaly, knows_thessaly_motive]
+      flags_unset: [thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        The name was there. In the runes, in the *thing's* voice, in the mark on the apprentice's
+        hand. Two years of looking, and it's in a bookbinder's apprentice in Waterdeep. [sigh]
+        Fortune is a stranger's joke.
+
+  # Standard recognition line (no motive knowledge)
+  - if:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died, knows_thessaly_motive]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Those runes. The ones you saw below. I have been looking at that script for two years
+        and I could not tell you where it comes from. Something older than Undermountain. Much
+        older.
+
+  # α — clean win: warns it isn't over
+  - if:
+      flags: [recruited_thessaly, rescued]
+      flags_unset: [bargained, stirred_something, thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Clean, you think? Maybe. For now. Things like that — things that old — they remember
+        a face. They are patient in ways we are not built to understand.
+
+  - if:
+      flags: [recruited_thessaly, rescued]
+      flags_unset: [bargained, stirred_something, thessaly_died]
+    text: |-
+      She looks at you. Not warmly — with the careful assessment she has given everything since
+      you met her.
+
+  - if:
+      flags: [recruited_thessaly, rescued]
+      flags_unset: [bargained, stirred_something, thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        You did well tonight. Don't let that become a reason to come back.
+
+  # β — rescued with companion death, warning
+  - if:
+      flags: [recruited_thessaly, rescued]
+      flags_unset: [bargained, stirred_something, thessaly_died]
+    text: |-
+      She is quiet for a moment. She names no one who died; she is not built for eulogy the way
+      Vesna is. What she does instead is nod, once, in the direction of the bar — where the dead
+      were last standing, or nearly.
+
+  # γ — bargained, marked apprentice: something like hunger
+  - if:
+      flags: [recruited_thessaly, rescued, bargained]
+      flags_unset: [stirred_something, thessaly_died]
+    text: |-
+      Thessaly's eyes are on Linnet. They have been on Linnet since you sat down. The expression
+      is not kind, exactly. It is not unkind. It is the face of someone who is reading a text
+      they have wanted to find for a long time.
+
+  - if:
+      flags: [recruited_thessaly, rescued, bargained]
+      flags_unset: [stirred_something, thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        The mark it left. On the apprentice. I want to study it. Later — not tonight, not without
+        permission. But later.
+
+  - if:
+      flags: [recruited_thessaly, rescued, bargained]
+      flags_unset: [stirred_something, thessaly_died]
+    text: |-
+      Fellowship, or appetite. Hard to tell from here.
+
+  # δ — not rescued: names the thing
+  - if:
+      flags: [recruited_thessaly, met_the_thing_below]
+      flags_unset: [rescued, stirred_something, thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        The *thing* you saw in the deep chamber. I know what it is. Or — I know what to call
+        the category of thing it is. That's not the same as understanding it. But the name helps.
+
+  - if:
+      flags: [recruited_thessaly, met_the_thing_below]
+      flags_unset: [rescued, stirred_something, thessaly_died]
+    text: |-
+      She pauses. Looks at her hands.
+
+  - if:
+      flags: [recruited_thessaly, met_the_thing_below]
+      flags_unset: [rescued, stirred_something, thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        A Manifest. A piece of something larger using a smaller face. What you saw was the face.
+        Linnet was the conversation. Whatever was said — that persists, even without her here to
+        carry it. Be careful what you touch that was near her.
+
+  # ε — stirred: alone not surprised
+  - if:
+      flags: [recruited_thessaly, stirred_something]
+      flags_unset: [thessaly_died]
+    text: |-
+      Thessaly is the only person in the room who is not looking at the well-mouth. She already
+      knows what's down there. She knew before she agreed to go.
+
+  - if:
+      flags: [recruited_thessaly, stirred_something]
+      flags_unset: [thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        I am not surprised. For what it's worth.
+
+  - if:
+      flags: [recruited_thessaly, stirred_something]
+      flags_unset: [thessaly_died]
+    text: |-
+      She touches the burn-scar on her wrist. Lets go.
+
+  - if:
+      flags: [recruited_thessaly, stirred_something]
+      flags_unset: [thessaly_died]
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        It knows you now. Both of you — you and whatever you brought back out. The city is
+        a wall. Stay inside it. For a while.
+
+choices:
+  # ε — complicit
+  - text: |-
+      Stay inside the wall. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        thessaly_farewell_done: true
+        thessaly_farewell_complicit: true
+        companion_body_honoured: true
+    requires:
+      flags: [stirred_something]
+      flags_unset: [thessaly_died]
+    hide_if_failed: true
+
+  # γ — complicit
+  - text: |-
+      Fellowship, or appetite. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        thessaly_farewell_done: true
+        thessaly_farewell_complicit: true
+        companion_body_honoured: true
+    requires:
+      flags: [rescued, bargained]
+      flags_unset: [stirred_something, thessaly_died]
+    hide_if_failed: true
+
+  # δ — grim
+  - text: |-
+      A Manifest. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        thessaly_farewell_done: true
+        thessaly_farewell_grim: true
+        companion_body_honoured: true
+    requires:
+      flags: [met_the_thing_below]
+      flags_unset: [rescued, stirred_something, thessaly_died]
+    hide_if_failed: true
+
+  # α / β — warning
+  - text: |-
+      Don't come back. Go back to the bar.
+    next: bar_settle_up
+    effects:
+      flags:
+        thessaly_farewell_done: true
+        thessaly_farewell_warning: true
+        companion_body_honoured: true
