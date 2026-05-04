@@ -240,12 +240,13 @@ button {
   line-height: 1.85;
   font-size: 1.05rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .narrative-spacer {
   flex: 1;
 }
+
 
 .narrative p { margin: 0 0 1em; }
 
@@ -264,17 +265,14 @@ button {
 
 /* ── Narrative ────────────────────────────────────────────────────────────── */
 
-#narrative p.block-hidden {
-  display: none;
-}
-
-#narrative p.block-visible {
-  opacity: 1;
-  transform: translateY(0);
+#narrative p {
+  opacity: 0;
+  transform: translateY(8px);
   transition: opacity var(--anim-block-duration) ease,
               transform var(--anim-block-duration) ease;
 }
 
+#narrative p.block-visible,
 #narrative p.block-typing {
   opacity: 1;
   transform: translateY(0);
@@ -313,11 +311,13 @@ button {
   gap: 0.75rem;
   opacity: 0;
   transform: translateY(16px);
+  pointer-events: none;
 }
 
 .choice-list.choices-visible {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
   transition: opacity var(--anim-choice-duration) ease,
               transform var(--anim-choice-duration) ease;
 }

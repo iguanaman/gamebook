@@ -2,7 +2,6 @@
 
 const app = document.getElementById('app');
 
-let currentNarrativeOffset = 0;
 
 // ── Manifest / selector ───────────────────────────────────────────────────────
 
@@ -275,9 +274,11 @@ let currentAudio = null;
 
 function stopAudio() {
   if (currentAudio) {
-    currentAudio.pause();
-    currentAudio.src = '';
+    const audio = currentAudio;
     currentAudio = null;
+    audio.pause();
+    audio.src = '';
+    audio.load();
   }
 }
 
@@ -349,9 +350,10 @@ function showTitleSplash(text, audioUrl, onDone) {
   }, animDuration);
 }
 
-function playBlocks(sceneId, blockCount, narrativeOffset, onBlockStart, onDone) {
+function playBlocks(sceneId, blocks, onBlockStart, onDone) {
   let index = 0;
   let done = false;
+  const blockCount = blocks.length;
 
   const gameWrap = document.querySelector('.game-wrap');
 
@@ -378,17 +380,13 @@ function playBlocks(sceneId, blockCount, narrativeOffset, onBlockStart, onDone) 
     stopAudio();
     if (index >= blockCount) { finish(); return; }
     const i = index++;
-    onBlockStart(i);
-    const paras = document.querySelectorAll('#narrative p');
-    const para = paras[narrativeOffset + i];
-    const rawIndex = para ? para.dataset.rawIndex : i;
-    const branch = para ? (para.dataset.audioBranch ?? '') : '';
-    currentAudio = new Audio(blockAudioUrl(sceneId, rawIndex, branch));
+    const block = blocks[i];
+    onBlockStart(block);
+    currentAudio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
     currentAudio.addEventListener('ended', () => { if (!done) playNext(); }, { once: true });
     currentAudio.play().catch(() => {
       if (done) return;
-      // Audio missing or autoplay blocked — reveal remaining blocks and finish
-      for (let j = i; j < blockCount; j++) onBlockStart(j);
+      for (let j = i; j < blockCount; j++) onBlockStart(blocks[j]);
       finish();
     });
   }
@@ -500,12 +498,12 @@ async function navigateTo(sceneId) {
       const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(actTitle)}.opus`;
       showTitleSplash(actTitle, actAudioUrl, () => {
         renderShell(storyMeta);
-        const actBlockHashes = renderNarrative(scene);
-        state.blockHashes[sceneId] = actBlockHashes;
+        prependSceneSeparator();
+        const blocks = resolveSceneBlocks(scene);
+        state.blockHashes[sceneId] = blocks.map(b => b.hash);
         saveState();
         renderHud();
-        const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
-        typeBlocks(renderedBlockCount, () => renderChoices(scene), sceneId, currentNarrativeOffset);
+        typeBlocks(blocks, () => renderChoices(scene), sceneId);
       });
     }
   } else if (!alreadyVisited && scene.act && scene.act !== currentAct) {
@@ -515,50 +513,51 @@ async function navigateTo(sceneId) {
     const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(scene.act)}.opus`;
     showTitleSplash(scene.act, actAudioUrl, () => {
       renderShell(storyMeta);
-      const actBlockHashes = renderNarrative(scene);
-      state.blockHashes[sceneId] = actBlockHashes;
+      prependSceneSeparator();
+      const blocks = resolveSceneBlocks(scene);
+      state.blockHashes[sceneId] = blocks.map(b => b.hash);
       saveState();
       renderHud();
-      const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
-      typeBlocks(renderedBlockCount, () => renderChoices(scene), sceneId, currentNarrativeOffset);
+      typeBlocks(blocks, () => renderChoices(scene), sceneId);
     });
   }
 
   if (!showingActTitle) {
-    const blockHashes = renderNarrative(scene);
-    const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
-    const narrativeOffset = currentNarrativeOffset;
+    prependSceneSeparator();
+    const blocks = resolveSceneBlocks(scene);
+    const blockHashes = blocks.map(b => b.hash);
+
     if (alreadyVisited) {
       const seenHashes = new Set(state.blockHashes[sceneId] ?? []);
-      const newIndices = [];
-      blockHashes.forEach((h, i) => { if (!seenHashes.has(h)) newIndices.push(i); });
+      const newIndices = new Set();
+      blocks.forEach((b, i) => { if (!seenHashes.has(b.hash)) newIndices.add(i); });
 
-      if (newIndices.length === 0) {
-        for (let i = 0; i < renderedBlockCount; i++) revealBlock(i);
+      if (newIndices.size === 0) {
+        blocks.forEach(b => showBlockInstant(b));
         renderChoices(scene);
       } else {
-        const newSet = new Set(newIndices);
         let i = 0;
-        function revealOrPlay() {
-          if (i >= renderedBlockCount) {
+        function step() {
+          if (i >= blocks.length) {
             state.blockHashes[sceneId] = [...new Set([...seenHashes, ...blockHashes])];
             saveState();
             renderChoices(scene);
             return;
           }
-          if (!newSet.has(i)) {
-            revealBlock(i++);
-            revealOrPlay();
+          const block = blocks[i++];
+          if (!newIndices.has(i - 1)) {
+            showBlockInstant(block);
+            step();
           } else {
-            playBlocks(sceneId, 1, narrativeOffset + i, () => revealBlock(i), () => { i++; revealOrPlay(); });
+            playBlocks(sceneId, [block], (b) => showBlockReveal(b), step);
           }
         }
-        revealOrPlay();
+        step();
       }
     } else {
       state.blockHashes[sceneId] = blockHashes;
       saveState();
-      typeBlocks(renderedBlockCount, () => renderChoices(scene), sceneId, narrativeOffset);
+      typeBlocks(blocks, () => renderChoices(scene), sceneId);
     }
   }
 }
@@ -584,74 +583,82 @@ function renderHud() {
   hud.innerHTML = statsHtml + flagsHtml;
 }
 
-function renderNarrative(scene) {
+function resolveSceneBlocks(scene) {
   const el = document.getElementById('narrative');
-  if (!el) return;
+  const isFirstScene = el && el.querySelector('p') === null;
   const rawBlocks = Array.isArray(scene.text) ? scene.text : [scene.text];
 
-  currentNarrativeOffset = el.querySelectorAll('p').length;
-
-  if (el.querySelector('p') !== null) {
-    const sep = document.createElement('hr');
-    sep.className = 'scene-separator';
-    el.appendChild(sep);
-  }
-
-  const isFirstBlock = el.querySelector('p') === null;
-  let renderedCount = 0;
-  const hashes = [];
-
+  const blocks = [];
   rawBlocks.forEach((b, rawIndex) => {
     const resolved = resolveBlock(b, scene.id);
     if (!resolved) return;
-
-    const { content, isSpeech, branch } = resolved;
-    const isOpener = renderedCount === 0 && isFirstBlock;
-
-    const html = content.replace(/\n\n/g, '</p><p>');
-    const p = document.createElement('p');
-    p.classList.add('block-hidden');
-    p.dataset.rawIndex = rawIndex;
-    p.dataset.audioBranch = branch;
-    p.dataset.contentHash = hashString(content);
-    if (isOpener) p.classList.add('scene-opener');
-    if (isSpeech) {
-      p.classList.add('speech-block');
-      p.innerHTML = `"${html}"`;
-    } else {
-      p.innerHTML = html;
-    }
-    el.appendChild(p);
-    hashes.push(hashString(content));
-    renderedCount++;
+    blocks.push({
+      ...resolved,
+      rawIndex,
+      isOpener: blocks.length === 0 && isFirstScene,
+      hash: hashString(resolved.content),
+    });
   });
-
-  el.dataset.renderedBlocks = renderedCount;
-  return hashes;
+  return blocks;
 }
 
-function revealBlock(index) {
-  const paras = document.querySelectorAll('#narrative p');
-  const para = paras[currentNarrativeOffset + index];
-  if (para) {
-    para.classList.remove('block-hidden');
-    para.offsetHeight; // force reflow so transition fires
-    para.classList.add('block-visible');
-    requestAnimationFrame(() => para.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+function buildBlockPara(block) {
+  const { content, isSpeech, branch, rawIndex, isOpener, hash } = block;
+  const html = content.replace(/\n\n/g, '</p><p>');
+  const p = document.createElement('p');
+  p.dataset.rawIndex = rawIndex;
+  p.dataset.audioBranch = branch;
+  p.dataset.contentHash = hash;
+  if (isOpener) p.classList.add('scene-opener');
+  if (isSpeech) {
+    p.classList.add('speech-block');
+    p.innerHTML = `"${html}"`;
+  } else {
+    p.innerHTML = html;
   }
+  return p;
 }
 
-function typeBlock(index, skip, onDone) {
-  const paras = document.querySelectorAll('#narrative p');
-  const para = paras[currentNarrativeOffset + index];
+function prependSceneSeparator() {
+  const el = document.getElementById('narrative');
+  if (!el) return;
+  if (!el.querySelector('p')) return; // first scene — no separator needed
+  const sep = document.createElement('hr');
+  sep.className = 'scene-separator';
+  el.prepend(sep);
+}
+
+function prependBlockPara(block) {
+  const el = document.getElementById('narrative');
+  if (!el) return null;
+  const p = buildBlockPara(block);
+  el.prepend(p);
+  return p;
+}
+
+function showBlockInstant(block) {
+  const p = prependBlockPara(block);
+  if (p) p.classList.add('block-visible');
+  return p;
+}
+
+function showBlockReveal(block) {
+  const p = prependBlockPara(block);
+  if (p) requestAnimationFrame(() => p.classList.add('block-visible'));
+  return p;
+}
+
+// Typewriter speed: milliseconds per character. Higher = slower.
+const TYPING_MS_PER_CHAR = 64;
+
+function typeBlock(block, skip, onDone) {
+  const para = prependBlockPara(block);
   if (!para) { onDone(); return () => {}; }
 
   const fullHtml = para.innerHTML;
   para.dataset.fullHtml = fullHtml;
   para.innerHTML = '';
-  para.classList.remove('block-hidden');
   para.classList.add('block-typing');
-  requestAnimationFrame(() => para.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
 
   let pos = 0;
   let finished = false;
@@ -666,26 +673,30 @@ function typeBlock(index, skip, onDone) {
     onDone();
   }
 
-  let frame = 0;
+  const startTime = performance.now();
+  let charsShown = 0;
 
   function tick() {
     if (finished) return;
     if (skip.active) { skip.active = false; finish(); return; }
     if (pos >= fullHtml.length) { finish(); return; }
 
+    // HTML tags and entities emit atomically without consuming time
     if (fullHtml[pos] === '<') {
       const end = fullHtml.indexOf('>', pos);
       if (end !== -1) { pos = end + 1; tick(); return; }
     }
-
     if (fullHtml[pos] === '&') {
       const end = fullHtml.indexOf(';', pos);
-      if (end !== -1) { pos = end + 1; para.innerHTML = fullHtml.slice(0, pos); requestAnimationFrame(tick); return; }
+      if (end !== -1) { pos = end + 1; charsShown++; para.innerHTML = fullHtml.slice(0, pos); requestAnimationFrame(tick); return; }
     }
 
-    if (frame++ % 2 === 0) { requestAnimationFrame(tick); return; }
+    // Reveal up to the number of chars that should be visible by now
+    const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
+    if (charsShown >= targetChars) { requestAnimationFrame(tick); return; }
 
     pos++;
+    charsShown++;
     para.innerHTML = fullHtml.slice(0, pos);
     requestAnimationFrame(tick);
   }
@@ -694,10 +705,11 @@ function typeBlock(index, skip, onDone) {
   return finish;
 }
 
-function typeBlocks(blockCount, onDone, sceneId, narrativeOffset) {
+function typeBlocks(blocks, onDone, sceneId) {
   let index = 0;
   let done = false;
   const skip = { active: false };
+  const blockCount = blocks.length;
 
   const gameWrap = document.querySelector('.game-wrap');
 
@@ -705,9 +717,6 @@ function typeBlocks(blockCount, onDone, sceneId, narrativeOffset) {
     skip.active = true;
     stopAudio();
     if (skip.finished) next();
-    // If still typing, tick() will see skip.active, finish the text, then
-    // since audio was stopped the ended listener won't fire — call next() from there.
-    // We handle that by checking in the typeBlock onDone callback below.
   }
 
   function removeClickSkip() {
@@ -726,17 +735,14 @@ function typeBlocks(blockCount, onDone, sceneId, narrativeOffset) {
   function next() {
     if (done) return;
     if (index >= blockCount) { finish(); return; }
-    const i = index++;
+    const block = blocks[index++];
     skip.finished = false;
-    const finishTyping = typeBlock(i, skip, () => { if (!done && (!sceneId || !currentAudio)) next(); });
+    const finishTyping = typeBlock(block, skip, () => { if (!done && (!sceneId || !currentAudio)) next(); });
     if (sceneId) {
-      const paras = document.querySelectorAll('#narrative p');
-      const para = paras[narrativeOffset + i];
-      const rawIndex = para ? para.dataset.rawIndex : i;
-      const branch = para ? (para.dataset.audioBranch ?? '') : '';
-      currentAudio = new Audio(blockAudioUrl(sceneId, rawIndex, branch));
-      currentAudio.addEventListener('ended', () => { if (!done) { finishTyping(); next(); } }, { once: true });
-      currentAudio.play().catch(() => { if (!done) next(); });
+      const audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
+      currentAudio = audio;
+      audio.addEventListener('ended', () => { if (!done && audio === currentAudio) { finishTyping(); next(); } }, { once: true });
+      audio.play().catch(() => { if (!done && audio === currentAudio) next(); });
     }
   }
 
@@ -835,7 +841,7 @@ async function handleUndo() {
   const ok = undo();
   if (!ok) return;
   const el = document.getElementById('narrative');
-  if (el) { el.innerHTML = '<div class="narrative-spacer"></div>'; currentNarrativeOffset = 0; }
+  if (el) { el.innerHTML = '<div class="narrative-spacer"></div>'; }
   await navigateTo(state.scene);
 }
 
