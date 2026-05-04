@@ -1,0 +1,26 @@
+{
+  "planPath": "docs/superpowers/plans/2026-05-04-intro-splash.md",
+  "tasks": [
+    {
+      "id": 0,
+      "subject": "Task 1: Global fullscreen button + consistent parchment frame on selector",
+      "status": "pending",
+      "description": "**Goal:** Move the fullscreen button to `index.html` so it's visible on all screens, align its position to the frame inset, and remove the grey `frame-neutral` override from the selector.\n\n**Files:**\n- Modify: `index.html`\n- Modify: `engine.js`\n- Modify: `style.css`\n\n**Acceptance Criteria:**\n- [ ] Fullscreen button appears on selector, splash screens, and in-game\n- [ ] Button position uses `--frame-inset` not hardcoded `1rem`\n- [ ] Selector shows parchment gold frame\n- [ ] No duplicate fullscreen button or listener\n- [ ] `fullscreenchange` listener wired once at boot\n\n**Verify:** Open in browser. Fullscreen button visible top-right on selector. Gold border frame. Click fullscreen toggles. Start story — button still there.\n\n```json:metadata\n{\"files\": [\"index.html\", \"engine.js\", \"style.css\"], \"verifyCommand\": \"open index.html in browser\", \"acceptanceCriteria\": [\"Fullscreen button on all screens\", \"Frame-inset aligned position\", \"Parchment frame on selector\", \"No duplicate listeners\"]}\n```"
+    },
+    {
+      "id": 1,
+      "subject": "Task 2: Intro splash CSS",
+      "status": "pending",
+      "blockedBy": [0],
+      "description": "**Goal:** Add CSS classes for paragraph-based intro splash layout and how-to-play link.\n\n**Files:**\n- Modify: `style.css`\n\n**Acceptance Criteria:**\n- [ ] `.intro-splash-body` styles paragraphs inside splash\n- [ ] `.intro-splash-btn` styles CTA button\n- [ ] `.intro-how-to-play` styles selector link\n\n**Verify:** Classes exist in style.css.\n\n```json:metadata\n{\"files\": [\"style.css\"], \"verifyCommand\": \"grep intro-splash style.css\", \"acceptanceCriteria\": [\".intro-splash-body exists\", \".intro-splash-btn exists\", \".intro-how-to-play exists\"]}\n```"
+    },
+    {
+      "id": 2,
+      "subject": "Task 3: showIntroSplash() + boot gate + selector link",
+      "status": "pending",
+      "blockedBy": [1],
+      "description": "**Goal:** Implement intro splash function, gate boot on `seen_intro`, add How to play link.\n\n**Files:**\n- Modify: `engine.js`\n\n**Acceptance Criteria:**\n- [ ] First load shows intro splash\n- [ ] Begin sets seen_intro and transitions to selector\n- [ ] Subsequent loads skip splash\n- [ ] Selector has How to play link\n- [ ] How to play shows splash with Close button\n- [ ] Close dismisses without re-rendering selector\n\n**Verify:** First load shows splash. Refresh skips it. How to play link works.\n\n```json:metadata\n{\"files\": [\"engine.js\"], \"verifyCommand\": \"open index.html in browser\", \"acceptanceCriteria\": [\"First load shows splash\", \"seen_intro gates subsequent loads\", \"How to play link on selector\", \"Close button dismisses overlay\"]}\n```"
+    }
+  ],
+  "lastUpdated": "2026-05-04T00:00:00Z"
+}
