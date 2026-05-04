@@ -412,7 +412,7 @@ async function navigateTo(sceneId) {
     try {
       const actMeta = await fetchYaml(`stories/${currentStoryId}/scenes/${folder}/_act.yaml`);
       actTitle = actMeta?.title ?? null;
-    } catch (e) { console.warn('_act.yaml fetch failed:', e?.message); }
+    } catch { /* no _act.yaml — no act title */ }
     // fallback: honour inline act: if _act.yaml wasn't found
     if (!actTitle && scene.act && scene.act !== currentAct) actTitle = scene.act;
 
