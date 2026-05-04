@@ -613,13 +613,15 @@ button {
   text-align: center;
   margin-top: -1rem;
   margin-bottom: 2rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--text-muted);
   cursor: pointer;
   text-decoration: none;
   background: none;
   border: none;
-  font-family: var(--font-ui);
+  font-family: var(--font-body);
+  font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 .intro-how-to-play:hover {
