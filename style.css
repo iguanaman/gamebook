@@ -229,13 +229,13 @@ button {
   display: flex;
   justify-content: center;
   padding: calc(var(--frame-inset) + 1.5rem) 1rem;
-  min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
 }
 
 .narrative-area {
   width: min(680px, 100%);
-  height: calc(100vh - (var(--frame-inset) + 1.5rem) * 2);
+  height: calc(100dvh - (var(--frame-inset) + 1.5rem) * 2);
   display: flex;
   flex-direction: column;
 }
