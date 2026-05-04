@@ -100,9 +100,9 @@ button {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; transition: background 0.4s ease; }
 
-.narrative.at-bottom::-webkit-scrollbar-thumb { background: transparent; }
+.narrative.at-bottom::-webkit-scrollbar-thumb { background: transparent; transition: background 0.4s ease; }
 
 /* ── Viewport frame ───────────────────────────────────────────────────────── */
 
@@ -366,15 +366,13 @@ button {
 }
 .chosen-choice.block-visible { opacity: 1; }
 
-.btn-choice-failed {
+.choice-num {
+  display: inline-block;
+  min-width: 1.4em;
+  margin-right: 0.4em;
   opacity: 0.45;
-  cursor: default;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  font-variant-numeric: tabular-nums;
 }
-
-.btn-choice-failed:hover { background: var(--surface); }
 
 .choice-failed-text {
   font-size: 0.8rem;
