@@ -365,6 +365,8 @@ button {
   pointer-events: auto;
   font-size: 1.1rem;
   cursor: pointer;
+  background: transparent;
+  border: none;
 }
 .btn-undo-fixed:hover:not(.undo-disabled) { opacity: 1; }
 .btn-undo-fixed.undo-disabled { opacity: 0.2; pointer-events: none; }
