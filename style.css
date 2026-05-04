@@ -42,6 +42,9 @@
   --anim-choice-duration: 300ms;
   --anim-act-title-duration: 600ms;
   --anim-choice-fade-duration: 250ms;
+
+  /* Story splash */
+  --story-title-size: 3rem;
 }
 
 html, body {
@@ -361,4 +364,46 @@ button {
   border-top: var(--act-rule-style);
   margin: 0 2rem;
   opacity: 0.6;
+}
+
+/* ── Story title splash ───────────────────────────────────────────────────── */
+
+.story-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.story-splash-hidden {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.story-splash-visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity var(--anim-act-title-duration) ease,
+              transform var(--anim-act-title-duration) ease;
+}
+
+.story-splash-out {
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity var(--anim-act-title-duration) ease,
+              transform var(--anim-act-title-duration) ease;
+}
+
+.story-splash-title {
+  font-family: var(--font-heading);
+  font-size: var(--story-title-size);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  padding: 0 2rem;
 }
