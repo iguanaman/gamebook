@@ -456,6 +456,12 @@ button {
   color: var(--text);
   margin: 0 0 1rem;
 }
+.undo-confirm kbd {
+  font-family: var(--font-ui);
+  font-size: 0.7em;
+  opacity: 0.5;
+  margin-left: 0.3em;
+}
 
 .end-message {
   text-align: center;

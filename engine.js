@@ -105,8 +105,7 @@ function renderStoryCard(storyId) {
   return `
     <div class="story-card-wrap">
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
-        <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
-        <div class="story-info">
+<div class="story-info">
           <span class="story-genre" data-story-genre="${storyId}"></span>
           <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}"></span><span data-story-title="${storyId}">Loading...</span></h2>
           <p class="story-desc" data-story-desc="${storyId}"></p>
@@ -209,9 +208,11 @@ async function attachCardHandlers(storyId) {
     if (delBtn) {
       delBtn.addEventListener('click', e => {
         e.stopPropagation();
-        if (!confirm('Wipe saved progress for this story?')) return;
-        localStorage.removeItem(stateKey(storyId));
-        delBtn.remove();
+        showConfirm('Wipe saved progress?', () => {
+          localStorage.removeItem(stateKey(storyId));
+          delBtn.remove();
+        });
+        return;
       });
     }
   }
@@ -1008,31 +1009,39 @@ function updateUndoButton() {
   btn.classList.toggle('undo-disabled', empty);
 }
 
-function showUndoConfirm() {
+function showConfirm(message, onYes) {
   const overlay = document.createElement('div');
   overlay.className = 'undo-confirm-overlay';
   overlay.innerHTML = `
     <div class="undo-confirm">
-      <p class="undo-confirm-msg">Undo last choice?</p>
+      <p class="undo-confirm-msg">${message}</p>
       <div class="exit-confirm-buttons">
-        <button class="btn btn-secondary" id="btn-undo-yes">Yes</button>
-        <button class="btn btn-ghost" id="btn-undo-no">No</button>
+        <button class="btn btn-secondary" data-yes>Yes <kbd>Y</kbd></button>
+        <button class="btn btn-ghost" data-no>No <kbd>N</kbd></button>
       </div>
     </div>
   `;
   document.body.appendChild(overlay);
 
-  const cleanup = () => overlay.remove();
+  const cleanup = () => { overlay.remove(); document.removeEventListener('keydown', onKey); };
 
-  document.getElementById('btn-undo-yes').addEventListener('click', async () => {
-    cleanup();
+  const onKey = e => {
+    if (e.key === 'y' || e.key === 'Y') { cleanup(); onYes(); }
+    else if (e.key === 'n' || e.key === 'N' || e.key === 'Escape') cleanup();
+  };
+
+  overlay.querySelector('[data-yes]').addEventListener('click', () => { cleanup(); onYes(); });
+  overlay.querySelector('[data-no]').addEventListener('click', cleanup);
+  overlay.addEventListener('click', e => { if (e.target === overlay) cleanup(); });
+  document.addEventListener('keydown', onKey);
+}
+
+function showUndoConfirm() {
+  showConfirm('Undo last choice?', async () => {
     const ok = undo();
     if (!ok) return;
     await navigateTo(state.scene);
   });
-
-  document.getElementById('btn-undo-no').addEventListener('click', cleanup);
-  overlay.addEventListener('click', e => { if (e.target === overlay) cleanup(); });
 }
 
 async function handleUndo() {
@@ -1098,10 +1107,11 @@ document.getElementById('back-btn')?.addEventListener('click', () => { cancelPla
 document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector(); });
 document.getElementById('journal-new-game')?.addEventListener('click', () => {
   if (!currentStoryId) return;
-  if (!confirm('Start a new game? Your current progress will be lost.')) return;
-  closeJournal();
-  localStorage.removeItem(`gamebook.state.${currentStoryId}`);
-  startStory(currentStoryId);
+  showConfirm('Start a new game? Progress will be lost.', () => {
+    closeJournal();
+    localStorage.removeItem(`gamebook.state.${currentStoryId}`);
+    startStory(currentStoryId);
+  });
 });
 
 document.addEventListener('click', e => {
