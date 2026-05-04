@@ -4,9 +4,11 @@ Generate TTS audio for all scenes in all stories.
 Requires the TTS server running on localhost:5500 (python tts_server.py).
 
 Usage:
-    python generate_audio.py              # skip scenes that already have audio
-    python generate_audio.py --force      # regenerate everything
-    python generate_audio.py --story demo # one story only
+    python generate_audio.py                          # skip scenes that already have audio
+    python generate_audio.py --force                  # regenerate everything
+    python generate_audio.py --story demo             # one story only
+    python generate_audio.py --suffix a               # regen only conditional if-branch blocks (a0, a1, ...)
+    python generate_audio.py --migrate-conditional    # delete old _block_Na/Nb.opus and regen for scenes with existing audio
 """
 
 # ── Config ────────────────────────────────────────────────────────────────────
