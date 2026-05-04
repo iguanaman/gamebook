@@ -453,13 +453,14 @@ async function navigateTo(sceneId) {
   const folderChanged = folder !== '' && folder !== currentActFolder;
   let showingActTitle = false;
 
+  if (folderChanged) currentActFolder = folder;
+
   if (!alreadyVisited && folderChanged) {
     let actTitle = null;
     try {
       const actMeta = await fetchYaml(`stories/${currentStoryId}/scenes/${folder}/_act.yaml`);
       actTitle = actMeta?.title ?? null;
     } catch { /* no _act.yaml — no act title */ }
-    currentActFolder = folder;
 
     if (actTitle) {
       showingActTitle = true;
