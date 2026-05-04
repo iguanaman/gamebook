@@ -1,0 +1,23 @@
+id: act1/reactor_deck
+text:
+- The corridor down to the reactor deck slopes; you feel it in the calves before you
+  see it. The walls go from painted concrete to bare. The air goes from filtered to
+  whatever the air handlers can manage today, which today is *warm and metallic*.
+- The deck itself is a long gantry over the primary heat exchange. The exchange is
+  a sealed silver column the height of two storeys, and it is humming a note it should
+  not be humming. You don't have to be an engineer to hear it. There is a yellow stripe
+  painted around the base of the column, and beyond it the deck plates are warm enough
+  through your boots that you adjust your weight without thinking.
+- Yuna is at the panel on the gantry, one hand inside an open access cover, the other
+  holding a tablet. She has not looked round. She is wearing goggles shoved up into
+  her hair and a coverall with a coolant burn on the left sleeve she has not bothered
+  to patch.
+- female_young_american_lisp: If you're another runner from administration with another
+    form for me to sign, you can leave it on the floor, and I will use it on the floor
+    for what the floor needs it for.
+- She still hasn't looked round.
+- female_young_american_lisp: If you're not, who the hell are you, and walk where
+    I can see you so I don't shoot the wrong direction.
+choices:
+- text: Step into her line of sight. Talk to her.
+  next: act1/talk_yuna

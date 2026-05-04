@@ -1,0 +1,25 @@
+id: act1/atrium_loiterer
+text:
+- The loiterer is a fixture. Mid-fifties, vault blues gone shiny at the elbows, drinking
+  something out of a thermos that nobody has ever seen him refill. He props the small
+  of his back against the dry fountain and watches the Promenade with the expression
+  of a man at a bus stop in a country with no buses.
+- He clocks you looking. Lifts the thermos in a small ironic salute. He speaks in
+  the tone you'd reserve for a cousin you owe money to.
+- male_adult_american_casual_relaxed_light: Officer. Heard the news? Atmospheric optimisation.
+    They've been optimising it since I had hair.
+- He taps the side of his nose.
+- male_adult_american_casual_relaxed_light: Word from sub-five is the floor's getting
+    warm. Word from the Promenade is don't say so. Word from the speaker —
+- He tips the thermos at the wall.
+- male_adult_american_casual_relaxed_light: — is everything's fine and the fountain's
+    coming back imminently. Same word as last year. Same word as the year before.
+- He drinks from the thermos. His expression does not change.
+- male_adult_american_casual_relaxed_light: Anyway. You have a productive shift, Officer.
+    Wouldn't want to commit a Level Three infraction.
+choices:
+- text: Back to the atrium.
+  next: act1/atrium_first
+  effects:
+    flags:
+      heard_loiterer: true

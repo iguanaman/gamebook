@@ -1,0 +1,45 @@
+id: act1/broadcast_failed_scene
+journal: "You tried to make the speech and the speech did not come out. Somebody laughed. The duty pair were already on their radios before you stopped. Whatever the vault remembers about today, it will remember the fountain joke."
+text:
+- You flip the toggle. The recording stops mid-sentence — *— ongoing commitment to
+  atmospher—* — and you open your mouth and the speech you have been writing in your
+  head for the last forty minutes does not come out.
+- What comes out instead is a sentence that begins with *listen* and goes sideways
+  at the second clause and ends, somehow, with you saying *the fountain is not actually
+  under aesthetic review.* You hear yourself say it. You hear the way it sounds. You
+  hear, distantly, a small uncertain laugh from somewhere in the atrium below — not
+  cruel, not yet, just the laugh of somebody who is not sure whether they have been
+  told a joke or witnessed an episode.
+- You try to recover. You say *the reactor.* You say *the report.* You say *Cole.*
+  The names land like loose change on a tin tray. Each one separately, none of them
+  together. Somewhere in the middle of it you realise you are not going to make this
+  work and you keep talking anyway, because stopping now would be worse, and stopping
+  now turns out also to be worse.
+- You stop. You sit on the swivel chair. The chair complains. The microphone is still
+  live and you are breathing into it and the breathing is going out into two hundred
+  speakers in two hundred rooms.
+- Down on the atrium floor the duty pair at the south arch are looking up at the mezzanine.
+  One of them is laughing. The other is not — the other is reaching for his radio.
+  The maintenance worker on the ladder has not come off the ladder. The recording
+  loop kicks back in over the top of you, mid-sentence — *— ic integrity. Residents
+  are reminded that the atrium fountain is undergoing scheduled —* — and the speakers
+  go back to what the speakers have been saying for eighty-seven years, and what you
+  said is now, and will from this moment forward be, the time the security officer
+  went up to the booth and tried to make a speech about the fountain.
+- Bregman is in the doorway of the booth before you have got off the swivel chair.
+  He is not angry. He is, in the small careful Bregman way, almost sympathetic.
+- male_adult_british_calm_friendly: Officer. The Warden has asked me to escort you
+    back to your quarters. The Warden has also asked me to convey that the broadcast
+    booth is being placed under temporary administrative review, and that broadcast
+    tier privileges will be revisited at the next scheduled audit.
+- He waits. He does not put a hand on you. He does not need to.
+- You walk out under your own power. The atrium light at the far end of the corridor
+  is the colour of the atrium light at the far end of the corridor. The duty pair
+  watch you cross it. Somebody, on the way past, says the word *fountain* under their
+  breath and somebody else laughs the same uncertain laugh.
+- The booth is locked behind you. You will hear, from this moment until the door opens
+  or does not, the recording loop on the speakers, and you will hear it with the faint
+  extra harmonic of a joke nobody is going to let you forget.
+choices:
+- text: Back to the atrium. The corridor has been told.
+  next: act1/atrium_hub

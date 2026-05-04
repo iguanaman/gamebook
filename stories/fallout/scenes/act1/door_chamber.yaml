@@ -1,0 +1,85 @@
+id: act1/door_chamber
+text:
+- Three corridors and one stairwell from the atrium, the door is exactly the door
+  you have walked past every shift of your life. Vault-Tec issue, model 34-A, twelve
+  feet of cog-cut steel set into a frame that was machined in California in 1074 and
+  has not been opened since. The yellow-and-black hazard chevrons around the rim are
+  still bright. Nobody has ever needed to repaint them.
+- The control plinth is to the right of the door at chest height — a brass-rimmed
+  slot with a single keyhole and the words AUTHORISED OPERATION ONLY etched above
+  it in the same soft red ink as the folder you are still carrying somewhere in your
+  bag. There is no second slot. The second key — the master in your pocket — was always
+  the only one. The other was supposed to be Cole's, and Cole, in the way of all overseers
+  since 2078, was supposed to never need it.
+- You take the master key out of your pocket. It is heavier than a key should be.
+  Vault-Tec made it that way on purpose, probably, so the person holding it would
+  feel the weight of what it opened.
+- if:
+    flags:
+    - recruited_doc
+    - recruited_yuna
+    - recruited_resistance
+  text: Behind you the corridor is full. Reyes at your left shoulder with the canvas
+    bag. Yuna at your right with the multitool already in her hand for no reason except
+    that she needs to be holding something. The column of twelve — fifteen now, more
+    arriving — packing the corridor back to the bend. The woman from sub-five at the
+    head of them, watching the door, not you. Nobody is speaking. You can hear the
+    air handlers.
+- if:
+    flags:
+    - recruited_doc
+    - recruited_yuna
+    flags_unset:
+    - recruited_resistance
+  text: Reyes at your left shoulder with the canvas bag, breathing through her nose
+    in the slow way that means she is counting. Yuna at your right, multitool out,
+    fidgeting with the lanyard. Nobody is speaking. The corridor behind the two of
+    them is empty in the way the corridor is empty when the corridor knows.
+- if:
+    flags:
+    - recruited_doc
+    flags_unset:
+    - recruited_yuna
+    - recruited_resistance
+  text: Reyes is half a pace behind you, canvas bag over one shoulder, the notebook
+    a hard square against her hip. She has not asked you whether you have a plan.
+    She is, you realise, waiting for you to discover that you do not.
+- if:
+    flags:
+    - recruited_yuna
+    flags_unset:
+    - recruited_doc
+    - recruited_resistance
+  text: Yuna is half a pace behind you with the multitool spinning on its lanyard
+    and her jaw set in a shape that means she is not going to say anything until she
+    has to. She has not looked at the door yet. She is looking at the floor in front
+    of the door, which is a different thing.
+- if:
+    flags:
+    - recruited_resistance
+    flags_unset:
+    - recruited_doc
+    - recruited_yuna
+  text: The column is behind you to the bend in the corridor and beyond it. The woman
+    from sub-five at the head of them, watching the door over your shoulder. You can
+    hear the breathing of twelve people who have decided not to breathe loudly. It
+    is somehow louder than ordinary breathing.
+- if:
+    flags_unset:
+    - recruited_doc
+    - recruited_yuna
+    - recruited_resistance
+  text: The corridor behind you is empty. You walked it alone. Your boots were the
+    only sound the whole way down and you noticed, halfway, that you had stopped trying
+    to walk quietly because there was nobody to walk quietly *for*.
+- if:
+    flags:
+    - radiation_sick
+    flags_unset:
+    - reyes_treated_you
+  text: The metallic taste in your mouth has been getting worse since the stairwell.
+    You swallow against it. It does not go away. You tell yourself it is the air.
+- You weigh the key in your hand. The slot is right there. Eight-seven years of door.
+choices:
+- text: Insert the key. Turn it.
+  next: act1/open_door

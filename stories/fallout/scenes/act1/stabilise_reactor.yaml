@@ -1,0 +1,54 @@
+id: act1/stabilise_reactor
+text:
+- Yuna does not say *thank you* and does not say *finally*. She says it the way an
+  engineer says the only thing worth saying when somebody offers help on a job that
+  needs four hands.
+- female_young_american_lisp: Right. Boots on the yellow line, gloves from the wall
+    hook, and don't touch the column with anything you'd like to keep the skin on.
+    Move.
+- She is already moving. The gantry rings under her boots in a way that makes the
+  heat-exchange column hum back. The note is louder up close. The note is louder than
+  it was an hour ago.
+- She talks while she works, low and fast, the way she probably talked herself through
+  nights alone down here.
+- female_young_american_lisp: Coolant valve three is the one we want. It's stuck nine
+    degrees off the seat because the gasket has been creeping for a year and admin
+    won't sign off the replacement budget. We don't need to fix it. We need to *reset*
+    it. Hand-crank it back to seat, hold it while I purge the loop, then I bleed the
+    secondary and we walk away.
+- She points. The valve is a wheel the size of a dinner plate, set into a ducted housing
+  that runs from floor to chest height. Behind it is a panel — not a wall, a *panel*
+  — that has bowed out maybe three centimetres from the pressure on the other side.
+  Yuna sees you looking.
+- female_young_american_lisp: Yeah. The panel is the part where I need somebody bigger
+    than me. You stand here, you brace it with your shoulder, and you hold it flat
+    against the housing while I crank. If it pops off the lugs while my hand is on
+    the wheel I lose the hand. If it pops off the lugs while *your* shoulder is on
+    it, you wear it. If it doesn't pop off, we live.
+- She pulls a pair of work gloves off the wall and tosses them at your chest.
+- female_young_american_lisp: So. Are you bigger than me, or are we both about to
+    find out the funny way.
+choices:
+- text: Brace the panel. Take her weight off it. (Strength 6)
+  next: act1/reactor_stabilised_scene
+  requires:
+    stats:
+      STR: 6
+    flags_unset:
+    - reactor_attempted
+  effects:
+    flags:
+      reactor_attempted: true
+      reactor_stabilised: true
+  failed_text: '*(Strength 6 — you can feel where the panel is going to go and you
+    can feel where you would go after it. The maths is not in your favour.)*'
+- text: Try anyway. Get your shoulder on it and hope.
+  next: act1/reactor_burst
+  requires:
+    flags_unset:
+    - reactor_attempted
+  effects:
+    flags:
+      reactor_attempted: true
+- text: Step back off the gantry. Tell her you can't do it. Walk away.
+  next: act1/talk_yuna

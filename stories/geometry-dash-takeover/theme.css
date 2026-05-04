@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Russo+One&family=Rajdhani:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #07070d;
+  --surface: #10101c;
+  --text: #e6f7ff;
+  --text-muted: #6a8aa8;
+  --border: #14e0ff;
+  --hover-bg: #131a2a;
+  --accent: #14e0ff;
+  --accent-hover: #6cf2ff;
+  --btn-secondary-bg: #1a0d24;
+  --btn-secondary-hover: #2a1238;
+  --radius: 0px;
+
+  --font-body: 'Rajdhani', 'Segoe UI', sans-serif;
+  --font-ui: 'Russo One', 'Arial Narrow', sans-serif;
+  --font-heading: 'Orbitron', 'Impact', sans-serif;
+
+  --border-outer: #ff2bd6;
+  --border-inner: #14e0ff;
+  --border-corner-radius: 0px;
+  --frame-inset: 6px;
+
+  --divider-color: #ff2bd6;
+  --divider-style: 2px solid var(--divider-color);
+
+  --drop-cap-color: #c6ff3a;
+  --drop-cap-size: 3.8em;
+
+  --act-title-size: 2.2rem;
+  --act-rule-color: #14e0ff;
+  --act-rule-style: 2px solid var(--act-rule-color);
+
+  --anim-block-duration: 250ms;
+  --anim-choice-duration: 200ms;
+  --anim-act-title-duration: 450ms;
+  --anim-choice-fade-duration: 180ms;
+}
+
+.narrative { font-size: 1.2rem; }

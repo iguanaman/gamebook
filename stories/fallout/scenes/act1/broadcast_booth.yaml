@@ -1,0 +1,82 @@
+id: act1/broadcast_booth
+text:
+- The mezzanine stairs come up behind a frosted-glass door marked *BROADCAST — AUTHORISED
+  PERSONNEL.* The lock is a simple swipe and your security tier opens it because eighty-seven
+  years ago somebody in Vault-Tec procurement decided that security tier and broadcast
+  tier were the same tier and nobody has rewritten the schema since.
+- The booth is a closet. A narrow desk, a chair on a swivel that complains, a microphone
+  on a flexible arm pre-positioned for the recording loop, and a single red toggle
+  on the desk under a perspex flip-cover that reads *LIVE — OVERRIDES ALL.* The flip-cover
+  has a fingerprint smudge on it. Somebody has, in the last few weeks, opened it and
+  not pressed the toggle and closed it again.
+- Through the wall behind the desk you can hear the recording loop, faint and tinny,
+  reminding the population that the atrium fountain is undergoing scheduled aesthetic
+  review. The same recording you have been hearing your whole life.
+- If you flip the toggle the recording stops. The microphone goes live. Two hundred
+  people, in their bunks and corridors and the medical office and the reactor deck
+  and the dry bouquet of brown ferns at the dead fountain, hear what you say next,
+  exactly once, with no edit and no take-two.
+- if:
+    flags:
+    - terminal_evidence
+  text: The slate is in your inside pocket. You take it out and set it on the narrow
+    desk and look at it. Names. Dates. Cole's signature on a *Reclassify, no further
+    action* over a coolant integrity report nine weeks old. The slate makes the speech
+    for you, if you can find the words to point at it.
+  else: You have the folder. You have what Mira handed you in the locker room and
+    what Reyes confirmed and what Yuna put a margin note on in handwriting you'd bet
+    rations on. You do not have a printout that prints itself. You will have to print
+    it with your mouth.
+- if:
+    flags:
+    - cole_alerted
+  text: Bregman is on the atrium floor below. You can see him through the slot in
+    the booth wall, looking up at the mezzanine and not pretending he is doing anything
+    else. He has a runner with him. The runner is being told something. The runner
+    runs.
+- You sit on the swivel chair. It complains. You put a hand on the perspex cover.
+  You think about the words you are going to use.
+choices:
+- text: Flip the toggle. Read it from the slate. Names, dates, Cole's signature. Let
+    the document do the work. (Charisma 5)
+  next: act1/broadcast_success_scene
+  requires:
+    stats:
+      CHR: 5
+    flags:
+    - terminal_evidence
+    flags_unset:
+    - broadcast_attempted
+  failed_text: '*(Charisma 5 — even with the slate in your hand you can hear yourself
+    stumble over it; the words are not going to carry.)*'
+  effects:
+    flags:
+      broadcast_attempted: true
+      exposed_truth: true
+- text: Flip the toggle. Speak. Tell them the reactor is dying and the door is sealed
+    and the man in the office knows. (Charisma 6)
+  next: act1/broadcast_success_scene
+  requires:
+    stats:
+      CHR: 6
+    flags_unset:
+    - broadcast_attempted
+    - terminal_evidence
+  failed_text: '*(Charisma 6 — without something to point at you can hear the speech
+    you are about to make turning into the speech the loiterer makes by the dry fountain.
+    It will not carry.)*'
+  effects:
+    flags:
+      broadcast_attempted: true
+      exposed_truth: true
+- text: Flip the toggle anyway. Say it. The window is now or never.
+  next: act1/broadcast_failed_scene
+  requires:
+    flags_unset:
+    - broadcast_attempted
+  effects:
+    flags:
+      broadcast_attempted: true
+      cole_alerted: true
+- text: Close the perspex cover. Walk out. Not now.
+  next: act1/atrium_hub

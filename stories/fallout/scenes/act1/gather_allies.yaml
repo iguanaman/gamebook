@@ -1,0 +1,82 @@
+id: act1/gather_allies
+text:
+- You stand on the threshold of the atrium and look back at it the way you look at
+  a room you are about to leave for the last time. Eighty-seven years of recycled
+  air. The dry fountain. The speaker that has lied to you in the same recorded voice
+  every shift of your working life. You have what you came for. The decision now is
+  who you are taking with you, and who you are leaving in this room.
+- if: visited
+  text: Each face you have already collected stands somewhere in your peripheral vision
+    — not following you yet, not quite, but oriented. Waiting on the next move. The
+    clock has not stopped while you have been sorting yourselves out.
+  else: The clock has not stopped. It has not slowed. The reactor is doing what the
+    reactor was always going to do, on the schedule it was always going to do it on,
+    and the only variable left is the size of the party that walks out the front door.
+- if:
+    flags:
+    - exposed_truth
+  text: The atrium knows. You can feel it in the angle of every shoulder turned half-toward
+    you. You said the words on the open mic and the words have not gone anywhere since.
+    Whatever you do next, you do in front of two hundred witnesses.
+- if:
+    flags:
+    - recruited_doc
+  text: Reyes is at the north corridor mouth with a canvas medical bag at her feet,
+    the notebook tucked into the top of it. Coffee mug, finally, set down somewhere
+    and forgotten. She is waiting on you and pretending she isn't.
+- if:
+    flags:
+    - recruited_yuna
+  text: Yuna is on the bottom step of the mezzanine, multitool spinning on its lanyard,
+    goggles still in her hair. She has not looked at the reactor deck door once since
+    she came up the stairs. She is making a point of it.
+- if:
+    flags:
+    - recruited_resistance
+  text: The group is forming up by the south arch — twelve, maybe more, hard to count
+    when people keep stepping in and stepping back out. The woman from sub-five is
+    at the front. None of them are armed in any way that would matter. All of them
+    are coming anyway.
+- Decide who you take. Decide when you go.
+choices:
+- text: North corridor. Find Reyes in her office. Ask her if she meant it.
+  next: act1/recruit_doc
+  requires:
+    flags:
+    - trusted_by_doc_reyes
+    flags_unset:
+    - recruited_doc
+  hide_if_failed: true
+- text: Reactor deck. One more time. Get Yuna off the panel.
+  next: act1/recruit_yuna
+  requires:
+    flags:
+    - yuna_joins
+    flags_unset:
+    - recruited_yuna
+  hide_if_failed: true
+- text: South arch. The woman from sub-five is waiting. Tell her to bring the others.
+  next: act1/recruit_resistance
+  requires:
+    flags:
+    - exposed_truth
+    flags_unset:
+    - recruited_resistance
+  hide_if_failed: true
+- text: Bunkroom. Pack your own kit. Leave without telling anyone.
+  next: act1/solo_prep
+- text: You have the key. Walk to the door. Open it.
+  next: act1/door_chamber
+  requires:
+    flags:
+    - has_master_key
+  hide_if_failed: true
+- text: You don't need the key. The shaft is open and the corridor side will take
+    the door off its hinges if you bring the group through it.
+  next: act1/door_chamber_exposed_route
+  requires:
+    flags:
+    - exposed_truth
+    - knows_maintenance_shaft
+    - recruited_resistance
+  hide_if_failed: true

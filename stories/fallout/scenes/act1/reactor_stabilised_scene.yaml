@@ -1,0 +1,39 @@
+id: act1/reactor_stabilised_scene
+journal: "You held the panel while Yuna purged the loop. The column dropped a tone. The reactor is not fixed — it is stable like a man with a knife in his lung is stable — but you bought hours that the vault did not have an hour ago."
+text:
+- You set your shoulder against the panel and the panel sets itself against you. It
+  is hot through the coverall in the way a cup of tea is hot through a mug — bearable,
+  until it isn't. The lugs at the corners creak when you put your weight on. They
+  do not fail.
+- Yuna gets both hands on the wheel and leans. The valve does not move. She leans
+  harder. The valve does not move. She steps back, breathes once through her teeth,
+  plants a boot on the housing for leverage and goes again.
+- female_young_american_lisp: 'Come *on*, you absolute — '
+- It moves. Half a turn, then a full one, then easier. She is muttering numbers under
+  her breath that you don't understand and don't need to. Somewhere behind the column
+  a relay clacks over. The note the column is humming drops. Not stops. *Drops* —
+  half a tone, maybe a whole one, the way a kettle changes when it is no longer about
+  to boil over.
+- Your shoulder is shaking. The panel is still pushing. You hold it.
+- female_young_american_lisp: Bleeding the secondary. Thirty seconds. Don't move.
+- She is at a different valve now, her back to you, both hands working. Steam vents
+  from somewhere up by the ceiling — clean steam, white, not the brown smell that
+  would mean something else. You count to thirty. You get to forty. You get to fifty.
+- female_young_american_lisp: Off it. Slow. *Slow.*
+- You take your weight off the panel a millimetre at a time. The lugs hold. The panel
+  sits where it should sit. Yuna closes the access cover, latches it, and stands there
+  with her hands on her knees breathing like someone who has just remembered breathing
+  was an option.
+- She straightens. Pulls the goggles down over her eyes, then pushes them straight
+  back up into her hair. A tic.
+- female_young_american_lisp: That bought us — I don't know. Days. A week if nobody
+    touches anything. The exchange is still going to fail, you understand. It's just
+    going to fail later. We bought *later*.
+- She looks at you properly for the first time since you walked onto the deck.
+- female_young_american_lisp: I owe you one. I don't say that. Write it down somewhere.
+    I owe you one.
+- The hum is quieter under your boots when you walk back up the slope. You can feel
+  where it used to be.
+choices:
+- text: Back up the slope. Back to the atrium.
+  next: act1/atrium_hub

@@ -1,0 +1,43 @@
+id: act1/recruit_yuna
+journal: "Yuna is coming with you. She left the panel — the first thing she has done in two years that wasn't holding the reactor together. She told you not to say anything kind about it."
+text:
+- The reactor deck is colder than you remember. Not actually colder — the heat-exchange
+  has settled, the rumble has gone quiet, the air handlers are catching up — but cold
+  the way a room is cold when the thing in the middle of it is no longer trying to
+  kill you. The panel lights are amber instead of red. Yuna is leaning against the
+  panel rail with her arms crossed and her goggles pushed up into her hair and a face
+  on her you do not have a name for.
+- female_young_american_lisp: You came back. I told myself you wouldn't and you did.
+    Annoying.
+- She pushes off the rail. Picks up the multitool from the panel where she had set
+  it down — set it down — and puts it on its lanyard around her neck. The lanyard
+  goes over her head with the kind of finality that means she will not be taking it
+  off again on this side of the door.
+- female_young_american_lisp: Right. So. Here's the situation. The thing — *the thing*
+    — is stable. Stable like a man with a knife in his lung is stable. It will hold
+    for as long as it holds. I cannot make it hold longer by standing here looking
+    at it. I have established this empirically over the last forty minutes. I keep
+    checking. The number does not move.
+- She is talking faster than she usually talks. You have not heard her talk this fast
+  before.
+- female_young_american_lisp: I have packed a bag. Don't look at me like that. Of
+    course I have packed a bag. I have been packing the same bag for two years and
+    unpacking it because there was always one more thing on the panel that needed
+    me. There is no longer one more thing. I checked. I keep checking.
+- The bag is at her feet. A canvas roll of tools. A spare multitool. A set of goggles
+  she has never worn because she keeps the ones in her hair. Two ration bars. A coil
+  of copper wire she will not explain.
+- female_young_american_lisp: Ground rule. I am coming because you got the door open,
+    not because I like you, and not because I have stopped being angry about how long
+    this took. If we get out and there is a radio anywhere on the surface I am fixing
+    the radio first and apologising second. Are we clear.
+- It is not a question. She picks up the bag. Slings it. Looks at the panel one more
+  time the way a person looks at something they are not allowed to look at again.
+- female_young_american_lisp: Don't say anything kind. I will lose it. Walk.
+choices:
+- text: Walk.
+  next: act1/gather_allies
+  effects:
+    flags:
+      recruited_yuna: true
+      yuna_with_you: true

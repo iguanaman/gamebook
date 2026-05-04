@@ -1,0 +1,31 @@
+id: act1/read_terminal_logs
+journal: "You broke into the supervisor's terminal. Cole's deletion records are on a slate in your pocket — three copies of the report wiped, and a draft memo in his own words: *the substance is not in dispute*. Proof, in his handwriting, that he knew."
+text:
+- The auth daemon coughs and dies and leaves you in a shell that should not exist.
+  You have maybe four minutes before somebody notices the process tree is wrong.
+- robot_vector: Administrative correspondence. W. A. Cole, Warden. Outgoing. Last
+    sixty days.
+- 'You scroll. Most of it is the bureaucratic noise of a vault running itself: requisitions,
+  shift reassignments, a long argument with the kitchen about flour. Then, threaded
+  through it: a sequence of deletion records. Form 34-R, copy 1. Deleted. Form 34-R,
+  copy 2. Deleted. Form 34-R, copy 3 — the original Yuna draft with the engineering
+  signatures still on it — deleted four days ago.'
+- 'Underneath the deletions, in the supervisor''s private notes folder: a memo from
+  Cole, never sent, marked DRAFT. *In the event that the report''s contents become
+  subject to broader awareness, the priority is to identify and address the source
+  of distribution rather than to engage with the substance. The substance is not in
+  dispute.*'
+- The substance is not in dispute.
+- You copy the deletion records and the draft memo onto a slate from the desk drawer.
+  The slate is officer-issue and unencrypted; nobody will look at it twice.
+- Three minutes left on your window. You back the shell out cleanly. The auth daemon
+  comes back up, dazed, none the wiser.
+- You took the chair you found warm.
+choices:
+- text: Pocket the slate. Get out before the supervisor comes back from dinner.
+  next: act1/atrium_hub
+  effects:
+    flags:
+      found_report: true
+      terminal_evidence: true
+      terminal_attempted: true

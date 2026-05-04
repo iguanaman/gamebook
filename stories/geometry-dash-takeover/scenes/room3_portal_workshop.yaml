@@ -1,0 +1,22 @@
+id: room3_portal_workshop
+text:
+- 'ONE-POINT-SEVEN. Green light. Brennan: WIND TUNNEL. Sideways, tablet flapping behind
+  him on its strap. I MEANT 1.7—'
+- He didn't.
+- The conveyor slides four of us into a workshop. Coloured portals on rails. Jump
+  pads on a grid in the middle.
+- male_young_american_forthright: Room three. Who VERIFIED Bloodlust?
+- male_young_american_weak: oh — oh no — it's — [gasp] sorry sorry —
+- Milo's rocking heel-to-toe. Friendship bracelets jangling.
+- male_young_american_youthful_friendly_modern: Tick tock, Milo.
+- Dex says it so quiet. Sus move. Milo flinches.
+- Bloodlust. Top 1 for AGES. Whoever beat it first is a legend.
+choices:
+- text: Riot.
+  next: out_gravity_flip
+- text: Manix648.
+  next: out_gravity_flip
+- text: Knobbelboy.
+  next: room4_jump_pad_assembly
+- text: Cyclic.
+  next: out_gravity_flip

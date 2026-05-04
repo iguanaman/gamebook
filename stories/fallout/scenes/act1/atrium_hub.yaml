@@ -1,0 +1,145 @@
+id: act1/atrium_hub
+text:
+- You come back into the atrium the way you always have — through the same set of
+  doors, under the same dead speaker, past the same dry fountain with its bouquet
+  of brown ferns. The recording loops. The light buzzes. It is exactly as it was an
+  hour ago and entirely different.
+- if: visited
+  text: The Promenade has rearranged itself by inches. A different maintenance worker
+    on a different ladder, doing the same nothing to a different fitting. The children
+    with the rolled-up regulations have been replaced by a single child with a rolled-up
+    regulation, mid-search for a sibling.
+- if:
+    flags:
+    - cole_alerted
+  text: Two of your colleagues are standing where they did not used to stand. One
+    on the mezzanine rail, looking down. One by the north corridor, looking at nothing
+    in particular and unmistakably at you. Their hands rest on their belts in the
+    relaxed way that means *I am thinking about it.* You know both of them by name.
+    You went through training with one. He does not nod.
+  else: The duty pair are at their usual post by the south arch, more interested in
+    each other than in you.
+- if:
+    flags:
+    - exposed_truth
+  text: A woman from sub-five passes you and does not look up — but her hand brushes
+    yours in the gap between bodies and there is a stim in your palm afterwards. You
+    don't see who. The crowd has texture now where before it had none. People know.
+    They are not saying. But the not-saying is different.
+- if:
+    flags:
+    - radiation_sick
+  text: Sweat sits in the small of your back the way it shouldn't at this temperature.
+    A man waiting outside Medical clocks the sheen on your forehead, looks once at
+    his own forearm, then away. Down here, knowing what to look for is a kind of literacy.
+- if:
+    flags:
+    - found_report
+  text: The folder weighs the same as it did when you picked it up. It does not weigh
+    more. You keep checking, and it does not weigh more. This bothers you in a way
+    you can't name.
+- if:
+    flags:
+    - reactor_stabilised
+  text: The rumble under the plates has gone quiet — not silent, but quiet. The fountain
+    basin used to vibrate in time with the heat-exchange. It isn't, now. The maintenance
+    worker on the ladder has noticed and is pretending he hasn't.
+- if:
+    flags:
+    - terminal_evidence
+  text: The slate sits in your inside pocket against the folder, two flat weights
+    against your ribs. You feel oddly symmetrical.
+- You can be five places. Pick one. The clock does not stop while you decide.
+choices:
+- text: North. Back to Medical. Reyes will still be at the back office.
+  next: act1/talk_doc_reyes
+- text: South-east. Back to the reactor deck. Yuna will be at the panel because Yuna
+    is always at the panel.
+  next: act1/talk_yuna
+- text: West. Security Block. Try the supervisor's terminal again.
+  next: act1/security_terminal
+  requires:
+    flags_unset:
+    - terminal_attempted
+    - cole_alerted
+  hide_if_failed: true
+- text: West. Security Block. See if the terminal is still worth touching.
+  next: act1/terminal_wiped
+  requires:
+    flags:
+    - cole_alerted
+    flags_unset:
+    - terminal_wiped_seen
+    - terminal_attempted
+  hide_if_failed: true
+- text: East spur. The Overseer's corridor. Cole's office is at the far end.
+  next: act1/overseer_corridor
+  requires:
+    flags:
+    - found_report
+  hide_if_failed: true
+- text: Up the mezzanine stairs. The broadcast booth. The microphone the speaker loop
+    comes out of.
+  next: act1/broadcast_booth
+  requires:
+    flags:
+    - found_report
+  hide_if_failed: true
+- text: Fifty minutes from now Kemp walks his loop and Cole walks his nightly rounds.
+    The desk drawer will be alone for nine minutes. Take that window.
+  next: act1/steal_master_key
+  requires:
+    flags:
+    - knows_loyalists
+    flags_unset:
+    - key_attempted
+    - has_master_key
+  hide_if_failed: true
+- text: Side hatch behind Hydroponics. The maintenance shaft Yuna mentioned. Take
+    a look at it before you commit to it.
+  next: act1/maintenance_shaft
+  requires:
+    flags:
+    - knows_maintenance_shaft
+    flags_unset:
+    - scouted_shaft
+  hide_if_failed: true
+- text: Detour. Security armoury. There's a reinforced suit on the rack with nobody's
+    name on it.
+  next: act1/armoury
+  requires:
+    stats:
+      STR: 6
+    flags_unset:
+    - armoury_visited
+  failed_text: '*(Strength 6 — the reinforced suit fits one of the bigger officers;
+    you''d rattle around in it.)*'
+- text: Bunkroom. Sit on the edge of the cot for ten minutes and breathe through it.
+    The clock keeps ticking.
+  next: act1/rest_bunk
+- text: Catch the loiterer's eye by the dry fountain.
+  next: act1/atrium_loiterer
+  requires:
+    flags_unset:
+    - heard_loiterer
+  hide_if_failed: true
+- text: Pause and listen to the propaganda speaker.
+  next: act1/atrium_propaganda
+  requires:
+    flags_unset:
+    - heard_propaganda
+  hide_if_failed: true
+- text: You have what you need. Go and get whoever's coming with you.
+  next: act1/gather_allies
+  requires:
+    flags:
+    - has_master_key
+  hide_if_failed: true
+- text: You don't have the key, but you have the vault. The corridor side will force
+    the door if you bring the resistance with you.
+  next: act1/gather_allies
+  requires:
+    flags:
+    - exposed_truth
+    - knows_maintenance_shaft
+  hide_if_failed: true

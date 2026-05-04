@@ -1,0 +1,18 @@
+id: act1/report_dating_spotted
+journal: "The form date had been overstamped. Cole has been sitting on the report since winter — months, not weeks. Whatever margin Yuna gave you was already gone before you opened the folder."
+text:
+- You hold the cover sheet under the dying strip light and tilt it.
+- 'The form date — top right, three boxes for day-month-year — has been overstamped.
+  Not corrected. Overstamped. Underneath the fresh ink you can just make out an older
+  impression: a date four months old.'
+- Cole has been sitting on this since winter.
+- You replace the sheet very carefully, as though it might cut you. Seventy-two to
+  ninety-six hours, Yuna wrote. Optimistic, given that the document she wrote it on
+  is a third of a year old.
+- You do the arithmetic. You stop doing the arithmetic. The arithmetic is not encouraging.
+choices:
+- text: Pocket the folder. Move.
+  next: act1/atrium_first
+  effects:
+    flags:
+      report_dated_old: true

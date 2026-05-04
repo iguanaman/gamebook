@@ -1,0 +1,37 @@
+id: act1/atrium_first
+text:
+- The atrium is two storeys of poured concrete painted the colour of an old bruise,
+  ringed by a mezzanine the residents call the Promenade because the original sign
+  said so and nobody ever took it down. The fountain at the centre has been dry since
+  before you were born; somebody's filled the basin with potted ferns that are also,
+  on closer inspection, dead.
+- A handful of residents drift past in vault blues. A maintenance worker is up a ladder
+  doing nothing to a light fitting. Two children are playing a game that involves
+  hitting each other with rolled-up regulations. From a speaker bolted high on the
+  east wall, a recorded voice loops the Overseer's daily affirmations.
+- The folder is in your inside pocket. It feels like a brick of plutonium. You have
+  nowhere to put it and nowhere to take it that isn't a decision.
+- Three corridors lead off the atrium. North to Medical. South-east to the Reactor
+  Deck. West to the Security Block, where your supervisor's terminal is sitting unattended
+  at this hour.
+- Pick a door. Pick carefully. Once you start asking questions, somebody will start
+  asking why.
+choices:
+- text: Pause and listen to the propaganda speaker.
+  next: act1/atrium_propaganda
+  requires:
+    flags_unset:
+    - heard_propaganda
+- text: Catch the eye of the loiterer leaning by the fountain.
+  next: act1/atrium_loiterer
+  requires:
+    flags_unset:
+    - heard_loiterer
+- text: North. Medical office. Doc Reyes keeps her own counsel — and her own notes.
+  next: act1/medical_office
+- text: South-east. Reactor Deck. Yuna wrote half the report; she'll know what it
+    means.
+  next: act1/reactor_deck
+- text: West. Security Block. Your creds open the supervisor's terminal — if you can
+    crack the inner layer.
+  next: act1/security_terminal

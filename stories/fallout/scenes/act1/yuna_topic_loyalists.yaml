@@ -1,0 +1,25 @@
+id: act1/yuna_topic_loyalists
+text:
+- She thinks about it. Counts on her fingers, then gives up and counts on the multitool.
+- female_young_american_lisp: Three you should worry about. Bregman. Tall, shaved
+    head, used to be on your shift before he got promoted to *administrative liaison*,
+    which means standing outside Cole's door looking expensive. He's the smart one.
+    Doesn't talk much. Watches a lot.
+- female_young_american_lisp: Then Voss. Squat, red face, talks too much, drinks on
+    duty and Cole pretends not to notice. He's the one who'll start it if anything
+    starts. Doesn't think before he opens his mouth or his holster.
+- female_young_american_lisp: Then Kemp. You'd know him. Wears the regulation cap
+    indoors like it's still 2079. Rotates the perimeter — Cole's office corridor,
+    the broadcast booth, the control room antechamber. Predictable. Walks the loop
+    every fifty minutes on the dot.
+- female_young_american_lisp: The rest of your colleagues will follow whoever's standing
+    closest when the bullets start. Plan accordingly.
+- She turns back to the panel. The multitool clicks shut.
+- female_young_american_lisp: Kemp's loop opens a window every fifty minutes, by the
+    way. In case you were going to ask, and weren't going to ask.
+choices:
+- text: Back to the conversation.
+  next: act1/talk_yuna
+  effects:
+    flags:
+      knows_loyalists: true

@@ -1,0 +1,25 @@
+id: act1/terminal_alarm
+journal: "The auth daemon caught your token. A red banner went up — TERMINAL 4-S, TIMESTAMP LOGGED. Cole knows somebody was looking at his correspondence. The roster will tell him who."
+text:
+- The malformed token goes in. The auth daemon does not crash. The auth daemon, it
+  turns out, was patched in '76 and again in '81, and it knows exactly what you tried
+  to do.
+- The screen blanks. A red banner replaces the Vault-Tec logo.
+- robot_vector: ADMINISTRATIVE NOTIFICATION. UNAUTHORISED PRIVILEGE ESCALATION. TERMINAL
+    4-S. TIMESTAMP LOGGED.
+- Somewhere up the chain, in a room you have never been in, a small bell has rung
+  on a console you have never seen. The bell does not say *who*. The bell says *somebody*.
+  That is enough.
+- You log out. You stand up. You put the chair back exactly the way you found it.
+  None of this matters; the timestamp is the timestamp, and the supervisor's roster
+  will tell whoever asks who was on shift in this corridor at 18:23.
+- You leave the security block at the speed of a person who is not leaving the security
+  block. You make it to the atrium before your hands start shaking.
+- Somewhere behind you, Cole knows somebody is looking. He doesn't know who. Yet.
+choices:
+- text: Out. Atrium. Now.
+  next: act1/atrium_hub
+  effects:
+    flags:
+      cole_alerted: true
+      terminal_attempted: true

@@ -1,0 +1,32 @@
+id: act1/maintenance_shaft
+text:
+- The hatch is behind the Hydroponics back wall, exactly where Yuna said it would
+  be, behind a stack of empty fertiliser drums that have been there long enough to
+  fuse to the floor. You shift two of them. The hatch is a Vault-Tec service plate,
+  four bolts, half-painted-over. Two of the bolts are already loose. Yuna again, presumably,
+  on a previous restless evening.
+- The shaft beyond is narrower than you'd like and taller than you'd like. A maintenance
+  ladder drops twenty feet to a service tunnel that runs the inner skin of the vault.
+  You can hear, faintly, the heat-exchange humming from the other side of a wall it
+  should not be audible through.
+- You don't go down. Not now. You count the rungs, you flash your torch at the bottom
+  landing, you note the stencilled marker on the far wall — *DOOR MECH ACCESS — AUTHORISED
+  PERSONNEL ONLY* — with an arrow pointing further into the dark.
+- It would take a crew. The corridor side of the door mechanism is a hand-crank job
+  designed for two people working together; one alone would take an hour and run out
+  of arms before the bolts cleared. With twelve people you could do it in fifteen
+  minutes and make enough noise that everyone in the vault would hear it happening.
+- You back the bolts off. Restack the drums. Mark the hatch in your head. You know
+  the route now.
+- if:
+    flags:
+    - exposed_truth
+  text: Twelve people would not be hard to find. You walked through them on the way
+    here and they did not look up because they have already decided they will not
+    need to.
+choices:
+- text: Back to the atrium.
+  next: act1/atrium_hub
+  effects:
+    flags:
+      scouted_shaft: true

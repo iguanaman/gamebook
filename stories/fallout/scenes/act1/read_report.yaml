@@ -1,0 +1,38 @@
+id: act1/read_report
+journal: "You read the reactor report. The vault has 72 to 96 hours before the heat-exchange goes critical. Cole has known for weeks and ordered it reclassified. The clock is running."
+text:
+- You sit on the bench. The folder opens with a small, definite sound, like a verdict.
+- The cover sheet is a Form 34-R, *Reactor Operations Quarterly Status Update — Internal
+  Distribution Only*. The header is unremarkable. The body is not.
+- '*Coolant loop integrity: COMPROMISED. Primary heat-exchange degradation at 71%
+  and accelerating. Estimated time to critical containment failure under nominal operating
+  load: 72 to 96 hours. Recommended action: immediate evacuation protocol per Vault-Tec
+  Emergency Procedures Manual §7.3.*'
+- 'Underneath, in a different hand — Yuna''s, you''d bet rations on it — a margin
+  note: *I have raised this with the Overseer''s office on three separate occasions.
+  Filed. No response. Suggesting we reclassify before the residents notice the floor
+  getting warm.*'
+- 'The next page is the Overseer''s reply. One line, signed *W. A. Cole, Warden, Vault
+  34*:'
+- '*Reclassify. Atmospheric anomaly only. No further action required. Do not redistribute.*'
+- You read it again. The fluorescent buzzes. Somewhere down corridor C, a child is
+  laughing.
+- The folder is real. Cole knows. Cole is going to let everyone die in their beds
+  rather than tell them.
+- You can feel the clock starting.
+choices:
+- text: Examine the cover sheet date stamp more closely.
+  next: act1/report_dating_spotted
+  requires:
+    stats:
+      PER: 6
+  failed_text: '*(Perception 6 — something about the paper bothers you, but you can''t
+    place it.)*'
+  effects:
+    flags:
+      found_report: true
+- text: Pocket the folder. Get out of the locker room before someone walks in.
+  next: act1/atrium_first
+  effects:
+    flags:
+      found_report: true

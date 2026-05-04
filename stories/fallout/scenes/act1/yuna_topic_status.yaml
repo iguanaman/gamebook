@@ -1,0 +1,22 @@
+id: act1/yuna_topic_status
+text:
+- She grins. It is not a nice grin. The lisp pitches it sharp.
+- female_young_american_lisp: Because I'm the only person in this vault who can keep
+    the thing from killing everybody before Cole's preferred timeline. Pulling me
+    would speed up his outcome by, oh, a week. Even Cole can do that maths.
+- female_young_american_lisp: He's got me on a list. Two of his guards walk past every
+    shift change and pretend they're inspecting the gantry. They couldn't inspect
+    a wet sandwich. But the message is sent and received, sure, fine.
+- She fidgets with the multitool. Opens it. Closes it. Opens it.
+- female_young_american_lisp: He thinks the day the reactor stops needing me is the
+    day he doesn't need me either. He's right about that part. So either I keep it
+    limping, or the vault dies, or the door opens. Three options. One of them is up
+    to him. Two of them aren't.
+- female_young_american_lisp: Anyway. Yes. I am, technically, on borrowed time. Welcome
+    to the club, officer. Membership is free.
+choices:
+- text: Back to the conversation.
+  next: act1/talk_yuna
+  effects:
+    flags:
+      yuna_told_about_status: true

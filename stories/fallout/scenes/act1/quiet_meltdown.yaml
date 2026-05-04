@@ -1,0 +1,30 @@
+id: act1/quiet_meltdown
+journal: "You closed the locker. You went back to your shifts. On the morning that was not quite a morning, the reactor finished what it had been about, and you did not wake up for it. None of you did."
+text:
+- You sleep nine hours. You wake. You eat the reconstituted egg substitute. You log
+  on for your next shift. You write up two infractions, one for unauthorised cooking
+  and one for "expressive vocalisation in a quiet zone." You sleep again.
+- On the third morning the floor is warm.
+- By the fourth morning the air tastes of pennies and the children have stopped laughing.
+  The Overseer's recorded voice continues to remind residents that the atrium fountain
+  is undergoing scheduled aesthetic review. Mira does not come to her shift. Nobody
+  mentions it.
+- On the fifth morning Doc Reyes posts a notice that the medical office is closed
+  pending "supply normalisation."
+- On the morning that is not quite a morning, eighty-seven hours after you closed
+  the locker, the primary heat-exchange in Vault 34's reactor finishes the slow private
+  business it has been about for four months. There is a sound that is not a sound.
+  The lights do something interesting. The atrium fountain, decommissioned eleven
+  years for scheduled aesthetic review, briefly produces water.
+- You die in your bunk. You don't wake up for it. None of you do.
+- '---'
+- '*VAULT-TEC INTERNAL MEMORANDUM — POSTHUMOUS, FOR ARCHIVAL PURPOSES ONLY*'
+- '*RE: VAULT 34, INCIDENT FINAL.*'
+- '*The experimental parameters of Vault 34 (Armoury Saturation Protocol) concluded
+  on the indicated date with all subjects deceased. Cause: cascading containment failure,
+  reactor primary loop. Subject behavioural data through the final ninety-six hours
+  indicates nominal compliance with overseer directives and no anomalous evacuation
+  attempts. The experiment is therefore considered to have terminated under controlled
+  conditions.*'
+- '*Filed. No further action required. Do not redistribute.*'
+choices: []

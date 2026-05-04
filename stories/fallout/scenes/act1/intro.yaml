@@ -1,0 +1,24 @@
+id: act1/intro
+text:
+- War. War never changes.
+- The Romans waged war to gather slaves and wealth. Spain built an empire from its
+  lust for gold and territory. Hitler shaped a battered Germany into an economic superpower.
+  But war never changes.
+- In the 21st century, war was still waged over the resources that could be acquired.
+  Only this time, the spoils of war were also its weapons — petroleum and uranium.
+  For these resources, China would invade Alaska, the U.S. would annex Canada, and
+  the European Commonwealth would dissolve into quarrelling, bickering nation-states
+  bent on controlling the last remaining resources on Earth.
+- In 2077, the storm of world war had come again. In two brief hours, most of the
+  planet was reduced to cinders. And from the ashes of nuclear devastation, a new
+  civilization would struggle to arise.
+- A few were able to reach the relative safety of the large underground Vaults. Your
+  family was part of that group that entered Vault 34.
+- Imprisoned safely behind the large Vault door, under hundreds of feet of bedrock,
+  a generation has lived, and died, with no surface contact.
+- Now, eighty-seven years later, the fluorescents still hum. The Overseer still broadcasts.
+  The atrium fountain is still "under aesthetic review."
+- And somewhere down on Reactor Deck, something has started to go wrong.
+choices:
+- text: Clock out. End of shift.
+  next: act1/locker_room

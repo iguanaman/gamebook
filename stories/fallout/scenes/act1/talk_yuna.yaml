@@ -1,0 +1,48 @@
+id: act1/talk_yuna
+text:
+- Yuna pulls her hand out of the access panel, wipes it on the coverall, and looks
+  you over with the patience of somebody who has thirty seconds before the next alarm.
+  The multitool on her lanyard swings, catches itself in her fingers, swings again.
+- if:
+    flags:
+    - yuna_confirmed_report
+  text: The exchange column is still humming the wrong note. She is still standing
+    closer to it than the yellow line says she should.
+- if:
+    flags:
+    - reactor_stabilised
+  text: The note is quieter now. Not gone. Quieter. She glances at the column without
+    meaning to. Old habit, new gratitude.
+choices:
+- text: '"The reactor. The report. Tell me how bad."'
+  next: act1/yuna_topic_reactor
+  requires:
+    flags:
+    - found_report
+    flags_unset:
+    - yuna_confirmed_report
+- text: '"Is there another way out of here? A maintenance route. Anything."'
+  next: act1/yuna_topic_shaft
+  requires:
+    flags_unset:
+    - knows_maintenance_shaft
+- text: '"You wrote half that report. Why aren''t you in a holding cell?"'
+  next: act1/yuna_topic_status
+  requires:
+    flags_unset:
+    - yuna_told_about_status
+- text: '"Cole''s people. The ones who actually do what he tells them. Who are they?"'
+  next: act1/yuna_topic_loyalists
+  requires:
+    flags_unset:
+    - knows_loyalists
+- text: '"Show me how to stabilise it. Buy us time."'
+  next: act1/stabilise_reactor
+  requires:
+    flags:
+    - yuna_confirmed_report
+    flags_unset:
+    - reactor_attempted
+  hide_if_failed: true
+- text: Walk away. Back to the atrium.
+  next: act1/atrium_hub

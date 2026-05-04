@@ -1,0 +1,20 @@
+id: room2_mode_hangar
+text:
+- 'FOREVERBOUND. Green light. Mara: TRAPDOOR. Soft FOOMP. From below — I''M FINE THIS
+  IS RIGGED.'
+- The conveyor slides the five of us into a hangar. Wind tunnels howling. Ship-mode
+  demo whooshing through a tube.
+- male_young_american_forthright: Room two. Which update first introduced Practice
+    Mode?
+- male_young_american_youthful_confident_bright: Bro — easy — 2.0, lock it in—
+- Brennan flicks his tablet like it'll whisper. It won't.
+- Practice Mode. With the checkpoints. Before the big mode dump.
+choices:
+- text: 1.6.
+  next: out_wind_tunnel
+- text: 2.0.
+  next: out_wind_tunnel
+- text: 1.7.
+  next: room3_portal_workshop
+- text: 1.9.
+  next: out_wind_tunnel

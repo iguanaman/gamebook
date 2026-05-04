@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto+Condensed:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Overseer';
+  src: url('https://cdn.jsdelivr.net/gh/Pragma8123/three-dog@main/client/src/assets/fonts/Overseer.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --bg: #0d0d0a;
+  --surface: #141410;
+  --text: #c8a84b;
+  --text-muted: #7a6530;
+  --border: #3a2e14;
+  --hover-bg: #1e1c0f;
+  --accent: #d4a017;
+  --accent-hover: #b8880f;
+  --btn-secondary-bg: #1a1810;
+  --btn-secondary-hover: #252210;
+  --radius: 0px;
+
+  --font-body: 'Share Tech Mono', 'Courier New', monospace;
+  --font-ui: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+  --font-heading: 'Overseer', 'Bebas Neue', 'Impact', sans-serif;
+
+  --border-outer: #3a2e14;
+  --border-inner: #1e1a0a;
+  --border-corner-radius: 0px;
+  --frame-inset: 8px;
+
+  --divider-color: #3a2e14;
+  --divider-style: 1px solid var(--divider-color);
+
+  --drop-cap-color: #d4a017;
+  --drop-cap-size: 3.5em;
+
+  --act-title-size: 1.8rem;
+  --act-rule-color: #3a2e14;
+  --act-rule-style: 1px solid var(--act-rule-color);
+
+  --anim-block-duration: 300ms;
+  --anim-choice-duration: 250ms;
+  --anim-act-title-duration: 500ms;
+  --anim-choice-fade-duration: 200ms;
+}

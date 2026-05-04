@@ -1,0 +1,24 @@
+id: act1/key_taken_clean
+journal: "You took the master key from Cole's drawer. Clean. The cylinder reseated; the desk does not know it has been robbed. Nobody saw you go in or come out."
+text:
+- You set your ear against the cold brass and the desk against your cheek and you
+  breathe out and you stop being a man with a heartbeat for a count of forty. The
+  cylinder is honest the way old machinery is honest — it tells you what it is if
+  you let it. Three pins. The middle one is the one Vault-Tec used to over-spec because
+  it was on the bill of materials twice by accident. You feel it set. You feel the
+  other two follow it. The drawer slides.
+- 'Inside, on a square of green felt that has not been replaced since the day the
+  vault was sealed: the master key. Brass, longer than your palm, the Vault-Tec cog
+  stamped at the bow. It weighs less than you expected and more than it should. You
+  put it in the inside pocket where the folder isn''t and you close the drawer and
+  you press the cylinder back to its rest position with the pad of your thumb.'
+- On the screen-that-isn't-a-window, Cole is three-quarters of the way back. You are
+  out of the office and around the bend and into the side corridor before Kemp's bootfalls
+  come round the broadcast mezzanine for their next pass. Nobody has seen you. The
+  institution will not know it has been robbed until it tries to use what was stolen,
+  and by then the institution will have other problems.
+- You walk back to the atrium at the pace of a man who has been nowhere in particular.
+  Your hand keeps drifting to the inside pocket. You make it stop.
+choices:
+- text: Back to the atrium.
+  next: act1/atrium_hub

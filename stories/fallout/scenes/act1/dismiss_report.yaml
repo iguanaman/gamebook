@@ -1,0 +1,48 @@
+id: act1/dismiss_report
+text:
+- if:
+    flags_unset:
+    - report_dismissed_once
+  text: You shut the locker. The folder is exactly where you found it, manila and
+    red-stamped and someone else's problem.
+  else: You step out of the locker room. Again.
+- if:
+    flags_unset:
+    - report_dismissed_once
+  text: The fluorescent buzzes. You pick up your coat.
+  else: Mira is still there. She has not moved. She is pretending to read a clipboard
+    upside down. When she sees the folder is still not in your hands she makes a small
+    sound that is not quite a word.
+- if:
+    flags_unset:
+    - report_dismissed_once
+  text: In the corridor, Mira is leaning against the wall opposite the door, arms
+    folded too tightly. She straightens when she sees you. Her eyes flick to your
+    hands. Empty hands. Her face does a small, terrible calculation.
+  else: '"Officer," she says. Quietly. "Please. I can''t take it back. If it''s in
+    *my* locker when they sweep —"'
+- if:
+    flags_unset:
+    - report_dismissed_once
+  text: '"Officer," she says. Just the word. She is too junior to give you an instruction
+    and too frightened to ask a question.'
+  else: You walk past her. You don't look at her face. You tell yourself you don't
+    look at her face because you are off shift and tired and it is not your job, and
+    because if you looked you would have to do something about what you saw.
+choices:
+- text: Go back. Take the folder after all.
+  next: act1/read_report
+- text: Step around her. Go off shift. The folder is still in there if anyone wants
+    it.
+  next: act1/dismiss_report
+  requires:
+    flags_unset:
+    - report_dismissed_once
+  effects:
+    flags:
+      report_dismissed_once: true
+- text: Keep walking. Off shift. Off duty. Not your problem.
+  next: act1/quiet_meltdown
+  requires:
+    flags:
+    - report_dismissed_once

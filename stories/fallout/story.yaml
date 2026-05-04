@@ -1,0 +1,28 @@
+id: fallout
+title: Vault 34
+narrator: narrator_male_ron_perlman
+description: You are a security officer in Vault 34. The reactor is dying. The overseer knows. The door is sealed.
+cover: images/cover.jpg
+start: act1/intro
+journal: "You are a security officer in Vault 34, eighty-seven years sealed beneath the bedrock. The fluorescents still hum. The Overseer still broadcasts. Down on the reactor deck, something has started to go wrong."
+stats:
+  STR: 5
+  PER: 5
+  CHR: 5
+
+flags:
+  found_report:
+    label: "The Reactor Report"
+    visible: true
+  has_master_key:
+    label: "Master Key"
+    visible: true
+  radiation_sick:
+    label: "Rad Sickness"
+    visible: true
+  vault_suit_upgraded:
+    label: "Reinforced Vault Suit"
+    visible: true
+  surface_cache_found:
+    label: "Surface Cache"
+    visible: true

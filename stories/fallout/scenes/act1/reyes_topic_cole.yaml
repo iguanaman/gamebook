@@ -1,0 +1,21 @@
+id: act1/reyes_topic_cole
+text:
+- The pause is longer this time. She is choosing her clinical nouns.
+- female_adult_american_cool: The overseer presented at this office two weeks ago
+    for a sleep complaint. He has been bunking in the control room. He told me, and
+    I am quoting, that the chair is acceptable and the door locks from inside.
+- female_adult_american_cool: He has lost weight he could not afford to lose. He sweats
+    in a climate the air handlers maintain at nineteen degrees. He removed his wedding
+    band some months ago and wears it on a chain. He did not volunteer why and I did
+    not ask.
+- female_adult_american_cool: Professionally I would describe the presentation as
+    a man under sustained acute stress with limited insight into his own decompensation.
+- She picks up the mug. Sets it down again.
+- female_adult_american_cool: Personally I would describe it as a man who knows what
+    he has done and has decided he can outlast knowing it. I do not think he can.
+choices:
+- text: Back to the conversation.
+  next: act1/talk_doc_reyes
+  effects:
+    flags:
+      reyes_told_about_cole: true

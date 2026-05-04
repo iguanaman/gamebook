@@ -1,0 +1,39 @@
+id: act1/recruit_doc
+journal: "Doc Reyes is coming with you. She has been packing for weeks without admitting it. The notebook in her bag has the names of everyone the administration pretended did not die."
+text:
+- The medical office smells of the same antiseptic and the same bad coffee. Reyes
+  is at the back desk with the notebook open in front of her. Not writing. Reading.
+  The way a person reads something they already know by heart, to make sure it still
+  says what they remember.
+- She looks up when you come in and she does not pretend to be surprised.
+- female_adult_american_cool: I had a feeling. The corridor noise has a different
+    pitch when something is about to happen. Sit down for a moment. No — don't sit.
+    You're right. There isn't time to sit.
+- She closes the notebook. Slides it into the canvas bag at her feet — already half-packed,
+  you notice, the way a person packs who has been telling themselves for weeks that
+  they are not packing.
+- female_adult_american_cool: Three things. Listen.
+- female_adult_american_cool: One. I am sixty-one years old and I will slow you down.
+    That is a clinical observation, not an apology. If we have to run, you do not
+    wait for me. You take the bag. The notebook is what matters. I am the courier,
+    not the cargo.
+- She says it the way she says case notes. There is no offer of disagreement embedded
+  in it.
+- female_adult_american_cool: Two. I have been writing names in here since long before
+    you read the report. Some of those people are still alive. Some of them are not.
+    The administration believes there is no record. There is a record. If we get the
+    door open and I do not get out with you, the record does.
+- female_adult_american_cool: Three. I am not going to ask you whether you have a
+    plan. I am going to assume you do not, and that we will be inventing one as we
+    go, and that this is correct given the circumstances. I have packed accordingly.
+- She lifts the bag. Stim cases stacked along the bottom. Two clean dressings rolled
+  tight. The pre-war ballpoint clipped to the inside flap. The mug is on the desk
+  where she has left it. She does not look at it.
+- female_adult_american_cool: When you're ready, officer. I'll keep up.
+choices:
+- text: '*She''ll keep up.* Walk back to the atrium with her at your shoulder.'
+  next: act1/gather_allies
+  effects:
+    flags:
+      recruited_doc: true
+      doc_with_you: true

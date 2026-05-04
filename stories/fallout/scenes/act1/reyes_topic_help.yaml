@@ -1,0 +1,24 @@
+id: act1/reyes_topic_help
+text:
+- You say it. The room goes still in the way the room goes still when a patient has
+  just been told something.
+- Reyes does not move for a long moment. Then she opens the drawer beside her, takes
+  out the paper notebook, and sets it on the tray between you. The cover is unlabelled.
+  The pages, you can see at the edge, are dense with her clinical hand.
+- female_adult_american_cool: This is what I have. Names, dates, exposure readings,
+    the redirected requisitions, the reassignments. The administration believes it
+    doesn't exist. If anything happens to me before the door opens, you take this
+    with you. If anything happens to both of us, the next person who finds it does.
+- female_adult_american_cool: I am not a fighter, officer. I am sixty-one years old
+    and my knees are a disgrace. But I will walk out of that door behind you if you
+    can get it open. I will not sit in this office and listen to the floor get warm.
+- She slides the notebook back into the drawer. Closes it. Looks at you.
+- female_adult_american_cool: Don't get me killed for nothing. That is the entire
+    ask.
+choices:
+- text: Back to the conversation.
+  next: act1/talk_doc_reyes
+  effects:
+    flags:
+      trusted_by_doc_reyes: true
+      reyes_help_asked: true
