@@ -176,7 +176,11 @@ function animateCardSelect(storyId) {
     cover.className = 'screen-fade-cover';
     document.body.appendChild(cover);
     requestAnimationFrame(() => cover.classList.add('screen-fade-cover-in'));
-    setTimeout(() => startStory(storyId), 600);
+    setTimeout(() => {
+      startStory(storyId);
+      cover.classList.remove('screen-fade-cover-in');
+      cover.addEventListener('transitionend', () => cover.remove(), { once: true });
+    }, 600);
   }, 500);
 }
 
