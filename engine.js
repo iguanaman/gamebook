@@ -464,7 +464,7 @@ function renderShell(meta) {
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
-    <button class="btn-undo-fixed btn-ghost undo-disabled" id="btn-undo">↩</button>
+    <button class="btn-undo-fixed undo-disabled" id="btn-undo">↩</button>
   `;
   const narrative = document.getElementById('narrative');
   if (narrative) {
