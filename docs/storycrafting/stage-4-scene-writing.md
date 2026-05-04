@@ -84,6 +84,26 @@ NPCs with opinions reward curiosity even when nothing mechanical happens. NPCs w
 
 ---
 
+## Journal Entries
+
+A scene may include an optional `journal:` field — a single string, written in second person, recorded once on the player's first visit. The player can open a sidebar to read these in order.
+
+```yaml
+journal: "You met the old librarian. She knew your name before you gave it."
+```
+
+**Use sparingly.** Most scenes get no journal entry. Add one only for:
+- Turning points (a betrayal, a revelation, a death)
+- First meetings with named NPCs who matter later
+- Choices whose consequences the player should remember sessions later
+- Discoveries that recontextualise earlier scenes
+
+Skip journal entries for transitional scenes, hubs the player will revisit, ambient texture, or anything the narrative will reiterate naturally. If a beat earns a journal line, every line in the journal should feel earned the same way — a wall of trivial entries dilutes the meaningful ones.
+
+Second person, past tense, terse. One or two sentences. Match the story's voice but don't over-write — the journal is a memory aid, not a recap.
+
+---
+
 ## Conditional Blocks
 
 Any text block can render conditionally based on current state. Use the `if` key with the same syntax as choice `requires`.

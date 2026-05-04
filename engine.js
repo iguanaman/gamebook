@@ -18,6 +18,8 @@ async function loadManifest() {
 async function showSelector() {
   removeStoryTheme();
   document.getElementById('frame').classList.add('frame-neutral');
+  document.getElementById('journal-toggle')?.classList.add('journal-hidden');
+  document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
   const manifest = await loadManifest();
   app.innerHTML = `
     <div class="selector-bg">
@@ -139,7 +141,7 @@ function initState(storyId, startingStats) {
   currentStoryId = storyId;
   currentAct = null;
   currentActFolder = null;
-  state = { scene: null, stats: { ...startingStats }, flags: {}, visited: [], history: [], blockHashes: {} };
+  state = { scene: null, stats: { ...startingStats }, flags: {}, visited: [], history: [], blockHashes: {}, journal: [], journalSeen: 0 };
 }
 
 function saveState() {
@@ -158,6 +160,8 @@ function pushHistory() {
     stats: { ...state.stats },
     flags: { ...state.flags },
     visited: [...state.visited],
+    journal: [...(state.journal ?? [])],
+    journalSeen: state.journalSeen ?? 0,
     act: currentAct,
     actFolder: currentActFolder
   });
@@ -170,6 +174,8 @@ function undo() {
   state.stats = prev.stats;
   state.flags = prev.flags;
   state.visited = prev.visited ?? [];
+  state.journal = prev.journal ?? [];
+  state.journalSeen = prev.journalSeen ?? 0;
   currentAct = prev.act ?? null;
   currentActFolder = prev.actFolder ?? null;
   saveState();
@@ -422,6 +428,8 @@ async function startStory(storyId) {
     state = saved;
     if (!Array.isArray(state.visited)) state.visited = [];
     if (!state.blockHashes) state.blockHashes = {};
+    if (!Array.isArray(state.journal)) state.journal = [];
+    if (typeof state.journalSeen !== 'number') state.journalSeen = state.journal.length;
     currentAct = saved.act ?? null;
     currentActFolder = saved.actFolder ?? sceneFolder(state.scene);
   } else {
@@ -472,7 +480,9 @@ async function navigateTo(sceneId) {
   saveState();
 
   const scene = await loadScene(currentStoryId, sceneId);
+  recordJournal(scene, sceneId);
   renderHud();
+  renderJournal();
 
   const alreadyVisited = state.visited.includes(sceneId);
 
@@ -844,6 +854,52 @@ async function handleUndo() {
   if (el) { el.innerHTML = '<div class="narrative-spacer"></div>'; }
   await navigateTo(state.scene);
 }
+
+// ── Journal ───────────────────────────────────────────────────────────────────
+
+function recordJournal(scene, sceneId) {
+  if (!scene.journal) return;
+  if (!Array.isArray(state.journal)) state.journal = [];
+  if (state.journal.some(e => e.scene === sceneId)) return;
+  state.journal.push({ scene: sceneId, text: scene.journal });
+  saveState();
+}
+
+function renderJournal() {
+  const toggle = document.getElementById('journal-toggle');
+  const panel = document.getElementById('journal-panel');
+  const entriesEl = document.getElementById('journal-entries');
+  if (!toggle || !panel || !entriesEl) return;
+
+  const entries = state?.journal ?? [];
+  toggle.classList.toggle('journal-hidden', entries.length === 0);
+
+  const hasUnread = entries.length > (state?.journalSeen ?? 0);
+  toggle.classList.toggle('journal-has-unread', hasUnread);
+
+  entriesEl.innerHTML = entries.length === 0
+    ? '<p class="journal-empty">Nothing recorded yet.</p>'
+    : entries.map(e => `<div class="journal-entry"><p>${e.text.replace(/\n\n/g, '</p><p>')}</p></div>`).join('');
+}
+
+function toggleJournal() {
+  const panel = document.getElementById('journal-panel');
+  if (!panel) return;
+  const isOpen = !panel.classList.contains('journal-panel-closed');
+  if (isOpen) {
+    panel.classList.add('journal-panel-closed');
+    panel.setAttribute('aria-hidden', 'true');
+  } else {
+    panel.classList.remove('journal-panel-closed');
+    panel.setAttribute('aria-hidden', 'false');
+    state.journalSeen = (state.journal ?? []).length;
+    saveState();
+    renderJournal();
+  }
+}
+
+document.getElementById('journal-toggle')?.addEventListener('click', toggleJournal);
+document.getElementById('journal-close')?.addEventListener('click', toggleJournal);
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
 

@@ -23,6 +23,10 @@ text: "Single block of narrative text. Blank lines become paragraph breaks."
 #   - if: visited
 #     text: "You've been here before."
 
+# Optional journal entry — added once on first visit. Use sparingly for
+# notable events / turning points. Written in second person.
+# journal: "You met the old librarian. She knew your name before you gave it."
+
 choices:
   - text: Choice the player will see
     next: target_scene_id   # string = go directly; array = weighted random (see below)
