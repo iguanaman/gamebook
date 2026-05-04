@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:wght@500;600;700&family=IM+Fell+English+SC&display=swap');
+
+/* ──────────────────────────────────────────────────────────────────────────
+   One Night in the Yawning Portal — "Inked Parchment" theme.
+
+   Palette: aged off-white parchment ground, deep sepia/brown ink for body
+   text, a single oxblood-red accent for highlights (drop caps, accent
+   strokes, key UI). No glow, no neon, no terminal. Soft edges throughout,
+   ruled lines like a hand-bound notebook.
+
+   Body face: EB Garamond — humanist serif tuned for long reading at 16px.
+   Display face: Cormorant Garamond — slightly looser, more decorative
+   serif for headings (act titles, story splash, journal title).
+   UI face: IM Fell English SC — small-caps antique serif for HUD labels,
+   keeps the parchment aesthetic even in the chrome. Falls back to a
+   generic serif so legibility never depends on the webfont.
+   ────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Palette ─────────────────────────────────────────────────────────── */
+  --bg: #f1e7d0;             /* aged parchment, warm off-white */
+  --surface: #f6efdc;         /* slightly lighter card / panel */
+  --text: #3a2a1a;            /* deep sepia ink */
+  --text-muted: #6b5538;      /* faded ink for secondary text */
+  --border: #c4a874;          /* tan ruled-line border */
+  --hover-bg: rgba(122, 30, 28, 0.06); /* faint oxblood wash on hover */
+
+  --accent: #7a1e1c;          /* oxblood red — sole accent */
+  --accent-hover: #5c1413;
+  --btn-secondary-bg: #e8dcbe;
+  --btn-secondary-hover: #ddcfa9;
+  --radius: 3px;
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
+  --font-body: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-heading: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-ui: 'IM Fell English SC', 'EB Garamond', Georgia, serif;
+
+  /* ── Parchment frame (hand-bound notebook ruling) ────────────────────── */
+  --border-outer: #8a6a3d;    /* darker leather-edge brown */
+  --border-inner: #c4a874;    /* lighter tan inner ruling */
+  --border-corner-radius: 3px;
+  --frame-inset: 1.25rem;
+
+  /* ── Narrative / choices divider ─────────────────────────────────────── */
+  --divider-color: #b89a64;
+  --divider-style: 1px solid var(--divider-color);
+
+  /* ── Drop cap ────────────────────────────────────────────────────────── */
+  --drop-cap-color: var(--accent);
+  --drop-cap-size: 3.6em;
+
+  /* ── Act title ───────────────────────────────────────────────────────── */
+  --act-title-size: 2.1rem;
+  --act-rule-color: #b89a64;
+  --act-rule-style: 1px solid var(--act-rule-color);
+
+  /* ── Story splash ────────────────────────────────────────────────────── */
+  --story-title-size: 3rem;
+
+  /* ── Animations (slightly slower than default — atmospheric, not snappy) */
+  --anim-block-duration: 420ms;
+  --anim-choice-duration: 350ms;
+  --anim-act-title-duration: 700ms;
+  --anim-choice-fade-fast: 280ms;
+  --anim-choice-linger-ms: 500ms;
+  --anim-choice-fade-slow: 600ms;
+}

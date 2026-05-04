@@ -1,0 +1,20 @@
+id: yawning-portal
+title: One Night in the Yawning Portal
+narrator: narrator_male_sean_bean
+description: A missing apprentice. An open well to Undermountain. A common room full of regulars who might just help, if you earn it. One night in Waterdeep's most famous tavern.
+cover: images/cover.jpg
+start: act1/portal_arrival
+journal: "You walked into the Yawning Portal with road dust on your cloak and the night ahead of you. Daggerford behind, Waterdeep above, and a hole in the floor at the heart of the room going down to gods know where."
+stats:
+  Coin: 5
+  Vigor: 8
+  Wits: 6
+  Renown: 0
+
+flags:
+  found_journal:
+    label: "Apprentice's Journal"
+    visible: true
+  mirt_owes_favour:
+    label: "Mirt's Favour"
+    visible: true
