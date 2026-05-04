@@ -327,12 +327,12 @@ function resolveBlock(block, sceneId) {
 
     if (!pass) {
       if (block.else === undefined) return null;
-      return { content: block.else, isSpeech: false, branch: 'b' };
+      return { content: block.else, isSpeech: false, branch: 'b0' };
     }
 
-    if (block.text !== undefined) return { content: block.text, isSpeech: false, branch: 'a' };
+    if (block.text !== undefined) return { content: block.text, isSpeech: false, branch: 'a0' };
     const voiceKey = Object.keys(block).find(k => k !== 'if' && k !== 'else' && k !== 'text');
-    if (voiceKey) return { content: block[voiceKey], isSpeech: true, branch: 'a' };
+    if (voiceKey) return { content: block[voiceKey], isSpeech: true, branch: 'a0' };
     return null;
   }
 
@@ -1042,6 +1042,7 @@ function showUndoConfirm() {
     const ok = undo();
     if (!ok) return;
     await navigateTo(state.scene);
+    scrollNarrativeToBottom();
   });
 }
 
