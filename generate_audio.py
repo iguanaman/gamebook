@@ -95,6 +95,9 @@ def process_story(story_id, force):
     scene_files = list(scenes_dir.rglob("*.yaml"))
 
     for scene_file in sorted(scene_files):
+        if scene_file.name.startswith('_'):
+            continue
+
         rel = scene_file.relative_to(scenes_dir)
         scene_id = str(rel.with_suffix("")).replace("\\", "/")
 
