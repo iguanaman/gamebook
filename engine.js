@@ -416,6 +416,7 @@ function removeStoryTheme() {
 }
 
 async function startStory(storyId) {
+  localStorage.setItem('gamebook.lastStory', storyId);
   const meta = await loadStoryMeta(storyId);
   currentStoryId = storyId;
   storyMeta = meta;
@@ -1077,10 +1078,9 @@ document.addEventListener('keydown', (e) => {
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
 (async () => {
-  const manifest = await loadManifest();
-  const saved = manifest.stories.filter(id => hasSave(id));
-  if (saved.length === 1) {
-    startStory(saved[0]);
+  const last = localStorage.getItem('gamebook.lastStory');
+  if (last && hasSave(last)) {
+    startStory(last);
   } else {
     showSelector();
   }
