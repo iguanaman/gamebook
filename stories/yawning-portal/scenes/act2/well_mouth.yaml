@@ -1,0 +1,9 @@
+text:
+  - "The rope takes your weight. The knots are exactly where they should be. Above you, the disc of the tavern floor shrinks — lamplight and noise and the smell of ale and pitch, all of it receding. Below, the dark opens."
+  - "The cold comes up to meet you like a breath held too long. Stone walls, wet with something that isn't quite water. A smell of minerals and age and a third thing you do not have a name for yet."
+  - "Your two are on the rope — one above, one finding their rhythm below, or the reverse. The arrangement scarcely matters. The well has you all equally."
+  - "Undermountain begins."
+
+choices:
+  - text: "Keep descending."
+    next: act2/well_mouth

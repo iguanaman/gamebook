@@ -1,0 +1,15 @@
+text:
+  - "He has been watching the room. He turns to you now — not dramatically, just a pivot on one heel, the way a man turns when the work is starting."
+  - male_midlife_british_tough_calloused: "You been down before?"
+  - "You tell him no."
+  - male_midlife_british_tough_calloused: "Neither have I. Good. We'll both be paying attention."
+  - "He looks at the rope once, then back at you."
+  - male_midlife_british_tough_calloused: "Tell me when you want to go. I'll go first if it helps."
+  - "It does help. You do not say so."
+
+choices:
+  - text: "Back to the well-mouth."
+    next: act1/well_mouth
+    effects:
+      flags:
+        spoke_to_korsa_at_well: true

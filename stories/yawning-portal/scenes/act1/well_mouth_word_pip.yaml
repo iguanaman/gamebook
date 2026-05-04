@@ -1,0 +1,15 @@
+text:
+  - "She has stopped pretending to count the knots. She is looking into the well with the expression of someone taking inventory of a place with no second door."
+  - female_young_american_lisp: "Two exits minimum. That's the rule."
+  - "You ask if the well has two exits."
+  - female_young_american_lisp: "Undermountain has about nine hundred. That's basically two, mathematically speaking."
+  - "She wipes her right hand on the back of her trousers — the pre-handshake tell, except there is no handshake. She is readying herself."
+  - female_young_american_lisp: "Five Coin, tall one. I know I already said. Just reminding myself what I'm doing this for."
+  - "She grins. It is not entirely comfortable, but it is entirely her."
+
+choices:
+  - text: "Back to the well-mouth."
+    next: act1/well_mouth
+    effects:
+      flags:
+        spoke_to_pip_at_well: true

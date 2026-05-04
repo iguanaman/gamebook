@@ -1,0 +1,17 @@
+text:
+  - "She has two fingers resting on the rope. Not gripping. Feeling, the way a physician presses for a pulse."
+  - female_adult_american_sultry_villainous: "You feel it?"
+  - "You ask what she means."
+  - female_adult_american_sultry_villainous: "The well. It breathes. Not metaphorically."
+  - "A pause. The candle at the nearest table dips, though there is no draught."
+  - female_adult_american_sultry_villainous: "There's something down there that has been waiting longer than the tavern. Longer than Waterdeep, probably. I want you to know I know that."
+  - "She turns to look at you. The burn-scar on her left wrist catches the light."
+  - female_adult_american_sultry_villainous: "I'm going anyway. Just wanted to be sure you understood what we were walking into."
+  - "Her hand leaves the rope. She straightens. Whatever it was she was taking the measure of — the rope, the well, the risk — she has taken it."
+
+choices:
+  - text: "Back to the well-mouth."
+    next: act1/well_mouth
+    effects:
+      flags:
+        spoke_to_thessaly_at_well: true
