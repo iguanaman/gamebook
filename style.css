@@ -265,12 +265,13 @@ button {
 }
 
 .narrative p { margin: 0 0 1em; }
+.narrative p:last-child { margin-bottom: 0; }
 
 .choices-divider {
   flex-shrink: 0;
   border: none;
   border-top: var(--divider-style);
-  margin: 0.75rem 0;
+  margin: 0.75rem 0 0.4rem;
   opacity: 0.6;
   transition: opacity 0.3s ease;
 }
@@ -282,7 +283,7 @@ button {
 
 .choices-footer {
   flex-shrink: 0;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0;
   overflow: hidden;
 }
 
