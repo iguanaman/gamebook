@@ -101,9 +101,11 @@ button {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; transition: background 0.4s ease; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-button { display: none; }
 
-.narrative.at-bottom::-webkit-scrollbar-thumb { background: transparent; transition: background 0.4s ease; }
+.narrative { transition: scrollbar-color 0.4s ease; scrollbar-color: var(--border) transparent; scrollbar-width: thin; }
+.narrative.at-bottom { scrollbar-color: transparent transparent; }
 
 /* ── Viewport frame ───────────────────────────────────────────────────────── */
 
@@ -397,8 +399,8 @@ button {
 
 .btn-undo-fixed {
   position: fixed;
-  bottom: calc(var(--frame-inset) + 0.75rem);
-  left: calc(var(--frame-inset) + 0.75rem);
+  bottom: calc(var(--frame-inset) + 0.25rem);
+  right: calc(var(--frame-inset) + 0.25rem);
   z-index: 310;
   opacity: 0.5;
   transition: opacity 0.15s;
