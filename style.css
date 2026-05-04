@@ -352,7 +352,7 @@ button {
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius);
 }
-.btn-ghost:hover:not(:disabled) { background: var(--hover-bg); color: var(--text); }
+.btn-ghost:hover:not(:disabled):not(.undo-disabled) { background: var(--hover-bg); color: var(--text); }
 .btn-ghost:disabled { opacity: 0.35; cursor: default; }
 
 .btn-undo-fixed {
