@@ -1,0 +1,10 @@
+id: act1/loot_room_empty
+
+text:
+  - "The trunk is open and bare. The pallet has been turned — the seam pulled, checked, pressed back.
+    Someone went through this room carefully and recently. The candle stub is still warm."
+  - "Whatever was here, it's gone. You're not the first one who thought to look."
+
+choices:
+  - text: Back to the Portal
+    next: act1/common_room

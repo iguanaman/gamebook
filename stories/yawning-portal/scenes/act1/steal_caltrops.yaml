@@ -1,0 +1,23 @@
+id: act1/steal_caltrops
+
+text:
+  - "Pip's belt-pouch sits crooked on her left hip — the one she doesn't favour. You've clocked it
+    twice already. Iron caltrops, by the shape and weight. Useful in a tight corridor. Hers, not yours."
+  - "She's watching someone across the room. Her hands are around her cup, not her belt."
+
+choices:
+  - text: Slip in close and palm the pouch
+    next:
+      - scene: act1/steal_caltrops_clean
+        weight: 3
+      - scene: act1/steal_caltrops_caught
+        weight: 1
+    effects:
+      flags:
+        tried_caltrops: true
+
+  - text: Think better of it — walk away
+    next: act1/common_room
+    effects:
+      flags:
+        caltrops_skipped: true

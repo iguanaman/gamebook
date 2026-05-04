@@ -1,0 +1,22 @@
+id: act1/loot_room_chase
+
+text:
+  - "You take the stairs in two jumps and hit the alley at a run. He's fast — long legs, knows the
+    turns — but you're faster tonight. You catch his collar two blocks south, slam him into a
+    shuttered stall."
+  - "He talks immediately. Hired this afternoon, doesn't know by whom, a voice and a coin purse and
+    that was all. He presses something into your hand and runs the moment you loosen your grip."
+  - "A torn page — journal paper, the stitching still on one edge. A sketch of the mark she drew,
+    and below it, three words in a different hand: *it will answer.*"
+  - "You lean on the stall until your breath comes back."
+
+choices:
+  - text: Back to the Portal
+    next: act1/common_room
+    effects:
+      flags:
+        found_journal: true
+        found_journal_partial: true
+        saw_thief: true
+      stats:
+        Vigor: -1

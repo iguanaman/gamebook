@@ -1,0 +1,15 @@
+id: act1/loot_room_chase_skip
+
+text:
+  - "You turn back to the trunk. He took the main journal — whatever it was, it's gone with him.
+    What's left is the wrapping: an old inkcloth with a name inked on the inside corner in a
+    different hand than Linnet's."
+  - "*Calder, Dock 14.* An address, or a name, or both."
+  - "Probably nothing. You fold it into your coat anyway."
+
+choices:
+  - text: Back to the Portal
+    next: act1/common_room
+    effects:
+      flags:
+        found_apprentice_contact_name: true

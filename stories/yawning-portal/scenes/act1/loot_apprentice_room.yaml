@@ -1,0 +1,27 @@
+id: act1/loot_apprentice_room
+
+text:
+  - "The Battered Buckle is two streets from the Portal — a journeyman's inn, sawdust floors and
+    candles in bottles. The innkeeper points upstairs without being asked. Joren rents monthly;
+    the apprentice's room is on the back."
+  - "The door is unlocked. The room is small: a pallet, a work-trunk, a candle stub burned to nothing.
+    Whoever slept here did not expect to be gone more than a night."
+
+choices:
+  - text: Search the room properly
+    next:
+      - scene: act1/loot_room_journal
+        weight: 4
+      - scene: act1/loot_room_empty
+        weight: 2
+      - scene: act1/loot_room_visitor
+        weight: 1
+    effects:
+      flags:
+        looted_room: true
+
+  - text: Decide it isn't worth the time — head back
+    next: act1/common_room
+    effects:
+      flags:
+        room_skipped: true
