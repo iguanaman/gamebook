@@ -354,18 +354,19 @@ async function startStory(storyId) {
     currentActFolder = saved.actFolder ?? sceneFolder(state.scene);
   } else {
     initState(storyId, meta.stats ?? {});
-    state.scene = meta.start;
     saveState();
   }
+
+  const startScene = saved ? state.scene : meta.start;
 
   if (!saved) {
     showTitleSplash(meta.title, `stories/${currentStoryId}/audio/story_title.opus`, async () => {
       renderShell(meta);
-      await navigateTo(state.scene);
+      await navigateTo(startScene);
     });
   } else {
     renderShell(meta);
-    await navigateTo(state.scene);
+    await navigateTo(startScene);
   }
 }
 
