@@ -800,6 +800,7 @@ function typeBlocks(blocks, onDone, sceneId) {
     skip.finished = false;
     const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); });
     if (sceneId) {
+      stopAudio();
       const audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
       currentAudio = audio;
       audio.addEventListener('ended', () => { if (!done && !cancelled() && audio === currentAudio) { finishTyping(); next(); } }, { once: true });
