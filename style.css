@@ -404,9 +404,10 @@ button {
   bottom: calc(var(--frame-inset) + 0.25rem);
   right: calc(var(--frame-inset) + 0.25rem);
   z-index: 310;
-  opacity: 0.5;
+  opacity: 0.4;
   transition: opacity 0.15s;
   pointer-events: auto;
+  font-size: 1.1rem;
 }
 .btn-undo-fixed:hover:not(:disabled) { opacity: 1; }
 .btn-undo-fixed:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
