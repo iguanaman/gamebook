@@ -274,13 +274,15 @@ function playActTitleAudio(actText, onDone) {
   }, animDuration);
 }
 
-function showStorySplash(title, onDone) {
+function showTitleSplash(text, audioUrl, onDone) {
+  app.innerHTML = '';
+
   const splash = document.createElement('div');
   splash.className = 'story-splash story-splash-hidden';
 
   const h1 = document.createElement('h1');
   h1.className = 'story-splash-title';
-  h1.textContent = title;
+  h1.textContent = text;
   splash.appendChild(h1);
 
   document.body.appendChild(splash);
@@ -297,7 +299,7 @@ function showStorySplash(title, onDone) {
   });
 
   setTimeout(() => {
-    const audio = new Audio(`stories/${currentStoryId}/audio/story_title.opus`);
+    const audio = new Audio(audioUrl);
     let settled = false;
     function settle() {
       if (settled) return;
@@ -377,7 +379,7 @@ async function startStory(storyId) {
   }
 
   if (!saved) {
-    showStorySplash(meta.title, async () => {
+    showTitleSplash(meta.title, `stories/${currentStoryId}/audio/story_title.opus`, async () => {
       renderShell(meta);
       await navigateTo(state.scene);
     });
@@ -466,13 +468,15 @@ async function navigateTo(sceneId) {
       showingActTitle = true;
       currentAct = actTitle;
       saveState();
-      injectActTitle(actTitle);
-      const actBlockHashes = renderNarrative(scene);
-      state.blockHashes[sceneId] = actBlockHashes;
-      saveState();
-      const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
-      const narrativeOffset = currentNarrativeOffset;
-      playActTitleAudio(actTitle, () => {
+      const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(actTitle)}.opus`;
+      showTitleSplash(actTitle, actAudioUrl, () => {
+        renderShell(storyMeta);
+        const actBlockHashes = renderNarrative(scene);
+        state.blockHashes[sceneId] = actBlockHashes;
+        saveState();
+        renderHud();
+        const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
+        const narrativeOffset = currentNarrativeOffset;
         playBlocks(sceneId, renderedBlockCount, narrativeOffset,
           (i) => revealBlock(i),
           () => renderChoices(scene),
@@ -483,13 +487,15 @@ async function navigateTo(sceneId) {
     showingActTitle = true;
     currentAct = scene.act;
     saveState();
-    injectActTitle(scene.act);
-    const actBlockHashes = renderNarrative(scene);
-    state.blockHashes[sceneId] = actBlockHashes;
-    saveState();
-    const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
-    const narrativeOffset = currentNarrativeOffset;
-    playActTitleAudio(scene.act, () => {
+    const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(scene.act)}.opus`;
+    showTitleSplash(scene.act, actAudioUrl, () => {
+      renderShell(storyMeta);
+      const actBlockHashes = renderNarrative(scene);
+      state.blockHashes[sceneId] = actBlockHashes;
+      saveState();
+      renderHud();
+      const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
+      const narrativeOffset = currentNarrativeOffset;
       playBlocks(sceneId, renderedBlockCount, narrativeOffset,
         (i) => revealBlock(i),
         () => renderChoices(scene),
