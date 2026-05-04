@@ -35,6 +35,7 @@ async function showSelector() {
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
   document.getElementById('journal-toggle')?.classList.remove('journal-toggle-open');
   document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
+  document.getElementById('back-btn')?.classList.add('back-hidden');
   const manifest = await loadManifest();
   app.innerHTML = `
     <div class="selector-bg">
@@ -508,7 +509,11 @@ async function startStory(storyId) {
   if (!storyMeta.flags) storyMeta.flags = {};
   applyStoryTheme(storyId);
 
-  const saved = loadState(storyId);
+  const _rawSaved = loadState(storyId);
+  if (_rawSaved && !_rawSaved.scene) {
+    localStorage.removeItem(stateKey(storyId));
+  }
+  const saved = _rawSaved?.scene ? _rawSaved : null;
   if (saved) {
     state = saved;
     if (!Array.isArray(state.visited)) state.visited = [];
@@ -516,13 +521,12 @@ async function startStory(storyId) {
     if (!Array.isArray(state.journal)) state.journal = [];
     if (typeof state.journalSeen !== 'number') state.journalSeen = state.journal.length;
     currentAct = saved.act ?? null;
-    currentActFolder = saved.actFolder ?? sceneFolder(state.scene);
+    currentActFolder = saved.actFolder ?? (state.scene ? sceneFolder(state.scene) : '');
   } else {
     initState(storyId, meta.stats ?? {});
     if (meta.journal) {
       state.journal.push({ scene: '__story', text: meta.journal });
     }
-    saveState();
   }
 
   const startScene = saved ? state.scene : meta.start;
@@ -1048,7 +1052,10 @@ function renderJournal() {
   if (!toggle || !panel || !entriesEl) return;
 
   const entries = state?.journal ?? [];
-  if (currentStoryId) toggle.classList.remove('journal-hidden');
+  if (currentStoryId) {
+    toggle.classList.remove('journal-hidden');
+    document.getElementById('back-btn')?.classList.remove('back-hidden');
+  }
 
   const sceneEntries = entries.filter(e => !e.scene.startsWith('__'));
   entriesEl.innerHTML = sceneEntries.length === 0
@@ -1083,6 +1090,7 @@ function toggleJournal() {
 }
 
 document.getElementById('journal-toggle')?.addEventListener('click', toggleJournal);
+document.getElementById('back-btn')?.addEventListener('click', () => { cancelPlayback(); showSelector(); });
 document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector(); });
 document.getElementById('journal-new-game')?.addEventListener('click', () => {
   if (!currentStoryId) return;

@@ -470,7 +470,7 @@ button {
 
 .journal-toggle {
   position: fixed;
-  top: 1rem;
+  bottom: 1rem;
   left: 1rem;
   z-index: 310;
   display: flex;
@@ -491,6 +491,27 @@ button {
 .journal-toggle.journal-toggle-open { display: none; }
 
 .journal-icon { display: block; filter: grayscale(1); opacity: 0.4; }
+
+.back-btn {
+  position: fixed;
+  top: calc(var(--frame-inset) + 0.25rem);
+  left: calc(var(--frame-inset) + 0.25rem);
+  z-index: 310;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.4rem;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+.back-btn:hover { opacity: 1; }
+.back-btn.back-hidden { display: none; }
 
 .journal-dot { display: none; }
 
