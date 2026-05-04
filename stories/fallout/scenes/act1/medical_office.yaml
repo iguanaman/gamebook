@@ -1,18 +1,16 @@
 id: act1/medical_office
 text:
-- The medical office is a long room with a bad smell — antiseptic over something underneath
-  that the antiseptic isn't quite catching. Two of the four beds are occupied. The
-  nearer occupant is asleep. The further one is staring at the ceiling with the calm
-  of a man who has been told to expect news.
-- Doc Reyes is at the back, half behind a partition, writing in a paper notebook.
-  She looks up as the door clicks shut. Silver streak above her right ear catches
-  the strip light. She has a coffee mug in her left hand. You have never seen her
-  drink from it.
-- female_adult_american_cool: Officer. Take a seat. Or don't. I won't be offended.
-- She closes the notebook, slides it under a tray of swabs, and watches you the way
-  she watches a chart she has already read.
-- female_adult_american_cool: Something on your mind, or are we doing the welfare
-    visit today?
+- |-
+  The medical office is a long room with a bad smell — antiseptic over something underneath that the antiseptic isn't quite catching. Two of the four beds are occupied. The nearer occupant is asleep. The further one is staring at the ceiling with the calm of a man who has been told to expect news.
+- |-
+  Doc Reyes is at the back, half behind a partition, writing in a paper notebook. She looks up as the door clicks shut. Silver streak above her right ear catches the strip light. She has a coffee mug in her left hand. You have never seen her drink from it.
+- female_adult_american_cool: |-
+    Officer. Take a seat. Or don't. I won't be offended.
+- |-
+  She closes the notebook, slides it under a tray of swabs, and watches you the way she watches a chart she has already read.
+- female_adult_american_cool: |-
+    Something on your mind, or are we doing the welfare visit today?
 choices:
-- text: Sit down. Talk to her.
+- text: |-
+    Sit down. Talk to her.
   next: act1/talk_doc_reyes

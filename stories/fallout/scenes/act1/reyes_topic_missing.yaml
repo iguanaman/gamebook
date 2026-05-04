@@ -1,19 +1,20 @@
 id: act1/reyes_topic_missing
 text:
-- She doesn't pretend to think about it.
-- female_adult_american_cool: Henson was reassigned. Park was reassigned. Ms. Okafor
-    from sub-four was reassigned. The administration has been very productive lately
-    on the staffing front.
-- female_adult_american_cool: Henson filed a grievance about the radiation logs in
-    March. Park signed it. Okafor is — was — Park's bunkmate.
-- female_adult_american_cool: Their lockers were cleared the morning after each reassignment.
-    None of them have written. The vault, as you may have noticed, does not have an
-    outside.
-- She lets that sit.
-- female_adult_american_cool: I am not making an accusation, officer. I am describing
-    a pattern. You can do with the pattern what you like.
+- |-
+  She doesn't pretend to think about it.
+- female_adult_american_cool: |-
+    Henson was reassigned. Park was reassigned. Ms. Okafor from sub-four was reassigned. The administration has been very productive lately on the staffing front.
+- female_adult_american_cool: |-
+    Henson filed a grievance about the radiation logs in March. Park signed it. Okafor is — was — Park's bunkmate.
+- female_adult_american_cool: |-
+    Their lockers were cleared the morning after each reassignment. None of them have written. The vault, as you may have noticed, does not have an outside.
+- |-
+  She lets that sit.
+- female_adult_american_cool: |-
+    I am not making an accusation, officer. I am describing a pattern. You can do with the pattern what you like.
 choices:
-- text: Back to the conversation.
+- text: |-
+    Back to the conversation.
   next: act1/talk_doc_reyes
   effects:
     flags:

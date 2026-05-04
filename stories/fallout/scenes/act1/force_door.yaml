@@ -1,46 +1,34 @@
 id: act1/force_door
-journal: "You cranked the door open by hand, two at the wheel and a column behind you swapping out at the count. Twenty-nine turns. The bearings held. The vault never wanted you to know that door could be moved without permission."
+journal: |-
+  You cranked the door open by hand, two at the wheel and a column behind you swapping out at the count. Twenty-nine turns. The bearings held. The vault never wanted you to know that door could be moved without permission.
 text:
-- The wheel is heavier than the wheel was ever meant to be. The first quarter-turn
-  takes the two of you everything you have and gives back maybe two degrees of rotation.
-  You hear the gear train engage somewhere inside the gearbox — a deep rolling *click*
-  of teeth that have been waiting eighty-seven years to mesh — and then the wheel
-  turns more easily, the way a thing turns when it has remembered what it is for.
-- The woman from sub-five does not look at you. She watches the wheel. *One*, she
-  says, on the first full turn. *Two*, on the second. The column behind her takes
-  up the count without being asked. *Three. Four. Five.*
-- At seven your arms start to burn. At nine you swap out — somebody steps in behind
-  you and takes your handle without breaking the rhythm, you step back, the count
-  does not pause. The maintenance worker is on the wheel now. The man with the child
-  has handed the child to somebody else and is queueing for his turn. *Ten. Eleven.
-  Twelve.*
-- Somewhere above you, distantly, you can hear the door beginning to move. Not in
-  the chamber — through the wall, through the inner skin, the great cog-cut bulk of
-  model 34-A grinding back on bearings that were machined in California in 1074 and
-  that, against every expectation, are going to do their job.
+- |-
+  The wheel is heavier than the wheel was ever meant to be. The first quarter-turn takes the two of you everything you have and gives back maybe two degrees of rotation. You hear the gear train engage somewhere inside the gearbox — a deep rolling *click* of teeth that have been waiting eighty-seven years to mesh — and then the wheel turns more easily, the way a thing turns when it has remembered what it is for.
+- |-
+  The woman from sub-five does not look at you. She watches the wheel. *One*, she says, on the first full turn. *Two*, on the second. The column behind her takes up the count without being asked. *Three. Four. Five.*
+- |-
+  At seven your arms start to burn. At nine you swap out — somebody steps in behind you and takes your handle without breaking the rhythm, you step back, the count does not pause. The maintenance worker is on the wheel now. The man with the child has handed the child to somebody else and is queueing for his turn. *Ten. Eleven. Twelve.*
+- |-
+  Somewhere above you, distantly, you can hear the door beginning to move. Not in the chamber — through the wall, through the inner skin, the great cog-cut bulk of model 34-A grinding back on bearings that were machined in California in 1074 and that, against every expectation, are going to do their job.
 - if:
     flags:
     - recruited_yuna
-  text: Yuna is at the inspection plate again, watching the gear train through the
-    open panel, narrating to herself in a low constant mutter — *seated, seated, seated,
-    fine, fine, fine, fine* — the way a person mutters a prayer they do not believe
-    in but want to hear out loud anyway.
+  text: |-
+    Yuna is at the inspection plate again, watching the gear train through the open panel, narrating to herself in a low constant mutter — *seated, seated, seated, fine, fine, fine, fine* — the way a person mutters a prayer they do not believe in but want to hear out loud anyway.
 - if:
     flags:
     - recruited_doc
-  text: Reyes has put the bag down and joined the wheel. She lasts four turns and
-    steps out without being asked, breathing hard, no apology. The notebook is in
-    her coat pocket now. Hands free.
-- '*Twenty-eight. Twenty-nine.* The wheel slows, suddenly — the gearbox clunking against
-  a stop the size of a fist — and the woman from sub-five says, quietly, *that''s
-  it.* Somebody at the back of the column says *holy shit.*'
-- You stop. You let go of the wheel. You walk, with the column behind you, back through
-  the service tunnel and up the ladder and around the bend in the corridor, and the
-  door — model 34-A, twelve feet of cog-cut steel — is standing four feet open, and
-  the light coming through it is not the amber of vault fluorescent and not the red
-  of emergency.
-- It is white. Warmer than white. The colour of nothing you have a name for.
-- Somewhere near the back of the column, a child makes a small involuntary noise.
+  text: |-
+    Reyes has put the bag down and joined the wheel. She lasts four turns and steps out without being asked, breathing hard, no apology. The notebook is in her coat pocket now. Hands free.
+- |-
+  *Twenty-eight. Twenty-nine.* The wheel slows, suddenly — the gearbox clunking against a stop the size of a fist — and the woman from sub-five says, quietly, *that's it.* Somebody at the back of the column says *holy shit.*
+- |-
+  You stop. You let go of the wheel. You walk, with the column behind you, back through the service tunnel and up the ladder and around the bend in the corridor, and the door — model 34-A, twelve feet of cog-cut steel — is standing four feet open, and the light coming through it is not the amber of vault fluorescent and not the red of emergency.
+- |-
+  It is white. Warmer than white. The colour of nothing you have a name for.
+- |-
+  Somewhere near the back of the column, a child makes a small involuntary noise.
 choices:
-- text: Walk through, with the vault behind you.
+- text: |-
+    Walk through, with the vault behind you.
   next: act1/threshold

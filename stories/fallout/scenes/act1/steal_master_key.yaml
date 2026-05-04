@@ -1,35 +1,20 @@
 id: act1/steal_master_key
 text:
-- You wait the wait. Forty minutes in the bunkroom, head against the locker, counting
-  the loop of the speaker recording in the corridor — *ongoing commitment to atmospheric
-  integrity, ongoing commitment to atmospheric integrity* — until the count tells
-  you it's time, and then you go.
-- The east spur is empty the way Yuna said it would be. Kemp's regulation bootfalls
-  have just rounded the bend toward the broadcast mezzanine; you can hear the rhythm
-  of him receding, four to a bar, in no hurry because nothing in his nine years of
-  perimeter has ever required him to be. Cole's door is on the latch. Of course it
-  is. He stepped out for his nightly atrium walk and a man who believes he is the
-  institution does not lock the institution's door behind him.
-- Inside, the office is exactly as you would have drawn it without ever having been
-  inside. Green-shaded lamp on. Atrium feed on the screen-that-isn't-a-window — and
-  there he is, small and immaculate at the dry fountain, hands clasped behind his
-  back, performing for an audience of nobody the act of a man taking the air. Coffee
-  cup on the desk, cold. Leather ledger, closed. The chair pulled out at exactly the
-  angle of a man who intends to come back.
-- The desk drawer is the bottom-left one. You knew it was the bottom-left one before
-  you came in. Everyone in security knows it is the bottom-left one. The drawer is
-  locked, but the lock is the original eighty-seven-year-old Vault-Tec issue cylinder
-  and the desk is wood that has had eighty-seven years to dry out and warp around
-  it. The drawer rattles half a centimetre in its housing when you test it with your
-  fingertips.
-- There are two ways to do this. There is the *clean* way — the patient way, ear to
-  the cylinder, the listening way, the way that takes a minute you have and leaves
-  no mark. And there is the *fast* way, which is to set your weight against the drawer
-  face and lift, and trust that the warped wood gives before the cylinder does.
-- On the screen-that-isn't-a-window, Cole has turned and started to walk the long
-  way back toward the south arch. Six minutes. Maybe seven.
+- |-
+  You wait the wait. Forty minutes in the bunkroom, head against the locker, counting the loop of the speaker recording in the corridor — *ongoing commitment to atmospheric integrity, ongoing commitment to atmospheric integrity* — until the count tells you it's time, and then you go.
+- |-
+  The east spur is empty the way Yuna said it would be. Kemp's regulation bootfalls have just rounded the bend toward the broadcast mezzanine; you can hear the rhythm of him receding, four to a bar, in no hurry because nothing in his nine years of perimeter has ever required him to be. Cole's door is on the latch. Of course it is. He stepped out for his nightly atrium walk and a man who believes he is the institution does not lock the institution's door behind him.
+- |-
+  Inside, the office is exactly as you would have drawn it without ever having been inside. Green-shaded lamp on. Atrium feed on the screen-that-isn't-a-window — and there he is, small and immaculate at the dry fountain, hands clasped behind his back, performing for an audience of nobody the act of a man taking the air. Coffee cup on the desk, cold. Leather ledger, closed. The chair pulled out at exactly the angle of a man who intends to come back.
+- |-
+  The desk drawer is the bottom-left one. You knew it was the bottom-left one before you came in. Everyone in security knows it is the bottom-left one. The drawer is locked, but the lock is the original eighty-seven-year-old Vault-Tec issue cylinder and the desk is wood that has had eighty-seven years to dry out and warp around it. The drawer rattles half a centimetre in its housing when you test it with your fingertips.
+- |-
+  There are two ways to do this. There is the *clean* way — the patient way, ear to the cylinder, the listening way, the way that takes a minute you have and leaves no mark. And there is the *fast* way, which is to set your weight against the drawer face and lift, and trust that the warped wood gives before the cylinder does.
+- |-
+  On the screen-that-isn't-a-window, Cole has turned and started to walk the long way back toward the south arch. Six minutes. Maybe seven.
 choices:
-- text: The clean way. Ear to the cylinder. Take the minute. (Perception 6)
+- text: |-
+    The clean way. Ear to the cylinder. Take the minute. (Perception 6)
   next: act1/key_taken_clean
   requires:
     stats:
@@ -40,10 +25,10 @@ choices:
     flags:
       key_attempted: true
       has_master_key: true
-  failed_text: '*(Perception 6 — the cylinder is older than you and the wards inside
-    are in a language your fingers don''t read. You''d be guessing, and guessing is
-    the kind of mistake the desk remembers.)*'
-- text: The fast way. Shoulder against the drawer face. Lift and trust the wood.
+  failed_text: |-
+    *(Perception 6 — the cylinder is older than you and the wards inside are in a language your fingers don't read. You'd be guessing, and guessing is the kind of mistake the desk remembers.)*
+- text: |-
+    The fast way. Shoulder against the drawer face. Lift and trust the wood.
   next: act1/key_taken_alarmed
   requires:
     flags_unset:
@@ -53,6 +38,6 @@ choices:
       key_attempted: true
       has_master_key: true
       cole_alerted: true
-- text: Back out. Pull the door to. The window will close on its own and Cole will
-    never know you stood here.
+- text: |-
+    Back out. Pull the door to. The window will close on its own and Cole will never know you stood here.
   next: act1/atrium_hub

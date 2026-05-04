@@ -1,20 +1,20 @@
 id: act1/terminal_hack
 text:
-- The front-of-house unlocks instantly. Duty roster. Infraction log. A note from your
-  supervisor reminding you to file last Tuesday's shift report. Routine. Insulting,
-  in context.
-- You drop into the diagnostics console. Past the fence is a prompt expecting a privilege
-  string you are not, technically, supposed to know. The training rig taught you a
-  workaround — a malformed token that crashes the auth daemon into a shell. It worked
-  on the rig. The rig was patched.
-- You start typing. Somewhere in the building a door closes. You do not look up.
+- |-
+  The front-of-house unlocks instantly. Duty roster. Infraction log. A note from your supervisor reminding you to file last Tuesday's shift report. Routine. Insulting, in context.
+- |-
+  You drop into the diagnostics console. Past the fence is a prompt expecting a privilege string you are not, technically, supposed to know. The training rig taught you a workaround — a malformed token that crashes the auth daemon into a shell. It worked on the rig. The rig was patched.
+- |-
+  You start typing. Somewhere in the building a door closes. You do not look up.
 choices:
-- text: Push it. Force the auth daemon.
+- text: |-
+    Push it. Force the auth daemon.
   next: act1/read_terminal_logs
   requires:
     stats:
       PER: 6
-  failed_text: '*(Perception 6 — your fingers know this in theory; the daemon notices
-    in practice.)*'
-- text: Force it anyway. Take the risk.
+  failed_text: |-
+    *(Perception 6 — your fingers know this in theory; the daemon notices in practice.)*
+- text: |-
+    Force it anyway. Take the risk.
   next: act1/terminal_alarm

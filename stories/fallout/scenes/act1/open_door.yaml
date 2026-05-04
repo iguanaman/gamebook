@@ -1,57 +1,48 @@
 id: act1/open_door
-journal: "The key turned. The door opened. Eighty-seven years of recycled air left in one long sigh. Whatever is on the other side of that ramp, it is not vault-issue."
+journal: |-
+  The key turned. The door opened. Eighty-seven years of recycled air left in one long sigh. Whatever is on the other side of that ramp, it is not vault-issue.
 text:
-- The key goes into the slot the way the key goes into the slot in the training films
-  — flush, square, the quarter-turn meeting the resistance of a tumbler that has not
-  been asked to do its job in eighty-seven years and is, against the odds, willing.
-- Something in the door clunks. The clunk is felt more than heard, a deep mechanical
-  *yes* that travels up the soles of your boots and into your knees. A second clunk
-  follows. Then a hiss — the seal breaking, the pressure differential equalising,
-  eighty-seven years of recycled air leaving in one long sigh and being replaced,
-  breath by breath, by something else.
-- The hazard chevrons swing toward you. Twelve feet of cog-cut steel, moving on bearings
-  that were machined in California in 1074, and moving smoothly. Vault-Tec built one
-  thing right.
-- The door opens to a depth of about three inches and stops, the way a door stops
-  when it is waiting for a person to commit to opening it the rest of the way. The
-  light coming through the gap is wrong. Not the amber of vault fluorescent. Not the
-  red of emergency. White. Warmer than white. The colour of nothing you have a name
-  for.
+- |-
+  The key goes into the slot the way the key goes into the slot in the training films — flush, square, the quarter-turn meeting the resistance of a tumbler that has not been asked to do its job in eighty-seven years and is, against the odds, willing.
+- |-
+  Something in the door clunks. The clunk is felt more than heard, a deep mechanical *yes* that travels up the soles of your boots and into your knees. A second clunk follows. Then a hiss — the seal breaking, the pressure differential equalising, eighty-seven years of recycled air leaving in one long sigh and being replaced, breath by breath, by something else.
+- |-
+  The hazard chevrons swing toward you. Twelve feet of cog-cut steel, moving on bearings that were machined in California in 1074, and moving smoothly. Vault-Tec built one thing right.
+- |-
+  The door opens to a depth of about three inches and stops, the way a door stops when it is waiting for a person to commit to opening it the rest of the way. The light coming through the gap is wrong. Not the amber of vault fluorescent. Not the red of emergency. White. Warmer than white. The colour of nothing you have a name for.
 - if:
     flags:
     - recruited_doc
     - recruited_yuna
     - recruited_resistance
-  text: Behind you somebody — a child, you think, near the back — makes a small involuntary
-    noise. Nobody shushes them. The column has stopped pretending to be quiet.
+  text: |-
+    Behind you somebody — a child, you think, near the back — makes a small involuntary noise. Nobody shushes them. The column has stopped pretending to be quiet.
 - if:
     flags:
     - recruited_doc
     flags_unset:
     - recruited_yuna
     - recruited_resistance
-  text: Reyes, beside you, exhales once through her nose. *Well*, she says, very quietly.
-    The pre-war ballpoint is in her hand and you do not remember her taking it out.
+  text: |-
+    Reyes, beside you, exhales once through her nose. *Well*, she says, very quietly. The pre-war ballpoint is in her hand and you do not remember her taking it out.
 - if:
     flags:
     - recruited_yuna
     flags_unset:
     - recruited_doc
     - recruited_resistance
-  text: Yuna says *huh* in a tone you have never heard her use. The multitool has
-    stopped spinning. She is looking at the gap of light the way she looks at a panel
-    reading she does not want to be true.
+  text: |-
+    Yuna says *huh* in a tone you have never heard her use. The multitool has stopped spinning. She is looking at the gap of light the way she looks at a panel reading she does not want to be true.
 - if:
     flags_unset:
     - recruited_doc
     - recruited_yuna
     - recruited_resistance
-  text: There is nobody behind you to react. You stand alone in the corridor with
-    your hand still on the key and the door three inches open and the light coming
-    through it. You realise you are holding your breath. You let it out. The air going
-    out of you and the air coming in past the door meet somewhere in the middle of
-    the chamber.
-- You put your shoulder to the door. It moves the rest of the way.
+  text: |-
+    There is nobody behind you to react. You stand alone in the corridor with your hand still on the key and the door three inches open and the light coming through it. You realise you are holding your breath. You let it out. The air going out of you and the air coming in past the door meet somewhere in the middle of the chamber.
+- |-
+  You put your shoulder to the door. It moves the rest of the way.
 choices:
-- text: Step through.
+- text: |-
+    Step through.
   next: act1/threshold

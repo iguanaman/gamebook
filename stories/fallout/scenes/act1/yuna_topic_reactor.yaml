@@ -1,24 +1,24 @@
 id: act1/yuna_topic_reactor
 text:
-- She laughs. There is no humour in it; the lisp pitches the laugh like a hiss escaping.
-- female_young_american_lisp: Bad. Next question.
-- She catches your face. Sighs. Sets the tablet down on the rail.
-- female_young_american_lisp: Fine. The thing is dying. The thing has been dying for
-    two years and we've been buying it weeks at a time, and we're out of weeks. The
-    heat exchange is ablating from the inside. I can hear it from here. *You* can
-    probably hear it from here. Seventy-two hours is the optimistic number on that
-    report and I wrote the optimistic number because if I'd written the realistic
-    one Cole would have shredded the whole thing and reassigned me to laundry.
-- female_young_american_lisp: So. Seventy-two. Maybe ninety-six if nobody looks at
-    it funny. After that the column breaches, the loop dumps into the deck, and everybody
-    on the upper levels boils first because heat rises and physics doesn't care about
-    the chain of command.
-- She picks the tablet back up.
-- female_young_american_lisp: You came down here to confirm it. You confirmed it.
-    What are you going to do about it.
-- Not a question. The way she said it.
+- |-
+  She laughs. There is no humour in it; the lisp pitches the laugh like a hiss escaping.
+- female_young_american_lisp: |-
+    Bad. Next question.
+- |-
+  She catches your face. Sighs. Sets the tablet down on the rail.
+- female_young_american_lisp: |-
+    Fine. The thing is dying. The thing has been dying for two years and we've been buying it weeks at a time, and we're out of weeks. The heat exchange is ablating from the inside. I can hear it from here. *You* can probably hear it from here. Seventy-two hours is the optimistic number on that report and I wrote the optimistic number because if I'd written the realistic one Cole would have shredded the whole thing and reassigned me to laundry.
+- female_young_american_lisp: |-
+    So. Seventy-two. Maybe ninety-six if nobody looks at it funny. After that the column breaches, the loop dumps into the deck, and everybody on the upper levels boils first because heat rises and physics doesn't care about the chain of command.
+- |-
+  She picks the tablet back up.
+- female_young_american_lisp: |-
+    You came down here to confirm it. You confirmed it. What are you going to do about it.
+- |-
+  Not a question. The way she said it.
 choices:
-- text: Back to the conversation.
+- text: |-
+    Back to the conversation.
   next: act1/talk_yuna
   effects:
     flags:

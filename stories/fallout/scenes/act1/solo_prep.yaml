@@ -1,42 +1,30 @@
 id: act1/solo_prep
 text:
-- The bunkroom is empty in the middle of a shift the way the bunkroom is always empty
-  in the middle of a shift. Your locker is the second from the end. You have stood
-  in front of it five thousand times. You stand in front of it now.
-- You pack the way a security officer packs. One canteen, full. Two ration bars from
-  the bottom of the locker — older than they should be, vacuum-sealed, fine. The spare
-  flashlight. The spare batteries for the spare flashlight. The folding knife your
-  father gave you the day you graduated training, which you have not carried on shift
-  in eleven years because regulations and which you slip into your hip pocket now
-  without a thought. The folder. The key, if you have the key. Whatever else you have
-  collected on the way.
-- You do not pack a second canteen. You do not pack a second set of rations. You are
-  not provisioning for a party of two.
+- |-
+  The bunkroom is empty in the middle of a shift the way the bunkroom is always empty in the middle of a shift. Your locker is the second from the end. You have stood in front of it five thousand times. You stand in front of it now.
+- |-
+  You pack the way a security officer packs. One canteen, full. Two ration bars from the bottom of the locker — older than they should be, vacuum-sealed, fine. The spare flashlight. The spare batteries for the spare flashlight. The folding knife your father gave you the day you graduated training, which you have not carried on shift in eleven years because regulations and which you slip into your hip pocket now without a thought. The folder. The key, if you have the key. Whatever else you have collected on the way.
+- |-
+  You do not pack a second canteen. You do not pack a second set of rations. You are not provisioning for a party of two.
 - if:
     flags:
     - exposed_truth
-  text: Down corridor C someone is laughing at something. The laugh has the shape
-    of *we know*. The atrium has been waiting for you since you flipped the toggle.
-    You said the names. You said the dates. You said *the door is sealed from the
-    control room* on the open mic to two hundred people and now you are standing in
-    front of your locker packing a single canteen.
-  else: The atrium does not know. The atrium has not been told. You have not promised
-    the atrium anything. There is a difference between leaving a room and leaving
-    a room you have lied to, and you are walking out of the first one.
+  text: |-
+    Down corridor C someone is laughing at something. The laugh has the shape of *we know*. The atrium has been waiting for you since you flipped the toggle. You said the names. You said the dates. You said *the door is sealed from the control room* on the open mic to two hundred people and now you are standing in front of your locker packing a single canteen.
+  else: |-
+    The atrium does not know. The atrium has not been told. You have not promised the atrium anything. There is a difference between leaving a room and leaving a room you have lied to, and you are walking out of the first one.
 - if:
     flags:
     - exposed_truth
-  text: You think about the woman from sub-five at the south arch with twelve people
-    forming up behind her on the strength of your voice on a microphone. You think
-    about her saying *we go when you go*. You think about her not knowing yet that
-    you mean *I*.
-  else: You take one last look at the locker. The photograph taped inside the door
-    has been there so long the tape has gone yellow and brittle. You leave it where
-    it is. Wherever you are going next does not need a picture of where you used to
-    be.
-- You shoulder the bag. You close the locker. You do not look at it again.
+  text: |-
+    You think about the woman from sub-five at the south arch with twelve people forming up behind her on the strength of your voice on a microphone. You think about her saying *we go when you go*. You think about her not knowing yet that you mean *I*.
+  else: |-
+    You take one last look at the locker. The photograph taped inside the door has been there so long the tape has gone yellow and brittle. You leave it where it is. Wherever you are going next does not need a picture of where you used to be.
+- |-
+  You shoulder the bag. You close the locker. You do not look at it again.
 choices:
-- text: The corridor. The door. Don't look at anyone on the way.
+- text: |-
+    The corridor. The door. Don't look at anyone on the way.
   next: act1/door_chamber
   requires:
     flags:
@@ -44,8 +32,8 @@ choices:
     flags_unset:
     - exposed_truth
   hide_if_failed: true
-- text: The corridor. The door. Don't look at anyone on the way. Especially not the
-    south arch.
+- text: |-
+    The corridor. The door. Don't look at anyone on the way. Especially not the south arch.
   next: act1/door_chamber
   requires:
     flags:
@@ -55,8 +43,8 @@ choices:
     flags:
       abandoned_survivors: true
   hide_if_failed: true
-- text: You stop with your hand on the bunkroom door. You don't have the key. You
-    can't open the door alone. Walk back to the atrium and think again.
+- text: |-
+    You stop with your hand on the bunkroom door. You don't have the key. You can't open the door alone. Walk back to the atrium and think again.
   next: act1/gather_allies
   requires:
     flags_unset:

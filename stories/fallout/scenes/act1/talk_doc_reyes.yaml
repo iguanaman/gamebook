@@ -1,47 +1,51 @@
 id: act1/talk_doc_reyes
 text:
-- Reyes waits. The mug rests against her sternum. The pre-war ballpoint clipped to
-  her coat pocket catches the light — the others are vault-issue plastic; that one
-  is a relic, and you have never seen anyone touch it but her.
+- |-
+  Reyes waits. The mug rests against her sternum. The pre-war ballpoint clipped to her coat pocket catches the light — the others are vault-issue plastic; that one is a relic, and you have never seen anyone touch it but her.
 - if:
     flags:
     - reyes_treated_you
-  text: The injector site on your arm itches faintly. Her eyes flick to it once, then
-    back to your face.
+  text: |-
+    The injector site on your arm itches faintly. Her eyes flick to it once, then back to your face.
 - if:
     flags:
     - trusted_by_doc_reyes
-  text: Something has settled in the room since the last time. She doesn't smile.
-    She doesn't need to.
+  text: |-
+    Something has settled in the room since the last time. She doesn't smile. She doesn't need to.
 - if:
     flags:
     - reyes_refused
-  text: There is a politeness in the room now that wasn't there before. The bad kind.
+  text: |-
+    There is a politeness in the room now that wasn't there before. The bad kind.
 choices:
-- text: '"There''s a report. Engineering. The reactor."'
+- text: |-
+    "There's a report. Engineering. The reactor."
   next: act1/reyes_topic_report
   requires:
     flags:
     - found_report
     flags_unset:
     - reyes_confirmed_report
-- text: '"I haven''t been sleeping right. Sweats. Bit of a cough."'
+- text: |-
+    "I haven't been sleeping right. Sweats. Bit of a cough."
   next: act1/reyes_topic_symptoms
   requires:
     flags_unset:
     - reyes_treated_you
-- text: '"I keep meaning to ask — Henson, Park, that woman from sub-level four. Where''d
-    they go?"'
+- text: |-
+    "I keep meaning to ask — Henson, Park, that woman from sub-level four. Where'd they go?"
   next: act1/reyes_topic_missing
   requires:
     flags_unset:
     - reyes_told_about_missing
-- text: '"You''ve seen the Overseer recently. How does he look to you?"'
+- text: |-
+    "You've seen the Overseer recently. How does he look to you?"
   next: act1/reyes_topic_cole
   requires:
     flags_unset:
     - reyes_told_about_cole
-- text: '"Doc. I need you to help me open the door."'
+- text: |-
+    "Doc. I need you to help me open the door."
   next: act1/reyes_topic_help
   requires:
     flags:
@@ -53,5 +57,6 @@ choices:
     stats:
       CHR: 5
   hide_if_failed: true
-- text: Walk away. Back to the atrium.
+- text: |-
+    Walk away. Back to the atrium.
   next: act1/atrium_hub

@@ -1,21 +1,22 @@
 id: act1/reyes_topic_symptoms
 text:
-- Reyes sets the mug down. She does not ask follow-up questions. She gestures at the
-  bed.
-- female_adult_american_cool: Sleeve up. Left arm.
-- The injector hisses. She watches the dial without speaking. When it's done she taps
-  the readout twice with a fingernail.
-- female_adult_american_cool: You're at the low end of symptomatic. Caught it early.
-    The Rad-X will hold the worst of it for a few days. After that you'll need a clean
-    environment, which — and I am being careful with my phrasing here — this vault
-    is not.
-- female_adult_american_cool: You are the eleventh case I have logged this month.
-    You are the first one I have told the truth to.
-- She caps the injector. Drops it in the tray. Looks at you properly for the first
-  time.
-- female_adult_american_cool: Don't make me regret that, officer.
+- |-
+  Reyes sets the mug down. She does not ask follow-up questions. She gestures at the bed.
+- female_adult_american_cool: |-
+    Sleeve up. Left arm.
+- |-
+  The injector hisses. She watches the dial without speaking. When it's done she taps the readout twice with a fingernail.
+- female_adult_american_cool: |-
+    You're at the low end of symptomatic. Caught it early. The Rad-X will hold the worst of it for a few days. After that you'll need a clean environment, which — and I am being careful with my phrasing here — this vault is not.
+- female_adult_american_cool: |-
+    You are the eleventh case I have logged this month. You are the first one I have told the truth to.
+- |-
+  She caps the injector. Drops it in the tray. Looks at you properly for the first time.
+- female_adult_american_cool: |-
+    Don't make me regret that, officer.
 choices:
-- text: Back to the conversation.
+- text: |-
+    Back to the conversation.
   next: act1/talk_doc_reyes
   effects:
     flags:

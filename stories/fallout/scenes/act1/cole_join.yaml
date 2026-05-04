@@ -1,42 +1,30 @@
 id: act1/cole_join
-journal: "You sat in the chair. Cole gave you a dress jacket and a place in the bunker. The two of you. Everyone else stays behind the bulkhead until they don't. The administration is the administration."
+journal: |-
+  You sat in the chair. Cole gave you a dress jacket and a place in the bunker. The two of you. Everyone else stays behind the bulkhead until they don't. The administration is the administration.
 text:
-- You sit in the chair.
-- Cole watches you sit. He does not smile. He does the small careful nod he does when
-  a piece of paperwork has come back from the bursar correctly filled in for the first
-  time in a long while. He stands. He walks to the cabinet behind the desk and opens
-  it without ceremony — Vault-Tec dress jacket on a hanger, the same cut as his, sized
-  for somebody your build. He takes it down. He brings it round the desk and lays
-  it across your lap with the same care he sets the coffee cup down with.
-- male_midlife_english_posh: Officer. Welcome to the administration.
-- male_midlife_english_posh: There will be paperwork in due course. There will not
-    be, in the immediate, very much else. The Warden's contingency — the bunker —
-    accommodates two. The two will be ourselves. The remaining population will be
-    informed in the morning that an atmospheric anomaly necessitates a temporary advisory
-    regarding the use of corridor C, and the corridor will be sealed at the bulkhead.
-    The advisory will be extended. The advisory will continue to be extended until
-    it ceases to be necessary, at which point a further memorandum will not be required.
-- male_midlife_english_posh: I would prefer not to discuss the population further.
-    I find the discussion is not a productive one. The population is the population.
-    The administration is the administration. The two have not, in the strict sense,
-    been congruent for some considerable time.
-- He returns to his side of the desk. He sits. He folds his hands on the closed ledger.
-  He looks tired in a way you had not seen from across the room — the eyes tired,
-  the mouth tired, the small muscles around the eyes that hold the public face in
-  place tired most of all.
-- male_midlife_english_posh: Bregman will conduct you to the bunker. Voss will remain
-    at his post. The thermal event is forecast within the operational window we have
-    been preparing for. The bunker has its own coolant loop. We will be — comfortable,
-    I should say, is not the appropriate word. We will be present, and we will be
-    the means by which the institution survives the institution. That is, in the end,
-    what is required of administration. To be present. To be the means.
-- He picks up the lamp by the green shade. He moves it half an inch. He sets it down
-  again.
-- male_midlife_english_posh: Bregman.
-- Bregman is at the door. The corridor beyond the door is the same burgundy. The door
-  beyond the corridor is not.
+- |-
+  You sit in the chair.
+- |-
+  Cole watches you sit. He does not smile. He does the small careful nod he does when a piece of paperwork has come back from the bursar correctly filled in for the first time in a long while. He stands. He walks to the cabinet behind the desk and opens it without ceremony — Vault-Tec dress jacket on a hanger, the same cut as his, sized for somebody your build. He takes it down. He brings it round the desk and lays it across your lap with the same care he sets the coffee cup down with.
+- male_midlife_english_posh: |-
+    Officer. Welcome to the administration.
+- male_midlife_english_posh: |-
+    There will be paperwork in due course. There will not be, in the immediate, very much else. The Warden's contingency — the bunker — accommodates two. The two will be ourselves. The remaining population will be informed in the morning that an atmospheric anomaly necessitates a temporary advisory regarding the use of corridor C, and the corridor will be sealed at the bulkhead. The advisory will be extended. The advisory will continue to be extended until it ceases to be necessary, at which point a further memorandum will not be required.
+- male_midlife_english_posh: |-
+    I would prefer not to discuss the population further. I find the discussion is not a productive one. The population is the population. The administration is the administration. The two have not, in the strict sense, been congruent for some considerable time.
+- |-
+  He returns to his side of the desk. He sits. He folds his hands on the closed ledger. He looks tired in a way you had not seen from across the room — the eyes tired, the mouth tired, the small muscles around the eyes that hold the public face in place tired most of all.
+- male_midlife_english_posh: |-
+    Bregman will conduct you to the bunker. Voss will remain at his post. The thermal event is forecast within the operational window we have been preparing for. The bunker has its own coolant loop. We will be — comfortable, I should say, is not the appropriate word. We will be present, and we will be the means by which the institution survives the institution. That is, in the end, what is required of administration. To be present. To be the means.
+- |-
+  He picks up the lamp by the green shade. He moves it half an inch. He sets it down again.
+- male_midlife_english_posh: |-
+    Bregman.
+- |-
+  Bregman is at the door. The corridor beyond the door is the same burgundy. The door beyond the corridor is not.
 choices:
-- text: Stand up. Pick up the jacket. Follow Bregman.
+- text: |-
+    Stand up. Pick up the jacket. Follow Bregman.
   next: act1/ending_loyalist_preview
   effects:
     flags:

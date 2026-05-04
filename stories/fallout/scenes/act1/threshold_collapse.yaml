@@ -1,59 +1,45 @@
 id: act1/threshold_collapse
-journal: "Your knees went on the ramp. The radiation had been working on you for longer than you let yourself notice. You made it through the door. Whether you make it any further is somebody else's call now."
+journal: |-
+  Your knees went on the ramp. The radiation had been working on you for longer than you let yourself notice. You made it through the door. Whether you make it any further is somebody else's call now.
 text:
-- Your knees go halfway up the ramp. You do not feel them go. There is the sky and
-  there is the smell of the wind and then there is the concrete, cold against the
-  side of your face, and the hazard chevrons of the door above you tilted at an angle
-  they were not tilted at a moment ago.
-- You are not unconscious. Not quite. You can hear, very clearly, the recorded voice
-  of the Overseer reminding residents that the atrium fountain has been temporarily
-  decommissioned for scheduled aesthetic review and will return to service imminently.
-  This is impossible. The recording is on a loop in the atrium and the atrium is three
-  corridors and a stairwell and a door behind you. You hear it anyway.
+- |-
+  Your knees go halfway up the ramp. You do not feel them go. There is the sky and there is the smell of the wind and then there is the concrete, cold against the side of your face, and the hazard chevrons of the door above you tilted at an angle they were not tilted at a moment ago.
+- |-
+  You are not unconscious. Not quite. You can hear, very clearly, the recorded voice of the Overseer reminding residents that the atrium fountain has been temporarily decommissioned for scheduled aesthetic review and will return to service imminently. This is impossible. The recording is on a loop in the atrium and the atrium is three corridors and a stairwell and a door behind you. You hear it anyway.
 - if:
     flags:
     - recruited_doc
-  text: Reyes is over you almost before you are down. Hands at your throat, your wrist,
-    the bag already open beside her, the pre-war ballpoint between her teeth. She
-    says *officer* once, sharply, and then she stops talking and starts working. You
-    can hear her breathing in the slow counted way she breathes when she is doing
-    something she has done many times and has never said out loud that she is afraid
-    of.
+  text: |-
+    Reyes is over you almost before you are down. Hands at your throat, your wrist, the bag already open beside her, the pre-war ballpoint between her teeth. She says *officer* once, sharply, and then she stops talking and starts working. You can hear her breathing in the slow counted way she breathes when she is doing something she has done many times and has never said out loud that she is afraid of.
 - if:
     flags:
     - recruited_yuna
     flags_unset:
     - recruited_doc
-  text: Yuna is on the ground beside you, both hands flat on your shoulders, holding
-    you down — you had not realised you were trying to get up. *Stay*, she is saying,
-    *stay, stay, stay, stay,* in a voice you have not heard her use. She is not swearing.
-    This is bad.
+  text: |-
+    Yuna is on the ground beside you, both hands flat on your shoulders, holding you down — you had not realised you were trying to get up. *Stay*, she is saying, *stay, stay, stay, stay,* in a voice you have not heard her use. She is not swearing. This is bad.
 - if:
     flags:
     - recruited_resistance
     flags_unset:
     - recruited_doc
     - recruited_yuna
-  text: Hands. A lot of hands. Somebody is propping your head. Somebody is taking
-    the weight off your shoulder. The woman from sub-five is in your field of vision
-    saying something to somebody behind her about water and shade and *get them off
-    the ramp first, get them off the ramp.*
+  text: |-
+    Hands. A lot of hands. Somebody is propping your head. Somebody is taking the weight off your shoulder. The woman from sub-five is in your field of vision saying something to somebody behind her about water and shade and *get them off the ramp first, get them off the ramp.*
 - if:
     flags_unset:
     - recruited_doc
     - recruited_yuna
     - recruited_resistance
-  text: Nobody comes. There is nobody to come. You lie on the concrete with the sky
-    tilted overhead and the wind on the side of your face and you watch a single high
-    cloud move from one side of your vision to the other at a speed that seems both
-    impossible and correct.
-- You lose some time. You do not know how much. When you come back, the light is different
-  — not by much, but differently angled, and the sky has more colour in it than before.
-- You are on your back, off the ramp, in the dust beyond it. Somebody has put something
-  under your head. Your mouth still tastes of metal. The taste is going to be there
-  for a while. The taste is going to be there, you understand at last, until something
-  happens that takes it away.
-- The door of Vault 34 is closed behind you. You did not see it close.
+  text: |-
+    Nobody comes. There is nobody to come. You lie on the concrete with the sky tilted overhead and the wind on the side of your face and you watch a single high cloud move from one side of your vision to the other at a speed that seems both impossible and correct.
+- |-
+  You lose some time. You do not know how much. When you come back, the light is different — not by much, but differently angled, and the sky has more colour in it than before.
+- |-
+  You are on your back, off the ramp, in the dust beyond it. Somebody has put something under your head. Your mouth still tastes of metal. The taste is going to be there for a while. The taste is going to be there, you understand at last, until something happens that takes it away.
+- |-
+  The door of Vault 34 is closed behind you. You did not see it close.
 choices:
-- text: Get up.
+- text: |-
+    Get up.
   next: act2/surface_threshold

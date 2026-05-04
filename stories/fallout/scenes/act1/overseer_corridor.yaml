@@ -1,47 +1,42 @@
 id: act1/overseer_corridor
 text:
-- The east spur is a different building. The atrium's daylight panels stop at the
-  arch and the corridor beyond runs on the older fluorescents, the ones that buzz
-  a half-tone flat. The carpet is the original Vault-Tec issue — burgundy, balding,
-  threadbare in a strip down the middle where eighty-seven years of administrative
-  shoes have walked the same line.
-- Two of your colleagues are at the far door. Bregman on the left, tall and quiet,
-  hands folded in front of him in the way the training manual no longer teaches because
-  the training manual no longer teaches anything. Voss on the right, red-faced, working
-  a toothpick. The plaque between them reads *OFFICE OF THE OVERSEER. APPOINTMENT
-  REQUIRED.*
-- Bregman watches you the whole length of the corridor. Voss does not. Voss watches
-  Bregman, which is worse.
+- |-
+  The east spur is a different building. The atrium's daylight panels stop at the arch and the corridor beyond runs on the older fluorescents, the ones that buzz a half-tone flat. The carpet is the original Vault-Tec issue — burgundy, balding, threadbare in a strip down the middle where eighty-seven years of administrative shoes have walked the same line.
+- |-
+  Two of your colleagues are at the far door. Bregman on the left, tall and quiet, hands folded in front of him in the way the training manual no longer teaches because the training manual no longer teaches anything. Voss on the right, red-faced, working a toothpick. The plaque between them reads *OFFICE OF THE OVERSEER. APPOINTMENT REQUIRED.*
+- |-
+  Bregman watches you the whole length of the corridor. Voss does not. Voss watches Bregman, which is worse.
 - if:
     flags:
     - cole_alerted
-  text: Bregman's hand has moved. It is resting on his belt now, in the relaxed way
-    that means *I am thinking about it.* You went through training with him. You know
-    what the relaxed way means.
-  else: Bregman's hands stay folded. Not friendly. Not yet a problem.
+  text: |-
+    Bregman's hand has moved. It is resting on his belt now, in the relaxed way that means *I am thinking about it.* You went through training with him. You know what the relaxed way means.
+  else: |-
+    Bregman's hands stay folded. Not friendly. Not yet a problem.
 - if:
     flags:
     - killed_cole
-  text: There is no-one at the far door. The carpet is the same. The plaque is the
-    same. You already came down this corridor once and there is nothing left in the
-    office at the end of it that wants to see you.
-- Bregman speaks first, the way he was trained to.
-- male_adult_british_calm_friendly: Officer. The Warden is in. He has indicated that
-    he will see you when you arrive, which is a courtesy and not an instruction. He
-    has also indicated that you are to leave your sidearm with Voss, which is an instruction
-    and not a courtesy.
-- He waits. The corridor waits. Voss flips the toothpick from one corner of his mouth
-  to the other and does not blink.
+  text: |-
+    There is no-one at the far door. The carpet is the same. The plaque is the same. You already came down this corridor once and there is nothing left in the office at the end of it that wants to see you.
+- |-
+  Bregman speaks first, the way he was trained to.
+- male_adult_british_calm_friendly: |-
+    Officer. The Warden is in. He has indicated that he will see you when you arrive, which is a courtesy and not an instruction. He has also indicated that you are to leave your sidearm with Voss, which is an instruction and not a courtesy.
+- |-
+  He waits. The corridor waits. Voss flips the toothpick from one corner of his mouth to the other and does not blink.
 choices:
-- text: Hand the sidearm to Voss. Go in.
+- text: |-
+    Hand the sidearm to Voss. Go in.
   next: act1/cole_office
   requires:
     flags_unset:
     - killed_cole
   hide_if_failed: true
-- text: Walk back to the atrium. Not yet. Not like this.
+- text: |-
+    Walk back to the atrium. Not yet. Not like this.
   next: act1/atrium_hub
-- text: There is nothing in this corridor for you any more.
+- text: |-
+    There is nothing in this corridor for you any more.
   next: act1/atrium_hub
   requires:
     flags:

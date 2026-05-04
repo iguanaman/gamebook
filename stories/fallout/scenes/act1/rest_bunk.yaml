@@ -1,41 +1,36 @@
 id: act1/rest_bunk
 text:
-- The officers' bunkroom is empty. Six cots, six lockers, six framed copies of the
-  Code of Conduct that nobody reads except when somebody is being disciplined under
-  it. You sit on the edge of your cot. You do not lie down. Lying down would feel
-  like a decision.
-- Ten minutes. You give yourself ten minutes.
-- You think about Mira's thumbnails. You think about the ballpoint in Reyes's coat
-  pocket. You think about how Yuna stands closer to the exchange column than the yellow
-  line says she should. You think about Cole's voice on the loop, which you have heard
-  more times in your life than your own mother's.
-- Ten minutes is, in the event, four. The walls of the bunkroom are humming the same
-  wrong note as the column on the reactor deck. You can't sit through it. You stand
-  up.
+- |-
+  The officers' bunkroom is empty. Six cots, six lockers, six framed copies of the Code of Conduct that nobody reads except when somebody is being disciplined under it. You sit on the edge of your cot. You do not lie down. Lying down would feel like a decision.
+- |-
+  Ten minutes. You give yourself ten minutes.
+- |-
+  You think about Mira's thumbnails. You think about the ballpoint in Reyes's coat pocket. You think about how Yuna stands closer to the exchange column than the yellow line says she should. You think about Cole's voice on the loop, which you have heard more times in your life than your own mother's.
+- |-
+  Ten minutes is, in the event, four. The walls of the bunkroom are humming the same wrong note as the column on the reactor deck. You can't sit through it. You stand up.
 - if:
     flags:
     - radiation_sick
-  text: When you stand, the room takes a second to catch up. You put a hand on the
-    locker until it does. Whatever Reyes is going to do for you, she is not going
-    to do it from in here.
+  text: |-
+    When you stand, the room takes a second to catch up. You put a hand on the locker until it does. Whatever Reyes is going to do for you, she is not going to do it from in here.
 - if:
     flags:
     - reactor_stabilised
-  text: The wrong note is quieter than it was an hour ago. This is not as comforting
-    as you wanted it to be.
+  text: |-
+    The wrong note is quieter than it was an hour ago. This is not as comforting as you wanted it to be.
 - if:
     flags:
     - cole_alerted
-  text: Footsteps in the corridor outside. They go past. They come back. They go past
-    again. Somebody is patrolling a route that does not normally include this corridor.
-    You make a note.
+  text: |-
+    Footsteps in the corridor outside. They go past. They come back. They go past again. Somebody is patrolling a route that does not normally include this corridor. You make a note.
 - if:
     flags:
     - exposed_truth
-  text: Somebody has slipped a folded square of paper into your pillow while you were
-    out. *We're with you. Don't wait too long.* No signature. The handwriting is somebody
-    who works with their hands.
-- Back to it.
+  text: |-
+    Somebody has slipped a folded square of paper into your pillow while you were out. *We're with you. Don't wait too long.* No signature. The handwriting is somebody who works with their hands.
+- |-
+  Back to it.
 choices:
-- text: Atrium.
+- text: |-
+    Atrium.
   next: act1/atrium_hub

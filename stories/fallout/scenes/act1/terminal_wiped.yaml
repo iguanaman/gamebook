@@ -1,21 +1,18 @@
 id: act1/terminal_wiped
 text:
-- 'The chair in the supervisor''s office is no longer warm. The screen-saver is no
-  longer scrolling. The terminal sits dark, with a small adhesive label affixed to
-  the bezel in your supervisor''s hand: *OUT OF SERVICE. PENDING ADMIN REVIEW.*'
-- You touch the keyboard. Nothing. You drop to the floor and look at the back. The
-  drive bay is open and empty. Whoever pulled it took the time to put the screws back
-  in their original holes, which is the kind of detail Cole's people do and yours
-  don't.
-- The chair-leg that props the door is still on the floor. The door is now closed
-  properly, with the lock that doesn't stick anymore.
-- Whatever was on the slate, you have. Whatever was still on the supervisor's terminal
-  — deletion records, draft memos, the rest of it — is in a box somewhere now, or
-  in a furnace. You will not be running this play twice.
-- You leave the way you came in. The corridor is empty. The corridor was not empty
-  an hour ago.
+- |-
+  The chair in the supervisor's office is no longer warm. The screen-saver is no longer scrolling. The terminal sits dark, with a small adhesive label affixed to the bezel in your supervisor's hand: *OUT OF SERVICE. PENDING ADMIN REVIEW.*
+- |-
+  You touch the keyboard. Nothing. You drop to the floor and look at the back. The drive bay is open and empty. Whoever pulled it took the time to put the screws back in their original holes, which is the kind of detail Cole's people do and yours don't.
+- |-
+  The chair-leg that props the door is still on the floor. The door is now closed properly, with the lock that doesn't stick anymore.
+- |-
+  Whatever was on the slate, you have. Whatever was still on the supervisor's terminal — deletion records, draft memos, the rest of it — is in a box somewhere now, or in a furnace. You will not be running this play twice.
+- |-
+  You leave the way you came in. The corridor is empty. The corridor was not empty an hour ago.
 choices:
-- text: Back to the atrium. Don't dawdle.
+- text: |-
+    Back to the atrium. Don't dawdle.
   next: act1/atrium_hub
   effects:
     flags:

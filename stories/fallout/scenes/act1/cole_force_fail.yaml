@@ -1,30 +1,25 @@
 id: act1/cole_force_fail
 text:
-- You go across the desk. He goes for the drawer. He gets to the drawer first.
-- The shot is not loud. That is the thing nobody tells you about a sidearm in a small
-  carpeted office — it is not loud. It is a flat hard *clap* and a punch in the side
-  under your ribs and the smell of something that is suddenly very wrong with the
-  inside of your jacket.
-- You are on the floor. Cole is on his feet. He has not moved from behind the desk.
-  He is holding the sidearm at the slack low position the training manual still teaches,
-  and he is breathing through his nose, and the only thing that has changed about
-  his face is that he has gone a shade further towards grey.
-- male_midlife_english_posh: Bregman. Voss. The officer requires medical attention.
-    The officer also requires removal. In that order, please.
-- Bregman is already in the room. You did not hear the door. Voss is behind him with
-  the toothpick out and a length of cable tie in one hand. Cole sets the sidearm down
-  on the closed ledger with the same care he sets the coffee cup down with.
-- male_midlife_english_posh: I will not have it said that I was not generous. The
-    officer is to be conveyed to the medical office. Doctor Reyes will be informed
-    that the officer suffered an industrial accident on the reactor deck. The officer
-    will not be charged. The officer will, however, be confined to the medical office
-    pending a determination.
-- Bregman crouches beside you. His hands on your shoulder are not unkind. They are
-  simply professional, the way Bregman is professional, the way the carpet under you
-  is burgundy.
-- He gets you upright. Your legs are agreeing to less of the work than you would like.
+- |-
+  You go across the desk. He goes for the drawer. He gets to the drawer first.
+- |-
+  The shot is not loud. That is the thing nobody tells you about a sidearm in a small carpeted office — it is not loud. It is a flat hard *clap* and a punch in the side under your ribs and the smell of something that is suddenly very wrong with the inside of your jacket.
+- |-
+  You are on the floor. Cole is on his feet. He has not moved from behind the desk. He is holding the sidearm at the slack low position the training manual still teaches, and he is breathing through his nose, and the only thing that has changed about his face is that he has gone a shade further towards grey.
+- male_midlife_english_posh: |-
+    Bregman. Voss. The officer requires medical attention. The officer also requires removal. In that order, please.
+- |-
+  Bregman is already in the room. You did not hear the door. Voss is behind him with the toothpick out and a length of cable tie in one hand. Cole sets the sidearm down on the closed ledger with the same care he sets the coffee cup down with.
+- male_midlife_english_posh: |-
+    I will not have it said that I was not generous. The officer is to be conveyed to the medical office. Doctor Reyes will be informed that the officer suffered an industrial accident on the reactor deck. The officer will not be charged. The officer will, however, be confined to the medical office pending a determination.
+- |-
+  Bregman crouches beside you. His hands on your shoulder are not unkind. They are simply professional, the way Bregman is professional, the way the carpet under you is burgundy.
+- |-
+  He gets you upright. Your legs are agreeing to less of the work than you would like.
 choices:
-- text: Let them take you. Live. There may yet be a way out of the medical office.
+- text: |-
+    Let them take you. Live. There may yet be a way out of the medical office.
   next: act1/cole_force_retreat
-- text: No. Take Voss's holster. Take his gun. Die in this room on your own terms.
+- text: |-
+    No. Take Voss's holster. Take his gun. Die in this room on your own terms.
   next: act1/cole_force_death

@@ -1,19 +1,16 @@
 id: act1/security_terminal
 text:
-- The security block at this hour is half-lit and entirely empty. Shift change has
-  scattered everyone to the canteen. Your supervisor's office is the second door on
-  the left and the door is, as it always is between 18:00 and 18:40, propped open
-  with a chair leg because the lock sticks and nobody has filed the requisition.
-- 'The supervisor''s terminal is awake. The screen-saver is a slow-scrolling Vault-Tec
-  logo. Your creds will get you into the front-of-house view — duty rosters, infraction
-  logs, the same screens you see at your own console. The interesting layer is underneath:
-  administrative correspondence, deletion records, the things a supervisor sees that
-  an officer doesn''t.'
-- Getting underneath requires jumping a privilege fence Vault-Tec installed in '54
-  and patched, badly, twice since. You have done this exactly once before, on a training
-  rig, on a quiet Tuesday, with somebody talking you through it.
-- This is not a quiet Tuesday.
-- The chair is still warm.
+- |-
+  The security block at this hour is half-lit and entirely empty. Shift change has scattered everyone to the canteen. Your supervisor's office is the second door on the left and the door is, as it always is between 18:00 and 18:40, propped open with a chair leg because the lock sticks and nobody has filed the requisition.
+- |-
+  The supervisor's terminal is awake. The screen-saver is a slow-scrolling Vault-Tec logo. Your creds will get you into the front-of-house view — duty rosters, infraction logs, the same screens you see at your own console. The interesting layer is underneath: administrative correspondence, deletion records, the things a supervisor sees that an officer doesn't.
+- |-
+  Getting underneath requires jumping a privilege fence Vault-Tec installed in '54 and patched, badly, twice since. You have done this exactly once before, on a training rig, on a quiet Tuesday, with somebody talking you through it.
+- |-
+  This is not a quiet Tuesday.
+- |-
+  The chair is still warm.
 choices:
-- text: Sit down. Slot your creds. Try to crack the inner layer.
+- text: |-
+    Sit down. Slot your creds. Try to crack the inner layer.
   next: act1/terminal_hack

@@ -1,52 +1,41 @@
 id: act1/reactor_burst
 text:
-- You set your shoulder against the panel. The panel sets itself against you and keeps
-  going. It is hotter than you thought a thing could be through fabric. You lean into
-  it anyway because the alternative is Yuna's hand under a wheel that's about to come
-  off its mount.
-- She gets one full turn out of the valve before the gasket lets go.
-- The sound is not loud. That is the thing nobody tells you about coolant breaches
-  — they are not loud. There is a *hiss* the size of a kettle, and then a pressure
-  on your face like somebody opened an oven, and then the panel is moving and you
-  are moving and Yuna is shouting in a register her voice doesn't usually reach.
-- female_young_american_lisp: '*Off it off it off it — *'
-- You go backwards off the gantry rail and land hard on the deck plates. The plates
-  are warm. The air above them is not air any more. It is something thicker that tastes
-  of pennies and burnt hair and the inside of an old radiator. You can't see Yuna
-  for a second. Then you can. She is at a wall lever, both hands, hauling — the emergency
-  dump for the secondary loop, the one she said she'd use if the primary went, the
-  one that buys nothing except time to leave the room.
-- Klaxons start. The yellow stripe on the deck floor is suddenly important. You roll
-  across it on hands and knees because standing up does not feel like a thing your
-  legs are agreeing to do.
-- Yuna grabs the back of your collar and pulls. She is small and you are not but she
-  gets you off the deck and up the slope and through the blast door before the door
-  cycles shut behind you on a count you don't remember starting.
-- The corridor on the safe side is very quiet. The two of you sit on the painted concrete
-  with your backs against the wall. Yuna is shaking. You are shaking. Neither of you
-  says anything for a long time.
-- female_young_american_lisp: 'That was — '
-- She doesn't finish.
-- female_young_american_lisp: The exchange is going to seize inside the week. The
-    dump bought us *less* time than doing nothing would have. I want you to know that.
-    I want you to *know* that, before we go anywhere.
-- She gets up. She doesn't offer you a hand. She walks back towards the deck on legs
-  that aren't quite carrying her properly, and she does not look round, and you understand
-  without her having to say it that the door behind her is the door, and you are on
-  the wrong side of it now.
+- |-
+  You set your shoulder against the panel. The panel sets itself against you and keeps going. It is hotter than you thought a thing could be through fabric. You lean into it anyway because the alternative is Yuna's hand under a wheel that's about to come off its mount.
+- |-
+  She gets one full turn out of the valve before the gasket lets go.
+- |-
+  The sound is not loud. That is the thing nobody tells you about coolant breaches — they are not loud. There is a *hiss* the size of a kettle, and then a pressure on your face like somebody opened an oven, and then the panel is moving and you are moving and Yuna is shouting in a register her voice doesn't usually reach.
+- female_young_american_lisp: |-
+    *Off it off it off it — *
+- |-
+  You go backwards off the gantry rail and land hard on the deck plates. The plates are warm. The air above them is not air any more. It is something thicker that tastes of pennies and burnt hair and the inside of an old radiator. You can't see Yuna for a second. Then you can. She is at a wall lever, both hands, hauling — the emergency dump for the secondary loop, the one she said she'd use if the primary went, the one that buys nothing except time to leave the room.
+- |-
+  Klaxons start. The yellow stripe on the deck floor is suddenly important. You roll across it on hands and knees because standing up does not feel like a thing your legs are agreeing to do.
+- |-
+  Yuna grabs the back of your collar and pulls. She is small and you are not but she gets you off the deck and up the slope and through the blast door before the door cycles shut behind you on a count you don't remember starting.
+- |-
+  The corridor on the safe side is very quiet. The two of you sit on the painted concrete with your backs against the wall. Yuna is shaking. You are shaking. Neither of you says anything for a long time.
+- female_young_american_lisp: |-
+    That was — 
+- |-
+  She doesn't finish.
+- female_young_american_lisp: |-
+    The exchange is going to seize inside the week. The dump bought us *less* time than doing nothing would have. I want you to know that. I want you to *know* that, before we go anywhere.
+- |-
+  She gets up. She doesn't offer you a hand. She walks back towards the deck on legs that aren't quite carrying her properly, and she does not look round, and you understand without her having to say it that the door behind her is the door, and you are on the wrong side of it now.
 - if:
     flags_unset:
     - radiation_sick
-  text: Your skin feels wrong by the time you reach the slope back to the atrium.
-    A heat that is not heat, sitting under the surface of your forearms. You will
-    be coughing by tonight. You know what it is. Everybody in this vault knows what
-    it is.
-  else: Your skin already felt wrong before you came down here. It feels worse now.
-    The heat under the surface of your forearms has a new partner, somewhere lower
-    down. You do not want to think about where.
-- You walk up the slope alone.
+  text: |-
+    Your skin feels wrong by the time you reach the slope back to the atrium. A heat that is not heat, sitting under the surface of your forearms. You will be coughing by tonight. You know what it is. Everybody in this vault knows what it is.
+  else: |-
+    Your skin already felt wrong before you came down here. It feels worse now. The heat under the surface of your forearms has a new partner, somewhere lower down. You do not want to think about where.
+- |-
+  You walk up the slope alone.
 choices:
-- text: Back to the atrium. There is nothing else for you on this deck.
+- text: |-
+    Back to the atrium. There is nothing else for you on this deck.
   next: act1/atrium_hub
   effects:
     flags:

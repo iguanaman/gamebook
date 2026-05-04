@@ -1,23 +1,20 @@
 id: act1/yuna_topic_shaft
 text:
-- She squints at you. Decides, apparently, that you're asking in good faith.
-- female_young_american_lisp: There is a maintenance shaft. Runs behind the deck wall,
-    up the spine of the vault, comes out behind the door mechanism on the corridor
-    side. Vault-Tec put it in so engineering could service the door without bothering
-    the overseer's office. Then the overseer's office bothered engineering about it
-    and we stopped using it.
-- female_young_american_lisp: The hatch at this end is bolted from outside the wall
-    — original construction, nobody thought a engineer would want out. You'd need
-    to shift the panel. The panel is heavy. I am not going to lie to you about how
-    heavy.
-- She mimes a shoulder against a wall. Winces in advance.
-- female_young_american_lisp: Up top, the shaft opens behind the door gear. From there
-    a person — or, you know, *people* — can crank the door manually if the keys are
-    off the table. Slow. Loud. But a door.
-- female_young_american_lisp: Don't tell anyone I told you. Or do. At this point it's
-    all the same shredder.
+- |-
+  She squints at you. Decides, apparently, that you're asking in good faith.
+- female_young_american_lisp: |-
+    There is a maintenance shaft. Runs behind the deck wall, up the spine of the vault, comes out behind the door mechanism on the corridor side. Vault-Tec put it in so engineering could service the door without bothering the overseer's office. Then the overseer's office bothered engineering about it and we stopped using it.
+- female_young_american_lisp: |-
+    The hatch at this end is bolted from outside the wall — original construction, nobody thought a engineer would want out. You'd need to shift the panel. The panel is heavy. I am not going to lie to you about how heavy.
+- |-
+  She mimes a shoulder against a wall. Winces in advance.
+- female_young_american_lisp: |-
+    Up top, the shaft opens behind the door gear. From there a person — or, you know, *people* — can crank the door manually if the keys are off the table. Slow. Loud. But a door.
+- female_young_american_lisp: |-
+    Don't tell anyone I told you. Or do. At this point it's all the same shredder.
 choices:
-- text: Back to the conversation.
+- text: |-
+    Back to the conversation.
   next: act1/talk_yuna
   effects:
     flags:

@@ -1,51 +1,31 @@
 id: act1/broadcast_success_scene
-journal: "You went up to the booth and told the vault the truth on the open mic. Two hundred speakers in two hundred rooms. A woman down corridor C said *I knew it.* You can't take it back. You can't be quiet in this vault again."
+journal: |-
+  You went up to the booth and told the vault the truth on the open mic. Two hundred speakers in two hundred rooms. A woman down corridor C said *I knew it.* You can't take it back. You can't be quiet in this vault again.
 text:
-- You flip the toggle. The recording stops mid-sentence — *— ongoing commitment to
-  atmospher—* — and the silence that follows it is the loudest thing the atrium has
-  heard in eighty-seven years. You can feel two hundred faces lift, in two hundred
-  rooms, towards two hundred speakers.
-- You speak.
+- |-
+  You flip the toggle. The recording stops mid-sentence — *— ongoing commitment to atmospher—* — and the silence that follows it is the loudest thing the atrium has heard in eighty-seven years. You can feel two hundred faces lift, in two hundred rooms, towards two hundred speakers.
+- |-
+  You speak.
 - if:
     flags:
     - terminal_evidence
-  text: You read it from the slate. You do not embellish. You do not editorialise.
-    You read the dates the coolant integrity report was filed, and the dates it was
-    reclassified, and the name of the person who reclassified it, and the line of
-    the reply — *Atmospheric anomaly only. No further action required. Do not redistribute.*
-    You read the names of the three residents Reyes wrote down and the dates of their
-    deaths and the cause-of-death the requisition forms recorded next to them. You
-    let the document do the work. The document is enough.
-  else: You speak the way you would speak to one person at a time, two hundred times
-    in a row. You say *the reactor is failing.* You say *the door is sealed from the
-    control room.* You say *Warden Cole has known for at least nine weeks and he is
-    not going to tell you, and he is not going to open it, and the report is real,
-    and Doc Reyes will confirm it if you ask her, and Yuna at the reactor deck has
-    been writing the margin notes for months.* You say *I am sorry I did not say this
-    earlier.* You say it the way you would say it to one person.
-- You stop. You do not flip the toggle off. You leave it live. Whatever happens next
-  happens on the open mic.
-- For a count of perhaps three seconds nothing happens. Then a single voice somewhere
-  down corridor C — a woman's, you do not know whose — says *I knew it.* And then
-  a man somewhere on the atrium floor says *the names — say the names again — *. And
-  then the atrium begins, in the small private way two hundred people in a sealed
-  room begin a thing, to move.
-- You can see it through the slot in the booth wall. The maintenance worker on the
-  ladder comes down off the ladder. The duty pair at the south arch look at each other
-  and then at the mezzanine and then somewhere else entirely. The child with the rolled-up
-  regulation looks up at her sibling, who has appeared from the corridor she was searching,
-  and the two of them stand in the middle of the atrium floor not knowing what to
-  do but knowing that not-knowing is now a thing they are allowed to do publicly.
-- Down the east spur — you cannot see this, you can only hear it on the open mic —
-  a door slams. Cole is in the corridor. Cole is in the corridor with Bregman and
-  Voss behind him and he is moving fast for a man who has been bunking in a chair,
-  and he is moving towards the control room and not towards the booth, which tells
-  you everything about what he intends to do next.
-- He is going to seal the control room. He is going to ride it out in the bunker.
-  He is going to leave the door, the front door, the door this whole speech was about,
-  to whoever in the atrium knows how to force it from the corridor side.
-- You flip the toggle off. The booth is very quiet. Down on the floor a woman from
-  sub-five looks up at the mezzanine slot and finds your eyes and does not look away.
+  text: |-
+    You read it from the slate. You do not embellish. You do not editorialise. You read the dates the coolant integrity report was filed, and the dates it was reclassified, and the name of the person who reclassified it, and the line of the reply — *Atmospheric anomaly only. No further action required. Do not redistribute.* You read the names of the three residents Reyes wrote down and the dates of their deaths and the cause-of-death the requisition forms recorded next to them. You let the document do the work. The document is enough.
+  else: |-
+    You speak the way you would speak to one person at a time, two hundred times in a row. You say *the reactor is failing.* You say *the door is sealed from the control room.* You say *Warden Cole has known for at least nine weeks and he is not going to tell you, and he is not going to open it, and the report is real, and Doc Reyes will confirm it if you ask her, and Yuna at the reactor deck has been writing the margin notes for months.* You say *I am sorry I did not say this earlier.* You say it the way you would say it to one person.
+- |-
+  You stop. You do not flip the toggle off. You leave it live. Whatever happens next happens on the open mic.
+- |-
+  For a count of perhaps three seconds nothing happens. Then a single voice somewhere down corridor C — a woman's, you do not know whose — says *I knew it.* And then a man somewhere on the atrium floor says *the names — say the names again — *. And then the atrium begins, in the small private way two hundred people in a sealed room begin a thing, to move.
+- |-
+  You can see it through the slot in the booth wall. The maintenance worker on the ladder comes down off the ladder. The duty pair at the south arch look at each other and then at the mezzanine and then somewhere else entirely. The child with the rolled-up regulation looks up at her sibling, who has appeared from the corridor she was searching, and the two of them stand in the middle of the atrium floor not knowing what to do but knowing that not-knowing is now a thing they are allowed to do publicly.
+- |-
+  Down the east spur — you cannot see this, you can only hear it on the open mic — a door slams. Cole is in the corridor. Cole is in the corridor with Bregman and Voss behind him and he is moving fast for a man who has been bunking in a chair, and he is moving towards the control room and not towards the booth, which tells you everything about what he intends to do next.
+- |-
+  He is going to seal the control room. He is going to ride it out in the bunker. He is going to leave the door, the front door, the door this whole speech was about, to whoever in the atrium knows how to force it from the corridor side.
+- |-
+  You flip the toggle off. The booth is very quiet. Down on the floor a woman from sub-five looks up at the mezzanine slot and finds your eyes and does not look away.
 choices:
-- text: Down the stairs. Back into an atrium that knows.
+- text: |-
+    Down the stairs. Back into an atrium that knows.
   next: act1/atrium_hub

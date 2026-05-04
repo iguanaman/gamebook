@@ -1,42 +1,34 @@
 id: act1/cole_force_retreat
-journal: "You went for Cole and Voss put a round in your side. Reyes stitched you up in Medical and pretended to confine you while she walked out. The corridor has been told to look for you. You can't go back through that door."
+journal: |-
+  You went for Cole and Voss put a round in your side. Reyes stitched you up in Medical and pretended to confine you while she walked out. The corridor has been told to look for you. You can't go back through that door.
 text:
-- Bregman walks you out. Voss walks behind. The carpet in the corridor is the same
-  burgundy as the carpet in the office and the strip down the middle is the same threadbare.
-  You walk in the threadbare strip because Bregman steers you down it.
-- Doc Reyes is at the door of Medical when they bring you in. She looks at Bregman's
-  hand on your shoulder. She looks at the wet patch under your jacket. She looks at
-  Bregman's face, which gives her nothing, and then at Voss's face, which gives her
-  too much.
-- female_adult_american_cool: Industrial accident.
-- It is not a question. Bregman does not nod. Voss does the toothpick thing.
-- female_adult_american_cool: Put the officer on the back table. Both of you out.
-    I will not work with two armed men in my room and I will document the refusal.
-- Bregman considers it for a count of three and steps back. Voss does not move until
-  Bregman moves. The door closes.
-- Reyes works fast. She does not say anything for a long time. The round went through
-  cleanly — the entry is small, the exit is small, the bleeding is the kind she can
-  stop. She stops it. She tapes it. She gives you something for the pain that takes
-  the edge off but does not take the edge off enough.
-- female_adult_american_cool: I am to confine you here pending a determination, which
-    is the overseer's word for *until I decide what to do with you.* I am not going
-    to confine you. I am going to step outside this room for a count of two minutes
-    to instruct Bregman that you are sedated. There is a service door behind the autoclave.
-    It opens onto the south service corridor. The south service corridor opens onto
-    the atrium behind the dry fountain. After that you are on your own.
-- She looks at you, finally. The mug is in her hand again. She is not drinking from
-  it.
-- female_adult_american_cool: I do not know what you did. I have a guess. Whatever
-    you do next, do it knowing the corridor has been told to look for you. Do not
-    go back through that door.
-- She is at the door. She is gone.
-- You get up off the back table. You go through the service door behind the autoclave.
-  The south service corridor is unlit and smells of bleach and you walk it on legs
-  that are not quite carrying you properly, and you come out behind the dry fountain
-  into the atrium light, and the atrium light has not changed but everyone standing
-  in it knows now to look for you.
+- |-
+  Bregman walks you out. Voss walks behind. The carpet in the corridor is the same burgundy as the carpet in the office and the strip down the middle is the same threadbare. You walk in the threadbare strip because Bregman steers you down it.
+- |-
+  Doc Reyes is at the door of Medical when they bring you in. She looks at Bregman's hand on your shoulder. She looks at the wet patch under your jacket. She looks at Bregman's face, which gives her nothing, and then at Voss's face, which gives her too much.
+- female_adult_american_cool: |-
+    Industrial accident.
+- |-
+  It is not a question. Bregman does not nod. Voss does the toothpick thing.
+- female_adult_american_cool: |-
+    Put the officer on the back table. Both of you out. I will not work with two armed men in my room and I will document the refusal.
+- |-
+  Bregman considers it for a count of three and steps back. Voss does not move until Bregman moves. The door closes.
+- |-
+  Reyes works fast. She does not say anything for a long time. The round went through cleanly — the entry is small, the exit is small, the bleeding is the kind she can stop. She stops it. She tapes it. She gives you something for the pain that takes the edge off but does not take the edge off enough.
+- female_adult_american_cool: |-
+    I am to confine you here pending a determination, which is the overseer's word for *until I decide what to do with you.* I am not going to confine you. I am going to step outside this room for a count of two minutes to instruct Bregman that you are sedated. There is a service door behind the autoclave. It opens onto the south service corridor. The south service corridor opens onto the atrium behind the dry fountain. After that you are on your own.
+- |-
+  She looks at you, finally. The mug is in her hand again. She is not drinking from it.
+- female_adult_american_cool: |-
+    I do not know what you did. I have a guess. Whatever you do next, do it knowing the corridor has been told to look for you. Do not go back through that door.
+- |-
+  She is at the door. She is gone.
+- |-
+  You get up off the back table. You go through the service door behind the autoclave. The south service corridor is unlit and smells of bleach and you walk it on legs that are not quite carrying you properly, and you come out behind the dry fountain into the atrium light, and the atrium light has not changed but everyone standing in it knows now to look for you.
 choices:
-- text: Back into the atrium. The corridor has been told.
+- text: |-
+    Back into the atrium. The corridor has been told.
   next: act1/atrium_hub
   effects:
     flags:

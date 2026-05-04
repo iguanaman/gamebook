@@ -1,26 +1,16 @@
 id: act1/key_taken_alarmed
-journal: "You took the master key from Cole's drawer, but the pressure sensor caught you. A green diode lit up somewhere you couldn't see. Cole stopped walking and put a hand to his ear. He knows somebody was in there. He doesn't know who. Yet."
+journal: |-
+  You took the master key from Cole's drawer, but the pressure sensor caught you. A green diode lit up somewhere you couldn't see. Cole stopped walking and put a hand to his ear. He knows somebody was in there. He doesn't know who. Yet.
 text:
-- You set your shoulder against the drawer face and you lift, and the warped wood
-  gives the way you bet it would — but it gives in two places, not one, and the second
-  place is the cheap pressure-contact sensor Vault-Tec stuck under the felt liner
-  in the year the budget for proper alarms got reallocated to the Overseer's screen.
-  You hear the click of the sensor settling. You do not hear an alarm. There is no
-  alarm. There is only a small green diode somewhere, a long way away, in a console
-  somebody now needs to walk over and look at.
-- The key is in the drawer. Brass, longer than your palm, the Vault-Tec cog stamped
-  at the bow. You take it. You put it in the inside pocket where the folder isn't.
-  You close the drawer back into its housing as best you can, which is not quite well
-  enough — there is a hairline of light along the top edge now where there wasn't
-  before, and any hand that runs along the desk in the morning will feel it.
-- On the screen-that-isn't-a-window, Cole has stopped walking. He is standing very
-  still by the dry fountain with one hand to his ear, listening to a piece of nothing
-  that has just been said to him by somebody on a radio. He has not turned to look
-  at the camera. He does not need to.
-- You leave the way you came. Kemp's bootfalls come round the mezzanine ten seconds
-  earlier than the loop would have predicted. You make the side corridor with a count
-  to spare. Your hand is on the inside pocket and you cannot remember telling it to
-  be there.
+- |-
+  You set your shoulder against the drawer face and you lift, and the warped wood gives the way you bet it would — but it gives in two places, not one, and the second place is the cheap pressure-contact sensor Vault-Tec stuck under the felt liner in the year the budget for proper alarms got reallocated to the Overseer's screen. You hear the click of the sensor settling. You do not hear an alarm. There is no alarm. There is only a small green diode somewhere, a long way away, in a console somebody now needs to walk over and look at.
+- |-
+  The key is in the drawer. Brass, longer than your palm, the Vault-Tec cog stamped at the bow. You take it. You put it in the inside pocket where the folder isn't. You close the drawer back into its housing as best you can, which is not quite well enough — there is a hairline of light along the top edge now where there wasn't before, and any hand that runs along the desk in the morning will feel it.
+- |-
+  On the screen-that-isn't-a-window, Cole has stopped walking. He is standing very still by the dry fountain with one hand to his ear, listening to a piece of nothing that has just been said to him by somebody on a radio. He has not turned to look at the camera. He does not need to.
+- |-
+  You leave the way you came. Kemp's bootfalls come round the mezzanine ten seconds earlier than the loop would have predicted. You make the side corridor with a count to spare. Your hand is on the inside pocket and you cannot remember telling it to be there.
 choices:
-- text: Back to the atrium. Try to look like a man who has been nowhere.
+- text: |-
+    Back to the atrium. Try to look like a man who has been nowhere.
   next: act1/atrium_hub

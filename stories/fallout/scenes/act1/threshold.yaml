@@ -1,47 +1,41 @@
 id: act1/threshold
-journal: "You stood in the doorway with one boot on the threshold and one boot on vault concrete. The wind on your face was the first wind of your life. Twenty-nine years old and only now learning what light without fluorescent looks like."
+journal: |-
+  You stood in the doorway with one boot on the threshold and one boot on vault concrete. The wind on your face was the first wind of your life. Twenty-nine years old and only now learning what light without fluorescent looks like.
 text:
-- The first thing is the smell. Not bad, exactly — not the cooked-air staleness of
-  the vault, not the antiseptic of medical, not the coolant ghost of the reactor deck.
-  Something else. Dust and a metal you do not have a word for and, somewhere underneath
-  it, the faintest possible hint of something living. Maybe a long way away. Maybe
-  imagined. You cannot tell.
-- The second thing is the light. You have lived your whole life under fluorescent.
-  The light coming in through the door is not a light, in the vault sense. It is a
-  *condition*. It is everywhere at once. It does not buzz. It does not flicker. It
-  simply is, and you, standing in it for the first time at twenty-nine years old,
-  blink hard and feel your eyes try and fail to find the source of it.
-- The third thing is the air on your face. Moving. Not from a vent. From *outside*.
-  A wind. You have read the word in books. You have not, until this moment, ever met
-  one.
+- |-
+  The first thing is the smell. Not bad, exactly — not the cooked-air staleness of the vault, not the antiseptic of medical, not the coolant ghost of the reactor deck. Something else. Dust and a metal you do not have a word for and, somewhere underneath it, the faintest possible hint of something living. Maybe a long way away. Maybe imagined. You cannot tell.
+- |-
+  The second thing is the light. You have lived your whole life under fluorescent. The light coming in through the door is not a light, in the vault sense. It is a *condition*. It is everywhere at once. It does not buzz. It does not flicker. It simply is, and you, standing in it for the first time at twenty-nine years old, blink hard and feel your eyes try and fail to find the source of it.
+- |-
+  The third thing is the air on your face. Moving. Not from a vent. From *outside*. A wind. You have read the word in books. You have not, until this moment, ever met one.
 - if:
     flags:
     - radiation_sick
     flags_unset:
     - reyes_treated_you
-  text: The metallic taste in your mouth has become a thing you can no longer ignore.
-    Your knees are not quite where you left them. You put a hand on the door frame
-    to steady yourself, casually, the way a person steadies themselves casually when
-    they do not want anyone to know they are steadying themselves.
-- Beyond the door is a shallow concrete ramp, cracked and weed-grown, climbing maybe
-  twenty feet to ground level. Beyond the ramp is a sky you have read about in books.
-  Beyond the sky is everything else.
-- You have not stepped onto the ramp yet. The ramp is, technically, still vault. You
-  have one boot on the threshold and one boot on the floor of the chamber. This is
-  the last moment in your life that your address is *Vault 34*.
-- You step forward.
+  text: |-
+    The metallic taste in your mouth has become a thing you can no longer ignore. Your knees are not quite where you left them. You put a hand on the door frame to steady yourself, casually, the way a person steadies themselves casually when they do not want anyone to know they are steadying themselves.
+- |-
+  Beyond the door is a shallow concrete ramp, cracked and weed-grown, climbing maybe twenty feet to ground level. Beyond the ramp is a sky you have read about in books. Beyond the sky is everything else.
+- |-
+  You have not stepped onto the ramp yet. The ramp is, technically, still vault. You have one boot on the threshold and one boot on the floor of the chamber. This is the last moment in your life that your address is *Vault 34*.
+- |-
+  You step forward.
 choices:
-- text: Walk up the ramp.
+- text: |-
+    Walk up the ramp.
   next: act2/surface_threshold
   requires:
     flags_unset:
     - radiation_sick
-- text: Walk up the ramp.
+- text: |-
+    Walk up the ramp.
   next: act2/surface_threshold
   requires:
     flags:
     - reyes_treated_you
-- text: Walk up the ramp. Don't fall.
+- text: |-
+    Walk up the ramp. Don't fall.
   next: act2/surface_threshold
   requires:
     flags:
@@ -50,8 +44,10 @@ choices:
     - reyes_treated_you
     stats:
       PER: 6
-  failed_text: '*(Perception 6 — your knees are gone before you know they are going)*'
-- text: Walk up the ramp. Try not to fall.
+  failed_text: |-
+    *(Perception 6 — your knees are gone before you know they are going)*
+- text: |-
+    Walk up the ramp. Try not to fall.
   next: act1/threshold_collapse
   requires:
     flags:

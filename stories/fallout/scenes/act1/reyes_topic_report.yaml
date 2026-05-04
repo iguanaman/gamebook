@@ -1,21 +1,22 @@
 id: act1/reyes_topic_report
 text:
-- She doesn't react. Her face does the small still thing it does when a chart confirms
-  what she already suspected. Then she sets the mug down. That, you note, is the reaction.
-- female_adult_american_cool: The Form 34-R. Yes. I've read it.
-- female_adult_american_cool: Yuna handed me a draft six weeks ago. I told her to
-    file it through the proper channels. She did. The proper channels lost it. Twice.
-    The third time, the response came back from administration.
-- female_adult_american_cool: Reclassify as atmospheric anomaly. No further action
-    required.
-- She picks the mug up again. Empty cradle of the hands.
-- female_adult_american_cool: If you've read it, then you understand that I am not
-    going to be the person who tells you it isn't real. The numbers are the numbers.
-    The exposure threshold has been crossed in three sub-levels already. I have been
-    watching the presentations for months.
-- A pause where a joke would go. She does not fill it.
+- |-
+  She doesn't react. Her face does the small still thing it does when a chart confirms what she already suspected. Then she sets the mug down. That, you note, is the reaction.
+- female_adult_american_cool: |-
+    The Form 34-R. Yes. I've read it.
+- female_adult_american_cool: |-
+    Yuna handed me a draft six weeks ago. I told her to file it through the proper channels. She did. The proper channels lost it. Twice. The third time, the response came back from administration.
+- female_adult_american_cool: |-
+    Reclassify as atmospheric anomaly. No further action required.
+- |-
+  She picks the mug up again. Empty cradle of the hands.
+- female_adult_american_cool: |-
+    If you've read it, then you understand that I am not going to be the person who tells you it isn't real. The numbers are the numbers. The exposure threshold has been crossed in three sub-levels already. I have been watching the presentations for months.
+- |-
+  A pause where a joke would go. She does not fill it.
 choices:
-- text: Back to the conversation.
+- text: |-
+    Back to the conversation.
   next: act1/talk_doc_reyes
   effects:
     flags:

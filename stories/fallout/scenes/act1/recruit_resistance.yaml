@@ -1,49 +1,36 @@
 id: act1/recruit_resistance
-journal: "The vault is coming with you. Twelve at first, then more — the woman from sub-five at the head of them. They have been organising in the dark longer than you knew there was a dark to organise in. None of them gave their names. Names are for after the door."
+journal: |-
+  The vault is coming with you. Twelve at first, then more — the woman from sub-five at the head of them. They have been organising in the dark longer than you knew there was a dark to organise in. None of them gave their names. Names are for after the door.
 text:
-- The woman from sub-five is at the south arch the way she has been at the south arch
-  since the broadcast — not waiting, exactly, but oriented, the way a compass needle
-  is oriented. She sees you coming and she does not move toward you. She lets you
-  come to her. That, you realise, is the first piece of organisational discipline
-  you have seen in this vault in eighty-seven years.
-- When you are in front of her she says, quietly, *how many do you want.*
-- You tell her. Or you don't tell her — you say *everyone who will come* — and she
-  nods once, the way a person nods when they have already done the maths and were
-  waiting only to confirm the inputs.
-- She turns her head and says a name down the arch. The name comes back as a man you
-  half-know from the laundry rotation, who turns and says two more names down the
-  corridor behind him. The names go around the bend like water finding the slope of
-  a floor. You do not have to do anything. They have been doing this in the dark for
-  longer than you have been awake to it.
-- Inside of four minutes there are nine people in front of you. Inside of seven there
-  are twelve. They keep arriving in the loose sideways way people arrive when they
-  are pretending not to be arriving as a group. A man with a child. The maintenance
-  worker off the ladder, ladder gone. A woman with a Vault-Tec issue rucksack already
-  on. The duty pair from the south arch — both of them — without their belts, which
-  tells you everything.
-- Nobody is armed in any way that would matter. A wrench. A length of pipe. The maintenance
-  worker has the ladder's hinge bolt in his fist and you choose not to ask why. They
-  are not a fighting force. They are a column of people who have decided, individually
-  and severally and at some cost to themselves, that the inside of this room is no
-  longer where they live.
-- The woman from sub-five looks at you and says, *we go when you go. Tell us when.*
-- You realise she has not told you her name. You realise she is not going to. Names
-  are for after the door.
+- |-
+  The woman from sub-five is at the south arch the way she has been at the south arch since the broadcast — not waiting, exactly, but oriented, the way a compass needle is oriented. She sees you coming and she does not move toward you. She lets you come to her. That, you realise, is the first piece of organisational discipline you have seen in this vault in eighty-seven years.
+- |-
+  When you are in front of her she says, quietly, *how many do you want.*
+- |-
+  You tell her. Or you don't tell her — you say *everyone who will come* — and she nods once, the way a person nods when they have already done the maths and were waiting only to confirm the inputs.
+- |-
+  She turns her head and says a name down the arch. The name comes back as a man you half-know from the laundry rotation, who turns and says two more names down the corridor behind him. The names go around the bend like water finding the slope of a floor. You do not have to do anything. They have been doing this in the dark for longer than you have been awake to it.
+- |-
+  Inside of four minutes there are nine people in front of you. Inside of seven there are twelve. They keep arriving in the loose sideways way people arrive when they are pretending not to be arriving as a group. A man with a child. The maintenance worker off the ladder, ladder gone. A woman with a Vault-Tec issue rucksack already on. The duty pair from the south arch — both of them — without their belts, which tells you everything.
+- |-
+  Nobody is armed in any way that would matter. A wrench. A length of pipe. The maintenance worker has the ladder's hinge bolt in his fist and you choose not to ask why. They are not a fighting force. They are a column of people who have decided, individually and severally and at some cost to themselves, that the inside of this room is no longer where they live.
+- |-
+  The woman from sub-five looks at you and says, *we go when you go. Tell us when.*
+- |-
+  You realise she has not told you her name. You realise she is not going to. Names are for after the door.
 - if:
     flags:
     - recruited_doc
-  text: Reyes is at the back of the column already, bag at her feet, talking quietly
-    to the woman with the Vault-Tec rucksack about something the woman is showing
-    her on the inside of her wrist. She does not look up. She has work.
+  text: |-
+    Reyes is at the back of the column already, bag at her feet, talking quietly to the woman with the Vault-Tec rucksack about something the woman is showing her on the inside of her wrist. She does not look up. She has work.
 - if:
     flags:
     - recruited_yuna
-  text: Yuna is on the bottom mezzanine step counting heads under her breath and making
-    a face that says she has counted more than she would like and is going to come
-    anyway.
+  text: |-
+    Yuna is on the bottom mezzanine step counting heads under her breath and making a face that says she has counted more than she would like and is going to come anyway.
 choices:
-- text: '*We go when I go.* Walk back into the atrium with twelve people behind you
-    and the front door three corridors away.'
+- text: |-
+    *We go when I go.* Walk back into the atrium with twelve people behind you and the front door three corridors away.
   next: act1/gather_allies
   effects:
     flags:
