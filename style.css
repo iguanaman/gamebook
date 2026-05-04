@@ -196,17 +196,17 @@ button {
 .card-delete-btn:hover { opacity: 1; }
 .story-cover { width: 120px; height: 160px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
 .story-info { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
-.story-info-header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
 .story-title { margin: 0; font-size: 1.2rem; }
 .story-genre {
-  flex-shrink: 0;
+  display: block;
   font-family: var(--font-ui);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   opacity: 0.7;
+  margin-bottom: 0.2rem;
 }
 .story-desc { margin: 0; color: var(--text-muted); font-size: 0.95rem; flex: 1; }
 

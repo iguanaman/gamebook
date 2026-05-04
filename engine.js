@@ -106,10 +106,8 @@ function renderStoryCard(storyId) {
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
         <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
         <div class="story-info">
-          <div class="story-info-header">
-            <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}"></span><span data-story-title="${storyId}">Loading...</span></h2>
-            <span class="story-genre" data-story-genre="${storyId}"></span>
-          </div>
+          <span class="story-genre" data-story-genre="${storyId}"></span>
+          <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}"></span><span data-story-title="${storyId}">Loading...</span></h2>
           <p class="story-desc" data-story-desc="${storyId}"></p>
         </div>
       </div>
