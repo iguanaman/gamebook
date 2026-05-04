@@ -107,20 +107,21 @@ def process_story(story_id, force):
         if not scene_blocks:
             continue
 
-        # Check if all block files already exist
         out_paths = [story_dir / block_audio_path(scene_id, raw_index, suffix)
                      for (_, _, raw_index, suffix) in scene_blocks]
-        if all(p.exists() for p in out_paths) and not force:
+        todo = list(range(len(scene_blocks))) if force else [i for i, p in enumerate(out_paths) if not p.exists()]
+        if not todo:
             continue
 
         out_paths[0].parent.mkdir(parents=True, exist_ok=True)
-        print(f"  [gen]  {scene_id} ({len(scene_blocks)} block(s))")
+        print(f"  [gen]  {scene_id} ({len(todo)}/{len(scene_blocks)} block(s))")
 
-        for (text, voice, raw_index, suffix), out_path in zip(scene_blocks, out_paths):
+        for i in todo:
+            text, voice, raw_index, suffix = scene_blocks[i]
             label = f"block {raw_index}{suffix}"
             print(f"         {label}: {voice!r}")
             opus = synthesize(text, voice, EXAGGERATION)
-            out_path.write_bytes(opus)
+            out_paths[i].write_bytes(opus)
 
         # Remove legacy fields
         scene.pop("audio", None)

@@ -277,6 +277,7 @@ function hashString(str) {
 
 const ACT_TITLE_PAUSE_MS = 2000;
 let currentAudio = null;
+let playbackSession = 0;
 
 function stopAudio() {
   if (currentAudio) {
@@ -286,6 +287,11 @@ function stopAudio() {
     audio.src = '';
     audio.load();
   }
+}
+
+function cancelPlayback() {
+  playbackSession++;
+  stopAudio();
 }
 
 function blockAudioUrl(sceneId, rawIndex, branch) {
@@ -357,11 +363,14 @@ function showTitleSplash(text, audioUrl, onDone) {
 }
 
 function playBlocks(sceneId, blocks, onBlockStart, onDone) {
+  const session = playbackSession;
   let index = 0;
   let done = false;
   const blockCount = blocks.length;
 
   const gameWrap = document.querySelector('.game-wrap');
+
+  function cancelled() { return session !== playbackSession; }
 
   function onClickSkip() {
     stopAudio();
@@ -378,20 +387,20 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
     if (done) return;
     done = true;
     removeClickSkip();
-    onDone();
+    if (!cancelled()) onDone();
   }
 
   function playNext() {
-    if (done) return;
+    if (done || cancelled()) { finish(); return; }
     stopAudio();
     if (index >= blockCount) { finish(); return; }
     const i = index++;
     const block = blocks[i];
     onBlockStart(block);
     currentAudio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
-    currentAudio.addEventListener('ended', () => { if (!done) playNext(); }, { once: true });
+    currentAudio.addEventListener('ended', () => { if (!done && !cancelled()) playNext(); }, { once: true });
     currentAudio.play().catch(() => {
-      if (done) return;
+      if (done || cancelled()) { finish(); return; }
       for (let j = i; j < blockCount; j++) onBlockStart(blocks[j]);
       finish();
     });
@@ -479,7 +488,7 @@ async function loadScene(storyId, sceneId) {
 
 
 async function navigateTo(sceneId) {
-  stopAudio();
+  cancelPlayback();
   if (state.scene && !state.visited.includes(state.scene)) {
     state.visited.push(state.scene);
   }
@@ -737,12 +746,15 @@ function typeBlock(block, skip, onDone) {
 }
 
 function typeBlocks(blocks, onDone, sceneId) {
+  const session = playbackSession;
   let index = 0;
   let done = false;
   const skip = { active: false };
   const blockCount = blocks.length;
 
   const gameWrap = document.querySelector('.game-wrap');
+
+  function cancelled() { return session !== playbackSession; }
 
   function onClickSkip() {
     skip.active = true;
@@ -760,20 +772,20 @@ function typeBlocks(blocks, onDone, sceneId) {
     if (done) return;
     done = true;
     removeClickSkip();
-    onDone();
+    if (!cancelled()) onDone();
   }
 
   function next() {
-    if (done) return;
+    if (done || cancelled()) { finish(); return; }
     if (index >= blockCount) { finish(); return; }
     const block = blocks[index++];
     skip.finished = false;
-    const finishTyping = typeBlock(block, skip, () => { if (!done && (!sceneId || !currentAudio)) next(); });
+    const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); });
     if (sceneId) {
       const audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
       currentAudio = audio;
-      audio.addEventListener('ended', () => { if (!done && audio === currentAudio) { finishTyping(); next(); } }, { once: true });
-      audio.play().catch(() => { if (!done && audio === currentAudio) next(); });
+      audio.addEventListener('ended', () => { if (!done && !cancelled() && audio === currentAudio) { finishTyping(); next(); } }, { once: true });
+      audio.play().catch(() => { if (!done && !cancelled() && audio === currentAudio) next(); });
     }
   }
 
@@ -958,7 +970,7 @@ function dismissExitConfirm() {
 
 function confirmExit() {
   dismissExitConfirm();
-  stopAudio();
+  cancelPlayback();
   showSelector();
 }
 
