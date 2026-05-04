@@ -274,6 +274,49 @@ function playActTitleAudio(actText, onDone) {
   }, animDuration);
 }
 
+function showStorySplash(title, onDone) {
+  const splash = document.createElement('div');
+  splash.className = 'story-splash story-splash-hidden';
+
+  const h1 = document.createElement('h1');
+  h1.className = 'story-splash-title';
+  h1.textContent = title;
+  splash.appendChild(h1);
+
+  document.body.appendChild(splash);
+
+  const animDuration = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--anim-act-title-duration')
+  ) || 600;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      splash.classList.remove('story-splash-hidden');
+      splash.classList.add('story-splash-visible');
+    });
+  });
+
+  setTimeout(() => {
+    const audio = new Audio(`stories/${currentStoryId}/audio/story_title.opus`);
+    let settled = false;
+    function settle() {
+      if (settled) return;
+      settled = true;
+      setTimeout(() => {
+        splash.classList.remove('story-splash-visible');
+        splash.classList.add('story-splash-out');
+        setTimeout(() => {
+          splash.remove();
+          onDone();
+        }, animDuration);
+      }, ACT_TITLE_PAUSE_MS);
+    }
+    audio.addEventListener('ended', settle, { once: true });
+    audio.addEventListener('error', settle, { once: true });
+    audio.play().catch(settle);
+  }, animDuration);
+}
+
 function playBlocks(sceneId, blockCount, narrativeOffset, onBlockStart, onDone) {
   let index = 0;
 
@@ -333,8 +376,15 @@ async function startStory(storyId) {
     saveState();
   }
 
-  renderShell(meta);
-  await navigateTo(state.scene);
+  if (!saved) {
+    showStorySplash(meta.title, async () => {
+      renderShell(meta);
+      await navigateTo(state.scene);
+    });
+  } else {
+    renderShell(meta);
+    await navigateTo(state.scene);
+  }
 }
 
 function renderShell(meta) {
