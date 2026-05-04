@@ -7,8 +7,8 @@ Two distinct views share the `#app` mount point — only one is ever visible:
 **Selector** — centred single-column list of story cards. Each card shows cover art (optional), title, description, and a Play or Continue button.
 
 **Game** — two-region layout inside a fixed viewport parchment frame:
-- `#narrative` — scrollable pane, fills all available height. Text accumulates across scenes within an act; cleared on act change or undo.
-- `#choices-footer` — pinned at the bottom, always visible. Separated from narrative by a decorative divider (`div.choices-divider`).
+- `#narrative` — scrollable pane, fills all available height. Cleared on every scene navigation; text starts at top, scrolls to bottom as blocks appear.
+- `#choices-footer` — pinned below narrative, hidden (divider invisible) while text is streaming, revealed when choices are ready.
 - HUD — fixed top-right, outside the game layout.
 - `#frame` — fixed full-viewport decorative border (`pointer-events: none`, `z-index: 100`).
 
@@ -28,7 +28,7 @@ Single `style.css` defines defaults. Stories can override via `stories/{id}/them
 | Divider | `--divider-color`, `--divider-style` |
 | Drop cap | `--drop-cap-color`, `--drop-cap-size` |
 | Act title | `--act-title-size`, `--act-rule-color`, `--act-rule-style` |
-| Animations | `--anim-block-duration`, `--anim-choice-duration`, `--anim-act-title-duration`, `--anim-choice-fade-duration` |
+| Animations | `--anim-block-duration`, `--anim-choice-duration`, `--anim-act-title-duration`, `--anim-choice-fade-fast`, `--anim-choice-linger-ms`, `--anim-choice-fade-slow` |
 | Misc | `--radius` |
 
 ## HUD
@@ -41,7 +41,7 @@ Fixed-position, top-right. Re-renders on every navigation. Hidden on the selecto
 
 ## Narrative
 
-Text accumulates in `#narrative` across scenes within an act. Each scene's text is appended (not replaced). A thin separator rule (`hr.scene-separator`) is inserted between scenes. On act change or undo, the pane is cleared before new content is added.
+Each scene clears `#narrative` and starts fresh. Text appends top-to-bottom; the pane auto-scrolls to the bottom as each block appears.
 
 The `text` field is rendered as `<p>` elements — double newlines (`\n\n`) become `<p>` breaks. Multi-block scenes (list `text:`) produce separate paragraphs revealed one at a time as audio plays.
 
@@ -67,7 +67,7 @@ Choices are rendered as full-width left-aligned buttons in the serif body font �
 
 Choices that fail `requires` checks are rendered as disabled greyed-out buttons (`.btn-choice-failed`) with failure text below the choice label, unless `hide_if_failed: true` hides them entirely. Failure text comes from `failed_text` on the choice, or is auto-generated from the `requires` shape (e.g. `*(Requires: gold ≥ 5)*`).
 
-The choice list (`.choice-list`) slides up as a group when rendered (opacity + translateY animation). On click, all buttons are immediately disabled; unchosen options fade to 20% opacity, the chosen option fades to 0%, then navigation fires after `--anim-choice-fade-duration`.
+The choices-footer is hidden (divider invisible) while blocks are streaming. When choices are ready, the divider fades in and the choice list (`.choice-list`) slides up from below (opacity + translateY animation). On click, all buttons are immediately disabled; unchosen options fade out fast (`--anim-choice-fade-fast`), the chosen option lingers (`--anim-choice-linger-ms`) then fades out (`--anim-choice-fade-slow`), then the chosen text is prepended to the narrative as a `.chosen-choice` paragraph and navigation fires.
 
 The Undo button sits below choices, ghost-styled. It is disabled (not hidden) when history is empty.
 

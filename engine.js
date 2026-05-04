@@ -460,8 +460,8 @@ function renderShell(meta) {
     </div>
     <div class="game-wrap">
       <div class="narrative-area">
-        <div class="narrative at-bottom" id="narrative"><div class="narrative-spacer"></div></div>
-        <div class="choices-divider"></div>
+        <div class="narrative at-bottom" id="narrative"></div>
+        <hr class="choices-divider choices-hidden" id="choices-divider">
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
@@ -470,7 +470,8 @@ function renderShell(meta) {
   const narrative = document.getElementById('narrative');
   if (narrative) {
     const updateAtBottom = () => {
-      narrative.classList.toggle('at-bottom', narrative.scrollTop >= -1);
+      const atBottom = narrative.scrollTop + narrative.clientHeight >= narrative.scrollHeight - 2;
+      narrative.classList.toggle('at-bottom', atBottom);
     };
     narrative.addEventListener('scroll', updateAtBottom, { passive: true });
   }
@@ -526,7 +527,7 @@ async function navigateTo(sceneId) {
       const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(actTitle)}.opus`;
       showTitleSplash(actTitle, actAudioUrl, () => {
         renderShell(storyMeta);
-        prependSceneSeparator();
+        clearNarrative();
         const blocks = resolveSceneBlocks(scene);
         state.blockHashes[sceneId] = blocks.map(b => b.hash);
         saveState();
@@ -541,7 +542,7 @@ async function navigateTo(sceneId) {
     const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(scene.act)}.opus`;
     showTitleSplash(scene.act, actAudioUrl, () => {
       renderShell(storyMeta);
-      prependSceneSeparator();
+      clearNarrative();
       const blocks = resolveSceneBlocks(scene);
       state.blockHashes[sceneId] = blocks.map(b => b.hash);
       saveState();
@@ -551,7 +552,7 @@ async function navigateTo(sceneId) {
   }
 
   if (!showingActTitle) {
-    prependSceneSeparator();
+    clearNarrative();
     const blocks = resolveSceneBlocks(scene);
     const blockHashes = blocks.map(b => b.hash);
 
@@ -661,25 +662,31 @@ function buildBlockPara(block) {
   return p;
 }
 
-function prependSceneSeparator() {
+function clearNarrative() {
   const el = document.getElementById('narrative');
-  if (!el) return;
-  if (!el.querySelector('p')) return; // first scene — no separator needed
-  const sep = document.createElement('hr');
-  sep.className = 'scene-separator';
-  el.prepend(sep);
+  if (el) el.innerHTML = '';
+  const footer = document.getElementById('choices-footer');
+  if (footer) footer.innerHTML = '';
+  const divider = document.getElementById('choices-divider');
+  if (divider) divider.classList.add('choices-hidden');
 }
 
-function prependBlockPara(block) {
+function scrollNarrativeToBottom() {
+  const el = document.getElementById('narrative');
+  if (el) el.scrollTop = el.scrollHeight;
+}
+
+function appendBlockPara(block) {
   const el = document.getElementById('narrative');
   if (!el) return null;
   const p = buildBlockPara(block);
-  el.prepend(p);
+  el.appendChild(p);
+  scrollNarrativeToBottom();
   return p;
 }
 
 function showBlockInstant(block) {
-  const p = prependBlockPara(block);
+  const p = appendBlockPara(block);
   if (p) p.classList.add('block-visible');
   return p;
 }
@@ -690,12 +697,13 @@ function appendChosenChoice(text) {
   const p = document.createElement('p');
   p.className = 'chosen-choice';
   p.textContent = text;
-  el.prepend(p);
+  el.appendChild(p);
+  scrollNarrativeToBottom();
   requestAnimationFrame(() => p.classList.add('block-visible'));
 }
 
 function showBlockReveal(block) {
-  const p = prependBlockPara(block);
+  const p = appendBlockPara(block);
   if (p) requestAnimationFrame(() => p.classList.add('block-visible'));
   return p;
 }
@@ -704,7 +712,7 @@ function showBlockReveal(block) {
 const TYPING_MS_PER_CHAR = 64;
 
 function typeBlock(block, skip, onDone) {
-  const para = prependBlockPara(block);
+  const para = appendBlockPara(block);
   if (!para) { onDone(); return () => {}; }
 
   const fullHtml = para.innerHTML;
@@ -722,6 +730,7 @@ function typeBlock(block, skip, onDone) {
     para.innerHTML = fullHtml;
     para.classList.remove('block-typing');
     para.classList.add('block-visible');
+    scrollNarrativeToBottom();
     onDone();
   }
 
@@ -815,10 +824,13 @@ function renderChoices(scene) {
   const el = document.getElementById('choices-footer');
   if (!el) return;
 
+  const divider = document.getElementById('choices-divider');
+
   const allChoices = scene.choices ?? [];
   const passing = allChoices.filter(c => meetsRequirements(c.requires));
 
   if (passing.length === 0) {
+    if (divider) divider.classList.remove('choices-hidden');
     el.innerHTML = `
       <p class="end-message">— The End —</p>
       <button class="btn btn-secondary" id="btn-restart">↺ Restart</button>
@@ -843,6 +855,7 @@ function renderChoices(scene) {
   const choiceList = el.querySelector('.choice-list');
   if (choiceList) {
     requestAnimationFrame(() => {
+      if (divider) divider.classList.remove('choices-hidden');
       requestAnimationFrame(() => choiceList.classList.add('choices-visible'));
     });
   }
@@ -921,8 +934,6 @@ function showUndoConfirm() {
     cleanup();
     const ok = undo();
     if (!ok) return;
-    const el = document.getElementById('narrative');
-    if (el) { el.innerHTML = '<div class="narrative-spacer"></div>'; }
     await navigateTo(state.scene);
   });
 
