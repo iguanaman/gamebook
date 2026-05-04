@@ -102,6 +102,12 @@ button {
 
 /* ── Viewport frame ───────────────────────────────────────────────────────── */
 
+#frame.frame-neutral {
+  border-color: #5a5a5a;
+  outline-color: #3a3a3a;
+  box-shadow: inset 0 0 0 8px #4a4a4a, 0 0 0 2px #3a3a3a;
+}
+
 #frame {
   position: fixed;
   inset: var(--frame-inset);
@@ -118,8 +124,12 @@ button {
 
 /* ── Selector ─────────────────────────────────────────────────────────────── */
 
+.selector-bg {
+  min-height: 100vh;
+  background: #4a4a4a;
+}
 .selector { max-width: 800px; margin: 0 auto; padding: 2rem; }
-.selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; }
+.selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: #ccc; }
 .story-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .no-stories { text-align: center; opacity: 0.5; font-family: var(--font-ui); }
 
@@ -139,14 +149,45 @@ button {
 
 /* ── HUD ──────────────────────────────────────────────────────────────────── */
 
-.hud {
+.hud-wrap {
   position: fixed;
   top: 1rem;
   right: 1.5rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hud-peek {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 0.45;
+  cursor: default;
+  letter-spacing: 0.1em;
+  transition: opacity 0.2s;
+  user-select: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.hud-wrap:hover .hud-peek {
+  opacity: 0;
+}
+
+.hud {
   display: flex;
   gap: 1rem;
-  z-index: 10;
   font-family: var(--font-ui);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.hud-wrap:hover .hud {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 .hud-stat { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
 .hud-key { font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em; font-family: var(--font-heading); }
@@ -198,6 +239,12 @@ button {
   padding-right: 0.5rem;
   line-height: 1.85;
   font-size: 1.05rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.narrative-spacer {
+  flex: 1;
 }
 
 .narrative p { margin: 0 0 1em; }
@@ -218,8 +265,7 @@ button {
 /* ── Narrative ────────────────────────────────────────────────────────────── */
 
 #narrative p.block-hidden {
-  opacity: 0;
-  transform: translateY(8px);
+  display: none;
 }
 
 #narrative p.block-visible {
@@ -227,6 +273,11 @@ button {
   transform: translateY(0);
   transition: opacity var(--anim-block-duration) ease,
               transform var(--anim-block-duration) ease;
+}
+
+#narrative p.block-typing {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .scene-separator {
