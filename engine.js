@@ -106,7 +106,10 @@ function renderStoryCard(storyId) {
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
         <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
         <div class="story-info">
-          <h2 class="story-title" data-story-title="${storyId}">Loading...</h2>
+          <div class="story-info-header">
+            <h2 class="story-title" data-story-title="${storyId}">Loading...</h2>
+            <span class="story-genre" data-story-genre="${storyId}"></span>
+          </div>
           <p class="story-desc" data-story-desc="${storyId}"></p>
         </div>
       </div>
@@ -169,8 +172,10 @@ async function attachCardHandlers(storyId) {
     const meta = await loadStoryMeta(storyId);
     const titleEl = document.querySelector(`[data-story-title="${storyId}"]`);
     const descEl = document.querySelector(`[data-story-desc="${storyId}"]`);
+    const genreEl = document.querySelector(`[data-story-genre="${storyId}"]`);
     if (titleEl) titleEl.textContent = meta.title;
     if (descEl) descEl.textContent = meta.description;
+    if (genreEl && meta.genre) genreEl.textContent = meta.genre;
   } catch (e) { /* story.yaml missing — skip */ }
 
   applyCardTheme(storyId);

@@ -1,6 +1,7 @@
 # Story template — copy to stories/{id}/story.yaml
 
 id: story_id
+genre: Fantasy              # main genre shown on the selector card (e.g. Sci-Fi, Horror, Fantasy)
 narrator: darkest_dungeon   # default voice for all scenes; must match a file in tts_voices/
 title: Story Title
 description: One or two sentences shown on the selector screen.
