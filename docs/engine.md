@@ -10,6 +10,7 @@
 2. `showSelector()` fetches `stories/manifest.yaml` and renders a card per story
 3. Each card checks LocalStorage for a saved state and shows Play or Continue accordingly
 4. On Play/Continue, `startStory(id)` takes over
+5. On fresh start or New Game (no save), a full-screen story title splash is shown and `story_title.opus` played before the game shell renders
 
 ## Data Loading
 
@@ -19,6 +20,7 @@ Files loaded on demand — nothing is preloaded:
 - `stories/manifest.yaml` — on selector render
 - `stories/{id}/story.yaml` — on story start
 - `stories/{id}/scenes/{sceneId}.yaml` — on each navigation
+- `stories/{id}/scenes/{folder}/_act.yaml` — on first visit to a new act folder (if present)
 
 ## State
 
@@ -37,7 +39,8 @@ State is persisted to `localStorage` as `gamebook.state.{storyId}` after every m
 
 Module-level variables that are NOT in the state object but are tracked separately:
 - `storyMeta` — the parsed `story.yaml` object, including any `flags` metadata. Available after `startStory()` completes.
-- `currentAct` — the act string of the last scene that carried an `act:` field, or `null`. Persisted via `saveState` and restored on load. Included in `pushHistory` snapshots so undo correctly reverts act boundaries.
+- `currentAct` — the act title string from the most recently loaded `_act.yaml`, or `null`. Persisted via `saveState` and restored on load. Included in `pushHistory` snapshots so undo correctly reverts act boundaries.
+- `currentActFolder` — the act folder name (e.g. `"act1"`) of the current act. Runtime-only, not persisted.
 - `currentNarrativeOffset` — count of `<p>` elements in `#narrative` before the current scene's blocks were appended. Used by `revealBlock` to target the right paragraph after narrative accumulation.
 
 ## Navigation
@@ -46,7 +49,7 @@ Module-level variables that are NOT in the state object but are tracked separate
 1. Pushes the previous scene into `state.visited` (if not already present), then sets `state.scene` and saves state
 2. Fetches the scene YAML
 3. Re-renders HUD
-4. If `scene.act` differs from `currentAct`: updates `currentAct`, calls `injectActTitle` (clears narrative, injects animated title block), then plays act title audio + waits `ACT_TITLE_PAUSE_MS` before starting scene blocks
+4. If the scene's folder differs from `currentActFolder`: fetches `_act.yaml` from that folder. If found, updates `currentAct`/`currentActFolder`, calls `injectActTitle` (clears narrative, injects animated title block), then plays act title audio + waits `ACT_TITLE_PAUSE_MS` before starting scene blocks. Missing `_act.yaml` is silently ignored.
 5. Otherwise: appends scene blocks to the narrative directly
 6. `renderNarrative` appends new `<p>` elements (never replaces); records `currentNarrativeOffset` beforehand
 7. `revealBlock(i)` reveals `paras[currentNarrativeOffset + i]` as each audio clip starts
@@ -87,13 +90,15 @@ If the condition fails and no `else` is present, the block is skipped. The block
 
 ## Undo
 
-Before any choice is acted on, `pushHistory()` snapshots `{ scene, stats, flags, visited, act }` onto the history stack. `undo()` pops the last snapshot, restores scene/stats/flags/visited/currentAct, clears `#narrative` and resets `currentNarrativeOffset`, then re-navigates. History is part of persisted state so undo survives a reload.
+Before any choice is acted on, `pushHistory()` snapshots `{ scene, stats, flags, visited, act, actFolder }` onto the history stack. `undo()` pops the last snapshot, restores scene/stats/flags/visited/currentAct/currentActFolder, clears `#narrative` and resets `currentNarrativeOffset`, then re-navigates. History is part of persisted state so undo survives a reload.
 
 ## Audio
 
 **Scene blocks:** Each text block has its own `.opus` file: `audio/{sceneId}_block_0.opus`, `audio/{sceneId}_block_1.opus`, etc. (slashes in sceneId replaced with `-`). `playBlocks()` plays them sequentially — each clip's `ended` event reveals the next narrative block and starts the next clip. Choices are rendered after the final clip ends. Autoplay errors skip straight to choices. The active clip is tracked in `currentAudio`; navigation calls `stopAudio()` first.
 
-**Act title audio:** Optional. Engine derives a slug from the act string (lowercase, non-alphanumeric runs → `_`) and looks for `audio/{slug}.opus`. If found, it plays after the act title animation completes (delayed by `--anim-act-title-duration`). After the clip ends (or if the file is absent / autoplay blocked), the engine waits `ACT_TITLE_PAUSE_MS` (2000ms) then starts scene block audio. Act audio is also assigned to `currentAudio` so `stopAudio()` works correctly.
+**Story title audio:** Optional. On fresh/new-game start, engine looks for `audio/story_title.opus`. If found, it plays during the splash screen. Absent or blocked → silent fallback.
+
+**Act title audio:** Optional. Engine derives a slug from the act title string (lowercase, non-alphanumeric runs → `_`) and looks for `audio/{slug}.opus`. If found, it plays after the act title animation completes (delayed by `--anim-act-title-duration`). After the clip ends (or if the file is absent / autoplay blocked), the engine waits `ACT_TITLE_PAUSE_MS` (2000ms) then starts scene block audio. Act audio is also assigned to `currentAudio` so `stopAudio()` works correctly.
 
 ## Rendering
 

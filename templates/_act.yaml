@@ -1,0 +1,5 @@
+# Act template — place as _act.yaml in a scene subfolder (e.g. scenes/act1/_act.yaml)
+# The engine fetches this when navigating into this folder for the first time.
+# Audio: generate_audio.py reads title and outputs audio/{slug}.opus automatically.
+
+title: Act One — The Title

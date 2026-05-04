@@ -53,7 +53,7 @@ All blocks start with class `block-hidden` and are revealed via `block-visible` 
 
 ## Act Titles
 
-If a scene has an `act:` field and it differs from the current act, the engine:
+When the engine first enters a new act folder (e.g. `act1/`), it loads `_act.yaml` from that folder and reads its `title`. If the title differs from the current act, the engine:
 1. Clears `#narrative`
 2. Injects a `.act-title` block: decorative rules above and below a centered heading
 3. Animates it in (fade + scale via double-rAF)
