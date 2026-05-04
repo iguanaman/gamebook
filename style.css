@@ -22,7 +22,7 @@
   --border-outer: #8b6914;
   --border-inner: #c9a84c;
   --border-corner-radius: 4px;
-  --frame-inset: 1.5rem;
+  --frame-inset: 8px;
 
   /* Narrative / choices divider */
   --divider-color: #c9a84c;
