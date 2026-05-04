@@ -1,0 +1,16 @@
+id: act1/mirt_topic_offer
+text:
+  - "He waits until his associates find a reason to look away. Then he leans forward, and the bluster drops about two notches — not gone, but quieter."
+  - male_midlife_american_loud_confident_cocky: "You are new to the city. You have taken a job that most people sitting in this room would not have taken. And so — when you come back up, and you will come back up — I would like to buy you a drink and talk about what comes next."
+  - "He means it. That's the thing about Mirt — the theatre is real and the sincerity is real, somehow running simultaneously."
+  - male_midlife_american_loud_confident_cocky: "I know a great many people in Waterdeep. A great many of them owe me something. I am always interested in adding someone capable to my acquaintance, at terms that are considerably better than what I just offered the bookbinder."
+  - "He sits back."
+  - male_midlife_american_loud_confident_cocky: "Finish the job. Come back. We will have a proper conversation. Which is to say — try not to die down there."
+
+choices:
+  - text: "Back to Mirt"
+    next: act1/talk_mirt
+    effects:
+      flags:
+        asked_mirt_offer: true
+        mirt_offer_open: true

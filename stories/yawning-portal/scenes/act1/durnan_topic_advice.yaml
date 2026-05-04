@@ -1,0 +1,16 @@
+id: act1/durnan_topic_advice
+text:
+  - "You ask him for advice. He gives you a look — just a fraction — as if checking whether you're serious."
+  - "You are serious. He decides to answer."
+  - male_midlife_american_deep_raspy_authentic: "Pick your two carefully. You'll be trusting them in the dark, and the dark changes people. Pick for what they are, not what they say they are."
+  - "He tops up the cup of the regular beside you without being asked."
+  - male_midlife_american_deep_raspy_authentic: "Don't drink before the climb. Not a sip. The first ledge is easy sober. It isn't anything else."
+  - "He pauses, and you wait for something more. He has already gone back to work."
+  - "That was it. That was the advice."
+
+choices:
+  - text: "Back to the bar"
+    next: act1/talk_durnan
+    effects:
+      flags:
+        asked_durnan_advice: true
