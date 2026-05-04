@@ -102,7 +102,7 @@ function initState(storyId, startingStats) {
 }
 
 function saveState() {
-  localStorage.setItem(stateKey(currentStoryId), JSON.stringify({ ...state, act: currentAct }));
+  localStorage.setItem(stateKey(currentStoryId), JSON.stringify({ ...state, act: currentAct, actFolder: currentActFolder }));
 }
 
 function loadState(storyId) {
@@ -326,7 +326,7 @@ async function startStory(storyId) {
     if (!Array.isArray(state.visited)) state.visited = [];
     if (!state.blockHashes) state.blockHashes = {};
     currentAct = saved.act ?? null;
-    currentActFolder = sceneFolder(state.scene);
+    currentActFolder = saved.actFolder ?? sceneFolder(state.scene);
   } else {
     initState(storyId, meta.stats ?? {});
     state.scene = meta.start;
@@ -429,9 +429,21 @@ async function navigateTo(sceneId) {
       });
     }
   } else if (!alreadyVisited && scene.act && scene.act !== currentAct) {
-    // forward-compat: honour inline act: on stories not yet migrated
+    showingActTitle = true;
     currentAct = scene.act;
     saveState();
+    injectActTitle(scene.act);
+    const actBlockHashes = renderNarrative(scene);
+    state.blockHashes[sceneId] = actBlockHashes;
+    saveState();
+    const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
+    const narrativeOffset = currentNarrativeOffset;
+    playActTitleAudio(scene.act, () => {
+      playBlocks(sceneId, renderedBlockCount, narrativeOffset,
+        (i) => revealBlock(i),
+        () => renderChoices(scene),
+      );
+    });
   }
 
   if (!showingActTitle) {
