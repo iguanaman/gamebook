@@ -1,16 +1,22 @@
 text:
-  - "Pip finds a handhold on the vault's wall, swings up to a ledge of crumbling stone, and walks the darkness above the water like a cat on a shelf. She's back in two minutes."
-  - female_young_american_lisp: "Far side's dry. The pillar has a signature glyph — not decorative. Someone signed their work. And there's a coin-purse behind a loose block to the left of it, three, four Coin, whoever left it wasn't coming back for it."
-  - "She drops the purse in your palm."
-  - female_young_american_lisp: "Also: the sigil on the pillar is the same notation as that scratch in the corridor. Someone was working systematically."
+- |-
+  Pip finds a handhold on the vault's wall, swings up to a ledge of crumbling stone, and walks the darkness above the water like a cat on a shelf. She's back in two minutes.
+- female_young_american_lisp: |-
+    Far side's dry. The pillar has a signature glyph — not decorative. Someone signed their work. And there's a coin-purse behind a loose block to the left of it, three, four Coin, whoever left it wasn't coming back for it.
+- |-
+  She drops the purse in your palm.
+- female_young_american_lisp: |-
+    Also: the sigil on the pillar is the same notation as that scratch in the corridor. Someone was working systematically.
+
 
 choices:
-  - text: "Pocket the coin. Back to the junction."
-    next: act2/upper_levels_hub
-    effects:
-      flags:
-        cistern_resolved: true
-        cistern_pip_done: true
-        saw_signature: true
-      stats:
-        Coin: 3
+- text: |-
+    Pocket the coin. Back to the junction.
+  next: act2/upper_levels_hub
+  effects:
+    flags:
+      cistern_resolved: true
+      cistern_pip_done: true
+      saw_signature: true
+    stats:
+      Coin: 3

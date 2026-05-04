@@ -1,32 +1,44 @@
-journal: "Korsa Ironbrow died in the deep chamber, buying you a gap wide enough for one. You filled it."
+journal: |-
+  Korsa Ironbrow died in the deep chamber, buying you a gap wide enough for one. You filled it.
+
 
 text:
-  - "He charges, and it opens — one hand through his guard and into him, past the plate at the shoulder-joint. He drives forward anyway. The axe lands."
-  - "The thing falls."
-  - "Korsa doesn't."
-  - "He's on one knee when you reach him, one hand on the haft to keep himself upright. The blood is very dark in the pool's nothing-light. His eyes are open and he is looking at the thing and he is satisfied."
-  - male_midlife_british_tough_calloused: "Get. The girl."
-  - "You do. Linnet stumbles toward you, the calm shattered, small sounds escaping her she doesn't seem to know she's making. You hold her and look back at Korsa."
-  - "He nods once. That's it."
+- |-
+  He charges, and it opens — one hand through his guard and into him, past the plate at the shoulder-joint. He drives forward anyway. The axe lands.
+- |-
+  The thing falls.
+- |-
+  Korsa doesn't.
+- |-
+  He's on one knee when you reach him, one hand on the haft to keep himself upright. The blood is very dark in the pool's nothing-light. His eyes are open and he is looking at the thing and he is satisfied.
+- male_midlife_british_tough_calloused: |-
+    Get. The girl.
+- |-
+  You do. Linnet stumbles toward you, the calm shattered, small sounds escaping her she doesn't seem to know she's making. You hold her and look back at Korsa.
+- |-
+  He nods once. That's it.
+
 
 choices:
-  - text: "Carry him — and Linnet — out"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        korsa_died: true
-        weapon_taken_from_thing: true
-        body_recovered: true
-      stats:
-        Vigor: -3
+- text: |-
+    Carry him — and Linnet — out
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      korsa_died: true
+      weapon_taken_from_thing: true
+      body_recovered: true
+    stats:
+      Vigor: -3
 
-  - text: "Leave him. He bought it."
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        korsa_died: true
-        weapon_taken_from_thing: true
-      stats:
-        Vigor: -2
+- text: |-
+    Leave him. He bought it.
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      korsa_died: true
+      weapon_taken_from_thing: true
+    stats:
+      Vigor: -2

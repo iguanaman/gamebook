@@ -1,17 +1,27 @@
 text:
-  - "You stand back. Pip crouches at the hatch."
-  - "Her picks are already out — not the loud ones, the ones that clatter, but a thin probe and a hook she keeps in a separate pouch from everything else. She runs the probe around the wax seal, finds the mechanical join underneath, and works it."
-  - "Three minutes. Not a sound."
-  - female_young_american_lisp: "It's not a lock. The seal's structural — someone fused it from below, then added the wax for theatre."
-  - "Another minute. Then a soft, definitive *click*, and the hatch rises two inches."
-  - female_young_american_lisp: "Whatever's on the other side didn't hear that."
-  - "She eases the hatch open a hand-width and looks through."
-  - female_young_american_lisp: "Four. Maybe five. Packed in. They haven't looked up."
+- |-
+  You stand back. Pip crouches at the hatch.
+- |-
+  Her picks are already out — not the loud ones, the ones that clatter, but a thin probe and a hook she keeps in a separate pouch from everything else. She runs the probe around the wax seal, finds the mechanical join underneath, and works it.
+- |-
+  Three minutes. Not a sound.
+- female_young_american_lisp: |-
+    It's not a lock. The seal's structural — someone fused it from below, then added the wax for theatre.
+- |-
+  Another minute. Then a soft, definitive *click*, and the hatch rises two inches.
+- female_young_american_lisp: |-
+    Whatever's on the other side didn't hear that.
+- |-
+  She eases the hatch open a hand-width and looks through.
+- female_young_american_lisp: |-
+    Four. Maybe five. Packed in. They haven't looked up.
+
 
 choices:
-  - text: "Through — quiet and first-strike"
-    next: act2/cellar_fight_stealth
-    effects:
-      flags:
-        cellar_picked_quiet: true
-        cellar_resolved: true
+- text: |-
+    Through — quiet and first-strike
+  next: act2/cellar_fight_stealth
+  effects:
+    flags:
+      cellar_picked_quiet: true
+      cellar_resolved: true

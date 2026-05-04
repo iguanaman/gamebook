@@ -1,22 +1,22 @@
 text:
-- The smoke hasn't cleared. You go through it anyway.
-- 'In the chamber below: the pack is in pieces. One goblin twitching, one wight-frame
-  collapsed into dry kindling, two bodies that won''t tell you what they were before
-  the lightning found them. A man''s robe burning in a corner — whoever was wearing
-  it is gone, fled or fled-as-ash.'
-- 'A door in the far wall stands open. Beyond it: stone steps going down, and the
-  smell of still water.'
-- Vigour costs come from the smoke, the heat, the way your eyes water for the next
-  ten minutes. Nothing from the fighting — there wasn't any.
+- |-
+  The smoke hasn't cleared. You go through it anyway.
+- |-
+  In the chamber below: the pack is in pieces. One goblin twitching, one wight-frame collapsed into dry kindling, two bodies that won't tell you what they were before the lightning found them. A man's robe burning in a corner — whoever was wearing it is gone, fled or fled-as-ash.
+- |-
+  A door in the far wall stands open. Beyond it: stone steps going down, and the smell of still water.
+- |-
+  Vigour costs come from the smoke, the heat, the way your eyes water for the next ten minutes. Nothing from the fighting — there wasn't any.
 - if:
     flags:
     - recruited_thessaly
     flags_unset:
     - thessaly_died
-  text: Thessaly descends with her hands still faintly lit. She looks like she's checking
-    her work.
+  text: |-
+    Thessaly descends with her hands still faintly lit. She looks like she's checking her work.
 choices:
-- text: Down the steps.
+- text: |-
+    Down the steps.
   next: act2/deep_chamber_enter
   effects:
     flags:

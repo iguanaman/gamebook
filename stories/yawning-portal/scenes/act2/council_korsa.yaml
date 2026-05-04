@@ -1,42 +1,56 @@
 text:
-  - if:
-      flags_unset:
-        - alley_spoke_done
-        - harbour_spoke_done
-    text:
-      - "Korsa unwraps the leather cord and re-wraps it tighter."
-      - male_midlife_british_tough_calloused: "City leads. Fine. But don't let the chasing go on so long we're still up here when the cold really sets in. The well's warmer than the street, I'd wager."
-      - "He is not joking. He is genuinely warmer underground."
-  - if:
-      flags:
-        - alley_spoke_done
-      flags_unset:
-        - harbour_spoke_done
-    text:
-      - "Korsa is flexing the hand he used to hold the chokepoint, or whatever it was that happened in the alley. He notices you looking."
-      - male_midlife_british_tough_calloused: "Alley work is alley work. My thigh remembers it. The job doesn't care."
-      - "He says this the way he says most things: as a statement of engineering, not complaint."
-  - if:
-      flags_unset:
-        - alley_spoke_done
-      flags:
-        - harbour_spoke_done
-    text:
-      - "Korsa is watching the dockside end of the lane with a slight tilt to his head — the angle of a man listening for a specific sound."
-      - male_midlife_british_tough_calloused: "Wet work at a harbour is different from dry work in an alley. Things come at you from angles. Keep your back to a wall and your front to whatever's moving."
-      - "He says it without drama, the way a craftsman checks a joint."
-  - if:
-      flags:
-        - alley_spoke_done
-        - harbour_spoke_done
-    text:
-      - "Korsa is done with the city and you can see it in how he's standing — weight forward, axe already re-latched."
-      - male_midlife_british_tough_calloused: "We know what we know. That's enough. Let's go get the girl."
-      - "He does not need a response."
+- if:
+    flags_unset:
+    - alley_spoke_done
+    - harbour_spoke_done
+  text:
+  - |-
+    Korsa unwraps the leather cord and re-wraps it tighter.
+  - male_midlife_british_tough_calloused: |-
+      City leads. Fine. But don't let the chasing go on so long we're still up here when the cold really sets in. The well's warmer than the street, I'd wager.
+  - |-
+    He is not joking. He is genuinely warmer underground.
+- if:
+    flags:
+    - alley_spoke_done
+    flags_unset:
+    - harbour_spoke_done
+  text:
+  - |-
+    Korsa is flexing the hand he used to hold the chokepoint, or whatever it was that happened in the alley. He notices you looking.
+  - male_midlife_british_tough_calloused: |-
+      Alley work is alley work. My thigh remembers it. The job doesn't care.
+  - |-
+    He says this the way he says most things: as a statement of engineering, not complaint.
+- if:
+    flags_unset:
+    - alley_spoke_done
+    flags:
+    - harbour_spoke_done
+  text:
+  - |-
+    Korsa is watching the dockside end of the lane with a slight tilt to his head — the angle of a man listening for a specific sound.
+  - male_midlife_british_tough_calloused: |-
+      Wet work at a harbour is different from dry work in an alley. Things come at you from angles. Keep your back to a wall and your front to whatever's moving.
+  - |-
+    He says it without drama, the way a craftsman checks a joint.
+- if:
+    flags:
+    - alley_spoke_done
+    - harbour_spoke_done
+  text:
+  - |-
+    Korsa is done with the city and you can see it in how he's standing — weight forward, axe already re-latched.
+  - male_midlife_british_tough_calloused: |-
+      We know what we know. That's enough. Let's go get the girl.
+  - |-
+    He does not need a response.
+
 
 choices:
-  - text: "Back to the council."
-    next: act2/companion_council_spoke
-    effects:
-      flags:
-        council_korsa_done_at_spoke: true
+- text: |-
+    Back to the council.
+  next: act2/companion_council_spoke
+  effects:
+    flags:
+      council_korsa_done_at_spoke: true

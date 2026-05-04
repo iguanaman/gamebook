@@ -1,10 +1,15 @@
 text:
-- Pip clocks you from three stools away and holds up one finger before you reach her.
-- female_young_american_lisp: Full party. I can count.
-- She turns back to the bar.
-- female_young_american_lisp: Someone else'll need a scout by the end of the week.
-    Always do.
-- She is already counting something else under her breath.
+- |-
+  Pip clocks you from three stools away and holds up one finger before you reach her.
+- female_young_american_lisp: |-
+    Full party. I can count.
+- |-
+  She turns back to the bar.
+- female_young_american_lisp: |-
+    Someone else'll need a scout by the end of the week. Always do.
+- |-
+  She is already counting something else under her breath.
 choices:
-- text: Back to the room
+- text: |-
+    Back to the room
   next: common_room

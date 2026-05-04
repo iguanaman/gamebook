@@ -1,13 +1,19 @@
 text:
-- You ask what she steals.
-- female_young_american_lisp: '[chuckle] Whatever isn''t nailed down.'
-- She grins. It reaches her eyes.
-- female_young_american_lisp: The nails, too, sometimes.
-- She wipes her hand on the back of her trousers — a reflex, not quite deliberate.
-- female_young_american_lisp: In the deep, I don't steal from the party. That's the
-    rule. Everything else is a negotiation between me and the dungeon.
+- |-
+  You ask what she steals.
+- female_young_american_lisp: |-
+    [chuckle] Whatever isn't nailed down.
+- |-
+  She grins. It reaches her eyes.
+- female_young_american_lisp: |-
+    The nails, too, sometimes.
+- |-
+  She wipes her hand on the back of her trousers — a reflex, not quite deliberate.
+- female_young_american_lisp: |-
+    In the deep, I don't steal from the party. That's the rule. Everything else is a negotiation between me and the dungeon.
 choices:
-- text: Back to Pip
+- text: |-
+    Back to Pip
   next: talk_pip
   effects:
     flags:

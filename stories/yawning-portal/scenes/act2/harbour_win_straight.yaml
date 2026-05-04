@@ -1,18 +1,24 @@
 text:
-  - "Steel and spell. No elegance."
-  - "You take the first kuo-toa with a scorching ray that splits it from collar to hip and leaves a smell in the hold that will outlast the ship. Your companion takes the second in a grapple that goes badly for the kuo-toa — it ends on the deck with something wrong in the shape of its neck."
-  - "The dock-coat man runs. You let him go. He makes the pier-head and keeps running, up the hill, past the clerk's office, out of sight. That is a problem for later."
-  - "The journal page is jammed under a timber in the hold, soaked but intact. You unfold it with wet hands."
+- |-
+  Steel and spell. No elegance.
+- |-
+  You take the first kuo-toa with a scorching ray that splits it from collar to hip and leaves a smell in the hold that will outlast the ship. Your companion takes the second in a grapple that goes badly for the kuo-toa — it ends on the deck with something wrong in the shape of its neck.
+- |-
+  The dock-coat man runs. You let him go. He makes the pier-head and keeps running, up the hill, past the clerk's office, out of sight. That is a problem for later.
+- |-
+  The journal page is jammed under a timber in the hold, soaked but intact. You unfold it with wet hands.
+
 
 choices:
-  - text: "Pocket the page and climb out"
-    next: harbour_resolution
-    effects:
-      flags:
-        weapon_taken_from_kuo_toa: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -2
-        Coin: 1
+- text: |-
+    Pocket the page and climb out
+  next: harbour_resolution
+  effects:
+    flags:
+      weapon_taken_from_kuo_toa: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -2
+      Coin: 1

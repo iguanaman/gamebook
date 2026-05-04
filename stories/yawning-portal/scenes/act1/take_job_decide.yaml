@@ -1,22 +1,29 @@
 id: act1/take_job_decide
 text:
-- Joren Wexley has his hands flat on the table now, watching you. Waiting.
-- The common room noise fills the gap between you.
+- |-
+  Joren Wexley has his hands flat on the table now, watching you. Waiting.
+- |-
+  The common room noise fills the gap between you.
 choices:
-- text: Accept the offered fee
+- text: |-
+    Accept the offered fee
   next: act1/job_accepted
-- text: Push the price — this job is worth more
+- text: |-
+    Push the price — this job is worth more
   next: act1/haggle_success
   requires:
     stats:
       Wits: 6
     flags_unset:
     - tried_haggle
-  failure_text: '[Wits 6 — you can''t read the room clearly enough to press him]'
+  failure_text: |-
+    [Wits 6 — you can't read the room clearly enough to press him]
   effects:
     flags:
       tried_haggle: true
-- text: Do it for nothing — for the missing one
+- text: |-
+    Do it for nothing — for the missing one
   next: act1/job_accepted_free
-- text: Walk away
+- text: |-
+    Walk away
   next: act1/client_walked

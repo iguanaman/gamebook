@@ -1,22 +1,32 @@
 text:
-  - "The radiant burst takes the two kuo-toa but the third — the man in the dock-coat — gets low and comes in under it and catches Vesna around the ankle. His grip is wrong, too strong, fingers that have been remade for grip."
-  - "He goes over the rail and he takes her with him."
-  - "She doesn't cry out. There's a splash, and there's the sound of the coin hitting the water — still lit, briefly, a white flare two feet below the surface — and then the harbour is dark again."
-  - "You kill the dock-coat man in the water. You kill the remaining kuo-toa on the deck. You search the water for four minutes by the toll of a temple bell somewhere up the hill."
-  - "She doesn't come back up."
-  - "The journal page is in the hold. The coin is not."
+- |-
+  The radiant burst takes the two kuo-toa but the third — the man in the dock-coat — gets low and comes in under it and catches Vesna around the ankle. His grip is wrong, too strong, fingers that have been remade for grip.
+- |-
+  He goes over the rail and he takes her with him.
+- |-
+  She doesn't cry out. There's a splash, and there's the sound of the coin hitting the water — still lit, briefly, a white flare two feet below the surface — and then the harbour is dark again.
+- |-
+  You kill the dock-coat man in the water. You kill the remaining kuo-toa on the deck. You search the water for four minutes by the toll of a temple bell somewhere up the hill.
+- |-
+  She doesn't come back up.
+- |-
+  The journal page is in the hold. The coin is not.
 
-journal: "Sister Vesna drowned at Dock 14, pulled over the rail by something that used to be a man. Tymora's coin went down with her."
+
+journal: |-
+  Sister Vesna drowned at Dock 14, pulled over the rail by something that used to be a man. Tymora's coin went down with her.
+
 
 choices:
-  - text: "Climb out — there's nothing left to fight here"
-    next: harbour_resolution
-    effects:
-      flags:
-        vesna_died: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -3
-        Renown: 1
+- text: |-
+    Climb out — there's nothing left to fight here
+  next: harbour_resolution
+  effects:
+    flags:
+      vesna_died: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -3
+      Renown: 1

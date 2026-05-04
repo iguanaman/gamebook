@@ -1,20 +1,22 @@
 id: act1/mirt_loan_take
 text:
-- You tell him yes. The terms don't put you off — or you've decided they won't.
-- male_midlife_american_loud_confident_cocky: Excellent. I knew you were sensible.
-- He produces eight coins from somewhere about his person with the easy familiarity
-  of a man for whom eight coins is a theatrical prop, not a meaningful sum. He stacks
-  them in front of you.
-- male_midlife_american_loud_confident_cocky: The favour I will call when I call it.
-    Nothing illegal — I am a legitimate businessman, and so on — but it may be inconvenient.
-    That is the price of liquidity, my friend.
-- He closes your fingers over the coins.
-- male_midlife_american_loud_confident_cocky: Spend it wisely. Or unwisely, honestly
-    I do not mind, as long as you are alive to owe me.
-- The associates notice the transaction and look carefully elsewhere. They have seen
-  this before.
+- |-
+  You tell him yes. The terms don't put you off — or you've decided they won't.
+- male_midlife_american_loud_confident_cocky: |-
+    Excellent. I knew you were sensible.
+- |-
+  He produces eight coins from somewhere about his person with the easy familiarity of a man for whom eight coins is a theatrical prop, not a meaningful sum. He stacks them in front of you.
+- male_midlife_american_loud_confident_cocky: |-
+    The favour I will call when I call it. Nothing illegal — I am a legitimate businessman, and so on — but it may be inconvenient. That is the price of liquidity, my friend.
+- |-
+  He closes your fingers over the coins.
+- male_midlife_american_loud_confident_cocky: |-
+    Spend it wisely. Or unwisely, honestly I do not mind, as long as you are alive to owe me.
+- |-
+  The associates notice the transaction and look carefully elsewhere. They have seen this before.
 choices:
-- text: Pocket the coin and step back
+- text: |-
+    Pocket the coin and step back
   next: act1/talk_mirt
   effects:
     flags:

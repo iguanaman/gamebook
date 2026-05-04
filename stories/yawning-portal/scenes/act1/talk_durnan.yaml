@@ -1,46 +1,54 @@
 id: act1/talk_durnan
 text:
-- Durnan sets the tankard down on the bar with the care of a man who has done it ten
-  thousand times in the same spot. He doesn't look at you for a moment — eyes on the
-  well. Then he does.
-- male_midlife_american_deep_raspy_authentic: What'll it be.
-- Not a question.
+- |-
+  Durnan sets the tankard down on the bar with the care of a man who has done it ten thousand times in the same spot. He doesn't look at you for a moment — eyes on the well. Then he does.
+- male_midlife_american_deep_raspy_authentic: |-
+    What'll it be.
+- |-
+  Not a question.
 - if: visited
-  text: He nods once before you reach the bar. That's two nods tonight. You've been
-    keeping count.
+  text: |-
+    He nods once before you reach the bar. That's two nods tonight. You've been keeping count.
 - if:
     flags:
     - durnan_respects_you
-  text: There's a fresh cup at the near end of the bar. He hasn't asked if you want
-    it.
+  text: |-
+    There's a fresh cup at the near end of the bar. He hasn't asked if you want it.
 choices:
-- text: Ask about the well
+- text: |-
+    Ask about the well
   next: act1/durnan_topic_well
   requires:
     flags_unset:
     - asked_durnan_well
-- text: Ask about the apprentice
+- text: |-
+    Ask about the apprentice
   next: act1/durnan_topic_apprentice
   requires:
     flags:
     - job_taken
     flags_unset:
     - asked_durnan_apprentice
-  failure_text: '[Take the job first]'
-- text: Ask about the regulars
+  failure_text: |-
+    [Take the job first]
+- text: |-
+    Ask about the regulars
   next: act1/durnan_topic_regulars
   requires:
     flags_unset:
     - asked_durnan_regulars
-- text: Ask about your tab
+- text: |-
+    Ask about your tab
   next: act1/durnan_topic_tab
   requires:
     flags_unset:
     - asked_durnan_tab
-- text: Ask for advice
+- text: |-
+    Ask for advice
   next: act1/durnan_topic_advice
   requires:
     flags_unset:
     - asked_durnan_advice
-- text: Step away from the bar
+- text: |-
+    Step away from the bar
   next: act1/common_room

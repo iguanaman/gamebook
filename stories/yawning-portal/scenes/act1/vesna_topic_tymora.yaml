@@ -1,18 +1,17 @@
 text:
-- She smiles at the question — not the smile of someone who gets asked often, but
-  of someone who enjoys the asking.
-- female_adult_american_gentle_tender_sweet: Tymora is Lady Luck. Not fate — luck
-    is different. Fate is a river that goes one place. Luck is a coin. Both sides
-    are hers.
-- She holds up the silver disc between two fingers. A face on one side you don't recognise.
-  Smooth on the other.
-- female_adult_american_gentle_tender_sweet: The smooth side is the side that came
-    up the morning my ship went down. Every soul aboard, gone. Except me. Lady Luck
-    willing — that's not a phrase, for me. It is the whole of the theology.
-- She sets the coin spinning on the bench between you. It lands face down. She nods
-  as if confirming something.
+- |-
+  She smiles at the question — not the smile of someone who gets asked often, but of someone who enjoys the asking.
+- female_adult_american_gentle_tender_sweet: |-
+    Tymora is Lady Luck. Not fate — luck is different. Fate is a river that goes one place. Luck is a coin. Both sides are hers.
+- |-
+  She holds up the silver disc between two fingers. A face on one side you don't recognise. Smooth on the other.
+- female_adult_american_gentle_tender_sweet: |-
+    The smooth side is the side that came up the morning my ship went down. Every soul aboard, gone. Except me. Lady Luck willing — that's not a phrase, for me. It is the whole of the theology.
+- |-
+  She sets the coin spinning on the bench between you. It lands face down. She nods as if confirming something.
 choices:
-- text: Back to Vesna
+- text: |-
+    Back to Vesna
   next: talk_vesna
   effects:
     flags:

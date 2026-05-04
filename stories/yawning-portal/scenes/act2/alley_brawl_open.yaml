@@ -2,24 +2,22 @@ text:
 - if:
     flags:
     - alley_kicked_door
-  text: Korsa's boot takes the door off its top hinge. It swings and hits a man in
-    the forehead and that man goes down before the fight officially starts.
-  else: They come up the stairs in a clump — five of them, hired Trades Ward muscle,
-    the kind who break fingers for a living and charge by the finger.
+  text: |-
+    Korsa's boot takes the door off its top hinge. It swings and hits a man in the forehead and that man goes down before the fight officially starts.
+  else: |-
+    They come up the stairs in a clump — five of them, hired Trades Ward muscle, the kind who break fingers for a living and charge by the finger.
 - if:
     flags:
     - alley_ambushed_first
-  text: They come out the front while you're waiting — three from the door, two from
-    the alley mouth at your back. The ambush works until it doesn't.
-- The stairwell is one body wide. Above the landing, through a gap in the eaves, the
-  chandler's vat hangs on a chain over the alley — a barrel of yellow tallow kept
-  liquid by a spirit-flame, rigged for pouring molds. The gas-lamps throw orange across
-  wet cobblestones.
-- Five toughs. Three in the stairwell, two in the alley beyond the door. They have
-  short-swords and a boarding-pike between them, and they look like men who've used
-  all three.
+  text: |-
+    They come out the front while you're waiting — three from the door, two from the alley mouth at your back. The ambush works until it doesn't.
+- |-
+  The stairwell is one body wide. Above the landing, through a gap in the eaves, the chandler's vat hangs on a chain over the alley — a barrel of yellow tallow kept liquid by a spirit-flame, rigged for pouring molds. The gas-lamps throw orange across wet cobblestones.
+- |-
+  Five toughs. Three in the stairwell, two in the alley beyond the door. They have short-swords and a boarding-pike between them, and they look like men who've used all three.
 choices:
-- text: Korsa holds the doorway — the rest of you fight clean behind him
+- text: |-
+    Korsa holds the doorway — the rest of you fight clean behind him
   next:
   - scene: alley_win_chokepoint_clean
     weight: 5
@@ -37,7 +35,8 @@ choices:
   effects:
     flags:
       tactic_chokepoint: true
-- text: Pip drops caltrops, slips behind the third man, throat-and-knee
+- text: |-
+    Pip drops caltrops, slips behind the third man, throat-and-knee
   next:
   - scene: alley_win_pip_flank
     weight: 5
@@ -55,7 +54,8 @@ choices:
   effects:
     flags:
       tactic_flank: true
-- text: Vesna steadies the wounded — you and your other companion carry the line
+- text: |-
+    Vesna steadies the wounded — you and your other companion carry the line
   next:
   - scene: alley_win_vesna_anchor
     weight: 6
@@ -73,7 +73,8 @@ choices:
   effects:
     flags:
       tactic_vesna_anchor: true
-- text: Thessaly burns the chandler's vat — wax and fire across the alley
+- text: |-
+    Thessaly burns the chandler's vat — wax and fire across the alley
   next:
   - scene: alley_win_thessaly_fire_clean
     weight: 4
@@ -93,7 +94,8 @@ choices:
   effects:
     flags:
       tactic_fire: true
-- text: Steel and scorching ray — fight straight, you and yours
+- text: |-
+    Steel and scorching ray — fight straight, you and yours
   next:
   - scene: alley_win_straight
     weight: 5
@@ -104,7 +106,8 @@ choices:
   effects:
     flags:
       tactic_straight: true
-- text: Break and run — out the back before this gets worse
+- text: |-
+    Break and run — out the back before this gets worse
   next: alley_flee
   requires:
     stats:

@@ -4,19 +4,26 @@ text:
     flags:
     - recruited_pip
   text:
-  - You're barely a step away when her hand closes around your wrist. Not hard — just
-    there, immovable, like a lock dropping.
-  - female_young_american_lisp: Those are mine, tall one.
-  - She holds your gaze. Lets go. Goes back to her cup.
-  - You set the pouch on the table in front of her. She doesn't look at it.
+  - |-
+    You're barely a step away when her hand closes around your wrist. Not hard — just there, immovable, like a lock dropping.
+  - female_young_american_lisp: |-
+      Those are mine, tall one.
+  - |-
+    She holds your gaze. Lets go. Goes back to her cup.
+  - |-
+    You set the pouch on the table in front of her. She doesn't look at it.
   else:
-  - You're barely a step away when she looks up from her cup and directly at you.
-    One beat. Two. Her eyes drop to your coat pocket.
-  - female_young_american_lisp: Put it back.
-  - You put it back. She goes back to her cup without another word.
-  - She won't work with you. That much is settled.
+  - |-
+    You're barely a step away when she looks up from her cup and directly at you. One beat. Two. Her eyes drop to your coat pocket.
+  - female_young_american_lisp: |-
+      Put it back.
+  - |-
+    You put it back. She goes back to her cup without another word.
+  - |-
+    She won't work with you. That much is settled.
 choices:
-- text: Stammer an apology and back away
+- text: |-
+    Stammer an apology and back away
   next: act1/common_room
   requires:
     flags:
@@ -28,7 +35,8 @@ choices:
       pip_angry: true
     stats:
       Renown: -1
-- text: Back away without a word
+- text: |-
+    Back away without a word
   next: act1/common_room
   requires:
     flags_unset:

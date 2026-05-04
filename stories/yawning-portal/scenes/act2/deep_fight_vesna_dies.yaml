@@ -1,31 +1,41 @@
-journal: "Sister Vesna died in the deep chamber. Her light was the brightest thing in the room at the end."
+journal: |-
+  Sister Vesna died in the deep chamber. Her light was the brightest thing in the room at the end.
+
 
 text:
-  - "The burst works. The thing flinches back, shrieking in that wrong register, and Vesna pours everything into it."
-  - "The thing finds her at the moment of peak light — not retreating, cutting *through* the radiance, one arm extended. It reaches her between heartbeats."
-  - "She falls forward and does not get up."
-  - "The chamber is dark again. The thing is gone — into the pool, into the walls, somewhere. You grab Linnet. The apprentice is shaking and you are shaking, and Vesna is on the stone floor with her coin still in her open hand and her eyes still open."
-  - "Tymora's coin. Luck enough for one."
+- |-
+  The burst works. The thing flinches back, shrieking in that wrong register, and Vesna pours everything into it.
+- |-
+  The thing finds her at the moment of peak light — not retreating, cutting *through* the radiance, one arm extended. It reaches her between heartbeats.
+- |-
+  She falls forward and does not get up.
+- |-
+  The chamber is dark again. The thing is gone — into the pool, into the walls, somewhere. You grab Linnet. The apprentice is shaking and you are shaking, and Vesna is on the stone floor with her coin still in her open hand and her eyes still open.
+- |-
+  Tymora's coin. Luck enough for one.
+
 
 choices:
-  - text: "Carry her — and Linnet — out"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        vesna_died: true
-        weapon_taken_from_thing: true
-        body_recovered: true
-      stats:
-        Vigor: -3
-        Renown: 1
+- text: |-
+    Carry her — and Linnet — out
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      vesna_died: true
+      weapon_taken_from_thing: true
+      body_recovered: true
+    stats:
+      Vigor: -3
+      Renown: 1
 
-  - text: "Leave her. She'd say go."
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        vesna_died: true
-        weapon_taken_from_thing: true
-      stats:
-        Vigor: -2
+- text: |-
+    Leave her. She'd say go.
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      vesna_died: true
+      weapon_taken_from_thing: true
+    stats:
+      Vigor: -2

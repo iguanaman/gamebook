@@ -1,17 +1,26 @@
 text:
-  - "Thessaly crouches at the hatch, one hand on the iron, the other tracing a sigil in the air above the wax seal."
-  - female_adult_american_sultry_villainous: "Step back. Four steps. And cover your ears."
-  - "The chain-spell uncoils from her palm in three linked arcs — hatch, wall, hatch again — and the iron *screams* as the wax flash-burns and the hinges shear. The hatch goes two feet sideways and falls into the dark below with a sound like a dropped anvil."
-  - "From the chamber beneath: scrabbling, a wet thump, silence."
-  - "Thessaly stands, shaking her wrist out."
-  - female_adult_american_sultry_villainous: "They know we're here now. Everything below knows we're here."
-  - "She says it without apology."
+- |-
+  Thessaly crouches at the hatch, one hand on the iron, the other tracing a sigil in the air above the wax seal.
+- female_adult_american_sultry_villainous: |-
+    Step back. Four steps. And cover your ears.
+- |-
+  The chain-spell uncoils from her palm in three linked arcs — hatch, wall, hatch again — and the iron *screams* as the wax flash-burns and the hinges shear. The hatch goes two feet sideways and falls into the dark below with a sound like a dropped anvil.
+- |-
+  From the chamber beneath: scrabbling, a wet thump, silence.
+- |-
+  Thessaly stands, shaking her wrist out.
+- female_adult_american_sultry_villainous: |-
+    They know we're here now. Everything below knows we're here.
+- |-
+  She says it without apology.
+
 
 choices:
-  - text: "Through the breach — into the chamber below"
-    next: act2/cellar_breach_through
-    effects:
-      flags:
-        arrived_loud: true
-        cellar_breached: true
-        cellar_resolved: true
+- text: |-
+    Through the breach — into the chamber below
+  next: act2/cellar_breach_through
+  effects:
+    flags:
+      arrived_loud: true
+      cellar_breached: true
+      cellar_resolved: true

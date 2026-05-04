@@ -1,18 +1,20 @@
 id: act1/loot_room_visitor
 text:
-- A figure hunches over the open trunk, back to you. Soft-soled boots. A torn patch
-  of cloth at the elbow that doesn't match the rest of the coat. He hears you a half-second
-  too late.
-- He bolts — straight past you and onto the landing, taking the stairs three at a
-  time.
-- He has something in his hand.
+- |-
+  A figure hunches over the open trunk, back to you. Soft-soled boots. A torn patch of cloth at the elbow that doesn't match the rest of the coat. He hears you a half-second too late.
+- |-
+  He bolts — straight past you and onto the landing, taking the stairs three at a time.
+- |-
+  He has something in his hand.
 choices:
-- text: Chase him
+- text: |-
+    Chase him
   next: act1/loot_room_chase
   requires:
     stats:
       Vigor: 6
-  failed_text: '*(You''re too wrung out to catch him — he''s gone before you reach
-    the landing)*'
-- text: Let him go — search what's left
+  failed_text: |-
+    *(You're too wrung out to catch him — he's gone before you reach the landing)*
+- text: |-
+    Let him go — search what's left
   next: act1/loot_room_chase_skip

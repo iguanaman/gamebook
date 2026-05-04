@@ -1,20 +1,25 @@
-journal: You made a promise to Sister Vesna. The dead will be named. Whatever comes.
+journal: |-
+  You made a promise to Sister Vesna. The dead will be named. Whatever comes.
 text:
-- You tell her you promise.
-- She nods, once. Then she reaches across and takes your hand — not to shake it, but
-  to press the edge of her coin against the back of it, a brief cool pressure.
-- female_adult_american_gentle_tender_sweet: Lady Luck willing, we won't need to use
-    it.
-- She releases your hand. The small mark from the coin's edge fades in seconds. But
-  she has witnessed the promise, and in Tymora's accounting, witnesses matter.
+- |-
+  You tell her you promise.
+- |-
+  She nods, once. Then she reaches across and takes your hand — not to shake it, but to press the edge of her coin against the back of it, a brief cool pressure.
+- female_adult_american_gentle_tender_sweet: |-
+    Lady Luck willing, we won't need to use it.
+- |-
+  She releases your hand. The small mark from the coin's edge fades in seconds. But she has witnessed the promise, and in Tymora's accounting, witnesses matter.
 - if:
     flags:
     - recruited_korsa
   text:
-  - male_midlife_british_tough_calloused: Good. We needed a healer.
-  - From the hearth bench, Korsa raises his tankard without looking over.
+  - male_midlife_british_tough_calloused: |-
+      Good. We needed a healer.
+  - |-
+    From the hearth bench, Korsa raises his tankard without looking over.
 choices:
-- text: Back to the room
+- text: |-
+    Back to the room
   next: common_room
   effects:
     flags:

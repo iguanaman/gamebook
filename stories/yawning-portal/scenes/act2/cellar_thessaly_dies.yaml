@@ -1,34 +1,44 @@
 text:
-  - "The chain goes — it always goes clean — but the wretched warlock at the back of the pack has an amulet, charged, and the arc finds the amulet and the amulet answers. The chain inverts."
-  - "It comes back at Thessaly."
-  - "She has time to cross her arms in front of her face. Not in defence — the gesture of someone recognising a mistake. The light takes her at the hands and doesn't stop."
-  - "When it's finished, she's on the floor. Her hands are still faintly lit. The burn-scar on her left wrist has spread to cover the whole forearm in the same sigil, printed in char."
-  - "The pack is dead. The fight is over. You go to her on the floor and the lit hands go dark as you watch."
-  - if:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left]
-    text:
-      - female_adult_american_gentle_tender_sweet: "She was looking for something. [sigh] Lady Luck willing, she found it."
-  - journal: "Thessaly's own chain-spell came back at her in the cellar. The warlock's amulet. She saw it coming."
+- |-
+  The chain goes — it always goes clean — but the wretched warlock at the back of the pack has an amulet, charged, and the arc finds the amulet and the amulet answers. The chain inverts.
+- |-
+  It comes back at Thessaly.
+- |-
+  She has time to cross her arms in front of her face. Not in defence — the gesture of someone recognising a mistake. The light takes her at the hands and doesn't stop.
+- |-
+  When it's finished, she's on the floor. Her hands are still faintly lit. The burn-scar on her left wrist has spread to cover the whole forearm in the same sigil, printed in char.
+- |-
+  The pack is dead. The fight is over. You go to her on the floor and the lit hands go dark as you watch.
+- if:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  text:
+  - female_adult_american_gentle_tender_sweet: |-
+      She was looking for something. [sigh] Lady Luck willing, she found it.
+- journal: |-
+    Thessaly's own chain-spell came back at her in the cellar. The warlock's amulet. She saw it coming.
+
 
 choices:
-  - text: "Carry her. Through the far door."
-    next: act2/deep_chamber_enter
-    effects:
-      flags:
-        thessaly_died: true
-        weapon_taken_from_cellar_pack: true
-        cellar_resolved: true
-        body_recovered: true
-      stats:
-        Vigor: -3
+- text: |-
+    Carry her. Through the far door.
+  next: act2/deep_chamber_enter
+  effects:
+    flags:
+      thessaly_died: true
+      weapon_taken_from_cellar_pack: true
+      cellar_resolved: true
+      body_recovered: true
+    stats:
+      Vigor: -3
 
-  - text: "Leave her. Through, fast."
-    next: act2/deep_chamber_enter
-    effects:
-      flags:
-        thessaly_died: true
-        weapon_taken_from_cellar_pack: true
-        cellar_resolved: true
-      stats:
-        Vigor: -2
+- text: |-
+    Leave her. Through, fast.
+  next: act2/deep_chamber_enter
+  effects:
+    flags:
+      thessaly_died: true
+      weapon_taken_from_cellar_pack: true
+      cellar_resolved: true
+    stats:
+      Vigor: -2

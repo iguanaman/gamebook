@@ -1,121 +1,139 @@
 text:
-  - "You move for the apprentice."
-  - "The pool surface breaks — not with a splash but with an *inversion*, the water rising in a column the shape of a man from the waist up, arms already extended. The thing is faster than it has any right to be."
-  - if:
-      flags: [caught_during_grab]
-    text: "It was ready. The apprentice is between you and it, held at the shoulder — not a grip, something older than a grip. You'll have to go through it."
-    else: "The apprentice scrambles back — not toward you, not away, just *back*, uncertain, as if two voices are telling her two different things."
-  - "The chamber is tight and the pool is at your back. Nowhere to manoeuvre. It has to die here, or you do."
-  - if:
-      flags: [recruited_korsa]
-      flags_unset: [korsa_died]
-    text:
-      - male_midlife_british_tough_calloused: "Left side is mine. You take the right. Go."
-  - if:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left]
-    text:
-      - female_adult_american_gentle_tender_sweet: "Lady Luck be with us. All of us."
-      - "She includes the apprentice in that. And then she moves."
-  - if:
-      flags: [recruited_pip]
-      flags_unset: [pip_died]
-    text:
-      - female_young_american_lisp: "When I say *now*, I mean now. Not after now. Now."
-  - if:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died]
-    text:
-      - female_adult_american_sultry_villainous: "The apprentice is to its left. Don't aim left."
-      - "Clear. Specific. You keep it."
+- |-
+  You move for the apprentice.
+- |-
+  The pool surface breaks — not with a splash but with an *inversion*, the water rising in a column the shape of a man from the waist up, arms already extended. The thing is faster than it has any right to be.
+- if:
+    flags: [caught_during_grab]
+  text: |-
+    It was ready. The apprentice is between you and it, held at the shoulder — not a grip, something older than a grip. You'll have to go through it.
+  else: |-
+    The apprentice scrambles back — not toward you, not away, just *back*, uncertain, as if two voices are telling her two different things.
+- |-
+  The chamber is tight and the pool is at your back. Nowhere to manoeuvre. It has to die here, or you do.
+- if:
+    flags: [recruited_korsa]
+    flags_unset: [korsa_died]
+  text:
+  - male_midlife_british_tough_calloused: |-
+      Left side is mine. You take the right. Go.
+- if:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  text:
+  - female_adult_american_gentle_tender_sweet: |-
+      Lady Luck be with us. All of us.
+  - |-
+    She includes the apprentice in that. And then she moves.
+- if:
+    flags: [recruited_pip]
+    flags_unset: [pip_died]
+  text:
+  - female_young_american_lisp: |-
+      When I say *now*, I mean now. Not after now. Now.
+- if:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died]
+  text:
+  - female_adult_american_sultry_villainous: |-
+      The apprentice is to its left. Don't aim left.
+  - |-
+    Clear. Specific. You keep it.
+
 
 choices:
-  - text: "Korsa charges the thing — open a line to the apprentice"
-    next:
-      - scene: act2/deep_fight_korsa_charge_clean
-        weight: 3
-      - scene: act2/deep_fight_korsa_charge_costly
-        weight: 3
-      - scene: act2/deep_fight_korsa_dies
-        weight: 3
-    requires:
-      flags: [recruited_korsa]
-      flags_unset: [korsa_died, korsa_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_charge_thing: true
+- text: |-
+    Korsa charges the thing — open a line to the apprentice
+  next:
+  - scene: act2/deep_fight_korsa_charge_clean
+    weight: 3
+  - scene: act2/deep_fight_korsa_charge_costly
+    weight: 3
+  - scene: act2/deep_fight_korsa_dies
+    weight: 3
+  requires:
+    flags: [recruited_korsa]
+    flags_unset: [korsa_died, korsa_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_charge_thing: true
 
-  - text: "Vesna — radiant burst, the thing flinches, grab the apprentice"
-    next:
-      - scene: act2/deep_fight_vesna_radiant_clean
-        weight: 4
-      - scene: act2/deep_fight_vesna_radiant_costly
-        weight: 3
-      - scene: act2/deep_fight_vesna_dies
-        weight: 2
-      - scene: act2/deep_fight_apprentice_dies
-        weight: 1
-    requires:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_radiant_thing: true
+- text: |-
+    Vesna — radiant burst, the thing flinches, grab the apprentice
+  next:
+  - scene: act2/deep_fight_vesna_radiant_clean
+    weight: 4
+  - scene: act2/deep_fight_vesna_radiant_costly
+    weight: 3
+  - scene: act2/deep_fight_vesna_dies
+    weight: 2
+  - scene: act2/deep_fight_apprentice_dies
+    weight: 1
+  requires:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_radiant_thing: true
 
-  - text: "Pip — slip behind the apprentice, cut the binding"
-    next:
-      - scene: act2/deep_fight_pip_cut_clean
-        weight: 4
-      - scene: act2/deep_fight_pip_cut_costly
-        weight: 3
-      - scene: act2/deep_fight_pip_dies
-        weight: 2
-      - scene: act2/deep_fight_apprentice_dies
-        weight: 1
-    requires:
-      flags: [recruited_pip]
-      flags_unset: [pip_died, pip_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_cut_binding: true
+- text: |-
+    Pip — slip behind the apprentice, cut the binding
+  next:
+  - scene: act2/deep_fight_pip_cut_clean
+    weight: 4
+  - scene: act2/deep_fight_pip_cut_costly
+    weight: 3
+  - scene: act2/deep_fight_pip_dies
+    weight: 2
+  - scene: act2/deep_fight_apprentice_dies
+    weight: 1
+  requires:
+    flags: [recruited_pip]
+    flags_unset: [pip_died, pip_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_cut_binding: true
 
-  - text: "Thessaly — fireball, right side of the chamber, narrow window"
-    next:
-      - scene: act2/deep_fight_thessaly_fire_clean
-        weight: 3
-      - scene: act2/deep_fight_thessaly_fire_clean_costly
-        weight: 2
-      - scene: act2/deep_fight_thessaly_fire_apprentice_lost
-        weight: 3
-      - scene: act2/deep_fight_thessaly_dies
-        weight: 2
-    requires:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died, thessaly_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_fire_thing: true
+- text: |-
+    Thessaly — fireball, right side of the chamber, narrow window
+  next:
+  - scene: act2/deep_fight_thessaly_fire_clean
+    weight: 3
+  - scene: act2/deep_fight_thessaly_fire_clean_costly
+    weight: 2
+  - scene: act2/deep_fight_thessaly_fire_apprentice_lost
+    weight: 3
+  - scene: act2/deep_fight_thessaly_dies
+    weight: 2
+  requires:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died, thessaly_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_fire_thing: true
 
-  - text: "Steel and spell — all of us, straight at it"
-    next:
-      - scene: act2/deep_fight_straight_clean
-        weight: 3
-      - scene: act2/deep_fight_straight_apprentice_lost
-        weight: 3
-      - scene: act2/deep_fight_companion_dies_random
-        weight: 3
-      - scene: act2/deep_fight_break_and_run
-        weight: 1
-    effects:
-      flags:
-        tactic_straight_thing: true
+- text: |-
+    Steel and spell — all of us, straight at it
+  next:
+  - scene: act2/deep_fight_straight_clean
+    weight: 3
+  - scene: act2/deep_fight_straight_apprentice_lost
+    weight: 3
+  - scene: act2/deep_fight_companion_dies_random
+    weight: 3
+  - scene: act2/deep_fight_break_and_run
+    weight: 1
+  effects:
+    flags:
+      tactic_straight_thing: true
 
-  - text: "It's too much — break and run, leave them"
-    next: act2/deep_fight_break_and_run
-    effects:
-      flags:
-        deep_chose_break: true
+- text: |-
+    It's too much — break and run, leave them
+  next: act2/deep_fight_break_and_run
+  effects:
+    flags:
+      deep_chose_break: true

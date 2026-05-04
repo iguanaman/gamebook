@@ -1,19 +1,23 @@
 text:
-- You ask directly — why this job? A missing apprentice is not her kind of work.
-- She is quiet for a moment. She touches her horn-tip. The candle dips once, and steadies.
-- female_adult_american_sultry_villainous: There is a name. I have been — looking
-    for it, for two years. Not the person. The name itself. A word spoken in a particular
-    chamber of a particular mind, that I need to hear or I need to silence.
-- She looks at the well.
-- female_adult_american_sultry_villainous: I have reason to believe it is below. Or
-    something that knows where it went.
-- She turns back to you. Formal. Candid.
-- female_adult_american_sultry_villainous: That is the honest version. You used your
-    Wits — you deserve the honest version.
-- She does not elaborate. The candour is genuine; the completeness of the answer is
-  not.
+- |-
+  You ask directly — why this job? A missing apprentice is not her kind of work.
+- |-
+  She is quiet for a moment. She touches her horn-tip. The candle dips once, and steadies.
+- female_adult_american_sultry_villainous: |-
+    There is a name. I have been — looking for it, for two years. Not the person. The name itself. A word spoken in a particular chamber of a particular mind, that I need to hear or I need to silence.
+- |-
+  She looks at the well.
+- female_adult_american_sultry_villainous: |-
+    I have reason to believe it is below. Or something that knows where it went.
+- |-
+  She turns back to you. Formal. Candid.
+- female_adult_american_sultry_villainous: |-
+    That is the honest version. You used your Wits — you deserve the honest version.
+- |-
+  She does not elaborate. The candour is genuine; the completeness of the answer is not.
 choices:
-- text: Back to Thessaly
+- text: |-
+    Back to Thessaly
   next: talk_thessaly
   effects:
     flags:

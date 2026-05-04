@@ -1,19 +1,26 @@
 text:
-  - "Thessaly spreads her fingers and the sound that comes out is not a crack, not a boom — it's a hammer dropped from the sky into a barrel, and the barrel is the hold of the Repose."
-  - "The kuo-toa hit the bulkheads. One of them hits the bulkhead hard enough to leave a red mark on the timber and a wet one on the deck when it slides down. The second kuo-toa takes the blast in the chest and goes out through a porthole that is too small for it. The porthole is now larger."
-  - "The man in the dock-coat sits down very suddenly at the hatch and does not get up again. His mouth is open. His eyes are not focused on anything in this world."
-  - "The hull groans but holds. Something in the forward beam pops, springs a seep, and stops."
-  - "You find the journal page jammed between a beam and the hull, soaked through but readable. Someone folded it small."
+- |-
+  Thessaly spreads her fingers and the sound that comes out is not a crack, not a boom — it's a hammer dropped from the sky into a barrel, and the barrel is the hold of the Repose.
+- |-
+  The kuo-toa hit the bulkheads. One of them hits the bulkhead hard enough to leave a red mark on the timber and a wet one on the deck when it slides down. The second kuo-toa takes the blast in the chest and goes out through a porthole that is too small for it. The porthole is now larger.
+- |-
+  The man in the dock-coat sits down very suddenly at the hatch and does not get up again. His mouth is open. His eyes are not focused on anything in this world.
+- |-
+  The hull groans but holds. Something in the forward beam pops, springs a seep, and stops.
+- |-
+  You find the journal page jammed between a beam and the hull, soaked through but readable. Someone folded it small.
+
 
 choices:
-  - text: "Pocket the page and climb out"
-    next: harbour_resolution
-    effects:
-      flags:
-        weapon_taken_from_kuo_toa: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -2
-        Coin: 2
+- text: |-
+    Pocket the page and climb out
+  next: harbour_resolution
+  effects:
+    flags:
+      weapon_taken_from_kuo_toa: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -2
+      Coin: 2

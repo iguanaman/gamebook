@@ -1,20 +1,29 @@
 text:
-  - "Pip gets to the dock-coat man in two steps and opens his throat in one stroke, clean and professional, and then she and he both go over the rail together because his hand was already locked in her collar."
-  - "She comes up once. The harbour at Dock 14 is deep and dark and something is moving in it that has learned to want what comes off the boat."
-  - "She doesn't come up again."
-  - "You kill the two kuo-toa. The deck is very quiet after."
-  - "The journal page is in the hold. It takes a long time to find it. You are not crying. The salt in your eyes is harbour-spray."
+- |-
+  Pip gets to the dock-coat man in two steps and opens his throat in one stroke, clean and professional, and then she and he both go over the rail together because his hand was already locked in her collar.
+- |-
+  She comes up once. The harbour at Dock 14 is deep and dark and something is moving in it that has learned to want what comes off the boat.
+- |-
+  She doesn't come up again.
+- |-
+  You kill the two kuo-toa. The deck is very quiet after.
+- |-
+  The journal page is in the hold. It takes a long time to find it. You are not crying. The salt in your eyes is harbour-spray.
 
-journal: "Pip Tallowmuch went over the rail at Dock 14, dragged down with the man she killed. She had all her fingers when she went in."
+
+journal: |-
+  Pip Tallowmuch went over the rail at Dock 14, dragged down with the man she killed. She had all her fingers when she went in.
+
 
 choices:
-  - text: "Climb out — she'd want you to"
-    next: harbour_resolution
-    effects:
-      flags:
-        pip_died: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -3
+- text: |-
+    Climb out — she'd want you to
+  next: harbour_resolution
+  effects:
+    flags:
+      pip_died: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -3

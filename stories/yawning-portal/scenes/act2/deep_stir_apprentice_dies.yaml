@@ -1,16 +1,23 @@
 text:
-  - "You reach for her. Something else reaches first."
-  - "The pool's surface is a wall now, vertical, black, climbing the far side of the chamber, and Linnet is on the wrong side of it. You had her wrist. You had her for one second."
-  - "The pool takes her. No sound. No drama. The water closes over her hand — the marked one, the left one — and then she is simply not in the room."
-  - "The pool is still again. The envoy is gone. Whatever is below is satisfied, for now."
-  - "You run."
+- |-
+  You reach for her. Something else reaches first.
+- |-
+  The pool's surface is a wall now, vertical, black, climbing the far side of the chamber, and Linnet is on the wrong side of it. You had her wrist. You had her for one second.
+- |-
+  The pool takes her. No sound. No drama. The water closes over her hand — the marked one, the left one — and then she is simply not in the room.
+- |-
+  The pool is still again. The envoy is gone. Whatever is below is satisfied, for now.
+- |-
+  You run.
+
 
 choices:
-  - text: "Climb — without them"
-    next: act2/climb_out
-    effects:
-      flags:
-        stirred_something: true
-      stats:
-        Vigor: -3
-        Renown: -1
+- text: |-
+    Climb — without them
+  next: act2/climb_out
+  effects:
+    flags:
+      stirred_something: true
+    stats:
+      Vigor: -3
+      Renown: -1

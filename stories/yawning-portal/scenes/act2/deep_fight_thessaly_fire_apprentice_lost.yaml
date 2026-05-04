@@ -1,20 +1,30 @@
-journal: "Linnet died in the deep chamber. The window was not as narrow as Thessaly thought."
+journal: |-
+  Linnet died in the deep chamber. The window was not as narrow as Thessaly thought.
+
 
 text:
-  - "The window was not as narrow as she thought."
-  - "The fire takes the thing. The fire takes the left side of the chamber. The fire takes Linnet, who was half a step closer to the thing than any of you had calculated, and who does not have time to make a sound."
-  - "Thessaly's hands come up to her own face. She does not say anything for a long moment."
-  - female_adult_american_sultry_villainous: "[sigh] I miscalculated."
-  - "Three words. Each one placed the way you'd place a stone over a grave."
-  - "There is nothing in the chamber to bring back. The thing is ash. Linnet is ash. The pool is still."
+- |-
+  The window was not as narrow as she thought.
+- |-
+  The fire takes the thing. The fire takes the left side of the chamber. The fire takes Linnet, who was half a step closer to the thing than any of you had calculated, and who does not have time to make a sound.
+- |-
+  Thessaly's hands come up to her own face. She does not say anything for a long moment.
+- female_adult_american_sultry_villainous: |-
+    [sigh] I miscalculated.
+- |-
+  Three words. Each one placed the way you'd place a stone over a grave.
+- |-
+  There is nothing in the chamber to bring back. The thing is ash. Linnet is ash. The pool is still.
+
 
 choices:
-  - text: "Out — there's nothing left to bring"
-    next: act2/climb_out
-    effects:
-      flags:
-        weapon_taken_from_thing: true
-        apprentice_burned: true
-      stats:
-        Vigor: -2
-        Renown: -1
+- text: |-
+    Out — there's nothing left to bring
+  next: act2/climb_out
+  effects:
+    flags:
+      weapon_taken_from_thing: true
+      apprentice_burned: true
+    stats:
+      Vigor: -2
+      Renown: -1

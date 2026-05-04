@@ -2,60 +2,60 @@ journal: |-
   You brought Linnet back. She carries the mark of what you bargained with. So do you.
 
 text:
-  - |-
-    Linnet walks out through the Portal's door at dawn, Joren a half-step behind her. He has
-    his arm around her shoulders and she leans into it — which is something, which is the thing
-    you went down for — but she does not look back at the tavern, and Joren does not look back
-    at the well, and the door closes behind them with the sound of a transaction completed.
+- |-
+  Linnet walks out through the Portal's door at dawn, Joren a half-step behind her. He has
+  his arm around her shoulders and she leans into it — which is something, which is the thing
+  you went down for — but she does not look back at the tavern, and Joren does not look back
+  at the well, and the door closes behind them with the sound of a transaction completed.
 
-  - |-
-    You watch from your chair at the bar.
+- |-
+  You watch from your chair at the bar.
 
-  - if:
-      flags: [vesna_passed_in_silence]
-    text: |-
-      Vesna was already gone. She left before the family arrived. The stool across from you is
-      empty in a specific way — the way it is when someone chose not to sit in it.
+- if:
+    flags: [vesna_passed_in_silence]
+  text: |-
+    Vesna was already gone. She left before the family arrived. The stool across from you is
+    empty in a specific way — the way it is when someone chose not to sit in it.
 
-  - if:
-      flags: [bargained]
-    text: |-
-      The terms of the deal are not something you named out loud. They don't need to be. You
-      know what was agreed and so does the thing you agreed it with, and what stays with you
-      is that a thing like that — a thing that old — does not forget.
+- if:
+    flags: [bargained]
+  text: |-
+    The terms of the deal are not something you named out loud. They don't need to be. You
+    know what was agreed and so does the thing you agreed it with, and what stays with you
+    is that a thing like that — a thing that old — does not forget.
 
-  - |-
-    Durnan sets a cup down at your elbow. He watched you bring Linnet up the rope. He watched
-    you cross to Joren's table, watched Joren's face do the work, watched Linnet stand at
-    the door with her hand on the frame and look at the well-mouth — *just once* — before
-    walking out. He has not asked a single question.
+- |-
+  Durnan sets a cup down at your elbow. He watched you bring Linnet up the rope. He watched
+  you cross to Joren's table, watched Joren's face do the work, watched Linnet stand at
+  the door with her hand on the frame and look at the well-mouth — *just once* — before
+  walking out. He has not asked a single question.
 
-  - |-
-    male_midlife_american_deep_raspy_authentic: |-
-      She'll be alright.
+- |-
+  male_midlife_american_deep_raspy_authentic: |-
+    She'll be alright.
 
-  - |-
-    He says it in the way of a man who is saying: *I don't know if she'll be alright, but
-    I'm going to say it anyway because that's what you do at the end of a long night and
-    someone has to.*
+- |-
+  He says it in the way of a man who is saying: *I don't know if she'll be alright, but
+  I'm going to say it anyway because that's what you do at the end of a long night and
+  someone has to.*
 
-  - if:
-      flags: [thessaly_farewell_complicit]
-    text: |-
-      Thessaly's last look at the door is still in your mind — the way her eyes tracked the
-      mark on Linnet's hand. Fellowship, or appetite. You still can't call it.
+- if:
+    flags: [thessaly_farewell_complicit]
+  text: |-
+    Thessaly's last look at the door is still in your mind — the way her eyes tracked the
+    mark on Linnet's hand. Fellowship, or appetite. You still can't call it.
 
-  - |-
-    The Portal's noise is very far away. Someone at the dice table wins something small.
-    The everburning lamps above the bar hum with their steady magic.
+- |-
+  The Portal's noise is very far away. Someone at the dice table wins something small.
+  The everburning lamps above the bar hum with their steady magic.
 
-  - |-
-    Your drink goes cold before you finish it. You don't notice. You are watching the door
-    that Linnet walked through and thinking about the deal you made in the dark, and the
-    silence of the thing that accepted it, and the specific weight of bringing something home
-    that may not be entirely itself anymore.
+- |-
+  Your drink goes cold before you finish it. You don't notice. You are watching the door
+  that Linnet walked through and thinking about the deal you made in the dark, and the
+  silence of the thing that accepted it, and the specific weight of bringing something home
+  that may not be entirely itself anymore.
 
-  - |-
-    Dawn comes in grey and the Portal is still the Portal. You are still here.
+- |-
+  Dawn comes in grey and the Portal is still the Portal. You are still here.
 
 choices: []

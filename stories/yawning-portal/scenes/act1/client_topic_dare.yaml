@@ -1,17 +1,16 @@
 id: act1/client_topic_dare
 text:
-- male_young_american_weak: There was a group of them — three of Mirt's people, a
-    merchant's son. Loud table, you know the type. Someone said the well had a monster
-    on the third landing. Someone said it didn't. And then — I don't know exactly
-    who said it first.
-- He turns the ring three times.
-- male_young_american_weak: Whoever goes down and comes back with something from the
-    second level wins the pot. Twenty coin. She doesn't even — she doesn't gamble.
-    She went anyway.
-- A silence. He is not telling you something. You can hear it in the shape of the
-  gap.
+- male_young_american_weak: |-
+    There was a group of them — three of Mirt's people, a merchant's son. Loud table, you know the type. Someone said the well had a monster on the third landing. Someone said it didn't. And then — I don't know exactly who said it first.
+- |-
+  He turns the ring three times.
+- male_young_american_weak: |-
+    Whoever goes down and comes back with something from the second level wins the pot. Twenty coin. She doesn't even — she doesn't gamble. She went anyway.
+- |-
+  A silence. He is not telling you something. You can hear it in the shape of the gap.
 choices:
-- text: Back to the table
+- text: |-
+    Back to the table
   next: act1/talk_client
   effects:
     flags:

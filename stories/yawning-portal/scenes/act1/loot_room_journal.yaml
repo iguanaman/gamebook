@@ -1,17 +1,16 @@
 id: act1/loot_room_journal
-journal: You found Linnet's journal — half-finished notes about something she saw
-  twice in the upper levels.
+journal: |-
+  You found Linnet's journal — half-finished notes about something she saw twice in the upper levels.
 text:
-- It's wedged under the pallet, wrapped in an old inkcloth. A bookbinder's journal
-  — her own work, the stitching tight and proud. Linnet, in the margin of the cover
-  page, underlined twice.
-- The last entries trail off mid-sentence. Something she saw in the walls, she writes,
-  twice now, the same mark. She has drawn it three times trying to get it right, each
-  attempt smaller and more careful than the last. The third one is surrounded by a
-  tight ring of question marks.
-- You pocket it.
+- |-
+  It's wedged under the pallet, wrapped in an old inkcloth. A bookbinder's journal — her own work, the stitching tight and proud. Linnet, in the margin of the cover page, underlined twice.
+- |-
+  The last entries trail off mid-sentence. Something she saw in the walls, she writes, twice now, the same mark. She has drawn it three times trying to get it right, each attempt smaller and more careful than the last. The third one is surrounded by a tight ring of question marks.
+- |-
+  You pocket it.
 choices:
-- text: Back to the Portal
+- text: |-
+    Back to the Portal
   next: act1/common_room
   effects:
     flags:

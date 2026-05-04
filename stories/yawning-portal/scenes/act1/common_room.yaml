@@ -1,62 +1,58 @@
 id: act1/common_room
 text:
 - if: visited
-  text: The common room settles around you again — same pitch and sawdust, same wolf-hole
-    at the centre.
-  else: 'The common room opens around you: trestle tables, a working hearth, the well''s
-    dark mouth at the middle of everything. The night has its own rhythm here, and
-    you are learning the beat of it.'
+  text: |-
+    The common room settles around you again — same pitch and sawdust, same wolf-hole at the centre.
+  else: |-
+    The common room opens around you: trestle tables, a working hearth, the well's dark mouth at the middle of everything. The night has its own rhythm here, and you are learning the beat of it.
 - if:
     flags:
     - job_taken
-  text: The corner table sits empty now. Joren pressed his advance into your hand
-    and walked out into the dark — some part of him relieved that action had been
-    delegated, some part aware of what he was delegating it to.
+  text: |-
+    The corner table sits empty now. Joren pressed his advance into your hand and walked out into the dark — some part of him relieved that action had been delegated, some part aware of what he was delegating it to.
 - if:
     flags:
     - durnan_respects_you
-  text: Behind the bar, Durnan catches your eye and gives one small, deliberate nod.
-    It is not warmth — he is not a warm man — but it is recognition, and in this room
-    that counts.
+  text: |-
+    Behind the bar, Durnan catches your eye and gives one small, deliberate nod. It is not warmth — he is not a warm man — but it is recognition, and in this room that counts.
 - if:
     stats:
       Renown: 2
-  text: You can feel the room has shifted its read on you. Regulars don't stare; they
-    make the small, careful space that gets made around someone who has demonstrated
-    they belong.
+  text: |-
+    You can feel the room has shifted its read on you. Regulars don't stare; they make the small, careful space that gets made around someone who has demonstrated they belong.
 - if:
     flags:
     - recruited_korsa
-  text: Korsa Ironbrow is at the end of the bar with a fresh pint and his axe across
-    his knees, watching the room with the calm of a man who has decided this is not
-    yet a problem.
+  text: |-
+    Korsa Ironbrow is at the end of the bar with a fresh pint and his axe across his knees, watching the room with the calm of a man who has decided this is not yet a problem.
 - if:
     flags:
     - recruited_vesna
-  text: Sister Vesna has her silver coin out on the tabletop, turning it end-over-end
-    between two fingers, lips moving in something that might be prayer or might be
-    counting.
+  text: |-
+    Sister Vesna has her silver coin out on the tabletop, turning it end-over-end between two fingers, lips moving in something that might be prayer or might be counting.
 - if:
     flags:
     - recruited_pip
-  text: Pip Tallowmuch is nowhere you can immediately see — and then she is exactly
-    where you would least leave valuables, watching the exits with her chin in her
-    hands.
+  text: |-
+    Pip Tallowmuch is nowhere you can immediately see — and then she is exactly where you would least leave valuables, watching the exits with her chin in her hands.
 - if:
     flags:
     - recruited_thessaly
-  text: Thessaly Vex sits alone near the hearth, quite still, the candle before her
-    throwing less light than it should.
+  text: |-
+    Thessaly Vex sits alone near the hearth, quite still, the candle before her throwing less light than it should.
 choices:
-- text: Approach the bar. Talk to Durnan.
+- text: |-
+    Approach the bar. Talk to Durnan.
   next: act1/talk_durnan
-- text: Cross to the corner table — the anxious man with ink on his hands.
+- text: |-
+    Cross to the corner table — the anxious man with ink on his hands.
   next: act1/talk_client
   requires:
     flags_unset:
     - client_left
   hide_if_failed: true
-- text: Find Korsa Ironbrow — the dwarf sellsword at the end of the bar.
+- text: |-
+    Find Korsa Ironbrow — the dwarf sellsword at the end of the bar.
   next: act1/talk_korsa
   requires:
     flags_unset:
@@ -64,7 +60,8 @@ choices:
     - korsa_left
     - pair_locked
   hide_if_failed: true
-- text: Korsa Ironbrow — your party is full.
+- text: |-
+    Korsa Ironbrow — your party is full.
   next: act1/korsa_pair_locked
   requires:
     flags:
@@ -73,12 +70,14 @@ choices:
     - recruited_korsa
     - korsa_left
   hide_if_failed: true
-- text: Talk to Korsa — he is already at your back.
+- text: |-
+    Talk to Korsa — he is already at your back.
   next: act1/talk_korsa
   requires:
     flags:
     - recruited_korsa
-- text: Find Sister Vesna — the half-elf with the prayer-coin.
+- text: |-
+    Find Sister Vesna — the half-elf with the prayer-coin.
   next: act1/talk_vesna
   requires:
     flags_unset:
@@ -86,7 +85,8 @@ choices:
     - vesna_left
     - pair_locked
   hide_if_failed: true
-- text: Sister Vesna — your party is full.
+- text: |-
+    Sister Vesna — your party is full.
   next: act1/vesna_pair_locked
   requires:
     flags:
@@ -95,12 +95,14 @@ choices:
     - recruited_vesna
     - vesna_left
   hide_if_failed: true
-- text: Talk to Vesna — she is already with you.
+- text: |-
+    Talk to Vesna — she is already with you.
   next: act1/talk_vesna
   requires:
     flags:
     - recruited_vesna
-- text: Look for Pip Tallowmuch — the halfling near the exits.
+- text: |-
+    Look for Pip Tallowmuch — the halfling near the exits.
   next: act1/talk_pip
   requires:
     flags_unset:
@@ -108,7 +110,8 @@ choices:
     - pip_left
     - pair_locked
   hide_if_failed: true
-- text: Pip Tallowmuch — your party is full.
+- text: |-
+    Pip Tallowmuch — your party is full.
   next: act1/pip_pair_locked
   requires:
     flags:
@@ -117,12 +120,14 @@ choices:
     - recruited_pip
     - pip_left
   hide_if_failed: true
-- text: Talk to Pip — she is with you.
+- text: |-
+    Talk to Pip — she is with you.
   next: act1/talk_pip
   requires:
     flags:
     - recruited_pip
-- text: Find Thessaly Vex — the tiefling alone by the hearth.
+- text: |-
+    Find Thessaly Vex — the tiefling alone by the hearth.
   next: act1/talk_thessaly
   requires:
     flags_unset:
@@ -130,7 +135,8 @@ choices:
     - thessaly_left
     - pair_locked
   hide_if_failed: true
-- text: Thessaly Vex — your party is full.
+- text: |-
+    Thessaly Vex — your party is full.
   next: act1/thessaly_pair_locked
   requires:
     flags:
@@ -139,21 +145,24 @@ choices:
     - recruited_thessaly
     - thessaly_left
   hide_if_failed: true
-- text: Talk to Thessaly — she has signed on.
+- text: |-
+    Talk to Thessaly — she has signed on.
   next: act1/talk_thessaly
   requires:
     flags:
     - recruited_thessaly
-- text: Wave Mirt over — the red-faced gentleman holding court by the fire.
+- text: |-
+    Wave Mirt over — the red-faced gentleman holding court by the fire.
   next: act1/talk_mirt
   requires:
     stats:
       Renown: 1
     flags_unset:
     - mirt_walked_off
-  failed_text: '*(Mirt glances your way, weighs you, and turns back to his table.
-    Not yet.)*'
-- text: Slip out to the inn down the street and look through the apprentice's room.
+  failed_text: |-
+    *(Mirt glances your way, weighs you, and turns back to his table. Not yet.)*
+- text: |-
+    Slip out to the inn down the street and look through the apprentice's room.
   next: act1/loot_apprentice_room
   requires:
     flags:
@@ -162,7 +171,8 @@ choices:
     - looted_room
     - room_skipped
   hide_if_failed: true
-- text: Lift the caltrops from Pip's belt-pouch while the room is loud enough.
+- text: |-
+    Lift the caltrops from Pip's belt-pouch while the room is loud enough.
   next: act1/steal_caltrops
   requires:
     flags:
@@ -172,17 +182,21 @@ choices:
     - caltrops_skipped
     - pip_left
   hide_if_failed: true
-- text: Settle your tab — put 2 Coin on the bar before Durnan has to ask.
+- text: |-
+    Settle your tab — put 2 Coin on the bar before Durnan has to ask.
   next: act1/pay_tab_early
   requires:
     stats:
       Coin: 2
     flags_unset:
     - paid_tab_early
-  failed_text: '*(Two coppers short of generosity.)*'
-- text: Walk out to the well-mouth. You have seen enough of this room.
+  failed_text: |-
+    *(Two coppers short of generosity.)*
+- text: |-
+    Walk out to the well-mouth. You have seen enough of this room.
   next: act1/well_mouth
   requires:
     flags:
     - job_taken
-  failed_text: '*(You have no business at that rope yet. Take the job first.)*'
+  failed_text: |-
+    *(You have no business at that rope yet. Take the job first.)*

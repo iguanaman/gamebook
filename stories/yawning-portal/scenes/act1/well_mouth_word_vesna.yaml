@@ -1,16 +1,19 @@
 text:
-- She has the silver coin out, turning it — but she has stopped counting. She is looking
-  at the dark.
-- female_adult_american_gentle_tender_sweet: Lady Luck willing.
-- She says it quietly, not to you, not quite to herself.
-- female_adult_american_gentle_tender_sweet: She never said it was comfortable, you
-    know. Fortune. She only said it was better than standing still.
-- The coin disappears back into her hand. She gives you a look that is not reassurance
-  — it is something more honest. Acknowledgment.
-- female_adult_american_gentle_tender_sweet: I've prayed for worse odds. [sigh] Let's
-    go.
+- |-
+  She has the silver coin out, turning it — but she has stopped counting. She is looking at the dark.
+- female_adult_american_gentle_tender_sweet: |-
+    Lady Luck willing.
+- |-
+  She says it quietly, not to you, not quite to herself.
+- female_adult_american_gentle_tender_sweet: |-
+    She never said it was comfortable, you know. Fortune. She only said it was better than standing still.
+- |-
+  The coin disappears back into her hand. She gives you a look that is not reassurance — it is something more honest. Acknowledgment.
+- female_adult_american_gentle_tender_sweet: |-
+    I've prayed for worse odds. [sigh] Let's go.
 choices:
-- text: Back to the well-mouth.
+- text: |-
+    Back to the well-mouth.
   next: act1/well_mouth
   effects:
     flags:

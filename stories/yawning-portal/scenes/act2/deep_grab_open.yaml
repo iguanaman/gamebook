@@ -1,17 +1,22 @@
 text:
-  - "The thing is mid-sentence."
-  - "It does not know you are going to do this. It has been so patient, so assured, that it has forgotten that patience is not a defence."
-  - "You go."
+- |-
+  The thing is mid-sentence.
+- |-
+  It does not know you are going to do this. It has been so patient, so assured, that it has forgotten that patience is not a defence.
+- |-
+  You go.
+
 
 choices:
-  - text: "Now"
-    next:
-      - scene: act2/deep_grab_clean
-        weight: 4
-      - scene: act2/deep_grab_caught
-        weight: 3
-      - scene: act2/deep_grab_apprentice_lost
-        weight: 2
-    effects:
-      flags:
-        deep_chose_grab: true
+- text: |-
+    Now
+  next:
+  - scene: act2/deep_grab_clean
+    weight: 4
+  - scene: act2/deep_grab_caught
+    weight: 3
+  - scene: act2/deep_grab_apprentice_lost
+    weight: 2
+  effects:
+    flags:
+      deep_chose_grab: true

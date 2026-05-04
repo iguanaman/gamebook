@@ -1,17 +1,17 @@
 text:
-- She's steadying your arm when the knife finds her. Longer than she thought it would
-  be — they usually are. It goes in under her left arm, between the ribs, and she
-  makes a sound like a question she can't finish asking.
-- She sits down. Slowly. Her hand still on your arm. The prayer-coin around her neck
-  catches the gas-lamp and glints once, and then she leans back against the alley
-  wall and the light in her face changes.
-- You kill the men who did it. You don't remember how many. When you look back she
-  is very still.
-- Tymora's coin has come to rest against her chest. You don't look at which face is
-  up.
-journal: Sister Vesna died in a Wicker Lane alley. She didn't let go.
+- |-
+  She's steadying your arm when the knife finds her. Longer than she thought it would be — they usually are. It goes in under her left arm, between the ribs, and she makes a sound like a question she can't finish asking.
+- |-
+  She sits down. Slowly. Her hand still on your arm. The prayer-coin around her neck catches the gas-lamp and glints once, and then she leans back against the alley wall and the light in her face changes.
+- |-
+  You kill the men who did it. You don't remember how many. When you look back she is very still.
+- |-
+  Tymora's coin has come to rest against her chest. You don't look at which face is up.
+journal: |-
+  Sister Vesna died in a Wicker Lane alley. She didn't let go.
 choices:
-- text: Carry her out — she prayed over the dead, she deserves better
+- text: |-
+    Carry her out — she prayed over the dead, she deserves better
   next: alley_resolution
   effects:
     flags:
@@ -22,7 +22,8 @@ choices:
     stats:
       Vigor: -3
       Renown: 1
-- text: Leave her — Tymora keeps her own
+- text: |-
+    Leave her — Tymora keeps her own
   next: alley_resolution
   effects:
     flags:

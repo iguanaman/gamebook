@@ -1,66 +1,65 @@
-journal: You stood at the well's mouth with your two, the rope in your hands and the
-  dark below. The room at your back felt very small.
+journal: |-
+  You stood at the well's mouth with your two, the rope in your hands and the dark below. The room at your back felt very small.
 text:
-- The well sits at the centre of the room like a wolf. Not a hole in the floor. Not
-  a pit. A presence — circular, patient, breathing cold up at the room's warmth. You
-  have walked around it a dozen times tonight. Now you are standing at its lip.
-- 'The rope is thick, well-oiled, knotted every yard. It drops into a dark that does
-  not resolve. Somewhere down there: Linnet, and whatever stopped her from climbing
-  back.'
-- Your two are beside you. The room is still going about its business at your back.
-  Durnan has not looked up.
+- |-
+  The well sits at the centre of the room like a wolf. Not a hole in the floor. Not a pit. A presence — circular, patient, breathing cold up at the room's warmth. You have walked around it a dozen times tonight. Now you are standing at its lip.
+- |-
+  The rope is thick, well-oiled, knotted every yard. It drops into a dark that does not resolve. Somewhere down there: Linnet, and whatever stopped her from climbing back.
+- |-
+  Your two are beside you. The room is still going about its business at your back. Durnan has not looked up.
 - if:
     flags:
     - recruited_korsa
     - recruited_vesna
-  text: Korsa rolls his shoulders once, settling plate. Vesna's lips move over the
-    silver coin — not yet prayer, not quite not-prayer.
+  text: |-
+    Korsa rolls his shoulders once, settling plate. Vesna's lips move over the silver coin — not yet prayer, not quite not-prayer.
 - if:
     flags:
     - recruited_korsa
     - recruited_pip
-  text: Korsa cracks his knuckles and does not look into the well. Pip is already
-    measuring the rope with her eyes, counting knots.
+  text: |-
+    Korsa cracks his knuckles and does not look into the well. Pip is already measuring the rope with her eyes, counting knots.
 - if:
     flags:
     - recruited_korsa
     - recruited_thessaly
-  text: Korsa is a wall of quiet at your left. Thessaly has gone very still at your
-    right, the way a candle goes still before it goes out.
+  text: |-
+    Korsa is a wall of quiet at your left. Thessaly has gone very still at your right, the way a candle goes still before it goes out.
 - if:
     flags:
     - recruited_vesna
     - recruited_pip
-  text: Vesna turns the coin end-over-end, deliberate as breathing. Pip is checking
-    her pouches in a fast, practised sequence — one, two, three — and then again.
+  text: |-
+    Vesna turns the coin end-over-end, deliberate as breathing. Pip is checking her pouches in a fast, practised sequence — one, two, three — and then again.
 - if:
     flags:
     - recruited_vesna
     - recruited_thessaly
-  text: Vesna's coin catches the light each time it turns. Thessaly watches the dark
-    below with the expression of someone who has been waiting for this particular
-    door.
+  text: |-
+    Vesna's coin catches the light each time it turns. Thessaly watches the dark below with the expression of someone who has been waiting for this particular door.
 - if:
     flags:
     - recruited_pip
     - recruited_thessaly
-  text: Pip has already spotted every exit in the room below that she can see, which
-    is none, and her jaw is set about it. Thessaly rests two fingers lightly on the
-    rope. Not testing it. Feeling it.
-- You could go back. One more drink. One more topic. One more thing to carry down.
-  The room is warm and the rope is cold and the well does not care which you choose.
+  text: |-
+    Pip has already spotted every exit in the room below that she can see, which is none, and her jaw is set about it. Thessaly rests two fingers lightly on the rope. Not testing it. Feeling it.
+- |-
+  You could go back. One more drink. One more topic. One more thing to carry down. The room is warm and the rope is cold and the well does not care which you choose.
 choices:
-- text: Step over the lip. Descend.
+- text: |-
+    Step over the lip. Descend.
   next: act2/well_mouth
   requires:
     flags:
     - job_taken
     - pair_locked
-  failed_text: '*(You need the job and two companions before you touch that rope.)*'
+  failed_text: |-
+    *(You need the job and two companions before you touch that rope.)*
   effects:
     flags:
       descended_well: true
-- text: A word with Korsa — before the dark.
+- text: |-
+    A word with Korsa — before the dark.
   next: act1/well_mouth_word_korsa
   requires:
     flags:
@@ -68,7 +67,8 @@ choices:
     flags_unset:
     - spoke_to_korsa_at_well
   hide_if_failed: true
-- text: A word with Vesna — before the dark.
+- text: |-
+    A word with Vesna — before the dark.
   next: act1/well_mouth_word_vesna
   requires:
     flags:
@@ -76,7 +76,8 @@ choices:
     flags_unset:
     - spoke_to_vesna_at_well
   hide_if_failed: true
-- text: A word with Pip — before the dark.
+- text: |-
+    A word with Pip — before the dark.
   next: act1/well_mouth_word_pip
   requires:
     flags:
@@ -84,7 +85,8 @@ choices:
     flags_unset:
     - spoke_to_pip_at_well
   hide_if_failed: true
-- text: A word with Thessaly — before the dark.
+- text: |-
+    A word with Thessaly — before the dark.
   next: act1/well_mouth_word_thessaly
   requires:
     flags:
@@ -92,7 +94,8 @@ choices:
     flags_unset:
     - spoke_to_thessaly_at_well
   hide_if_failed: true
-- text: Wait for Durnan's word.
+- text: |-
+    Wait for Durnan's word.
   next: act1/well_mouth_durnan_word
   requires:
     flags:
@@ -100,5 +103,6 @@ choices:
     flags_unset:
     - heard_durnan_word
   hide_if_failed: true
-- text: Back to the common room — one more thing.
+- text: |-
+    Back to the common room — one more thing.
   next: act1/common_room

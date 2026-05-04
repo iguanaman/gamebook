@@ -1,76 +1,86 @@
 text:
-  - "You win. The kuo-toa die, the dock-coat man breaks and runs. You win."
-  - "But the deck is slick and the harbour is right there, and somewhere in the middle of the fight one of your companions found the rail with their back instead of the hull."
-  - "You are at the rail. They are not in the water. They are already under it."
-  - "The page is in the hold. You retrieve it with hands that are not quite steady."
+- |-
+  You win. The kuo-toa die, the dock-coat man breaks and runs. You win.
+- |-
+  But the deck is slick and the harbour is right there, and somewhere in the middle of the fight one of your companions found the rail with their back instead of the hull.
+- |-
+  You are at the rail. They are not in the water. They are already under it.
+- |-
+  The page is in the hold. You retrieve it with hands that are not quite steady.
+
 
 choices:
-  - text: "Climb out — Korsa is gone"
-    next: harbour_resolution
-    requires:
-      flags: [recruited_korsa]
-      flags_unset: [korsa_died, korsa_left, recruited_pip, recruited_vesna, recruited_thessaly]
-    hide_if_failed: true
-    effects:
-      flags:
-        korsa_died: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -3
+- text: |-
+    Climb out — Korsa is gone
+  next: harbour_resolution
+  requires:
+    flags: [recruited_korsa]
+    flags_unset: [korsa_died, korsa_left, recruited_pip, recruited_vesna, recruited_thessaly]
+  hide_if_failed: true
+  effects:
+    flags:
+      korsa_died: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -3
 
-  - text: "Climb out — Vesna is gone"
-    next: harbour_resolution
-    requires:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left, recruited_korsa]
-    hide_if_failed: true
-    effects:
-      flags:
-        vesna_died: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -3
+- text: |-
+    Climb out — Vesna is gone
+  next: harbour_resolution
+  requires:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left, recruited_korsa]
+  hide_if_failed: true
+  effects:
+    flags:
+      vesna_died: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -3
 
-  - text: "Climb out — Pip is gone"
-    next: harbour_resolution
-    requires:
-      flags: [recruited_pip]
-      flags_unset: [pip_died, pip_left, recruited_korsa, recruited_vesna]
-    hide_if_failed: true
-    effects:
-      flags:
-        pip_died: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -3
+- text: |-
+    Climb out — Pip is gone
+  next: harbour_resolution
+  requires:
+    flags: [recruited_pip]
+    flags_unset: [pip_died, pip_left, recruited_korsa, recruited_vesna]
+  hide_if_failed: true
+  effects:
+    flags:
+      pip_died: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -3
 
-  - text: "Climb out — Thessaly is gone"
-    next: harbour_resolution
-    requires:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died, thessaly_left, recruited_pip]
-    hide_if_failed: true
-    effects:
-      flags:
-        thessaly_died: true
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -3
+- text: |-
+    Climb out — Thessaly is gone
+  next: harbour_resolution
+  requires:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died, thessaly_left, recruited_pip]
+  hide_if_failed: true
+  effects:
+    flags:
+      thessaly_died: true
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -3
 
-  - text: "Climb out"
-    next: harbour_resolution
-    effects:
-      flags:
-        met_the_thing_below_glimpse: true
-        found_journal: true
-        found_journal_waterlogged: true
-      stats:
-        Vigor: -3
+- text: |-
+    Climb out
+  next: harbour_resolution
+  effects:
+    flags:
+      met_the_thing_below_glimpse: true
+      found_journal: true
+      found_journal_waterlogged: true
+    stats:
+      Vigor: -3

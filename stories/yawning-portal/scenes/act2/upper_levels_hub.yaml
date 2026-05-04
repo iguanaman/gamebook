@@ -1,53 +1,68 @@
 text:
-  - if: visited
-    text: "Back to the corridor junction. The three passages wait."
-    else: "Three ways. Left: the sound of water, far off and low. Ahead: a closed stone hatch sealed in wax, a name chalked above it. Right: guttered light, the ghost of a candle flame's smell."
-  - if:
-      flags: [cistern_resolved, camp_resolved]
-      flags_unset: [cellar_resolved]
-    text: "The two side chambers are done. The hatch ahead is what remains."
-  - if:
-      flags: [cistern_resolved]
-      flags_unset: [camp_resolved, cellar_resolved]
-    text: "The flooded vault is behind you. Two passages still open."
-  - if:
-      flags: [camp_resolved]
-      flags_unset: [cistern_resolved, cellar_resolved]
-    text: "The camp is behind you. Two passages still open."
-  - if:
-      flags: [recruited_pip]
-      flags_unset: [pip_died, cistern_resolved]
-    text:
-      - female_young_american_lisp: "Left passage. Water, maybe thirty feet. And something else — not water."
-      - "She says it quietly. She's already counting the echo."
-  - if:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died, cistern_resolved]
-    text:
-      - female_adult_american_sultry_villainous: "The left wall. Those scratches. That's not damage — that's notation."
-      - "She does not explain what it notates."
+- if: visited
+  text: |-
+    Back to the corridor junction. The three passages wait.
+  else: |-
+    Three ways. Left: the sound of water, far off and low. Ahead: a closed stone hatch sealed in wax, a name chalked above it. Right: guttered light, the ghost of a candle flame's smell.
+- if:
+    flags: [cistern_resolved, camp_resolved]
+    flags_unset: [cellar_resolved]
+  text: |-
+    The two side chambers are done. The hatch ahead is what remains.
+- if:
+    flags: [cistern_resolved]
+    flags_unset: [camp_resolved, cellar_resolved]
+  text: |-
+    The flooded vault is behind you. Two passages still open.
+- if:
+    flags: [camp_resolved]
+    flags_unset: [cistern_resolved, cellar_resolved]
+  text: |-
+    The camp is behind you. Two passages still open.
+- if:
+    flags: [recruited_pip]
+    flags_unset: [pip_died, cistern_resolved]
+  text:
+  - female_young_american_lisp: |-
+      Left passage. Water, maybe thirty feet. And something else — not water.
+  - |-
+    She says it quietly. She's already counting the echo.
+- if:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died, cistern_resolved]
+  text:
+  - female_adult_american_sultry_villainous: |-
+      The left wall. Those scratches. That's not damage — that's notation.
+  - |-
+    She does not explain what it notates.
+
 
 choices:
-  - text: "Left passage — the flooded vault with the collapsed bridge"
-    next: act2/cistern
-    requires:
-      flags_unset: [cistern_resolved]
+- text: |-
+    Left passage — the flooded vault with the collapsed bridge
+  next: act2/cistern
+  requires:
+    flags_unset: [cistern_resolved]
 
-  - text: "Right passage — someone camped here, not long ago"
-    next: act2/apprentice_camp
-    requires:
-      flags_unset: [camp_resolved]
+- text: |-
+    Right passage — someone camped here, not long ago
+  next: act2/apprentice_camp
+  requires:
+    flags_unset: [camp_resolved]
 
-  - text: "Straight on — the sealed hatch, the chalked name"
-    next: act2/cellar_door
+- text: |-
+    Straight on — the sealed hatch, the chalked name
+  next: act2/cellar_door
 
-  - text: "Hold council — a word with the pair"
-    next: act2/companion_council_upper
-    requires:
-      flags_unset: [council_used_at_upper, council_closed]
-    hide_if_failed: true
+- text: |-
+    Hold council — a word with the pair
+  next: act2/companion_council_upper
+  requires:
+    flags_unset: [council_used_at_upper, council_closed]
+  hide_if_failed: true
 
-  - text: "Climb back to the well — we've seen enough"
-    next: act2/retreat_upper_warning
-    requires:
-      flags_unset: [arrived_loud]
+- text: |-
+    Climb back to the well — we've seen enough
+  next: act2/retreat_upper_warning
+  requires:
+    flags_unset: [arrived_loud]

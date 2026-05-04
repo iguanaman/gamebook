@@ -1,15 +1,21 @@
 text:
-  - "You wade in. The water is deeper than it looked — thigh-high by the centre — and cold enough that your leg muscles protest before you've taken five steps."
-  - "The bridge gap requires a short jump from cold-heavy legs. You make it, barely. On the far side: the pillar, the glyph, and a signature at the base you don't recognise."
-  - "No cache visible. Whatever was here, if anything was, you'd need a drier crossing to find it. The glyph is real enough — deep-cut, deliberate, the notation of someone who had time and purpose."
-  - "You cross back through the water. You feel the cold in your bones for the rest of the hour."
+- |-
+  You wade in. The water is deeper than it looked — thigh-high by the centre — and cold enough that your leg muscles protest before you've taken five steps.
+- |-
+  The bridge gap requires a short jump from cold-heavy legs. You make it, barely. On the far side: the pillar, the glyph, and a signature at the base you don't recognise.
+- |-
+  No cache visible. Whatever was here, if anything was, you'd need a drier crossing to find it. The glyph is real enough — deep-cut, deliberate, the notation of someone who had time and purpose.
+- |-
+  You cross back through the water. You feel the cold in your bones for the rest of the hour.
+
 
 choices:
-  - text: "Back to the junction."
-    next: act2/upper_levels_hub
-    effects:
-      flags:
-        cistern_resolved: true
-        saw_signature: true
-      stats:
-        Vigor: -2
+- text: |-
+    Back to the junction.
+  next: act2/upper_levels_hub
+  effects:
+    flags:
+      cistern_resolved: true
+      saw_signature: true
+    stats:
+      Vigor: -2

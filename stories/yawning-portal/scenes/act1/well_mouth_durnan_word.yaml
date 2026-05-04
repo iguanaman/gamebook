@@ -1,14 +1,17 @@
 text:
-- You hear the sound of a tankard set down — deliberate, final. You don't turn around.
-  His voice reaches you low, across the room.
-- male_midlife_american_deep_raspy_authentic: Bring what you can carry. Leave what
-    you can't. Don't feed it your name.
-- A pause. The bar noise fills in around the edges.
-- male_midlife_american_deep_raspy_authentic: Nobody's asked me to say that in a while.
-- You turn, briefly. He has already gone back to wiping the counter. His eyes are
-  on the well's rim — that quick flick, automatic as breathing — and then he is done.
+- |-
+  You hear the sound of a tankard set down — deliberate, final. You don't turn around. His voice reaches you low, across the room.
+- male_midlife_american_deep_raspy_authentic: |-
+    Bring what you can carry. Leave what you can't. Don't feed it your name.
+- |-
+  A pause. The bar noise fills in around the edges.
+- male_midlife_american_deep_raspy_authentic: |-
+    Nobody's asked me to say that in a while.
+- |-
+  You turn, briefly. He has already gone back to wiping the counter. His eyes are on the well's rim — that quick flick, automatic as breathing — and then he is done.
 choices:
-- text: Nod, and turn back to the well.
+- text: |-
+    Nod, and turn back to the well.
   next: act1/well_mouth
   effects:
     flags:

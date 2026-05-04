@@ -1,33 +1,35 @@
 id: act1/talk_mirt
 text:
-- Mirt's table is an event. Three hangers-on, two empty pitchers, the sticky ring-marks
-  of a long evening. He sees you coming before you've decided you're coming, and he
-  opens his arms like a man welcoming the tide.
-- male_midlife_american_loud_confident_cocky: Young blood! Come, come. Sit. I will
-    not bite and neither will my associates, who are very loyal and very bad at biting.
-- The associates laugh. They have been laughing at his jokes all night.
-- male_midlife_american_loud_confident_cocky: Mirt the Moneylender. And so. You are
-    the one who took the bookbinder's errand, yes? Or are you still deciding? Either
-    way — you have my attention, which is worth considerably more than you've been
-    led to believe.
+- |-
+  Mirt's table is an event. Three hangers-on, two empty pitchers, the sticky ring-marks of a long evening. He sees you coming before you've decided you're coming, and he opens his arms like a man welcoming the tide.
+- male_midlife_american_loud_confident_cocky: |-
+    Young blood! Come, come. Sit. I will not bite and neither will my associates, who are very loyal and very bad at biting.
+- |-
+  The associates laugh. They have been laughing at his jokes all night.
+- male_midlife_american_loud_confident_cocky: |-
+    Mirt the Moneylender. And so. You are the one who took the bookbinder's errand, yes? Or are you still deciding? Either way — you have my attention, which is worth considerably more than you've been led to believe.
 - if: visited
-  text: He tips his tankard at you in greeting before you've said a word. The theatre
-    of familiarity — but there is something genuine in it.
+  text: |-
+    He tips his tankard at you in greeting before you've said a word. The theatre of familiarity — but there is something genuine in it.
 choices:
-- text: Hear the city gossip
+- text: |-
+    Hear the city gossip
   next: act1/mirt_topic_gossip
   requires:
     flags_unset:
     - asked_mirt_gossip
-- text: Listen to whatever offer he's hinting at
+- text: |-
+    Listen to whatever offer he's hinting at
   next: act1/mirt_topic_offer
   requires:
     flags:
     - job_taken
     flags_unset:
     - asked_mirt_offer
-  failure_text: '[Take the job first — he''s watching to see if you will]'
-- text: Take the loan — you heard the terms in the gossip
+  failure_text: |-
+    [Take the job first — he's watching to see if you will]
+- text: |-
+    Take the loan — you heard the terms in the gossip
   next: act1/mirt_loan_take
   requires:
     flags:
@@ -36,7 +38,8 @@ choices:
     - mirt_owes_favour
     - mirt_loan_refused
   hide_if_failed: true
-- text: Politely decline the loan
+- text: |-
+    Politely decline the loan
   next: act1/mirt_loan_refuse
   requires:
     flags:
@@ -45,5 +48,6 @@ choices:
     - mirt_owes_favour
     - mirt_loan_refused
   hide_if_failed: true
-- text: Step back from Mirt's table
+- text: |-
+    Step back from Mirt's table
   next: act1/common_room

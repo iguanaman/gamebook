@@ -1,21 +1,22 @@
 text:
-- She gets the kill on the third man — clean, precise, no hesitation — and then the
-  one she didn't see comes around the gas-lamp post with a cudgel.
-- It's not a glancing blow. The sound it makes on the back of her skull isn't something
-  you'll forget. She's down before the cudgel finishes its arc. Not moving. Her three
-  earrings catch the gas-lamp light.
-- You kill the man who did it. You kill the next one. The others run. You don't chase
-  them.
+- |-
+  She gets the kill on the third man — clean, precise, no hesitation — and then the one she didn't see comes around the gas-lamp post with a cudgel.
+- |-
+  It's not a glancing blow. The sound it makes on the back of her skull isn't something you'll forget. She's down before the cudgel finishes its arc. Not moving. Her three earrings catch the gas-lamp light.
+- |-
+  You kill the man who did it. You kill the next one. The others run. You don't chase them.
 - if:
     flags:
     - recruited_vesna
-  text: Vesna drops to her knees beside Pip. Her hands move through the motions of
-    a prayer Tymora isn't answering tonight. She doesn't look up for a long time.
-  else: You crouch beside her. Her hand is still closed around the blade. You don't
-    pry it open.
-journal: Pip Tallowmuch didn't come out of the alley. She got the kill first.
+  text: |-
+    Vesna drops to her knees beside Pip. Her hands move through the motions of a prayer Tymora isn't answering tonight. She doesn't look up for a long time.
+  else: |-
+    You crouch beside her. Her hand is still closed around the blade. You don't pry it open.
+journal: |-
+  Pip Tallowmuch didn't come out of the alley. She got the kill first.
 choices:
-- text: Carry her out — she deserves better than this lane
+- text: |-
+    Carry her out — she deserves better than this lane
   next: alley_resolution
   effects:
     flags:
@@ -25,7 +26,8 @@ choices:
       body_recovered: true
     stats:
       Vigor: -3
-- text: Leave her. Get out while you can.
+- text: |-
+    Leave her. Get out while you can.
   next: alley_resolution
   effects:
     flags:

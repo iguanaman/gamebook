@@ -1,221 +1,221 @@
 text:
   # Body recovered — first farewell to fire gets the cloth
-  - if:
-      flags: [body_recovered]
-      flags_unset: [companion_body_honoured]
-    text: |-
-      Durnan moves along the bar without a word, lifts a clean cloth from under the counter,
-      and lays it over the body behind the door. He doesn't look up. He goes back to his
-      polishing.
+- if:
+    flags: [body_recovered]
+    flags_unset: [companion_body_honoured]
+  text: |-
+    Durnan moves along the bar without a word, lifts a clean cloth from under the counter,
+    and lays it over the body behind the door. He doesn't look up. He goes back to his
+    polishing.
 
   # vesna_left variant — across the room, not approaching
-  - if:
-      flags: [vesna_left]
-      flags_unset: [vesna_died]
-    text: |-
-      Vesna is across the room. She is not coming over. She has a cup in front of her and the
-      Tymora coin in her hand, turned over once and held, not flipped. She knows you're looking.
+- if:
+    flags: [vesna_left]
+    flags_unset: [vesna_died]
+  text: |-
+    Vesna is across the room. She is not coming over. She has a cup in front of her and the
+    Tymora coin in her hand, turned over once and held, not flipped. She knows you're looking.
 
-  - if:
-      flags: [vesna_left]
-      flags_unset: [vesna_died]
-    text: |-
-      You meet her eyes. One beat — the length of a held breath. Then she looks away. The coin
-      goes back on the cord at her neck.
+- if:
+    flags: [vesna_left]
+    flags_unset: [vesna_died]
+  text: |-
+    You meet her eyes. One beat — the length of a held breath. Then she looks away. The coin
+    goes back on the cord at her neck.
 
-  - if:
-      flags: [vesna_left]
-      flags_unset: [vesna_died]
-    text: |-
-      That's all. That's the farewell.
+- if:
+    flags: [vesna_left]
+    flags_unset: [vesna_died]
+  text: |-
+    That's all. That's the farewell.
 
   # α / β-with-surviving-partner: benediction
-  - if:
-      flags: [recruited_vesna, rescued]
-      flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
-    text: |-
-      Vesna has her hands flat on the bar, the Tymora coin between two fingers. She has been
-      praying quietly since the room settled. She is nearly done.
+- if:
+    flags: [recruited_vesna, rescued]
+    flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
+  text: |-
+    Vesna has her hands flat on the bar, the Tymora coin between two fingers. She has been
+    praying quietly since the room settled. She is nearly done.
 
-  - if:
-      flags: [recruited_vesna, rescued]
-      flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        Lady Luck marked this night and called it paid. What was asked, was found. What was
-        risked, was risked honest. Let fortune's eye stay open for those who come up dry.
+- if:
+    flags: [recruited_vesna, rescued]
+    flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      Lady Luck marked this night and called it paid. What was asked, was found. What was
+      risked, was risked honest. Let fortune's eye stay open for those who come up dry.
 
   # β — dead companion: names them
-  - if:
-      flags: [recruited_vesna, korsa_died]
-      flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        Korsa went with a blade in his hand and a clear conscience, Lady willing. Name him
-        kindly. Remember him whole.
+- if:
+    flags: [recruited_vesna, korsa_died]
+    flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      Korsa went with a blade in his hand and a clear conscience, Lady willing. Name him
+      kindly. Remember him whole.
 
-  - if:
-      flags: [recruited_vesna, pip_died]
-      flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        Pip counted every exit and missed the last one. Fortune favours the bold, and she was
-        the boldest person in that room. Name her kindly.
+- if:
+    flags: [recruited_vesna, pip_died]
+    flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      Pip counted every exit and missed the last one. Fortune favours the bold, and she was
+      the boldest person in that room. Name her kindly.
 
-  - if:
-      flags: [recruited_vesna, thessaly_died]
-      flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        Thessaly went knowing more than she said and chose to stay anyway. That's a kind of
-        faith, even if it wasn't mine. Name her kindly.
+- if:
+    flags: [recruited_vesna, thessaly_died]
+    flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      Thessaly went knowing more than she said and chose to stay anyway. That's a kind of
+      faith, even if it wasn't mine. Name her kindly.
 
-  - if:
-      flags: [recruited_vesna, rescued]
-      flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
-    text: |-
-      She opens her eyes. Looks at you straight.
+- if:
+    flags: [recruited_vesna, rescued]
+    flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
+  text: |-
+    She opens her eyes. Looks at you straight.
 
-  - if:
-      flags: [recruited_vesna, rescued]
-      flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        Lady Luck willing, we're all standing. I'm grateful for that. I'll remember this one.
+- if:
+    flags: [recruited_vesna, rescued]
+    flags_unset: [bargained, stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      Lady Luck willing, we're all standing. I'm grateful for that. I'll remember this one.
 
   # γ — bargained, marked apprentice: benediction omits Linnet
-  - if:
-      flags: [recruited_vesna, rescued, bargained]
-      flags_unset: [stirred_something, vesna_left, vesna_died]
-    text: |-
-      Vesna is at the bar. The coin is in her hand and she is praying, but her eyes keep moving
-      to Linnet and moving away again — the way you look away from a wound you're not sure about.
+- if:
+    flags: [recruited_vesna, rescued, bargained]
+    flags_unset: [stirred_something, vesna_left, vesna_died]
+  text: |-
+    Vesna is at the bar. The coin is in her hand and she is praying, but her eyes keep moving
+    to Linnet and moving away again — the way you look away from a wound you're not sure about.
 
-  - if:
-      flags: [recruited_vesna, rescued, bargained]
-      flags_unset: [stirred_something, vesna_left, vesna_died]
-    text: |-
-      The benediction she says is smaller than usual. It covers the night. It covers the companions
-      who went down. It covers you. It does not cover Linnet — and Vesna knows it, and does not
-      look at you after.
+- if:
+    flags: [recruited_vesna, rescued, bargained]
+    flags_unset: [stirred_something, vesna_left, vesna_died]
+  text: |-
+    The benediction she says is smaller than usual. It covers the night. It covers the companions
+    who went down. It covers you. It does not cover Linnet — and Vesna knows it, and does not
+    look at you after.
 
-  - if:
-      flags: [recruited_vesna, rescued, bargained]
-      flags_unset: [stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        I'll pray more tonight. For the one you brought back. I just — not yet.
+- if:
+    flags: [recruited_vesna, rescued, bargained]
+    flags_unset: [stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      I'll pray more tonight. For the one you brought back. I just — not yet.
 
   # δ — not rescued: names the absent
-  - if:
-      flags: [recruited_vesna, met_the_thing_below]
-      flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
-    text: |-
-      Vesna's hands are clasped on the bar, knuckles whitened. When she opens them the coin
-      sits in her palm, heads up. She looks at it a long moment.
+- if:
+    flags: [recruited_vesna, met_the_thing_below]
+    flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
+  text: |-
+    Vesna's hands are clasped on the bar, knuckles whitened. When she opens them the coin
+    sits in her palm, heads up. She looks at it a long moment.
 
-  - if:
-      flags: [recruited_vesna, met_the_thing_below]
-      flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        Linnet. We say the names. That's what we do, Lady willing, even when the name is the
-        answer to a prayer that didn't come through.
+- if:
+    flags: [recruited_vesna, met_the_thing_below]
+    flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      Linnet. We say the names. That's what we do, Lady willing, even when the name is the
+      answer to a prayer that didn't come through.
 
-  - if:
-      flags: [recruited_vesna, met_the_thing_below]
-      flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
-    text: |-
-      She presses her coin gently against the back of your hand. Tymora's face up.
+- if:
+    flags: [recruited_vesna, met_the_thing_below]
+    flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
+  text: |-
+    She presses her coin gently against the back of your hand. Tymora's face up.
 
-  - if:
-      flags: [recruited_vesna, met_the_thing_below]
-      flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        You went down. You came back. That matters, even tonight.
+- if:
+    flags: [recruited_vesna, met_the_thing_below]
+    flags_unset: [rescued, stirred_something, vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      You went down. You came back. That matters, even tonight.
 
   # ε — stirred: presses her coin into your palm
-  - if:
-      flags: [recruited_vesna, stirred_something]
-      flags_unset: [vesna_left, vesna_died]
-    text: |-
-      Vesna is still. The coin is still. She is watching the well-mouth from the bar and her
-      lips are moving, very slightly, in something that is not quite a prayer and not quite a
-      warning — the space between them.
+- if:
+    flags: [recruited_vesna, stirred_something]
+    flags_unset: [vesna_left, vesna_died]
+  text: |-
+    Vesna is still. The coin is still. She is watching the well-mouth from the bar and her
+    lips are moving, very slightly, in something that is not quite a prayer and not quite a
+    warning — the space between them.
 
-  - if:
-      flags: [recruited_vesna, stirred_something]
-      flags_unset: [vesna_left, vesna_died]
-    text: |-
-      She turns to you. Takes your hand, opens it, presses the Tymora coin into the palm. Closes
-      your fingers around it.
+- if:
+    flags: [recruited_vesna, stirred_something]
+    flags_unset: [vesna_left, vesna_died]
+  text: |-
+    She turns to you. Takes your hand, opens it, presses the Tymora coin into the palm. Closes
+    your fingers around it.
 
-  - if:
-      flags: [recruited_vesna, stirred_something]
-      flags_unset: [vesna_left, vesna_died]
-    text: |-
-      female_adult_american_gentle_tender_sweet: |-
-        Put a wall between yourself and that well tonight. Stone, wood, distance — something
-        solid. Whatever you stirred down there, don't give it a line of sight.
+- if:
+    flags: [recruited_vesna, stirred_something]
+    flags_unset: [vesna_left, vesna_died]
+  text: |-
+    female_adult_american_gentle_tender_sweet: |-
+      Put a wall between yourself and that well tonight. Stone, wood, distance — something
+      solid. Whatever you stirred down there, don't give it a line of sight.
 
-  - if:
-      flags: [recruited_vesna, stirred_something]
-      flags_unset: [vesna_left, vesna_died]
-    text: |-
-      She keeps her hand over yours until you nod.
+- if:
+    flags: [recruited_vesna, stirred_something]
+    flags_unset: [vesna_left, vesna_died]
+  text: |-
+    She keeps her hand over yours until you nod.
 
 choices:
   # vesna_left — passed in silence
-  - text: |-
-      Let her look away. Go back to the bar.
-    next: bar_settle_up
-    effects:
-      flags:
-        vesna_farewell_done: true
-        vesna_passed_in_silence: true
-        companion_body_honoured: true
-    requires:
-      flags: [vesna_left]
-      flags_unset: [vesna_died]
-    hide_if_failed: true
+- text: |-
+    Let her look away. Go back to the bar.
+  next: bar_settle_up
+  effects:
+    flags:
+      vesna_farewell_done: true
+      vesna_passed_in_silence: true
+      companion_body_honoured: true
+  requires:
+    flags: [vesna_left]
+    flags_unset: [vesna_died]
+  hide_if_failed: true
 
   # ε — strained
-  - text: |-
-      Nod. Pocket the coin. Go back to the bar.
-    next: bar_settle_up
-    effects:
-      flags:
-        vesna_farewell_done: true
-        vesna_farewell_strained: true
-        companion_body_honoured: true
-    requires:
-      flags: [stirred_something]
-      flags_unset: [vesna_left, vesna_died]
-    hide_if_failed: true
+- text: |-
+    Nod. Pocket the coin. Go back to the bar.
+  next: bar_settle_up
+  effects:
+    flags:
+      vesna_farewell_done: true
+      vesna_farewell_strained: true
+      companion_body_honoured: true
+  requires:
+    flags: [stirred_something]
+    flags_unset: [vesna_left, vesna_died]
+  hide_if_failed: true
 
   # γ — strained
-  - text: |-
-      Not yet is enough. Go back to the bar.
-    next: bar_settle_up
-    effects:
-      flags:
-        vesna_farewell_done: true
-        vesna_farewell_strained: true
-        companion_body_honoured: true
-    requires:
-      flags: [rescued, bargained]
-      flags_unset: [stirred_something, vesna_left, vesna_died]
-    hide_if_failed: true
+- text: |-
+    Not yet is enough. Go back to the bar.
+  next: bar_settle_up
+  effects:
+    flags:
+      vesna_farewell_done: true
+      vesna_farewell_strained: true
+      companion_body_honoured: true
+  requires:
+    flags: [rescued, bargained]
+    flags_unset: [stirred_something, vesna_left, vesna_died]
+  hide_if_failed: true
 
   # α / β / δ — blessed (Vigor +1)
-  - text: |-
-      Go back to the bar.
-    next: bar_settle_up
-    effects:
-      flags:
-        vesna_farewell_done: true
-        vesna_farewell_blessed: true
-        companion_body_honoured: true
-      stats:
-        Vigor: 1
+- text: |-
+    Go back to the bar.
+  next: bar_settle_up
+  effects:
+    flags:
+      vesna_farewell_done: true
+      vesna_farewell_blessed: true
+      companion_body_honoured: true
+    stats:
+      Vigor: 1

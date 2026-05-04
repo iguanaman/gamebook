@@ -1,16 +1,15 @@
 text:
-- Pip runs her fingers along the base of the wall without looking — she's reading
-  it by feel, not sight. She stops at a section of loose stone three feet from the
-  bedroll.
-- female_young_american_lisp: There.
-- 'Behind the block: a leather pouch, four Coin, and a small glass vial with a wax
-  stopper. The liquid inside is clear and slightly luminescent — something from a
-  hedge-witch''s kit, or a scholar''s lab. Not anything dangerous, probably.'
-- female_young_american_lisp: She hid this. Which means she planned to come back.
-    Which is either good news or bad news depending on what she found when she went
-    further.
+- |-
+  Pip runs her fingers along the base of the wall without looking — she's reading it by feel, not sight. She stops at a section of loose stone three feet from the bedroll.
+- female_young_american_lisp: |-
+    There.
+- |-
+  Behind the block: a leather pouch, four Coin, and a small glass vial with a wax stopper. The liquid inside is clear and slightly luminescent — something from a hedge-witch's kit, or a scholar's lab. Not anything dangerous, probably.
+- female_young_american_lisp: |-
+    She hid this. Which means she planned to come back. Which is either good news or bad news depending on what she found when she went further.
 choices:
-- text: Pocket everything. Back to the junction.
+- text: |-
+    Pocket everything. Back to the junction.
   next: act2/upper_levels_hub
   effects:
     flags:

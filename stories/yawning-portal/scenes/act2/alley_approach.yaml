@@ -1,16 +1,16 @@
 text:
-- Wicker Lane runs between a tallow-chandler and a dyer's yard, and it smells like
-  both. Gas-lamps throw orange ovals on the cobblestones. A doorway at the far end
-  — the witness's lodging, according to Pip's fence — has a young Watch officer planted
-  in it like a nail.
-- He sees you coming. His hand finds his truncheon before his brain gets the order.
+- |-
+  Wicker Lane runs between a tallow-chandler and a dyer's yard, and it smells like both. Gas-lamps throw orange ovals on the cobblestones. A doorway at the far end — the witness's lodging, according to Pip's fence — has a young Watch officer planted in it like a nail.
+- |-
+  He sees you coming. His hand finds his truncheon before his brain gets the order.
 - if:
     flags:
     - knows_alley_protector
-  text: The fence named the man who paid for this doorstep. A coin in the officer's
-    pocket, keeping his eyes open and his conscience looking the other way.
+  text: |-
+    The fence named the man who paid for this doorstep. A coin in the officer's pocket, keeping his eyes open and his conscience looking the other way.
 choices:
-- text: Bluff him — you're with the chandler's accountant, tallying the night's wax
+- text: |-
+    Bluff him — you're with the chandler's accountant, tallying the night's wax
   next: alley_witness_room
   requires:
     stats:
@@ -18,7 +18,8 @@ choices:
   effects:
     flags:
       alley_bluffed_watchman: true
-- text: Bribe him — three coin, nothing said
+- text: |-
+    Bribe him — three coin, nothing said
   next: alley_witness_room
   requires:
     stats:
@@ -30,7 +31,8 @@ choices:
       alley_bribed_watchman: true
     stats:
       Coin: -3
-- text: Pip — up the chandler's roof, in through the skylight
+- text: |-
+    Pip — up the chandler's roof, in through the skylight
   next: alley_witness_room
   requires:
     flags:
@@ -43,7 +45,8 @@ choices:
     flags:
       alley_entered_roof: true
       pip_led_entry: true
-- text: Hoist Vesna up to the side window — she'll unlatch from inside
+- text: |-
+    Hoist Vesna up to the side window — she'll unlatch from inside
   next: alley_witness_room
   requires:
     flags:
@@ -55,7 +58,8 @@ choices:
   effects:
     flags:
       alley_entered_window: true
-- text: Through the front. Korsa first.
+- text: |-
+    Through the front. Korsa first.
   next: alley_brawl_open
   requires:
     flags:
@@ -67,7 +71,8 @@ choices:
   effects:
     flags:
       alley_kicked_door: true
-- text: Wait in the shadows — let the toughs come out to you
+- text: |-
+    Wait in the shadows — let the toughs come out to you
   next: alley_brawl_open
   effects:
     flags:

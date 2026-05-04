@@ -1,15 +1,16 @@
 id: act1/client_offer_heard
 text:
-- male_young_american_weak: Her name is Linnet. My apprentice — seventeen, she's been
-    with me three years. Two nights ago some of the regulars here made a bet. Who'd
-    go down the well. She — she took it.
-- He picks at the burn on his thumb.
-- male_young_american_weak: She should've climbed back by now. The Watch won't go.
-    Durnan says it's not his business. I'll pay twenty coin when you bring her out
-    — eight if you come back with just — just proof.
-- He can't finish the sentence. He doesn't try.
+- male_young_american_weak: |-
+    Her name is Linnet. My apprentice — seventeen, she's been with me three years. Two nights ago some of the regulars here made a bet. Who'd go down the well. She — she took it.
+- |-
+  He picks at the burn on his thumb.
+- male_young_american_weak: |-
+    She should've climbed back by now. The Watch won't go. Durnan says it's not his business. I'll pay twenty coin when you bring her out — eight if you come back with just — just proof.
+- |-
+  He can't finish the sentence. He doesn't try.
 choices:
-- text: Back to the table
+- text: |-
+    Back to the table
   next: act1/talk_client
   effects:
     flags:

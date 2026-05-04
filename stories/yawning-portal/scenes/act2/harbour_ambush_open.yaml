@@ -1,98 +1,113 @@
 text:
-  - if: {flags: [found_journal]}
-    text: "The apprentice's journal said something about bulging eyes, the gill-slits, the way they moved in shallow water — wrong, she'd written, wrong like a thing pretending to know how legs work. You know what you're looking at before the first one clears the hatch."
-    else: "They come up from the hold in a rush — not charging, not exactly, more like water finding a level. Three of them. Two are kuo-toa, pale and slick, each eye a separate milky lamp. The third was a man once, still wearing a dock-worker's coat."
-  - if: {flags: [harbour_descended_hold]}
-    text: "You're below-decks when they come, which means there's no sky above you and no rail at your back — just hull and beam and the stink of bilge and the slap of wet feet on planking."
-    else: "They clear the hatch one after another and the deck immediately gets slicker — they trail water the way a river trail mud, and the deck was already greasy with algae."
-  - if: {flags: [harbour_warned]}
-    text: "You're ready. It's still bad."
-    else: "You are not ready. They are faster than they look."
-  - "A kuo-toa hurls itself at your lead companion with both arms, mouth open, teeth too many. The deck lurches as the tide shifts the hull. The harbour is three feet past the rail."
+- if: {flags: [found_journal]}
+  text: |-
+    The apprentice's journal said something about bulging eyes, the gill-slits, the way they moved in shallow water — wrong, she'd written, wrong like a thing pretending to know how legs work. You know what you're looking at before the first one clears the hatch.
+  else: |-
+    They come up from the hold in a rush — not charging, not exactly, more like water finding a level. Three of them. Two are kuo-toa, pale and slick, each eye a separate milky lamp. The third was a man once, still wearing a dock-worker's coat.
+- if: {flags: [harbour_descended_hold]}
+  text: |-
+    You're below-decks when they come, which means there's no sky above you and no rail at your back — just hull and beam and the stink of bilge and the slap of wet feet on planking.
+  else: |-
+    They clear the hatch one after another and the deck immediately gets slicker — they trail water the way a river trail mud, and the deck was already greasy with algae.
+- if: {flags: [harbour_warned]}
+  text: |-
+    You're ready. It's still bad.
+  else: |-
+    You are not ready. They are faster than they look.
+- |-
+  A kuo-toa hurls itself at your lead companion with both arms, mouth open, teeth too many. The deck lurches as the tide shifts the hull. The harbour is three feet past the rail.
+
 
 choices:
-  - text: "Thessaly — a thunder-spell in the tight wood"
-    next:
-      - scene: harbour_win_thessaly_thunder_clean
-        weight: 4
-      - scene: harbour_win_thessaly_thunder_breach
-        weight: 3
-      - scene: harbour_thessaly_falls_overboard
-        weight: 1
-    requires:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died, thessaly_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_thunder: true
+- text: |-
+    Thessaly — a thunder-spell in the tight wood
+  next:
+  - scene: harbour_win_thessaly_thunder_clean
+    weight: 4
+  - scene: harbour_win_thessaly_thunder_breach
+    weight: 3
+  - scene: harbour_thessaly_falls_overboard
+    weight: 1
+  requires:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died, thessaly_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_thunder: true
 
-  - text: "Vesna — radiant burst, the water-things hate the light"
-    next:
-      - scene: harbour_win_vesna_radiant_clean
-        weight: 5
-      - scene: harbour_win_vesna_radiant_costly
-        weight: 3
-      - scene: harbour_vesna_drowns
-        weight: 1
-    requires:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_radiant: true
+- text: |-
+    Vesna — radiant burst, the water-things hate the light
+  next:
+  - scene: harbour_win_vesna_radiant_clean
+    weight: 5
+  - scene: harbour_win_vesna_radiant_costly
+    weight: 3
+  - scene: harbour_vesna_drowns
+    weight: 1
+  requires:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_radiant: true
 
-  - text: "Pip — the man in the dock-coat, decisive, before he turns the thralls loose"
-    next:
-      - scene: harbour_win_pip_assassinate
-        weight: 5
-      - scene: harbour_win_pip_costly
-        weight: 3
-      - scene: harbour_pip_drowns
-        weight: 1
-    requires:
-      flags: [recruited_pip]
-      flags_unset: [pip_died, pip_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_assassinate: true
+- text: |-
+    Pip — the man in the dock-coat, decisive, before he turns the thralls loose
+  next:
+  - scene: harbour_win_pip_assassinate
+    weight: 5
+  - scene: harbour_win_pip_costly
+    weight: 3
+  - scene: harbour_pip_drowns
+    weight: 1
+  requires:
+    flags: [recruited_pip]
+    flags_unset: [pip_died, pip_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_assassinate: true
 
-  - text: "Korsa — hold the gangway, nothing gets off this boat"
-    next:
-      - scene: harbour_win_korsa_gangway
-        weight: 4
-      - scene: harbour_win_korsa_gangway_bloodied
-        weight: 4
-      - scene: harbour_korsa_drowns
-        weight: 1
-    requires:
-      flags: [recruited_korsa]
-      flags_unset: [korsa_died, korsa_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_gangway: true
+- text: |-
+    Korsa — hold the gangway, nothing gets off this boat
+  next:
+  - scene: harbour_win_korsa_gangway
+    weight: 4
+  - scene: harbour_win_korsa_gangway_bloodied
+    weight: 4
+  - scene: harbour_korsa_drowns
+    weight: 1
+  requires:
+    flags: [recruited_korsa]
+    flags_unset: [korsa_died, korsa_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_gangway: true
 
-  - text: "Steel and spell — both feet planted, see it through"
-    next:
-      - scene: harbour_win_straight
-        weight: 4
-      - scene: harbour_win_straight_bloodied
-        weight: 4
-      - scene: harbour_companion_drowns_random
-        weight: 1
-    effects:
-      flags:
-        tactic_straight_harbour: true
+- text: |-
+    Steel and spell — both feet planted, see it through
+  next:
+  - scene: harbour_win_straight
+    weight: 4
+  - scene: harbour_win_straight_bloodied
+    weight: 4
+  - scene: harbour_companion_drowns_random
+    weight: 1
+  effects:
+    flags:
+      tactic_straight_harbour: true
 
-  - text: "Over the rail — swim for the next quay"
-    next: harbour_flee
-    requires:
-      stats:
-        Vigor: 4
-    failed_text: "*(Vigor 4 required — you're not sure you'd make the swim)*"
-    effects:
-      flags:
-        harbour_fled: true
+- text: |-
+    Over the rail — swim for the next quay
+  next: harbour_flee
+  requires:
+    stats:
+      Vigor: 4
+  failed_text: |-
+    *(Vigor 4 required — you're not sure you'd make the swim)*
+  effects:
+    flags:
+      harbour_fled: true

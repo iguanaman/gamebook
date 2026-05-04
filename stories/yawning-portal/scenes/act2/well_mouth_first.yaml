@@ -1,108 +1,129 @@
-journal: "You landed at the bottom of Durnan's well. Cold stone underfoot. The rope above you, the dark below. Undermountain."
+journal: |-
+  You landed at the bottom of Durnan's well. Cold stone underfoot. The rope above you, the dark below. Undermountain.
+
 
 text:
-  - "The shaft narrows at the bottom into a vaulted antechamber — a staging area, you realise, deliberately cut. Rough-hewn iron rings in the wall where a lantern can hang. The rope's anchor-point above you is a massive iron bolt, centuries old, dressed with tallow to keep the fraying off."
-  - "There is no door. The way into the upper levels is an archway cut in the far wall, no gate, no guard, the dark beyond it absolute and patient."
-  - if:
-      flags:
-        - recruited_korsa
-        - recruited_vesna
-    text: "Korsa hangs the lantern on its ring without being asked and unlatches the axe from his back in one motion. Vesna crouches beside the anchor-bolt and places her palm against it — the way you would check a wound. 'Old iron holds,' she says. 'Tymora willing, it holds coming back up as well.'"
-  - if:
-      flags:
-        - recruited_korsa
-        - recruited_pip
-    text: "Korsa tests the lantern-ring with a knock of his fist, then hangs the light. Pip has already moved to the archway. She does not go through it. She stands at the edge of the dark and counts something — two steps, three, a distance she is memorising."
-  - if:
-      flags:
-        - recruited_korsa
-        - recruited_thessaly
-    text: "Korsa takes the perimeter at a professional pace, checking the corners. Thessaly stands in the centre of the antechamber and turns a slow quarter-circle, reading the air. 'Something has been here recently,' she says. 'Not us.'"
-  - if:
-      flags:
-        - recruited_vesna
-        - recruited_pip
-    text: "Vesna holds the lantern at arm's length and reads the walls — scratches, old scratches, one fresh. She mouths a name that isn't Linnet's. Pip is two steps ahead and checking the archway's frame for wire, for thread, for anything that shouldn't be there."
-  - if:
-      flags:
-        - recruited_vesna
-        - recruited_thessaly
-    text: "Vesna traces the shape of a coin in the dust with one finger — a quick prayer, private. Thessaly watches the archway. After a moment she says, very quietly, 'The runes at the arch are old. Older than the Portal. Someone carved them before Durnan was born.' She does not say what they mean."
-  - if:
-      flags:
-        - recruited_pip
-        - recruited_thessaly
-    text: "Pip checks the walls for handholds and marks the rope with a knot of her own at chest-height. 'So we know where the bottom is,' she says, 'when we're coming back blind.' Thessaly watches the archway and doesn't argue."
-  - "The antechamber smells of cold water and old flame. Someone has been here before you — the lantern-ring is freshly greased, the floor swept clear of loose stone. Whoever did it left no name."
-  - if: visited
-    text: "The antechamber looks the same as you left it. The rope, the ring, the archway. The dark beyond it, unimpressed by your return."
+- |-
+  The shaft narrows at the bottom into a vaulted antechamber — a staging area, you realise, deliberately cut. Rough-hewn iron rings in the wall where a lantern can hang. The rope's anchor-point above you is a massive iron bolt, centuries old, dressed with tallow to keep the fraying off.
+- |-
+  There is no door. The way into the upper levels is an archway cut in the far wall, no gate, no guard, the dark beyond it absolute and patient.
+- if:
+    flags:
+    - recruited_korsa
+    - recruited_vesna
+  text: |-
+    Korsa hangs the lantern on its ring without being asked and unlatches the axe from his back in one motion. Vesna crouches beside the anchor-bolt and places her palm against it — the way you would check a wound. 'Old iron holds,' she says. 'Tymora willing, it holds coming back up as well.'
+- if:
+    flags:
+    - recruited_korsa
+    - recruited_pip
+  text: |-
+    Korsa tests the lantern-ring with a knock of his fist, then hangs the light. Pip has already moved to the archway. She does not go through it. She stands at the edge of the dark and counts something — two steps, three, a distance she is memorising.
+- if:
+    flags:
+    - recruited_korsa
+    - recruited_thessaly
+  text: |-
+    Korsa takes the perimeter at a professional pace, checking the corners. Thessaly stands in the centre of the antechamber and turns a slow quarter-circle, reading the air. 'Something has been here recently,' she says. 'Not us.'
+- if:
+    flags:
+    - recruited_vesna
+    - recruited_pip
+  text: |-
+    Vesna holds the lantern at arm's length and reads the walls — scratches, old scratches, one fresh. She mouths a name that isn't Linnet's. Pip is two steps ahead and checking the archway's frame for wire, for thread, for anything that shouldn't be there.
+- if:
+    flags:
+    - recruited_vesna
+    - recruited_thessaly
+  text: |-
+    Vesna traces the shape of a coin in the dust with one finger — a quick prayer, private. Thessaly watches the archway. After a moment she says, very quietly, 'The runes at the arch are old. Older than the Portal. Someone carved them before Durnan was born.' She does not say what they mean.
+- if:
+    flags:
+    - recruited_pip
+    - recruited_thessaly
+  text: |-
+    Pip checks the walls for handholds and marks the rope with a knot of her own at chest-height. 'So we know where the bottom is,' she says, 'when we're coming back blind.' Thessaly watches the archway and doesn't argue.
+- |-
+  The antechamber smells of cold water and old flame. Someone has been here before you — the lantern-ring is freshly greased, the floor swept clear of loose stone. Whoever did it left no name.
+- if: visited
+  text: |-
+    The antechamber looks the same as you left it. The rope, the ring, the archway. The dark beyond it, unimpressed by your return.
+
 
 choices:
-  - text: "Climb back up — head into the Trades Ward first."
-    next: act2/spoke_hub
-    requires:
-      flags_unset:
-        - committed_descent
+- text: |-
+    Climb back up — head into the Trades Ward first.
+  next: act2/spoke_hub
+  requires:
+    flags_unset:
+    - committed_descent
 
-  - text: "Go straight down — no city leads, just the well."
-    next: act2/descent_cold_warning
-    requires:
-      flags_unset:
-        - alley_spoke_done
-        - harbour_spoke_done
-        - committed_descent
+- text: |-
+    Go straight down — no city leads, just the well.
+  next: act2/descent_cold_warning
+  requires:
+    flags_unset:
+    - alley_spoke_done
+    - harbour_spoke_done
+    - committed_descent
 
-  - text: "A word with Korsa before the archway."
-    next: act2/well_mouth_word_first_korsa
-    requires:
-      flags:
-        - recruited_korsa
-      flags_unset:
-        - korsa_died
-        - spoke_to_korsa_at_well_first
-    hide_if_failed: true
+- text: |-
+    A word with Korsa before the archway.
+  next: act2/well_mouth_word_first_korsa
+  requires:
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
+    - spoke_to_korsa_at_well_first
+  hide_if_failed: true
 
-  - text: "A word with Vesna before the archway."
-    next: act2/well_mouth_word_first_vesna
-    requires:
-      flags:
-        - recruited_vesna
-      flags_unset:
-        - vesna_died
-        - spoke_to_vesna_at_well_first
-    hide_if_failed: true
+- text: |-
+    A word with Vesna before the archway.
+  next: act2/well_mouth_word_first_vesna
+  requires:
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - spoke_to_vesna_at_well_first
+  hide_if_failed: true
 
-  - text: "A word with Pip before the archway."
-    next: act2/well_mouth_word_first_pip
-    requires:
-      flags:
-        - recruited_pip
-      flags_unset:
-        - pip_died
-        - spoke_to_pip_at_well_first
-    hide_if_failed: true
+- text: |-
+    A word with Pip before the archway.
+  next: act2/well_mouth_word_first_pip
+  requires:
+    flags:
+    - recruited_pip
+    flags_unset:
+    - pip_died
+    - spoke_to_pip_at_well_first
+  hide_if_failed: true
 
-  - text: "A word with Thessaly before the archway."
-    next: act2/well_mouth_word_first_thessaly
-    requires:
-      flags:
-        - recruited_thessaly
-      flags_unset:
-        - thessaly_died
-        - spoke_to_thessaly_at_well_first
-    hide_if_failed: true
+- text: |-
+    A word with Thessaly before the archway.
+  next: act2/well_mouth_word_first_thessaly
+  requires:
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
+    - spoke_to_thessaly_at_well_first
+  hide_if_failed: true
 
-  - text: "Test the rope — make sure it's secure."
-    next: act2/well_mouth_first
-    requires:
-      flags_unset:
-        - tested_rope_below
-    effects:
-      flags:
-        tested_rope_below: true
+- text: |-
+    Test the rope — make sure it's secure.
+  next: act2/well_mouth_first
+  requires:
+    flags_unset:
+    - tested_rope_below
+  effects:
+    flags:
+      tested_rope_below: true
 
-  - text: "Through the archway. Into Undermountain."
-    next: act2/descent
-    effects:
-      flags:
-        committed_descent: true
+- text: |-
+    Through the archway. Into Undermountain.
+  next: act2/descent
+  effects:
+    flags:
+      committed_descent: true

@@ -1,13 +1,13 @@
 text:
-- male_midlife_british_tough_calloused: Three Coin up front. Half whatever we bring
-    out of the deep that belongs to nobody — you decide what qualifies. And a drink
-    after, if we're both standing.
-- He doesn't look like he's negotiating.
-- male_midlife_british_tough_calloused: I don't haggle. You either think I'm worth
-    three Coin or you find someone cheaper. I've seen what cheaper looks like in a
-    tunnel.
+- male_midlife_british_tough_calloused: |-
+    Three Coin up front. Half whatever we bring out of the deep that belongs to nobody — you decide what qualifies. And a drink after, if we're both standing.
+- |-
+  He doesn't look like he's negotiating.
+- male_midlife_british_tough_calloused: |-
+    I don't haggle. You either think I'm worth three Coin or you find someone cheaper. I've seen what cheaper looks like in a tunnel.
 choices:
-- text: Back to Korsa
+- text: |-
+    Back to Korsa
   next: talk_korsa
   effects:
     flags:

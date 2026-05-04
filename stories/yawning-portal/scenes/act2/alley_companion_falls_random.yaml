@@ -1,10 +1,11 @@
 text:
-- The fight wins. You win. And one of you doesn't walk back out.
-- The toughs are practiced at what they do. A boarding-pike finding the gap in armour,
-  a cudgel on a skull at the wrong angle, a blade for the one who isn't holding steel
-  — they only need one moment to go right. They get it.
+- |-
+  The fight wins. You win. And one of you doesn't walk back out.
+- |-
+  The toughs are practiced at what they do. A boarding-pike finding the gap in armour, a cudgel on a skull at the wrong angle, a blade for the one who isn't holding steel — they only need one moment to go right. They get it.
 choices:
-- text: Korsa is down — carry him out, or leave him
+- text: |-
+    Korsa is down — carry him out, or leave him
   next:
   - scene: alley_korsa_falls
     weight: 1

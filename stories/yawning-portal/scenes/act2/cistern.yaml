@@ -1,53 +1,66 @@
 text:
-  - "The left passage opens into a vaulted room large enough that the ceiling is black above the lantern's reach. Water covers the floor to knee-depth — still, cold, absolutely black."
-  - "A stone bridge runs from here to a far ledge, but the middle three feet have dropped into the water. On the far ledge, in the lantern's longest throw: a pillar with something carved into it. A glyph. A large one."
-  - "The water makes no sound. It should, with you moving through it, but it doesn't."
-  - if:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died]
-    text:
-      - female_adult_american_sultry_villainous: "The glyph on that pillar. The notation style."
-      - "She stops. Touches her horn-tip with two fingers — a habit she has when something is wrong."
-      - female_adult_american_sultry_villainous: "I know that hand."
+- |-
+  The left passage opens into a vaulted room large enough that the ceiling is black above the lantern's reach. Water covers the floor to knee-depth — still, cold, absolutely black.
+- |-
+  A stone bridge runs from here to a far ledge, but the middle three feet have dropped into the water. On the far ledge, in the lantern's longest throw: a pillar with something carved into it. A glyph. A large one.
+- |-
+  The water makes no sound. It should, with you moving through it, but it doesn't.
+- if:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died]
+  text:
+  - female_adult_american_sultry_villainous: |-
+      The glyph on that pillar. The notation style.
+  - |-
+    She stops. Touches her horn-tip with two fingers — a habit she has when something is wrong.
+  - female_adult_american_sultry_villainous: |-
+      I know that hand.
+
 
 choices:
-  - text: "Pip across the rafters — see what's on the far side"
-    next: act2/cistern_pip_scout
-    requires:
-      flags: [recruited_pip]
-      flags_unset: [pip_died, pip_left]
-    hide_if_failed: true
+- text: |-
+    Pip across the rafters — see what's on the far side
+  next: act2/cistern_pip_scout
+  requires:
+    flags: [recruited_pip]
+    flags_unset: [pip_died, pip_left]
+  hide_if_failed: true
 
-  - text: "Korsa wedges the bridge stable — cross it together"
-    next: act2/cistern_korsa_bridge
-    requires:
-      flags: [recruited_korsa]
-      flags_unset: [korsa_died, korsa_left]
-    hide_if_failed: true
+- text: |-
+    Korsa wedges the bridge stable — cross it together
+  next: act2/cistern_korsa_bridge
+  requires:
+    flags: [recruited_korsa]
+    flags_unset: [korsa_died, korsa_left]
+  hide_if_failed: true
 
-  - text: "Vesna — toss the coin, see what the glyph wants"
-    next: act2/cistern_vesna_glyph
-    requires:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left]
-    hide_if_failed: true
+- text: |-
+    Vesna — toss the coin, see what the glyph wants
+  next: act2/cistern_vesna_glyph
+  requires:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  hide_if_failed: true
 
-  - text: "Thessaly — read the rune-school on that pillar"
-    next: act2/cistern_thessaly_rune
-    requires:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died, thessaly_left]
-    hide_if_failed: true
+- text: |-
+    Thessaly — read the rune-school on that pillar
+  next: act2/cistern_thessaly_rune
+  requires:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died, thessaly_left]
+  hide_if_failed: true
 
-  - text: "Wade across — Vigor first, worry later"
-    next: act2/cistern_wade
-    requires:
-      stats:
-        Vigor: 4
+- text: |-
+    Wade across — Vigor first, worry later
+  next: act2/cistern_wade
+  requires:
+    stats:
+      Vigor: 4
 
-  - text: "Leave it — the bridge isn't worth the cold"
-    next: act2/upper_levels_hub
-    effects:
-      flags:
-        cistern_resolved: true
-        cistern_skipped: true
+- text: |-
+    Leave it — the bridge isn't worth the cold
+  next: act2/upper_levels_hub
+  effects:
+    flags:
+      cistern_resolved: true
+      cistern_skipped: true

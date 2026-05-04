@@ -1,17 +1,20 @@
 id: act1/mirt_loan_refuse
 text:
-- You decline. Politely, but without much hesitation.
-- He reads you for a moment. Then he laughs — genuine, not performed.
-- male_midlife_american_loud_confident_cocky: '[laugh] Good. Good answer. You''d be
-    surprised how many people take the money before they''ve thought about what the
-    favour costs. Which is to say — spine is undervalued in this city.'
-- He raises his tankard in a small toast.
-- male_midlife_american_loud_confident_cocky: The offer stands if you change your
-    mind before you go down. But I suspect you won't, and I suspect I respect that.
-- The associates don't know what to do with this. Mirt has apparently approved of
-  someone who turned him down. They file it away.
+- |-
+  You decline. Politely, but without much hesitation.
+- |-
+  He reads you for a moment. Then he laughs — genuine, not performed.
+- male_midlife_american_loud_confident_cocky: |-
+    [laugh] Good. Good answer. You'd be surprised how many people take the money before they've thought about what the favour costs. Which is to say — spine is undervalued in this city.
+- |-
+  He raises his tankard in a small toast.
+- male_midlife_american_loud_confident_cocky: |-
+    The offer stands if you change your mind before you go down. But I suspect you won't, and I suspect I respect that.
+- |-
+  The associates don't know what to do with this. Mirt has apparently approved of someone who turned him down. They file it away.
 choices:
-- text: Back to Mirt
+- text: |-
+    Back to Mirt
   next: act1/talk_mirt
   effects:
     flags:

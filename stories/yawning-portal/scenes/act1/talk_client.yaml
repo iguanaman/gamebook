@@ -1,48 +1,58 @@
 id: act1/talk_client
 text:
-- His collar is inside out. He doesn't know. He turns the ring on his finger when
-  your eyes meet — once, twice — then stops himself.
-- male_young_american_weak: You're — you look like someone who goes places. Someone
-    who can — sorry. Joren Wexley. Bookbinder, Inkwater Lane. I need to hire someone.
-- He says it like the word costs him something.
+- |-
+  His collar is inside out. He doesn't know. He turns the ring on his finger when your eyes meet — once, twice — then stops himself.
+- male_young_american_weak: |-
+    You're — you look like someone who goes places. Someone who can — sorry. Joren Wexley. Bookbinder, Inkwater Lane. I need to hire someone.
+- |-
+  He says it like the word costs him something.
 choices:
-- text: Hear him out
+- text: |-
+    Hear him out
   next: act1/client_offer_heard
   requires:
     flags_unset:
     - heard_offer
-- text: Ask who's missing
+- text: |-
+    Ask who's missing
   next: act1/client_topic_apprentice
   requires:
     flags_unset:
     - asked_about_apprentice
-- text: Ask about the dare
+- text: |-
+    Ask about the dare
   next: act1/client_topic_dare
   requires:
     flags_unset:
     - asked_about_dare
-- text: Ask about the harbour
+- text: |-
+    Ask about the harbour
   next: act1/client_topic_harbour
   requires:
     flags_unset:
     - heard_about_harbour
-- text: Ask about a witness
+- text: |-
+    Ask about a witness
   next: act1/client_topic_alley
   requires:
     flags_unset:
     - heard_about_alley_witness
-- text: Ask what the family will pay
+- text: |-
+    Ask what the family will pay
   next: act1/client_topic_pay
   requires:
     flags_unset:
     - asked_about_pay
-- text: Talk terms
+- text: |-
+    Talk terms
   next: act1/take_job_decide
   requires:
     flags:
     - heard_offer
     flags_unset:
     - job_taken
-  failure_text: '[Hear him out first]'
-- text: Tell him you'll think on it
+  failure_text: |-
+    [Hear him out first]
+- text: |-
+    Tell him you'll think on it
   next: act1/common_room

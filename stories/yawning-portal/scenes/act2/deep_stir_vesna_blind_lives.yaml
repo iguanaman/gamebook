@@ -1,16 +1,22 @@
 text:
-  - "She is blind for the length of the climb — you guide her hand-over-hand up the rope, Linnet just below, the sound from the well getting quieter as you ascend."
-  - "At the top, Vesna blinks. Once. Twice. The white fades."
-  - female_adult_american_gentle_tender_sweet: "Lady Luck willing — [sigh] — there it is. There's the light."
-  - "She means it. She is genuinely grateful for the light."
+- |-
+  She is blind for the length of the climb — you guide her hand-over-hand up the rope, Linnet just below, the sound from the well getting quieter as you ascend.
+- |-
+  At the top, Vesna blinks. Once. Twice. The white fades.
+- female_adult_american_gentle_tender_sweet: |-
+    Lady Luck willing — [sigh] — there it is. There's the light.
+- |-
+  She means it. She is genuinely grateful for the light.
+
 
 choices:
-  - text: "Climb"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        stirred_something: true
-        vesna_drained: true
-      stats:
-        Vigor: -3
+- text: |-
+    Climb
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      stirred_something: true
+      vesna_drained: true
+    stats:
+      Vigor: -3

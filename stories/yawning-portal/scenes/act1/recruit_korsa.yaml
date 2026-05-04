@@ -1,16 +1,21 @@
-journal: You hired Korsa Ironbrow. He took the three Coin without counting them.
+journal: |-
+  You hired Korsa Ironbrow. He took the three Coin without counting them.
 text:
-- You lay three Coin on the bench between you.
-- male_midlife_british_tough_calloused: Right.
-- He pockets the coin without counting it and extends his hand, palm up. Not a shake
-  — axe-haft to palm. An escort's seal. You press yours to it.
-- Across the room, someone notices. The quiet changes register — not louder, but differently
-  weighted. You have a party now, or the start of one.
-- male_midlife_british_tough_calloused: Tell me when you're ready. I'll be here.
-- He goes back to his ale as though nothing has happened. His eyes, however, have
-  already started moving differently — counting exits, reading the room.
+- |-
+  You lay three Coin on the bench between you.
+- male_midlife_british_tough_calloused: |-
+    Right.
+- |-
+  He pockets the coin without counting it and extends his hand, palm up. Not a shake — axe-haft to palm. An escort's seal. You press yours to it.
+- |-
+  Across the room, someone notices. The quiet changes register — not louder, but differently weighted. You have a party now, or the start of one.
+- male_midlife_british_tough_calloused: |-
+    Tell me when you're ready. I'll be here.
+- |-
+  He goes back to his ale as though nothing has happened. His eyes, however, have already started moving differently — counting exits, reading the room.
 choices:
-- text: Back to the room
+- text: |-
+    Back to the room
   next: common_room
   effects:
     flags:

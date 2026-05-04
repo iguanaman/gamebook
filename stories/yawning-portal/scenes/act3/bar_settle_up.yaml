@@ -1,131 +1,131 @@
 text:
   # Return visit — the room has settled back to its own noise
-  - if: visited
-    text: |-
-      The bar again. Durnan's polishing cloth moves in slow circles. The room has recovered
-      its voice, mostly — the well is still there at the room's centre, and everyone is
-      performing not-looking at it with moderate success.
+- if: visited
+  text: |-
+    The bar again. Durnan's polishing cloth moves in slow circles. The room has recovered
+    its voice, mostly — the well is still there at the room's centre, and everyone is
+    performing not-looking at it with moderate success.
 
   # Joren still present (client not yet resolved, not stirred)
-  - if:
-      flags_unset: [client_handed_over, stirred_something]
-    text: |-
-      Joren is still at his corner table. The cup has been refilled by someone with charitable
-      instincts; he isn't drinking it.
+- if:
+    flags_unset: [client_handed_over, stirred_something]
+  text: |-
+    Joren is still at his corner table. The cup has been refilled by someone with charitable
+    instincts; he isn't drinking it.
 
   # ε — Joren's corner is uncertain (stirred, client not resolved)
-  - if:
-      flags: [stirred_something]
-      flags_unset: [client_handed_over]
-    text: |-
-      Joren's corner table — the cup is there, the chair pushed half out. He was there when
-      you came up the rope. The room has been thinning since, and he may have gone with it.
+- if:
+    flags: [stirred_something]
+    flags_unset: [client_handed_over]
+  text: |-
+    Joren's corner table — the cup is there, the chair pushed half out. He was there when
+    you came up the rope. The room has been thinning since, and he may have gone with it.
 
   # Mirt signals — if he's present, owes a favour, Renown qualifies, and hasn't offered yet
-  - if:
-      flags: [mirt_owes_favour]
-      stats:
-        Renown: 1
-      flags_unset: [mirt_offer_resolved, stirred_something]
-    text: |-
-      Across the room, Mirt lifts his tankard half an inch in your direction. Not a toast —
-      a question. The fire behind him is the only warm thing in that corner right now.
+- if:
+    flags: [mirt_owes_favour]
+    stats:
+      Renown: 1
+    flags_unset: [mirt_offer_resolved, stirred_something]
+  text: |-
+    Across the room, Mirt lifts his tankard half an inch in your direction. Not a toast —
+    a question. The fire behind him is the only warm thing in that corner right now.
 
 choices:
   # Client handover — one-shot (handles fled case in prose inside the scene)
-  - text: |-
-      Find Joren — or what he left behind.
-    next: client_handover
-    requires:
-      flags_unset: [client_handed_over]
+- text: |-
+    Find Joren — or what he left behind.
+  next: client_handover
+  requires:
+    flags_unset: [client_handed_over]
 
   # Durnan — one-shot
-  - text: |-
-      A word with Durnan.
-    next: durnan_final
-    requires:
-      flags_unset: [durnan_final_done]
+- text: |-
+    A word with Durnan.
+  next: durnan_final
+  requires:
+    flags_unset: [durnan_final_done]
 
   # Companion farewells — each hidden if dead, absent, or already done
-  - text: |-
-      A word with Korsa.
-    next: farewell_korsa
-    requires:
-      flags: [recruited_korsa]
-      flags_unset: [korsa_died, korsa_farewell_done]
-    hide_if_failed: true
+- text: |-
+    A word with Korsa.
+  next: farewell_korsa
+  requires:
+    flags: [recruited_korsa]
+    flags_unset: [korsa_died, korsa_farewell_done]
+  hide_if_failed: true
 
-  - text: |-
-      A word with Vesna.
-    next: farewell_vesna
-    requires:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_farewell_done]
-    hide_if_failed: true
+- text: |-
+    A word with Vesna.
+  next: farewell_vesna
+  requires:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_farewell_done]
+  hide_if_failed: true
 
-  - text: |-
-      A word with Pip.
-    next: farewell_pip
-    requires:
-      flags: [recruited_pip]
-      flags_unset: [pip_died, pip_farewell_done]
-    hide_if_failed: true
+- text: |-
+    A word with Pip.
+  next: farewell_pip
+  requires:
+    flags: [recruited_pip]
+    flags_unset: [pip_died, pip_farewell_done]
+  hide_if_failed: true
 
-  - text: |-
-      A word with Thessaly.
-    next: farewell_thessaly
-    requires:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died, thessaly_farewell_done]
-    hide_if_failed: true
+- text: |-
+    A word with Thessaly.
+  next: farewell_thessaly
+  requires:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died, thessaly_farewell_done]
+  hide_if_failed: true
 
   # Mirt cross-over — gated by real conditions (no intermediate flag needed)
-  - text: |-
-      Cross to Mirt's table — he's lifted his tankard at you.
-    next: mirt_offer
-    requires:
-      flags: [mirt_owes_favour]
-      stats:
-        Renown: 1
-      flags_unset: [mirt_offer_resolved, stirred_something]
-    hide_if_failed: true
+- text: |-
+    Cross to Mirt's table — he's lifted his tankard at you.
+  next: mirt_offer
+  requires:
+    flags: [mirt_owes_favour]
+    stats:
+      Renown: 1
+    flags_unset: [mirt_offer_resolved, stirred_something]
+  hide_if_failed: true
 
   # Pay tab — optional Renown move
-  - text: |-
-      Pay the night's tab unprompted.
-    next: pay_tab_unprompted
-    requires:
-      stats:
-        Coin: 2
-      flags_unset: [paid_tab_unprompted, durnan_respects_you]
-    failed_text: |-
-      *(Not enough coin — the tab will have to wait.)*
+- text: |-
+    Pay the night's tab unprompted.
+  next: pay_tab_unprompted
+  requires:
+    stats:
+      Coin: 2
+    flags_unset: [paid_tab_unprompted, durnan_respects_you]
+  failed_text: |-
+    *(Not enough coin — the tab will have to wait.)*
 
   # Stand a round — high-Renown move
-  - text: |-
-      Stand a round for the regulars.
-    next: stand_a_round
-    requires:
-      stats:
-        Coin: 1
-        Renown: 3
-      flags_unset: [stood_a_round]
-    failed_text: |-
-      *(The room doesn't know you well enough for the gesture to land yet.)*
+- text: |-
+    Stand a round for the regulars.
+  next: stand_a_round
+  requires:
+    stats:
+      Coin: 1
+      Renown: 3
+    flags_unset: [stood_a_round]
+  failed_text: |-
+    *(The room doesn't know you well enough for the gesture to land yet.)*
 
   # Close the books — requires client resolved
-  - text: |-
-      Close the books — sit into the night.
-    next: closing_books
-    requires:
-      flags: [client_handed_over]
-    failed_text: |-
-      *(Settle the apprentice's fate first.)*
+- text: |-
+    Close the books — sit into the night.
+  next: closing_books
+  requires:
+    flags: [client_handed_over]
+  failed_text: |-
+    *(Settle the apprentice's fate first.)*
 
   # Walk out — always available
-  - text: |-
-      Walk to the door without settling.
-    next: walk_out
-    effects:
-      flags:
-        left_without_settling: true
+- text: |-
+    Walk to the door without settling.
+  next: walk_out
+  effects:
+    flags:
+      left_without_settling: true

@@ -1,22 +1,25 @@
 text:
-- female_young_american_lisp: Right. Three things, and I'm only telling you because
-    you look like you're actually going down and not just talking about it.
-- She holds up a finger.
-- female_young_american_lisp: One. Rat-king in the upper east tunnels. Not one big
-    rat — a knot of them, tails tied, moving as a unit. Four feet across. Easy to
-    kill if you're prepared, fatal if you're not.
-- Second finger.
-- female_young_american_lisp: Two. Flooded chamber past the first split. Knee-deep,
-    cold as a debt. Whatever's on the other side of it is worth getting wet for, according
-    to the last team who came back — and they only sent two back.
-- Third finger.
-- female_young_american_lisp: Three. There is a door on the lower passage that nobody
-    has opened. Not for lack of trying. Twelve picks from six different hands, and
-    it's still shut. I mention this as a professional curiosity.
-- She lowers her hand.
-- female_young_american_lisp: Don't ask me which door. I haven't been down. Yet.
+- female_young_american_lisp: |-
+    Right. Three things, and I'm only telling you because you look like you're actually going down and not just talking about it.
+- |-
+  She holds up a finger.
+- female_young_american_lisp: |-
+    One. Rat-king in the upper east tunnels. Not one big rat — a knot of them, tails tied, moving as a unit. Four feet across. Easy to kill if you're prepared, fatal if you're not.
+- |-
+  Second finger.
+- female_young_american_lisp: |-
+    Two. Flooded chamber past the first split. Knee-deep, cold as a debt. Whatever's on the other side of it is worth getting wet for, according to the last team who came back — and they only sent two back.
+- |-
+  Third finger.
+- female_young_american_lisp: |-
+    Three. There is a door on the lower passage that nobody has opened. Not for lack of trying. Twelve picks from six different hands, and it's still shut. I mention this as a professional curiosity.
+- |-
+  She lowers her hand.
+- female_young_american_lisp: |-
+    Don't ask me which door. I haven't been down. Yet.
 choices:
-- text: Back to Pip
+- text: |-
+    Back to Pip
   next: talk_pip
   effects:
     flags:

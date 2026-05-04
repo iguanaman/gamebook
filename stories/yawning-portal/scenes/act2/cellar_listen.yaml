@@ -1,24 +1,33 @@
 text:
-  - "You press your ear to the iron. The metal is cold enough to ache."
-  - "Three sounds, layered: a slow wet dragging, something heavy being repositioned; a low click that repeats on an interval too regular to be accidental; and something that is either a voice or the memory of one — a syllable pattern on the edge of language, resolving and dissolving."
-  - "Then a laugh. Short. Genuine, almost. The laugh of someone finding a correct answer."
-  - "It doesn't sound like the apprentice."
-  - if:
-      flags: [recruited_thessaly]
-      flags_unset: [thessaly_died]
-    text:
-      - female_adult_american_sultry_villainous: "The cadence. That isn't a person's laugh — it's an *impression* of one. Something that learned the shape of it."
-      - "She says it quietly and does not elaborate."
-  - if:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left]
-    text:
-      - female_adult_american_gentle_tender_sweet: "[sigh] Tymora keep us steady."
+- |-
+  You press your ear to the iron. The metal is cold enough to ache.
+- |-
+  Three sounds, layered: a slow wet dragging, something heavy being repositioned; a low click that repeats on an interval too regular to be accidental; and something that is either a voice or the memory of one — a syllable pattern on the edge of language, resolving and dissolving.
+- |-
+  Then a laugh. Short. Genuine, almost. The laugh of someone finding a correct answer.
+- |-
+  It doesn't sound like the apprentice.
+- if:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died]
+  text:
+  - female_adult_american_sultry_villainous: |-
+      The cadence. That isn't a person's laugh — it's an *impression* of one. Something that learned the shape of it.
+  - |-
+    She says it quietly and does not elaborate.
+- if:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  text:
+  - female_adult_american_gentle_tender_sweet: |-
+      [sigh] Tymora keep us steady.
+
 
 choices:
-  - text: "Back to the door."
-    next: act2/cellar_door
-    effects:
-      flags:
-        cellar_listened: true
-        heard_thing_voice: true
+- text: |-
+    Back to the door.
+  next: act2/cellar_door
+  effects:
+    flags:
+      cellar_listened: true
+      heard_thing_voice: true

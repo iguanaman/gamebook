@@ -1,15 +1,24 @@
 text:
-  - "Korsa is at the lantern, adjusting the wick. He does not turn around when you approach."
-  - male_midlife_british_tough_calloused: "Already had the word-at-the-well upstairs. You need another one?"
-  - "He says it without edge — genuine question. You say you do."
-  - "He turns. The lantern throws one side of his face gold, the other shadow. He looks at the anchor-bolt in the ceiling for a moment, then at you."
-  - male_midlife_british_tough_calloused: "My brother's shaft, it was a collapse. Rotten timber. Nobody's fault. Still went looking anyway, after, for someone to make it someone's fault." He pauses. "Didn't find one. What I found instead was — I still went. Even knowing how it ended. That counts for something."
-  - "He picks up his axe."
-  - male_midlife_british_tough_calloused: "That's all. The job's the job. Let's do it."
+- |-
+  Korsa is at the lantern, adjusting the wick. He does not turn around when you approach.
+- male_midlife_british_tough_calloused: |-
+    Already had the word-at-the-well upstairs. You need another one?
+- |-
+  He says it without edge — genuine question. You say you do.
+- |-
+  He turns. The lantern throws one side of his face gold, the other shadow. He looks at the anchor-bolt in the ceiling for a moment, then at you.
+- male_midlife_british_tough_calloused: |-
+    "My brother's shaft, it was a collapse. Rotten timber. Nobody's fault. Still went looking anyway, after, for someone to make it someone's fault." He pauses. "Didn't find one. What I found instead was — I still went. Even knowing how it ended. That counts for something."
+- |-
+  He picks up his axe.
+- male_midlife_british_tough_calloused: |-
+    That's all. The job's the job. Let's do it.
+
 
 choices:
-  - text: "Back to the well-mouth."
-    next: act2/well_mouth_first
-    effects:
-      flags:
-        spoke_to_korsa_at_well_first: true
+- text: |-
+    Back to the well-mouth.
+  next: act2/well_mouth_first
+  effects:
+    flags:
+      spoke_to_korsa_at_well_first: true

@@ -1,23 +1,32 @@
 text:
-  - "Thessaly raises both hands and the chain-spell uncoils — not fire, not force, but pure conductive arc, lightning finding metal finding bone finding the next thing and the next. Five targets in a six-foot space. Five targets is all the chain needs."
-  - "The cellar pack goes down in order: first the wight nearest the hatch, then the goblin chief, then the flanking two, then the goblin in the corner who thought the corner was safe. Three seconds, start to finish."
-  - "The hatch below the chamber floor — the next one, the sealed one — buckles outward. Not destroyed. Just *aware*."
-  - if:
-      flags: [lead_followed_alley, knows_guide_name]
-    text:
-      - "Brother Vell is gone. At some point while the lightning was finding everyone else, he found the far door. You heard him laughing on the stairs."
-      - male_young_american_youthful_confident_bright: "Excellent! It's going to be so interested to meet you!"
-  - female_adult_american_sultry_villainous: "The hatch buckled. Whatever's below knows something happened."
-  - "The far door. Steps down."
+- |-
+  Thessaly raises both hands and the chain-spell uncoils — not fire, not force, but pure conductive arc, lightning finding metal finding bone finding the next thing and the next. Five targets in a six-foot space. Five targets is all the chain needs.
+- |-
+  The cellar pack goes down in order: first the wight nearest the hatch, then the goblin chief, then the flanking two, then the goblin in the corner who thought the corner was safe. Three seconds, start to finish.
+- |-
+  The hatch below the chamber floor — the next one, the sealed one — buckles outward. Not destroyed. Just *aware*.
+- if:
+    flags: [lead_followed_alley, knows_guide_name]
+  text:
+  - |-
+    Brother Vell is gone. At some point while the lightning was finding everyone else, he found the far door. You heard him laughing on the stairs.
+  - male_young_american_youthful_confident_bright: |-
+      Excellent! It's going to be so interested to meet you!
+- female_adult_american_sultry_villainous: |-
+    The hatch buckled. Whatever's below knows something happened.
+- |-
+  The far door. Steps down.
+
 
 choices:
-  - text: "Through the cracked hatch."
-    next: act2/deep_chamber_enter
-    effects:
-      flags:
-        weapon_taken_from_cellar_pack: true
-        cellar_resolved: true
-        arrived_loud: true
-      stats:
-        Vigor: -2
-        Coin: 1
+- text: |-
+    Through the cracked hatch.
+  next: act2/deep_chamber_enter
+  effects:
+    flags:
+      weapon_taken_from_cellar_pack: true
+      cellar_resolved: true
+      arrived_loud: true
+    stats:
+      Vigor: -2
+      Coin: 1

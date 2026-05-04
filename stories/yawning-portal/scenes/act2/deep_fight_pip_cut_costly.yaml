@@ -1,17 +1,23 @@
 text:
-  - "She gets behind the apprentice. She cuts the binding. Linnet stumbles free."
-  - "The thing's reach catches Pip at the calf as she scrambles back — not a clean wound, something that will need proper stitching before dawn. She swears in three languages and hops two steps and does not go down."
-  - female_young_american_lisp: "I'm fine. Ow. Fine. Don't ask."
-  - "You kill the thing. It takes everything left."
+- |-
+  She gets behind the apprentice. She cuts the binding. Linnet stumbles free.
+- |-
+  The thing's reach catches Pip at the calf as she scrambles back — not a clean wound, something that will need proper stitching before dawn. She swears in three languages and hops two steps and does not go down.
+- female_young_american_lisp: |-
+    I'm fine. Ow. Fine. Don't ask.
+- |-
+  You kill the thing. It takes everything left.
+
 
 choices:
-  - text: "Out — bind her on the way"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        weapon_taken_from_thing: true
-        pip_wounded: true
-      stats:
-        Vigor: -3
-        Coin: 1
+- text: |-
+    Out — bind her on the way
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      weapon_taken_from_thing: true
+      pip_wounded: true
+    stats:
+      Vigor: -3
+      Coin: 1

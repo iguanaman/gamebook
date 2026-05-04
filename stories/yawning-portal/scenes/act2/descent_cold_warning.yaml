@@ -1,47 +1,59 @@
 text:
-  - "The archway waits. The dark beyond it is old and complete — not the dark of a room with the lamp out, but the dark of a place that has never had one."
-  - if:
-      flags:
-        - recruited_korsa
-        - recruited_vesna
-    text: "Korsa looks at you, then at the archway. 'You sure? We've got nothing. No name, no landmark, no map.' He's not afraid. He wants to know you've thought it through. Vesna turns her coin between her fingers and says nothing, which is its own kind of answer."
-  - if:
-      flags:
-        - recruited_korsa
-        - recruited_pip
-    text: "'Cold run,' Pip says. She is not loud about it. 'Two exits that I can see — the well, and whatever's on the other side of that archway. I count one of those as an exit.' Korsa doesn't disagree. He looks at you."
-  - if:
-      flags:
-        - recruited_korsa
-        - recruited_thessaly
-    text: "Thessaly studies the archway for a long moment. 'We would know more with the alley name. We would know more with the harbour page.' She says it once, flat, without heat. Korsa rolls his shoulders. 'Your call,' he tells you."
-  - if:
-      flags:
-        - recruited_vesna
-        - recruited_pip
-    text: "Vesna looks at the dark through the archway and her coin turns and turns. 'Fortune favours the bold,' she says, 'not the blind. Those aren't the same thing.' Pip nods once, sharply, which means she agrees."
-  - if:
-      flags:
-        - recruited_vesna
-        - recruited_thessaly
-    text: "Thessaly tips her head. 'We would benefit from more information.' Vesna touches the coin and says, gently, 'We would. The Lady doesn't require it. But we would.'"
-  - if:
-      flags:
-        - recruited_pip
-        - recruited_thessaly
-    text: "'Three exits I can name: up the well, back to the Ward, or forward blind,' Pip says. 'I recommend the one that's not blind.' Thessaly glances at her. 'An unusual degree of caution from you.' Pip bares her teeth. 'I like exits.'"
-  - "They're not wrong. The Trades Ward leads are still open. You could have the witness's name, the harbour page, the shape of the thing below, before you go an inch deeper."
-  - "Or you could go now. You have steel. You have spell. You have two who came this far."
+- |-
+  The archway waits. The dark beyond it is old and complete — not the dark of a room with the lamp out, but the dark of a place that has never had one.
+- if:
+    flags:
+    - recruited_korsa
+    - recruited_vesna
+  text: |-
+    Korsa looks at you, then at the archway. 'You sure? We've got nothing. No name, no landmark, no map.' He's not afraid. He wants to know you've thought it through. Vesna turns her coin between her fingers and says nothing, which is its own kind of answer.
+- if:
+    flags:
+    - recruited_korsa
+    - recruited_pip
+  text: |-
+    'Cold run,' Pip says. She is not loud about it. 'Two exits that I can see — the well, and whatever's on the other side of that archway. I count one of those as an exit.' Korsa doesn't disagree. He looks at you.
+- if:
+    flags:
+    - recruited_korsa
+    - recruited_thessaly
+  text: |-
+    Thessaly studies the archway for a long moment. 'We would know more with the alley name. We would know more with the harbour page.' She says it once, flat, without heat. Korsa rolls his shoulders. 'Your call,' he tells you.
+- if:
+    flags:
+    - recruited_vesna
+    - recruited_pip
+  text: |-
+    Vesna looks at the dark through the archway and her coin turns and turns. 'Fortune favours the bold,' she says, 'not the blind. Those aren't the same thing.' Pip nods once, sharply, which means she agrees.
+- if:
+    flags:
+    - recruited_vesna
+    - recruited_thessaly
+  text: |-
+    Thessaly tips her head. 'We would benefit from more information.' Vesna touches the coin and says, gently, 'We would. The Lady doesn't require it. But we would.'
+- if:
+    flags:
+    - recruited_pip
+    - recruited_thessaly
+  text: |-
+    'Three exits I can name: up the well, back to the Ward, or forward blind,' Pip says. 'I recommend the one that's not blind.' Thessaly glances at her. 'An unusual degree of caution from you.' Pip bares her teeth. 'I like exits.'
+- |-
+  They're not wrong. The Trades Ward leads are still open. You could have the witness's name, the harbour page, the shape of the thing below, before you go an inch deeper.
+- |-
+  Or you could go now. You have steel. You have spell. You have two who came this far.
+
 
 choices:
-  - text: "Down. We learn what we learn down there."
-    next: act2/upper_levels_hub
-    effects:
-      flags:
-        lead_followed_direct: true
-        committed_descent: true
-      stats:
-        Renown: -1
+- text: |-
+    Down. We learn what we learn down there.
+  next: act2/upper_levels_hub
+  effects:
+    flags:
+      lead_followed_direct: true
+      committed_descent: true
+    stats:
+      Renown: -1
 
-  - text: "You're right. Up first. We'll be smarter for it."
-    next: act2/well_mouth_first
+- text: |-
+    You're right. Up first. We'll be smarter for it.
+  next: act2/well_mouth_first

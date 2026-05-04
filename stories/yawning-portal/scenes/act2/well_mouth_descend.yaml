@@ -1,32 +1,43 @@
 text:
-  - "The walk back to the Portal is ten minutes through gas-lit streets. At this hour the Castle Ward is mostly Watch-patrols and the last drunk finding his door."
-  - "The Portal's common room has quieted since you left. Durnan is behind the bar. He sees you come in and does not ask how it went."
-  - if:
-      flags:
-        - alley_spoke_done
-        - harbour_spoke_done
-    text: "Both leads behind you. The city has said what it knows. The well has been patient."
-  - if:
-      flags:
-        - alley_spoke_done
-      flags_unset:
-        - harbour_spoke_done
-    text: "The alley lead done, the harbour untouched. One thread followed is one more than you had."
-  - if:
-      flags_unset:
-        - alley_spoke_done
-      flags:
-        - harbour_spoke_done
-    text: "The harbour behind you, the alley still open. Whatever you didn't learn up here, you'll find below."
-  - if:
-      flags_unset:
-        - alley_spoke_done
-        - harbour_spoke_done
-    text: "Both leads still open. You chose the well."
-  - "The well-mouth is where you left it — iron rim, rope coiled on the capstan, the dark below holding its breath."
-  - male_midlife_american_deep_raspy_authentic: "Rope's fresh-wound. Lantern oil's full. You've got three hours before I stop checking."
-  - "Durnan says it without looking up. He is not being cold — three hours is a real number, and he means to keep it."
+- |-
+  The walk back to the Portal is ten minutes through gas-lit streets. At this hour the Castle Ward is mostly Watch-patrols and the last drunk finding his door.
+- |-
+  The Portal's common room has quieted since you left. Durnan is behind the bar. He sees you come in and does not ask how it went.
+- if:
+    flags:
+    - alley_spoke_done
+    - harbour_spoke_done
+  text: |-
+    Both leads behind you. The city has said what it knows. The well has been patient.
+- if:
+    flags:
+    - alley_spoke_done
+    flags_unset:
+    - harbour_spoke_done
+  text: |-
+    The alley lead done, the harbour untouched. One thread followed is one more than you had.
+- if:
+    flags_unset:
+    - alley_spoke_done
+    flags:
+    - harbour_spoke_done
+  text: |-
+    The harbour behind you, the alley still open. Whatever you didn't learn up here, you'll find below.
+- if:
+    flags_unset:
+    - alley_spoke_done
+    - harbour_spoke_done
+  text: |-
+    Both leads still open. You chose the well.
+- |-
+  The well-mouth is where you left it — iron rim, rope coiled on the capstan, the dark below holding its breath.
+- male_midlife_american_deep_raspy_authentic: |-
+    Rope's fresh-wound. Lantern oil's full. You've got three hours before I stop checking.
+- |-
+  Durnan says it without looking up. He is not being cold — three hours is a real number, and he means to keep it.
+
 
 choices:
-  - text: "Step up to the rim. Time to go down."
-    next: act2/well_mouth_first
+- text: |-
+    Step up to the rim. Time to go down.
+  next: act2/well_mouth_first

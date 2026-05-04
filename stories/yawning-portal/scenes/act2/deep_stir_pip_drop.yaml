@@ -1,19 +1,28 @@
 text:
-  - "Pip empties her belt in the doorway."
-  - "Caltrops first — the iron ones, the good ones, the ones she keeps for actual emergencies. Then the lamp oil, one small flask cracked against the hatch frame. Then the smoke-chalk she bought from a dock-fence two weeks ago and has been saving. The doorway becomes impassable in about four seconds."
-  - "Then she lights it."
-  - "The chamber behind you is a wall of orange and black. The sound from below — the thing-behind's rising — gets briefly louder, then cuts out as the smoke closes the gap."
-  - "Pip is counting the stairs."
-  - female_young_american_lisp: "Thirty-eight steps. I counted on the way down. Thirty-eight to the upper levels, then the cistern, then the rope. Moving."
-  - "You are moving. Linnet is with you. Pip is ahead of you, limping slightly and counting under her breath."
+- |-
+  Pip empties her belt in the doorway.
+- |-
+  Caltrops first — the iron ones, the good ones, the ones she keeps for actual emergencies. Then the lamp oil, one small flask cracked against the hatch frame. Then the smoke-chalk she bought from a dock-fence two weeks ago and has been saving. The doorway becomes impassable in about four seconds.
+- |-
+  Then she lights it.
+- |-
+  The chamber behind you is a wall of orange and black. The sound from below — the thing-behind's rising — gets briefly louder, then cuts out as the smoke closes the gap.
+- |-
+  Pip is counting the stairs.
+- female_young_american_lisp: |-
+    Thirty-eight steps. I counted on the way down. Thirty-eight to the upper levels, then the cistern, then the rope. Moving.
+- |-
+  You are moving. Linnet is with you. Pip is ahead of you, limping slightly and counting under her breath.
+
 
 choices:
-  - text: "Climb — fast"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        stirred_something: true
-      stats:
-        Vigor: -2
-        Coin: -1
+- text: |-
+    Climb — fast
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      stirred_something: true
+    stats:
+      Vigor: -2
+      Coin: -1

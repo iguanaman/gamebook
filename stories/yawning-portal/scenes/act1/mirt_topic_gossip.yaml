@@ -1,27 +1,24 @@
 id: act1/mirt_topic_gossip
 text:
-- He leans in, elbows on the table, a man about to share a confidence with the whole
-  room.
-- male_midlife_american_loud_confident_cocky: The harbourmaster — Lethwick, you'll
-    meet him if you go near the docks — is accepting bribes from three separate guilds
-    and telling each one they're his exclusive arrangement. Which is to say, do not
-    trust a man with three honest faces.
-- He takes a long pull on his tankard.
-- male_midlife_american_loud_confident_cocky: The Watch sergeant on Castle Ward night-duty,
-    Erris by name, is conducting a private investigation into something he won't name.
-    Very serious. [chuckle] Very ineffective. Erris is a good man; good men make terrible
-    investigators.
-- He waves a hand.
-- male_midlife_american_loud_confident_cocky: And the Templar and Tymora temples are
-    in a row about a stoop in the Trades Ward which — I will not bore you with, it
-    is very dull, and I am peripherally involved in a way I do not intend to admit.
-- He sets down the tankard.
-- male_midlife_american_loud_confident_cocky: Now. While you are running the bookbinder's
-    errand — and you will take it, I can tell — I have a small offer of liquidity,
-    should you need it. Eight coin. Generous terms, which is to say I will call the
-    favour at a time of my choosing. Interested?
+- |-
+  He leans in, elbows on the table, a man about to share a confidence with the whole room.
+- male_midlife_american_loud_confident_cocky: |-
+    The harbourmaster — Lethwick, you'll meet him if you go near the docks — is accepting bribes from three separate guilds and telling each one they're his exclusive arrangement. Which is to say, do not trust a man with three honest faces.
+- |-
+  He takes a long pull on his tankard.
+- male_midlife_american_loud_confident_cocky: |-
+    The Watch sergeant on Castle Ward night-duty, Erris by name, is conducting a private investigation into something he won't name. Very serious. [chuckle] Very ineffective. Erris is a good man; good men make terrible investigators.
+- |-
+  He waves a hand.
+- male_midlife_american_loud_confident_cocky: |-
+    And the Templar and Tymora temples are in a row about a stoop in the Trades Ward which — I will not bore you with, it is very dull, and I am peripherally involved in a way I do not intend to admit.
+- |-
+  He sets down the tankard.
+- male_midlife_american_loud_confident_cocky: |-
+    Now. While you are running the bookbinder's errand — and you will take it, I can tell — I have a small offer of liquidity, should you need it. Eight coin. Generous terms, which is to say I will call the favour at a time of my choosing. Interested?
 choices:
-- text: Back to Mirt
+- text: |-
+    Back to Mirt
   next: act1/talk_mirt
   effects:
     flags:

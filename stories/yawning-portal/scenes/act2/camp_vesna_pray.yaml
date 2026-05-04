@@ -1,17 +1,17 @@
 text:
-- Vesna kneels at the bedroll, the prayer-coin in her clasped hands. She doesn't close
-  her eyes — she looks at the candle-holder, at the indentation in the bedroll, at
-  the runes on the pillar, as if memorising the shape of someone she hasn't met.
-- female_adult_american_gentle_tender_sweet: Tymora, Lady Luck — keep the girl under
-    your coin. She chose the bold thing and went further than the dare asked. Let
-    that count.
-- The coin doesn't flip. Vesna makes that choice — holds it, keeps it. A prayer held
-  is worth more than one thrown, sometimes.
-- She stands. Her eyes are steady.
-- female_adult_american_gentle_tender_sweet: Fortune favoured her this far. We can
-    do the rest.
+- |-
+  Vesna kneels at the bedroll, the prayer-coin in her clasped hands. She doesn't close her eyes — she looks at the candle-holder, at the indentation in the bedroll, at the runes on the pillar, as if memorising the shape of someone she hasn't met.
+- female_adult_american_gentle_tender_sweet: |-
+    Tymora, Lady Luck — keep the girl under your coin. She chose the bold thing and went further than the dare asked. Let that count.
+- |-
+  The coin doesn't flip. Vesna makes that choice — holds it, keeps it. A prayer held is worth more than one thrown, sometimes.
+- |-
+  She stands. Her eyes are steady.
+- female_adult_american_gentle_tender_sweet: |-
+    Fortune favoured her this far. We can do the rest.
 choices:
-- text: Back to the junction.
+- text: |-
+    Back to the junction.
   next: act2/upper_levels_hub
   effects:
     flags:

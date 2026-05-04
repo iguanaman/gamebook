@@ -1,52 +1,37 @@
 id: act1/portal_arrival
 text:
-- The door of the Yawning Portal swings inward on a wash of warm noise — pipe smoke,
-  ale-yeast, pitch from the harbour clinging to a dozen cloaks, and under all of it
-  the cold mineral breath that comes up out of the well. You stop one step over the
-  threshold, road dust still on your shoulders, and let the room have its look at
-  you before you have yours at it.
-- It is a hall built around a hole. The well sits dead centre under a stone rim and
-  a winch and a coil of rope thick as your wrist, and the common room arranges itself
-  around that pit like courtiers around a sleeping wolf. Long trestle tables. A great
-  hearth at the far wall throwing red light up the rafters. A mezzanine. Sawdust on
-  the boards, fresh today, already trodden through to the wax beneath.
-- The bar runs the length of the east wall. A broad-shouldered man in a clean apron
-  is polishing a tankard he has, by the look of him, polished an hour ago — Durnan,
-  then; you would know the cut of him from the descriptions even if the boy at the
-  caravan-master's stable hadn't drawn you a map on the back of a writ. His eyes find
-  you, weigh you, drop to the well, return. Nothing in his face moves.
-- At a corner table near the stairs sits a thin man with ink in his cuticles and his
-  collar on inside out. He has not noticed his collar. He has noticed you — looked
-  up the instant the door opened, kept looking, hasn't blinked. Whatever's eating
-  him is eating him through.
-- By the hearth a vast red-faced gentleman is holding court with both hands and a
-  tankard, ringed by hangers-on who laugh on the beat. His coat is cut for a smaller
-  man but he wears it like the smaller man owes him money. The whole table tips when
-  he slaps it for emphasis. He sees you seeing him and grins as if you have known
-  each other for years.
-- And the well. The wolf at the centre of the room. You can feel the dark coming off
-  it in the way a sword's edge has a feel before you touch it.
-- Somewhere a temple bell counts the hour. The night ahead of you is the rest of your
-  money in this city; behind you is the road back to Daggerford and nothing waiting
-  on it. You came here because someone said *the Yawning Portal* the way other towns
-  say *the church*. Now you are inside it, and the room is letting you choose what
-  kind of arrival this is.
+- |-
+  The door of the Yawning Portal swings inward on a wash of warm noise — pipe smoke, ale-yeast, pitch from the harbour clinging to a dozen cloaks, and under all of it the cold mineral breath that comes up out of the well. You stop one step over the threshold, road dust still on your shoulders, and let the room have its look at you before you have yours at it.
+- |-
+  It is a hall built around a hole. The well sits dead centre under a stone rim and a winch and a coil of rope thick as your wrist, and the common room arranges itself around that pit like courtiers around a sleeping wolf. Long trestle tables. A great hearth at the far wall throwing red light up the rafters. A mezzanine. Sawdust on the boards, fresh today, already trodden through to the wax beneath.
+- |-
+  The bar runs the length of the east wall. A broad-shouldered man in a clean apron is polishing a tankard he has, by the look of him, polished an hour ago — Durnan, then; you would know the cut of him from the descriptions even if the boy at the caravan-master's stable hadn't drawn you a map on the back of a writ. His eyes find you, weigh you, drop to the well, return. Nothing in his face moves.
+- |-
+  At a corner table near the stairs sits a thin man with ink in his cuticles and his collar on inside out. He has not noticed his collar. He has noticed you — looked up the instant the door opened, kept looking, hasn't blinked. Whatever's eating him is eating him through.
+- |-
+  By the hearth a vast red-faced gentleman is holding court with both hands and a tankard, ringed by hangers-on who laugh on the beat. His coat is cut for a smaller man but he wears it like the smaller man owes him money. The whole table tips when he slaps it for emphasis. He sees you seeing him and grins as if you have known each other for years.
+- |-
+  And the well. The wolf at the centre of the room. You can feel the dark coming off it in the way a sword's edge has a feel before you touch it.
+- |-
+  Somewhere a temple bell counts the hour. The night ahead of you is the rest of your money in this city; behind you is the road back to Daggerford and nothing waiting on it. You came here because someone said *the Yawning Portal* the way other towns say *the church*. Now you are inside it, and the room is letting you choose what kind of arrival this is.
 choices:
-- text: Take a long look round before you commit to a step. Read the room first.
+- text: |-
+    Take a long look round before you commit to a step. Read the room first.
   next: act1/common_room
-- text: Cross straight to the bar. The barkeep first; everything in a tavern starts
-    with the man who pours.
+- text: |-
+    Cross straight to the bar. The barkeep first; everything in a tavern starts with the man who pours.
   next: act1/common_room
   effects:
     flags:
       noticed_durnan_first: true
-- text: Hold a moment at the well's rim. Let yourself look down.
+- text: |-
+    Hold a moment at the well's rim. Let yourself look down.
   next: act1/common_room
   effects:
     flags:
       noticed_well_first: true
-- text: Drift toward the laughing table by the fire. Whatever business is in this
-    room, that man is half of it.
+- text: |-
+    Drift toward the laughing table by the fire. Whatever business is in this room, that man is half of it.
   next: act1/common_room
   effects:
     flags:

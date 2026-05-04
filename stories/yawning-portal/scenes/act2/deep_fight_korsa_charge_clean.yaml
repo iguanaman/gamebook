@@ -1,17 +1,25 @@
 text:
-  - "He hits it like a thrown anvil."
-  - "Korsa doesn't slow or set — he just goes, full weight, axe first, and the thing takes the blow across its left side with a sound like wet rope snapping. It staggers. That's all you need."
-  - "You get to Linnet. She doesn't resist — the calm breaks when you grab her arm, and for a moment she is just a seventeen-year-old who has been kneeling in a dark chamber for two days, and she is terrified, and she lets you pull her."
-  - "Behind you, Korsa finishes it. You hear the last of the struggle while you're already moving toward the hatch."
-  - male_midlife_british_tough_calloused: "Go. I'm right behind."
-  - "He is."
+- |-
+  He hits it like a thrown anvil.
+- |-
+  Korsa doesn't slow or set — he just goes, full weight, axe first, and the thing takes the blow across its left side with a sound like wet rope snapping. It staggers. That's all you need.
+- |-
+  You get to Linnet. She doesn't resist — the calm breaks when you grab her arm, and for a moment she is just a seventeen-year-old who has been kneeling in a dark chamber for two days, and she is terrified, and she lets you pull her.
+- |-
+  Behind you, Korsa finishes it. You hear the last of the struggle while you're already moving toward the hatch.
+- male_midlife_british_tough_calloused: |-
+    Go. I'm right behind.
+- |-
+  He is.
+
 
 choices:
-  - text: "Out — back through the cellar"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        weapon_taken_from_thing: true
-      stats:
-        Vigor: -2
+- text: |-
+    Out — back through the cellar
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      weapon_taken_from_thing: true
+    stats:
+      Vigor: -2

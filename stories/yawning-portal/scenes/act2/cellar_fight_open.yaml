@@ -1,127 +1,151 @@
 text:
-  - "The seal breaks with a sound like a cracked knuckle. You haul the hatch open."
-  - "The smell hits first — stale meat, wet stone, something sweet and wrong underneath, like rendered fat left out too long."
+- |-
+  The seal breaks with a sound like a cracked knuckle. You haul the hatch open.
+- |-
+  The smell hits first — stale meat, wet stone, something sweet and wrong underneath, like rendered fat left out too long.
+- if:
+    flags_unset: [lead_followed_alley, lead_followed_harbour, lead_followed_direct]
+  text: |-
+    And then they come up.
+- if:
+    flags: [lead_followed_alley, knows_guide_name]
+    flags_unset: [lead_followed_harbour]
+  text:
+  - |-
+    A man comes up first, robed in a novice's habit — Tymoran grey gone wrong, patched with darker cloth at both elbows. Bright eyes, wide, genuinely pleased. Behind him, four goblins in the sort of formation that suggests someone drilled it into them.
+  - male_young_american_youthful_confident_bright: |-
+      Oh — visitors! The one below said you might come.
+  - |-
+    He says it like he's been waiting at a door. The goblins spread out around him.
   - if:
-      flags_unset: [lead_followed_alley, lead_followed_harbour, lead_followed_direct]
-    text: "And then they come up."
-  - if:
-      flags: [lead_followed_alley, knows_guide_name]
-      flags_unset: [lead_followed_harbour]
-    text:
-      - "A man comes up first, robed in a novice's habit — Tymoran grey gone wrong, patched with darker cloth at both elbows. Bright eyes, wide, genuinely pleased. Behind him, four goblins in the sort of formation that suggests someone drilled it into them."
-      - male_young_american_youthful_confident_bright: "Oh — visitors! The one below said you might come."
-      - "He says it like he's been waiting at a door. The goblins spread out around him."
-      - if:
-          flags: [recruited_vesna]
-          flags_unset: [vesna_died, vesna_left]
-        text:
-          - "Vesna goes very still. Her prayer-coin hand drops."
-          - female_adult_american_gentle_tender_sweet: "Vell. Brother Vell, from the Tymoran house on Copper Street."
-          - male_young_american_youthful_confident_bright: "Sister Vesna. [chuckle] I wondered if it would be you. I have so much to tell you."
-          - "He sounds happiest mid-sentence. He sounds like someone who found an answer the temple didn't have."
-      - if:
-          flags: [recruited_thessaly]
-          flags_unset: [thessaly_died]
-        text:
-          - "Thessaly is looking at the inside of his wrist. A burn-scar there, the shape of a sigil — matching hers, note for note."
-          - "She says nothing. But her hands light up."
-  - if:
-      flags: [lead_followed_harbour, met_the_thing_below_glimpse]
-      flags_unset: [lead_followed_alley, knows_guide_name]
-    text: "Three of them in the chamber below — bone-wights, anchored to the hatch's threshold, each one a man's frame wrapped tight in dry grey skin. They move like they remember how. A fourth hangs back in the dark."
-  - if:
-      flags_unset: [lead_followed_alley, lead_followed_harbour]
-    text: "Ghouls. Five of them, packed into the chamber below the hatch, the ones at the front already clawing for the lip. Cold hunger, no hesitation."
-  - if:
-      flags: [lead_followed_alley, lead_followed_harbour]
-    text:
-      - "The man in the robes comes up first — Tymoran novice grey gone dark, bright-eyed and unhurried. Behind him, two bone-wights and three goblins in a pack."
-      - male_young_american_youthful_confident_bright: "You found us. The one below said to expect company eventually. I hoped it would be interesting company."
-  - "Tight quarters. The hatch mouth behind you, the corridor walls on three sides. No running back up through the cellar without going through them."
-
-choices:
-  - text: "Korsa plates the doorway — the rest fight clean behind him"
-    next:
-      - scene: act2/cellar_win_korsa_plate
-        weight: 4
-      - scene: act2/cellar_win_korsa_plate_bloodied
-        weight: 4
-      - scene: act2/cellar_korsa_dies
-        weight: 2
-    requires:
-      flags: [recruited_korsa]
-      flags_unset: [korsa_died, korsa_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_korsa_plate: true
-
-  - text: "Vesna — mass-heal, spend herself if she has to"
-    next:
-      - scene: act2/cellar_win_vesna_mass_heal
-        weight: 4
-      - scene: act2/cellar_win_vesna_mass_heal_costly
-        weight: 3
-      - scene: act2/cellar_vesna_dies
-        weight: 3
-    requires:
       flags: [recruited_vesna]
       flags_unset: [vesna_died, vesna_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_vesna_mass_heal: true
-
-  - text: "Pip — flank and throat-cut the chief in one stroke"
-    next:
-      - scene: act2/cellar_win_pip_decapitate
-        weight: 5
-      - scene: act2/cellar_win_pip_decapitate_costly
-        weight: 3
-      - scene: act2/cellar_pip_dies
-        weight: 2
-    requires:
-      flags: [recruited_pip]
-      flags_unset: [pip_died, pip_left]
-      stats:
-        Wits: 6
-    effects:
-      flags:
-        tactic_pip_decapitate: true
-
-  - text: "Thessaly — chain-spell, clear the room and crack the hatch below"
-    next:
-      - scene: act2/cellar_win_thessaly_chain
-        weight: 4
-      - scene: act2/cellar_win_thessaly_chain_loud
-        weight: 4
-      - scene: act2/cellar_thessaly_dies
-        weight: 2
-    requires:
+    text:
+    - |-
+      Vesna goes very still. Her prayer-coin hand drops.
+    - female_adult_american_gentle_tender_sweet: |-
+        Vell. Brother Vell, from the Tymoran house on Copper Street.
+    - male_young_american_youthful_confident_bright: |-
+        Sister Vesna. [chuckle] I wondered if it would be you. I have so much to tell you.
+    - |-
+      He sounds happiest mid-sentence. He sounds like someone who found an answer the temple didn't have.
+  - if:
       flags: [recruited_thessaly]
-      flags_unset: [thessaly_died, thessaly_left]
-    hide_if_failed: true
-    effects:
-      flags:
-        tactic_thessaly_chain: true
+      flags_unset: [thessaly_died]
+    text:
+    - |-
+      Thessaly is looking at the inside of his wrist. A burn-scar there, the shape of a sigil — matching hers, note for note.
+    - |-
+      She says nothing. But her hands light up.
+- if:
+    flags: [lead_followed_harbour, met_the_thing_below_glimpse]
+    flags_unset: [lead_followed_alley, knows_guide_name]
+  text: |-
+    Three of them in the chamber below — bone-wights, anchored to the hatch's threshold, each one a man's frame wrapped tight in dry grey skin. They move like they remember how. A fourth hangs back in the dark.
+- if:
+    flags_unset: [lead_followed_alley, lead_followed_harbour]
+  text: |-
+    Ghouls. Five of them, packed into the chamber below the hatch, the ones at the front already clawing for the lip. Cold hunger, no hesitation.
+- if:
+    flags: [lead_followed_alley, lead_followed_harbour]
+  text:
+  - |-
+    The man in the robes comes up first — Tymoran novice grey gone dark, bright-eyed and unhurried. Behind him, two bone-wights and three goblins in a pack.
+  - male_young_american_youthful_confident_bright: |-
+      You found us. The one below said to expect company eventually. I hoped it would be interesting company.
+- |-
+  Tight quarters. The hatch mouth behind you, the corridor walls on three sides. No running back up through the cellar without going through them.
 
-  - text: "Steel and spell — all of us, planted, no clever tricks"
-    next:
-      - scene: act2/cellar_win_straight
-        weight: 4
-      - scene: act2/cellar_win_straight_bloodied
-        weight: 4
-      - scene: act2/cellar_companion_dies_random
-        weight: 2
-    effects:
-      flags:
-        tactic_cellar_straight: true
 
-  - text: "Break and run — back through the levels, up the well"
-    next: act2/cellar_flee_to_retreat
-    requires:
-      stats:
-        Vigor: 4
-    effects:
-      flags:
-        cellar_fled: true
+choices:
+- text: |-
+    Korsa plates the doorway — the rest fight clean behind him
+  next:
+  - scene: act2/cellar_win_korsa_plate
+    weight: 4
+  - scene: act2/cellar_win_korsa_plate_bloodied
+    weight: 4
+  - scene: act2/cellar_korsa_dies
+    weight: 2
+  requires:
+    flags: [recruited_korsa]
+    flags_unset: [korsa_died, korsa_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_korsa_plate: true
+
+- text: |-
+    Vesna — mass-heal, spend herself if she has to
+  next:
+  - scene: act2/cellar_win_vesna_mass_heal
+    weight: 4
+  - scene: act2/cellar_win_vesna_mass_heal_costly
+    weight: 3
+  - scene: act2/cellar_vesna_dies
+    weight: 3
+  requires:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_vesna_mass_heal: true
+
+- text: |-
+    Pip — flank and throat-cut the chief in one stroke
+  next:
+  - scene: act2/cellar_win_pip_decapitate
+    weight: 5
+  - scene: act2/cellar_win_pip_decapitate_costly
+    weight: 3
+  - scene: act2/cellar_pip_dies
+    weight: 2
+  requires:
+    flags: [recruited_pip]
+    flags_unset: [pip_died, pip_left]
+    stats:
+      Wits: 6
+  effects:
+    flags:
+      tactic_pip_decapitate: true
+
+- text: |-
+    Thessaly — chain-spell, clear the room and crack the hatch below
+  next:
+  - scene: act2/cellar_win_thessaly_chain
+    weight: 4
+  - scene: act2/cellar_win_thessaly_chain_loud
+    weight: 4
+  - scene: act2/cellar_thessaly_dies
+    weight: 2
+  requires:
+    flags: [recruited_thessaly]
+    flags_unset: [thessaly_died, thessaly_left]
+  hide_if_failed: true
+  effects:
+    flags:
+      tactic_thessaly_chain: true
+
+- text: |-
+    Steel and spell — all of us, planted, no clever tricks
+  next:
+  - scene: act2/cellar_win_straight
+    weight: 4
+  - scene: act2/cellar_win_straight_bloodied
+    weight: 4
+  - scene: act2/cellar_companion_dies_random
+    weight: 2
+  effects:
+    flags:
+      tactic_cellar_straight: true
+
+- text: |-
+    Break and run — back through the levels, up the well
+  next: act2/cellar_flee_to_retreat
+  requires:
+    stats:
+      Vigor: 4
+  effects:
+    flags:
+      cellar_fled: true

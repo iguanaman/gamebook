@@ -1,17 +1,22 @@
 id: act1/job_accepted_free
-journal: You took Joren Wexley's job. No fee. For Linnet.
+journal: |-
+  You took Joren Wexley's job. No fee. For Linnet.
 text:
-- You push the purse back across the table.
-- male_young_american_weak: I — what?
-- You tell him you'll find the girl. He can settle with you after.
-- He stares at the purse. His mouth works. From the bar comes the sound of a tankard
-  set down with quiet deliberateness — Durnan, not looking over, but having looked.
-- male_young_american_weak: '[sigh] Thank you. I — thank you.'
-- He folds the purse away and stands, and for a moment he looks like a man who has
-  been handed something he doesn't know what to do with. Then he straightens his collar
-  — still wrong, still not noticing — and goes.
+- |-
+  You push the purse back across the table.
+- male_young_american_weak: |-
+    I — what?
+- |-
+  You tell him you'll find the girl. He can settle with you after.
+- |-
+  He stares at the purse. His mouth works. From the bar comes the sound of a tankard set down with quiet deliberateness — Durnan, not looking over, but having looked.
+- male_young_american_weak: |-
+    [sigh] Thank you. I — thank you.
+- |-
+  He folds the purse away and stands, and for a moment he looks like a man who has been handed something he doesn't know what to do with. Then he straightens his collar — still wrong, still not noticing — and goes.
 choices:
-- text: Back to the room
+- text: |-
+    Back to the room
   next: act1/common_room
   effects:
     flags:

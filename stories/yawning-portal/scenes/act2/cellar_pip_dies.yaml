@@ -1,34 +1,44 @@
 text:
-  - "She finds the chief. She almost gets the cut. The chief was faster than a goblin chief has any right to be, and the claw — it's not a knife, it's the chief's actual hand, elongated, wrong — catches her at the throat from the side, where she was moving her own knife."
-  - "It's quick. That's the only mercy in this cellar."
-  - "You finish the fight. You don't fully remember finishing the fight. You remember the floor under your knees after."
-  - if:
-      flags: [recruited_vesna]
-      flags_unset: [vesna_died, vesna_left]
-    text:
-      - female_adult_american_gentle_tender_sweet: "She goes to Tymora with clean hands."
-      - "Vesna says it for Pip, and for you."
-  - "The far door. Steps going down."
-  - journal: "Pip went for the chief's throat and the chief was faster. The cellar beneath Undermountain."
+- |-
+  She finds the chief. She almost gets the cut. The chief was faster than a goblin chief has any right to be, and the claw — it's not a knife, it's the chief's actual hand, elongated, wrong — catches her at the throat from the side, where she was moving her own knife.
+- |-
+  It's quick. That's the only mercy in this cellar.
+- |-
+  You finish the fight. You don't fully remember finishing the fight. You remember the floor under your knees after.
+- if:
+    flags: [recruited_vesna]
+    flags_unset: [vesna_died, vesna_left]
+  text:
+  - female_adult_american_gentle_tender_sweet: |-
+      She goes to Tymora with clean hands.
+  - |-
+    Vesna says it for Pip, and for you.
+- |-
+  The far door. Steps going down.
+- journal: |-
+    Pip went for the chief's throat and the chief was faster. The cellar beneath Undermountain.
+
 
 choices:
-  - text: "Carry her. Through the far door."
-    next: act2/deep_chamber_enter
-    effects:
-      flags:
-        pip_died: true
-        weapon_taken_from_cellar_pack: true
-        cellar_resolved: true
-        body_recovered: true
-      stats:
-        Vigor: -3
+- text: |-
+    Carry her. Through the far door.
+  next: act2/deep_chamber_enter
+  effects:
+    flags:
+      pip_died: true
+      weapon_taken_from_cellar_pack: true
+      cellar_resolved: true
+      body_recovered: true
+    stats:
+      Vigor: -3
 
-  - text: "Leave her. Move."
-    next: act2/deep_chamber_enter
-    effects:
-      flags:
-        pip_died: true
-        weapon_taken_from_cellar_pack: true
-        cellar_resolved: true
-      stats:
-        Vigor: -2
+- text: |-
+    Leave her. Move.
+  next: act2/deep_chamber_enter
+  effects:
+    flags:
+      pip_died: true
+      weapon_taken_from_cellar_pack: true
+      cellar_resolved: true
+    stats:
+      Vigor: -2

@@ -1,30 +1,44 @@
 text:
-  - if:
-      flags_unset: [cistern_resolved, cellar_resolved]
-    text:
-      - "Thessaly hasn't moved from the junction's centre. When you approach she tilts her head — slightly, the angle of someone listening past your voice to something behind it."
-      - female_adult_american_sultry_villainous: "The school that cut these glyphs. I know it. Which means I know the teacher."
-      - "She says nothing else for a moment."
-      - female_adult_american_sultry_villainous: "The teacher has been dead for eleven years. So the question I'm asking myself — the one you should probably be asking too — is who took the notes."
-  - if:
-      flags: [cistern_resolved]
-      flags_unset: [cellar_resolved]
-    text:
-      - "Thessaly is looking at the hatch. The wax seal. The chalk name."
-      - female_adult_american_sultry_villainous: "The sigil I read in the vault. The notation on that wall. Someone came here to learn something very specific."
-      - "She touches her own left wrist — just briefly, the burn-scar — and pulls her sleeve down."
-      - female_adult_american_sultry_villainous: "I want to know what they found."
-  - if:
-      flags: [cellar_resolved]
-    text:
-      - "Thessaly is still looking at her hands. The residual light from the spell has faded but she keeps checking."
-      - female_adult_american_sultry_villainous: "The warlock. The sigil he wore — it was the same school. Same hand as the cistern."
-      - "A pause."
-      - female_adult_american_sultry_villainous: "I taught him. Two years ago, briefly. He was brilliant and not careful."
+- if:
+    flags_unset: [cistern_resolved, cellar_resolved]
+  text:
+  - |-
+    Thessaly hasn't moved from the junction's centre. When you approach she tilts her head — slightly, the angle of someone listening past your voice to something behind it.
+  - female_adult_american_sultry_villainous: |-
+      The school that cut these glyphs. I know it. Which means I know the teacher.
+  - |-
+    She says nothing else for a moment.
+  - female_adult_american_sultry_villainous: |-
+      The teacher has been dead for eleven years. So the question I'm asking myself — the one you should probably be asking too — is who took the notes.
+- if:
+    flags: [cistern_resolved]
+    flags_unset: [cellar_resolved]
+  text:
+  - |-
+    Thessaly is looking at the hatch. The wax seal. The chalk name.
+  - female_adult_american_sultry_villainous: |-
+      The sigil I read in the vault. The notation on that wall. Someone came here to learn something very specific.
+  - |-
+    She touches her own left wrist — just briefly, the burn-scar — and pulls her sleeve down.
+  - female_adult_american_sultry_villainous: |-
+      I want to know what they found.
+- if:
+    flags: [cellar_resolved]
+  text:
+  - |-
+    Thessaly is still looking at her hands. The residual light from the spell has faded but she keeps checking.
+  - female_adult_american_sultry_villainous: |-
+      The warlock. The sigil he wore — it was the same school. Same hand as the cistern.
+  - |-
+    A pause.
+  - female_adult_american_sultry_villainous: |-
+      I taught him. Two years ago, briefly. He was brilliant and not careful.
+
 
 choices:
-  - text: "Back to the junction."
-    next: act2/companion_council_upper
-    effects:
-      flags:
-        council_thessaly_done_at_upper: true
+- text: |-
+    Back to the junction.
+  next: act2/companion_council_upper
+  effects:
+    flags:
+      council_thessaly_done_at_upper: true

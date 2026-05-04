@@ -1,21 +1,24 @@
 id: act1/durnan_topic_apprentice
 text:
-- You ask about the apprentice. He is quiet for long enough that you wonder if he
-  heard you.
-- male_midlife_american_deep_raspy_authentic: Young. Ink on their hands. Came in three
-    nights running — watching the well more than drinking.
-- He wipes the bar with the cloth. The bar doesn't need wiping.
-- male_midlife_american_deep_raspy_authentic: The night they went down, somebody dared
-    them. Table over there, lot of laughter. [sigh] I don't stop them. That's not
-    what this place is.
-- He means it — not as callousness but as policy, and the policy costs him.
-- male_midlife_american_deep_raspy_authentic: Watched them take the rope. Didn't look
-    scared. That's the part that stays with me.
-- He folds the cloth and sets it precisely on the bar.
-- male_midlife_american_deep_raspy_authentic: Two days. That's a long time down there
-    to not be dead.
+- |-
+  You ask about the apprentice. He is quiet for long enough that you wonder if he heard you.
+- male_midlife_american_deep_raspy_authentic: |-
+    Young. Ink on their hands. Came in three nights running — watching the well more than drinking.
+- |-
+  He wipes the bar with the cloth. The bar doesn't need wiping.
+- male_midlife_american_deep_raspy_authentic: |-
+    The night they went down, somebody dared them. Table over there, lot of laughter. [sigh] I don't stop them. That's not what this place is.
+- |-
+  He means it — not as callousness but as policy, and the policy costs him.
+- male_midlife_american_deep_raspy_authentic: |-
+    Watched them take the rope. Didn't look scared. That's the part that stays with me.
+- |-
+  He folds the cloth and sets it precisely on the bar.
+- male_midlife_american_deep_raspy_authentic: |-
+    Two days. That's a long time down there to not be dead.
 choices:
-- text: Back to the bar
+- text: |-
+    Back to the bar
   next: act1/talk_durnan
   effects:
     flags:

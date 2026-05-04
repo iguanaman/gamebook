@@ -1,23 +1,33 @@
 text:
-  - "The Trades Ward corner is cold and bright after the harbour. A lamp on a bracket. Cobblestones you can see."
-  - if: {flags: [found_journal_waterlogged]}
-    text: "The journal page crackles where it's drying — folded into your chest-pocket, ink running a little at the margins. Her handwriting is small and precise. You don't read it here. Not yet."
-  - if: {flags: [harbour_fled]}
-    text: "No page. No kills. Just salt-water in your boots and the kuo-toa still aboard the Repose, waiting for whatever they were waiting for before you arrived."
-  - if: {flags: [korsa_died]}
-    text: "Your companion doesn't say anything. There isn't anything to say about a man who went into the harbour in plate mail."
-  - if: {flags: [vesna_died]}
-    text: "The coin is at the bottom of the harbour. She'd have said Tymora keeps her own. You are trying to believe it."
-  - if: {flags: [pip_died]}
-    text: "You keep reaching for a quip that isn't there. The silence where she'd have filled it is loud."
-  - if: {flags: [thessaly_died]}
-    text: "The burn-scar on her wrist — you never got to ask what the sigil was. You're not sure you'd want to know now."
-  - "The night still has hours in it."
+- |-
+  The Trades Ward corner is cold and bright after the harbour. A lamp on a bracket. Cobblestones you can see.
+- if: {flags: [found_journal_waterlogged]}
+  text: |-
+    The journal page crackles where it's drying — folded into your chest-pocket, ink running a little at the margins. Her handwriting is small and precise. You don't read it here. Not yet.
+- if: {flags: [harbour_fled]}
+  text: |-
+    No page. No kills. Just salt-water in your boots and the kuo-toa still aboard the Repose, waiting for whatever they were waiting for before you arrived.
+- if: {flags: [korsa_died]}
+  text: |-
+    Your companion doesn't say anything. There isn't anything to say about a man who went into the harbour in plate mail.
+- if: {flags: [vesna_died]}
+  text: |-
+    The coin is at the bottom of the harbour. She'd have said Tymora keeps her own. You are trying to believe it.
+- if: {flags: [pip_died]}
+  text: |-
+    You keep reaching for a quip that isn't there. The silence where she'd have filled it is loud.
+- if: {flags: [thessaly_died]}
+  text: |-
+    The burn-scar on her wrist — you never got to ask what the sigil was. You're not sure you'd want to know now.
+- |-
+  The night still has hours in it.
+
 
 choices:
-  - text: "Back to the corner"
-    next: spoke_hub
-    effects:
-      flags:
-        harbour_spoke_done: true
-        lead_followed_harbour: true
+- text: |-
+    Back to the corner
+  next: spoke_hub
+  effects:
+    flags:
+      harbour_spoke_done: true
+      lead_followed_harbour: true

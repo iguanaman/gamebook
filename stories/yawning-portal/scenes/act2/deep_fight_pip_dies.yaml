@@ -1,30 +1,40 @@
-journal: "Pip Tallowmuch died in the deep chamber. The cut landed. The price was hers."
+journal: |-
+  Pip Tallowmuch died in the deep chamber. The cut landed. The price was hers.
+
 
 text:
-  - "She cuts the binding. The knife is perfect — three inches, clean line, and Linnet staggers free."
-  - "The thing catches Pip in the gap. Not a glancing wound: it finds her at the throat, and she goes down without a sound, which is somehow the worst part."
-  - "You get to Linnet. You kill the thing. You do both things and you don't stop moving and you don't look at Pip until there's nothing left to fight."
-  - "Then you look."
-  - "She's on her side, face turned toward the door she was always going to use to leave. Her belt of pouches is still full. She never got to count the exits on the way out."
+- |-
+  She cuts the binding. The knife is perfect — three inches, clean line, and Linnet staggers free.
+- |-
+  The thing catches Pip in the gap. Not a glancing wound: it finds her at the throat, and she goes down without a sound, which is somehow the worst part.
+- |-
+  You get to Linnet. You kill the thing. You do both things and you don't stop moving and you don't look at Pip until there's nothing left to fight.
+- |-
+  Then you look.
+- |-
+  She's on her side, face turned toward the door she was always going to use to leave. Her belt of pouches is still full. She never got to count the exits on the way out.
+
 
 choices:
-  - text: "Carry her — and Linnet — out"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        pip_died: true
-        weapon_taken_from_thing: true
-        body_recovered: true
-      stats:
-        Vigor: -3
+- text: |-
+    Carry her — and Linnet — out
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      pip_died: true
+      weapon_taken_from_thing: true
+      body_recovered: true
+    stats:
+      Vigor: -3
 
-  - text: "Leave her. She'd say go."
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        pip_died: true
-        weapon_taken_from_thing: true
-      stats:
-        Vigor: -2
+- text: |-
+    Leave her. She'd say go.
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      pip_died: true
+      weapon_taken_from_thing: true
+    stats:
+      Vigor: -2

@@ -1,13 +1,16 @@
 id: act1/client_topic_pay
 text:
-- male_young_american_weak: Twenty coin on safe return. Her in your arms, walking.
-    Eight if you — if she can't be brought back. Proof of what happened.
-- He swallows.
-- male_young_american_weak: I have two coin now as an advance. I can get you more
-    by morning. I'm not rich, but I'll pay. I'll pay whatever I have.
-- He means it. That's the worst part.
+- male_young_american_weak: |-
+    Twenty coin on safe return. Her in your arms, walking. Eight if you — if she can't be brought back. Proof of what happened.
+- |-
+  He swallows.
+- male_young_american_weak: |-
+    I have two coin now as an advance. I can get you more by morning. I'm not rich, but I'll pay. I'll pay whatever I have.
+- |-
+  He means it. That's the worst part.
 choices:
-- text: Back to the table
+- text: |-
+    Back to the table
   next: act1/talk_client
   effects:
     flags:

@@ -1,17 +1,24 @@
 text:
-  - "Light fills the chamber — not the yellow of a lantern but a cold, total white, the kind of light that doesn't cast shadows so much as abolish the idea of them."
-  - "The thing recoils. Not screaming — it makes a sound like something very old moving through water very quickly, away and down."
-  - "In the gap, you take the apprentice by both arms and pull. Linnet blinks, dazzled, and then she is moving with you."
-  - "Behind you, the light fades. Vesna is steady on her feet. Her coin is still in her hand."
-  - female_adult_american_gentle_tender_sweet: "Lady Luck willing, that's enough. Move."
+- |-
+  Light fills the chamber — not the yellow of a lantern but a cold, total white, the kind of light that doesn't cast shadows so much as abolish the idea of them.
+- |-
+  The thing recoils. Not screaming — it makes a sound like something very old moving through water very quickly, away and down.
+- |-
+  In the gap, you take the apprentice by both arms and pull. Linnet blinks, dazzled, and then she is moving with you.
+- |-
+  Behind you, the light fades. Vesna is steady on her feet. Her coin is still in her hand.
+- female_adult_american_gentle_tender_sweet: |-
+    Lady Luck willing, that's enough. Move.
+
 
 choices:
-  - text: "Out"
-    next: act2/climb_out
-    effects:
-      flags:
-        rescued: true
-        weapon_taken_from_thing: true
-      stats:
-        Vigor: -2
-        Renown: 1
+- text: |-
+    Out
+  next: act2/climb_out
+  effects:
+    flags:
+      rescued: true
+      weapon_taken_from_thing: true
+    stats:
+      Vigor: -2
+      Renown: 1

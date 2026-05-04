@@ -1,81 +1,93 @@
 text:
-  - "A gap between conversations. The lane is quiet enough for it."
-  - if:
-      flags:
-        - recruited_korsa
-      flags_unset:
-        - korsa_died
-    text: "Korsa is rolling a knot of leather cord between his thumb and palm — a habit, not a fidget. He looks like he has something to say."
-  - if:
-      flags:
-        - recruited_vesna
-      flags_unset:
-        - vesna_died
-        - vesna_left
-    text: "Vesna is watching the street. Her prayer-coin is in her hand, unflipped — held, not read."
-  - if:
-      flags:
-        - recruited_pip
-      flags_unset:
-        - pip_died
-    text: "Pip is leaning on the barrel and eating something she has produced from a belt-pouch without explaining where it came from."
-  - if:
-      flags:
-        - recruited_thessaly
-      flags_unset:
-        - thessaly_died
-    text: "Thessaly is standing slightly apart from the others, looking south. She turns when you approach."
+- |-
+  A gap between conversations. The lane is quiet enough for it.
+- if:
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
+  text: |-
+    Korsa is rolling a knot of leather cord between his thumb and palm — a habit, not a fidget. He looks like he has something to say.
+- if:
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - vesna_left
+  text: |-
+    Vesna is watching the street. Her prayer-coin is in her hand, unflipped — held, not read.
+- if:
+    flags:
+    - recruited_pip
+    flags_unset:
+    - pip_died
+  text: |-
+    Pip is leaning on the barrel and eating something she has produced from a belt-pouch without explaining where it came from.
+- if:
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
+  text: |-
+    Thessaly is standing slightly apart from the others, looking south. She turns when you approach.
+
 
 choices:
-  - text: "A word with Korsa."
-    next: act2/council_korsa
-    requires:
-      flags:
-        - recruited_korsa
-      flags_unset:
-        - korsa_died
-        - council_korsa_done_at_spoke
-    hide_if_failed: true
+- text: |-
+    A word with Korsa.
+  next: act2/council_korsa
+  requires:
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
+    - council_korsa_done_at_spoke
+  hide_if_failed: true
 
-  - text: "A word with Vesna."
-    next: act2/council_vesna
-    requires:
-      flags:
-        - recruited_vesna
-      flags_unset:
-        - vesna_died
-        - vesna_left
-        - council_vesna_done_at_spoke
-    hide_if_failed: true
+- text: |-
+    A word with Vesna.
+  next: act2/council_vesna
+  requires:
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - vesna_left
+    - council_vesna_done_at_spoke
+  hide_if_failed: true
 
-  - text: "A word with Pip."
-    next: act2/council_pip
-    requires:
-      flags:
-        - recruited_pip
-      flags_unset:
-        - pip_died
-        - council_pip_done_at_spoke
-    hide_if_failed: true
+- text: |-
+    A word with Pip.
+  next: act2/council_pip
+  requires:
+    flags:
+    - recruited_pip
+    flags_unset:
+    - pip_died
+    - council_pip_done_at_spoke
+  hide_if_failed: true
 
-  - text: "A word with Thessaly."
-    next: act2/council_thessaly
-    requires:
-      flags:
-        - recruited_thessaly
-      flags_unset:
-        - thessaly_died
-        - council_thessaly_done_at_spoke
-    hide_if_failed: true
+- text: |-
+    A word with Thessaly.
+  next: act2/council_thessaly
+  requires:
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
+    - council_thessaly_done_at_spoke
+  hide_if_failed: true
 
-  - text: "Rest — sit down for five minutes."
-    next: act2/council_rest
-    requires:
-      flags_unset:
-        - council_rest_used
+- text: |-
+    Rest — sit down for five minutes.
+  next: act2/council_rest
+  requires:
+    flags_unset:
+    - council_rest_used
 
-  - text: "Back to the corner."
-    next: act2/spoke_hub
-    effects:
-      flags:
-        council_used_at_spoke: true
+- text: |-
+    Back to the corner.
+  next: act2/spoke_hub
+  effects:
+    flags:
+      council_used_at_spoke: true
