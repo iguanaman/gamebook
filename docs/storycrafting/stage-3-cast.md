@@ -18,7 +18,7 @@ It also fixes TTS voice assignments. Without a fixed assignment, beat writers wi
 
 1. Read `brief.md`, `structure.md`, every `act-{n}.md`, and `docs/storycrafting/principles.md` (the "Characters" section).
 2. List every named NPC across all acts. Include any NPC with at least one line of dialogue or one decision the player makes about them.
-3. Read the available TTS voices from `tts_voices/voices.yaml`. Voice IDs are leaf keys in the file (e.g. `female_adult_american_cool`, `male_midlife_english_posh`). The `narrator/` branch is **off-limits** for NPC assignment — narrator voices are reserved for the story's narrator (set in `story.yaml`).
+3. Run `python list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. Voice IDs are leaf keys in the file (e.g. `female_adult_american_cool`, `male_midlife_english_posh`). The `narrator/` branch is **off-limits** for NPC assignment — narrator voices are reserved for the story's narrator (set in `story.yaml`).
 4. Assign a voice to each NPC. **Avoid reuse where possible** — if there are more NPCs than voices, only then double up, and only on NPCs who never share a scene. Match voice traits to character: a posh English accent fits an overseer better than a chirpy Scottish one.
 5. Write `cast.md`.
 
