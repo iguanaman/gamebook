@@ -455,8 +455,7 @@ async function startStory(storyId) {
 function renderShell(meta) {
   app.innerHTML = `
     <div class="hud-wrap">
-      <div class="hud-peek">···</div>
-      <div class="hud" id="hud"></div>
+      <button class="fullscreen-btn" id="fullscreen-btn" title="Toggle fullscreen">⛶</button>
     </div>
     <div class="game-wrap">
       <div class="narrative-area">
@@ -465,7 +464,7 @@ function renderShell(meta) {
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
-    <button class="btn-undo-fixed btn-ghost" id="btn-undo" disabled>Undo ↩</button>
+    <button class="btn-undo-fixed btn-ghost" id="btn-undo" disabled>↩</button>
   `;
   const narrative = document.getElementById('narrative');
   if (narrative) {
@@ -476,6 +475,14 @@ function renderShell(meta) {
     narrative.addEventListener('scroll', updateAtBottom, { passive: true });
   }
   document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
+  document.getElementById('fullscreen-btn')?.addEventListener('click', () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  });
+  document.addEventListener('fullscreenchange', () => {
+    const btn = document.getElementById('fullscreen-btn');
+    if (btn) btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
+  });
 }
 
 async function loadScene(storyId, sceneId) {
@@ -493,7 +500,6 @@ async function navigateTo(sceneId) {
 
   const scene = await loadScene(currentStoryId, sceneId);
   recordJournal(scene, sceneId);
-  renderHud();
   updateUndoButton();
   renderJournal();
 
@@ -531,7 +537,6 @@ async function navigateTo(sceneId) {
         const blocks = resolveSceneBlocks(scene);
         state.blockHashes[sceneId] = blocks.map(b => b.hash);
         saveState();
-        renderHud();
         typeBlocks(blocks, () => renderChoices(scene), sceneId);
       });
     }
@@ -591,42 +596,37 @@ async function navigateTo(sceneId) {
   }
 }
 
-function renderHud() {
-  const hud = document.getElementById('hud');
-  if (!hud) return;
-
-  const statsHtml = Object.entries(state.stats)
-    .map(([k, v]) => `<span class="hud-stat"><span class="hud-key">${k}</span><span class="hud-val">${v}</span></span>`)
-    .join('');
-
-  const visibleFlags = Object.entries(storyMeta.flags ?? {})
-    .filter(([key, meta]) => meta.visible && state.flags[key]);
-
-  const flagsHtml = visibleFlags.length > 0
-    ? `<span class="hud-divider"></span>` +
-      visibleFlags.map(([, meta]) =>
-        `<span class="hud-flag"><span class="hud-flag-label">${meta.label}</span></span>`
-      ).join('')
-    : '';
-
-  hud.innerHTML = statsHtml + flagsHtml;
-}
-
 function resolveSceneBlocks(scene) {
   const el = document.getElementById('narrative');
   const isFirstScene = el && el.querySelector('p') === null;
   const rawBlocks = Array.isArray(scene.text) ? scene.text : [scene.text];
 
   const blocks = [];
+
+  function pushResolved(resolved, rawIndex, branchPrefix) {
+    if (Array.isArray(resolved.content)) {
+      let subI = 0;
+      resolved.content.forEach(sub => {
+        const subResolved = resolveBlock(sub, scene.id);
+        if (!subResolved) return;
+        pushResolved(subResolved, rawIndex, `${branchPrefix}${subI++}`);
+      });
+    } else {
+      const branch = branchPrefix;
+      blocks.push({
+        ...resolved,
+        branch,
+        rawIndex,
+        isOpener: blocks.length === 0 && isFirstScene,
+        hash: hashString(resolved.content),
+      });
+    }
+  }
+
   rawBlocks.forEach((b, rawIndex) => {
     const resolved = resolveBlock(b, scene.id);
     if (!resolved) return;
-    blocks.push({
-      ...resolved,
-      rawIndex,
-      isOpener: blocks.length === 0 && isFirstScene,
-      hash: hashString(resolved.content),
-    });
+    pushResolved(resolved, rawIndex, resolved.branch);
   });
   return blocks;
 }

@@ -161,66 +161,22 @@ button {
   top: 1rem;
   right: 1.5rem;
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
-.hud-peek {
-  font-size: 0.85rem;
+.fullscreen-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
   color: var(--text-muted);
   opacity: 0.45;
-  cursor: default;
-  letter-spacing: 0.1em;
+  padding: 0.25rem 0.35rem;
+  line-height: 1;
   transition: opacity 0.2s;
-  user-select: none;
-  padding: 0.25rem 0.5rem;
 }
 
-.hud-wrap:hover .hud-peek {
-  opacity: 0;
-}
-
-.hud {
-  display: flex;
-  gap: 1rem;
-  font-family: var(--font-ui);
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-4px);
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.hud-wrap:hover .hud {
+.fullscreen-btn:hover {
   opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-.hud-stat { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
-.hud-key { font-size: 0.6rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.06em; font-family: var(--font-heading); }
-.hud-val { font-size: 1rem; font-weight: 600; }
-
-.hud-divider {
-  width: 1px;
-  background: var(--border);
-  align-self: stretch;
-  margin: 0 0.25rem;
-}
-
-.hud-flag {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.1rem;
-}
-
-.hud-flag-label {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  color: var(--accent);
-  letter-spacing: 0.06em;
-  font-family: var(--font-heading);
-  white-space: nowrap;
 }
 
 /* ── Game layout ──────────────────────────────────────────────────────────── */
