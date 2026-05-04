@@ -4,7 +4,7 @@ text:
   Durnan does not ask what happened. He watched you come up the rope. He read Joren's face
   before you crossed to the corner table. He has been doing this for thirty years and he does
   it better than most prayers.
-
+- |-
   # α — clean rescue, high Renown: stands a drink
 - if:
     flags: [rescued]

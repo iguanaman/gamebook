@@ -16,7 +16,7 @@ text:
   The door closes behind them. Joren stands at the window, watching. He was going to
   say something, but the moment passed and now the right words have somewhere else to be.
   He nods at you — a nod with weight in it — and then he follows them out.
-
+- |-
   # Dead companion acknowledgement
 - if:
     flags: [korsa_died]

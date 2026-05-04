@@ -81,7 +81,7 @@ text:
   Waterdeep's pre-dawn streets. Gas-lamps burning steady gold along the cobbles. The harbour
   smell — brine, pitch, the particular cold of moving water. The city is not awake yet, but
   it is breathing.
-
+- |-
   # Final line — dread
 - if:
     flags: [stirred_something]
