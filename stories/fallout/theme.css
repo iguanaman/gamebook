@@ -22,6 +22,7 @@
   --font-body: 'Share Tech Mono', 'Courier New', monospace;
   --font-ui: 'Roboto Condensed', 'Arial Narrow', sans-serif;
   --font-heading: 'Overseer', 'Bebas Neue', 'Impact', sans-serif;
+  --card-title-size: 1.6rem;
 
   --border-outer: #3a2e14;
   --border-inner: #1e1a0a;
