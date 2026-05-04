@@ -30,8 +30,12 @@ Pure static site — HTML, CSS, vanilla JS. No build step, no framework, no bund
 3. `navigateTo(sceneId)` fetches the scene YAML, re-renders HUD + narrative + choices
 4. Choices may have `effects` (stat deltas, flag sets) and `requires` (stat minimums, flag checks, flags_unset) — failing choices grey out with failure text unless `hide_if_failed: true` hides them entirely
 5. Text blocks support `if`/`else` conditions (flags, stats, or built-in `visited`) for conditional narrative
-6. State shape: `{ scene, stats, flags, visited, history }` — persisted to `localStorage` as `gamebook.state.{id}`
+6. State shape: `{ scene, stats, flags, visited, history, act }` — persisted to `localStorage` as `gamebook.state.{id}` (`act` is a separate runtime variable, merged into saves)
 6. Undo pops `history` stack and re-navigates without pushing a new entry
+
+## Scripts
+
+Use Python for any utility scripts in this project.
 
 ## Workflow
 
@@ -61,4 +65,4 @@ python generate_audio.py --force      # regenerate everything
 python generate_audio.py --story demo # one story only
 ```
 
-Requires the TTS server running (`python tts_server.py`, port 5500). Voice files live in `tts_voices/{name}.wav`. The TTS server encodes output as Opus at 48kbps via ffmpeg. The script generates one `.opus` file per text block — `audio/{sceneId}_block_0.opus`, `audio/{sceneId}_block_1.opus`, etc. — and writes a `timings` list back to each scene YAML (seconds from audio start, one entry per text block).
+Requires the TTS server running (`python tts_server.py`, port 5500). Voice files live in `tts_voices/{name}.wav`. The TTS server encodes output as Opus at 48kbps via ffmpeg. The script generates one `.opus` file per text block — `audio/{sceneId}_block_0.opus`, `audio/{sceneId}_block_1.opus`, etc..

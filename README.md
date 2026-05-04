@@ -24,35 +24,13 @@ See `docs/` for full documentation:
 - `docs/engine.md` — state, navigation, effects, audio
 - `docs/frontend.md` — layout, CSS variables, theming
 
-## Stories
-
-| ID | Title | Description |
-|---|---|---|
-| demo | The Crossroads | Short tech demo — a traveller at a fork in the road |
-
----
-
 ## Creating a new story with Claude
 
-Paste the following prompt into Claude Code to create a new story. It runs each stage as a separate task so context stays focused.
+Run `/new-story` in Claude Code to start the guided story creation pipeline.
+
+Once the story is written, generate audio:
 
 ```
-I want to create a new gamebook story using the /storycraft skill.
-
-Please create a separate task for each stage below and work through them sequentially — complete one stage fully before starting the next. Each stage should be handled as its own focused session using /storycraft.
-
-Story ID: [your-story-id]
-
-Tasks:
-1. Stage 0 — Discovery: Run `/storycraft [your-story-id] stage 0`. Interview me about the story setting, hook, player role, arc, endings, constraints, tone, and visual feel. Then write brief.md and theme.css.
-
-2. Stage 1 — Structure: Run `/storycraft [your-story-id] stage 1`. Define acts, turning points, branch map, and endings using brief.md.
-
-3. Stage 2 — Act Breakdown (repeat per act): Run `/storycraft [your-story-id] stage 2 act [N]`. Expand each act into beats, scene list, choice points, and exits.
-
-4. Stage 3 — Scene Writing (repeat per beat): Run `/storycraft [your-story-id] stage 3`. Write scene YAML files one beat at a time, stopping for review after each.
-
-Start with Stage 0 now.
+python tts_server.py        # start TTS server (port 5500)
+python generate_audio.py    # generate audio for all stories
 ```
-
-Replace `[your-story-id]` with a short lowercase ID (e.g. `iron-coast`, `fall-of-valdris`).
