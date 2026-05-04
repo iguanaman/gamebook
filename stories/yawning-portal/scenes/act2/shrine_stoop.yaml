@@ -1,0 +1,20 @@
+text:
+  - "The shrine is a stoop, nothing more — a step below a shuttered dry-goods door, a small bowl of coin and dried marigolds, a Tymora's wheel scratched into the stone by someone who didn't have a chisel. Someone has been washing the step. It is clean."
+  - "A woman in grey is kneeling at the bowl. She does not look up when you arrive, but she moves slightly to make room."
+  - female_adult_american_grounded_professional: "Sister. I thought you might come through."
+  - "She says it to Vesna. Not you."
+  - "Vesna kneels beside her without a word. She takes out the Tymora's coin on its thong and holds it over the bowl — not dropping it, just holding. A long moment."
+  - female_adult_american_gentle_tender_sweet: "Lady Luck willing, we come back this way."
+  - female_adult_american_grounded_professional: "She will."
+  - "The shrine-keep says it the way you'd say the time of day. Quietly certain. She rises and begins re-folding the dried flowers without hurry."
+  - "Vesna stands. The coin goes back inside her collar. Some colour has returned to her face — whatever she set down at the bowl, she set it down cleanly."
+  - "You are not sure what Tymora requires of a prayer at a forgotten stoop on a dockside lane, but whatever it costs, the exchange looks even."
+
+choices:
+  - text: "A moment more, then back to the corner."
+    next: act2/spoke_hub
+    effects:
+      flags:
+        shrine_stoop_used: true
+      stats:
+        Vigor: 1

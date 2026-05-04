@@ -1,0 +1,38 @@
+text:
+  - "You find a doorstep wide enough to sit on. The lane is quiet at this angle — a slant of everburning lamp-light, the smell of brine, the distant knock of a boat against a dock."
+  - "Nobody talks. That's the gift of a few minutes at a corner — no performance required."
+  - if:
+      flags:
+        - recruited_korsa
+      flags_unset:
+        - korsa_died
+    text: "Korsa eats something from his pack — dried meat, gone before you've noticed it was there — and closes his eyes for thirty seconds exactly. Not sleeping. Paying a debt to his body."
+  - if:
+      flags:
+        - recruited_vesna
+      flags_unset:
+        - vesna_died
+        - vesna_left
+    text: "Vesna holds the Tymora's coin flat in her open palm. Eyes open. Whatever she's doing, it's done without theatre."
+  - if:
+      flags:
+        - recruited_pip
+      flags_unset:
+        - pip_died
+    text: "Pip produces a second mysterious thing from a different pouch and offers you half without looking at you."
+  - if:
+      flags:
+        - recruited_thessaly
+      flags_unset:
+        - thessaly_died
+    text: "Thessaly does not sit. She stands with her eyes closed and her breath slowed to something deliberate — an exercise, not exhaustion. When she opens her eyes she looks three degrees sharper than before."
+  - "You breathe. The night is cold but not killing cold — a Waterdeep winter trying on its jacket. When you stand up, your legs work better than they did."
+
+choices:
+  - text: "Back on your feet."
+    next: act2/companion_council_spoke
+    effects:
+      flags:
+        council_rest_used: true
+      stats:
+        Vigor: 1
