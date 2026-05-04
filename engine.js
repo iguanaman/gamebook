@@ -149,11 +149,13 @@ async function applyCardTheme(storyId) {
 }
 
 function animateCardSelect(storyId) {
-  const chosen = document.querySelector(`.story-card[data-story="${storyId}"]`);
   const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
   setTimeout(() => {
-    chosen?.classList.add('card-chosen');
+    const cover = document.createElement('div');
+    cover.className = 'screen-fade-cover';
+    document.body.appendChild(cover);
+    requestAnimationFrame(() => cover.classList.add('screen-fade-cover-in'));
     setTimeout(() => startStory(storyId), 600);
   }, 500);
 }
