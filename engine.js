@@ -546,6 +546,7 @@ async function startStory(storyId) {
   } else {
     renderShell(meta);
     await navigateTo(startScene);
+    scrollNarrativeToBottom();
   }
 }
 
