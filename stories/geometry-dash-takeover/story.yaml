@@ -1,7 +1,8 @@
 id: geometry-dash-takeover
-title: "Geometry Dash: The Takeover"
+title: 'Geometry Dash: The Takeover'
 narrator: narrator_haminations
 description: RobTop is retiring. Six superfan kids tour his neon HQ. Five rooms of deep-cut lore. Last one standing inherits the studio.
 cover: images/cover.jpg
 start: foyer
-journal: "RobTop is retiring. You and five other superfans got the golden invite to tour the neon HQ. He says the kid still standing at the end inherits the studio. He is not joking."
+journal: |-
+  RobTop is retiring. You and five other superfans got the golden invite to tour the neon HQ. He says the kid still standing at the end inherits the studio. He is not joking.
