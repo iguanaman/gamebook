@@ -177,12 +177,12 @@ button {
 }
 .card-delete-btn {
   position: absolute;
-  right: -2.25rem;
+  right: -2.5rem;
   top: 50%;
   transform: translateY(-50%);
   background: none;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   line-height: 1;
   padding: 0.25rem;
   opacity: 0;
