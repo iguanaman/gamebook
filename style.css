@@ -381,8 +381,6 @@ button {
   color: var(--text-muted);
 }
 
-.choice-meta { margin-top: 1rem; display: flex; justify-content: flex-end; }
-
 .btn-ghost {
   background: transparent;
   border: none;
@@ -395,6 +393,43 @@ button {
 }
 .btn-ghost:hover:not(:disabled) { background: var(--hover-bg); color: var(--text); }
 .btn-ghost:disabled { opacity: 0.35; cursor: default; }
+
+.btn-undo-fixed {
+  position: fixed;
+  bottom: calc(var(--frame-inset) + 0.75rem);
+  left: calc(var(--frame-inset) + 0.75rem);
+  z-index: 10;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+.btn-undo-fixed:hover:not(:disabled) { opacity: 1; }
+.btn-undo-fixed:disabled { opacity: 0.2; cursor: default; }
+
+.undo-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.undo-confirm {
+  background: var(--surface);
+  border: 2px solid var(--border-outer);
+  border-radius: var(--border-corner-radius);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.undo-confirm-msg {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0 0 1rem;
+}
 
 .end-message {
   text-align: center;

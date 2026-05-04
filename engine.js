@@ -465,6 +465,7 @@ function renderShell(meta) {
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
+    <button class="btn-undo-fixed btn-ghost" id="btn-undo" disabled>Undo ↩</button>
   `;
   const narrative = document.getElementById('narrative');
   if (narrative) {
@@ -473,6 +474,7 @@ function renderShell(meta) {
     };
     narrative.addEventListener('scroll', updateAtBottom, { passive: true });
   }
+  document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
 }
 
 async function loadScene(storyId, sceneId) {
@@ -491,6 +493,7 @@ async function navigateTo(sceneId) {
   const scene = await loadScene(currentStoryId, sceneId);
   recordJournal(scene, sceneId);
   renderHud();
+  updateUndoButton();
   renderJournal();
 
   const alreadyVisited = state.visited.includes(sceneId);
@@ -819,11 +822,9 @@ function renderChoices(scene) {
       <p class="end-message">— The End —</p>
       <button class="btn btn-secondary" id="btn-restart">↺ Restart</button>
       <button class="btn btn-secondary" id="btn-selector">Back to Stories</button>
-      <button class="btn btn-secondary" id="btn-undo" ${state.history.length === 0 ? 'disabled' : ''}>↩ Undo</button>
     `;
     document.getElementById('btn-restart')?.addEventListener('click', () => { localStorage.removeItem(stateKey(currentStoryId)); startStory(currentStoryId); });
     document.getElementById('btn-selector')?.addEventListener('click', () => showSelector());
-    document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
     return;
   }
 
@@ -835,10 +836,8 @@ function renderChoices(scene) {
     <div class="choice-list">
       ${passingHtml}
     </div>
-    <div class="choice-meta">
-      <button class="btn btn-ghost" id="btn-undo" ${state.history.length === 0 ? 'disabled' : ''}>↩ Undo</button>
-    </div>
   `;
+  updateUndoButton();
 
   const choiceList = el.querySelector('.choice-list');
   if (choiceList) {
@@ -874,7 +873,6 @@ function renderChoices(scene) {
       }, fastMs + lingerMs);
     });
   });
-  document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
 }
 
 function resolveNext(next) {
@@ -896,12 +894,43 @@ async function handleChoice(choice) {
   await navigateTo(resolveNext(choice.next));
 }
 
+function updateUndoButton() {
+  const btn = document.getElementById('btn-undo');
+  if (!btn) return;
+  btn.disabled = !state || state.history.length === 0;
+}
+
+function showUndoConfirm() {
+  const overlay = document.createElement('div');
+  overlay.className = 'undo-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="undo-confirm">
+      <p class="undo-confirm-msg">Undo last choice?</p>
+      <div class="exit-confirm-buttons">
+        <button class="btn btn-secondary" id="btn-undo-yes">Yes</button>
+        <button class="btn btn-ghost" id="btn-undo-no">No</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  const cleanup = () => overlay.remove();
+
+  document.getElementById('btn-undo-yes').addEventListener('click', async () => {
+    cleanup();
+    const ok = undo();
+    if (!ok) return;
+    const el = document.getElementById('narrative');
+    if (el) { el.innerHTML = '<div class="narrative-spacer"></div>'; }
+    await navigateTo(state.scene);
+  });
+
+  document.getElementById('btn-undo-no').addEventListener('click', cleanup);
+  overlay.addEventListener('click', e => { if (e.target === overlay) cleanup(); });
+}
+
 async function handleUndo() {
-  const ok = undo();
-  if (!ok) return;
-  const el = document.getElementById('narrative');
-  if (el) { el.innerHTML = '<div class="narrative-spacer"></div>'; }
-  await navigateTo(state.scene);
+  showUndoConfirm();
 }
 
 // ── Journal ───────────────────────────────────────────────────────────────────
