@@ -39,7 +39,7 @@ Use Python for any utility scripts in this project.
 
 ## Workflow
 
-Commit changes when a task is done.
+Commit changes when a task is done. Do not ask for confirmation — just commit.
 
 ## Visual companion
 

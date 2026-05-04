@@ -125,6 +125,20 @@ If this is the first scene of the whole story, also:
 
 ---
 
+## YAML quoting
+
+Any text block containing a colon (`:`) must be quoted — YAML will misparse `running itself: requisitions` as a mapping key. Use double quotes or a block scalar (`|`). Single quotes work too but require escaping internal single quotes as `''`. When in doubt, quote it.
+
+```yaml
+# BAD — colon in unquoted multiline string
+- The vault runs itself: lights, locks, rations.
+
+# GOOD
+- "The vault runs itself: lights, locks, rations."
+```
+
+---
+
 ## Output
 
 One YAML file per scene. Follow the schema in `CLAUDE.md`. No extras — only fields the scene actually uses.
