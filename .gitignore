@@ -3,4 +3,4 @@ Thumbs.db
 tmp/
 *.log
 docs/superpowers/
-tts_voices/
+tts_voices/*.pyc
