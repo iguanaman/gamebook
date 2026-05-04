@@ -100,3 +100,9 @@ choices:
     effects:
       flags:
         tested_rope_below: true
+
+  - text: "Through the archway. Into Undermountain."
+    next: act2/descent
+    effects:
+      flags:
+        committed_descent: true

@@ -52,6 +52,7 @@ html, body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
+  overflow: hidden;
 }
 
 h1, h2, h3 {
@@ -398,12 +399,13 @@ button {
   position: fixed;
   bottom: calc(var(--frame-inset) + 0.75rem);
   left: calc(var(--frame-inset) + 0.75rem);
-  z-index: 10;
+  z-index: 310;
   opacity: 0.5;
   transition: opacity 0.15s;
+  pointer-events: auto;
 }
 .btn-undo-fixed:hover:not(:disabled) { opacity: 1; }
-.btn-undo-fixed:disabled { opacity: 0.2; cursor: default; }
+.btn-undo-fixed:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
 
 .undo-confirm-overlay {
   position: fixed;
