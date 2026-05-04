@@ -364,6 +364,7 @@ button {
   transition: opacity 0.15s;
   pointer-events: auto;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 .btn-undo-fixed:hover:not(:disabled) { opacity: 1; }
 .btn-undo-fixed:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
