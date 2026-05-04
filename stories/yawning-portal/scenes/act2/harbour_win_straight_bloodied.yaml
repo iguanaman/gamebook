@@ -1,0 +1,19 @@
+text:
+  - "Steel and spell — and the deck is slick and the kuo-toa hit hard and what should have been clean isn't."
+  - "You put down the first with scorching ray. The second and the dock-coat man come together and it's a dogfight in the hold with the bilge-water coming in under your boots and no room to step back. You take a bite — not teeth, claws — across the forearm that opens the sleeve and the skin under it. Your companion takes worse."
+  - "But they go down. They all go down."
+  - "You are still on your feet. This is the thing that matters. You are still on your feet."
+  - "The journal page is in the hold. You almost don't notice it."
+
+choices:
+  - text: "Pocket the page and climb out"
+    next: harbour_resolution
+    effects:
+      flags:
+        weapon_taken_from_kuo_toa: true
+        met_the_thing_below_glimpse: true
+        found_journal: true
+        found_journal_waterlogged: true
+      stats:
+        Vigor: -3
+        Coin: 1

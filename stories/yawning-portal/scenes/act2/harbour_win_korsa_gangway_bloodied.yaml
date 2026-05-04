@@ -1,0 +1,20 @@
+text:
+  - "Korsa holds. The kuo-toa push against him in turns, which is a bad strategy for the kuo-toa — Korsa's axe makes the second and third approaches shorter than the first. The dock-coat man you handle yourself, scorching ray at close range, close enough that you smell the burning coat-wool."
+  - "But the deck is slick and the tide shifts the hull at the wrong moment and a kuo-toa that should have been dead gets a webbed claw under Korsa's guard — between the pauldron and the side-plate, where the straps are and where there isn't any iron."
+  - "Korsa makes no sound. He finishes the kill with the claw still in him."
+  - male_midlife_british_tough_calloused: "Deep. Not bad deep. Annoying deep. Give me a minute."
+  - "He sits on a bollard on the pier while you bind him. His breathing is careful. Deliberate."
+
+choices:
+  - text: "Bind the wound, pocket the page, get moving"
+    next: harbour_resolution
+    effects:
+      flags:
+        weapon_taken_from_kuo_toa: true
+        met_the_thing_below_glimpse: true
+        found_journal: true
+        found_journal_waterlogged: true
+        korsa_wounded: true
+      stats:
+        Vigor: -3
+        Coin: 1

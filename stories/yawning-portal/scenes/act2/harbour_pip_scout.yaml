@@ -1,0 +1,16 @@
+text:
+  - "Pip is gone before you finish the sentence. Fifteen seconds later she's on the gangway, then on the deck, then — nothing. You count to forty."
+  - "She comes back down the pier at a walk, which is how you know something is wrong. Pip doesn't walk when she can jog."
+  - female_young_american_lisp: "Three problems. The deck's wet. And I mean — wet. Not rain, not spray. Something came up from below and crossed it, more than once. Patterns. Deliberate."
+  - "She pauses."
+  - female_young_american_lisp: "Second problem. The hatch to the hold is open. Should be dogged down in harbour. Isn't."
+  - "Another pause."
+  - female_young_american_lisp: "Third problem. I heard breathing. From below the waterline."
+
+choices:
+  - text: "Back to the dock — we go in ready"
+    next: harbour_approach
+    effects:
+      flags:
+        harbour_pip_scouted: true
+        harbour_warned: true

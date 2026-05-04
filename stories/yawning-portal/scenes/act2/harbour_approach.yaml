@@ -1,0 +1,37 @@
+text:
+  - "Dock 14 at the long quays. The Sea Maiden's Repose sits at the end of a finger-pier — a two-masted cog, old enough that her pitch smells more like rot than tar. She was beautiful once. She isn't now."
+  - "A gas-lamp hangs crooked from a post at the pier-head, throwing orange on black water. The tide is coming in. Something bobs near the hull that you decide not to look at too long."
+  - "The bargeman's shanty is a converted dock-locker at the shore end — lamp in the window, smoke from a clay pipe through a hole in the roof. The harbour-master's office sits up the hill, overlooking the quays. And the Repose herself waits at the end of the pier, gangway down."
+
+choices:
+  - text: "Talk to the bargeman"
+    next: harbour_bargeman_talk
+    requires:
+      flags_unset: [harbour_bargeman_done]
+    effects:
+      flags:
+        harbour_bargeman_started: true
+
+  - text: "Up the hill — harbour-master's office, see the records"
+    next: harbour_records
+    requires:
+      flags_unset: [harbour_records_done]
+
+  - text: "Pip — slip aboard first, scout what's on the deck"
+    next: harbour_pip_scout
+    requires:
+      flags: [recruited_pip]
+      flags_unset: [pip_died, pip_left, harbour_pip_scouted]
+    hide_if_failed: true
+    effects:
+      flags:
+        harbour_pip_scouted: true
+
+  - text: "Board the Repose — let's see what she's hiding"
+    next: harbour_board
+    effects:
+      flags:
+        harbour_boarded: true
+
+  - text: "Pull back — head to the corner. Not yet."
+    next: spoke_hub

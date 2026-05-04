@@ -1,0 +1,21 @@
+text:
+  - "Vesna's coin comes off her neck in one motion and she holds it out flat, and what she says is one word — *Tymora* — and the coin burns white."
+  - "The kuo-toa shriek. They don't scream the way a human does, no single note, just a high wet sliding sound that the ear doesn't like, and they go toward the rail like the light is a wall they can't pass."
+  - "One goes over the side on its own. One the coin-light drives to its knees and you open its skull with the pommel of your sword, a crack like splitting green wood, and something darker than blood soaks the deck between the planks."
+  - "The man in the dock-coat breaks when the other two break. He sits down and stares at the water and doesn't move when you step past him to search the hold. He's gone somewhere else inside his head. You don't bring him back."
+  - "The journal page is in the hold, jammed under a beam, folded four times."
+  - female_adult_american_gentle_tender_sweet: "[sigh] Lady Luck. Thank you for this one."
+
+choices:
+  - text: "Pocket the page and help Vesna back to the pier"
+    next: harbour_resolution
+    effects:
+      flags:
+        weapon_taken_from_kuo_toa: true
+        met_the_thing_below_glimpse: true
+        found_journal: true
+        found_journal_waterlogged: true
+      stats:
+        Vigor: -1
+        Coin: 2
+        Renown: 1

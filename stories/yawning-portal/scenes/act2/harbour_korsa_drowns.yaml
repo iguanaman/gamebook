@@ -1,0 +1,20 @@
+text:
+  - "Korsa holds the gangway until the deck goes."
+  - "The tide shifts — a big one, a harbour swell — and the Repose rolls six inches to starboard. The gangway slips its mooring peg. Korsa, eighty pounds of iron plate and twenty years of stubbornness, goes with it into the gap between the hull and the pier."
+  - "The water there is black and very cold. Plate does not float."
+  - "You kill the two remaining kuo-toa. You kill the dock-coat man. You look over the side for a long time."
+  - "The charm from his neck washes up against the pier-piling twenty minutes later. Carved wood, nothing you recognise. You take it."
+
+journal: "Korsa Ironbrow went into the harbour at Dock 14 when the gangway slipped. The plate took him down fast. There was nothing to be done."
+
+choices:
+  - text: "Climb out — nothing for him below"
+    next: harbour_resolution
+    effects:
+      flags:
+        korsa_died: true
+        met_the_thing_below_glimpse: true
+        found_journal: true
+        found_journal_waterlogged: true
+      stats:
+        Vigor: -3
