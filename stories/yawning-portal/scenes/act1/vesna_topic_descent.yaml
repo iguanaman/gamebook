@@ -1,0 +1,15 @@
+text:
+  - "You ask what she sees when she looks at the well."
+  - female_adult_american_gentle_tender_sweet: "A test."
+  - "Quiet. Simple."
+  - female_adult_american_gentle_tender_sweet: "Tymora favours those who go. Not those who win — those who go, knowing the odds are bad and going anyway. The faith is not the absence of fear. It is the choice made despite it."
+  - "She looks at the rope over the rim of the well."
+  - female_adult_american_gentle_tender_sweet: "I have been sitting here two days, watching people choose not to go. [sigh] I think the goddess is waiting for me to stop watching."
+  - "She turns the coin once more. Both sides look the same in this light."
+
+choices:
+  - text: "Back to Vesna"
+    next: talk_vesna
+    effects:
+      flags:
+        asked_vesna_descent: true

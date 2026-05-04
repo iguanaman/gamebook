@@ -1,0 +1,13 @@
+text:
+  - female_young_american_lisp: "Two names I'll give you. Merchant named Aldric Swann — ran a cloth import out of the south docks. Hired me to go through a warehouse that turned out to have a basement that turned out to have a sub-basement with things in it that I will not be describing."
+  - "She pauses."
+  - female_young_american_lisp: "Swann is still alive. So am I. That is the whole recommendation."
+  - "She takes a drink."
+  - female_young_american_lisp: "Second name: Watch Lieutenant, Trades Ward. Hired me on a contract the Watch still officially denies. She's alive. Well, she's a captain now. You could ask her — she'll deny the whole business, but she'll deny it in a way that tells you everything you need to know."
+
+choices:
+  - text: "Back to Pip"
+    next: talk_pip
+    effects:
+      flags:
+        asked_pip_history: true

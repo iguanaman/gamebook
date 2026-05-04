@@ -1,0 +1,13 @@
+text:
+  - female_young_american_lisp: "Five Coin. Flat. Up front."
+  - "She holds her hand out, palm up, while she's still talking."
+  - female_young_american_lisp: "No refunds. No half-pay if it goes sideways and I have to carry one of you out. No 'we'll settle when we resurface' — I have heard that sentence from a dead man's mouth and I will not hear it from yours."
+  - "She retracts the hand."
+  - female_young_american_lisp: "What you get for that: every trap I find, I disarm. Every lock I see, I open. Every exit in any room we enter, I count and I tell you. That last one is free. I do it anyway."
+
+choices:
+  - text: "Back to Pip"
+    next: talk_pip
+    effects:
+      flags:
+        asked_pip_rate: true

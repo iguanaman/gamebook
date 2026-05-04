@@ -1,0 +1,25 @@
+journal: "You hired Pip Tallowmuch. Five Coin, up front, no refunds."
+
+text:
+  - "You count five Coin onto the bar. She watches each one land."
+  - female_young_american_lisp: "One. Two. Three. Four. Five."
+  - "She sweeps them into her pouch without looking at them again — already past the transaction."
+  - "She extends her fist. Not a shake — a knuckle-bump, quick and businesslike."
+  - female_young_american_lisp: "Exits first, traps second, locks third, everything else as we go. If I say run, we run. Deal?"
+  - "She doesn't wait for the full answer. The deal is already done."
+  - if:
+      flags: [recruited_korsa]
+    text:
+      - "From the hearth bench, a low sound — not quite approval, not quite suspicion."
+      - male_midlife_british_tough_calloused: "Don't let her walk behind me."
+      - female_young_american_lisp: "Likewise, tall one."
+
+choices:
+  - text: "Back to the room"
+    next: common_room
+    effects:
+      flags:
+        recruited_pip: true
+        pair_locked: true
+      stats:
+        Coin: -5

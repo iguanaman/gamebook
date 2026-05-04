@@ -1,0 +1,15 @@
+text:
+  - "You say something about your prepared spells — the discipline, the formalism of the academy register. She tilts her head."
+  - female_adult_american_sultry_villainous: "Yes. I can see the structure of it on you. Prepared. Deliberate. Each spell a sentence you have already composed and merely speak aloud."
+  - "She turns her palm up on the table. Nothing visible happens, but the air above her hand is briefly warmer."
+  - female_adult_american_sultry_villainous: "Mine is — extemporaneous. The same sentence, but written while speaking. Faster. Less reliable. The results are sometimes larger than intended."
+  - "She closes her hand. The warmth dissipates."
+  - female_adult_american_sultry_villainous: "We would not duplicate each other. That is probably useful, where we are going."
+  - "She finds this amusing, faintly. The amusement does not reach a smile."
+
+choices:
+  - text: "Back to Thessaly"
+    next: talk_thessaly
+    effects:
+      flags:
+        asked_thessaly_arcane: true

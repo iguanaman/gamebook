@@ -1,0 +1,22 @@
+journal: "You accepted Thessaly's terms. The name she may whisper is hers to keep."
+
+text:
+  - "You say you accept her terms."
+  - "She nods once."
+  - "On the table between you, the candle flame dips — not from a draught; there is no draught. It rights itself a moment later. The candle has perhaps half an inch less of wick than it did before."
+  - female_adult_american_sultry_villainous: "Good."
+  - "She does not extend a hand. The deal is witnessed by the room and by whatever she keeps in the flame. That appears to be sufficient."
+  - if:
+      flags: [recruited_vesna]
+    text:
+      - "Across the room, Vesna's coin-flip pauses. She watches Thessaly for a moment, then looks back at her candle."
+      - female_adult_american_gentle_tender_sweet: "Lady Luck willing."
+      - "Quiet. Neither blessing nor warning."
+
+choices:
+  - text: "Back to the room"
+    next: common_room
+    effects:
+      flags:
+        recruited_thessaly: true
+        pair_locked: true

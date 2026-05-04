@@ -1,0 +1,42 @@
+text:
+  - "Pip Tallowmuch has taken the stool at the corner of the bar — back to the wall, eye-line clear to the door, the well, and the stairs. Three earrings in one ear catch the lamplight. She's counting something under her breath and stops when you approach."
+  - if:
+      flags: [stole_caltrops]
+    text:
+      - female_young_american_lisp: "You. Right. I've been thinking about my belt-pouch."
+      - "She squints at you. A long beat. You can't tell if she knows or is fishing."
+      - female_young_american_lisp: "Never mind. Sit down."
+  - female_young_american_lisp: "You buying, or you just here to look at me?"
+
+choices:
+  - text: "Ask about Undermountain rumours"
+    next: pip_topic_rumours
+    requires:
+      flags_unset: [asked_pip_rumours]
+
+  - text: "Ask her rate"
+    next: pip_topic_rate
+    requires:
+      flags_unset: [asked_pip_rate]
+
+  - text: "Ask who else has hired her"
+    next: pip_topic_history
+    requires:
+      flags_unset: [asked_pip_history]
+
+  - text: "Ask what she steals"
+    next: pip_topic_steals
+    requires:
+      flags_unset: [asked_pip_steals]
+
+  - text: "Pay her rate — 5 Coin — recruit her"
+    next: recruit_pip
+    requires:
+      flags: [asked_pip_rate]
+      flags_unset: [recruited_pip, pip_left, pair_locked]
+      stats:
+        Coin: 5
+    fail_text: "[Hear her rate first / 5 Coin required / Party full]"
+
+  - text: "Step away"
+    next: common_room

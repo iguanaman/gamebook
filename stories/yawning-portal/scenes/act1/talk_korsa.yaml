@@ -1,0 +1,41 @@
+text:
+  - "Korsa Ironbrow has claimed the end of the bench nearest the hearth — close enough to feel the heat, far enough to watch the room. His plate is stacked beside him, maintained better than his coat. He's working through his second ale with the methodical patience of a man who expects a long night."
+  - if:
+      flags: [recruited_vesna]
+    text:
+      - female_adult_american_gentle_tender_sweet: "Lady Luck favour you both."
+      - "Vesna raises her coin from the bench across the room. Korsa doesn't look over — but the corner of his mouth moves."
+  - male_midlife_british_tough_calloused: "Pull up a stool. You look like you're still deciding whether to buy."
+
+choices:
+  - text: "Buy him a drink, hear his last job"
+    next: korsa_topic_lastjob
+    requires:
+      flags_unset: [asked_korsa_lastjob]
+
+  - text: "Ask about the well"
+    next: korsa_topic_well
+    requires:
+      flags_unset: [asked_korsa_well]
+
+  - text: "Ask his price"
+    next: korsa_topic_price
+    requires:
+      flags_unset: [asked_korsa_price]
+
+  - text: "Ask why he isn't scared"
+    next: korsa_topic_fear
+    requires:
+      flags_unset: [asked_korsa_fear]
+
+  - text: "Recruit him — 3 Coin advance"
+    next: recruit_korsa
+    requires:
+      flags: [asked_korsa_well]
+      flags_unset: [recruited_korsa, korsa_left, pair_locked]
+      stats:
+        Coin: 3
+    fail_text: "[Hear about the well first / 3 Coin required / Party full]"
+
+  - text: "Step away"
+    next: common_room
