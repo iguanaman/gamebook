@@ -784,17 +784,23 @@ function typeBlocks(blocks, onDone, sceneId) {
 
   function cancelled() { return session !== playbackSession; }
 
-  function onClickSkip() {
+  function onSkip() {
     skip.active = true;
     stopAudio();
     if (skip.finished) next();
   }
 
-  function removeClickSkip() {
-    gameWrap?.removeEventListener('click', onClickSkip);
+  function onKeySkip(e) {
+    if (e.key === ' ') { e.preventDefault(); onSkip(); }
   }
 
-  gameWrap?.addEventListener('click', onClickSkip);
+  function removeClickSkip() {
+    gameWrap?.removeEventListener('dblclick', onSkip);
+    document.removeEventListener('keydown', onKeySkip);
+  }
+
+  gameWrap?.addEventListener('dblclick', onSkip);
+  document.addEventListener('keydown', onKeySkip);
 
   function finish() {
     if (done) return;
