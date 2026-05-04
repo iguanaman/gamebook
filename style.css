@@ -134,8 +134,10 @@ button {
 .selector-bg {
   min-height: 100vh;
   background: #4a4a4a;
+  display: flex;
+  justify-content: center;
 }
-.selector { max-width: 800px; margin: 0 auto; padding: 2rem; }
+.selector { width: 100%; max-width: 800px; padding: 2rem; }
 .selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: #ccc; }
 .story-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .no-stories { text-align: center; opacity: 0.5; font-family: var(--font-ui); }
