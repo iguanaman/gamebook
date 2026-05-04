@@ -17,8 +17,11 @@ async function loadManifest() {
 
 async function showSelector() {
   removeStoryTheme();
+  currentStoryId = null;
+  state = null;
   document.getElementById('frame').classList.add('frame-neutral');
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
+  document.getElementById('journal-toggle')?.classList.remove('journal-toggle-open');
   document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
   const manifest = await loadManifest();
   app.innerHTML = `
@@ -372,16 +375,22 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
 
   function cancelled() { return session !== playbackSession; }
 
-  function onClickSkip() {
+  function onSkip() {
     stopAudio();
     playNext();
   }
 
-  function removeClickSkip() {
-    gameWrap?.removeEventListener('click', onClickSkip);
+  function onKeySkip(e) {
+    if (e.key === ' ') { e.preventDefault(); onSkip(); }
   }
 
-  gameWrap?.addEventListener('click', onClickSkip);
+  function removeClickSkip() {
+    gameWrap?.removeEventListener('dblclick', onSkip);
+    document.removeEventListener('keydown', onKeySkip);
+  }
+
+  gameWrap?.addEventListener('dblclick', onSkip);
+  document.addEventListener('keydown', onKeySkip);
 
   function finish() {
     if (done) return;
@@ -443,6 +452,9 @@ async function startStory(storyId) {
     currentActFolder = saved.actFolder ?? sceneFolder(state.scene);
   } else {
     initState(storyId, meta.stats ?? {});
+    if (meta.journal) {
+      state.journal.push({ scene: '__story', text: meta.journal });
+    }
     saveState();
   }
 
@@ -513,6 +525,12 @@ async function navigateTo(sceneId) {
     try {
       const actMeta = await fetchYaml(`stories/${currentStoryId}/scenes/${folder}/_act.yaml`);
       actTitle = actMeta?.title ?? null;
+      if (actMeta?.journal) {
+        const key = `__act:${folder}`;
+        if (!state.journal.some(e => e.scene === key)) {
+          state.journal.push({ scene: key, text: actMeta.journal });
+        }
+      }
     } catch { /* no _act.yaml — no act title */ }
     // fallback: honour inline act: if _act.yaml wasn't found
     if (!actTitle && scene.act && scene.act !== currentAct) actTitle = scene.act;
@@ -682,6 +700,16 @@ function showBlockInstant(block) {
   return p;
 }
 
+function appendChosenChoice(text) {
+  const el = document.getElementById('narrative');
+  if (!el) return;
+  const p = document.createElement('p');
+  p.className = 'chosen-choice';
+  p.textContent = text;
+  el.prepend(p);
+  requestAnimationFrame(() => p.classList.add('block-visible'));
+}
+
 function showBlockReveal(block) {
   const p = prependBlockPara(block);
   if (p) requestAnimationFrame(() => p.classList.add('block-visible'));
@@ -803,9 +831,11 @@ function renderChoices(scene) {
   if (passing.length === 0 && failing.length === 0) {
     el.innerHTML = `
       <p class="end-message">— The End —</p>
+      <button class="btn btn-secondary" id="btn-restart">↺ Restart</button>
       <button class="btn btn-secondary" id="btn-selector">Back to Stories</button>
       <button class="btn btn-secondary" id="btn-undo" ${state.history.length === 0 ? 'disabled' : ''}>↩ Undo</button>
     `;
+    document.getElementById('btn-restart')?.addEventListener('click', () => { localStorage.removeItem(stateKey(currentStoryId)); startStory(currentStoryId); });
     document.getElementById('btn-selector')?.addEventListener('click', () => showSelector());
     document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
     return;
@@ -842,20 +872,29 @@ function renderChoices(scene) {
 
   passing.forEach((choice, i) => {
     el.querySelector(`[data-index="${i}"]`).addEventListener('click', (e) => {
+      const chosenBtn = e.currentTarget;
       const allBtns = el.querySelectorAll('.btn-choice');
       allBtns.forEach(b => { b.disabled = true; });
+      chosenBtn.classList.add('btn-choice-selected');
 
-      const fadeDuration = parseFloat(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue('--anim-choice-fade-duration')
-      ) || 250;
+      const root = getComputedStyle(document.documentElement);
+      const fastMs = parseFloat(root.getPropertyValue('--anim-choice-fade-fast')) || 250;
+      const lingerMs = parseFloat(root.getPropertyValue('--anim-choice-linger-ms')) || 1200;
+      const slowMs = parseFloat(root.getPropertyValue('--anim-choice-fade-slow')) || 500;
 
       allBtns.forEach(btn => {
-        btn.style.transition = `opacity ${fadeDuration}ms ease`;
-        btn.style.opacity = btn === e.currentTarget ? '0' : '0.2';
+        if (btn === chosenBtn) return;
+        btn.style.transition = `opacity ${fastMs}ms ease`;
+        btn.style.opacity = '0';
       });
 
-      setTimeout(() => handleChoice(choice), fadeDuration);
+      setTimeout(() => {
+        chosenBtn.style.opacity = '0';
+        setTimeout(() => {
+          appendChosenChoice(choice.text);
+          handleChoice(choice);
+        }, slowMs);
+      }, fastMs + lingerMs);
     });
   });
   document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
@@ -905,26 +944,34 @@ function renderJournal() {
   if (!toggle || !panel || !entriesEl) return;
 
   const entries = state?.journal ?? [];
-  toggle.classList.toggle('journal-hidden', entries.length === 0);
+  if (currentStoryId) toggle.classList.remove('journal-hidden');
 
-  const hasUnread = entries.length > (state?.journalSeen ?? 0);
-  toggle.classList.toggle('journal-has-unread', hasUnread);
-
-  entriesEl.innerHTML = entries.length === 0
+  const sceneEntries = entries.filter(e => !e.scene.startsWith('__'));
+  entriesEl.innerHTML = sceneEntries.length === 0
     ? '<p class="journal-empty">Nothing recorded yet.</p>'
-    : entries.map(e => `<div class="journal-entry"><p>${e.text.replace(/\n\n/g, '</p><p>')}</p></div>`).join('');
+    : sceneEntries.map(e => `<div class="journal-entry"><p>${e.text.replace(/\n\n/g, '</p><p>')}</p></div>`).join('');
+}
+
+function closeJournal() {
+  const panel = document.getElementById('journal-panel');
+  const toggle = document.getElementById('journal-toggle');
+  if (!panel) return;
+  panel.classList.add('journal-panel-closed');
+  panel.setAttribute('aria-hidden', 'true');
+  toggle?.classList.remove('journal-toggle-open');
 }
 
 function toggleJournal() {
   const panel = document.getElementById('journal-panel');
+  const toggle = document.getElementById('journal-toggle');
   if (!panel) return;
   const isOpen = !panel.classList.contains('journal-panel-closed');
   if (isOpen) {
-    panel.classList.add('journal-panel-closed');
-    panel.setAttribute('aria-hidden', 'true');
+    closeJournal();
   } else {
     panel.classList.remove('journal-panel-closed');
     panel.setAttribute('aria-hidden', 'false');
+    toggle?.classList.add('journal-toggle-open');
     state.journalSeen = (state.journal ?? []).length;
     saveState();
     renderJournal();
@@ -932,7 +979,13 @@ function toggleJournal() {
 }
 
 document.getElementById('journal-toggle')?.addEventListener('click', toggleJournal);
-document.getElementById('journal-close')?.addEventListener('click', toggleJournal);
+
+document.addEventListener('click', e => {
+  const panel = document.getElementById('journal-panel');
+  const toggle = document.getElementById('journal-toggle');
+  if (!panel || panel.classList.contains('journal-panel-closed')) return;
+  if (!panel.contains(e.target) && !toggle?.contains(e.target)) closeJournal();
+});
 
 // ── Keyboard ──────────────────────────────────────────────────────────────────
 

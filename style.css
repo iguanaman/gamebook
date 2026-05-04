@@ -36,7 +36,9 @@
   --anim-block-duration: 350ms;
   --anim-choice-duration: 300ms;
   --anim-act-title-duration: 600ms;
-  --anim-choice-fade-duration: 250ms;
+  --anim-choice-fade-fast: 250ms;
+  --anim-choice-linger-ms: 400ms;
+  --anim-choice-fade-slow: 500ms;
 
   /* Story splash */
   --story-title-size: 3rem;
@@ -337,6 +339,32 @@ button {
   transition: background 0.12s;
 }
 .btn-choice:hover { background: var(--hover-bg); }
+.btn-choice[disabled] { cursor: default; pointer-events: none; }
+
+@keyframes btn-choice-pulse {
+  0%   { transform: scale(1);    background: var(--surface); }
+  40%  { transform: scale(0.97); background: var(--hover-bg); }
+  100% { transform: scale(1);    background: var(--surface); }
+}
+.btn-choice.btn-choice-selected {
+  animation: btn-choice-pulse 220ms ease;
+  transition: opacity var(--anim-choice-fade-slow) ease;
+}
+
+.chosen-choice {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border-radius: var(--radius);
+  display: block;
+  opacity: 0;
+  transition: opacity var(--anim-choice-fade-fast) ease;
+}
+.chosen-choice.block-visible { opacity: 1; }
 
 .btn-choice-failed {
   opacity: 0.45;
@@ -384,59 +412,54 @@ button {
 .journal-toggle {
   position: fixed;
   top: 1rem;
-  left: 1.5rem;
-  z-index: 11;
-  width: 2.4rem;
-  height: 2.4rem;
+  left: 1rem;
+  z-index: 310;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 50%;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.4rem;
   color: var(--accent);
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1;
-  opacity: 0.55;
-  transition: opacity 0.15s, background 0.15s, transform 0.15s;
+  opacity: 0.5;
+  transition: opacity 0.15s, transform 0.15s;
 }
-.journal-toggle:hover { opacity: 1; background: var(--hover-bg); }
-.journal-toggle.journal-hidden { display: none; }
+.journal-toggle:hover { opacity: 1; }
+.journal-toggle.journal-hidden,
+.journal-toggle.journal-toggle-open { display: none; }
 
 .journal-icon { display: block; }
 
-.journal-dot {
-  position: absolute;
-  top: 0.25rem;
-  right: 0.25rem;
-  width: 0.55rem;
-  height: 0.55rem;
-  background: var(--accent);
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0.6);
-  transition: opacity 0.2s, transform 0.2s;
+.journal-dot { display: none; }
+
+.journal-clip {
+  position: fixed;
+  top: calc(var(--frame-inset) + 8px);
+  left: calc(var(--frame-inset) + 8px);
+  bottom: calc(var(--frame-inset) + 8px);
+  width: min(360px, calc(100vw - (var(--frame-inset) + 8px) * 2));
+  z-index: 320;
+  overflow: hidden;
+  pointer-events: none;
 }
-.journal-toggle.journal-has-unread .journal-dot { opacity: 1; transform: scale(1); }
 
 .journal-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(360px, 90vw);
-  z-index: 250;
+  position: absolute;
+  inset: 0;
   background: var(--surface);
-  border-left: 1px solid var(--border);
-  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.08);
+  border-right: 1px solid var(--border);
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   transform: translateX(0);
   transition: transform 0.25s ease;
+  pointer-events: auto;
 }
 .journal-panel.journal-panel-closed {
-  transform: translateX(100%);
+  transform: translateX(-100%);
   pointer-events: none;
 }
 
@@ -455,16 +478,6 @@ button {
   color: var(--accent);
 }
 
-.journal-close {
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.6rem;
-  line-height: 1;
-  padding: 0 0.4rem;
-  cursor: pointer;
-}
-.journal-close:hover { color: var(--text); }
 
 .journal-entries {
   flex: 1;
