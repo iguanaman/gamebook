@@ -13,9 +13,9 @@ for fname in sorted(os.listdir(voices_dir)):
         continue
     vtype = parts[0]
 
-    if vtype == "narrator":
+    if vtype in ("narrator", "robot"):
         gender = parts[1]
-        result.setdefault("narrator", {}).setdefault(gender, {})[stem] = None
+        result.setdefault(vtype, {}).setdefault(gender, {})[stem] = None
     else:
         gender = parts[1]
         adjectives = parts[2:]

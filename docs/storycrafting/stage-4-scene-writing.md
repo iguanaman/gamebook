@@ -76,6 +76,8 @@ text:
 
 Narrator-only blocks (no prefix) use the story's narrator voice from `story.yaml`. NPC dialogue must always use the assigned voice ID — never default to narrator for an NPC line, and never invent a voice ID that isn't in `cast.md`.
 
+**In-world computer/screen text** (a terminal readout, an AI announcement, an automated PA) uses a `robot/` voice ID as the prefix (e.g. `robot_neutral_xyz: "..."`). Pick from the `robot/` bucket in `tts_voices/voices.yaml`. These IDs are not assigned in `cast.md` — use them ad hoc whenever an in-world computer speaks.
+
 **Written NPC text** (a letter, a journal entry, a note, an inscription) is different: it has no voice ID prefix — the narrator reads it aloud — but the prose itself must still sound like the NPC wrote it. Use their vocabulary, sentence rhythm, and contradictions from `cast.md`. A terse bureaucrat writes in clipped sentences; a paranoid scholar writes in circling qualifications. If you covered the framing ("you find a letter from X"), the writing should still be recognisable as theirs.
 
 NPCs with opinions reward curiosity even when nothing mechanical happens. NPCs who only deliver plot do not.
