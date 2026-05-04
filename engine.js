@@ -28,6 +28,7 @@ async function loadManifest() {
 }
 
 async function showSelector() {
+  sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
   currentStoryId = null;
   state = null;
@@ -464,6 +465,7 @@ function removeStoryTheme() {
 }
 
 async function startStory(storyId) {
+  sessionStorage.removeItem('gamebook.atSelector');
   localStorage.setItem('gamebook.lastStory', storyId);
   const meta = await loadStoryMeta(storyId);
   currentStoryId = storyId;
@@ -1102,7 +1104,7 @@ document.addEventListener('keydown', (e) => {
     return;
   }
   const last = localStorage.getItem('gamebook.lastStory');
-  if (last && hasSave(last)) {
+  if (last && hasSave(last) && !sessionStorage.getItem('gamebook.atSelector')) {
     startStory(last);
   } else {
     showSelector();
