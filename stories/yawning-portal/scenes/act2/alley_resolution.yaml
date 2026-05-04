@@ -1,0 +1,24 @@
+text:
+  - "The Trades Ward corner. Gas-lamps, cobblestones, the smell of rendered tallow drifting from the direction of Wicker Lane."
+  - if: {flags: [alley_witness_named, knows_guide_name]}
+    text: "You have a name. Vell. A guide who took the apprentice down and came back alone. A man with a burn-mark on his wrist, walking past Durnan's well like a man who has eaten his breakfast."
+  - if: {flags: [alley_witness_lost]}
+    text: "You have half a name — *Vell* — and the back of a man's coat, disappearing west. Enough to go on. Maybe."
+  - if: {flags: [alley_witness_dead]}
+    text: "You have nothing from the witness. The alley behind you is smoke and wax and questions that will stay unanswered. The name *Vell* is in the air, half-heard, unverified."
+  - if: {flags: [korsa_died]}
+    text: "Korsa is gone. The alley took him. The mourning-braid is still in his beard, wherever he is now."
+  - if: {flags: [pip_died]}
+    text: "Pip is gone. Three earrings in one ear, none in the other, and the caltrops still in her belt-pouch where you're not going to look tonight."
+  - if: {flags: [vesna_died]}
+    text: "Vesna is gone. Tymora's coin either in your pocket or on the cobblestones of Wicker Lane, and neither place feels right."
+  - if: {flags: [thessaly_died]}
+    text: "Thessaly is gone. The burn-scar on her wrist is ash now, whatever secret it held taken with it."
+  - "The well is still there. Durnan's bar is still there. Whatever is at the bottom of both has been there longer than tonight."
+
+choices:
+  - text: "Back to the corner — decide what's next"
+    next: spoke_hub
+    effects:
+      flags:
+        alley_spoke_done: true

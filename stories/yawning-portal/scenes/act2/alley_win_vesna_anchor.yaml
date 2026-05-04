@@ -1,0 +1,19 @@
+text:
+  - "Vesna doesn't fight. She does something harder. She picks the man who is bleeding the most — you, after a blade clips your forearm on the second exchange — and she gets her hands on the wound and she holds it closed while you keep killing."
+  - "Tymora's coin swings at her neck. It catches the gas-lamp and throws a disc of gold light on the wall, and one of the toughs stares at it for a fraction of a second too long. That's when you kill him."
+  - "Three down, two broken and running. Vesna ties off your arm with a strip of her cloak. Her hands are steady."
+  - female_adult_american_gentle_tender_sweet: "Lady Luck willing, that's the worst we see tonight. Lady Luck willing."
+  - "The coin says nothing. She flips it anyway."
+
+choices:
+  - text: "Loot the fallen, head back to the corner"
+    next: alley_resolution
+    effects:
+      flags:
+        bloodied_in_alley: true
+        first_blood: true
+        weapon_taken_from_tough: true
+      stats:
+        Vigor: -1
+        Coin: 2
+        Renown: 1

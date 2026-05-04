@@ -1,0 +1,19 @@
+text:
+  - "She's stitching your arm and doesn't see the blade come for her own side. She feels it."
+  - "A short thrust from the second man — aimed at you, redirected at the last moment when he saw the easier target. It opens a gash along her ribs, not deep enough to be fatal, deep enough to make the next hour miserable."
+  - "She sucks air through her teeth and doesn't let go of your arm. Finishes the bind. Then she presses her own cloak to her side."
+  - female_adult_american_gentle_tender_sweet: "I've had worse. Don't — don't make it mean something it doesn't. Just finish this."
+  - "You do."
+
+choices:
+  - text: "Bind her wound, loot the bodies, get moving"
+    next: alley_resolution
+    effects:
+      flags:
+        bloodied_in_alley: true
+        first_blood: true
+        weapon_taken_from_tough: true
+        vesna_wounded: true
+      stats:
+        Vigor: -2
+        Coin: 2

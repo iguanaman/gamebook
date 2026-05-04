@@ -1,0 +1,96 @@
+text:
+  - if: {flags: [alley_kicked_door]}
+    text: "Korsa's boot takes the door off its top hinge. It swings and hits a man in the forehead and that man goes down before the fight officially starts."
+    else: "They come up the stairs in a clump — five of them, hired Trades Ward muscle, the kind who break fingers for a living and charge by the finger."
+  - if: {flags: [alley_ambushed_first]}
+    text: "They come out the front while you're waiting — three from the door, two from the alley mouth at your back. The ambush works until it doesn't."
+  - "The stairwell is one body wide. Above the landing, through a gap in the eaves, the chandler's vat hangs on a chain over the alley — a barrel of yellow tallow kept liquid by a spirit-flame, rigged for pouring molds. The gas-lamps throw orange across wet cobblestones."
+  - "Five toughs. Three in the stairwell, two in the alley beyond the door. They have short-swords and a boarding-pike between them, and they look like men who've used all three."
+
+choices:
+  - text: "Korsa holds the doorway — the rest of you fight clean behind him"
+    next:
+      - scene: alley_win_chokepoint_clean
+        weight: 5
+      - scene: alley_win_chokepoint_korsa_bloodied
+        weight: 3
+      - scene: alley_korsa_falls
+        weight: 1
+    requires:
+      flags: [recruited_korsa]
+      flags_unset: [korsa_died, korsa_left]
+    hide_if_failed: true
+    effects:
+      flags:
+        tactic_chokepoint: true
+
+  - text: "Pip drops caltrops, slips behind the third man, throat-and-knee"
+    next:
+      - scene: alley_win_pip_flank
+        weight: 5
+      - scene: alley_win_pip_flank_costly
+        weight: 3
+      - scene: alley_pip_falls
+        weight: 1
+    requires:
+      flags: [recruited_pip]
+      flags_unset: [pip_died, pip_left]
+    hide_if_failed: true
+    effects:
+      flags:
+        tactic_flank: true
+
+  - text: "Vesna steadies the wounded — you and your other companion carry the line"
+    next:
+      - scene: alley_win_vesna_anchor
+        weight: 6
+      - scene: alley_win_vesna_anchor_costly
+        weight: 3
+      - scene: alley_vesna_falls
+        weight: 1
+    requires:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died, vesna_left]
+    hide_if_failed: true
+    effects:
+      flags:
+        tactic_vesna_anchor: true
+
+  - text: "Thessaly burns the chandler's vat — wax and fire across the alley"
+    next:
+      - scene: alley_win_thessaly_fire_clean
+        weight: 4
+      - scene: alley_win_thessaly_fire_civilian
+        weight: 3
+      - scene: alley_thessaly_falls
+        weight: 1
+      - scene: alley_witness_burned
+        weight: 2
+    requires:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died, thessaly_left]
+    hide_if_failed: true
+    effects:
+      flags:
+        tactic_fire: true
+
+  - text: "Steel and scorching ray — fight straight, you and yours"
+    next:
+      - scene: alley_win_straight
+        weight: 5
+      - scene: alley_win_straight_bloodied
+        weight: 4
+      - scene: alley_companion_falls_random
+        weight: 1
+    effects:
+      flags:
+        tactic_straight: true
+
+  - text: "Break and run — out the back before this gets worse"
+    next: alley_flee
+    requires:
+      stats:
+        Vigor: 4
+    effects:
+      flags:
+        alley_fled: true

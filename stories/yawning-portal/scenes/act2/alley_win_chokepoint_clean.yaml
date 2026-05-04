@@ -1,0 +1,19 @@
+text:
+  - "Korsa takes the doorframe like he was built for it. The first tough leads with the boarding-pike — it skids off the pauldron, Korsa doesn't flinch, and the riposte opens the man's cheek to the bone. He drops screaming and the scream does more work than the blow did."
+  - "The second and third come together, which is a mistake in a one-body-wide doorway. You put scorching ray through the gap above Korsa's shoulder. The smell of singed wool fills the stairwell. The third tough trips over the second on the way down."
+  - "The two in the alley read the arithmetic. They run west."
+  - "Korsa steps over the bodies with the expression of a man satisfied with a clean piece of work."
+  - male_midlife_british_tough_calloused: "Five. Good number. Three down, two gone. Better odds than some Tuesdays."
+
+choices:
+  - text: "Loot the bodies and back to the corner"
+    next: alley_resolution
+    effects:
+      flags:
+        bloodied_in_alley: true
+        first_blood: true
+        weapon_taken_from_tough: true
+      stats:
+        Vigor: -1
+        Coin: 2
+        Renown: 1

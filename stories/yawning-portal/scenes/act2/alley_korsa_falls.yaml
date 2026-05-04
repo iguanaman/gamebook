@@ -1,0 +1,34 @@
+text:
+  - "He holds the doorframe and he holds it and he holds it — and then the boarding-pike finds the join under his arm, the narrow gap between pauldron and breastplate that the armourer always promises is impossible to hit."
+  - "It goes in at an angle. Into the lung. The sound isn't what you expect — not a clash of steel, just a wet weight, and Korsa's axe dropping onto the landing."
+  - "He slides down the doorframe until he's sitting against it, one hand pressed to his side. His eyes are open. His face is the face of a man doing the arithmetic of something he already knew was possible."
+  - male_midlife_british_tough_calloused: "[cough] Leave it. I've been here before. Just — the other kind."
+  - "You finish the fight. You don't remember how long it takes."
+  - if: {flags: [recruited_vesna]}
+    text: "Vesna kneels at his side. She flips Tymora's coin once, catches it, does not look at the face it shows. She prays over him with the coin cupped in both hands, quiet enough that the words are hers and Tymora's and no one else's."
+    else: "You have a moment at his side. The alley is quiet now. His mourning-braid is still tight; someone braided it once with care."
+
+journal: "Korsa Ironbrow fell in a back alley in the Trades Ward. He held the door."
+
+choices:
+  - text: "Carry him out — leave no one in this alley"
+    next: alley_resolution
+    effects:
+      flags:
+        korsa_died: true
+        bloodied_in_alley: true
+        first_blood: true
+        body_recovered: true
+      stats:
+        Vigor: -3
+
+  - text: "Leave him. Get the witness's name and run."
+    next: alley_resolution
+    effects:
+      flags:
+        korsa_died: true
+        bloodied_in_alley: true
+        first_blood: true
+      stats:
+        Vigor: -2
+        Renown: -1

@@ -1,0 +1,18 @@
+text:
+  - "The caltrops work. The flank works. What doesn't work is the fourth man, who isn't watching the floor and gets his club arm back before Pip finishes the third."
+  - "The club catches her in the ribs — not the head, but not nothing. She makes a sound low in her throat and rolls with it, comes up short of breath."
+  - "You drop the fourth man with a scorching ray to the shoulder. The fifth runs. Pip is standing, which is the main thing, but every breath sounds like a complaint."
+  - female_young_american_lisp: "Cracked. Not broken. I can tell the difference. I have done a thorough and personal study of this topic."
+
+choices:
+  - text: "Bind her ribs, collect the coin, head back"
+    next: alley_resolution
+    effects:
+      flags:
+        bloodied_in_alley: true
+        first_blood: true
+        weapon_taken_from_tough: true
+        pip_winded: true
+      stats:
+        Vigor: -2
+        Coin: 2

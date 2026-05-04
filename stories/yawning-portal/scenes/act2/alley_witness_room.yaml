@@ -1,0 +1,55 @@
+text:
+  - if: {flags: [alley_entered_roof]}
+    text: "The skylight drops you into a storeroom smelling of rendered tallow. Pip lands without a sound. The man is on the other side of a thin door, pacing — you can hear the boards complain under his feet."
+    else: "The room is a low rectangle above the chandler's shop, close with tallow-smoke. The man is mid-thirties, missing the upper half of one ear. A smear of chandler's wax on his cuff. He doesn't sit down."
+  - "He sees you, and his eyes go to the window."
+  - male_adult_african-american_uneducated: "Whoa — friend, I don't know what this is, but I am telling you, you got the wrong room. Wrong whole building."
+  - "The wax-smear on his cuff is fresh. He has been here long enough to pick up the smell of the shop below. Long enough that someone paid to keep him here."
+  - "Downstairs, through the floorboards, the muffled sound of boots — more than two pairs."
+
+choices:
+  - text: "Press him — you know who paid him, and the name isn't worth what's coming up that well"
+    next: alley_witness_speaks
+    requires:
+      stats:
+        Wits: 5
+    effects:
+      flags:
+        alley_witness_named: true
+        alley_pressed: true
+
+  - text: "Press him — you know who paid him to keep quiet"
+    next: alley_witness_speaks
+    requires:
+      flags: [knows_alley_protector]
+    effects:
+      flags:
+        alley_witness_named: true
+        alley_pressed: true
+
+  - text: "Let Vesna speak — calm him down, no threats"
+    next: alley_witness_speaks
+    requires:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died, vesna_left]
+    hide_if_failed: true
+    effects:
+      flags:
+        alley_witness_named: true
+        alley_calmed: true
+
+  - text: "A knife on the table. His choice."
+    next: alley_witness_speaks
+    effects:
+      flags:
+        alley_witness_named: true
+        alley_threatened: true
+      stats:
+        Renown: -1
+
+  - text: "Let him bolt — you heard enough from the doorway"
+    next: alley_witness_bolts
+    effects:
+      flags:
+        alley_witness_lost: true
+        alley_let_bolt: true
