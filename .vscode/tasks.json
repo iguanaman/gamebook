@@ -4,7 +4,7 @@
     {
       "label": "Serve",
       "type": "shell",
-      "command": "npx serve .",
+      "command": "npx serve . -l 4242",
       "icon": { "id": "server", "color": "terminal.ansiGreen" },
       "group": { "kind": "build", "isDefault": true },
       "isBackground": true,
