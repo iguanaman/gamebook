@@ -102,13 +102,15 @@ async function loadStoryMeta(storyId) {
 function renderStoryCard(storyId) {
   const saved = hasSave(storyId);
   return `
-    <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
-      <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
-      <div class="story-info">
-        <h2 class="story-title" data-story-title="${storyId}">Loading...</h2>
-        <p class="story-desc" data-story-desc="${storyId}"></p>
+    <div class="story-card-wrap">
+      <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
+        <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
+        <div class="story-info">
+          <h2 class="story-title" data-story-title="${storyId}">Loading...</h2>
+          <p class="story-desc" data-story-desc="${storyId}"></p>
+        </div>
       </div>
-      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" title="Wipe save" aria-label="Wipe save">🗑</button>` : ''}
+      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" title="Wipe save" aria-label="Wipe save">🗑</button>` : '<div class="card-delete-placeholder"></div>'}
     </div>
   `;
 }
@@ -179,7 +181,7 @@ async function attachCardHandlers(storyId) {
     card.addEventListener('click', launch);
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') launch(); });
 
-    const delBtn = card.querySelector(`[data-delete="${storyId}"]`);
+    const delBtn = document.querySelector(`[data-delete="${storyId}"]`);
     if (delBtn) {
       delBtn.addEventListener('click', e => {
         e.stopPropagation();
