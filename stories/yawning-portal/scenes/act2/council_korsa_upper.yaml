@@ -1,29 +1,25 @@
 text:
 - if:
-    flags_unset: [cellar_resolved]
+    flags_unset:
+    - cellar_resolved
   text:
-  - |-
-    Korsa is reading the stonework the way a carpenter reads grain — not looking at it so much as feeling it.
-  - male_midlife_british_tough_calloused: |-
-      This was built to last. Not built for comfort. Whoever put it here wanted something kept, not stored. There's a difference.
-  - |-
-    He runs his thumb along a course of dressed stone.
-  - male_midlife_british_tough_calloused: |-
-      The hatch's wax is fresh. Six months, maybe less. Something down here is still maintaining this place.
+  - Korsa is reading the stonework the way a carpenter reads grain — not looking at
+    it so much as feeling it.
+  - male_midlife_british_tough_calloused: This was built to last. Not built for comfort.
+      Whoever put it here wanted something kept, not stored. There's a difference.
+  - He runs his thumb along a course of dressed stone.
+  - male_midlife_british_tough_calloused: The hatch's wax is fresh. Six months, maybe
+      less. Something down here is still maintaining this place.
 - if:
-    flags: [cellar_resolved]
+    flags:
+    - cellar_resolved
   text:
-  - |-
-    Korsa is binding a cut on his forearm with the same efficiency he'd use to re-tie a boot.
-  - male_midlife_british_tough_calloused: |-
-      That's done. What's next is next.
-  - |-
-    He means it as closure and comfort simultaneously.
-
-
+  - Korsa is binding a cut on his forearm with the same efficiency he'd use to re-tie
+    a boot.
+  - male_midlife_british_tough_calloused: That's done. What's next is next.
+  - He means it as closure and comfort simultaneously.
 choices:
-- text: |-
-    Back to the junction.
+- text: Back to the junction.
   next: act2/companion_council_upper
   effects:
     flags:
