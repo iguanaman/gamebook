@@ -1076,4 +1076,12 @@ document.addEventListener('keydown', (e) => {
 
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
-showSelector();
+(async () => {
+  const manifest = await loadManifest();
+  const saved = manifest.stories.filter(id => hasSave(id));
+  if (saved.length === 1) {
+    startStory(saved[0]);
+  } else {
+    showSelector();
+  }
+})();
