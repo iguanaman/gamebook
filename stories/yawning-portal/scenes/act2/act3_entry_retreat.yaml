@@ -1,0 +1,34 @@
+journal: |
+  You came back up without her. The upper levels kept what they had.
+
+text:
+  - |
+    You come over the lip.
+
+    The common room is there — lamplight, smoke, the ordinary smell of a tavern that has not been below and does not know. A handful of regulars look up and look back down. You are just a person climbing out of a well.
+  - if:
+      flags_unset: [korsa_died, vesna_died, pip_died, thessaly_died]
+    text: |
+      Your pair is with you. That much held. The deep chewed on you and spat you back, and you are still here, and so are they.
+  - |
+    You did not reach the Cellar Door. You did not reach the apprentice. Whatever is down there — whatever has been keeping her — is still keeping her.
+
+    You don't know that she is dead. You don't know that she isn't.
+  - if:
+      flags: [body_recovered]
+    text: |
+      You set down what you carried up. It costs something you don't have a word for.
+  - |
+    Durnan is at the bar. He watches the well-mouth for a moment, and then he watches you, and his face does not change. He has watched people come back short of what they went for before. He will watch it again.
+
+    He sets a cup down. He does not ask.
+
+    The night is not over. Something might still be done. Or it might not.
+
+choices:
+  - text: |
+      Tell Durnan what happened
+    next: act3/re_entry
+  - text: |
+      Find a seat — you need a moment before you can speak
+    next: act3/re_entry
