@@ -43,24 +43,31 @@ def synthesize(text, voice_id, exaggeration=1.0):
 
 
 def blocks_for_scene(scene, default_voice):
-    """Return list of (text, voice) tuples for a scene."""
+    """Return list of (text, voice, raw_index, suffix) tuples for a scene."""
     if "text" not in scene:
         return []
     raw = scene["text"]
     items = raw if isinstance(raw, list) else [raw]
     result = []
-    for b in items:
+    for raw_index, b in enumerate(items):
         if isinstance(b, str):
-            result.append((b, default_voice))
+            result.append((b, default_voice, raw_index, ""))
+        elif "if" in b:
+            if_text = b.get("text", "")
+            else_text = b.get("else", "")
+            if if_text:
+                result.append((if_text, default_voice, raw_index, "a"))
+            if else_text:
+                result.append((else_text, default_voice, raw_index, "b"))
         else:
             voice, text = next(iter(b.items()))
-            result.append((text, voice))
+            result.append((text, voice, raw_index, ""))
     return result
 
 
-def block_audio_path(scene_id, index):
+def block_audio_path(scene_id, raw_index, suffix=""):
     safe = scene_id.replace("/", "-")
-    return f"audio/{safe}_block_{index}.opus"
+    return f"audio/{safe}_block_{raw_index}{suffix}.opus"
 
 
 def process_story(story_id, force):
@@ -86,28 +93,28 @@ def process_story(story_id, force):
         scene_blocks = blocks_for_scene(scene, default_voice)
 
         if not scene_blocks:
-            print(f"  [skip] {scene_id} — no text")
             continue
 
         # Check if all block files already exist
-        out_paths = [story_dir / block_audio_path(scene_id, i) for i in range(len(scene_blocks))]
+        out_paths = [story_dir / block_audio_path(scene_id, raw_index, suffix)
+                     for (_, _, raw_index, suffix) in scene_blocks]
         if all(p.exists() for p in out_paths) and not force:
-            print(f"  [skip] {scene_id} — audio exists")
             continue
 
         out_paths[0].parent.mkdir(parents=True, exist_ok=True)
         print(f"  [gen]  {scene_id} ({len(scene_blocks)} block(s))")
 
-        for i, (text, voice) in enumerate(scene_blocks):
-            print(f"         block {i}: {voice!r}")
+        for (text, voice, raw_index, suffix), out_path in zip(scene_blocks, out_paths):
+            label = f"block {raw_index}{suffix}"
+            print(f"         {label}: {voice!r}")
             opus = synthesize(text, voice, EXAGGERATION)
-            out_paths[i].write_bytes(opus)
+            out_path.write_bytes(opus)
 
         # Remove legacy fields
         scene.pop("audio", None)
         scene.pop("timings", None)
         save_yaml(scene_file, scene)
-        print(f"         saved → {[block_audio_path(scene_id, i) for i in range(len(scene_blocks))]}")
+        print(f"         saved → {[block_audio_path(scene_id, ri, s) for (_, _, ri, s) in scene_blocks]}")
 
 
 def main():
