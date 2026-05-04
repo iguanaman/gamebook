@@ -48,19 +48,12 @@ async function loadStoryMeta(storyId) {
 }
 
 function renderStoryCard(storyId) {
-  const saved = hasSave(storyId);
   return `
-    <div class="story-card" data-story="${storyId}">
+    <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
       <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
       <div class="story-info">
         <h2 class="story-title" data-story-title="${storyId}">Loading...</h2>
         <p class="story-desc" data-story-desc="${storyId}"></p>
-        <div class="story-actions">
-          ${saved
-            ? `<button class="btn btn-primary" data-action="continue" data-story="${storyId}">Continue</button>
-               <button class="btn btn-secondary" data-action="new" data-story="${storyId}">New Game</button>`
-            : `<button class="btn btn-primary" data-action="play" data-story="${storyId}">Play</button>`}
-        </div>
       </div>
     </div>
   `;
@@ -114,18 +107,11 @@ async function attachCardHandlers(storyId) {
 
   applyCardTheme(storyId);
 
-  document.querySelectorAll(`[data-story="${storyId}"]`).forEach(btn => {
-    if (!btn.dataset.action) return;
-    btn.addEventListener('click', () => handleCardAction(btn.dataset.action, storyId));
-  });
-}
-
-function handleCardAction(action, storyId) {
-  if (action === 'new') {
-    if (!confirm('Start a new game? Your current progress will be lost.')) return;
-    localStorage.removeItem(`gamebook.state.${storyId}`);
+  const card = document.querySelector(`.story-card[data-story="${storyId}"]`);
+  if (card) {
+    card.addEventListener('click', () => startStory(storyId));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') startStory(storyId); });
   }
-  startStory(storyId);
 }
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -1006,6 +992,13 @@ function toggleJournal() {
 
 document.getElementById('journal-toggle')?.addEventListener('click', toggleJournal);
 document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector(); });
+document.getElementById('journal-new-game')?.addEventListener('click', () => {
+  if (!currentStoryId) return;
+  if (!confirm('Start a new game? Your current progress will be lost.')) return;
+  closeJournal();
+  localStorage.removeItem(`gamebook.state.${currentStoryId}`);
+  startStory(currentStoryId);
+});
 
 document.addEventListener('click', e => {
   const panel = document.getElementById('journal-panel');

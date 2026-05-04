@@ -147,12 +147,15 @@ button {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
 }
+.story-card:hover { border-color: var(--border-hover, var(--accent, #888)); background: var(--surface-hover, var(--surface)); }
+.story-card:focus-visible { outline: 2px solid var(--accent, #888); outline-offset: 2px; }
 .story-cover { width: 120px; height: 160px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
 .story-info { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
 .story-title { margin: 0; font-size: 1.2rem; }
 .story-desc { margin: 0; color: var(--text-muted); font-size: 0.95rem; flex: 1; }
-.story-actions { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
 
 /* ── HUD ──────────────────────────────────────────────────────────────────── */
 
