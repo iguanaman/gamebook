@@ -39,6 +39,7 @@ async function showSelector() {
     <div class="selector-bg">
       <div class="selector">
         <h1 class="selector-title">Choose Your Story</h1>
+        <button class="intro-how-to-play" id="how-to-play">How to play</button>
         <div class="story-list">
           ${manifest.stories.length === 0
             ? '<p class="no-stories">No stories available yet.</p>'
@@ -47,7 +48,46 @@ async function showSelector() {
       </div>
     </div>
   `;
+  document.getElementById('how-to-play')?.addEventListener('click', () => showIntroSplash('revisit'));
   manifest.stories.forEach(id => attachCardHandlers(id));
+}
+
+function showIntroSplash(mode) {
+  const isFirst = mode === 'first';
+  const overlay = document.createElement('div');
+  overlay.className = 'story-splash story-splash-hidden';
+
+  const body = document.createElement('div');
+  body.className = 'intro-splash-body';
+  body.innerHTML = `
+    <p>Stories wait for you here — each its own world, its own rules, its own consequences.</p>
+    <p>Read the scene. Make your choices. Some doors close forever.</p>
+    <p>Your progress is saved automatically.</p>
+  `;
+
+  const btn = document.createElement('button');
+  btn.className = 'intro-splash-btn';
+  btn.textContent = isFirst ? 'Begin →' : 'Close ✕';
+  body.appendChild(btn);
+  overlay.appendChild(body);
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(() => {
+    overlay.classList.remove('story-splash-hidden');
+    overlay.classList.add('story-splash-visible');
+  });
+
+  function dismiss() {
+    overlay.classList.remove('story-splash-visible');
+    overlay.classList.add('story-splash-out');
+    overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+    if (isFirst) {
+      localStorage.setItem('gamebook.seen_intro', '1');
+      showSelector();
+    }
+  }
+
+  btn.addEventListener('click', dismiss);
 }
 
 function hasSave(storyId) {
