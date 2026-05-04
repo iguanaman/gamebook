@@ -366,7 +366,7 @@ button {
   font-size: 1.1rem;
   cursor: pointer;
 }
-.btn-undo-fixed:hover:not(.undo-disabled) { opacity: 1; }
+.btn-undo-fixed:hover:not(.undo-disabled) { opacity: 1; background: transparent; }
 .btn-undo-fixed.undo-disabled { opacity: 0.2; pointer-events: none; }
 
 .undo-confirm-overlay {
