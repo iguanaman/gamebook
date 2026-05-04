@@ -100,6 +100,7 @@ async function loadStoryMeta(storyId) {
 }
 
 function renderStoryCard(storyId) {
+  const saved = hasSave(storyId);
   return `
     <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
       <img class="story-cover" src="stories/${storyId}/images/cover.jpg" alt="" onerror="this.style.display='none'">
@@ -107,6 +108,7 @@ function renderStoryCard(storyId) {
         <h2 class="story-title" data-story-title="${storyId}">Loading...</h2>
         <p class="story-desc" data-story-desc="${storyId}"></p>
       </div>
+      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" title="Wipe save" aria-label="Wipe save">🗑</button>` : ''}
     </div>
   `;
 }
@@ -176,6 +178,16 @@ async function attachCardHandlers(storyId) {
     const launch = () => animateCardSelect(storyId);
     card.addEventListener('click', launch);
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') launch(); });
+
+    const delBtn = card.querySelector(`[data-delete="${storyId}"]`);
+    if (delBtn) {
+      delBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (!confirm('Wipe saved progress for this story?')) return;
+        localStorage.removeItem(stateKey(storyId));
+        delBtn.remove();
+      });
+    }
   }
 }
 
@@ -495,7 +507,9 @@ async function startStory(storyId) {
   const startScene = saved ? state.scene : meta.start;
 
   if (!saved) {
+    const splashStoryId = currentStoryId;
     showTitleSplash(meta.title, `stories/${currentStoryId}/audio/story_title.opus`, async () => {
+      if (currentStoryId !== splashStoryId || !state) return;
       renderShell(meta);
       await navigateTo(startScene);
     });
@@ -857,7 +871,7 @@ function typeBlocks(blocks, onDone, sceneId) {
       const audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
       currentAudio = audio;
       audio.addEventListener('ended', () => { if (!done && !cancelled() && audio === currentAudio) { finishTyping(); next(); } }, { once: true });
-      audio.play().catch(() => { if (!done && !cancelled() && audio === currentAudio) next(); });
+      audio.play().catch(() => { if (!done && !cancelled() && audio === currentAudio) { currentAudio = null; } });
     }
   }
 
