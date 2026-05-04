@@ -366,8 +366,8 @@ button {
   font-size: 1.1rem;
   cursor: pointer;
 }
-.btn-undo-fixed:hover:not(:disabled) { opacity: 1; }
-.btn-undo-fixed:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+.btn-undo-fixed:hover:not(.undo-disabled) { opacity: 1; }
+.btn-undo-fixed.undo-disabled { opacity: 0.2; pointer-events: none; }
 
 .undo-confirm-overlay {
   position: fixed;
@@ -428,7 +428,7 @@ button {
 .journal-toggle.journal-hidden,
 .journal-toggle.journal-toggle-open { display: none; }
 
-.journal-icon { display: block; }
+.journal-icon { display: block; filter: grayscale(1); opacity: 0.4; }
 
 .journal-dot { display: none; }
 

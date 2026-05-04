@@ -464,7 +464,7 @@ function renderShell(meta) {
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
-    <button class="btn-undo-fixed btn-ghost" id="btn-undo" disabled>↩</button>
+    <button class="btn-undo-fixed btn-ghost undo-disabled" id="btn-undo">↩</button>
   `;
   const narrative = document.getElementById('narrative');
   if (narrative) {
@@ -911,7 +911,8 @@ async function handleChoice(choice) {
 function updateUndoButton() {
   const btn = document.getElementById('btn-undo');
   if (!btn) return;
-  btn.disabled = !state || state.history.length === 0;
+  const empty = !state || state.history.length === 0;
+  btn.classList.toggle('undo-disabled', empty);
 }
 
 function showUndoConfirm() {
