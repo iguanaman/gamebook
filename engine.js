@@ -409,7 +409,6 @@ async function navigateTo(sceneId) {
       const actMeta = await fetchYaml(`stories/${currentStoryId}/scenes/${folder}/_act.yaml`);
       actTitle = actMeta?.title ?? null;
     } catch { /* no _act.yaml — no act title */ }
-
     currentActFolder = folder;
 
     if (actTitle) {
