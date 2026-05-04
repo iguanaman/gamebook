@@ -528,3 +528,45 @@ button {
   text-align: center;
   padding: 0 2rem;
 }
+
+/* ── Exit confirmation overlay ────────────────────────────────────────────── */
+
+.exit-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.exit-confirm {
+  background: var(--surface);
+  border: 2px solid var(--border-outer);
+  border-radius: var(--border-corner-radius);
+  padding: 2rem 2.5rem;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.exit-confirm-msg {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+}
+
+.exit-confirm-hint {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem;
+}
+
+.exit-confirm-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}

@@ -901,6 +901,74 @@ function toggleJournal() {
 document.getElementById('journal-toggle')?.addEventListener('click', toggleJournal);
 document.getElementById('journal-close')?.addEventListener('click', toggleJournal);
 
+// ── Keyboard ──────────────────────────────────────────────────────────────────
+
+let exitConfirmOpen = false;
+
+function inGame() {
+  return !!document.getElementById('choices-footer');
+}
+
+function showExitConfirm() {
+  if (exitConfirmOpen) return;
+  exitConfirmOpen = true;
+  const overlay = document.createElement('div');
+  overlay.className = 'exit-confirm-overlay';
+  overlay.innerHTML = `
+    <div class="exit-confirm">
+      <p class="exit-confirm-msg">Return to story menu?</p>
+      <p class="exit-confirm-hint">Y to confirm · N or Esc to cancel</p>
+      <div class="exit-confirm-buttons">
+        <button class="btn btn-primary" data-action="yes">Yes</button>
+        <button class="btn btn-secondary" data-action="no">No</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.querySelector('[data-action="yes"]').addEventListener('click', confirmExit);
+  overlay.querySelector('[data-action="no"]').addEventListener('click', dismissExitConfirm);
+}
+
+function dismissExitConfirm() {
+  if (!exitConfirmOpen) return;
+  exitConfirmOpen = false;
+  document.querySelector('.exit-confirm-overlay')?.remove();
+}
+
+function confirmExit() {
+  dismissExitConfirm();
+  stopAudio();
+  showSelector();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const tag = e.target?.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target?.isContentEditable) return;
+
+  if (exitConfirmOpen) {
+    if (e.key === 'y' || e.key === 'Y') { e.preventDefault(); confirmExit(); }
+    else if (e.key === 'n' || e.key === 'N' || e.key === 'Escape') { e.preventDefault(); dismissExitConfirm(); }
+    return;
+  }
+
+  if (e.key === 'Escape' && inGame()) {
+    e.preventDefault();
+    showExitConfirm();
+    return;
+  }
+
+  if (e.key >= '1' && e.key <= '9' && inGame()) {
+    const footer = document.getElementById('choices-footer');
+    const buttons = footer?.querySelectorAll('.btn-choice:not([disabled])');
+    const idx = parseInt(e.key, 10) - 1;
+    if (buttons && buttons[idx]) {
+      e.preventDefault();
+      buttons[idx].click();
+    }
+  }
+});
+
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
 showSelector();
