@@ -143,7 +143,7 @@ def main():
     yaml.default_flow_style = False
     yaml.width = 4096  # don't wrap long lines — block scalars are literal
 
-    files = sorted(search_root.rglob("*.yaml"))
+    files = sorted(f for f in search_root.rglob("*.yaml") if "scenes" in f.parts)
     changed = 0
     for f in files:
         if process_file(f, args.write, yaml):
