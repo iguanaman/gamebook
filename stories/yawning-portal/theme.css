@@ -40,7 +40,7 @@
   --border-outer: #8a6a3d;    /* darker leather-edge brown */
   --border-inner: #c4a874;    /* lighter tan inner ruling */
   --border-corner-radius: 3px;
-  --frame-inset: 1.25rem;
+
 
   /* ── Narrative / choices divider ─────────────────────────────────────── */
   --divider-color: #b89a64;
