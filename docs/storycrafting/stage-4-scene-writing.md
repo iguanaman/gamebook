@@ -104,6 +104,18 @@ text:
 
 ---
 
+## First scene in an act folder
+
+When writing the first scene in a new act subfolder (e.g. `scenes/act1/`), create `_act.yaml` in that folder (copy from `templates/act.yaml`):
+
+```yaml
+title: Act One — The Sealed Door
+```
+
+The engine fetches this when the player first enters the folder — it clears the narrative and displays the act title with animation and audio. Only one `_act.yaml` per folder. Scenes themselves have no `act:` field.
+
+---
+
 ## First scene in a story
 
 If this is the first scene of the whole story, also:
