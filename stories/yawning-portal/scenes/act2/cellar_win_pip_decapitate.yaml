@@ -1,28 +1,27 @@
 text:
-- |-
-  Pip goes around. You don't see exactly how — one second she's at your shoulder, the next she's behind the goblin chief and her knife is at his throat from behind, and the motion between those two states is something you filed away as *don't ask, just be glad she's with us*.
-- |-
-  The knife. The chief. A single cut so clean and fast that his body doesn't understand for a half-second, and in that half-second Pip is already clear and the pack is watching their chief's expression go wrong.
-- |-
-  Pack without a chief is eight frightened goblins. Eight frightened goblins are not a threat.
+- Pip goes around. You don't see exactly how — one second she's at your shoulder,
+  the next she's behind the goblin chief and her knife is at his throat from behind,
+  and the motion between those two states is something you filed away as *don't ask,
+  just be glad she's with us*.
+- The knife. The chief. A single cut so clean and fast that his body doesn't understand
+  for a half-second, and in that half-second Pip is already clear and the pack is
+  watching their chief's expression go wrong.
+- Pack without a chief is eight frightened goblins. Eight frightened goblins are not
+  a threat.
 - if:
-    flags: [lead_followed_alley, knows_guide_name]
+    flags:
+    - lead_followed_alley
+    - knows_guide_name
   text:
-  - |-
-    Brother Vell doesn't run. He stands, still smiling, and you take him by the collar and march him to the floor before the smile becomes an issue.
-  - male_young_american_youthful_confident_bright: |-
-      That's fine. That's fine, I'll just — the one below will still know you're coming.
-  - |-
-    He says it helpfully, face against the stone.
-- female_young_american_lisp: |-
-    Three Coin says the chief's belt-purse is worth checking.
-- |-
-  It is.
-
-
+  - Brother Vell doesn't run. He stands, still smiling, and you take him by the collar
+    and march him to the floor before the smile becomes an issue.
+  - male_young_american_youthful_confident_bright: That's fine. That's fine, I'll
+      just — the one below will still know you're coming.
+  - He says it helpfully, face against the stone.
+- female_young_american_lisp: Three Coin says the chief's belt-purse is worth checking.
+- It is.
 choices:
-- text: |-
-    Through the far door.
+- text: Through the far door.
   next: act2/deep_chamber_enter
   effects:
     flags:

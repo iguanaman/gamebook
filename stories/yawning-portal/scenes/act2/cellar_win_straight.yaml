@@ -1,22 +1,23 @@
 text:
-- |-
-  Steel and scorching ray, both your companions with you, and the cellar is tight enough that the fight is over your own shoulder-width and nothing else.
-- |-
-  A ghoul's jaw cracks sideways under an axe-haft. A goblin takes a scorching ray in the chest and sits down very hard and doesn't get up. The bone-wight at the back gets two of you at once, and two is enough — a blade finds the skull from the right while the other finds the ribs from the left, and the wight collapses into dry grey pieces.
+- Steel and scorching ray, both your companions with you, and the cellar is tight
+  enough that the fight is over your own shoulder-width and nothing else.
+- A ghoul's jaw cracks sideways under an axe-haft. A goblin takes a scorching ray
+  in the chest and sits down very hard and doesn't get up. The bone-wight at the back
+  gets two of you at once, and two is enough — a blade finds the skull from the right
+  while the other finds the ribs from the left, and the wight collapses into dry grey
+  pieces.
 - if:
-    flags: [lead_followed_alley, knows_guide_name]
+    flags:
+    - lead_followed_alley
+    - knows_guide_name
   text:
-  - |-
-    Brother Vell takes a scorching ray to his robe-shoulder and retreats through the far door still talking.
-  - male_young_american_youthful_confident_bright: |-
-      That's fine! You're very close now. I'll tell it you're coming!
-- |-
-  You're all on your feet. You're all bleeding somewhere. The fight is won.
-
-
+  - Brother Vell takes a scorching ray to his robe-shoulder and retreats through the
+    far door still talking.
+  - male_young_american_youthful_confident_bright: That's fine! You're very close
+      now. I'll tell it you're coming!
+- You're all on your feet. You're all bleeding somewhere. The fight is won.
 choices:
-- text: |-
-    Through the far door.
+- text: Through the far door.
   next: act2/deep_chamber_enter
   effects:
     flags:

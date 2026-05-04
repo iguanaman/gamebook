@@ -1,28 +1,27 @@
 text:
-- |-
-  Korsa drops into the hatch and turns immediately, filling the frame. Plate shoulder to stone wall, axe across his body — nothing is getting past him.
-- |-
-  He doesn't need to win the fight. He needs to hold it still while you do.
-- |-
-  A goblin chief finds his axe-haft and shoves, once, hard. Korsa shoves back and the goblin's jaw dislocates sideways with a sound like green wood snapping. The chief goes down. The pack loses its certainty.
+- Korsa drops into the hatch and turns immediately, filling the frame. Plate shoulder
+  to stone wall, axe across his body — nothing is getting past him.
+- He doesn't need to win the fight. He needs to hold it still while you do.
+- A goblin chief finds his axe-haft and shoves, once, hard. Korsa shoves back and
+  the goblin's jaw dislocates sideways with a sound like green wood snapping. The
+  chief goes down. The pack loses its certainty.
 - if:
-    flags: [lead_followed_alley, knows_guide_name]
+    flags:
+    - lead_followed_alley
+    - knows_guide_name
   text:
-  - |-
-    Brother Vell watches from the back of the chamber, still smiling, until you get the angle on him — then a scorching ray finds his collar and he screams for the first time.
-  - |-
-    The singed robe, the bright eyes going briefly wild, and then he's through the far door and gone. His voice carries behind him.
-  - male_young_american_youthful_confident_bright: |-
-      It's all right! The one below — it knows you're coming now!
-- |-
-  Three foes down. Two fled. The chamber is yours.
-- |-
-  In the far wall: a door, and beyond it, steps going down to the smell of still water.
-
-
+  - Brother Vell watches from the back of the chamber, still smiling, until you get
+    the angle on him — then a scorching ray finds his collar and he screams for the
+    first time.
+  - The singed robe, the bright eyes going briefly wild, and then he's through the
+    far door and gone. His voice carries behind him.
+  - male_young_american_youthful_confident_bright: It's all right! The one below —
+      it knows you're coming now!
+- Three foes down. Two fled. The chamber is yours.
+- 'In the far wall: a door, and beyond it, steps going down to the smell of still
+  water.'
 choices:
-- text: |-
-    Through the door — keep moving
+- text: Through the door — keep moving
   next: act2/deep_chamber_enter
   effects:
     flags:

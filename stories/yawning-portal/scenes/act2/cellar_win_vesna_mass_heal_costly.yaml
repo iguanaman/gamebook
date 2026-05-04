@@ -1,21 +1,16 @@
 text:
-- |-
-  She opens the coin and pours everything she has into the chamber. The light clears the pack — three undead frames collapse, two goblins run screaming into the dark with smoke rising from their hoods.
-- |-
-  Vesna is on her knees before the light has finished fading. Pale, both hands on the floor, breathing too fast.
-- female_adult_american_gentle_tender_sweet: |-
-    I'm — I'm all right. Give me a moment.
-- |-
-  You give her the moment. She uses it to stand.
-- female_adult_american_gentle_tender_sweet: |-
-    Fortune's edge is a sharp thing. But we're through it.
-- |-
-  She's shaking. She doesn't mention it. The far door is open.
-
-
+- She opens the coin and pours everything she has into the chamber. The light clears
+  the pack — three undead frames collapse, two goblins run screaming into the dark
+  with smoke rising from their hoods.
+- Vesna is on her knees before the light has finished fading. Pale, both hands on
+  the floor, breathing too fast.
+- female_adult_american_gentle_tender_sweet: I'm — I'm all right. Give me a moment.
+- You give her the moment. She uses it to stand.
+- female_adult_american_gentle_tender_sweet: Fortune's edge is a sharp thing. But
+    we're through it.
+- She's shaking. She doesn't mention it. The far door is open.
 choices:
-- text: |-
-    Through the door — slowly.
+- text: Through the door — slowly.
   next: act2/deep_chamber_enter
   effects:
     flags:

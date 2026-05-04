@@ -1,21 +1,17 @@
 text:
-- |-
-  Vesna puts the prayer-coin against her forehead and *opens* — the light that comes out of her isn't gentle. It's the hard brightness of a coin tossed into the sun, filling the chamber for two full seconds.
-- |-
-  The undead things in the pack scream. The goblins bolt. The wretched warlock — if there is one — throws his arms up and the something in his ribcage tears itself loose and leaves him hollow before the floor even catches him.
-- |-
-  You walk out of it intact. All of you.
-- |-
-  Vesna lowers her coin-hand. She looks like she ran ten miles.
-- female_adult_american_gentle_tender_sweet: |-
-    Lady Luck's own coin. [chuckle] Worth every grace.
-- |-
-  The far door. Steps down.
-
-
+- Vesna puts the prayer-coin against her forehead and *opens* — the light that comes
+  out of her isn't gentle. It's the hard brightness of a coin tossed into the sun,
+  filling the chamber for two full seconds.
+- The undead things in the pack scream. The goblins bolt. The wretched warlock — if
+  there is one — throws his arms up and the something in his ribcage tears itself
+  loose and leaves him hollow before the floor even catches him.
+- You walk out of it intact. All of you.
+- Vesna lowers her coin-hand. She looks like she ran ten miles.
+- female_adult_american_gentle_tender_sweet: Lady Luck's own coin. [chuckle] Worth
+    every grace.
+- The far door. Steps down.
 choices:
-- text: |-
-    Through the door.
+- text: Through the door.
   next: act2/deep_chamber_enter
   effects:
     flags:

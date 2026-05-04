@@ -1,22 +1,20 @@
 text:
-- |-
-  You win. The word covers a lot of ground.
-- |-
-  A wight's claw opens something along your ribs — not deep, but the kind of cut that reminds you it happened with every breath for the next hour. One companion takes a bad hit to the arm; the other comes out with a gash across the cheek they'll be telling a story about for years.
-- |-
-  The pack is down. You are not down. You are the part that matters.
+- You win. The word covers a lot of ground.
+- A wight's claw opens something along your ribs — not deep, but the kind of cut that
+  reminds you it happened with every breath for the next hour. One companion takes
+  a bad hit to the arm; the other comes out with a gash across the cheek they'll be
+  telling a story about for years.
+- The pack is down. You are not down. You are the part that matters.
 - if:
-    flags: [lead_followed_alley, knows_guide_name]
+    flags:
+    - lead_followed_alley
+    - knows_guide_name
   text:
-  - |-
-    Brother Vell went through the far door during the fight's worst moment. You heard him go. You were too busy to care.
-- |-
-  The far door. Steps going down. Blood drying on your sleeve.
-
-
+  - Brother Vell went through the far door during the fight's worst moment. You heard
+    him go. You were too busy to care.
+- The far door. Steps going down. Blood drying on your sleeve.
 choices:
-- text: |-
-    Through the far door.
+- text: Through the far door.
   next: act2/deep_chamber_enter
   effects:
     flags:
