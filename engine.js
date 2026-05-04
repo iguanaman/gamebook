@@ -458,12 +458,19 @@ function renderShell(meta) {
     </div>
     <div class="game-wrap">
       <div class="narrative-area">
-        <div class="narrative" id="narrative"><div class="narrative-spacer"></div></div>
+        <div class="narrative at-bottom" id="narrative"><div class="narrative-spacer"></div></div>
         <div class="choices-divider"></div>
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
   `;
+  const narrative = document.getElementById('narrative');
+  if (narrative) {
+    const updateAtBottom = () => {
+      narrative.classList.toggle('at-bottom', narrative.scrollTop >= -1);
+    };
+    narrative.addEventListener('scroll', updateAtBottom, { passive: true });
+  }
 }
 
 async function loadScene(storyId, sceneId) {
@@ -612,9 +619,23 @@ function resolveSceneBlocks(scene) {
   return blocks;
 }
 
+// Paralinguistic tags like [sigh], [chuckle] — sent to TTS, hidden from viewer.
+// Strip the tag and any surrounding whitespace it leaves behind.
+const PARALINGUISTIC_TAGS = ['clear throat', 'sigh', 'shush', 'cough', 'groan', 'sniff', 'gasp', 'chuckle', 'laugh'];
+const PARALINGUISTIC_RE = new RegExp(`\\s*\\[(?:${PARALINGUISTIC_TAGS.join('|')})\\]\\s*`, 'gi');
+function stripParalinguisticTags(text) {
+  return text
+    .replace(PARALINGUISTIC_RE, ' ')
+    .replace(/ +([,.!?;:])/g, '$1')
+    .replace(/ {2,}/g, ' ')
+    .replace(/(^|\n) +/g, '$1')
+    .replace(/ +(\n|$)/g, '$1')
+    .trim();
+}
+
 function buildBlockPara(block) {
   const { content, isSpeech, branch, rawIndex, isOpener, hash } = block;
-  const html = content.replace(/\n\n/g, '</p><p>');
+  const html = stripParalinguisticTags(content).replace(/\n\n/g, '</p><p>');
   const p = document.createElement('p');
   p.dataset.rawIndex = rawIndex;
   p.dataset.audioBranch = branch;

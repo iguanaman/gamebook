@@ -104,6 +104,19 @@ Second person, past tense, terse. One or two sentences. Match the story's voice 
 
 ---
 
+## Paralinguistic Tags
+
+The TTS model accepts inline performance tags that the engine strips before display — the listener hears them, the reader doesn't. Supported tags: `[sigh]`, `[gasp]`, `[chuckle]`, `[laugh]`, `[groan]`, `[sniff]`, `[cough]`, `[clear throat]`, `[shush]`. Lowercase, square brackets, no quotes around the tag itself.
+
+```yaml
+- male_midlife_english_posh: "[sigh] You again. I told the desk no visitors."
+- "She laughs — a short, bitter sound. [chuckle]"
+```
+
+**Use sparingly.** A tag earns its place when the line genuinely needs the audible beat (a real sigh of resignation, a laugh that lands the joke). A tag on every other line stops being expressive and starts sounding like a tic. Aim for one or two per scene at most, on lines where the delivery matters.
+
+---
+
 ## Conditional Blocks
 
 Any text block can render conditionally based on current state. Use the `if` key with the same syntax as choice `requires`.
