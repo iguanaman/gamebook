@@ -9,15 +9,17 @@ Three related changes:
 
 ---
 
-## 1. Global Fullscreen Button
+## 1. Global Fullscreen Button + Consistent Frame
 
-**Current state:** The fullscreen button (`⛶`) is rendered inside `renderShell()` as part of the in-game HUD. It does not appear on the selector screen or any splash screen.
+**Current state:** The fullscreen button (`⛶`) is rendered inside `renderShell()` as part of the in-game HUD (positioned `top: 1rem; right: 1rem`). It does not appear on the selector screen. The selector also sets `frame-neutral` on `#frame`, giving it grey border colors instead of the default parchment gold — making the selector feel visually disconnected from the in-game view.
 
-**Change:** Move the button into `index.html` as a persistent fixed-position element, alongside the existing journal toggle. Remove it from `renderShell()`.
+**Changes:**
 
-- Position: fixed, top-right corner (or consistent with existing floating UI)
-- Styling: reuse `.fullscreen-btn` — no visual change
-- The `fullscreenchange` listener moves to a one-time `initFullscreen()` call on engine startup, not re-attached per story load
+- Move the button into `index.html` as a persistent fixed element. Remove it from `renderShell()`.
+- Position: `top: calc(var(--frame-inset) + 0.25rem); right: calc(var(--frame-inset) + 0.25rem)` — aligned to the frame inset so it sits consistently inside the border on all screens
+- Update `.hud-wrap` to use the same `calc(var(--frame-inset) + ...)` positioning instead of hardcoded `1rem` offset, so the HUD aligns with the frame in-game too
+- Remove `frame-neutral` from `showSelector()` — the selector now shows the default parchment frame, matching the in-game look
+- The `fullscreenchange` listener moves to a one-time `initFullscreen()` call on engine startup
 - The button updates its title/icon on fullscreen state change as it does today
 
 ---
