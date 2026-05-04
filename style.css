@@ -132,14 +132,15 @@ button {
 /* ── Selector ─────────────────────────────────────────────────────────────── */
 
 .selector-bg {
-  min-height: 100vh;
-  background: #4a4a4a;
+  min-height: 100dvh;
+  padding: calc(var(--frame-inset) + 1.5rem) 1rem;
+  background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .selector { width: 100%; max-width: 800px; padding: 2rem; }
-.selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: #ccc; }
+.selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: var(--text); }
 .story-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .no-stories { text-align: center; opacity: 0.5; font-family: var(--font-ui); }
 
