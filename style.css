@@ -152,7 +152,7 @@ button {
   border-radius: var(--radius);
   background: var(--surface);
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.35s ease;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
 }
 .story-card:hover {
   border-color: var(--border-hover, var(--accent, #888));
@@ -617,9 +617,11 @@ button {
 /* ── Selector how-to-play link ────────────────────────────────────────────── */
 
 .intro-how-to-play {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  display: block;
+  text-align: center;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: -1rem;
   margin-bottom: 2rem;
   font-size: 1rem;

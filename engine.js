@@ -154,8 +154,8 @@ function animateCardSelect(storyId) {
   others.forEach(c => c.classList.add('card-fade-out'));
   setTimeout(() => {
     chosen?.classList.add('card-chosen');
-    setTimeout(() => startStory(storyId), 350);
-  }, 250);
+    setTimeout(() => startStory(storyId), 600);
+  }, 500);
 }
 
 async function attachCardHandlers(storyId) {
