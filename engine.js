@@ -2,6 +2,18 @@
 
 const app = document.getElementById('app');
 
+function initFullscreen() {
+  const btn = document.getElementById('fullscreen-btn');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  });
+  document.addEventListener('fullscreenchange', () => {
+    btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
+  });
+}
+
 
 // ── Manifest / selector ───────────────────────────────────────────────────────
 
@@ -19,7 +31,6 @@ async function showSelector() {
   removeStoryTheme();
   currentStoryId = null;
   state = null;
-  document.getElementById('frame').classList.add('frame-neutral');
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
   document.getElementById('journal-toggle')?.classList.remove('journal-toggle-open');
   document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
@@ -442,7 +453,6 @@ async function startStory(storyId) {
 function renderShell(meta) {
   app.innerHTML = `
     <div class="hud-wrap">
-      <button class="fullscreen-btn" id="fullscreen-btn" title="Toggle fullscreen">⛶</button>
     </div>
     <div class="game-wrap">
       <div class="narrative-area">
@@ -462,14 +472,6 @@ function renderShell(meta) {
     narrative.addEventListener('scroll', updateAtBottom, { passive: true });
   }
   document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
-  document.getElementById('fullscreen-btn')?.addEventListener('click', () => {
-    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-    else document.exitFullscreen();
-  });
-  document.addEventListener('fullscreenchange', () => {
-    const btn = document.getElementById('fullscreen-btn');
-    if (btn) btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
-  });
 }
 
 async function loadScene(storyId, sceneId) {
@@ -1043,6 +1045,11 @@ document.addEventListener('keydown', (e) => {
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
 (async () => {
+  initFullscreen();
+  if (!localStorage.getItem('gamebook.seen_intro')) {
+    showIntroSplash('first');
+    return;
+  }
   const last = localStorage.getItem('gamebook.lastStory');
   if (last && hasSave(last)) {
     startStory(last);
