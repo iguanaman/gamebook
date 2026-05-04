@@ -135,6 +135,18 @@ async function applyCardTheme(storyId) {
       }
     });
 
+    // Inject @font-face blocks (deduplicated by family name)
+    const fontFaces = [...css.matchAll(/@font-face\s*\{[^}]+\}/g)];
+    fontFaces.forEach(([block]) => {
+      const familyMatch = block.match(/font-family\s*:\s*['"]?([^'";]+)['"]?/);
+      if (familyMatch && !document.querySelector(`style[data-font-family="${familyMatch[1].trim()}"]`)) {
+        const style = document.createElement('style');
+        style.setAttribute('data-font-family', familyMatch[1].trim());
+        style.textContent = block;
+        document.head.appendChild(style);
+      }
+    });
+
     // Extract CSS custom properties from the :root block
     const rootMatch = css.match(/:root\s*\{([^}]+)\}/s);
     if (!rootMatch) return;
@@ -152,6 +164,8 @@ async function applyCardTheme(storyId) {
     card.style.boxShadow = 'inset 0 0 0 2px var(--border-inner), inset 0 0 0 10px var(--bg), 0 0 0 2px var(--border-outer)';
     card.style.borderRadius = 'var(--border-corner-radius)';
     card.style.padding = 'calc(1.5rem + 10px)';
+    const titleEl = card.querySelector('.story-title');
+    if (titleEl) titleEl.style.fontFamily = 'var(--font-heading)';
   } catch (e) { /* theme.css missing — skip */ }
 }
 
