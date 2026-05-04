@@ -1,34 +1,46 @@
-# Stage 3: Scene Writing
+# Stage 4: Scene Writing
 
 **Goal:** Write the actual YAML scene files for one beat or act. Output is `stories/{id}/scenes/` files.
 
-**Prerequisite:** The relevant `act-{n}.md` breakdown must exist and be complete.
+**Prerequisite:** The relevant `act-{n}.md` breakdown must exist, AND `stories/{id}/cast.md` must exist (Stage 3 output).
 
 ---
 
 ## What to do
 
-Read `brief.md`, `structure.md`, and the act breakdown for the target act. Also read `docs/foundation.md` for tone.
+Read `brief.md`, `structure.md`, the act breakdown for the target act, `cast.md` (NPC voices and characterisation — load this every time, voice IDs go directly into scene YAML as block prefixes), `docs/foundation.md` for tone, and `docs/storycrafting/principles.md` for structural patterns (hubs, conversations, random events, permadeath).
 
 Write scenes one beat at a time — not the whole act at once. After each beat, stop and let the user review before continuing.
 
-For each scene:
+**For each scene, plan mechanics before writing prose.** Prose written without knowing the choice structure often ends awkwardly or requires rewriting. Do this first:
 
-1. Write the narrative text — prose, second-person, present tense (match the story's established voice)
-2. Define choices — 2–4, grounded in what the player just read
-3. Apply effects/requires only where the breakdown says mechanics are in play
-4. Use descriptive scene IDs (`forest_edge`, not `scene_03`)
-5. Place files at `stories/{id}/scenes/{act-folder}/{scene-id}.yaml`
+1. **List the choices** — what options will the player see? 2–4 is the target.
+2. **Note each choice's mechanics** — `requires`, `effects`, `flags_unset` (consumable?), weighted `next` (random destination?), grey-out or `hide_if_failed`
+3. **Note any conditional text blocks** — which flags/stats/`visited` trigger alternate text? What does each branch say in a sentence?
+4. **Then write prose** — knowing the endpoint of the scene, write narrative text that earns each choice and ends at a decision point (not "do you go left or right?" as the final line)
+5. Use descriptive scene IDs (`forest_edge`, not `scene_03`)
+6. Place files at `stories/{id}/scenes/{act-folder}/{scene-id}.yaml`
 
 ---
 
 ## Scene quality checks
 
-Before writing each scene:
+After planning mechanics, before writing prose:
+- Do you know what each choice leads to, and what (if anything) gates it?
+- Are consumable choices accounted for — `flags_unset` on `requires` AND flag set on `effects`?
+- For weighted `next`: are the destinations and odds deliberate, not accidental?
+- For conditional text: is each branch worth writing, or is this texture that adds nothing?
+
+After writing prose:
 - Does the text end in a way that makes each choice feel live? (Not "do you go left or right?" as the last line)
 - Are all `next:` targets either an existing file or a scene you're about to write in this batch?
 - Is the text long enough to be worth the page, but short enough to read in 30–60 seconds?
-- For one-shot encounters: does this choice use `flags_unset` on `requires` and set the same flag on `effects`? If the choice should vanish after being taken, both halves must be present.
+
+---
+
+## One-Shot Choices
+
+A consumable choice must have `flags_unset` on `requires` AND the same flag set on `effects`. Both halves are required — missing either leaves the option permanently available or permanently gone.
 
 ```yaml
 # One-shot: the peddler only has one flask
@@ -47,19 +59,22 @@ Before writing each scene:
 
 ---
 
----
-
 ## NPC Voice
 
 Voice is the mechanic. An NPC with a distinct way of speaking rewards revisiting more than one who only delivers information.
 
-Before writing an NPC's first scene, decide their register:
-- **Vocabulary** — do they use long words or short ones? Jargon? Contractions?
-- **Sentence length** — clipped and terse, or meandering?
-- **What they notice** — a merchant notices your coin purse; a scholar notices your accent
-- **What they care about** — their self-interest, their fear, their pride
+**The cast sheet (`stories/{id}/cast.md`) is the source of truth.** Each NPC has a fixed voice (vocabulary, rhythm, contradictions, body, motives) and a fixed TTS voice ID. Hold both across every scene they appear in. An NPC's voice should be recognisable without a name tag — if you covered the speaker label, you'd still know who it was.
 
-Hold this register across every scene they appear in. An NPC's voice should be recognisable without a name tag — if you covered the speaker label, you'd still know who it was.
+When an NPC speaks, write the line as a YAML block prefixed with their TTS voice ID from `cast.md`:
+
+```yaml
+text:
+  - "The overseer's office smells of stale coffee."
+  - male_midlife_english_posh: "Officer. You are not on the schedule."
+  - "He doesn't look up from the terminal."
+```
+
+Narrator-only blocks (no prefix) use the story's narrator voice from `story.yaml`. NPC dialogue must always use the assigned voice ID — never default to narrator for an NPC line, and never invent a voice ID that isn't in `cast.md`.
 
 NPCs with opinions reward curiosity even when nothing mechanical happens. NPCs who only deliver plot do not.
 
@@ -81,7 +96,7 @@ text:
     text: "The boulder looks moveable."
 ```
 
-**`if: visited`** is true on any return visit to the scene. Use it for world-memory moments — the sense that the place remembers you.
+**`if: visited`** is true on any return visit to the scene. Use it for world-memory moments — the sense that the place remembers you. **Only add it to scenes the player can actually reach more than once** — hubs, conversation returns, side scenes linked from a hub. One-way entry scenes (story start, beat transitions, permadeath branches) will never trigger it; don't write it there.
 
 **Use sparingly.** Every conditional branch is writing that must be worth the reader's time. If you write an `else`, both branches need to earn their place.
 

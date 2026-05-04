@@ -18,7 +18,8 @@ Stories are built in stages. Each stage has its own guide in `docs/storycrafting
 | 0 — Discovery | `docs/storycrafting/stage-0-discovery.md` | `stories/{id}/brief.md` + `theme.css` |
 | 1 — Structure | `docs/storycrafting/stage-1-structure.md` | `stories/{id}/structure.md` |
 | 2 — Act Breakdown | `docs/storycrafting/stage-2-act-breakdown.md` | `stories/{id}/act-{n}.md` |
-| 3 — Scene Writing | `docs/storycrafting/stage-3-scene-writing.md` | `stories/{id}/scenes/` files |
+| 3 — Cast | `docs/storycrafting/stage-3-cast.md` | `stories/{id}/cast.md` |
+| 4 — Scene Writing | `docs/storycrafting/stage-4-scene-writing.md` | `stories/{id}/scenes/` files |
 
 Read the stage doc, then follow it. Each stage requires the previous stage's output — if the prerequisite is missing, stop and tell the user.
 

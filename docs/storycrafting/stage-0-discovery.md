@@ -15,9 +15,12 @@ Cover:
 3. **Player role** — who the reader is, what they want, what stands in their way
 4. **Main arc** — rough shape of the journey (rise/fall, mystery/revelation, escape, etc.)
 5. **Endings** — how many, what they hinge on (a choice, a stat, a flag)
-6. **Constraints** — length target (short ~10 scenes, medium ~30, long ~60+), any mechanics (stats? flags?)
+6. **Constraints** — length target (short ~30 scenes, medium ~80, long ~150+), any mechanics (stats? flags?)
+   - These are *total authored scenes* across all branches — a player sees maybe 30–40% in one run
+   - Short (~30) ≈ 10–15 min playthrough; medium (~80) ≈ 20–30 min; long (~150+) ≈ 45–60 min per run
 7. **Tone reference** — a book, game, or film this should feel like
 8. **Visual feel** — colours, fonts, mood (e.g. "amber on black like a terminal", "parchment and ink", "cold neon sci-fi")
+9. **Narrator voice** — pick from `narrator/` voices in `tts_voices/voices.yaml` (e.g. `narrator_male_ron_perlman` for Fallout-style gravel; `narrator_male_wayne_june` for cosmic horror). Use the leaf-key ID exactly as it appears in the file — the audio script resolves it to `tts_voices/{voice_id}.wav`. Record the chosen ID in the brief. NPC voices are assigned later in Stage 3 (cast).
 
 ---
 
@@ -53,6 +56,9 @@ Flags: yes/no — examples
 
 ## Visual Feel
 ...
+
+## Narrator Voice
+TTS voice ID from `tts_voices/voices.yaml` (must be under `narrator/`)
 
 ## Open Questions
 Any unresolved decisions the author needs to make before Stage 1.
