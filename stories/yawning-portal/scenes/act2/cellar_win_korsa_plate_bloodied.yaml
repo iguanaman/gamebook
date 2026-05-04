@@ -1,0 +1,21 @@
+text:
+  - "Korsa holds, but a bone-wight finds the gap between pauldron and helm with two fingers and *pulls*. He doesn't let go — Korsa doesn't let go — but he takes the wound, and you can see the blood through the collar-gap by the time the fight ends."
+  - "The chamber is yours. Three dead. One fled. Korsa ties his own collar-rag against the cut with his off hand, not looking at it."
+  - male_midlife_british_tough_calloused: "It's fine. Don't fuss."
+  - if:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died, vesna_left]
+    text:
+      - "Vesna fusses anyway. Efficiently."
+  - "The far door. Steps going down."
+
+choices:
+  - text: "Through the door."
+    next: act2/deep_chamber_enter
+    effects:
+      flags:
+        weapon_taken_from_cellar_pack: true
+        cellar_resolved: true
+        korsa_wounded: true
+      stats:
+        Vigor: -3

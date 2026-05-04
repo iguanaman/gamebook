@@ -1,19 +1,18 @@
 id: act1/steal_caltrops_clean
-
 text:
-  - "Clean. The pouch is in your hand before she turns back. You keep walking, slow, cup in hand,
-    like you were always just crossing the room."
-  - if:
-      flags: [recruited_pip]
-    text: "Halfway to the bar you feel her eyes on your back. You do not turn around."
-    else: "You pocket the caltrops at the bar. Iron, eight-pointed, good weight. Three Coin's worth
-      at any market stall — and now they're yours."
-
+- Clean. The pouch is in your hand before she turns back. You keep walking, slow,
+  cup in hand, like you were always just crossing the room.
+- if:
+    flags:
+    - recruited_pip
+  text: Halfway to the bar you feel her eyes on your back. You do not turn around.
+  else: You pocket the caltrops at the bar. Iron, eight-pointed, good weight. Three
+    Coin's worth at any market stall — and now they're yours.
 choices:
-  - text: Back to the room
-    next: act1/common_room
-    effects:
-      flags:
-        stole_caltrops: true
-        has_caltrops: true
-        pip_suspects: true
+- text: Back to the room
+  next: act1/common_room
+  effects:
+    flags:
+      stole_caltrops: true
+      has_caltrops: true
+      pip_suspects: true

@@ -1,0 +1,17 @@
+text:
+  - "He kills it. The thing dies in the dark the way it was probably always going to — violently, without dignity, in pieces."
+  - "The cost is Korsa's left knee, which folded under the thing's last strike. He's upright. He's walking. But the gait is wrong, and he will feel that knee for the rest of his life."
+  - "Linnet is in your arms, shaking. The calm is gone. Whatever the thing below was telling her, the conversation is over now."
+  - male_midlife_british_tough_calloused: "[groan] Right. Up. Help me up."
+  - "You help him up."
+
+choices:
+  - text: "Out — slowly"
+    next: act2/climb_out
+    effects:
+      flags:
+        rescued: true
+        weapon_taken_from_thing: true
+        korsa_wounded: true
+      stats:
+        Vigor: -3

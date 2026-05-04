@@ -41,6 +41,7 @@ choices:
       stats:
         Coin: 5
 
+  # Polite decline — Renown bonus when clean rescue (city respects a free agent)
   - text: |-
       Decline — politely, with thanks.
     next: bar_settle_up
@@ -55,6 +56,7 @@ choices:
       flags_unset: [bargained]
     hide_if_failed: true
 
+  # Polite decline — no Renown bonus (bargained, or not rescued)
   - text: |-
       Decline — politely, with thanks.
     next: bar_settle_up
@@ -62,6 +64,21 @@ choices:
       flags:
         mirt_offer_resolved: true
         mirt_offer_declined: true
+    requires:
+      flags_unset: [rescued]
+    hide_if_failed: true
+
+  # Polite decline — bargained path (rescued but marked)
+  - text: |-
+      Decline — politely, with thanks.
+    next: bar_settle_up
+    effects:
+      flags:
+        mirt_offer_resolved: true
+        mirt_offer_declined: true
+    requires:
+      flags: [rescued, bargained]
+    hide_if_failed: true
 
   - text: |-
       Decline — bluntly. You have business elsewhere.

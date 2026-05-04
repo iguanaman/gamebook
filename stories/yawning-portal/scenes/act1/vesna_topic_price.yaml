@@ -1,13 +1,18 @@
 text:
-  - female_adult_american_gentle_tender_sweet: "No coin."
-  - "She says it before you ask."
-  - female_adult_american_gentle_tender_sweet: "One thing. If someone dies down there — anyone, friend or enemy, anyone whose name we knew — we give them what we can. Even if it's only words over the body. Even if we're running. We don't leave the dead unnamed."
-  - "She meets your eyes. The gentleness is there, but so is something older under it — the quality of a woman who has knelt over too many graves to treat the price as ceremonial."
-  - female_adult_american_gentle_tender_sweet: "That is my condition. Promise me that, and I will go."
-
+- female_adult_american_gentle_tender_sweet: No coin.
+- She says it before you ask.
+- female_adult_american_gentle_tender_sweet: One thing. If someone dies down there
+    — anyone, friend or enemy, anyone whose name we knew — we give them what we can.
+    Even if it's only words over the body. Even if we're running. We don't leave the
+    dead unnamed.
+- She meets your eyes. The gentleness is there, but so is something older under it
+  — the quality of a woman who has knelt over too many graves to treat the price as
+  ceremonial.
+- female_adult_american_gentle_tender_sweet: That is my condition. Promise me that,
+    and I will go.
 choices:
-  - text: "Back to Vesna"
-    next: talk_vesna
-    effects:
-      flags:
-        asked_vesna_price: true
+- text: Back to Vesna
+  next: talk_vesna
+  effects:
+    flags:
+      asked_vesna_price: true

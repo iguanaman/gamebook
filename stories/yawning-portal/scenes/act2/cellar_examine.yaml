@@ -1,0 +1,27 @@
+text:
+- You crouch and hold the lantern close. The wax is the pale yellow of tallow candles
+  — beeswax wouldn't have pressed this clean. You can see where a thumb pressed each
+  seal, the whorls distinct even in the cooling.
+- The size of the thumbprint matches the chalk-written name. A seventeen-year-old's
+  hand.
+- She sealed it from this side. Whoever went through the hatch, it wasn't forced from
+  above — she stood here, in this corridor, and chose to close the door behind her.
+  Then she chalked her own name on the outside, so whoever found it would know.
+- She wanted to be followed. Or she wanted it known she'd gone through.
+- if:
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - vesna_left
+  text:
+  - female_adult_american_gentle_tender_sweet: She left her name. She wasn't hiding.
+      She was leaving a record.
+  - Vesna's voice is low. She's naming a thing she doesn't entirely want to believe.
+choices:
+- text: Back to the door.
+  next: act2/cellar_door
+  effects:
+    flags:
+      cellar_examined: true
+      knows_apprentice_sealed_self: true

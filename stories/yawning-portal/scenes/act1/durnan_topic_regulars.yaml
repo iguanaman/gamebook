@@ -1,16 +1,21 @@
 id: act1/durnan_topic_regulars
 text:
-  - "You ask him to read the room — who's worth talking to, who isn't."
-  - "He considers this with the same weight he would give a more interesting question."
-  - male_midlife_american_deep_raspy_authentic: "Mirt over there — loud, useful, costs more than he says. He's decided about you already. The conversation you're about to have is the one he rehearsed."
-  - "He tilts his chin toward Korsa's end of the bar."
-  - male_midlife_american_deep_raspy_authentic: "The dwarf has been in four fights this season and started none of them. Reliable metric."
-  - "And the others — Vesna, Pip, the tiefling by the hearth — he touches each briefly, not gossiping, just reporting. A brief, accurate register of who has sat in his room long enough to be known."
-  - male_midlife_american_deep_raspy_authentic: "Your coin at the table tells me more than I'll tell you. Choose carefully."
-
+- You ask him to read the room — who's worth talking to, who isn't.
+- He considers this with the same weight he would give a more interesting question.
+- male_midlife_american_deep_raspy_authentic: Mirt over there — loud, useful, costs
+    more than he says. He's decided about you already. The conversation you're about
+    to have is the one he rehearsed.
+- He tilts his chin toward Korsa's end of the bar.
+- male_midlife_american_deep_raspy_authentic: The dwarf has been in four fights this
+    season and started none of them. Reliable metric.
+- And the others — Vesna, Pip, the tiefling by the hearth — he touches each briefly,
+  not gossiping, just reporting. A brief, accurate register of who has sat in his
+  room long enough to be known.
+- male_midlife_american_deep_raspy_authentic: Your coin at the table tells me more
+    than I'll tell you. Choose carefully.
 choices:
-  - text: "Back to the bar"
-    next: act1/talk_durnan
-    effects:
-      flags:
-        asked_durnan_regulars: true
+- text: Back to the bar
+  next: act1/talk_durnan
+  effects:
+    flags:
+      asked_durnan_regulars: true

@@ -1,14 +1,19 @@
 text:
-  - female_adult_american_gentle_tender_sweet: "Linnet. Yes — I saw her at the well-mouth, two nights ago."
-  - "A pause. The coin turns."
-  - female_adult_american_gentle_tender_sweet: "She was excited. That age, they're all excited. I blessed her out of habit — a coin-touch to the back of the hand, fortune be with you, the usual. I do it for anyone who goes near the rope."
-  - "The coin stops."
-  - female_adult_american_gentle_tender_sweet: "I wish I had said more. Something worth remembering, if she needed it. But you don't know, in the moment, which moments need the better words."
-  - "She says it without self-pity. An observation she has made before, about more than Linnet."
-
+- female_adult_american_gentle_tender_sweet: Linnet. Yes — I saw her at the well-mouth,
+    two nights ago.
+- A pause. The coin turns.
+- female_adult_american_gentle_tender_sweet: She was excited. That age, they're all
+    excited. I blessed her out of habit — a coin-touch to the back of the hand, fortune
+    be with you, the usual. I do it for anyone who goes near the rope.
+- The coin stops.
+- female_adult_american_gentle_tender_sweet: I wish I had said more. Something worth
+    remembering, if she needed it. But you don't know, in the moment, which moments
+    need the better words.
+- She says it without self-pity. An observation she has made before, about more than
+  Linnet.
 choices:
-  - text: "Back to Vesna"
-    next: talk_vesna
-    effects:
-      flags:
-        asked_vesna_apprentice: true
+- text: Back to Vesna
+  next: talk_vesna
+  effects:
+    flags:
+      asked_vesna_apprentice: true

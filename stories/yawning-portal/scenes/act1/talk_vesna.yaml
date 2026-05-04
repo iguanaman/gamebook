@@ -1,41 +1,51 @@
 text:
-  - "Sister Vesna has taken the window bench — the one with the candle that Durnan keeps lit more out of habit than religion. She's been there an hour at least, a worn silver coin passing between her fingers without her looking at it. She reads the room without seeming to."
-  - if:
-      flags: [recruited_korsa]
-    text:
-      - male_midlife_british_tough_calloused: "She's solid. For a cleric."
-      - "It carries from the hearth bench. Vesna doesn't look up, but the coin-flip pauses for a single breath."
-  - female_adult_american_gentle_tender_sweet: "Sit, if you like. The candle has enough light for two."
-
+- Sister Vesna has taken the window bench — the one with the candle that Durnan keeps
+  lit more out of habit than religion. She's been there an hour at least, a worn silver
+  coin passing between her fingers without her looking at it. She reads the room without
+  seeming to.
+- if:
+    flags:
+    - recruited_korsa
+  text:
+  - male_midlife_british_tough_calloused: She's solid. For a cleric.
+  - It carries from the hearth bench. Vesna doesn't look up, but the coin-flip pauses
+    for a single breath.
+- female_adult_american_gentle_tender_sweet: Sit, if you like. The candle has enough
+    light for two.
 choices:
-  - text: "Ask about Tymora"
-    next: vesna_topic_tymora
-    requires:
-      flags_unset: [asked_vesna_tymora]
-
-  - text: "Ask if she knew the apprentice"
-    next: vesna_topic_apprentice
-    requires:
-      flags: [job_taken]
-      flags_unset: [asked_vesna_apprentice]
-    fail_text: "[Take the job first]"
-
-  - text: "Ask what she sees in the descent"
-    next: vesna_topic_descent
-    requires:
-      flags_unset: [asked_vesna_descent]
-
-  - text: "Ask her price"
-    next: vesna_topic_price
-    requires:
-      flags_unset: [asked_vesna_price]
-
-  - text: "Promise her what she asks — recruit her"
-    next: recruit_vesna
-    requires:
-      flags: [asked_vesna_descent, asked_vesna_price]
-      flags_unset: [recruited_vesna, vesna_left, pair_locked]
-    fail_text: "[Hear her out first / Party full]"
-
-  - text: "Step away"
-    next: common_room
+- text: Ask about Tymora
+  next: vesna_topic_tymora
+  requires:
+    flags_unset:
+    - asked_vesna_tymora
+- text: Ask if she knew the apprentice
+  next: vesna_topic_apprentice
+  requires:
+    flags:
+    - job_taken
+    flags_unset:
+    - asked_vesna_apprentice
+  fail_text: '[Take the job first]'
+- text: Ask what she sees in the descent
+  next: vesna_topic_descent
+  requires:
+    flags_unset:
+    - asked_vesna_descent
+- text: Ask her price
+  next: vesna_topic_price
+  requires:
+    flags_unset:
+    - asked_vesna_price
+- text: Promise her what she asks — recruit her
+  next: recruit_vesna
+  requires:
+    flags:
+    - asked_vesna_descent
+    - asked_vesna_price
+    flags_unset:
+    - recruited_vesna
+    - vesna_left
+    - pair_locked
+  fail_text: '[Hear her out first / Party full]'
+- text: Step away
+  next: common_room

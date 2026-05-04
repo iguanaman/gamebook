@@ -1,0 +1,76 @@
+text:
+  - "The thing in the pool is an envoy. You know that now — something in the journal's margins, something in the rune Thessaly recognised, something in the way the pool is connected to the well above. The thing you are talking to is not the source. It is the surface."
+  - "There is something below it. And if it is possible to wake that thing, the envoy will not survive the waking."
+  - "You do not know if this is clever or catastrophic. You do not have time to decide."
+  - male_midlife_american_deep_malevolent_ancient_slow: "You are not choosing to fight. That is wise."
+  - "It still hasn't figured out what you're doing."
+  - if:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died]
+    text:
+      - female_adult_american_sultry_villainous: "The sigil in the Cistern. The one that wasn't from any school I know. That's the anchor for whatever is *below* this. If we break the anchor's echo down here — "
+      - "She doesn't finish. She begins casting instead."
+  - if:
+      flags: [recruited_korsa]
+      flags_unset: [korsa_died]
+    text:
+      - male_midlife_british_tough_calloused: "I don't know what any of that means. Tell me who to hit."
+  - "The pool shudders. Just slightly. As if something below it noticed."
+
+choices:
+  - text: "Grab Linnet on the way out"
+    next:
+      - scene: act2/deep_stir_grab_clean
+        weight: 3
+      - scene: act2/deep_stir_grab_costly
+        weight: 3
+      - scene: act2/deep_stir_companion_dies_grab
+        weight: 3
+      - scene: act2/deep_stir_apprentice_dies
+        weight: 1
+    requires:
+      stats:
+        Vigor: 3
+    effects:
+      flags:
+        stir_chose_grab: true
+
+  - text: "Leave her — pure flight, no hesitation"
+    next:
+      - scene: act2/deep_stir_flee_clean
+        weight: 4
+      - scene: act2/deep_stir_flee_costly
+        weight: 4
+      - scene: act2/deep_stir_companion_dies_flee
+        weight: 2
+    effects:
+      flags:
+        stir_chose_flee: true
+
+  - text: "Korsa — rear-guard, buy the rest a window"
+    next: act2/deep_stir_korsa_rearguard
+    requires:
+      flags: [recruited_korsa]
+      flags_unset: [korsa_died, korsa_left]
+    hide_if_failed: true
+
+  - text: "Vesna — last burst, blind whatever's coming"
+    next: act2/deep_stir_vesna_blind
+    requires:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died, vesna_left]
+    hide_if_failed: true
+
+  - text: "Pip — drop everything you have, caltrops, smoke, oil"
+    next: act2/deep_stir_pip_drop
+    requires:
+      flags: [recruited_pip]
+      flags_unset: [pip_died, pip_left]
+    hide_if_failed: true
+
+  - text: "Thessaly — collapse the cellar behind you"
+    next: act2/deep_stir_thessaly_collapse
+    requires:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died, thessaly_left]
+    hide_if_failed: true

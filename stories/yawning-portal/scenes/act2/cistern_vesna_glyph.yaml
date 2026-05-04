@@ -1,0 +1,21 @@
+text:
+  - "Vesna stands at the water's edge, the prayer-coin between two fingers. She closes her eyes and flips it across — a precise underhand throw, more like a bowler's roll than a toss."
+  - "The coin lands in the water two feet short of the far ledge. The glyph on the pillar *pulses* — not light exactly, more like the absence of shadow, briefly. Then nothing."
+  - "The water drains. Not fast — it settles into cracks in the floor, inch by inch, until the basin is empty stone. On the bottom: a small wrapped cache. Three Coin and a stoppered vial of something that smells of cedar."
+  - female_adult_american_gentle_tender_sweet: "Lady Luck knew something was down there. [chuckle] She usually does."
+  - if:
+      flags: [found_journal]
+    text:
+      - "And the glyph's base — with the floor dry you can read it clearly. A student's notation, cross-referenced to a section of the journal in your pocket. The same hand."
+      - "The apprentice wasn't just here. She was studying this."
+
+choices:
+  - text: "Pocket the find. Back to the junction."
+    next: act2/upper_levels_hub
+    effects:
+      flags:
+        cistern_resolved: true
+        cistern_vesna_done: true
+        saw_signature: true
+      stats:
+        Coin: 3

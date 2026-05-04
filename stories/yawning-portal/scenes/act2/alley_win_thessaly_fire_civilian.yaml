@@ -1,21 +1,23 @@
 text:
-  - "The vat goes. Tallow floods the alley, toughs go down in it screaming, the gas-lamp catches the surface and there is a moment of blue flame before the wax smothers it."
-  - "And then a sound from the shop above — a child-voice, coughing. The chandler's apprentice, twelve years old, asleep over the workshop. The smoke gets there before you do."
-  - "He doesn't wake. Not in the alley. Not later."
-  - "Thessaly looks at the window for a long moment. Her face does nothing."
-  - female_adult_american_sultry_villainous: "I didn't know. I should have checked."
-  - "She says it quietly. You believe her. The Watch will be here in minutes."
-
+- The vat goes. Tallow floods the alley, toughs go down in it screaming, the gas-lamp
+  catches the surface and there is a moment of blue flame before the wax smothers
+  it.
+- And then a sound from the shop above — a child-voice, coughing. The chandler's apprentice,
+  twelve years old, asleep over the workshop. The smoke gets there before you do.
+- He doesn't wake. Not in the alley. Not later.
+- Thessaly looks at the window for a long moment. Her face does nothing.
+- female_adult_american_sultry_villainous: I didn't know. I should have checked.
+- She says it quietly. You believe her. The Watch will be here in minutes.
 choices:
-  - text: "Out the alley mouth — fast, before the Watch arrives"
-    next: alley_resolution
-    effects:
-      flags:
-        bloodied_in_alley: true
-        first_blood: true
-        weapon_taken_from_tough: true
-        alley_burned: true
-        civilian_killed_alley: true
-      stats:
-        Vigor: -1
-        Renown: -2
+- text: Out the alley mouth — fast, before the Watch arrives
+  next: alley_resolution
+  effects:
+    flags:
+      bloodied_in_alley: true
+      first_blood: true
+      weapon_taken_from_tough: true
+      alley_burned: true
+      civilian_killed_alley: true
+    stats:
+      Vigor: -1
+      Renown: -2

@@ -1,25 +1,24 @@
 id: act1/pay_tab_early
-
 text:
-  - "Durnan is at the far end of the bar, marking something in a ledger. You lay two coins on the
-    wood without being asked."
-  - "He looks at the coins. Looks at you. Picks them up one at a time, checks them, drops them into
-    the box under the counter."
-  - male_midlife_american_deep_raspy_authentic: "You're square."
-  - "That's all. But when he turns back to his ledger, the set of his shoulders is different — the
-    way a man relaxes when he decides something."
-
+- Durnan is at the far end of the bar, marking something in a ledger. You lay two
+  coins on the wood without being asked.
+- He looks at the coins. Looks at you. Picks them up one at a time, checks them, drops
+  them into the box under the counter.
+- male_midlife_american_deep_raspy_authentic: You're square.
+- That's all. But when he turns back to his ledger, the set of his shoulders is different
+  — the way a man relaxes when he decides something.
 choices:
-  - text: Step back into the room
-    next: act1/common_room
-    requires:
-      stats:
-        Coin: 2
-      flags_unset: [paid_tab_early]
-    effects:
-      flags:
-        paid_tab_early: true
-        durnan_respects_you: true
-      stats:
-        Coin: -2
-        Renown: 1
+- text: Step back into the room
+  next: act1/common_room
+  requires:
+    stats:
+      Coin: 2
+    flags_unset:
+    - paid_tab_early
+  effects:
+    flags:
+      paid_tab_early: true
+      durnan_respects_you: true
+    stats:
+      Coin: -2
+      Renown: 1

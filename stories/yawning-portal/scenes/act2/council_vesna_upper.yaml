@@ -1,0 +1,22 @@
+text:
+  - if:
+      flags_unset: [cellar_resolved]
+    text:
+      - "Vesna is kneeling at the base of the left wall, where a crack in the stone has let in a trickle of water. She's touched two fingers to it."
+      - female_adult_american_gentle_tender_sweet: "Living water, even here. Lady Luck's face in unexpected places."
+      - "She stands, drying her fingers on her cloak."
+      - female_adult_american_gentle_tender_sweet: "She came down here, the girl. She wasn't pushed or tricked — she walked. I want to remember that before we find her, so I don't say the wrong thing when we do."
+  - if:
+      flags: [cellar_resolved]
+    text:
+      - "Vesna has her eyes closed. Not praying — just counting."
+      - female_adult_american_gentle_tender_sweet: "Coin for the ones we lost above. [sigh] Tymora, keep them comfortable."
+      - "She opens her eyes. The coin goes back on the thong."
+      - female_adult_american_gentle_tender_sweet: "One more door. Fortune's edge."
+
+choices:
+  - text: "Back to the junction."
+    next: act2/companion_council_upper
+    effects:
+      flags:
+        council_vesna_done_at_upper: true

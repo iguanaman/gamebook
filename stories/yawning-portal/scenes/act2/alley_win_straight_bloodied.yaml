@@ -1,17 +1,20 @@
 text:
-  - "Five men, a stairwell, and not enough room to cast properly. The fight goes long and close and bad."
-  - "Your companions take hits — a blade across a forearm, a pommel to the temple that leaves someone's ears ringing, a boot that connects with a knee at the wrong angle. You're bleeding from two places you only notice after the last tough goes down."
-  - "Nobody dies. That's the victory. It's not a glorious victory. It's the kind of victory that sits down on the cobblestones and needs a moment."
-  - "The alley is quiet. The gas-lamp is still burning. The bodies are not."
-
+- Five men, a stairwell, and not enough room to cast properly. The fight goes long
+  and close and bad.
+- Your companions take hits — a blade across a forearm, a pommel to the temple that
+  leaves someone's ears ringing, a boot that connects with a knee at the wrong angle.
+  You're bleeding from two places you only notice after the last tough goes down.
+- Nobody dies. That's the victory. It's not a glorious victory. It's the kind of victory
+  that sits down on the cobblestones and needs a moment.
+- The alley is quiet. The gas-lamp is still burning. The bodies are not.
 choices:
-  - text: "Bind wounds, take the purses, back to the corner"
-    next: alley_resolution
-    effects:
-      flags:
-        bloodied_in_alley: true
-        first_blood: true
-        weapon_taken_from_tough: true
-      stats:
-        Vigor: -3
-        Coin: 2
+- text: Bind wounds, take the purses, back to the corner
+  next: alley_resolution
+  effects:
+    flags:
+      bloodied_in_alley: true
+      first_blood: true
+      weapon_taken_from_tough: true
+    stats:
+      Vigor: -3
+      Coin: 2

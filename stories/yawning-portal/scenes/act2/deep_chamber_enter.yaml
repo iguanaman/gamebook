@@ -1,0 +1,52 @@
+text:
+  - if:
+      flags: [arrived_loud]
+    text: "The breach you made through the cellar hatch opened something — the chamber beyond is already aware of you. You feel it before you see it."
+    else: "Beyond the hatch, the corridor drops one more time and opens into a low chamber. The ceiling is close. The floor is carved flat and smooth in a way the upper levels are not — deliberate work, old work."
+  - "A pool fills the far third of the room, perfectly still, perfectly black. No ripple. No reflection. The stone around it is dry."
+  - "On the far side of the pool, kneeling, is Linnet."
+  - if:
+      flags: [apprentice_alive_recently]
+    text: "She's alive. You knew that much from the bargeman's account — but the knowing doesn't prepare you for the fact of her, whole, ink-stained hands folded in her lap, back straight, completely calm."
+    else: "Alive. The shape of her is unmistakable even across the dark — Joren's description, the slight frame, the ink on her fingers visible even in the pool's nothing-light."
+  - "She is talking."
+  - "Not to you. Not to anyone in the room you can see. Her lips move in short declarative sentences, head slightly bowed, listening to something that fills the silence between her words."
+  - if:
+      flags: [journal_decoded]
+    text: "You know this ritual. You read it in her own handwriting. *The thing in the pool asks; the answered one responds.* She is answering it."
+  - if:
+      flags: [met_the_thing_below_glimpse]
+    text: "There is something in the pool. You knew it before you descended — you've seen its reach, the waterlogged pages, the wet print climbing the bulkhead. You are looking at the source of it now."
+    else: "There is something in the pool. You cannot see it. The still water makes it impossible to tell what is reflection and what is depth."
+  - if:
+      flags: [recruited_korsa]
+      flags_unset: [korsa_died]
+    text:
+      - "Korsa stops breathing for a moment. Then:"
+      - male_midlife_british_tough_calloused: "Tell me what you need. I'm right here."
+  - if:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died, vesna_left]
+    text:
+      - female_adult_american_gentle_tender_sweet: "Lady Luck. She's still breathing. [sigh] She's still breathing."
+      - "Vesna's coin is already between her fingers."
+  - if:
+      flags: [recruited_pip]
+      flags_unset: [pip_died]
+    text:
+      - female_young_american_lisp: "Three exits. One behind us, one is that pool, one is nowhere. I'm counting nowhere as an exit — so are you. Moving on."
+  - if:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died]
+    text:
+      - "Thessaly is looking at the pool. Whatever she sees in it, her face does not change."
+      - female_adult_american_sultry_villainous: "Do not speak first. Whatever you decide — do not speak before it does."
+
+choices:
+  - text: "Move into the chamber"
+    next: act2/deep_choice
+    effects:
+      flags:
+        met_the_thing_below: true
+        knows_the_truth: true
+        council_closed: true

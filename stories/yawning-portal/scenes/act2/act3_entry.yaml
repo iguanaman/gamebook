@@ -1,39 +1,61 @@
 text:
-  - if:
-      flags: [stirred_something]
-    text: |
-      The sound from the well has stopped. That is almost worse.
+- if:
+    flags:
+    - stirred_something
+  text: 'The sound from the well has stopped. That is almost worse.
 
-      The regulars have shifted — chairs angled toward the door, or away from it, each person doing the arithmetic on distance and exits. Nobody has left. Nobody is sure whether leaving is better or not.
-    else: |
-      The Portal settles back into itself. Someone at a far table resumes a dice game. The fire does not know what happened below it tonight.
-  - if:
-      flags: [rescued, bargained]
-    text: |
-      Linnet Wexley is alive and marked and standing in the Yawning Portal. The night has room for the rest.
-  - if:
-      flags: [rescued]
-      flags_unset: [bargained]
-    text: |
-      Linnet Wexley is alive and shaking and standing in the Yawning Portal. The night has room for the rest.
-  - if:
-      flags_unset: [rescued]
-    text: |
-      You came back. What you came back with is not what anyone sent you to find.
-  - |
-    Durnan sets a clean cup on the bar. He does not ask.
 
-    The night is not over. But the deep part is.
+    The regulars have shifted — chairs angled toward the door, or away from it, each
+    person doing the arithmetic on distance and exits. Nobody has left. Nobody is
+    sure whether leaving is better or not.
 
+    '
+  else: 'The Portal settles back into itself. Someone at a far table resumes a dice
+    game. The fire does not know what happened below it tonight.
+
+    '
+- if:
+    flags:
+    - rescued
+    - bargained
+  text: 'Linnet Wexley is alive and marked and standing in the Yawning Portal. The
+    night has room for the rest.
+
+    '
+- if:
+    flags:
+    - rescued
+    flags_unset:
+    - bargained
+  text: 'Linnet Wexley is alive and shaking and standing in the Yawning Portal. The
+    night has room for the rest.
+
+    '
+- if:
+    flags_unset:
+    - rescued
+  text: 'You came back. What you came back with is not what anyone sent you to find.
+
+    '
+- 'Durnan sets a clean cup on the bar. He does not ask.
+
+
+  The night is not over. But the deep part is.
+
+  '
 choices:
-  - text: |
-      Tell Durnan what happened
-    next: act3/re_entry
-  - text: |
-      Find a seat first — you need a moment
-    next: act3/re_entry
-  - text: |
-      Look for Joren Wexley
-    next: act3/re_entry
-    requires:
-      flags: [rescued]
+- text: 'Tell Durnan what happened
+
+    '
+  next: act3/re_entry
+- text: 'Find a seat first — you need a moment
+
+    '
+  next: act3/re_entry
+- text: 'Look for Joren Wexley
+
+    '
+  next: act3/re_entry
+  requires:
+    flags:
+    - rescued

@@ -1,19 +1,25 @@
 text:
-  - "The vat goes. The toughs go screaming into the wax. And the witness, who had made it halfway down the alley, is in the flood's path and doesn't make it the rest of the way."
-  - "He doesn't sing. He doesn't give you a name. The tallow takes him before he can do either."
-  - "You walk away alive. The name *Vell* is still in the air, half-spoken from the room above — half a name, and no one left to finish it."
-  - if: {flags: [alley_burned]}
-    text: ""
-  - "The chandler's alley is a yellow ruin behind you. The Watch will find a story here. Not the true one."
-
+- The vat goes. The toughs go screaming into the wax. And the witness, who had made
+  it halfway down the alley, is in the flood's path and doesn't make it the rest of
+  the way.
+- He doesn't sing. He doesn't give you a name. The tallow takes him before he can
+  do either.
+- You walk away alive. The name *Vell* is still in the air, half-spoken from the room
+  above — half a name, and no one left to finish it.
+- if:
+    flags:
+    - alley_burned
+  text: ''
+- The chandler's alley is a yellow ruin behind you. The Watch will find a story here.
+  Not the true one.
 choices:
-  - text: "Back to the Trades Ward corner"
-    next: alley_resolution
-    effects:
-      flags:
-        alley_witness_dead: true
-        bloodied_in_alley: true
-        first_blood: true
-        alley_burned: true
-      stats:
-        Vigor: -1
+- text: Back to the Trades Ward corner
+  next: alley_resolution
+  effects:
+    flags:
+      alley_witness_dead: true
+      bloodied_in_alley: true
+      first_blood: true
+      alley_burned: true
+    stats:
+      Vigor: -1

@@ -1,44 +1,53 @@
 text:
-  - "Thessaly Vex is at the far end of the room, at a table that has somehow acquired two empty chairs on either side of her. She is not doing anything in particular. A candle burns on the table and does not gutter, even when the door opens. She touches one filed-blunt horn-tip when she hears you approach, and does not look up until you are seated."
-  - if:
-      flags: [recruited_pip]
-    text:
-      - female_young_american_lisp: "Good luck. She gives me the creeps."
-      - "Pip's voice, from the bar, pitched to carry exactly as far as you."
-      - "Thessaly's attention doesn't shift a degree."
-  - female_adult_american_sultry_villainous: "I wondered when you would come."
-
+- Thessaly Vex is at the far end of the room, at a table that has somehow acquired
+  two empty chairs on either side of her. She is not doing anything in particular.
+  A candle burns on the table and does not gutter, even when the door opens. She touches
+  one filed-blunt horn-tip when she hears you approach, and does not look up until
+  you are seated.
+- if:
+    flags:
+    - recruited_pip
+  text:
+  - female_young_american_lisp: Good luck. She gives me the creeps.
+  - Pip's voice, from the bar, pitched to carry exactly as far as you.
+  - Thessaly's attention doesn't shift a degree.
+- female_adult_american_sultry_villainous: I wondered when you would come.
 choices:
-  - text: "Compare arcane registers — your spells and hers"
-    next: thessaly_topic_arcane
-    requires:
-      flags_unset: [asked_thessaly_arcane]
-
-  - text: "Ask what's down there"
-    next: thessaly_topic_below
-    requires:
-      flags_unset: [asked_thessaly_below]
-
-  - text: "Ask her terms"
-    next: thessaly_topic_terms
-    requires:
-      flags_unset: [asked_thessaly_terms]
-
-  - text: "Press her — why this job?"
-    next: thessaly_topic_why
-    requires:
-      flags: [asked_thessaly_below]
-      flags_unset: [asked_thessaly_why]
-      stats:
-        Wits: 6
-    fail_text: "[Wits 6 required / Hear her out first]"
-
-  - text: "Accept her terms — recruit her"
-    next: recruit_thessaly
-    requires:
-      flags: [asked_thessaly_below, asked_thessaly_terms]
-      flags_unset: [recruited_thessaly, thessaly_left, pair_locked]
-    fail_text: "[Hear her out first / Party full]"
-
-  - text: "Step away"
-    next: common_room
+- text: Compare arcane registers — your spells and hers
+  next: thessaly_topic_arcane
+  requires:
+    flags_unset:
+    - asked_thessaly_arcane
+- text: Ask what's down there
+  next: thessaly_topic_below
+  requires:
+    flags_unset:
+    - asked_thessaly_below
+- text: Ask her terms
+  next: thessaly_topic_terms
+  requires:
+    flags_unset:
+    - asked_thessaly_terms
+- text: Press her — why this job?
+  next: thessaly_topic_why
+  requires:
+    flags:
+    - asked_thessaly_below
+    flags_unset:
+    - asked_thessaly_why
+    stats:
+      Wits: 6
+  fail_text: '[Wits 6 required / Hear her out first]'
+- text: Accept her terms — recruit her
+  next: recruit_thessaly
+  requires:
+    flags:
+    - asked_thessaly_below
+    - asked_thessaly_terms
+    flags_unset:
+    - recruited_thessaly
+    - thessaly_left
+    - pair_locked
+  fail_text: '[Hear her out first / Party full]'
+- text: Step away
+  next: common_room

@@ -1,15 +1,18 @@
 text:
-  - "You flag the barkeep and set a fresh ale in front of him. He regards it, then you."
-  - male_midlife_british_tough_calloused: "South road. Caravan out of Baldur's Gate, three wagons, a merchant who thought a paid escort was the same as insurance."
-  - "He drinks."
-  - male_midlife_british_tough_calloused: "Eight bandits in the pass above Daggerford. We were four. The merchant hid under the flour sacks — heard him praying to every god he could name in alphabetical order."
-  - "A pause."
-  - male_midlife_british_tough_calloused: "Stopped at D. We were done by then. If it bleeds, I can drop it. That's the whole of the job."
-  - "He sets the empty tankard down with a decisive click."
-
+- You flag the barkeep and set a fresh ale in front of him. He regards it, then you.
+- male_midlife_british_tough_calloused: South road. Caravan out of Baldur's Gate,
+    three wagons, a merchant who thought a paid escort was the same as insurance.
+- He drinks.
+- male_midlife_british_tough_calloused: Eight bandits in the pass above Daggerford.
+    We were four. The merchant hid under the flour sacks — heard him praying to every
+    god he could name in alphabetical order.
+- A pause.
+- male_midlife_british_tough_calloused: Stopped at D. We were done by then. If it
+    bleeds, I can drop it. That's the whole of the job.
+- He sets the empty tankard down with a decisive click.
 choices:
-  - text: "Back to Korsa"
-    next: talk_korsa
-    effects:
-      flags:
-        asked_korsa_lastjob: true
+- text: Back to Korsa
+  next: talk_korsa
+  effects:
+    flags:
+      asked_korsa_lastjob: true

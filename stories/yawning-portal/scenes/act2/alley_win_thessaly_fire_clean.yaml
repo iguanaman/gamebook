@@ -1,19 +1,25 @@
 text:
-  - "Thessaly looks up at the chandler's vat — the spirit-flame below it, the chain holding it over the alley mouth — and her expression does the thing where it becomes very still and very focused, which is when she is most dangerous."
-  - "The bolt of fire is small. Precise. It severs the chain link, not the barrel, and the vat tips rather than drops. Yellow tallow floods the alley in a wave of heat and smoke. The toughs are in it up to their knees before it begins to cool and harden around their boots."
-  - "Three of them go down screaming into the wax. Two break free, coated in yellow, and run toward the harbour. They'll be finding tallow in their boots for a week."
-  - female_adult_american_sultry_villainous: "The chandler is at the Dented Flagon. I checked. No one was sleeping above the shop."
-  - "She had already checked. Of course she had."
-
+- Thessaly looks up at the chandler's vat — the spirit-flame below it, the chain holding
+  it over the alley mouth — and her expression does the thing where it becomes very
+  still and very focused, which is when she is most dangerous.
+- The bolt of fire is small. Precise. It severs the chain link, not the barrel, and
+  the vat tips rather than drops. Yellow tallow floods the alley in a wave of heat
+  and smoke. The toughs are in it up to their knees before it begins to cool and harden
+  around their boots.
+- Three of them go down screaming into the wax. Two break free, coated in yellow,
+  and run toward the harbour. They'll be finding tallow in their boots for a week.
+- female_adult_american_sultry_villainous: The chandler is at the Dented Flagon. I
+    checked. No one was sleeping above the shop.
+- She had already checked. Of course she had.
 choices:
-  - text: "Through the smoke, back to the Trades Ward corner"
-    next: alley_resolution
-    effects:
-      flags:
-        bloodied_in_alley: true
-        first_blood: true
-        weapon_taken_from_tough: true
-        alley_burned: true
-      stats:
-        Vigor: -1
-        Coin: 1
+- text: Through the smoke, back to the Trades Ward corner
+  next: alley_resolution
+  effects:
+    flags:
+      bloodied_in_alley: true
+      first_blood: true
+      weapon_taken_from_tough: true
+      alley_burned: true
+    stats:
+      Vigor: -1
+      Coin: 1

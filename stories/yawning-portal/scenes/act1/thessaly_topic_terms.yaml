@@ -1,15 +1,19 @@
 text:
-  - female_adult_american_sultry_villainous: "Equal share. No arguments about which share is equal — you will know the number and I will know the number and there will be no rounding."
-  - "She folds her hands on the table."
-  - female_adult_american_sultry_villainous: "If I need to be absent for a time — an hour, perhaps less — you do not come looking. I will return. I will not ask you to trust this. I ask only that you not interfere."
-  - "Her eyes settle on you in a way that makes you feel measured."
-  - female_adult_american_sultry_villainous: "And — one thing. There is a name I may say in the deep. You will hear it. You do not ask whose name it is."
-  - "She pauses a beat."
-  - female_adult_american_sultry_villainous: "That is all."
-
+- female_adult_american_sultry_villainous: Equal share. No arguments about which share
+    is equal — you will know the number and I will know the number and there will
+    be no rounding.
+- She folds her hands on the table.
+- female_adult_american_sultry_villainous: If I need to be absent for a time — an
+    hour, perhaps less — you do not come looking. I will return. I will not ask you
+    to trust this. I ask only that you not interfere.
+- Her eyes settle on you in a way that makes you feel measured.
+- female_adult_american_sultry_villainous: And — one thing. There is a name I may
+    say in the deep. You will hear it. You do not ask whose name it is.
+- She pauses a beat.
+- female_adult_american_sultry_villainous: That is all.
 choices:
-  - text: "Back to Thessaly"
-    next: talk_thessaly
-    effects:
-      flags:
-        asked_thessaly_terms: true
+- text: Back to Thessaly
+  next: talk_thessaly
+  effects:
+    flags:
+      asked_thessaly_terms: true

@@ -1,0 +1,20 @@
+text:
+  - "The chain clears the room. Five foes, three seconds, the same as any other time she's done it. But this time the arc finds the hatch at the room's far end and *goes through* it, down into whatever's below."
+  - "A tremor comes back up. Not seismic — a tremor of attention. The stone isn't moving. Something below is."
+  - "Then a sound rises through the well, through the floors, through the stone between you and deeper: not a word. A note. Low, sustained, the way you'd tune a string before playing it."
+  - "Thessaly goes very still."
+  - female_adult_american_sultry_villainous: "That was not the pack reacting. The pack is finished."
+  - "She looks at the hatch. At her own hands."
+  - female_adult_american_sultry_villainous: "Something below heard the lightning. It heard it and it *recognised* it."
+
+choices:
+  - text: "Through the hatch — fast."
+    next: act2/deep_chamber_enter
+    effects:
+      flags:
+        weapon_taken_from_cellar_pack: true
+        cellar_resolved: true
+        arrived_loud: true
+        woke_something_below: true
+      stats:
+        Vigor: -2

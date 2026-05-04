@@ -1,0 +1,23 @@
+id: act1/haggle_success
+journal: You took Joren Wexley's job — and made him pay for it properly.
+text:
+- He flinches when you name your number. But the flinch means he has it — a man who
+  doesn't have it doesn't flinch, he crumbles.
+- male_young_american_weak: That — that's — yes. Fine. You're right, it's — yes.
+- He counts it out in small coins, which takes longer than he'd like. Across the room,
+  Durnan pauses mid-polish. He sees. His expression says nothing that a stranger could
+  read.
+- male_young_american_weak: Bring her back. Please. Just — bring her back.
+- He's paid more than he offered and he still sounds grateful. That's the part that
+  follows you as he goes.
+choices:
+- text: Back to the room
+  next: act1/common_room
+  effects:
+    flags:
+      job_taken: true
+      client_left: true
+      haggled_up: true
+    stats:
+      Coin: 4
+      Renown: -1

@@ -1,10 +1,11 @@
 text:
-  - "Korsa is still at the hearth bench, but when you approach this time he reads the room before you say a word."
-  - male_midlife_british_tough_calloused: "You've got your two. I can see it."
-  - "He doesn't sound offended. He sounds like a man tallying a ledger."
-  - male_midlife_british_tough_calloused: "Good luck below. I'll be here when you come back up — assuming someone's paying."
-  - "He raises his tankard a fraction, then sets it down. The conversation is over."
-
+- Korsa is still at the hearth bench, but when you approach this time he reads the
+  room before you say a word.
+- male_midlife_british_tough_calloused: You've got your two. I can see it.
+- He doesn't sound offended. He sounds like a man tallying a ledger.
+- male_midlife_british_tough_calloused: Good luck below. I'll be here when you come
+    back up — assuming someone's paying.
+- He raises his tankard a fraction, then sets it down. The conversation is over.
 choices:
-  - text: "Back to the room"
-    next: common_room
+- text: Back to the room
+  next: common_room

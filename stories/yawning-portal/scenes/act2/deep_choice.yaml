@@ -1,0 +1,76 @@
+journal: "You found Linnet in the deep chamber, kneeling at the edge of a still pool, speaking to something beneath it."
+
+text:
+  - "You cross into the chamber. The pool doesn't move. The air is cool and close, pressed flat by the ceiling."
+  - "Linnet hears you. She doesn't startle — she turns with the particular calm of someone who has been expecting exactly this interruption. The mark on the back of her left hand catches the lantern light: a thin line, the colour of old bruise, not quite a scar."
+  - female_young_american_sweet_youthful_clear: "You — Joren sent you?"
+  - "It is not quite a question. She repeats the last word of her own sentence as though testing it."
+  - female_young_american_sweet_youthful_clear: "Sent you?"
+  - "And then the pool speaks."
+  - "Not a sound from the water — a voice that arrives as if it was always in the room, in the space between heartbeats, unhurried."
+  - male_midlife_american_deep_malevolent_ancient_slow: "You have arrived. We have been waiting — not impatiently. The one who answered has been very good company."
+  - "It uses your name. You did not give it."
+  - if:
+      flags: [recruited_korsa]
+      flags_unset: [korsa_died]
+    text:
+      - male_midlife_british_tough_calloused: "It knows your name."
+      - "He says it the way he'd say *the hatch is barred* or *three of them on the left* — fact, not terror."
+  - if:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died]
+    text:
+      - "Thessaly says nothing. Her hands are still."
+  - if:
+      flags: [arrived_loud]
+    text: "The thing in the pool speaks without hurry. Whatever noise you made coming down, it was not surprised by it."
+
+choices:
+  - text: "Steel out — fight through"
+    next: act2/deep_fight_open
+
+  - text: "Listen — what is it offering?"
+    next: act2/deep_parley_open
+    requires:
+      flags: [found_journal]
+      stats:
+        Wits: 6
+    hide_if_failed: true
+
+  - text: "Listen — what is it offering?"
+    next: act2/deep_parley_open
+    requires:
+      flags: [found_journal_waterlogged]
+    hide_if_failed: true
+
+  - text: "Listen — what is it offering?"
+    next: act2/deep_parley_open
+    requires:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died, thessaly_left]
+    hide_if_failed: true
+
+  - text: "Wake what's behind it — and run"
+    next: act2/deep_stir_open
+    requires:
+      flags: [knows_truth_partial]
+    hide_if_failed: true
+
+  - text: "Wake what's behind it — and run"
+    next: act2/deep_stir_open
+    requires:
+      flags: [woke_something_below]
+    hide_if_failed: true
+
+  - text: "Wake what's behind it — and run"
+    next: act2/deep_stir_open
+    requires:
+      stats:
+        Wits: 7
+    hide_if_failed: true
+
+  - text: "Grab Linnet and get out — while it's mid-sentence"
+    next: act2/deep_grab_open
+    requires:
+      stats:
+        Vigor: 3

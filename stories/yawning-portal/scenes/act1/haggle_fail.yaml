@@ -1,0 +1,20 @@
+id: act1/haggle_fail
+text:
+- You push. He recoils — not the recoil of a man reconsidering, but of a man who has
+  just understood something about you.
+- male_young_american_weak: I — I thought — I'm sorry, I don't have — this is everything
+    I could — I'm sorry.
+- He's shaking now. Not in fear. Worse than fear.
+- Someone at the bar is watching. Two coin changes hands anyway, because the alternative
+  is watching a man in a wrong collar walk out with nothing but a no.
+choices:
+- text: Back to the room
+  next: act1/common_room
+  effects:
+    flags:
+      job_taken: true
+      client_left: true
+      haggle_failed: true
+    stats:
+      Coin: 2
+      Renown: -2

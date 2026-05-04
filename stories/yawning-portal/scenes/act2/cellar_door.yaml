@@ -1,0 +1,65 @@
+text:
+- if: visited
+  text: Back to the hatch. The wax seal hasn't changed. The name hasn't moved.
+  else: 'The hatch is set flush into the corridor floor — a metre square of old iron,
+    the gap around the edge packed with yellowish wax. Pressed into the wax, in four
+    places, a thumbprint. Above it, in white chalk: *Linnet Wex*.'
+- The apprentice's name. Her seal. She closed this from *this* side and went further.
+- 'Through the iron, faintly: sound. Not wind. Not water. Something moving, and something
+  else that might be voices, speaking in a register that doesn''t quite resolve into
+  words.'
+- if:
+    flags:
+    - cellar_listened
+  text: You know what's in there. That doesn't make it smaller.
+- if:
+    flags:
+    - cellar_examined
+  text: The wax is the apprentice's own — you've already read that. She sealed herself
+    in. Or sealed something else in with her. Or both.
+- if:
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
+  text:
+  - male_midlife_british_tough_calloused: When you're ready. I'll be here.
+  - He's not being brave. He's being patient. There is a difference.
+choices:
+- text: Examine the seal — what is this wax?
+  next: act2/cellar_examine
+  requires:
+    stats:
+      Wits: 5
+    flags_unset:
+    - cellar_examined
+- text: Listen at the door
+  next: act2/cellar_listen
+  requires:
+    flags_unset:
+    - cellar_listened
+- text: Break the seal and force the door — be ready
+  next: act2/cellar_fight_open
+  effects:
+    flags:
+      cellar_forced_open: true
+- text: Thessaly — chain-spell, crack the door, ride the noise
+  next: act2/cellar_thessaly_breach
+  requires:
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
+    - thessaly_left
+  hide_if_failed: true
+- text: Pip — pick the seal quietly, slip in
+  next: act2/cellar_pip_pick
+  requires:
+    flags:
+    - recruited_pip
+    flags_unset:
+    - pip_died
+    - pip_left
+  hide_if_failed: true
+- text: Back — we're not ready
+  next: act2/upper_levels_hub

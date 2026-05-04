@@ -1,0 +1,17 @@
+text:
+  - "You don't see her move. One moment she's at your left shoulder; the next she's behind the apprentice, in the gap between the thing's reach and Linnet's back, knife already opening."
+  - "The binding — whatever the thing had placed on the girl, whatever invisible grip had kept her kneeling — severs. Linnet gasps. It's like watching someone wake from a dream while already standing."
+  - "The thing roars. Not in pain, exactly — in *surprise*, which is its own kind of satisfaction. You drive into it while it's wrong-footed and finish the job."
+  - "Pip is already at the door when you turn, Linnet in tow, counting her own fingers."
+  - female_young_american_lisp: "Still have all of them. Good. Moving. Now."
+
+choices:
+  - text: "Out"
+    next: act2/climb_out
+    effects:
+      flags:
+        rescued: true
+        weapon_taken_from_thing: true
+      stats:
+        Vigor: -2
+        Coin: 2

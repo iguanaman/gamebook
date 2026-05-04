@@ -1,11 +1,14 @@
 text:
-  - "He goes out the window before you finish the sentence. You hear him hit the drainpipe, miss a rung, catch it — and then his footsteps on the cobblestones below, headed west fast."
-  - "He left something. A name, half-spoken — *Vell* — before the nerve left him. And a smear of wax from his cuff on the window sill."
-  - "The door at the bottom of the stairs shudders. One of the toughs downstairs found the watchman's patience at its end."
-
+- He goes out the window before you finish the sentence. You hear him hit the drainpipe,
+  miss a rung, catch it — and then his footsteps on the cobblestones below, headed
+  west fast.
+- He left something. A name, half-spoken — *Vell* — before the nerve left him. And
+  a smear of wax from his cuff on the window sill.
+- The door at the bottom of the stairs shudders. One of the toughs downstairs found
+  the watchman's patience at its end.
 choices:
-  - text: "Brace at the top of the stairs — they're coming up either way"
-    next: alley_brawl_open
-    effects:
-      flags:
-        lead_followed_alley: true
+- text: Brace at the top of the stairs — they're coming up either way
+  next: alley_brawl_open
+  effects:
+    flags:
+      lead_followed_alley: true

@@ -1,0 +1,20 @@
+id: act1/job_accepted
+text:
+- You put your hand out. He shakes it — his grip is bookbinder-firm, two-handed, like
+  a man making sure you don't vanish.
+- male_young_american_weak: Two coin now. The rest when you bring her back.
+- He presses the purse into your palm and stands. His chair scrapes. He straightens
+  his collar without knowing it's wrong, picks up his hat, puts it on the wrong way.
+- male_young_american_weak: I'll be here. Til the bar closes. Then the inn on Inkwater.
+    Ask for Wexley.
+- He doesn't look at the well as he goes. That costs him something.
+choices:
+- text: Back to the room
+  next: act1/common_room
+  effects:
+    flags:
+      job_taken: true
+      client_left: true
+      took_job_straight: true
+    stats:
+      Coin: 2

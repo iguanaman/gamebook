@@ -1,0 +1,16 @@
+id: act1/client_walked
+text:
+- You tell him it's not your kind of job.
+- He nods. He expected this. You can see it — the third or fourth no of the evening,
+  each one smaller than the last.
+- male_young_american_weak: Of course. I'm sorry to have — yes. Of course.
+- He folds his hands in his lap and looks at the table. He'll sit there until the
+  bar closes or until someone else says yes. Probably the bar closing.
+- You walk away. The well is still there, behind you, dark and patient.
+choices:
+- text: Finish your drink and head out
+  next: act1/walked_on_job_ending
+  effects:
+    flags:
+      client_left: true
+      walked_on_job: true

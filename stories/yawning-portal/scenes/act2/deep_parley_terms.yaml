@@ -1,0 +1,31 @@
+text:
+  - "The thing speaks in its metronomic register, each sentence landing at the same interval."
+  - male_midlife_american_deep_malevolent_ancient_slow: "The one who answered will leave this chamber. She will return to the city above. She will live her life — bookbinding, ink, the small satisfactions of made things."
+  - "A pause."
+  - male_midlife_american_deep_malevolent_ancient_slow: "She carries a mark. This is not a wound. It is a connection. Through it, we will hear what she hears. Not always. At intervals. We find the surface world — interesting."
+  - "Another pause. The metronome."
+  - male_midlife_american_deep_malevolent_ancient_slow: "She will not know when we are listening. This is, we are told, the customary arrangement."
+  - "Linnet is looking at the back of her left hand."
+  - female_young_american_sweet_youthful_clear: "It's not — I mean, it's there already. It's already there."
+  - "She says it like she's explaining and like she's asking at the same time."
+  - if:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died]
+    text:
+      - "Vesna's prayer-coin is moving very fast between her fingers."
+      - female_adult_american_gentle_tender_sweet: "It is describing a leash. Do you understand? It is being kind about a leash."
+  - if:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died]
+    text:
+      - female_adult_american_sultry_villainous: "The mark is already set. Fighting your way out saves her the arrangement but not the mark. The question is whether you buy any terms at all, or simply leave it holding what it already holds."
+      - "A beat."
+      - female_adult_american_sultry_villainous: "That is the actual choice."
+  - "The thing waits. It is very patient."
+
+choices:
+  - text: "Back to the decision"
+    next: act2/deep_parley_open
+    effects:
+      flags:
+        parley_terms_heard: true

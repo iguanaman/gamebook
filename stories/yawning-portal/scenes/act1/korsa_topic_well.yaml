@@ -1,15 +1,19 @@
 text:
-  - "You nod toward the centre of the room — the rope, the dark, the thirty-foot drop into everything that follows."
-  - male_midlife_british_tough_calloused: "Never been down."
-  - "He follows your look without any change in his face."
-  - male_midlife_british_tough_calloused: "Been in mines. Tunnels. A cellar in Luskan that went deeper than any cellar has business going. The dark is the dark. You don't fight it, you fight what's in it. If there are things in that hole worth fighting, I'll find them fast enough."
-  - "He turns back to his ale."
-  - male_midlife_british_tough_calloused: "That what you wanted to hear?"
-  - "Not a taunt. A genuine question from a man with no patience for dishonesty about what job he's being considered for."
-
+- You nod toward the centre of the room — the rope, the dark, the thirty-foot drop
+  into everything that follows.
+- male_midlife_british_tough_calloused: Never been down.
+- He follows your look without any change in his face.
+- male_midlife_british_tough_calloused: Been in mines. Tunnels. A cellar in Luskan
+    that went deeper than any cellar has business going. The dark is the dark. You
+    don't fight it, you fight what's in it. If there are things in that hole worth
+    fighting, I'll find them fast enough.
+- He turns back to his ale.
+- male_midlife_british_tough_calloused: That what you wanted to hear?
+- Not a taunt. A genuine question from a man with no patience for dishonesty about
+  what job he's being considered for.
 choices:
-  - text: "Back to Korsa"
-    next: talk_korsa
-    effects:
-      flags:
-        asked_korsa_well: true
+- text: Back to Korsa
+  next: talk_korsa
+  effects:
+    flags:
+      asked_korsa_well: true

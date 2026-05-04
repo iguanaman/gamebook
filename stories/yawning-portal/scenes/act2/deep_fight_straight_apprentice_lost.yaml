@@ -1,0 +1,18 @@
+journal: "The thing died. Linnet died with it. You came for her and found you were too slow."
+
+text:
+  - "The thing is dead. You killed it."
+  - "In the crossing, Linnet was between you and it, and the thing used that, and the crossfire did what crossfire does in tight spaces. She was in the wrong half-metre when the killing blow landed."
+  - "She didn't — it was fast. That's a true thing. It was fast."
+  - "The chamber is very quiet. The pool is still. The thing is a smear on the floor. Linnet is beside it."
+  - "You stand in the middle of the room and look at what you did and then you stop looking."
+
+choices:
+  - text: "Out — without them"
+    next: act2/climb_out
+    effects:
+      flags:
+        weapon_taken_from_thing: true
+      stats:
+        Vigor: -3
+        Renown: -1

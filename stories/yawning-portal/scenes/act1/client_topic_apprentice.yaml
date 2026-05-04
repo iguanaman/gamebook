@@ -1,0 +1,14 @@
+id: act1/client_topic_apprentice
+text:
+- male_young_american_weak: Linnet. Linnet Cray. She — she's quick. Reads faster than
+    I do, and I've been reading forty years. Small, dark hair, ink always on the left
+    hand. She ties a red thread on her wrist when she's working something difficult.
+- He says her name again, quietly, as if saying it enough times will anchor her somewhere.
+- male_young_american_weak: She wouldn't do something stupid without a reason. That's
+    what I keep — she wouldn't. There had to be a reason.
+choices:
+- text: Back to the table
+  next: act1/talk_client
+  effects:
+    flags:
+      asked_about_apprentice: true

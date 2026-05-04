@@ -1,0 +1,18 @@
+text:
+  - "Korsa wades into the water without discussion, finds the dropped section of bridge, and braces it with his shoulder from below. The stone settles. It's not beautiful but it'll hold your weight."
+  - male_midlife_british_tough_calloused: "Go. Quick. Don't stop in the middle."
+  - "You cross. On the far side: the pillar up close, a glyph incised deep — this took hours — and the signature of whoever did it cut into the base. Below the glyph, behind a loose block: two Coin and a folded scrap of paper with numbers on it that mean nothing to you."
+  - "Korsa crosses last. His knee is bleeding where the bridge edge caught it."
+  - male_midlife_british_tough_calloused: "I've had worse from cobblestones."
+
+choices:
+  - text: "Back to the junction."
+    next: act2/upper_levels_hub
+    effects:
+      flags:
+        cistern_resolved: true
+        cistern_korsa_done: true
+        saw_signature: true
+      stats:
+        Coin: 2
+        Vigor: -1

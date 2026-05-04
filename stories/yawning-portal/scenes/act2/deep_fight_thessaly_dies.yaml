@@ -1,0 +1,31 @@
+journal: "Thessaly Vex died in the deep chamber. The fire was hers, and so was the cost."
+
+text:
+  - "The fireball curves right. The thing burns. The window is almost right."
+  - "The thing fights through the fire. Not intact — blazing, already dying — but it finds Thessaly at the heart of the spell and it does what dying things do. It takes something with it."
+  - "She goes down on one knee, then on her side, and her hands are still lit with the last of the casting. The light fades slowly, like a coal."
+  - "You kill what's left of the thing. You grab Linnet. Linnet is staring at Thessaly with an expression you have no word for."
+  - female_young_american_sweet_youthful_clear: "She — she found what she was looking for. Didn't she."
+  - "It is not quite a question. And you don't have an answer."
+
+choices:
+  - text: "Carry her — and Linnet — out"
+    next: act2/climb_out
+    effects:
+      flags:
+        rescued: true
+        thessaly_died: true
+        weapon_taken_from_thing: true
+        body_recovered: true
+      stats:
+        Vigor: -3
+
+  - text: "Leave her. The apprentice. Go."
+    next: act2/climb_out
+    effects:
+      flags:
+        rescued: true
+        thessaly_died: true
+        weapon_taken_from_thing: true
+      stats:
+        Vigor: -2

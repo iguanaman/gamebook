@@ -1,34 +1,38 @@
 text:
-  - "The vat goes. The chain snaps. Tallow floods the alley — and then a barrel at the base of the chandler's stack, one nobody saw, catches the spirit-flame and goes up in a column of blue fire."
-  - "Thessaly is in the middle of it."
-  - "She doesn't scream. That's the part you'll remember. She goes down into the burning wax in silence, one arm raised, still casting something — you'll never know what. The fire takes the word out of her mouth."
-  - "You drag her out by that arm. The wax has hardened around her by the time you reach the alley wall. She breathes. But the burn-scar on her left wrist — the sigil she never let you examine — is destroyed. Something she was carrying in it is gone."
-  - "Her eyes, when they open, don't look like they're looking at you."
-
-journal: "Thessaly Vex didn't come out of Wicker Lane the way she went in. Something she was keeping was burned away."
-
+- The vat goes. The chain snaps. Tallow floods the alley — and then a barrel at the
+  base of the chandler's stack, one nobody saw, catches the spirit-flame and goes
+  up in a column of blue fire.
+- Thessaly is in the middle of it.
+- She doesn't scream. That's the part you'll remember. She goes down into the burning
+  wax in silence, one arm raised, still casting something — you'll never know what.
+  The fire takes the word out of her mouth.
+- You drag her out by that arm. The wax has hardened around her by the time you reach
+  the alley wall. She breathes. But the burn-scar on her left wrist — the sigil she
+  never let you examine — is destroyed. Something she was carrying in it is gone.
+- Her eyes, when they open, don't look like they're looking at you.
+journal: Thessaly Vex didn't come out of Wicker Lane the way she went in. Something
+  she was keeping was burned away.
 choices:
-  - text: "Get her out of the alley — she goes where you go"
-    next: alley_resolution
-    effects:
-      flags:
-        thessaly_died: true
-        bloodied_in_alley: true
-        first_blood: true
-        body_recovered: true
-        alley_burned: true
-      stats:
-        Vigor: -3
-        Renown: -1
-
-  - text: "Leave her in the wax. There's no carrying someone that far gone."
-    next: alley_resolution
-    effects:
-      flags:
-        thessaly_died: true
-        bloodied_in_alley: true
-        first_blood: true
-        alley_burned: true
-      stats:
-        Vigor: -2
-        Renown: -2
+- text: Get her out of the alley — she goes where you go
+  next: alley_resolution
+  effects:
+    flags:
+      thessaly_died: true
+      bloodied_in_alley: true
+      first_blood: true
+      body_recovered: true
+      alley_burned: true
+    stats:
+      Vigor: -3
+      Renown: -1
+- text: Leave her in the wax. There's no carrying someone that far gone.
+  next: alley_resolution
+  effects:
+    flags:
+      thessaly_died: true
+      bloodied_in_alley: true
+      first_blood: true
+      alley_burned: true
+    stats:
+      Vigor: -2
+      Renown: -2

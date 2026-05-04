@@ -1,18 +1,27 @@
 text:
-  - "You go out the back of the chandler's before the toughs get the door properly open. Three of you moving fast, low, single-file through the stacked wax-molds and into the lane behind."
-  - "They come after you. For two blocks. Then they stop — the hire doesn't cover a chase through the Trades Ward at night with a wizard throwing fire over his shoulder."
-  - "You reach the corner breathing hard. No witness. No name. The toughs are still in Wicker Lane, and whatever they're protecting is still protected."
-  - if: {flags: [recruited_pip]}
-    text: "female_young_american_lisp: \"Smarter exit than fighting five to three in a stairwell. I'm just going to say that.\""
-  - if: {flags: [recruited_vesna]}
-    text: "female_adult_american_gentle_tender_sweet: \"Running isn't failing. It's surviving to try again. Lady Luck favours the alive.\""
-
+- You go out the back of the chandler's before the toughs get the door properly open.
+  Three of you moving fast, low, single-file through the stacked wax-molds and into
+  the lane behind.
+- They come after you. For two blocks. Then they stop — the hire doesn't cover a chase
+  through the Trades Ward at night with a wizard throwing fire over his shoulder.
+- You reach the corner breathing hard. No witness. No name. The toughs are still in
+  Wicker Lane, and whatever they're protecting is still protected.
+- if:
+    flags:
+    - recruited_pip
+  text: 'female_young_american_lisp: "Smarter exit than fighting five to three in
+    a stairwell. I''m just going to say that."'
+- if:
+    flags:
+    - recruited_vesna
+  text: 'female_adult_american_gentle_tender_sweet: "Running isn''t failing. It''s
+    surviving to try again. Lady Luck favours the alive."'
 choices:
-  - text: "Back to the Trades Ward corner"
-    next: alley_resolution
-    effects:
-      flags:
-        alley_witness_lost: true
-        alley_fled: true
-      stats:
-        Vigor: -2
+- text: Back to the Trades Ward corner
+  next: alley_resolution
+  effects:
+    flags:
+      alley_witness_lost: true
+      alley_fled: true
+    stats:
+      Vigor: -2

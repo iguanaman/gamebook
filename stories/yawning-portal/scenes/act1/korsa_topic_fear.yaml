@@ -1,16 +1,18 @@
 text:
-  - "You ask it straight: why isn't he scared of the well?"
-  - "He is quiet for long enough that you think he won't answer. Then:"
-  - male_midlife_british_tough_calloused: "My brother. Copper mine north of Mirabar. Tunnel collapse — three of them in the dark, for four days, before the rescue party got through."
-  - "He turns the tankard once."
-  - male_midlife_british_tough_calloused: "Only one came out."
-  - "Another turn."
-  - male_midlife_british_tough_calloused: "I've been making peace with the dark for ten years. Might as well find a use for it."
-  - "He doesn't look for a reaction. The story was already finished before he told it."
-
+- 'You ask it straight: why isn''t he scared of the well?'
+- 'He is quiet for long enough that you think he won''t answer. Then:'
+- male_midlife_british_tough_calloused: My brother. Copper mine north of Mirabar.
+    Tunnel collapse — three of them in the dark, for four days, before the rescue
+    party got through.
+- He turns the tankard once.
+- male_midlife_british_tough_calloused: Only one came out.
+- Another turn.
+- male_midlife_british_tough_calloused: I've been making peace with the dark for ten
+    years. Might as well find a use for it.
+- He doesn't look for a reaction. The story was already finished before he told it.
 choices:
-  - text: "Back to Korsa"
-    next: talk_korsa
-    effects:
-      flags:
-        asked_korsa_fear: true
+- text: Back to Korsa
+  next: talk_korsa
+  effects:
+    flags:
+      asked_korsa_fear: true

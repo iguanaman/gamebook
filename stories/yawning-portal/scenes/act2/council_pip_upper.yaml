@@ -1,0 +1,22 @@
+text:
+  - if:
+      flags_unset: [cellar_resolved]
+    text:
+      - "Pip is counting something on her fingers, mouthing numbers. She notices you watching."
+      - female_young_american_lisp: "Three passages, one junction, two side rooms, and one hatch we haven't opened. Four of us. Two exits we know about — the rope and whatever's on the far side of that wax seal. I don't like those numbers."
+      - "She adds a fifth finger."
+      - female_young_american_lisp: "Tall one. You have a plan past the hatch?"
+  - if:
+      flags: [cellar_resolved]
+    text:
+      - "Pip is wiping her blade on a strip of cloth. She doesn't look up."
+      - female_young_american_lisp: "Next time someone tells you a cellar is empty, both of us know what that means now."
+      - "She folds the cloth and tucks it away."
+      - female_young_american_lisp: "I saw a door on the far side during that. Past the hatch. Leads somewhere."
+
+choices:
+  - text: "Back to the junction."
+    next: act2/companion_council_upper
+    effects:
+      flags:
+        council_pip_done_at_upper: true

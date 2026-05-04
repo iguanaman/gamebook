@@ -1,0 +1,15 @@
+id: act1/client_topic_harbour
+text:
+- male_young_american_weak: The morning before she went down. I didn't know at the
+    time — someone told me after. She was at Dock Fourteen. The south quays, near
+    the chandler's.
+- He rubs his eyes.
+- male_young_american_weak: I don't know what she was doing there. She doesn't know
+    anyone at the docks. I've asked and asked and — there's a bargeman, they said.
+    He saw her. He might talk.
+choices:
+- text: Back to the table
+  next: act1/talk_client
+  effects:
+    flags:
+      heard_about_harbour: true

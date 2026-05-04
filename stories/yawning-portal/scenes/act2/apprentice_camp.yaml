@@ -1,0 +1,62 @@
+text:
+- 'The right passage opens into a pocket — not a room, just a widening of the corridor
+  where the stone has crumbled back. A bedroll against the wall, flattened but not
+  old. A stub of candle burned to the holder, still smelling faintly of beeswax. On
+  the nearest pillar: runes, scratched in with something sharp, at standing-height.'
+- She was here. She slept here. The runes are in a student's hand — urgent, compressed,
+  the scratches of someone thinking faster than they're writing.
+- if:
+    flags:
+    - found_journal
+  text: The notation matches what's in the journal in your pocket. She brought her
+    work below.
+- if:
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - vesna_left
+  text:
+  - female_adult_american_gentle_tender_sweet: She made herself comfortable. She expected
+      to be here a while.
+  - Vesna's voice is careful — the voice of someone not yet naming what they're afraid
+    of.
+choices:
+- text: Search the bedroll properly
+  next: act2/camp_search
+  requires:
+    flags_unset:
+    - camp_searched
+- text: Read the journal against the runes
+  next: act2/journal_decode
+  requires:
+    flags:
+    - found_journal
+    flags_unset:
+    - journal_decoded
+  hide_if_failed: true
+- text: Pip — sniff out the cache. You know she hid something.
+  next: act2/camp_pip_cache
+  requires:
+    flags:
+    - recruited_pip
+    flags_unset:
+    - pip_died
+    - pip_left
+    - camp_pip_cache_done
+  hide_if_failed: true
+- text: Vesna — pray for her. Wherever she is.
+  next: act2/camp_vesna_pray
+  requires:
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - vesna_left
+    - camp_vesna_pray_done
+  hide_if_failed: true
+- text: Move on — the hatch is what matters
+  next: act2/upper_levels_hub
+  effects:
+    flags:
+      camp_resolved: true

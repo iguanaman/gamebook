@@ -1,0 +1,22 @@
+text:
+- 'Under the bedroll: a folded sheet of paper, sealed with a strip of candle-wax.
+  The outside reads *for Joren, if anyone finds this* in a careful bookbinder''s apprentice
+  hand.'
+- You break the seal.
+- female_young_american_sweet_youthful_clear: Master — I'm fine. I know that's not
+    what you expected. I came down to prove I wasn't afraid and I found something
+    instead. It's been talking to me. I know how that sounds. I'm not going back yet.
+    I think it matters. I think I'm the only one who's listened properly. Please don't
+    send Watch. — L.
+- The letter was written yesterday. The candle she sealed it with is the same one
+  that burned down on the holder.
+- She was alive yesterday. She chose to stay.
+choices:
+- text: Pocket the letter. Back to the junction.
+  next: act2/upper_levels_hub
+  effects:
+    flags:
+      camp_resolved: true
+      camp_searched: true
+      apprentice_alive_recently: true
+      found_letter: true

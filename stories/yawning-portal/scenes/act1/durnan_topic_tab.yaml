@@ -1,16 +1,16 @@
 id: act1/durnan_topic_tab
 text:
-  - "You ask what you owe."
-  - "He doesn't check anything — just names a number."
-  - male_midlife_american_deep_raspy_authentic: "Two copper. The ale, the bench, the warmth. You can settle it now or when you climb back out."
-  - "A fractional pause."
-  - male_midlife_american_deep_raspy_authentic: "Assuming you climb back out."
-  - "Not unkind. Just accurate."
-  - "He moves on to the next customer without ceremony, the tab conversation complete."
-
+- You ask what you owe.
+- He doesn't check anything — just names a number.
+- male_midlife_american_deep_raspy_authentic: Two copper. The ale, the bench, the
+    warmth. You can settle it now or when you climb back out.
+- A fractional pause.
+- male_midlife_american_deep_raspy_authentic: Assuming you climb back out.
+- Not unkind. Just accurate.
+- He moves on to the next customer without ceremony, the tab conversation complete.
 choices:
-  - text: "Back to the bar"
-    next: act1/talk_durnan
-    effects:
-      flags:
-        asked_durnan_tab: true
+- text: Back to the bar
+  next: act1/talk_durnan
+  effects:
+    flags:
+      asked_durnan_tab: true

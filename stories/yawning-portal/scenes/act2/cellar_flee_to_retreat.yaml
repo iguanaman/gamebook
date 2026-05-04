@@ -1,0 +1,27 @@
+text:
+  - "You go. No glory in it — you pivot at the hatch the moment the numbers go wrong, shout for your companions to follow, and move."
+  - "They follow. The pack pursues for the first thirty feet, then the corridor narrows and you put enough distance between you and them that the pursuit breaks off. The cold dark swallows the sound of them."
+  - "The rope is where you left it. The upper levels are behind you."
+  - if:
+      flags: [recruited_korsa]
+      flags_unset: [korsa_died]
+    text:
+      - male_midlife_british_tough_calloused: "Right call. Live to try again."
+      - "He says it without reproach. He's been on the wrong side of a numbers problem before."
+  - if:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died, vesna_left]
+    text:
+      - female_adult_american_gentle_tender_sweet: "She's still down there. Fortune willing, still alive."
+  - "The rope is waiting. Waterdeep is sixty feet above you."
+
+choices:
+  - text: "Climb back to the well."
+    next: act2/act3_entry_retreat
+    effects:
+      flags:
+        retreated_upper: true
+        climbed_back_out: true
+        cellar_fled: true
+      stats:
+        Vigor: -2

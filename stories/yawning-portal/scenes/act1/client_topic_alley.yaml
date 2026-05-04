@@ -1,0 +1,15 @@
+id: act1/client_topic_alley
+text:
+- male_young_american_weak: A man in the Trades Ward. I don't have his name. One of
+    the regulars here told me — he saw Linnet the evening she came to the Portal.
+    Saw her with someone, is what they said. And then he — bolted. Wouldn't say who.
+    Moved lodgings.
+- He leans forward, dropping his voice.
+- male_young_american_weak: He's above the chandler's on Wicker Lane. The one with
+    the yellow shutter. That's all I — please. He saw who brought her here.
+choices:
+- text: Back to the table
+  next: act1/talk_client
+  effects:
+    flags:
+      heard_about_alley_witness: true

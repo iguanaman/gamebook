@@ -1,0 +1,18 @@
+text:
+  - "She gets the chief — clean, definitive, the pack collapses without him — but the chief's second was watching. The crossbow bolt takes her in the thigh, low, going through. She doesn't scream. She swears in a language you don't recognise and keeps moving."
+  - "The crossbow-goblin gets your blade for its trouble."
+  - "After: Pip sitting against the wall with her belt as a tourniquet, face white, counting the coin from the chief's purse. Still counting. It's how she's holding herself together."
+  - female_young_american_lisp: "Two Coin. The chief was poorly paid for a chief."
+  - "She lets you bind the leg. Just barely."
+
+choices:
+  - text: "Bind her. Through the far door."
+    next: act2/deep_chamber_enter
+    effects:
+      flags:
+        weapon_taken_from_cellar_pack: true
+        cellar_resolved: true
+        pip_wounded: true
+      stats:
+        Vigor: -2
+        Coin: 2

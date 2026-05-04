@@ -1,10 +1,11 @@
 text:
-  - "Vesna sees you coming and sets her coin down flat on the bench."
-  - female_adult_american_gentle_tender_sweet: "You have your companions. I can see it in the way you walk."
-  - "She picks the coin back up."
-  - female_adult_american_gentle_tender_sweet: "Lady Luck willing, they are the right choice. I will pray for you — all of you. That is not nothing."
-  - "She means it. There is no bitterness in it."
-
+- Vesna sees you coming and sets her coin down flat on the bench.
+- female_adult_american_gentle_tender_sweet: You have your companions. I can see it
+    in the way you walk.
+- She picks the coin back up.
+- female_adult_american_gentle_tender_sweet: Lady Luck willing, they are the right
+    choice. I will pray for you — all of you. That is not nothing.
+- She means it. There is no bitterness in it.
 choices:
-  - text: "Back to the room"
-    next: common_room
+- text: Back to the room
+  next: common_room

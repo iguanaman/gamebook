@@ -1,22 +1,37 @@
 text:
-  - if: {flags: [alley_calmed]}
-    text: "Vesna doesn't move fast. She sets her prayer-coin on the table between you, and her voice comes out lower than the pacing, lower than the toughs' boots below."
-  - if: {flags: [alley_threatened]}
-    text: "The knife makes a sound on the table. He looks at it. His mouth opens."
-  - if: {flags: [alley_pressed]}
-    text: "You say the name — the name the fence gave, the name the toughs outside work for. His face changes the way candlelight changes when the candle moves."
-  - male_adult_african-american_uneducated: "[sigh] All right. All right, friend. She came through three nights back — young girl, ink on her hands. Had a guide with her. Man with a burn-mark on his wrist — fresh. She called him Vell. I heard the name twice. He had that thing about him where you feel like you should agree with everything he says."
-  - male_adult_african-american_uneducated: "He came back without her. Next morning, early. Walked past this alley like he was going to breakfast. Except his eyes were — look, I saw where he was looking. That's the well. That's Durnan's well."
-  - "He stops. Swallows."
-  - male_adult_african-american_uneducated: "I don't know what's down there. I heard a name once — from Vell — and I am not going to say it twice. I want out of this city before dawn. You never came here. Neither did I."
-  - "A fist hits the door at the bottom of the stairs. Then another. The watchman's voice, muffled, overridden."
-
-journal: "A guide called Vell took the apprentice down. He came back alone."
-
+- if:
+    flags:
+    - alley_calmed
+  text: Vesna doesn't move fast. She sets her prayer-coin on the table between you,
+    and her voice comes out lower than the pacing, lower than the toughs' boots below.
+- if:
+    flags:
+    - alley_threatened
+  text: The knife makes a sound on the table. He looks at it. His mouth opens.
+- if:
+    flags:
+    - alley_pressed
+  text: You say the name — the name the fence gave, the name the toughs outside work
+    for. His face changes the way candlelight changes when the candle moves.
+- male_adult_african-american_uneducated: '[sigh] All right. All right, friend. She
+    came through three nights back — young girl, ink on her hands. Had a guide with
+    her. Man with a burn-mark on his wrist — fresh. She called him Vell. I heard the
+    name twice. He had that thing about him where you feel like you should agree with
+    everything he says.'
+- male_adult_african-american_uneducated: He came back without her. Next morning,
+    early. Walked past this alley like he was going to breakfast. Except his eyes
+    were — look, I saw where he was looking. That's the well. That's Durnan's well.
+- He stops. Swallows.
+- male_adult_african-american_uneducated: I don't know what's down there. I heard
+    a name once — from Vell — and I am not going to say it twice. I want out of this
+    city before dawn. You never came here. Neither did I.
+- A fist hits the door at the bottom of the stairs. Then another. The watchman's voice,
+  muffled, overridden.
+journal: A guide called Vell took the apprentice down. He came back alone.
 choices:
-  - text: "Down — meet them on the stairs"
-    next: alley_brawl_open
-    effects:
-      flags:
-        lead_followed_alley: true
-        knows_guide_name: true
+- text: Down — meet them on the stairs
+  next: alley_brawl_open
+  effects:
+    flags:
+      lead_followed_alley: true
+      knows_guide_name: true

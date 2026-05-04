@@ -1,0 +1,37 @@
+text:
+  - "The rope is up there. Durnan's three hours haven't run yet. The corridor is bad but it isn't deep — you can still make the climb before your Vigor folds entirely."
+  - if:
+      flags: [recruited_korsa]
+      flags_unset: [korsa_died]
+    text:
+      - male_midlife_british_tough_calloused: "She might still be alive in there."
+      - "He says it without accusation. He says it because it's true."
+  - if:
+      flags: [recruited_vesna]
+      flags_unset: [vesna_died, vesna_left]
+    text:
+      - female_adult_american_gentle_tender_sweet: "We came for her. Lady Luck willing, she has a little longer. But fortune doesn't hold still."
+  - if:
+      flags: [recruited_pip]
+      flags_unset: [pip_died]
+    text:
+      - female_young_american_lisp: "I'm not telling you to stay. But I'm counting exits and right now there's only one."
+  - if:
+      flags: [recruited_thessaly]
+      flags_unset: [thessaly_died]
+    text:
+      - female_adult_american_sultry_villainous: "If we leave now, whatever's in there has more time to arrange things. I don't recommend giving it time."
+  - "The hatch is thirty feet behind you. The rope is sixty feet up."
+
+choices:
+  - text: "Up. We're not ready for this."
+    next: act2/act3_entry_retreat
+    effects:
+      flags:
+        retreated_upper: true
+        climbed_back_out: true
+      stats:
+        Vigor: -1
+
+  - text: "...you're right. Stay. Find what's down here."
+    next: act2/upper_levels_hub

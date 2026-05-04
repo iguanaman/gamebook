@@ -1,18 +1,23 @@
 id: act1/durnan_topic_well
 text:
-  - "You ask about the well."
-  - "He doesn't look at it. He's looked at it once already this minute — you noticed — and that seems to be his limit."
-  - male_midlife_american_deep_raspy_authentic: "Forty feet of rope to the first ledge. After that it depends on the night."
-  - "He pours himself a cup of something that isn't the house ale and doesn't offer you any."
-  - male_midlife_american_deep_raspy_authentic: "People go down. Most come back. The ones who don't — they knew the odds."
-  - "A pause. The fire pops."
-  - male_midlife_american_deep_raspy_authentic: "I don't go down for clients. I don't go down for regulars. I don't go down."
-  - "He sets the cup down. Same spot as the tankard, same care."
-  - male_midlife_american_deep_raspy_authentic: "The rope's always there if you want to test yourself."
-
+- You ask about the well.
+- He doesn't look at it. He's looked at it once already this minute — you noticed
+  — and that seems to be his limit.
+- male_midlife_american_deep_raspy_authentic: Forty feet of rope to the first ledge.
+    After that it depends on the night.
+- He pours himself a cup of something that isn't the house ale and doesn't offer you
+  any.
+- male_midlife_american_deep_raspy_authentic: People go down. Most come back. The
+    ones who don't — they knew the odds.
+- A pause. The fire pops.
+- male_midlife_american_deep_raspy_authentic: I don't go down for clients. I don't
+    go down for regulars. I don't go down.
+- He sets the cup down. Same spot as the tankard, same care.
+- male_midlife_american_deep_raspy_authentic: The rope's always there if you want
+    to test yourself.
 choices:
-  - text: "Back to the bar"
-    next: act1/talk_durnan
-    effects:
-      flags:
-        asked_durnan_well: true
+- text: Back to the bar
+  next: act1/talk_durnan
+  effects:
+    flags:
+      asked_durnan_well: true

@@ -1,17 +1,21 @@
 text:
-  - "No tricks. No tactics. Steel and scorching ray — the simple, honest way to end a fight in a dark alley."
-  - "You go through them. It takes longer than you'd like. One of the toughs is big enough that it takes three exchanges to put him down — a split lip, a cut along your cheek, and then a scorching ray that takes his sword-arm out of the conversation. He sits down. The last two break."
-  - "Your companions are breathing hard. Everyone is bleeding from somewhere small. The cobblestones are dark and you don't look at them too closely."
-  - "Ugly. Won."
-
+- No tricks. No tactics. Steel and scorching ray — the simple, honest way to end a
+  fight in a dark alley.
+- You go through them. It takes longer than you'd like. One of the toughs is big enough
+  that it takes three exchanges to put him down — a split lip, a cut along your cheek,
+  and then a scorching ray that takes his sword-arm out of the conversation. He sits
+  down. The last two break.
+- Your companions are breathing hard. Everyone is bleeding from somewhere small. The
+  cobblestones are dark and you don't look at them too closely.
+- Ugly. Won.
 choices:
-  - text: "Loot the fallen and get back to the corner"
-    next: alley_resolution
-    effects:
-      flags:
-        bloodied_in_alley: true
-        first_blood: true
-        weapon_taken_from_tough: true
-      stats:
-        Vigor: -2
-        Coin: 2
+- text: Loot the fallen and get back to the corner
+  next: alley_resolution
+  effects:
+    flags:
+      bloodied_in_alley: true
+      first_blood: true
+      weapon_taken_from_tough: true
+    stats:
+      Vigor: -2
+      Coin: 2

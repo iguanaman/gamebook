@@ -1,17 +1,23 @@
 text:
-  - "You ask what she thinks is down there."
-  - "She does not answer immediately. She looks at the well-rope, across the room. The candle on the table straightens, as if attending."
-  - female_adult_american_sultry_villainous: "Old things. Old enough that the word for them predates most of the words we use now."
-  - "A pause."
-  - female_adult_american_sultry_villainous: "The apprentice who went down — she would have gone for reasons she thought were simple. Bravado. A dare. What she found would have appeared simple too. At first. These things always present simply, at first. They have had a great deal of practice."
-  - "She touches the inside of her left wrist — the burn-scar — without looking at it."
-  - female_adult_american_sultry_villainous: "Whatever is down there is not surprised that you are coming."
-  - "She says it the way you might say the sky is grey — a statement about the weather, mildly interesting, already over."
-
+- You ask what she thinks is down there.
+- She does not answer immediately. She looks at the well-rope, across the room. The
+  candle on the table straightens, as if attending.
+- female_adult_american_sultry_villainous: Old things. Old enough that the word for
+    them predates most of the words we use now.
+- A pause.
+- female_adult_american_sultry_villainous: The apprentice who went down — she would
+    have gone for reasons she thought were simple. Bravado. A dare. What she found
+    would have appeared simple too. At first. These things always present simply,
+    at first. They have had a great deal of practice.
+- She touches the inside of her left wrist — the burn-scar — without looking at it.
+- female_adult_american_sultry_villainous: Whatever is down there is not surprised
+    that you are coming.
+- She says it the way you might say the sky is grey — a statement about the weather,
+  mildly interesting, already over.
 choices:
-  - text: "Back to Thessaly"
-    next: talk_thessaly
-    effects:
-      flags:
-        asked_thessaly_below: true
-        thessaly_hint_truth: true
+- text: Back to Thessaly
+  next: talk_thessaly
+  effects:
+    flags:
+      asked_thessaly_below: true
+      thessaly_hint_truth: true

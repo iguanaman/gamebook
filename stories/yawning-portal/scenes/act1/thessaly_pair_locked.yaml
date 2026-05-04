@@ -1,10 +1,12 @@
 text:
-  - "Thessaly does not look up when you approach, but the candle on her table brightens by a degree."
-  - female_adult_american_sultry_villainous: "You are not here to hire me."
-  - "It is not a question."
-  - female_adult_american_sultry_villainous: "Another time, perhaps. There will be other wells."
-  - "She returns to whatever she was doing, which appears to be nothing, and is clearly not nothing."
-
+- Thessaly does not look up when you approach, but the candle on her table brightens
+  by a degree.
+- female_adult_american_sultry_villainous: You are not here to hire me.
+- It is not a question.
+- female_adult_american_sultry_villainous: Another time, perhaps. There will be other
+    wells.
+- She returns to whatever she was doing, which appears to be nothing, and is clearly
+  not nothing.
 choices:
-  - text: "Back to the room"
-    next: common_room
+- text: Back to the room
+  next: common_room

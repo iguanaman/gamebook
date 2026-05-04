@@ -1,19 +1,23 @@
 text:
-  - "Korsa holds — until the fourth man gets clever and goes low. The blade finds the gap between thigh-plate and greave that a shorter man couldn't have reached. Korsa grunts, doesn't go down, drives an elbow into the man's nose on the way back up."
-  - "You finish the last two. Scorching ray for one; the other you pin against the alley wall and persuade to sit down hard."
-  - "Korsa is leaning on the doorframe. A dark stain spreading down his left leg, soaking into the boot."
-  - male_midlife_british_tough_calloused: "Don't make the face. I've had worse. I've had worse at breakfast."
-  - "He hasn't. But you let him have it."
-
+- Korsa holds — until the fourth man gets clever and goes low. The blade finds the
+  gap between thigh-plate and greave that a shorter man couldn't have reached. Korsa
+  grunts, doesn't go down, drives an elbow into the man's nose on the way back up.
+- You finish the last two. Scorching ray for one; the other you pin against the alley
+  wall and persuade to sit down hard.
+- Korsa is leaning on the doorframe. A dark stain spreading down his left leg, soaking
+  into the boot.
+- male_midlife_british_tough_calloused: Don't make the face. I've had worse. I've
+    had worse at breakfast.
+- He hasn't. But you let him have it.
 choices:
-  - text: "Bind his leg, loot what you can, head back to the corner"
-    next: alley_resolution
-    effects:
-      flags:
-        bloodied_in_alley: true
-        first_blood: true
-        weapon_taken_from_tough: true
-        korsa_limping: true
-      stats:
-        Vigor: -2
-        Coin: 2
+- text: Bind his leg, loot what you can, head back to the corner
+  next: alley_resolution
+  effects:
+    flags:
+      bloodied_in_alley: true
+      first_blood: true
+      weapon_taken_from_tough: true
+      korsa_limping: true
+    stats:
+      Vigor: -2
+      Coin: 2

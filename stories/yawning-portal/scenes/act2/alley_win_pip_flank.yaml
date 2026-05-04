@@ -1,18 +1,24 @@
 text:
-  - "Pip doesn't announce it. One moment she's at your shoulder, the next she's gone — and a handful of caltrops scatter across the cobblestones behind the toughs' position. The second man steps on one, goes down sideways, and the third man trips over the second."
-  - "Pip comes out of the gas-lamp shadow behind the third man. Knee to the back of his leg, taking him down; her blade at his throat, and then across. Quick. She wipes the blade on the fallen man's coat without breaking stride."
-  - "Two more break for the alley mouth. You put a scorching ray past one's ear and he decides the other city is where he lives now."
-  - female_young_american_lisp: "Three down, two fled. Four caltrops left. That's what I call a clean transaction."
-
+- Pip doesn't announce it. One moment she's at your shoulder, the next she's gone
+  — and a handful of caltrops scatter across the cobblestones behind the toughs' position.
+  The second man steps on one, goes down sideways, and the third man trips over the
+  second.
+- Pip comes out of the gas-lamp shadow behind the third man. Knee to the back of his
+  leg, taking him down; her blade at his throat, and then across. Quick. She wipes
+  the blade on the fallen man's coat without breaking stride.
+- Two more break for the alley mouth. You put a scorching ray past one's ear and he
+  decides the other city is where he lives now.
+- female_young_american_lisp: Three down, two fled. Four caltrops left. That's what
+    I call a clean transaction.
 choices:
-  - text: "Loot the fallen, head back to the corner"
-    next: alley_resolution
-    effects:
-      flags:
-        bloodied_in_alley: true
-        first_blood: true
-        weapon_taken_from_tough: true
-      stats:
-        Vigor: -1
-        Coin: 3
-        Renown: 1
+- text: Loot the fallen, head back to the corner
+  next: alley_resolution
+  effects:
+    flags:
+      bloodied_in_alley: true
+      first_blood: true
+      weapon_taken_from_tough: true
+    stats:
+      Vigor: -1
+      Coin: 3
+      Renown: 1
