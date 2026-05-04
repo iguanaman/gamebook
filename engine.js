@@ -18,14 +18,17 @@ async function loadManifest() {
 
 async function showSelector() {
   removeStoryTheme();
+  document.getElementById('frame').classList.add('frame-neutral');
   const manifest = await loadManifest();
   app.innerHTML = `
-    <div class="selector">
-      <h1 class="selector-title">Choose Your Story</h1>
-      <div class="story-list">
-        ${manifest.stories.length === 0
-          ? '<p class="no-stories">No stories available yet.</p>'
-          : manifest.stories.map(id => renderStoryCard(id)).join('')}
+    <div class="selector-bg">
+      <div class="selector">
+        <h1 class="selector-title">Choose Your Story</h1>
+        <div class="story-list">
+          ${manifest.stories.length === 0
+            ? '<p class="no-stories">No stories available yet.</p>'
+            : manifest.stories.map(id => renderStoryCard(id)).join('')}
+        </div>
       </div>
     </div>
   `;
@@ -59,6 +62,43 @@ function renderStoryCard(storyId) {
   `;
 }
 
+async function applyCardTheme(storyId) {
+  try {
+    const res = await fetch(`stories/${storyId}/theme.css`);
+    if (!res.ok) return;
+    const css = await res.text();
+
+    // Inject @import rules for fonts (deduplicated by href)
+    const imports = [...css.matchAll(/@import\s+url\(['"]?([^'")\s]+)['"]?\)[^;]*;/g)];
+    imports.forEach(([rule, url]) => {
+      if (!document.querySelector(`link[href="${url}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = url;
+        document.head.appendChild(link);
+      }
+    });
+
+    // Extract CSS custom properties from the :root block
+    const rootMatch = css.match(/:root\s*\{([^}]+)\}/s);
+    if (!rootMatch) return;
+    const vars = [...rootMatch[1].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)];
+    if (!vars.length) return;
+
+    const card = document.querySelector(`.story-card[data-story="${storyId}"]`);
+    if (!card) return;
+    vars.forEach(([, name, value]) => card.style.setProperty(name, value.trim()));
+    card.style.color = 'var(--text)';
+    card.style.fontFamily = 'var(--font-body)';
+    card.style.background = 'var(--surface)';
+    card.style.outline = 'none';
+    card.style.border = '3px solid var(--border-outer)';
+    card.style.boxShadow = 'inset 0 0 0 2px var(--border-inner), inset 0 0 0 10px var(--bg), 0 0 0 2px var(--border-outer)';
+    card.style.borderRadius = 'var(--border-corner-radius)';
+    card.style.padding = 'calc(1.5rem + 10px)';
+  } catch (e) { /* theme.css missing — skip */ }
+}
+
 async function attachCardHandlers(storyId) {
   try {
     const meta = await loadStoryMeta(storyId);
@@ -67,6 +107,8 @@ async function attachCardHandlers(storyId) {
     if (titleEl) titleEl.textContent = meta.title;
     if (descEl) descEl.textContent = meta.description;
   } catch (e) { /* story.yaml missing — skip */ }
+
+  applyCardTheme(storyId);
 
   document.querySelectorAll(`[data-story="${storyId}"]`).forEach(btn => {
     if (!btn.dataset.action) return;
@@ -271,6 +313,21 @@ function showTitleSplash(text, audioUrl, onDone) {
     getComputedStyle(document.documentElement).getPropertyValue('--anim-act-title-duration')
   ) || 600;
 
+  let dismissed = false;
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    stopAudio();
+    splash.classList.remove('story-splash-visible');
+    splash.classList.add('story-splash-out');
+    setTimeout(() => {
+      splash.remove();
+      onDone();
+    }, animDuration);
+  }
+
+  splash.addEventListener('click', dismiss, { once: true });
+
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       splash.classList.remove('story-splash-hidden');
@@ -279,32 +336,47 @@ function showTitleSplash(text, audioUrl, onDone) {
   });
 
   setTimeout(() => {
-    const audio = new Audio(audioUrl);
+    currentAudio = new Audio(audioUrl);
     let settled = false;
     function settle() {
       if (settled) return;
       settled = true;
-      setTimeout(() => {
-        splash.classList.remove('story-splash-visible');
-        splash.classList.add('story-splash-out');
-        setTimeout(() => {
-          splash.remove();
-          onDone();
-        }, animDuration);
-      }, ACT_TITLE_PAUSE_MS);
+      setTimeout(dismiss, ACT_TITLE_PAUSE_MS);
     }
-    audio.addEventListener('ended', settle, { once: true });
-    audio.addEventListener('error', settle, { once: true });
-    audio.play().catch(settle);
+    currentAudio.addEventListener('ended', settle, { once: true });
+    currentAudio.addEventListener('error', settle, { once: true });
+    currentAudio.play().catch(settle);
   }, animDuration);
 }
 
 function playBlocks(sceneId, blockCount, narrativeOffset, onBlockStart, onDone) {
   let index = 0;
+  let done = false;
+
+  const gameWrap = document.querySelector('.game-wrap');
+
+  function onClickSkip() {
+    stopAudio();
+    playNext();
+  }
+
+  function removeClickSkip() {
+    gameWrap?.removeEventListener('click', onClickSkip);
+  }
+
+  gameWrap?.addEventListener('click', onClickSkip);
+
+  function finish() {
+    if (done) return;
+    done = true;
+    removeClickSkip();
+    onDone();
+  }
 
   function playNext() {
+    if (done) return;
     stopAudio();
-    if (index >= blockCount) { onDone(); return; }
+    if (index >= blockCount) { finish(); return; }
     const i = index++;
     onBlockStart(i);
     const paras = document.querySelectorAll('#narrative p');
@@ -312,11 +384,12 @@ function playBlocks(sceneId, blockCount, narrativeOffset, onBlockStart, onDone) 
     const rawIndex = para ? para.dataset.rawIndex : i;
     const branch = para ? (para.dataset.audioBranch ?? '') : '';
     currentAudio = new Audio(blockAudioUrl(sceneId, rawIndex, branch));
-    currentAudio.addEventListener('ended', playNext, { once: true });
+    currentAudio.addEventListener('ended', () => { if (!done) playNext(); }, { once: true });
     currentAudio.play().catch(() => {
+      if (done) return;
       // Audio missing or autoplay blocked — reveal remaining blocks and finish
       for (let j = i; j < blockCount; j++) onBlockStart(j);
-      onDone();
+      finish();
     });
   }
 
@@ -326,6 +399,7 @@ function playBlocks(sceneId, blockCount, narrativeOffset, onBlockStart, onDone) 
 // ── Game shell ────────────────────────────────────────────────────────────────
 
 function applyStoryTheme(storyId) {
+  document.getElementById('frame').classList.remove('frame-neutral');
   document.getElementById('story-theme')?.remove();
   const link = document.createElement('link');
   link.id = 'story-theme';
@@ -372,10 +446,13 @@ async function startStory(storyId) {
 
 function renderShell(meta) {
   app.innerHTML = `
-    <div class="hud" id="hud"></div>
+    <div class="hud-wrap">
+      <div class="hud-peek">···</div>
+      <div class="hud" id="hud"></div>
+    </div>
     <div class="game-wrap">
       <div class="narrative-area">
-        <div class="narrative" id="narrative"></div>
+        <div class="narrative" id="narrative"><div class="narrative-spacer"></div></div>
         <div class="choices-divider"></div>
         <div class="choices-footer" id="choices-footer"></div>
       </div>
@@ -428,11 +505,7 @@ async function navigateTo(sceneId) {
         saveState();
         renderHud();
         const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
-        const narrativeOffset = currentNarrativeOffset;
-        playBlocks(sceneId, renderedBlockCount, narrativeOffset,
-          (i) => revealBlock(i),
-          () => renderChoices(scene),
-        );
+        typeBlocks(renderedBlockCount, () => renderChoices(scene), sceneId, currentNarrativeOffset);
       });
     }
   } else if (!alreadyVisited && scene.act && scene.act !== currentAct) {
@@ -447,11 +520,7 @@ async function navigateTo(sceneId) {
       saveState();
       renderHud();
       const renderedBlockCount = parseInt(document.getElementById('narrative').dataset.renderedBlocks ?? '0', 10);
-      const narrativeOffset = currentNarrativeOffset;
-      playBlocks(sceneId, renderedBlockCount, narrativeOffset,
-        (i) => revealBlock(i),
-        () => renderChoices(scene),
-      );
+      typeBlocks(renderedBlockCount, () => renderChoices(scene), sceneId, currentNarrativeOffset);
     });
   }
 
@@ -489,7 +558,7 @@ async function navigateTo(sceneId) {
     } else {
       state.blockHashes[sceneId] = blockHashes;
       saveState();
-      typeBlocks(renderedBlockCount, () => renderChoices(scene));
+      typeBlocks(renderedBlockCount, () => renderChoices(scene), sceneId, narrativeOffset);
     }
   }
 }
@@ -566,49 +635,111 @@ function revealBlock(index) {
   const para = paras[currentNarrativeOffset + index];
   if (para) {
     para.classList.remove('block-hidden');
+    para.offsetHeight; // force reflow so transition fires
     para.classList.add('block-visible');
-    para.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    requestAnimationFrame(() => para.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
   }
 }
 
-function typeBlock(index, onDone) {
+function typeBlock(index, skip, onDone) {
   const paras = document.querySelectorAll('#narrative p');
   const para = paras[currentNarrativeOffset + index];
-  if (!para) { onDone(); return; }
+  if (!para) { onDone(); return () => {}; }
 
+  const fullHtml = para.innerHTML;
+  para.dataset.fullHtml = fullHtml;
+  para.innerHTML = '';
   para.classList.remove('block-hidden');
-  para.classList.add('block-visible');
-  para.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  para.classList.add('block-typing');
+  requestAnimationFrame(() => para.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
 
-  // Collect all text nodes in document order
-  const walker = document.createTreeWalker(para, NodeFilter.SHOW_TEXT);
-  const textNodes = [];
-  let node;
-  while ((node = walker.nextNode())) textNodes.push({ node, full: node.nodeValue });
+  let pos = 0;
+  let finished = false;
 
-  // Hide all text up front, type char-by-char
-  textNodes.forEach(t => { t.node.nodeValue = ''; });
+  function finish() {
+    if (finished) return;
+    finished = true;
+    skip.finished = true;
+    para.innerHTML = fullHtml;
+    para.classList.remove('block-typing');
+    para.classList.add('block-visible');
+    onDone();
+  }
 
-  let ni = 0, ci = 0;
+  let frame = 0;
 
   function tick() {
-    if (ni >= textNodes.length) { onDone(); return; }
-    const t = textNodes[ni];
-    ci++;
-    t.node.nodeValue = t.full.slice(0, ci);
-    if (ci >= t.full.length) { ni++; ci = 0; }
+    if (finished) return;
+    if (skip.active) { skip.active = false; finish(); return; }
+    if (pos >= fullHtml.length) { finish(); return; }
+
+    if (fullHtml[pos] === '<') {
+      const end = fullHtml.indexOf('>', pos);
+      if (end !== -1) { pos = end + 1; tick(); return; }
+    }
+
+    if (fullHtml[pos] === '&') {
+      const end = fullHtml.indexOf(';', pos);
+      if (end !== -1) { pos = end + 1; para.innerHTML = fullHtml.slice(0, pos); requestAnimationFrame(tick); return; }
+    }
+
+    if (frame++ % 2 === 0) { requestAnimationFrame(tick); return; }
+
+    pos++;
+    para.innerHTML = fullHtml.slice(0, pos);
     requestAnimationFrame(tick);
   }
 
   tick();
+  return finish;
 }
 
-function typeBlocks(blockCount, onDone) {
+function typeBlocks(blockCount, onDone, sceneId, narrativeOffset) {
   let index = 0;
-  function next() {
-    if (index >= blockCount) { onDone(); return; }
-    typeBlock(index++, next);
+  let done = false;
+  const skip = { active: false };
+
+  const gameWrap = document.querySelector('.game-wrap');
+
+  function onClickSkip() {
+    skip.active = true;
+    stopAudio();
+    if (skip.finished) next();
+    // If still typing, tick() will see skip.active, finish the text, then
+    // since audio was stopped the ended listener won't fire — call next() from there.
+    // We handle that by checking in the typeBlock onDone callback below.
   }
+
+  function removeClickSkip() {
+    gameWrap?.removeEventListener('click', onClickSkip);
+  }
+
+  gameWrap?.addEventListener('click', onClickSkip);
+
+  function finish() {
+    if (done) return;
+    done = true;
+    removeClickSkip();
+    onDone();
+  }
+
+  function next() {
+    if (done) return;
+    if (index >= blockCount) { finish(); return; }
+    const i = index++;
+    skip.finished = false;
+    const finishTyping = typeBlock(i, skip, () => { if (!done && (!sceneId || !currentAudio)) next(); });
+    if (sceneId) {
+      const paras = document.querySelectorAll('#narrative p');
+      const para = paras[narrativeOffset + i];
+      const rawIndex = para ? para.dataset.rawIndex : i;
+      const branch = para ? (para.dataset.audioBranch ?? '') : '';
+      currentAudio = new Audio(blockAudioUrl(sceneId, rawIndex, branch));
+      currentAudio.addEventListener('ended', () => { if (!done) { finishTyping(); next(); } }, { once: true });
+      currentAudio.play().catch(() => { if (!done) next(); });
+    }
+  }
+
   next();
 }
 
@@ -704,7 +835,7 @@ async function handleUndo() {
   const ok = undo();
   if (!ok) return;
   const el = document.getElementById('narrative');
-  if (el) { el.innerHTML = ''; currentNarrativeOffset = 0; }
+  if (el) { el.innerHTML = '<div class="narrative-spacer"></div>'; currentNarrativeOffset = 0; }
   await navigateTo(state.scene);
 }
 
