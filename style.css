@@ -360,16 +360,16 @@ button {
   bottom: calc(var(--frame-inset) + 0.25rem);
   right: calc(var(--frame-inset) + 0.25rem);
   z-index: 310;
-  opacity: 0.4;
+  opacity: 0.5;
   transition: opacity 0.15s;
-  pointer-events: auto;
   font-size: 1.1rem;
   cursor: pointer;
   background: transparent;
   border: none;
+  color: var(--text-muted);
 }
-.btn-undo-fixed:hover:not(.undo-disabled) { opacity: 1; }
-.btn-undo-fixed.undo-disabled { opacity: 0.2; pointer-events: none; }
+.btn-undo-fixed:hover { opacity: 1; }
+.btn-undo-fixed.undo-disabled { display: none; }
 
 .undo-confirm-overlay {
   position: fixed;
