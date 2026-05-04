@@ -1,8 +1,9 @@
 # Scene template — copy to stories/{id}/scenes/{scene-id}.yaml
 # Scenes can be organised into subfolders: scenes/act1/scene-id.yaml
 # The scene ID then includes the subfolder: act1/scene-id
+# Act title: add _act.yaml to the scene's subfolder (e.g. scenes/act1/_act.yaml)
+# with a single field:  title: Act One — The Title
 # Required: id, text, choices
-# Optional: audio (set automatically by generate_audio.py)
 
 id: scene_id          # if in a subfolder: act1/scene_id
 
@@ -14,12 +15,25 @@ text: "Single block of narrative text. Blank lines become paragraph breaks."
 #   - "Narrator text, uses default narrator voice."
 #   - male1: "A character speaks."
 #   - "Back to narrator."
-
-# audio: audio/scene-id.wav   # set by generate_audio.py — do not edit manually
+#   - if: {flags: [perceptive]}
+#     text: "You notice something odd."
+#   - if: {stats: {strength: 8}}
+#     text: "The boulder looks moveable."
+#     else: "The boulder is immovable."
+#   - if: visited
+#     text: "You've been here before."
 
 choices:
   - text: Choice the player will see
-    next: target_scene_id
+    next: target_scene_id   # string = go directly; array = weighted random (see below)
+
+  # Weighted random destination
+  # - text: Enter the forest
+  #   next:
+  #     - scene: forest_path
+  #       weight: 3
+  #     - scene: forest_ambush
+  #       weight: 1
 
   # Choice with stat requirement
   - text: Choice requiring gold >= 5
