@@ -1,0 +1,15 @@
+text:
+  - "Pip is at the archway again. Still not through it. She's running her thumbnail along the stone of the frame — checking for anything set into the rock, a trip-bar, a thread."
+  - "You ask how it looks."
+  - female_young_american_lisp: "Clean. Which is weird. Somebody keeps this approach clear. Toughs usually rig the entry." She doesn't stop checking. "Three exits from this room, including the way we came. Through there — unknown number."
+  - "She steps back from the archway. Wipes her thumb on her trousers."
+  - female_young_american_lisp: "You know what I don't like? No second way out. You know what I like less? Going anyway." She holds up two fingers. "Those are the same number. It's one of my bigger flaws."
+  - "She grins. It is her working face — the one she puts on before the locks."
+  - female_young_american_lisp: "You're carrying that. Tell me if you need me to carry it instead. That's — that's the deal. That's what you're paying for."
+
+choices:
+  - text: "Back to the well-mouth."
+    next: act2/well_mouth_first
+    effects:
+      flags:
+        spoke_to_pip_at_well_first: true
