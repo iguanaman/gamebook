@@ -152,10 +152,18 @@ button {
   border-radius: var(--radius);
   background: var(--surface);
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.35s ease;
 }
-.story-card:hover { border-color: var(--border-hover, var(--accent, #888)); background: var(--surface-hover, var(--surface)); }
+.story-card:hover {
+  border-color: var(--border-hover, var(--accent, #888));
+  background: var(--surface-hover, var(--surface));
+  transform: scale(1.025);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
 .story-card:focus-visible { outline: 2px solid var(--accent, #888); outline-offset: 2px; }
+.story-card.card-fade-out { opacity: 0; transform: scale(0.97); pointer-events: none; }
+.story-card.card-chosen { opacity: 0; transform: scale(1.04); pointer-events: none; }
+.selector-bg.selector-exit { opacity: 0; transition: opacity 0.4s ease; }
 .story-cover { width: 120px; height: 160px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
 .story-info { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
 .story-title { margin: 0; font-size: 1.2rem; }

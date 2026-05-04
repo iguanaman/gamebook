@@ -147,6 +147,16 @@ async function applyCardTheme(storyId) {
   } catch (e) { /* theme.css missing — skip */ }
 }
 
+function animateCardSelect(storyId) {
+  const chosen = document.querySelector(`.story-card[data-story="${storyId}"]`);
+  const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
+  others.forEach(c => c.classList.add('card-fade-out'));
+  setTimeout(() => {
+    chosen?.classList.add('card-chosen');
+    setTimeout(() => startStory(storyId), 350);
+  }, 250);
+}
+
 async function attachCardHandlers(storyId) {
   try {
     const meta = await loadStoryMeta(storyId);
@@ -160,8 +170,9 @@ async function attachCardHandlers(storyId) {
 
   const card = document.querySelector(`.story-card[data-story="${storyId}"]`);
   if (card) {
-    card.addEventListener('click', () => startStory(storyId));
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') startStory(storyId); });
+    const launch = () => animateCardSelect(storyId);
+    card.addEventListener('click', launch);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') launch(); });
   }
 }
 
