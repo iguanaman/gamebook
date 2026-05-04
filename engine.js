@@ -175,7 +175,7 @@ async function attachCardHandlers(storyId) {
     const descEl = document.querySelector(`[data-story-desc="${storyId}"]`);
     const genreEl = document.querySelector(`[data-story-genre="${storyId}"]`);
     if (titleEl) titleEl.textContent = meta.title;
-    if (prefixEl && meta.prefix) prefixEl.textContent = meta.prefix + ' ';
+    if (prefixEl && meta.prefix) prefixEl.textContent = meta.prefix + ' — ';
     if (descEl) descEl.textContent = meta.description;
     if (genreEl && meta.genre) genreEl.textContent = meta.genre;
   } catch (e) { /* story.yaml missing — skip */ }
