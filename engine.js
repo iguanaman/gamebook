@@ -642,6 +642,7 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
   function dismiss() {
     if (dismissed) return;
     dismissed = true;
+    document.removeEventListener('keydown', onSplashKey);
     document.body.classList.remove('splash-active');
     stopAudio();
     splash.classList.remove('story-splash-visible');
@@ -652,7 +653,9 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
     }, animDuration);
   }
 
-  splash.addEventListener('click', dismiss, { once: true });
+  const onSplashKey = e => { if (e.key === ' ') { e.preventDefault(); dismiss(); } };
+  splash.addEventListener('dblclick', dismiss, { once: true });
+  document.addEventListener('keydown', onSplashKey);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
