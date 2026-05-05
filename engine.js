@@ -137,7 +137,7 @@ function showPreIntroSplash(manifest) {
 
   const msg = document.createElement('p');
   msg.className = 'intro-line intro-line-visible pre-intro-msg';
-  msg.textContent = 'Turn your speakers on for the full experience.';
+  msg.textContent = 'This experience includes audio. Make sure your speakers are on.';
   body.appendChild(msg);
 
   const btn = document.createElement('button');
