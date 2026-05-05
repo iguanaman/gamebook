@@ -50,15 +50,7 @@ function initFullscreen() {
     btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
     if (document.fullscreenElement) dismissHint('fullscreen');
   });
-  document.getElementById('hint-reset')?.addEventListener('click', () => {
-    HINT_QUEUE.forEach(key => localStorage.removeItem(HINT_KEY(key)));
-    HINT_QUEUE.forEach(key => {
-      const el = document.getElementById(`hint-${key}`);
-      if (el) el.classList.remove('hint-visible', 'hint-gone');
-    });
-    showNextHint();
-  });
-  showNextHint();
+showNextHint();
 }
 
 

@@ -266,7 +266,7 @@ body.splash-active .ui-hint { display: none !important; }
   font-style: italic;
   font-size: 0.875rem;
   color: var(--text-muted);
-  opacity: 0.45;
+  opacity: 1;
   white-space: nowrap;
   line-height: 1;
 }
@@ -293,24 +293,6 @@ body.splash-active .ui-hint { display: none !important; }
   text-align: right;
 }
 
-/* Debug reset button */
-.hint-reset-btn {
-  position: fixed;
-  bottom: calc(var(--frame-inset) + 0.25rem);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 500;
-  font-size: 0.7rem;
-  font-family: var(--font-ui);
-  color: var(--text-muted);
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.15rem 0.5rem;
-  cursor: pointer;
-  opacity: 0.5;
-}
-.hint-reset-btn:hover { opacity: 1; }
 
 @keyframes hint-fade-in {
   from { opacity: 0; transform: translateY(4px); }
