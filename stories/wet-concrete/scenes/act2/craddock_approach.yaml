@@ -1,0 +1,20 @@
+id: act2/craddock_approach
+
+text:
+  - |-
+    Craddock is on his stoop. Same stoop. He's got a thermos and the look of a man who has been sitting outside long enough to make it a statement.
+  - |-
+    He watches Frank come up the walk without surprise. Either he was expecting someone eventually, or he watches everyone this way.
+  - male_midlife_american_dark_tough: |-
+      Wondered when somebody'd come back around.
+
+choices:
+  - text: |-
+      Sit with him a while before you ask anything
+    next: act2/craddock_hub
+    effects:
+      stats:
+        rep: 1
+  - text: |-
+      Get straight to it — you have questions and he has answers
+    next: act2/craddock_hub

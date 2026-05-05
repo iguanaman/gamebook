@@ -1,0 +1,20 @@
+id: act2/june_approach
+
+text:
+  - |-
+    June Holt opens the door a hand's width. She looks at Frank the way a woman looks at a man with a clipboard after doing it for two years — patient, precise, not unfriendly.
+  - |-
+    Then she opens it the rest of the way. He's the first one she's let past the threshold.
+  - female_adult_american_droll_wry_dry: |-
+      You're not from the city. You don't have the shoes.
+
+choices:
+  - text: |-
+      Let her set the pace — she has something to show you
+    next: act2/june_hub
+  - text: |-
+      Tell her what you know — it may prompt her to show you what she has
+    next: act2/june_hub
+    effects:
+      stats:
+        rep: 1

@@ -1,0 +1,23 @@
+id: act2/aldwick_listen
+
+text:
+  - |-
+    Frank walks. No notebook out, no questions lined up. Just a man on a street.
+  - |-
+    A woman at the corner has a pushcart she's loading with whatever she's keeping. The rest is in boxes by the kerb with FREE written on the lid in marker. A man two doors down is nailing a city condemnation notice to his own front door — the city sent the notice, not the inspector — and he's doing it himself because nobody else came.
+  - |-
+    Nobody asks Frank who he is. That's its own kind of answer.
+  - if: visited
+    text: |-
+      He's been here before. They've started to know it.
+
+choices:
+  - text: |-
+      Spend another hour — this earns more than questions would
+    next: act2/aldwick_hub
+    effects:
+      stats:
+        rep: 1
+  - text: |-
+      That's enough for now
+    next: act2/aldwick_hub

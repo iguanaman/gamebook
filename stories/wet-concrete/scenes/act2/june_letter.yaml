@@ -1,0 +1,21 @@
+id: act2/june_letter
+
+text:
+  - |-
+    June pulls a folder from the stack without looking for it. The letter is in a plastic sleeve — she's been protecting it.
+  - |-
+    The date is stamped in the upper right. Three weeks before the first condemnation notice. The relocation funds — a fixed amount per household, below market — are already assigned to a disbursement contractor.
+  - female_adult_american_droll_wry_dry: |-
+      They notified the contractor before they notified us. Three weeks. They had the money lined up for whoever was handling our relocation before they told us we were being relocated.
+  - |-
+    The contractor is named: Harmon Land Assessment Services. Frank writes it down even though he already knows the name.
+
+choices:
+  - text: |-
+      Back to conversation
+    next: act2/june_hub
+    effects:
+      flags:
+        june_topic_letter: true
+      stats:
+        evidence: 1

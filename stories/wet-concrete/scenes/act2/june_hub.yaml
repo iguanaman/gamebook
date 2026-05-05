@@ -1,0 +1,53 @@
+id: act2/june_hub
+
+text:
+  - |-
+    June's kitchen table has a stack of folders on it — not hidden, not offered. They're just there, the way tools are there when someone's been using them.
+  - |-
+    She makes coffee without asking if he wants any. Puts a cup in front of him and sits across the table.
+  - female_adult_american_droll_wry_dry: |-
+      Is the man who did this going to answer for it?
+  - |-
+    She asks it once, flat, and then moves on before Frank has to answer.
+  - if: visited
+    text: |-
+      She doesn't bother with the preamble this time. She picks up where they left off.
+
+choices:
+  - text: |-
+      The relocation letter — who signed it and when?
+    next: act2/june_letter
+    requires:
+      flags_unset:
+        - june_topic_letter
+  - text: |-
+      The contractor named in the letter — do you know who they are?
+    next: act2/june_contractor
+    requires:
+      flags:
+        - june_topic_letter
+      flags_unset:
+        - june_topic_contractor
+    failed_text: |-
+      *(Ask her about the letter first.)*
+  - text: |-
+      What happened to the neighbours who took the relocation offer?
+    next: act2/june_neighbours
+    requires:
+      flags_unset:
+        - june_topic_neighbours
+  - text: |-
+      Thank you, June — I'll look into this
+    next: act2/aldwick_hub
+    effects:
+      flags:
+        june_exhausted: true
+    requires:
+      flags:
+        - june_topic_letter
+        - june_topic_contractor
+        - june_topic_neighbours
+    hide_if_failed: true
+  - text: |-
+      I'll be in touch
+    next: act2/aldwick_hub
