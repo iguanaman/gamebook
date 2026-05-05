@@ -243,133 +243,69 @@ button {
   position: fixed;
   z-index: 399;
   display: none;
+  align-items: center;
+  gap: 0.4rem;
   pointer-events: none;
 }
 
 .ui-hint.hint-visible {
-  display: block;
+  display: flex;
   animation: hint-fade-in 0.5s ease 0.8s both;
 }
 
 .ui-hint.hint-gone {
-  display: block;
+  display: flex;
   animation: hint-fade-out 0.35s ease forwards;
 }
 
 .ui-hint-text {
-  display: block;
-  position: relative;
   font-family: var(--font-body);
   font-style: italic;
   font-size: 0.82rem;
   color: var(--text-muted);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.4rem 0.6rem;
-  max-width: 12rem;
-  line-height: 1.35;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  line-height: 1.3;
+  max-width: 11rem;
 }
 
-/* Triangle tail shared properties */
-.ui-hint-text::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 7px solid transparent;
+.ui-hint-arrow {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  opacity: 0.55;
 }
 
-/* top-right hint: bubble sits below button, tail points UP toward top-right corner */
+/* fullscreen: top-right, text left of arrow pointing up-right to button */
 .ui-hint-top-right {
-  top: calc(var(--frame-inset) + 2.4rem);
+  top: calc(var(--frame-inset) + 2.2rem);
   right: calc(var(--frame-inset) + 0.1rem);
+  flex-direction: row;
+  align-items: flex-start;
 }
 .ui-hint-top-right .ui-hint-text { text-align: right; }
-.ui-hint-top-right .ui-hint-text::after {
-  top: -14px;
-  right: 6px;
-  border-bottom-color: var(--border);
-}
-.ui-hint-top-right .ui-hint-text::before {
-  content: '';
-  position: absolute;
-  top: -12px;
-  right: 7px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-bottom-color: var(--surface);
-  z-index: 1;
-}
 
-/* top-left hint: bubble sits below button, tail points UP toward top-left corner */
+/* back: top-left, arrow pointing up-left then text */
 .ui-hint-top-left {
-  top: calc(var(--frame-inset) + 2.4rem);
+  top: calc(var(--frame-inset) + 2.2rem);
   left: calc(var(--frame-inset) + 0.1rem);
-}
-.ui-hint-top-left .ui-hint-text::after {
-  top: -14px;
-  left: 6px;
-  border-bottom-color: var(--border);
-}
-.ui-hint-top-left .ui-hint-text::before {
-  content: '';
-  position: absolute;
-  top: -12px;
-  left: 7px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-bottom-color: var(--surface);
-  z-index: 1;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
-/* bottom-left hint: bubble sits above button, tail points DOWN toward bottom-left corner */
+/* journal: bottom-left, arrow pointing down-left then text */
 .ui-hint-bottom-left {
-  bottom: calc(var(--frame-inset) + 2.8rem);
+  bottom: calc(var(--frame-inset) + 2.4rem);
   left: calc(var(--frame-inset) + 0.1rem);
-}
-.ui-hint-bottom-left .ui-hint-text::after {
-  bottom: -14px;
-  left: 6px;
-  border-top-color: var(--border);
-}
-.ui-hint-bottom-left .ui-hint-text::before {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 7px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-top-color: var(--surface);
-  z-index: 1;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
-/* bottom-right hint: bubble sits above button, tail points DOWN toward bottom-right corner */
+/* undo: bottom-right, text then arrow pointing down-right */
 .ui-hint-bottom-right {
-  bottom: calc(var(--frame-inset) + 2.8rem);
+  bottom: calc(var(--frame-inset) + 2.4rem);
   right: calc(var(--frame-inset) + 0.1rem);
+  flex-direction: row;
+  align-items: flex-end;
 }
 .ui-hint-bottom-right .ui-hint-text { text-align: right; }
-.ui-hint-bottom-right .ui-hint-text::after {
-  bottom: -14px;
-  right: 6px;
-  border-top-color: var(--border);
-}
-.ui-hint-bottom-right .ui-hint-text::before {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  right: 7px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-top-color: var(--surface);
-  z-index: 1;
-}
 
 /* Debug reset button */
 .hint-reset-btn {

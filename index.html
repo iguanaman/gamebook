@@ -14,18 +14,43 @@
 <body>
   <div id="frame"></div>
   <button id="fullscreen-btn" class="fullscreen-btn" title="Toggle fullscreen">⛶</button>
+
+  <!-- text → arrow → button (top-right) -->
   <div id="hint-fullscreen" class="ui-hint ui-hint-top-right" data-hint="fullscreen">
-    <span class="ui-hint-text">Click here for an immersive fullscreen experience!</span>
+    <span class="ui-hint-text">Click for a fullscreen experience!</span>
+    <svg class="ui-hint-arrow" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="4" y1="24" x2="22" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <polyline points="13,4 23,5 22,15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
   </div>
+
+  <!-- arrow → text (top-left) -->
   <div id="hint-back" class="ui-hint ui-hint-top-left" data-hint="back">
+    <svg class="ui-hint-arrow" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="24" y1="24" x2="6" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <polyline points="15,4 5,5 6,15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
     <span class="ui-hint-text">Return to the story menu</span>
   </div>
+
+  <!-- arrow → text (bottom-left) -->
   <div id="hint-journal" class="ui-hint ui-hint-bottom-left" data-hint="journal">
+    <svg class="ui-hint-arrow" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="24" y1="4" x2="6" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <polyline points="15,24 5,23 6,13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
     <span class="ui-hint-text">Track story notes in your journal</span>
   </div>
+
+  <!-- text → arrow (bottom-right) -->
   <div id="hint-undo" class="ui-hint ui-hint-bottom-right" data-hint="undo">
     <span class="ui-hint-text">Made a bad choice? Undo it!</span>
+    <svg class="ui-hint-arrow" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="4" y1="4" x2="22" y2="22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <polyline points="13,24 23,23 22,13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
   </div>
+
   <button id="back-btn" class="back-btn back-hidden" aria-label="Back to story selection" title="Back to stories">⬅</button>
   <div id="app"></div>
   <button id="journal-toggle" class="journal-toggle journal-hidden" aria-label="Open journal" title="Journal">
