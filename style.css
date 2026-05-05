@@ -823,7 +823,7 @@ body.splash-active .ui-hint { display: none !important; }
 
 @media (max-width: 480px) {
   :root {
-    --frame-inset: 3px;
+    --frame-inset: 2px;
     --story-title-size: 3rem;
     --border-corner-radius: 2px;
   }
@@ -887,6 +887,12 @@ body.splash-active .ui-hint { display: none !important; }
 
   .journal-panel {
     border-right: none;
+  }
+
+  /* Thinner inner frame shadow so it doesn't eat into content area */
+  #frame {
+    box-shadow: inset 0 0 0 2px var(--bg), 0 0 0 2px var(--border-outer);
+    outline-offset: -4px;
   }
 
   .journal-footer {
