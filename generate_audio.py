@@ -23,8 +23,10 @@ TTS_URL_ML    = "http://localhost:5501/tts"   # Chatterbox Multilingual — Japa
 STORIES_DIR   = "stories"
 EXAGGERATION  = 2.0  # max expressiveness; turbo may ignore but worth sending
 
-# Voice ID prefixes that should route to the multilingual server
-ML_VOICE_PREFIXES = ("japanese_",)
+# Voice ID prefixes that should route to the multilingual server, mapped to language_id
+ML_VOICE_PREFIXES = {
+    "japanese_": "ja",
+}
 
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -58,33 +60,41 @@ def normalize_text(text):
     return re.sub(r'\b[A-Z]{2,}\b', lambda m: m.group().lower(), text)
 
 
+def _ml_language(voice_id: str) -> str | None:
+    """Return the language_id for a voice if it routes to the ML server, else None."""
+    for prefix, lang in ML_VOICE_PREFIXES.items():
+        if voice_id.startswith(prefix):
+            return lang
+    return None
+
+
 def _tts_url(voice_id: str) -> str:
-    if any(voice_id.startswith(p) for p in ML_VOICE_PREFIXES):
-        return TTS_URL_ML
-    return TTS_URL_TURBO
+    return TTS_URL_ML if _ml_language(voice_id) else TTS_URL_TURBO
 
 
 def _voice_allowed(voice_id: str, languages: list[str] | None) -> bool:
     """Return True if this voice should be processed given the --languages filter.
 
-    No filter → English only (exclude ML prefixes).
+    No filter → English only (exclude ML voices).
     --languages japanese → include only japanese_ voices.
     --languages japanese english → include both.
     'english' is a pseudo-language meaning non-ML voices.
     """
-    is_ml = any(voice_id.startswith(p) for p in ML_VOICE_PREFIXES)
+    lang = _ml_language(voice_id)
     if not languages:
-        return not is_ml
+        return lang is None
     allowed = set(languages)
-    if is_ml:
-        prefix = next(p.rstrip("_") for p in ML_VOICE_PREFIXES if voice_id.startswith(p))
-        return prefix in allowed
+    if lang:
+        return lang in allowed or voice_id.split("_")[0] in allowed
     return "english" in allowed
 
 
 def synthesize(text, voice_id, exaggeration=1.0):
-    resp = requests.post(_tts_url(voice_id), json={"text": normalize_text(text), "voice_id": voice_id, "exaggeration": exaggeration},
-                         timeout=120)
+    payload = {"text": normalize_text(text), "voice_id": voice_id, "exaggeration": exaggeration}
+    lang = _ml_language(voice_id)
+    if lang:
+        payload["language_id"] = lang
+    resp = requests.post(_tts_url(voice_id), json=payload, timeout=120)
     resp.raise_for_status()
     return resp.content
 

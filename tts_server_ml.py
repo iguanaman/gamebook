@@ -28,7 +28,7 @@ import soundfile as sf
 import torch
 
 logging.getLogger("torch.utils.flop_counter").setLevel(logging.ERROR)
-from chatterbox.tts import ChatterboxTTS
+from chatterbox.tts import ChatterboxMultilingualTTS
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import Response
 from pydantic import BaseModel
@@ -38,7 +38,7 @@ PORT = 5501
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 _DEFAULT_VOICE = os.environ.get("TTS_DEFAULT_VOICE", "narrator")
 
-_model: ChatterboxTTS | None = None
+_model: ChatterboxMultilingualTTS | None = None
 _lock: asyncio.Lock | None = None
 
 
@@ -46,7 +46,7 @@ _lock: asyncio.Lock | None = None
 async def lifespan(app: FastAPI):
     global _model, _lock
     print(f"[tts-ml] Loading Chatterbox Multilingual on {DEVICE}...")
-    _model = ChatterboxTTS.from_pretrained(DEVICE)
+    _model = ChatterboxMultilingualTTS.from_pretrained(DEVICE)
     _lock = asyncio.Lock()
     print("[tts-ml] Model ready.")
     yield
@@ -70,6 +70,7 @@ class TTSRequest(BaseModel):
     text: str
     voice_id: str = _DEFAULT_VOICE
     exaggeration: float = 1.0
+    language_id: str | None = None
 
 
 @app.post("/tts")
@@ -79,6 +80,8 @@ async def synthesize(req: TTSRequest):
 
     voice_path = _voice_path(req.voice_id)
     kwargs = {"audio_prompt_path": str(voice_path)} if voice_path else {}
+    if req.language_id:
+        kwargs["language_id"] = req.language_id
 
     async with _lock:
         wav = await asyncio.to_thread(_model.generate, req.text, **kwargs)
