@@ -50,6 +50,14 @@ function initFullscreen() {
     btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
     if (document.fullscreenElement) dismissHint('fullscreen');
   });
+  document.getElementById('hint-reset')?.addEventListener('click', () => {
+    HINT_QUEUE.forEach(key => localStorage.removeItem(HINT_KEY(key)));
+    HINT_QUEUE.forEach(key => {
+      const el = document.getElementById(`hint-${key}`);
+      if (el) el.classList.remove('hint-visible', 'hint-gone');
+    });
+    showNextHint();
+  });
   showNextHint();
 }
 
@@ -391,6 +399,20 @@ function hashString(str) {
 const ACT_TITLE_PAUSE_MS = 2000;
 let currentAudio = null;
 let playbackSession = 0;
+
+function playChoiceCue() {
+  const ac = new (window.AudioContext || window.webkitAudioContext)();
+  const bufLen = Math.floor(ac.sampleRate * 0.008);
+  const buf = ac.createBuffer(1, bufLen, ac.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < bufLen; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufLen, 1.5);
+  const src = ac.createBufferSource(); src.buffer = buf;
+  const filter = ac.createBiquadFilter(); filter.type = 'bandpass'; filter.frequency.value = 1800; filter.Q.value = 1.2;
+  const gain = ac.createGain();
+  src.connect(filter); filter.connect(gain); gain.connect(ac.destination);
+  gain.gain.setValueAtTime(0.275, ac.currentTime);
+  src.start();
+}
 
 function stopAudio() {
   if (currentAudio) {
@@ -990,6 +1012,7 @@ function renderChoices(scene) {
 
   passing.forEach((choice, i) => {
     el.querySelector(`[data-index="${i}"]`).addEventListener('click', (e) => {
+      playChoiceCue();
       const chosenBtn = e.currentTarget;
       const allBtns = el.querySelectorAll('.btn-choice');
       allBtns.forEach(b => { b.disabled = true; });

@@ -16,31 +16,15 @@
   <button id="fullscreen-btn" class="fullscreen-btn" title="Toggle fullscreen">⛶</button>
   <div id="hint-fullscreen" class="ui-hint ui-hint-top-right" data-hint="fullscreen">
     <span class="ui-hint-text">Click here for an immersive fullscreen experience!</span>
-    <svg class="ui-hint-arrow ui-hint-arrow-up-right" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 44 C10 20, 40 10, 54 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <path d="M54 6 L46 10 M54 6 L50 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
   </div>
   <div id="hint-back" class="ui-hint ui-hint-top-left" data-hint="back">
-    <svg class="ui-hint-arrow ui-hint-arrow-up-left" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M56 44 C50 20, 20 10, 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <path d="M6 6 L14 10 M6 6 L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
     <span class="ui-hint-text">Return to the story menu</span>
   </div>
   <div id="hint-journal" class="ui-hint ui-hint-bottom-left" data-hint="journal">
-    <svg class="ui-hint-arrow ui-hint-arrow-down-left" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M56 6 C50 30, 20 40, 6 44" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <path d="M6 44 L14 40 M6 44 L10 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
     <span class="ui-hint-text">Track story notes in your journal</span>
   </div>
   <div id="hint-undo" class="ui-hint ui-hint-bottom-right" data-hint="undo">
     <span class="ui-hint-text">Made a bad choice? Undo it!</span>
-    <svg class="ui-hint-arrow ui-hint-arrow-down-right" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 6 C10 30, 40 40, 54 44" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <path d="M54 44 L46 40 M54 44 L50 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
   </div>
   <button id="back-btn" class="back-btn back-hidden" aria-label="Back to story selection" title="Back to stories">⬅</button>
   <div id="app"></div>
@@ -60,6 +44,7 @@
       </div>
     </aside>
   </div>
+  <button id="hint-reset" class="hint-reset-btn" title="Reset hint progress">Reset hints</button>
   <script src="engine.js"></script>
 </body>
 </html>
