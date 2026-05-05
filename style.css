@@ -226,7 +226,6 @@ button {
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-  font-weight: bold;
   color: var(--text-muted);
   opacity: 0.45;
   padding: 0.25rem 0.35rem;
@@ -244,30 +243,32 @@ button {
   position: fixed;
   z-index: 399;
   display: none;
+  align-items: center;
   pointer-events: none;
+  /* match button height: 1.5rem font + 0.25rem padding top/bottom */
+  height: calc(1.5rem + 0.5rem);
 }
 
 .ui-hint.hint-visible {
-  display: block;
+  display: flex;
   animation: hint-fade-in 0.5s ease 0.8s both;
 }
 
 body.splash-active .ui-hint { display: none !important; }
 
 .ui-hint.hint-gone {
-  display: block;
+  display: flex;
   animation: hint-fade-out 0.35s ease forwards;
 }
 
 .ui-hint-text {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   color: var(--text-muted);
   opacity: 0.45;
-  line-height: 2rem;
   white-space: nowrap;
-  display: block;
+  line-height: 1;
 }
 
 .ui-hint-top-right {
