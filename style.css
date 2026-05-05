@@ -223,24 +223,31 @@ button {
   z-index: 10;
 }
 
-.fullscreen-btn {
+.ui-icon-btn {
   position: fixed;
+  z-index: 310;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0.4rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text-muted);
+  filter: grayscale(1);
+  opacity: 0.4;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.ui-icon-btn:hover { opacity: 1; }
+
+.fullscreen-btn {
   top: calc(var(--frame-inset) + 0.25rem);
   right: calc(var(--frame-inset) + 0.25rem);
   z-index: 400;
-  background: none;
-  border: none;
-  cursor: pointer;
   font-size: 1.5rem;
-  color: var(--text-muted);
   padding: 0.25rem 0.35rem;
-  line-height: 1;
-  transition: opacity 0.2s;
-  opacity: 0.6;
-}
-
-.fullscreen-btn:hover {
-  opacity: 1;
 }
 
 /* ── UI hints ─────────────────────────────────────────────────────────────── */
@@ -271,8 +278,8 @@ body.splash-active .ui-hint { display: none !important; }
   font-family: var(--font-body);
   font-style: italic;
   font-size: 0.875rem;
-  color: var(--text-muted);
-  opacity: 1;
+  color: #888;
+  opacity: 0.4;
   white-space: nowrap;
   line-height: 1;
 }
@@ -565,50 +572,21 @@ body.splash-active .ui-hint { display: none !important; }
 /* ── Journal ──────────────────────────────────────────────────────────────── */
 
 .journal-toggle {
-  position: fixed;
   bottom: 1rem;
   left: 1rem;
-  z-index: 310;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  padding: 0.25rem 0.4rem;
-  color: var(--accent);
-  cursor: pointer;
-  font-size: 1.4rem;
-  line-height: 1;
-  opacity: 0.5;
   transition: opacity 0.15s, transform 0.15s;
 }
-.journal-toggle:hover { opacity: 1; }
 .journal-toggle.journal-hidden,
 .journal-toggle.journal-toggle-open { display: none; }
 
-.journal-icon { display: block; filter: grayscale(1); opacity: 0.4; transform: rotate(90deg); }
+.journal-icon { display: block; }
 
 .back-btn {
-  position: fixed;
   top: calc(var(--frame-inset) + 0.25rem);
   left: calc(var(--frame-inset) + 0.25rem);
-  z-index: 310;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  padding: 0.25rem 0.4rem;
-  color: var(--accent);
-  cursor: pointer;
-  font-size: 1.4rem;
-  line-height: 1;
-  opacity: 0.5;
-  transition: opacity 0.15s;
 }
-.back-btn:hover { opacity: 1; }
 .back-btn.back-hidden { display: none; }
-.splash-active .back-btn { display: none; }
+.splash-active .back-btn,
 .splash-active .journal-toggle { display: none; }
 
 .journal-dot { display: none; }
