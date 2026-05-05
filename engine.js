@@ -90,7 +90,17 @@ async function loadManifest() {
   return fetchYaml('stories/manifest.yaml');
 }
 
-async function showSelector({ holdCards = false } = {}) {
+function popInSelector() {
+  const title = document.querySelector('.selector-title');
+  if (title) { title.classList.remove('card-pop-pending'); title.classList.add('card-pop-in'); }
+  document.querySelectorAll('.story-card-wrap').forEach((wrap, idx) => {
+    wrap.style.setProperty('--card-pop-delay', `${120 + idx * 120}ms`);
+    wrap.classList.remove('card-pop-pending');
+    wrap.classList.add('card-pop-in');
+  });
+}
+
+async function showSelector({ defer = false } = {}) {
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
   currentStoryId = null;
@@ -103,7 +113,7 @@ async function showSelector({ holdCards = false } = {}) {
   app.innerHTML = `
     <div class="selector-bg">
       <div class="selector">
-        <h1 class="selector-title${holdCards ? ' card-pop-pending' : ''}">Choose Your Story</h1>
+        <h1 class="selector-title card-pop-pending">Choose Your Story</h1>
         <div class="story-list">
           ${manifest.stories.length === 0
             ? '<p class="no-stories">No stories available yet.</p>'
@@ -113,9 +123,8 @@ async function showSelector({ holdCards = false } = {}) {
     </div>
   `;
   manifest.stories.forEach(id => attachCardHandlers(id));
-  if (holdCards) {
-    document.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
-  }
+  document.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
+  if (!defer) requestAnimationFrame(popInSelector);
 }
 
 function showIntroSplash(mode, manifest) {
@@ -166,23 +175,9 @@ function showIntroSplash(mode, manifest) {
     overlay.classList.add('story-splash-out-slow');
     if (isFirst) {
       localStorage.setItem('gamebook.seen_intro', '1');
-      await showSelector({ holdCards: true });
+      await showSelector({ defer: true });
     }
-    overlay.addEventListener('transitionend', () => {
-      overlay.remove();
-      if (isFirst) {
-        const title = document.querySelector('.selector-title');
-        if (title) {
-          title.classList.remove('card-pop-pending');
-          title.classList.add('card-pop-in');
-        }
-        document.querySelectorAll('.story-card-wrap').forEach((wrap, idx) => {
-          wrap.style.setProperty('--card-pop-delay', `${120 + idx * 120}ms`);
-          wrap.classList.remove('card-pop-pending');
-          wrap.classList.add('card-pop-in');
-        });
-      }
-    }, { once: true });
+    overlay.addEventListener('transitionend', () => { overlay.remove(); if (isFirst) popInSelector(); }, { once: true });
   }
 
   btn.addEventListener('click', dismiss);
