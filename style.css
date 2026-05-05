@@ -265,30 +265,30 @@ body.splash-active .ui-hint { display: none !important; }
   font-size: 0.82rem;
   color: var(--text-muted);
   opacity: 0.45;
-  line-height: 1.3;
-  max-width: 11rem;
+  line-height: 2rem;
+  white-space: nowrap;
   display: block;
 }
 
 .ui-hint-top-right {
-  top: calc(var(--frame-inset) + 2.2rem);
-  right: calc(var(--frame-inset) + 0.25rem);
+  top: calc(var(--frame-inset) + 0.25rem);
+  right: calc(var(--frame-inset) + 2.5rem);
   text-align: right;
 }
 
 .ui-hint-top-left {
-  top: calc(var(--frame-inset) + 2.2rem);
-  left: calc(var(--frame-inset) + 0.25rem);
+  top: calc(var(--frame-inset) + 0.25rem);
+  left: calc(var(--frame-inset) + 2.5rem);
 }
 
 .ui-hint-bottom-left {
-  bottom: calc(var(--frame-inset) + 2.4rem);
-  left: calc(var(--frame-inset) + 0.25rem);
+  bottom: calc(var(--frame-inset) + 0.25rem);
+  left: calc(var(--frame-inset) + 2.5rem);
 }
 
 .ui-hint-bottom-right {
-  bottom: calc(var(--frame-inset) + 2.4rem);
-  right: calc(var(--frame-inset) + 0.25rem);
+  bottom: calc(var(--frame-inset) + 0.25rem);
+  right: calc(var(--frame-inset) + 2.5rem);
   text-align: right;
 }
 
