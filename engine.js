@@ -137,16 +137,15 @@ function showIntroSplash(mode, manifest) {
     typeof l === 'string' ? { text: l, voice: introNarrator } : { text: Object.values(l)[0], voice: Object.keys(l)[0] }
   );
 
-  const paras = parsedLines.map(({ text }) => {
+  const paras = parsedLines.map(() => {
     const p = document.createElement('p');
-    p.textContent = text;
-    p.className = 'intro-line intro-line-hidden';
+    p.className = 'intro-line intro-line-visible';
     body.appendChild(p);
     return p;
   });
 
   const btn = document.createElement('button');
-  btn.className = 'intro-splash-btn intro-line-hidden';
+  btn.className = 'intro-splash-btn intro-line';
   btn.textContent = isFirst ? 'Begin →' : 'Close ✕';
   body.appendChild(btn);
   overlay.appendChild(body);
@@ -171,44 +170,55 @@ function showIntroSplash(mode, manifest) {
 
   btn.addEventListener('click', dismiss);
 
-  const LINE_DELAY_MS = 1000;
+  const LINE_PAUSE_MS = 1000;
   const INITIAL_DELAY_MS = 600;
 
   function revealLines() {
     let i = 0;
     function showNext() {
       if (i >= paras.length) {
-        requestAnimationFrame(() => {
-          btn.classList.remove('intro-line-hidden');
-          requestAnimationFrame(() => btn.classList.add('intro-line-visible'));
-        });
+        btn.classList.add('intro-line-visible');
         return;
       }
       const el = paras[i];
-      const lineIndex = i;
+      const { text, voice } = parsedLines[i];
       i++;
 
-      requestAnimationFrame(() => {
-        el.classList.remove('intro-line-hidden');
-        requestAnimationFrame(() => el.classList.add('intro-line-visible'));
-      });
+      // type the line character by character
+      const startTime = performance.now();
+      let pos = 0;
+      let typingDone = false;
+      let audioDone = !voice;
 
-      const voice = parsedLines[lineIndex].voice;
+      function afterBoth() {
+        if (typingDone && audioDone) setTimeout(showNext, LINE_PAUSE_MS);
+      }
+
+      function tick() {
+        if (document.hidden) { document.addEventListener('visibilitychange', onVisible, { once: true }); return; }
+        const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
+        while (pos < text.length && pos < targetChars) { pos++; }
+        el.textContent = text.slice(0, pos);
+        if (pos >= text.length) { typingDone = true; afterBoth(); return; }
+        requestAnimationFrame(tick);
+      }
+      function onVisible() { requestAnimationFrame(tick); }
+      requestAnimationFrame(tick);
+
       if (voice) {
-        const url = `stories/audio/intro_line_${lineIndex}.opus`;
+        const url = `stories/audio/intro_line_${i - 1}.opus`;
         currentAudio = new Audio(url);
         let settled = false;
         function afterAudio() {
           if (settled) return;
           settled = true;
           currentAudio = null;
-          setTimeout(showNext, LINE_DELAY_MS);
+          audioDone = true;
+          afterBoth();
         }
         currentAudio.addEventListener('ended', afterAudio, { once: true });
         currentAudio.addEventListener('error', afterAudio, { once: true });
         currentAudio.play().catch(afterAudio);
-      } else {
-        setTimeout(showNext, LINE_DELAY_MS);
       }
     }
     showNext();
