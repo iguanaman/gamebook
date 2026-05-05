@@ -1,26 +1,37 @@
 id: act1/cole_force_kill
-journal: |-
-  You killed Cole in his office. He was reaching for the drawer; you got there first. The wedding ring on its chain came loose in the struggle and you left it on the carpet. Bregman stepped aside on the way out. Voss did not stay to be counted.
+journal: You killed Cole in his office. He was reaching for the drawer; you got there
+  first. The wedding ring on its chain came loose in the struggle and you left it
+  on the carpet. Bregman stepped aside on the way out. Voss did not stay to be counted.
 text:
-- |-
-  You go across the desk before the thought has finished forming. The lamp goes with you, the ledger goes with you, the coffee cup that has been there since the chair was goes with you. Cole's hand is moving for the drawer that has the sidearm in it but the desk is wide and his arm is grey and your arm is not.
-- |-
-  You get a fistful of the dress collar in your left hand and your right hand on his throat and you take him backwards out of the chair into the Vault-Tec flag on its stand. The stand goes over. The flag goes over. The two of you go down inside it like a tarp on a body.
-- |-
-  He does not shout. He never shouts. The thing he does instead, with the last of the air you are letting through, is *speak* — quietly, politely, the way he has spoken in this office to other officers in other rooms before they were quietly reassigned to corridors no-one walks any more.
-- male_midlife_english_posh: |-
-    *A decision was taken — *
-- |-
-  You do not let him finish the sentence.
-- |-
-  Afterwards you sit on the edge of the overturned desk for a long minute and breathe through your mouth because the office has begun to smell of something that is not coffee. The wedding ring on its chain has come loose in the struggle and is lying on the carpet a foot from his hand. You leave it. It is not yours to take.
-- |-
-  The drawer he was reaching for opens easily. The sidearm is there. Underneath the sidearm, in a small velvet-lined recess that no quartermaster would have signed off on, is the master key — brass, heavy, head shaped like the Vault-Tec logo. It fits in the palm. It fits in the pocket.
-- |-
-  You step out of the office past Bregman and Voss. Bregman looks at your hands. Bregman looks at your face. Bregman steps aside. Voss has already gone — somewhere down the corridor, at speed, the toothpick still in his mouth. You will see Voss again or you will not. The corridor is yours either way.
-- |-
-  The atrium light at the far end of the corridor is the colour of the atrium light at the far end of the corridor. Nothing about it has changed. Everything about you has.
+- You go across the desk before the thought has finished forming. The lamp goes with
+  you, the ledger goes with you, the coffee cup that has been there since the chair
+  was goes with you. Cole's hand is moving for the drawer that has the sidearm in
+  it but the desk is wide and his arm is grey and your arm is not.
+- You get a fistful of the dress collar in your left hand and your right hand on his
+  throat and you take him backwards out of the chair into the Vault-Tec flag on its
+  stand. The stand goes over. The flag goes over. The two of you go down inside it
+  like a tarp on a body.
+- He does not shout. He never shouts. The thing he does instead, with the last of
+  the air you are letting through, is *speak* — quietly, politely, the way he has
+  spoken in this office to other officers in other rooms before they were quietly
+  reassigned to corridors no-one walks any more.
+- male_midlife_american_deep_malevolent_ancient_slow: '*A decision was taken — *'
+- You do not let him finish the sentence.
+- Afterwards you sit on the edge of the overturned desk for a long minute and breathe
+  through your mouth because the office has begun to smell of something that is not
+  coffee. The wedding ring on its chain has come loose in the struggle and is lying
+  on the carpet a foot from his hand. You leave it. It is not yours to take.
+- The drawer he was reaching for opens easily. The sidearm is there. Underneath the
+  sidearm, in a small velvet-lined recess that no quartermaster would have signed
+  off on, is the master key — brass, heavy, head shaped like the Vault-Tec logo. It
+  fits in the palm. It fits in the pocket.
+- You step out of the office past Bregman and Voss. Bregman looks at your hands. Bregman
+  looks at your face. Bregman steps aside. Voss has already gone — somewhere down
+  the corridor, at speed, the toothpick still in his mouth. You will see Voss again
+  or you will not. The corridor is yours either way.
+- The atrium light at the far end of the corridor is the colour of the atrium light
+  at the far end of the corridor. Nothing about it has changed. Everything about you
+  has.
 choices:
-- text: |-
-    Back to the atrium. Whatever comes next comes next.
+- text: Back to the atrium. Whatever comes next comes next.
   next: act1/atrium_hub

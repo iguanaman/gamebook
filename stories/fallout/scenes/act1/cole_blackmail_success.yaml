@@ -1,38 +1,61 @@
 id: act1/cole_blackmail_success
-journal: |-
-  You sat across from Cole and said the words he could not survive being said in public. He folded — quietly, the way he does everything. The door opens on his orders. The arrangement does not require you to like each other.
+journal: You sat across from Cole and said the words he could not survive being said
+  in public. He folded — quietly, the way he does everything. The door opens on his
+  orders. The arrangement does not require you to like each other.
 text:
 - if:
     flags:
     - terminal_evidence
-  text: |-
-    You set the slate down on the closed ledger. You do not push it across. You let him reach for it. You make him reach for it.
+  text: You set the slate down on the closed ledger. You do not push it across. You
+    let him reach for it. You make him reach for it.
 - if:
     flags:
     - reyes_confirmed_report
-  text: |-
-    You do not bring out a paper. You do not set anything on the desk. You sit down without being asked, and you say the names — three of them, slowly, the way Reyes said them to you, and then the dates next to them, and then the cause of death the requisition forms recorded next to that, and the cause of death the radiation logs would have recorded if anybody had been allowed to write them. You let the silences do the work the documents would have done.
-- |-
-  He listens. He does the thing he does when he is most angry, which is go quieter and more polite. He does not interrupt. He does not look away from your face. The wedding ring on its chain has come out from under his collar again and he is not turning it. He is not aware that he is not turning it. The lamp goes on humming.
-- |-
-  When you are done he lets a count of four pass before he speaks.
-- male_midlife_english_posh: |-
-    I see.
-- male_midlife_english_posh: |-
-    I would like to take a moment, if I may, to be entirely candid with you. The administration has, in the considered view of the administration, done what it judged necessary. There has been attrition. There has been a thermal event in the planning. Decisions have been taken, of which some have been mine, and of which the documentation you are presently in possession of comprises a representative subset. Were that documentation to enter the public record of this vault, the public record of this vault would alter. The administration would not survive the alteration. I would not survive the alteration. I am not interested in not surviving the alteration.
-- |-
-  He opens the drawer. The sidearm is there. He does not touch it. Underneath, in a small velvet-lined recess that no quartermaster would have signed off on, is the master key — brass, heavy, head shaped like the Vault-Tec logo. He lifts it out and sets it on the closed ledger between you, the way he sets the coffee cup down.
-- male_midlife_english_posh: |-
-    You will take the key. You will leave the office. You will not return to it. The documentation will not enter the public record of this vault during the remaining operational lifetime of this vault, which I assess at less than the documentation's useful publication window. The administration will continue to administer for the duration. Bregman and Voss will be informed that you and I have reached an accommodation, and that the accommodation is to be respected. We will not see one another again.
-- |-
-  He folds his hands on the closed ledger. The key sits between them.
-- male_midlife_english_posh: |-
-    I will say only — and I would like you to hear this in the spirit in which it is offered — that the door you intend to open opens onto a country I have read briefings about and you have not. The population that follows you through it will not, in the main, survive the country. I have done the arithmetic. I am content with my answer. You will have to do your own.
-- |-
-  You take the key off the ledger. It is heavier than the brass would suggest. He does not watch you take it. He has resumed turning the wedding ring on its chain.
-- |-
-  Bregman steps aside in the corridor without being told. Voss is somewhere else. The atrium light at the far end of the corridor is the colour of the atrium light at the far end of the corridor.
+  text: You do not bring out a paper. You do not set anything on the desk. You sit
+    down without being asked, and you say the names — three of them, slowly, the way
+    Reyes said them to you, and then the dates next to them, and then the cause of
+    death the requisition forms recorded next to that, and the cause of death the
+    radiation logs would have recorded if anybody had been allowed to write them.
+    You let the silences do the work the documents would have done.
+- He listens. He does the thing he does when he is most angry, which is go quieter
+  and more polite. He does not interrupt. He does not look away from your face. The
+  wedding ring on its chain has come out from under his collar again and he is not
+  turning it. He is not aware that he is not turning it. The lamp goes on humming.
+- When you are done he lets a count of four pass before he speaks.
+- male_midlife_american_deep_malevolent_ancient_slow: I see.
+- male_midlife_american_deep_malevolent_ancient_slow: I would like to take a moment,
+    if I may, to be entirely candid with you. The administration has, in the considered
+    view of the administration, done what it judged necessary. There has been attrition.
+    There has been a thermal event in the planning. Decisions have been taken, of
+    which some have been mine, and of which the documentation you are presently in
+    possession of comprises a representative subset. Were that documentation to enter
+    the public record of this vault, the public record of this vault would alter.
+    The administration would not survive the alteration. I would not survive the alteration.
+    I am not interested in not surviving the alteration.
+- He opens the drawer. The sidearm is there. He does not touch it. Underneath, in
+  a small velvet-lined recess that no quartermaster would have signed off on, is the
+  master key — brass, heavy, head shaped like the Vault-Tec logo. He lifts it out
+  and sets it on the closed ledger between you, the way he sets the coffee cup down.
+- male_midlife_american_deep_malevolent_ancient_slow: You will take the key. You will
+    leave the office. You will not return to it. The documentation will not enter
+    the public record of this vault during the remaining operational lifetime of this
+    vault, which I assess at less than the documentation's useful publication window.
+    The administration will continue to administer for the duration. Bregman and Voss
+    will be informed that you and I have reached an accommodation, and that the accommodation
+    is to be respected. We will not see one another again.
+- He folds his hands on the closed ledger. The key sits between them.
+- male_midlife_american_deep_malevolent_ancient_slow: I will say only — and I would
+    like you to hear this in the spirit in which it is offered — that the door you
+    intend to open opens onto a country I have read briefings about and you have not.
+    The population that follows you through it will not, in the main, survive the
+    country. I have done the arithmetic. I am content with my answer. You will have
+    to do your own.
+- You take the key off the ledger. It is heavier than the brass would suggest. He
+  does not watch you take it. He has resumed turning the wedding ring on its chain.
+- Bregman steps aside in the corridor without being told. Voss is somewhere else.
+  The atrium light at the far end of the corridor is the colour of the atrium light
+  at the far end of the corridor.
 choices:
-- text: |-
-    Back to the atrium. The key is in your pocket. He is alive. He is, somewhere behind you, doing the arithmetic.
+- text: Back to the atrium. The key is in your pocket. He is alive. He is, somewhere
+    behind you, doing the arithmetic.
   next: act1/atrium_hub

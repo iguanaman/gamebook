@@ -1,70 +1,87 @@
 id: act1/cole_office
 text:
-- |-
-  The office smells of burnt coffee and the chemical citrus of the cleaning spray they only use in the senior corridors. The desk is enormous and entirely clear except for a green-shaded reading lamp, a closed leather-bound ledger, and a coffee cup that has been there since the chair was. Behind the desk, on a stand, the Vault-Tec flag — eighty-seven years old, the blue going to grey at the folds.
-- |-
-  Warden Aldric Cole stands at the window that is not a window. It is a screen showing the atrium feed in real time. He is watching the dry fountain. He has the wedding ring out from under his shirt and is turning it on its chain between his thumb and finger, a slow steady motion he is unaware of until you come in. Then he is aware of it, and the ring goes back under the collar, and he turns.
-- |-
-  He is sweating. The office is nineteen degrees. The collar of the dress uniform is loose at the throat and the skin underneath is a colour skin should not be.
-- male_midlife_english_posh: |-
-    Officer. Thank you for coming. Please — there is a chair. Sit, or don't. The choice has been left to you.
-- |-
-  He gestures at the chair without watching whether you take it. He has resumed his place behind the desk. The lamp throws his face half in shadow, which you suspect is intentional and which he has stopped noticing was ever a choice.
+- The office smells of burnt coffee and the chemical citrus of the cleaning spray
+  they only use in the senior corridors. The desk is enormous and entirely clear except
+  for a green-shaded reading lamp, a closed leather-bound ledger, and a coffee cup
+  that has been there since the chair was. Behind the desk, on a stand, the Vault-Tec
+  flag — eighty-seven years old, the blue going to grey at the folds.
+- Warden Aldric Cole stands at the window that is not a window. It is a screen showing
+  the atrium feed in real time. He is watching the dry fountain. He has the wedding
+  ring out from under his shirt and is turning it on its chain between his thumb and
+  finger, a slow steady motion he is unaware of until you come in. Then he is aware
+  of it, and the ring goes back under the collar, and he turns.
+- He is sweating. The office is nineteen degrees. The collar of the dress uniform
+  is loose at the throat and the skin underneath is a colour skin should not be.
+- male_midlife_american_deep_malevolent_ancient_slow: Officer. Thank you for coming.
+    Please — there is a chair. Sit, or don't. The choice has been left to you.
+- He gestures at the chair without watching whether you take it. He has resumed his
+  place behind the desk. The lamp throws his face half in shadow, which you suspect
+  is intentional and which he has stopped noticing was ever a choice.
 - if:
     flags:
     - found_report
-  text: |-
-    The folder is in your hands. You are aware of the weight of it. He is aware of the weight of it. Neither of you has mentioned the weight of it yet.
-- male_midlife_english_posh: |-
-    I am told you have been busy. The medical office. The reactor deck. The supervisor's terminal — a frankly creative interpretation of your access tier, but I am not, in this conversation, your supervisor. The Warden is not a supervisor. The Warden is the man who keeps the door shut so that the population on the other side of it can continue to be a population. I would like you to understand that distinction before we begin.
+  text: The folder is in your hands. You are aware of the weight of it. He is aware
+    of the weight of it. Neither of you has mentioned the weight of it yet.
+- male_midlife_american_deep_malevolent_ancient_slow: I am told you have been busy.
+    The medical office. The reactor deck. The supervisor's terminal — a frankly creative
+    interpretation of your access tier, but I am not, in this conversation, your supervisor.
+    The Warden is not a supervisor. The Warden is the man who keeps the door shut
+    so that the population on the other side of it can continue to be a population.
+    I would like you to understand that distinction before we begin.
 - if:
     flags:
     - terminal_evidence
-  text: |-
-    His eyes flick, once, to your inside coat pocket where the slate sits. Then back. He has decided not to mention it. The decision is itself a kind of mention.
+  text: His eyes flick, once, to your inside coat pocket where the slate sits. Then
+    back. He has decided not to mention it. The decision is itself a kind of mention.
 - if:
     flags:
     - exposed_truth
-  text: |-
-    He smiles a small careful smile. *I have been informed of your remarks at the broadcast booth. I will say only that I admire the conviction. I will not say I admire the timing.*
-- male_midlife_english_posh: |-
-    There has been, as you are aware, a thermal event in the planning for some months. Containment is a question of restraint. A controlled outcome — quiet, dignified, the population unaware of the attrition — is, in my professional view, kinder than the alternative. The alternative is a door opened onto a country the Vault-Tec briefings have catalogued in some detail. Raiders. Mutation. Radiation untempered by filtration. I have read the briefings. I doubt you have.
-- male_midlife_english_posh: |-
-    I am offering you, by inviting you to this office, the opportunity to be useful. The control bunker has its own coolant loop. It will accommodate two. There is a chair. It need not be the one you are presently not sitting in.
-- |-
-  He folds his hands on the closed ledger. He waits. He has, you realise, made this offer before — to other officers, in other rooms, before they were quietly reassigned to corridors no-one walks any more.
+  text: He smiles a small careful smile. *I have been informed of your remarks at
+    the broadcast booth. I will say only that I admire the conviction. I will not
+    say I admire the timing.*
+- male_midlife_american_deep_malevolent_ancient_slow: There has been, as you are aware,
+    a thermal event in the planning for some months. Containment is a question of
+    restraint. A controlled outcome — quiet, dignified, the population unaware of
+    the attrition — is, in my professional view, kinder than the alternative. The
+    alternative is a door opened onto a country the Vault-Tec briefings have catalogued
+    in some detail. Raiders. Mutation. Radiation untempered by filtration. I have
+    read the briefings. I doubt you have.
+- male_midlife_american_deep_malevolent_ancient_slow: I am offering you, by inviting
+    you to this office, the opportunity to be useful. The control bunker has its own
+    coolant loop. It will accommodate two. There is a chair. It need not be the one
+    you are presently not sitting in.
+- He folds his hands on the closed ledger. He waits. He has, you realise, made this
+  offer before — to other officers, in other rooms, before they were quietly reassigned
+  to corridors no-one walks any more.
 choices:
-- text: |-
-    Reach across the desk and put your hands on his throat. (Strength 7)
+- text: Reach across the desk and put your hands on his throat. (Strength 7)
   next: act1/cole_force_kill
   requires:
     stats:
       STR: 7
-  failed_text: |-
-    *(Strength 7 — the desk is wide and Cole is closer to his sidearm than he looks. The maths is not in your favour.)*
+  failed_text: '*(Strength 7 — the desk is wide and Cole is closer to his sidearm
+    than he looks. The maths is not in your favour.)*'
   effects:
     flags:
       killed_cole: true
       has_master_key: true
-- text: |-
-    Reach across the desk and put your hands on his throat. The reinforced suit will carry the weight. (Strength 6, suited)
+- text: Reach across the desk and put your hands on his throat. The reinforced suit
+    will carry the weight. (Strength 6, suited)
   next: act1/cole_force_kill
   requires:
     stats:
       STR: 6
     flags:
     - vault_suit_upgraded
-  failed_text: |-
-    *(Strength 6 — even with the suit, the desk is wide and Cole is closer to his sidearm than he looks.)*
+  failed_text: '*(Strength 6 — even with the suit, the desk is wide and Cole is closer
+    to his sidearm than he looks.)*'
   effects:
     flags:
       killed_cole: true
       has_master_key: true
-- text: |-
-    Try anyway. He is grey and tired and you are not.
+- text: Try anyway. He is grey and tired and you are not.
   next: act1/cole_force_fail
-- text: |-
-    Lay the slate on the desk. Tell him what you read. (Perception 6)
+- text: Lay the slate on the desk. Tell him what you read. (Perception 6)
   next: act1/cole_blackmail_success
   requires:
     stats:
@@ -76,8 +93,8 @@ choices:
     flags:
       blackmailed_cole: true
       has_master_key: true
-- text: |-
-    Lay out what Doc Reyes confirmed. The names. The dates. The notebook he doesn't know about. (Perception 6)
+- text: Lay out what Doc Reyes confirmed. The names. The dates. The notebook he doesn't
+    know about. (Perception 6)
   next: act1/cole_blackmail_success
   requires:
     stats:
@@ -92,9 +109,7 @@ choices:
     flags:
       blackmailed_cole: true
       has_master_key: true
-- text: |-
-    Sit in the chair. Take the offer.
+- text: Sit in the chair. Take the offer.
   next: act1/cole_join
-- text: |-
-    Stand up. Don't say anything. Leave the way you came in.
+- text: Stand up. Don't say anything. Leave the way you came in.
   next: act1/overseer_corridor

@@ -1,33 +1,54 @@
 id: act1/ending_loyalist_preview
-journal: |-
-  You watched the vault die from the bunker monitor. Reyes sat down outside Medical and did not get up. Yuna stayed at the panel. Cole touched the screen the way you touch a coffin lid. The institution survived the institution. You were the means.
+journal: You watched the vault die from the bunker monitor. Reyes sat down outside
+  Medical and did not get up. Yuna stayed at the panel. Cole touched the screen the
+  way you touch a coffin lid. The institution survived the institution. You were the
+  means.
 text:
-- |-
-  The bunker is smaller than you expected. Two cots, bolted. A galley with three months of paste in foil sleeves and a water dispenser plumbed into a coolant loop that hums a half-tone flat. A toilet behind a curtain. A monitor on the bulkhead carrying the atrium feed in real time. Cole sits in front of the monitor in the dress uniform with the collar loose, and he watches.
-- |-
-  On the second day the floor of the atrium is warm enough that the children stop playing on the tiles and move to the benches. By the evening they have moved off the benches. By the third morning the air in the atrium tastes of pennies, which the residents discuss in low voices and then stop discussing. The Overseer's recorded voice, on a loop he set up for this exact purpose months ago, continues to remind the population that scheduled aesthetic review of the atrium fountain is ongoing and that residents are encouraged to maintain hydration.
-- |-
-  Doc Reyes appears in the medical office doorway on the monitor at oh-seven on the fourth morning. She is carrying her notebook. She sits down on the floor of the corridor outside Medical with the notebook in her lap. She does not get up again.
-- |-
-  Yuna stays at the panel. Of course she does. The feed from the reactor deck is the one feed Cole does not watch. You watch it once, by accident, and you do not watch it again.
-- |-
-  On the morning that is not quite a morning, eighty-seven hours after you closed the locker, the primary heat-exchange in Vault 34's reactor finishes the slow private business it has been about for four months. There is a sound that is not a sound. The lights on the atrium feed do something interesting and then stop being lights.
-- |-
-  Cole watches it through. He does not turn away. When it is done he reaches up and touches the monitor with the flat of his hand, the way you touch a coffin lid you do not intend to open.
-- male_midlife_english_posh: |-
-    The administration has discharged its obligation to the institution. The institution has discharged its obligation to the experimental parameters. A controlled outcome has been achieved. We will not, I think, speak of it further.
-- |-
-  He turns off the monitor. He folds his hands on his lap. The bunker hums on around the two of you.
-- |-
-  There is a galley. There is paste in foil sleeves. There is a coolant loop that hums a half-tone flat. There are two cots, bolted, and a curtain, and the closed leather-bound ledger in which Cole is, by the small careful light of the green-shaded lamp, beginning to write.
-- |-
-  ---
-- |-
-  *VAULT-TEC INTERNAL MEMORANDUM — CONTINUITY OF ADMINISTRATION, FOR ARCHIVAL PURPOSES ONLY*
-- |-
-  *RE: VAULT 34, INCIDENT FINAL.*
-- |-
-  *The experimental parameters of Vault 34 (Armoury Saturation Protocol) concluded on the indicated date with the indicated attrition among the general population. The administration of Vault 34 has been preserved at full continuity in the contingency facility, with a complement of two and supplies adequate to a publication window of approximately six to nine months. The administration intends, during this window, to compile a complete record of the foregoing for the consideration of any future Vault-Tec recovery operation that may, in due course, present.*
-- |-
-  *Filed. No further action required. Do not redistribute.*
+- The bunker is smaller than you expected. Two cots, bolted. A galley with three months
+  of paste in foil sleeves and a water dispenser plumbed into a coolant loop that
+  hums a half-tone flat. A toilet behind a curtain. A monitor on the bulkhead carrying
+  the atrium feed in real time. Cole sits in front of the monitor in the dress uniform
+  with the collar loose, and he watches.
+- On the second day the floor of the atrium is warm enough that the children stop
+  playing on the tiles and move to the benches. By the evening they have moved off
+  the benches. By the third morning the air in the atrium tastes of pennies, which
+  the residents discuss in low voices and then stop discussing. The Overseer's recorded
+  voice, on a loop he set up for this exact purpose months ago, continues to remind
+  the population that scheduled aesthetic review of the atrium fountain is ongoing
+  and that residents are encouraged to maintain hydration.
+- Doc Reyes appears in the medical office doorway on the monitor at oh-seven on the
+  fourth morning. She is carrying her notebook. She sits down on the floor of the
+  corridor outside Medical with the notebook in her lap. She does not get up again.
+- Yuna stays at the panel. Of course she does. The feed from the reactor deck is the
+  one feed Cole does not watch. You watch it once, by accident, and you do not watch
+  it again.
+- On the morning that is not quite a morning, eighty-seven hours after you closed
+  the locker, the primary heat-exchange in Vault 34's reactor finishes the slow private
+  business it has been about for four months. There is a sound that is not a sound.
+  The lights on the atrium feed do something interesting and then stop being lights.
+- Cole watches it through. He does not turn away. When it is done he reaches up and
+  touches the monitor with the flat of his hand, the way you touch a coffin lid you
+  do not intend to open.
+- male_midlife_american_deep_malevolent_ancient_slow: The administration has discharged
+    its obligation to the institution. The institution has discharged its obligation
+    to the experimental parameters. A controlled outcome has been achieved. We will
+    not, I think, speak of it further.
+- He turns off the monitor. He folds his hands on his lap. The bunker hums on around
+  the two of you.
+- There is a galley. There is paste in foil sleeves. There is a coolant loop that
+  hums a half-tone flat. There are two cots, bolted, and a curtain, and the closed
+  leather-bound ledger in which Cole is, by the small careful light of the green-shaded
+  lamp, beginning to write.
+- '---'
+- '*VAULT-TEC INTERNAL MEMORANDUM — CONTINUITY OF ADMINISTRATION, FOR ARCHIVAL PURPOSES
+  ONLY*'
+- '*RE: VAULT 34, INCIDENT FINAL.*'
+- '*The experimental parameters of Vault 34 (Armoury Saturation Protocol) concluded
+  on the indicated date with the indicated attrition among the general population.
+  The administration of Vault 34 has been preserved at full continuity in the contingency
+  facility, with a complement of two and supplies adequate to a publication window
+  of approximately six to nine months. The administration intends, during this window,
+  to compile a complete record of the foregoing for the consideration of any future
+  Vault-Tec recovery operation that may, in due course, present.*'
+- '*Filed. No further action required. Do not redistribute.*'
 choices: []
