@@ -553,6 +553,7 @@ document.addEventListener('visibilitychange', () => {
 function cancelPlayback() {
   playbackSession++;
   stopAudio();
+  hideSkipHint();
 }
 
 function blockAudioUrl(sceneId, rawIndex, branch) {
