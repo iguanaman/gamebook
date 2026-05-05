@@ -100,7 +100,6 @@ async function showSelector() {
     <div class="selector-bg">
       <div class="selector">
         <h1 class="selector-title">Choose Your Story</h1>
-        <button class="intro-how-to-play" id="how-to-play">How to play</button>
         <div class="story-list">
           ${manifest.stories.length === 0
             ? '<p class="no-stories">No stories available yet.</p>'
@@ -109,8 +108,7 @@ async function showSelector() {
       </div>
     </div>
   `;
-  document.getElementById('how-to-play')?.addEventListener('click', () => showIntroSplash('revisit', manifest));
-  manifest.stories.forEach(id => attachCardHandlers(id));
+manifest.stories.forEach(id => attachCardHandlers(id));
 }
 
 function showIntroSplash(mode, manifest) {
