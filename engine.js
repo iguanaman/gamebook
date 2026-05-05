@@ -90,7 +90,7 @@ async function loadManifest() {
   return fetchYaml('stories/manifest.yaml');
 }
 
-async function showSelector() {
+async function showSelector({ holdCards = false } = {}) {
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
   currentStoryId = null;
@@ -113,6 +113,9 @@ async function showSelector() {
     </div>
   `;
   manifest.stories.forEach(id => attachCardHandlers(id));
+  if (holdCards) {
+    document.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
+  }
 }
 
 function showIntroSplash(mode, manifest) {
@@ -163,13 +166,14 @@ function showIntroSplash(mode, manifest) {
     overlay.classList.add('story-splash-out-slow');
     if (isFirst) {
       localStorage.setItem('gamebook.seen_intro', '1');
-      await showSelector();
+      await showSelector({ holdCards: true });
     }
     overlay.addEventListener('transitionend', () => {
       overlay.remove();
       if (isFirst) {
         document.querySelectorAll('.story-card-wrap').forEach((wrap, idx) => {
           wrap.style.setProperty('--card-pop-delay', `${idx * 120}ms`);
+          wrap.classList.remove('card-pop-pending');
           wrap.classList.add('card-pop-in');
         });
       }
