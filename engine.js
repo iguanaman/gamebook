@@ -1352,10 +1352,9 @@ function renderJournal() {
     showNextHint();
   }
 
-  const sceneEntries = entries.filter(e => !e.scene.startsWith('__'));
-  entriesEl.innerHTML = sceneEntries.length === 0
+  entriesEl.innerHTML = entries.length === 0
     ? '<p class="journal-empty">Nothing recorded yet.</p>'
-    : sceneEntries.map(e => `<div class="journal-entry"><p>${e.text.replace(/\n\n/g, '</p><p>')}</p></div>`).join('');
+    : entries.map(e => `<div class="journal-entry"><p>${e.text.replace(/\n\n/g, '</p><p>')}</p></div>`).join('');
 }
 
 function closeJournal() {
