@@ -1,144 +1,185 @@
 text:
-  # Body recovered — if this is the first farewell to fire, Durnan covers it
 - if:
-    flags: [body_recovered]
-    flags_unset: [companion_body_honoured]
-  text: |-
-    Durnan moves along the bar without a word, lifts a clean cloth from under the counter, and
-    lays it over the body behind the door. He doesn't look up when he's done. He goes back
-    to his polishing. That's the ceremony, and it's enough.
+    flags:
+    - body_recovered
+    flags_unset:
+    - companion_body_honoured
+  text: 'Durnan moves along the bar without a word, lifts a clean cloth from under
+    the counter, and
 
-  # α or β-with-surviving-partner: jokes; warm
+    lays it over the body behind the door. He doesn''t look up when he''s done. He
+    goes back
+
+    to his polishing. That''s the ceremony, and it''s enough.'
 - if:
-    flags: [recruited_korsa, rescued]
-    flags_unset: [stirred_something, bargained]
-  text: |-
-    Korsa has a tankard in his hand and is working on it with the methodical patience of a man
-    who has decided the night is over and the drinking is the final business.
+    flags:
+    - recruited_korsa
+    - rescued
+    flags_unset:
+    - stirred_something
+    - bargained
+  text: 'Korsa has a tankard in his hand and is working on it with the methodical
+    patience of a man
 
+    who has decided the night is over and the drinking is the final business.'
 - if:
-    flags: [recruited_korsa, rescued]
-    flags_unset: [stirred_something, bargained, korsa_died]
-  text: |-
-    He notices you noticing him and tips the tankard.
-
+    flags:
+    - recruited_korsa
+    - rescued
+    flags_unset:
+    - stirred_something
+    - bargained
+    - korsa_died
+  text: He notices you noticing him and tips the tankard.
 - if:
-    flags: [recruited_korsa, rescued]
-    flags_unset: [stirred_something, bargained]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      Cleaner than I expected. Next time, warn me about the third staircase.
-
+    flags:
+    - recruited_korsa
+    - rescued
+    flags_unset:
+    - stirred_something
+    - bargained
+  text: "male_midlife_british_tough_calloused: |-\n  Cleaner than I expected. Next\
+    \ time, warn me about the third staircase."
 - if:
-    flags: [recruited_korsa, rescued]
-    flags_unset: [stirred_something, bargained]
-  text: |-
-    He puts a hand out. A proper grip — thumb over thumb, the way fighters settle a night.
-
+    flags:
+    - recruited_korsa
+    - rescued
+    flags_unset:
+    - stirred_something
+    - bargained
+  text: He puts a hand out. A proper grip — thumb over thumb, the way fighters settle
+    a night.
 - if:
-    flags: [recruited_korsa, rescued]
-    flags_unset: [stirred_something, bargained]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      You need a sword again, you know where I drink. Which is here. I'm always here.
-
-  # β — partner died: mourns plainly, drinks their share
+    flags:
+    - recruited_korsa
+    - rescued
+    flags_unset:
+    - stirred_something
+    - bargained
+  text: "male_midlife_british_tough_calloused: |-\n  You need a sword again, you know\
+    \ where I drink. Which is here. I'm always here."
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [rescued, stirred_something, bargained]
-  text: |-
-    Korsa is sitting with two cups in front of him. His, and a second one, untouched, a
-    finger's width from the first.
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - rescued
+    - stirred_something
+    - bargained
+  text: 'Korsa is sitting with two cups in front of him. His, and a second one, untouched,
+    a
 
+    finger''s width from the first.'
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [rescued, stirred_something, bargained]
-  text: |-
-    He does not say whose it is. He lifts his own cup and drinks.
-
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - rescued
+    - stirred_something
+    - bargained
+  text: He does not say whose it is. He lifts his own cup and drinks.
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [rescued, stirred_something, bargained]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      You go in, you come out. Not everybody does. That's the whole of it.
-
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - rescued
+    - stirred_something
+    - bargained
+  text: "male_midlife_british_tough_calloused: |-\n  You go in, you come out. Not\
+    \ everybody does. That's the whole of it."
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [rescued, stirred_something, bargained]
-  text: |-
-    He takes the player's shoulder in one hand — a brief, hard grip. Let go.
-
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - rescued
+    - stirred_something
+    - bargained
+  text: He takes the player's shoulder in one hand — a brief, hard grip. Let go.
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [rescued, stirred_something, bargained]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      Not your fault. Not anyone's. Don't go making it yours to carry.
-
-  # γ — bargained, marked apprentice: uneasy
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - rescued
+    - stirred_something
+    - bargained
+  text: "male_midlife_british_tough_calloused: |-\n  Not your fault. Not anyone's.\
+    \ Don't go making it yours to carry."
 - if:
-    flags: [recruited_korsa, rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    Korsa is watching Linnet from across the bar. His cup is full. He hasn't touched it.
-
+    flags:
+    - recruited_korsa
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: Korsa is watching Linnet from across the bar. His cup is full. He hasn't touched
+    it.
 - if:
-    flags: [recruited_korsa, rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    When you reach him, he takes a moment to find the words. Korsa is not a man who reaches
-    for words often.
+    flags:
+    - recruited_korsa
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: 'When you reach him, he takes a moment to find the words. Korsa is not a man
+    who reaches
 
+    for words often.'
 - if:
-    flags: [recruited_korsa, rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      That mark. You sure about what you brought back up?
-
+    flags:
+    - recruited_korsa
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: "male_midlife_british_tough_calloused: |-\n  That mark. You sure about what\
+    \ you brought back up?"
 - if:
-    flags: [recruited_korsa, rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    He is not asking for an answer. He is asking if you've looked, really looked.
-
+    flags:
+    - recruited_korsa
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: He is not asking for an answer. He is asking if you've looked, really looked.
 - if:
-    flags: [recruited_korsa, rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      Call me. If it goes sideways. You call me first.
-
-  # ε — stirred something: will not look at the well
+    flags:
+    - recruited_korsa
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: "male_midlife_british_tough_calloused: |-\n  Call me. If it goes sideways.\
+    \ You call me first."
 - if:
-    flags: [recruited_korsa, stirred_something]
-  text: |-
-    Korsa is at the far end of the bar with his back to the well and his cup held in both
-    hands. He has been facing this direction since you came up the rope. He does not look around.
+    flags:
+    - recruited_korsa
+    - stirred_something
+  text: 'Korsa is at the far end of the bar with his back to the well and his cup
+    held in both
 
+    hands. He has been facing this direction since you came up the rope. He does not
+    look around.'
 - if:
-    flags: [recruited_korsa, stirred_something]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      I'm going to finish this drink. Then I'm going to my bunk. I suggest you do the same.
-
+    flags:
+    - recruited_korsa
+    - stirred_something
+  text: "male_midlife_british_tough_calloused: |-\n  I'm going to finish this drink.\
+    \ Then I'm going to my bunk. I suggest you do the same."
 - if:
-    flags: [recruited_korsa, stirred_something]
-  text: |-
-    He is already moving. He puts the cup down half-finished — which for Korsa is a statement —
-    and nods once without quite meeting your eyes.
+    flags:
+    - recruited_korsa
+    - stirred_something
+  text: 'He is already moving. He puts the cup down half-finished — which for Korsa
+    is a statement —
 
+    and nods once without quite meeting your eyes.'
 - if:
-    flags: [recruited_korsa, stirred_something]
-  text: |-
-    male_midlife_british_tough_calloused: |-
-      Good fight. Not the one I expected. But good.
-
+    flags:
+    - recruited_korsa
+    - stirred_something
+  text: "male_midlife_british_tough_calloused: |-\n  Good fight. Not the one I expected.\
+    \ But good."
 choices:
-  # α / β-with-partner-alive
-- text: |-
-    Grip back. Go to the bar.
+- text: Grip back. Go to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -146,13 +187,14 @@ choices:
       korsa_farewell_warm: true
       companion_body_honoured: true
   requires:
-    flags: [rescued]
-    flags_unset: [stirred_something, bargained, korsa_died]
+    flags:
+    - rescued
+    flags_unset:
+    - stirred_something
+    - bargained
+    - korsa_died
   hide_if_failed: true
-
-  # β — lost, δ
-- text: |-
-    Drink with him a moment. Go to the bar.
+- text: Drink with him a moment. Go to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -160,12 +202,13 @@ choices:
       korsa_farewell_grim: true
       companion_body_honoured: true
   requires:
-    flags_unset: [rescued, stirred_something, bargained, korsa_died]
+    flags_unset:
+    - rescued
+    - stirred_something
+    - bargained
+    - korsa_died
   hide_if_failed: true
-
-  # γ — uneasy
-- text: |-
-    You've looked. Go to the bar.
+- text: You've looked. Go to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -173,13 +216,14 @@ choices:
       korsa_farewell_uneasy: true
       companion_body_honoured: true
   requires:
-    flags: [rescued, bargained]
-    flags_unset: [stirred_something, korsa_died]
+    flags:
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+    - korsa_died
   hide_if_failed: true
-
-  # ε
-- text: |-
-    Same. Go to the bar.
+- text: Same. Go to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -187,13 +231,12 @@ choices:
       korsa_farewell_uneasy: true
       companion_body_honoured: true
   requires:
-    flags: [stirred_something]
-    flags_unset: [korsa_died]
+    flags:
+    - stirred_something
+    flags_unset:
+    - korsa_died
   hide_if_failed: true
-
-  # Fallthrough
-- text: |-
-    Go back to the bar.
+- text: Go back to the bar.
   next: bar_settle_up
   effects:
     flags:

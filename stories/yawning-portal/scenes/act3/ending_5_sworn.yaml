@@ -1,70 +1,85 @@
-journal: |-
-  Mirt offered you a place in the city. You took it. Waterdeep kept you.
-
+journal: Mirt offered you a place in the city. You took it. Waterdeep kept you.
 text:
-- |-
-  The envelope goes into your coat. The key goes on your belt. Mirt is already rising — the
-  man moves quickly for his size, has always moved quickly, which is how he has lasted this
-  long in a city that eats the slow.
+- 'The envelope goes into your coat. The key goes on your belt. Mirt is already rising
+  — the
 
-- |-
-  male_midlife_american_loud_confident_cocky: |-
-    Trades Ward is twenty minutes east. The tailor opens at seventh bell — she'll have a
-    key cut for the upstairs door by the time we arrive. Come on, young blood. The city
-    doesn't wait for daylight.
+  man moves quickly for his size, has always moved quickly, which is how he has lasted
+  this
 
-- |-
-  You cross the common room. The Portal is behind you — the noise of it, the warmth, the
-  well at the room's centre with its rope and its dark.
+  long in a city that eats the slow.'
+- "male_midlife_american_loud_confident_cocky: |-\n  Trades Ward is twenty minutes\
+  \ east. The tailor opens at seventh bell — she'll have a\n  key cut for the upstairs\
+  \ door by the time we arrive. Come on, young blood. The city\n  doesn't wait for\
+  \ daylight."
+- 'You cross the common room. The Portal is behind you — the noise of it, the warmth,
+  the
 
+  well at the room''s centre with its rope and its dark.'
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [korsa_died]
-  text: |-
-    Korsa is at the bar. He sees you going. He raises his cup a half-inch — not a toast, just
-    an acknowledgement. He will be there tomorrow. He will be at this same bar. That is Korsa.
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
+  text: 'Korsa is at the bar. He sees you going. He raises his cup a half-inch — not
+    a toast, just
 
+    an acknowledgement. He will be there tomorrow. He will be at this same bar. That
+    is Korsa.'
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died, vesna_left]
-  text: |-
-    Vesna is at her stool. She gives you the coin-flip — catches it, looks at the face, nods
-    once. Lady Luck, approving.
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
+    - vesna_left
+  text: 'Vesna is at her stool. She gives you the coin-flip — catches it, looks at
+    the face, nods
 
+    once. Lady Luck, approving.'
 - if:
-    flags: [recruited_thessaly]
-    flags_unset: [thessaly_died]
-  text: |-
-    Thessaly is watching from her corner table with the careful attention of a woman cataloguing
-    a decision she didn't predict. She lifts a hand. Halfway.
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
+  text: 'Thessaly is watching from her corner table with the careful attention of
+    a woman cataloguing
 
+    a decision she didn''t predict. She lifts a hand. Halfway.'
 - if:
-    flags: [rescued]
-  text: |-
-    Linnet went home with her master while you were at Mirt's table. Joren's family problem,
-    solved: mission complete, books closed, the apprentice back at her bench by morning. You
-    are moving on to the next thing. That is the deal.
+    flags:
+    - rescued
+  text: 'Linnet went home with her master while you were at Mirt''s table. Joren''s
+    family problem,
 
-- |-
-  Durnan's eyes find you across the room as you reach the door. He nods. Not approval —
-  *recognition*. He has seen people find their place in the city before. He doesn't make a
-  ceremony of it.
+    solved: mission complete, books closed, the apprentice back at her bench by morning.
+    You
 
-- |-
-  The door swings open. Waterdeep's pre-dawn streets — gas-lit, cobbled, cold and alive.
-  Mirt is already a half-step ahead, which is how he works: close enough to talk to, always
-  slightly ahead.
+    are moving on to the next thing. That is the deal.'
+- 'Durnan''s eyes find you across the room as you reach the door. He nods. Not approval
+  —
 
-- |-
-  male_midlife_american_loud_confident_cocky: |-
-    The city is a big room, and so on, and so on — you'll hear the speech again when I'm
-    introducing you properly. For now — east, twenty minutes, good coffee waiting. Pay
-    attention to the street names. You'll need them.
+  *recognition*. He has seen people find their place in the city before. He doesn''t
+  make a
 
-- |-
-  The Portal's door swings closed behind you. A new chapter in the city's long book.
-  Waterdeep has claimed you, and it does not let go easily, and you find — walking east
-  through the everburning lamplight with a moneylender who is already talking — that you
-  don't mind.
+  ceremony of it.'
+- 'The door swings open. Waterdeep''s pre-dawn streets — gas-lit, cobbled, cold and
+  alive.
 
+  Mirt is already a half-step ahead, which is how he works: close enough to talk to,
+  always
+
+  slightly ahead.'
+- "male_midlife_american_loud_confident_cocky: |-\n  The city is a big room, and so\
+  \ on, and so on — you'll hear the speech again when I'm\n  introducing you properly.\
+  \ For now — east, twenty minutes, good coffee waiting. Pay\n  attention to the street\
+  \ names. You'll need them."
+- 'The Portal''s door swings closed behind you. A new chapter in the city''s long
+  book.
+
+  Waterdeep has claimed you, and it does not let go easily, and you find — walking
+  east
+
+  through the everburning lamplight with a moneylender who is already talking — that
+  you
+
+  don''t mind.'
 choices: []
