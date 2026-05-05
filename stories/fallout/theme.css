@@ -6,7 +6,7 @@
   font-display: swap;
 }
 
-html body { font-size: 0.875em; }
+html body { font-size: var(--base-font-size, 1em); }
 
 :root {
   --bg: #0d0d0a;
@@ -22,6 +22,7 @@ html body { font-size: 0.875em; }
   --radius: 0px;
 
   --font-body: 'Share Tech Mono', 'Courier New', monospace;
+  --base-font-size: 0.875em;
   --font-ui: 'Roboto Condensed', 'Arial Narrow', sans-serif;
   --font-heading: 'Overseer', 'Bebas Neue', 'Impact', sans-serif;
   --card-title-size: 1.6rem;
