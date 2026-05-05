@@ -1,23 +1,16 @@
-journal: |-
-  Sister Vesna of Tymora died in the deep, blinded by her own light. Linnet walked out because of it.
-
-
+journal: Sister Vesna of Tymora died in the deep, blinded by her own light. Linnet
+  walked out because of it.
 text:
-- |-
-  The light was enough. It held the thing-behind for the seconds you needed. You got Linnet through the hatch.
-- |-
-  Vesna didn't make it through.
-- |-
-  You look back once. She's on her knees, hands flat on the stone, still upright, face turned toward whatever is rising from the pool. The light around her is fading and she is saying something — a benediction, the last one, voice even and unhurried.
-- |-
-  The hatch closes.
-- |-
-  Lady Luck, she always said. Lady Luck willing.
-
-
+- The light was enough. It held the thing-behind for the seconds you needed. You got
+  Linnet through the hatch.
+- Vesna didn't make it through.
+- You look back once. She's on her knees, hands flat on the stone, still upright,
+  face turned toward whatever is rising from the pool. The light around her is fading
+  and she is saying something — a benediction, the last one, voice even and unhurried.
+- The hatch closes.
+- Lady Luck, she always said. Lady Luck willing.
 choices:
-- text: |-
-    Carry her — climb
+- text: Carry her — climb
   next: act2/climb_out
   effects:
     flags:

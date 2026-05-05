@@ -1,21 +1,15 @@
 text:
-- |-
-  She makes it out. Just.
-- |-
-  Her hands are shaking with the particular fine tremor of someone who used their casting hand as a structural load-bearing element and survived it. Both eyebrows are gone. The horn-tips she keeps filed are scored white.
-- |-
-  She looks at Linnet. At the mark on Linnet's hand. At you.
-- female_adult_american_sultry_villainous: |-
-    The thing below may persist. I sealed the chamber. I did not seal the well.
-- |-
-  A pause.
-- female_adult_american_sultry_villainous: |-
-    We should climb quickly.
-
-
+- She makes it out. Just.
+- Her hands are shaking with the particular fine tremor of someone who used their
+  casting hand as a structural load-bearing element and survived it. Both eyebrows
+  are gone. The horn-tips she keeps filed are scored white.
+- She looks at Linnet. At the mark on Linnet's hand. At you.
+- female_adult_american_sultry_villainous: The thing below may persist. I sealed the
+    chamber. I did not seal the well.
+- A pause.
+- female_adult_american_sultry_villainous: We should climb quickly.
 choices:
-- text: |-
-    Climb
+- text: Climb
   next: act2/climb_out
   effects:
     flags:

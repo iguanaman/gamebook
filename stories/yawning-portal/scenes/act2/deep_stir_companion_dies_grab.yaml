@@ -1,43 +1,49 @@
-journal: |-
-  Something died in the deep chamber while you ran. You carry the weight of that up the rope.
-
-
+journal: Something died in the deep chamber while you ran. You carry the weight of
+  that up the rope.
 text:
-- |-
-  The chamber goes wrong fast. The pool inverts, the envoy dissolves, the walls press in with the pressure of whatever is rising below.
-- |-
-  You run. You are all running. And then one of you is not running.
+- The chamber goes wrong fast. The pool inverts, the envoy dissolves, the walls press
+  in with the pressure of whatever is rising below.
+- You run. You are all running. And then one of you is not running.
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [korsa_died]
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
   text:
-  - |-
-    Korsa. The thing-behind's arrival finds him first — not a strike, an erasure, the pressure wave of something massive moving upward through stone. He is there and then he is on the floor and the floor is wet and you have six seconds before the hatch fills.
+  - Korsa. The thing-behind's arrival finds him first — not a strike, an erasure,
+    the pressure wave of something massive moving upward through stone. He is there
+    and then he is on the floor and the floor is wet and you have six seconds before
+    the hatch fills.
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died]
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
   text:
-  - |-
-    Vesna. She was praying — still praying, one last benediction for the envoy's victims, the mark on Linnet's hand, something — and the rising thing found her in the moment of her attention. She goes down before you can reach her.
+  - Vesna. She was praying — still praying, one last benediction for the envoy's victims,
+    the mark on Linnet's hand, something — and the rising thing found her in the moment
+    of her attention. She goes down before you can reach her.
 - if:
-    flags: [recruited_pip]
-    flags_unset: [pip_died]
+    flags:
+    - recruited_pip
+    flags_unset:
+    - pip_died
   text:
-  - |-
-    Pip. She was counting the exits, three steps ahead of everyone, and she found the wrong one — a crack in the floor where the pool was overflowing, and she went through it before any of you could move.
+  - Pip. She was counting the exits, three steps ahead of everyone, and she found
+    the wrong one — a crack in the floor where the pool was overflowing, and she went
+    through it before any of you could move.
 - if:
-    flags: [recruited_thessaly]
-    flags_unset: [thessaly_died]
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
   text:
-  - |-
-    Thessaly. She stayed behind the group to hold the waking off, buying the rest of you seconds, and paid the cost of those seconds in full. She was always going to do that. You think she knew.
-- |-
-  There is no time.
-
-
+  - Thessaly. She stayed behind the group to hold the waking off, buying the rest
+    of you seconds, and paid the cost of those seconds in full. She was always going
+    to do that. You think she knew.
+- There is no time.
 choices:
-- text: |-
-    Climb — there's no time
+- text: Climb — there's no time
   next: act2/climb_out
   effects:
     flags:

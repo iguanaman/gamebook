@@ -1,51 +1,44 @@
-journal: |-
-  You bargained with the thing in the pool and asked for more. It gave you more, on its terms. Linnet walked out marked, and something else walked out with you.
-
-
+journal: You bargained with the thing in the pool and asked for more. It gave you
+  more, on its terms. Linnet walked out marked, and something else walked out with
+  you.
 text:
-- |-
-  You take the deal. And then you do not leave.
-- |-
-  The thing's face — the face-shape — waits.
-- |-
-  You ask for more. You use the words you've assembled from the journal, from Thessaly's muttered Cant, from the shape of the terms it already offered. You ask what else it has. What else it will trade.
-- |-
-  The pool is still for a long moment.
-- male_midlife_american_deep_malevolent_ancient_slow: |-
-    You are asking to extend the arrangement.
-- |-
-  The cadence does not change. But something changes.
-- male_midlife_american_deep_malevolent_ancient_slow: |-
-    We will consider this acceptable.
-- |-
-  The pool surface shifts. Just once. A ripple that moves inward, not out.
-- male_midlife_american_deep_malevolent_ancient_slow: |-
-    The extension requires a second connection. Less permanent. A — listener. Above. You will hear things, sometimes. When we find the information useful to share.
-- |-
-  Linnet makes a sound that is not a word.
-- |-
-  You have asked the thing that keeps her for what else it has to offer, and it has told you. You are the second listener now. This is what asking cost.
+- You take the deal. And then you do not leave.
+- The thing's face — the face-shape — waits.
+- You ask for more. You use the words you've assembled from the journal, from Thessaly's
+  muttered Cant, from the shape of the terms it already offered. You ask what else
+  it has. What else it will trade.
+- The pool is still for a long moment.
+- male_midlife_american_deep_malevolent_ancient_slow: You are asking to extend the
+    arrangement.
+- The cadence does not change. But something changes.
+- male_midlife_american_deep_malevolent_ancient_slow: We will consider this acceptable.
+- The pool surface shifts. Just once. A ripple that moves inward, not out.
+- male_midlife_american_deep_malevolent_ancient_slow: The extension requires a second
+    connection. Less permanent. A — listener. Above. You will hear things, sometimes.
+    When we find the information useful to share.
+- Linnet makes a sound that is not a word.
+- You have asked the thing that keeps her for what else it has to offer, and it has
+  told you. You are the second listener now. This is what asking cost.
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died]
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
   text:
-  - |-
-    Vesna walks out without another word. Not angry — emptied.
+  - Vesna walks out without another word. Not angry — emptied.
 - if:
-    flags: [recruited_thessaly]
-    flags_unset: [thessaly_died]
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
   text:
-  - female_adult_american_sultry_villainous: |-
-      You asked a thing you didn't know how to undo for *more*.
-  - |-
-    A pause.
-  - female_adult_american_sultry_villainous: |-
-      I would have done the same. That's what frightens me.
-
-
+  - female_adult_american_sultry_villainous: You asked a thing you didn't know how
+      to undo for *more*.
+  - A pause.
+  - female_adult_american_sultry_villainous: I would have done the same. That's what
+      frightens me.
 choices:
-- text: |-
-    Out — fast
+- text: Out — fast
   next: act2/climb_out
   effects:
     flags:

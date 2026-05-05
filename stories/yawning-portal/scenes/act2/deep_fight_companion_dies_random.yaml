@@ -1,39 +1,48 @@
 text:
-- |-
-  The thing is dead. The fight was worth it — the apprentice is yours.
-- |-
-  What it cost: one of the two people who came down here with you is not standing. The thing found the gap in the straight charge that a cleverer approach might have closed, and it took what it could reach.
+- The thing is dead. The fight was worth it — the apprentice is yours.
+- 'What it cost: one of the two people who came down here with you is not standing.
+  The thing found the gap in the straight charge that a cleverer approach might have
+  closed, and it took what it could reach.'
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [korsa_died]
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
   text:
-  - |-
-    Korsa. The thing found the hinge of his breastplate, the one gap in all that iron, and it was precise about it. He is on the floor of the chamber, still gripping his axe, which is in the thing. He won't let go.
-  - |-
-    You take his hand. He doesn't say anything. That's how you know.
+  - Korsa. The thing found the hinge of his breastplate, the one gap in all that iron,
+    and it was precise about it. He is on the floor of the chamber, still gripping
+    his axe, which is in the thing. He won't let go.
+  - You take his hand. He doesn't say anything. That's how you know.
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died]
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
   text:
-  - |-
-    Vesna. The thing's reach found her at the moment of her third benediction, the one that would have ended it. She finished the sentence anyway — you heard her complete it, word for word, while she was going down. Lady Luck. The coin is in her palm.
+  - Vesna. The thing's reach found her at the moment of her third benediction, the
+    one that would have ended it. She finished the sentence anyway — you heard her
+    complete it, word for word, while she was going down. Lady Luck. The coin is in
+    her palm.
 - if:
-    flags: [recruited_pip]
-    flags_unset: [pip_died]
+    flags:
+    - recruited_pip
+    flags_unset:
+    - pip_died
   text:
-  - |-
-    Pip. She was already at the door, already counting the exits, when the thing took one last swing and caught her across the back. She went down facing out. That's something.
+  - Pip. She was already at the door, already counting the exits, when the thing took
+    one last swing and caught her across the back. She went down facing out. That's
+    something.
 - if:
-    flags: [recruited_thessaly]
-    flags_unset: [thessaly_died]
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
   text:
-  - |-
-    Thessaly. The thing found her at the moment of the kill-cast — she had already given most of it. Her hands are still warm. The burn-scar has finally healed, at the last possible moment, because her body has given up saving it.
-
-
+  - Thessaly. The thing found her at the moment of the kill-cast — she had already
+    given most of it. Her hands are still warm. The burn-scar has finally healed,
+    at the last possible moment, because her body has given up saving it.
 choices:
-- text: |-
-    Carry them — and Linnet — out
+- text: Carry them — and Linnet — out
   next: act2/climb_out
   effects:
     flags:
@@ -42,9 +51,7 @@ choices:
       body_recovered: true
     stats:
       Vigor: -3
-
-- text: |-
-    Leave them. Get the apprentice out.
+- text: Leave them. Get the apprentice out.
   next: act2/climb_out
   effects:
     flags:

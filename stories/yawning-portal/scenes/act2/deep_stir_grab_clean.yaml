@@ -1,19 +1,16 @@
 text:
-- |-
-  The pool detonates upward — a column of black water that fills the ceiling and drops straight down, and the chamber is suddenly louder than anything you've been in tonight.
-- |-
-  You cross the room in three strides and take Linnet by the wrist. She doesn't pull away. Something in her expression — the calm fractures, completely, and she grabs back.
-- |-
-  The envoy is dissolving. Not dead — something worse. The thing below it has found it, and is consuming it, and doesn't care that you are here. You run.
-- |-
-  Below the stone, a sound rises that has no frequency you can parse — not heard, felt, deep in the molars and the sternum.
-- |-
-  The hatch. The cellar. The corridor. You run.
-
-
+- The pool detonates upward — a column of black water that fills the ceiling and drops
+  straight down, and the chamber is suddenly louder than anything you've been in tonight.
+- You cross the room in three strides and take Linnet by the wrist. She doesn't pull
+  away. Something in her expression — the calm fractures, completely, and she grabs
+  back.
+- The envoy is dissolving. Not dead — something worse. The thing below it has found
+  it, and is consuming it, and doesn't care that you are here. You run.
+- Below the stone, a sound rises that has no frequency you can parse — not heard,
+  felt, deep in the molars and the sternum.
+- The hatch. The cellar. The corridor. You run.
 choices:
-- text: |-
-    Climb — fast
+- text: Climb — fast
   next: act2/climb_out
   effects:
     flags:

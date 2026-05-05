@@ -1,45 +1,37 @@
-journal: |-
-  You bargained with the thing in the pool. Linnet walked out marked. You carry the weight of that.
-
-
+journal: You bargained with the thing in the pool. Linnet walked out marked. You carry
+  the weight of that.
 text:
-- |-
-  You take the deal.
-- |-
-  You say it plainly, no flourish, because there is nothing to add.
-- |-
-  The thing nods once — a very human gesture that lands wrong, like a hand worn backwards.
-- male_midlife_american_deep_malevolent_ancient_slow: |-
-    The arrangement is made. She will go with you. We will be satisfied.
-- |-
-  Linnet stands. Slowly. Her knees have been bent for two days. She crosses the room toward you and the mark on her hand is visible in the lantern light, a thin bruise-line, and she holds her hand behind her back like she is ashamed of it.
-- female_young_american_sweet_youthful_clear: |-
-    Master Joren is — he's going to — 
-- |-
-  She doesn't finish. You don't press.
+- You take the deal.
+- You say it plainly, no flourish, because there is nothing to add.
+- The thing nods once — a very human gesture that lands wrong, like a hand worn backwards.
+- male_midlife_american_deep_malevolent_ancient_slow: The arrangement is made. She
+    will go with you. We will be satisfied.
+- Linnet stands. Slowly. Her knees have been bent for two days. She crosses the room
+  toward you and the mark on her hand is visible in the lantern light, a thin bruise-line,
+  and she holds her hand behind her back like she is ashamed of it.
+- female_young_american_sweet_youthful_clear: 'Master Joren is — he''s going to — '
+- She doesn't finish. You don't press.
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died]
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
   text:
-  - |-
-    Vesna is already at the hatch. She does not look at you. She does not look at Linnet. She looks at the pool.
-  - female_adult_american_gentle_tender_sweet: |-
-      I will pray for her. Every day. For what it's worth.
-  - |-
-    She doesn't say it to you.
+  - Vesna is already at the hatch. She does not look at you. She does not look at
+    Linnet. She looks at the pool.
+  - female_adult_american_gentle_tender_sweet: I will pray for her. Every day. For
+      what it's worth.
+  - She doesn't say it to you.
 - if:
-    flags: [recruited_thessaly]
-    flags_unset: [thessaly_died]
+    flags:
+    - recruited_thessaly
+    flags_unset:
+    - thessaly_died
   text:
-  - female_adult_american_sultry_villainous: |-
-      You bought her. Not much else. But her.
-  - |-
-    She is not criticising. She is accounting.
-
-
+  - female_adult_american_sultry_villainous: You bought her. Not much else. But her.
+  - She is not criticising. She is accounting.
 choices:
-- text: |-
-    Out — together
+- text: Out — together
   next: act2/climb_out
   effects:
     flags:

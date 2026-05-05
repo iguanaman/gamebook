@@ -1,39 +1,35 @@
 text:
-- |-
-  You break.
-- |-
-  The thing is too much — or the room is too small, or the pool behind it is too big, or you have simply reached the bottom of your nerve and this is where the bottom is. You go for the hatch.
-- |-
-  Behind you, Linnet calls out. Not your name — she calls the thing's name, the one it gave her, the one that doesn't resolve into human sounds quite right.
-- |-
-  She is not asking you to come back. She is telling the thing you are leaving.
+- You break.
+- The thing is too much — or the room is too small, or the pool behind it is too big,
+  or you have simply reached the bottom of your nerve and this is where the bottom
+  is. You go for the hatch.
+- Behind you, Linnet calls out. Not your name — she calls the thing's name, the one
+  it gave her, the one that doesn't resolve into human sounds quite right.
+- She is not asking you to come back. She is telling the thing you are leaving.
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died]
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
   text:
-  - |-
-    Vesna stops. Both hands on the door frame. Turns back.
-  - female_adult_american_gentle_tender_sweet: |-
-      I won't. I will not leave her.
-  - |-
-    She says it quietly. She means it entirely.
+  - Vesna stops. Both hands on the door frame. Turns back.
+  - female_adult_american_gentle_tender_sweet: I won't. I will not leave her.
+  - She says it quietly. She means it entirely.
 - if:
-    flags: [recruited_korsa]
-    flags_unset: [korsa_died, recruited_vesna]
+    flags:
+    - recruited_korsa
+    flags_unset:
+    - korsa_died
+    - recruited_vesna
   text:
-  - |-
-    Korsa stops at the hatch. Turns. Looks at you with the particular expression of a man calculating what honour costs.
-  - male_midlife_british_tough_calloused: |-
-      You go. I'll — give her a chance to follow.
-  - |-
-    He means it. He won't leave. He'll stay until the thing takes him or she comes with him.
-- |-
-  You climb.
-
-
+  - Korsa stops at the hatch. Turns. Looks at you with the particular expression of
+    a man calculating what honour costs.
+  - male_midlife_british_tough_calloused: You go. I'll — give her a chance to follow.
+  - He means it. He won't leave. He'll stay until the thing takes him or she comes
+    with him.
+- You climb.
 choices:
-- text: |-
-    Out — fast — climb out
+- text: Out — fast — climb out
   next: act2/climb_out
   effects:
     flags:

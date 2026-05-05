@@ -1,23 +1,17 @@
 text:
-- |-
-  You reach. The thing moves first.
-- |-
-  Not fast — it doesn't need to be fast. It simply places itself between you and Linnet with the unhurried certainty of something that has been waiting in one place for longer than you've been alive.
-- |-
-  Linnet is on the other side of it. She is looking at you over the thing's shoulder — not frightened. The calm is back, the deep settled calm she arrived here with.
-- female_young_american_sweet_youthful_clear: |-
-    You tried.
-- |-
-  She says it like it's enough. You don't know if it is.
-- |-
-  The thing gestures — one open-palm gesture that reads unmistakably as *go*. It is not threatening you. It is dismissing you.
-- |-
-  You go.
-
-
+- You reach. The thing moves first.
+- Not fast — it doesn't need to be fast. It simply places itself between you and Linnet
+  with the unhurried certainty of something that has been waiting in one place for
+  longer than you've been alive.
+- Linnet is on the other side of it. She is looking at you over the thing's shoulder
+  — not frightened. The calm is back, the deep settled calm she arrived here with.
+- female_young_american_sweet_youthful_clear: You tried.
+- She says it like it's enough. You don't know if it is.
+- The thing gestures — one open-palm gesture that reads unmistakably as *go*. It is
+  not threatening you. It is dismissing you.
+- You go.
 choices:
-- text: |-
-    Out — without them
+- text: Out — without them
   next: act2/climb_out
   effects:
     stats:

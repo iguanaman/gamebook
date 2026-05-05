@@ -1,51 +1,50 @@
 text:
-- |-
-  The rope takes your weight. The knots hold. Above you, the disc of the tavern floor shrinks to a coin — lamplight, warmth, the smell of ale and pitch, all of it receding into the noise of a world that no longer applies.
-- |-
-  The cold rises to meet you. Stone walls, wet with condensation, the mineral smell of deep water and old rock and something else below that, something you do not have a name for yet.
+- The rope takes your weight. The knots hold. Above you, the disc of the tavern floor
+  shrinks to a coin — lamplight, warmth, the smell of ale and pitch, all of it receding
+  into the noise of a world that no longer applies.
+- The cold rises to meet you. Stone walls, wet with condensation, the mineral smell
+  of deep water and old rock and something else below that, something you do not have
+  a name for yet.
 - if:
     flags:
     - recruited_korsa
     - recruited_vesna
-  text: |-
-    Korsa descends with the methodical rhythm of a man who has done worse in worse places. Vesna's lips move as she climbs — the same phrase, repeated, too quiet to catch.
+  text: Korsa descends with the methodical rhythm of a man who has done worse in worse
+    places. Vesna's lips move as she climbs — the same phrase, repeated, too quiet
+    to catch.
 - if:
     flags:
     - recruited_korsa
     - recruited_pip
-  text: |-
-    Korsa keeps one hand free on the way down, the other firm on the rope. Pip is already below him, quiet as dropping water, counting the knots under her breath.
+  text: Korsa keeps one hand free on the way down, the other firm on the rope. Pip
+    is already below him, quiet as dropping water, counting the knots under her breath.
 - if:
     flags:
     - recruited_korsa
     - recruited_thessaly
-  text: |-
-    Korsa goes first without discussion. Thessaly follows, two fingers brushing the stone wall as she descends — reading something in the rock, or counting, or neither.
+  text: Korsa goes first without discussion. Thessaly follows, two fingers brushing
+    the stone wall as she descends — reading something in the rock, or counting, or
+    neither.
 - if:
     flags:
     - recruited_vesna
     - recruited_pip
-  text: |-
-    Vesna descends with her eyes open and her coin pressed between her palm and the rope. Pip drops past her like she was born in a shaft this size.
+  text: Vesna descends with her eyes open and her coin pressed between her palm and
+    the rope. Pip drops past her like she was born in a shaft this size.
 - if:
     flags:
     - recruited_vesna
     - recruited_thessaly
-  text: |-
-    Vesna and Thessaly descend without speaking. The silence between them is the careful kind — two people deciding not to say the first thing.
+  text: Vesna and Thessaly descend without speaking. The silence between them is the
+    careful kind — two people deciding not to say the first thing.
 - if:
     flags:
     - recruited_pip
     - recruited_thessaly
-  text: |-
-    Pip goes fast. Thessaly goes slow. You find a pace between them, which is about where you expected to be.
-- |-
-  Your boots find stone. The rope goes slack in your grip.
-- |-
-  Undermountain begins.
-
-
+  text: Pip goes fast. Thessaly goes slow. You find a pace between them, which is
+    about where you expected to be.
+- Your boots find stone. The rope goes slack in your grip.
+- Undermountain begins.
 choices:
-- text: |-
-    Take stock of where you've landed.
+- text: Take stock of where you've landed.
   next: act2/well_mouth_first

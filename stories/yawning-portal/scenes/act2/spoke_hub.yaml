@@ -1,85 +1,77 @@
 text:
-- |-
-  The Trades Ward bleeds into the dockside lanes at a street corner the gas-lamp company has not got around to — a cracked cobble, a posting-board with last month's handbills going soft in the salt air, a barrel someone left out that was never collected.
-- |-
-  This is the city's edge, the seam where commerce gets its hands dirty. Two leads. One rope, waiting.
+- The Trades Ward bleeds into the dockside lanes at a street corner the gas-lamp company
+  has not got around to — a cracked cobble, a posting-board with last month's handbills
+  going soft in the salt air, a barrel someone left out that was never collected.
+- This is the city's edge, the seam where commerce gets its hands dirty. Two leads.
+  One rope, waiting.
 - if:
     flags_unset:
     - alley_spoke_done
     - harbour_spoke_done
-  text: |-
-    The night hasn't hardened yet. There is still time to learn something before the descent.
+  text: The night hasn't hardened yet. There is still time to learn something before
+    the descent.
 - if:
     flags:
     - alley_spoke_done
     flags_unset:
     - harbour_spoke_done
-  text: |-
-    The chandler's lane is behind you. Dock 14 is still open.
+  text: The chandler's lane is behind you. Dock 14 is still open.
 - if:
     flags_unset:
     - alley_spoke_done
     flags:
     - harbour_spoke_done
-  text: |-
-    The harbour has given you what it has. The witness is still out there.
+  text: The harbour has given you what it has. The witness is still out there.
 - if:
     flags:
     - alley_spoke_done
     - harbour_spoke_done
-  text: |-
-    Nothing left to chase up here. The city has told you what it knows.
+  text: Nothing left to chase up here. The city has told you what it knows.
 - if:
     flags:
     - recruited_korsa
     flags_unset:
     - korsa_died
-  text: |-
-    Korsa stands with his back to the barrel, watching the lane mouths. His hands are loose at his sides — the way a man stands when he is listening for something he cannot yet hear.
+  text: Korsa stands with his back to the barrel, watching the lane mouths. His hands
+    are loose at his sides — the way a man stands when he is listening for something
+    he cannot yet hear.
 - if:
     flags:
     - recruited_vesna
     flags_unset:
     - vesna_died
     - vesna_left
-  text: |-
-    Vesna stands at the corner and looks north, toward the alley. Her coin is in her fingers and has not been put away.
+  text: Vesna stands at the corner and looks north, toward the alley. Her coin is
+    in her fingers and has not been put away.
 - if:
     flags:
     - recruited_pip
     flags_unset:
     - pip_died
-  text: |-
-    Pip leans against the posting-board and counts people in the street without moving her lips. Or she is moving her lips. Hard to tell.
+  text: Pip leans against the posting-board and counts people in the street without
+    moving her lips. Or she is moving her lips. Hard to tell.
 - if:
     flags:
     - recruited_thessaly
     flags_unset:
     - thessaly_died
-  text: |-
-    Thessaly is looking at the harbour end of the lane. Something in that direction keeps pulling her gaze and she keeps taking it back.
+  text: Thessaly is looking at the harbour end of the lane. Something in that direction
+    keeps pulling her gaze and she keeps taking it back.
 - if: visited
-  text: |-
-    The corner again. Same barrel. The lamp across the street has gone out while you were away.
-
-
+  text: The corner again. Same barrel. The lamp across the street has gone out while
+    you were away.
 choices:
-- text: |-
-    The alley lead — find the witness.
+- text: The alley lead — find the witness.
   next: act2/alley_approach
   requires:
     flags_unset:
     - alley_spoke_done
-
-- text: |-
-    Dock 14 — the harbour lead.
+- text: Dock 14 — the harbour lead.
   next: act2/harbour_approach
   requires:
     flags_unset:
     - harbour_spoke_done
-
-- text: |-
-    The shrine-stoop — Vesna wants a moment.
+- text: The shrine-stoop — Vesna wants a moment.
   next: act2/shrine_stoop
   requires:
     flags:
@@ -89,9 +81,7 @@ choices:
     - vesna_left
     - shrine_stoop_used
   hide_if_failed: true
-
-- text: |-
-    Pip's contact on the corner — a name worth knowing.
+- text: Pip's contact on the corner — a name worth knowing.
   next: act2/fence_corner
   requires:
     flags:
@@ -100,14 +90,10 @@ choices:
     - pip_died
     - fence_corner_used
   hide_if_failed: true
-
-- text: |-
-    A word with the pair — take stock.
+- text: A word with the pair — take stock.
   next: act2/companion_council_spoke
   requires:
     flags_unset:
     - council_used_at_spoke
-
-- text: |-
-    Enough. Back to the Portal's well-mouth.
+- text: Enough. Back to the Portal's well-mouth.
   next: act2/well_mouth_descend

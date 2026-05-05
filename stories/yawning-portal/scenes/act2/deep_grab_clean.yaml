@@ -1,21 +1,15 @@
 text:
-- |-
-  Clean.
-- |-
-  Linnet is in your arms before the thing's sentence ends. It shrieks — that inhuman frequency, the one that isn't quite sound — and you are already through the hatch, the apprentice against your shoulder, her hands clutching your coat.
-- |-
-  Behind you, a sound like a very old voice saying your name. Then distance takes it.
-- female_young_american_sweet_youthful_clear: |-
-    Where are — we're going up?
-- female_young_american_sweet_youthful_clear: |-
-    Up?
-- |-
-  Yes. Up.
-
-
+- Clean.
+- Linnet is in your arms before the thing's sentence ends. It shrieks — that inhuman
+  frequency, the one that isn't quite sound — and you are already through the hatch,
+  the apprentice against your shoulder, her hands clutching your coat.
+- Behind you, a sound like a very old voice saying your name. Then distance takes
+  it.
+- female_young_american_sweet_youthful_clear: Where are — we're going up?
+- female_young_american_sweet_youthful_clear: Up?
+- Yes. Up.
 choices:
-- text: |-
-    Out
+- text: Out
   next: act2/climb_out
   effects:
     flags:

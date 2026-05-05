@@ -1,27 +1,25 @@
 text:
-- |-
-  The gangway flexes under your boots. The Repose is older than she looked from the pier — up close, the planking has a greenish cast along the waterline, an algae growth in parallel bands that doesn't look right, too regular, like fingers dragged across wet wood.
-- |-
-  The smell hits you at the rail. Brine and rot, yes, but something underneath that — cold and still, like well-water that's been sitting in a sealed barrel. Like depth.
-- |-
-  A wet print, bare-footed and too wide, climbs the bulkhead from the scupper to the boom. It stops halfway up and doesn't come back down.
-- if: {flags: [harbour_warned]}
-  text: |-
-    Pip's warning is loud in the back of your mind. You signal the others. Two fingers. Down. Ready.
-  else: |-
-    The hatch to the hold is open. It should not be.
-
-
+- The gangway flexes under your boots. The Repose is older than she looked from the
+  pier — up close, the planking has a greenish cast along the waterline, an algae
+  growth in parallel bands that doesn't look right, too regular, like fingers dragged
+  across wet wood.
+- The smell hits you at the rail. Brine and rot, yes, but something underneath that
+  — cold and still, like well-water that's been sitting in a sealed barrel. Like depth.
+- A wet print, bare-footed and too wide, climbs the bulkhead from the scupper to the
+  boom. It stops halfway up and doesn't come back down.
+- if:
+    flags:
+    - harbour_warned
+  text: Pip's warning is loud in the back of your mind. You signal the others. Two
+    fingers. Down. Ready.
+  else: The hatch to the hold is open. It should not be.
 choices:
-- text: |-
-    Down into the hold
+- text: Down into the hold
   next: harbour_ambush_open
   effects:
     flags:
       harbour_descended_hold: true
-
-- text: |-
-    Stay topside — let whatever's below come up to you
+- text: Stay topside — let whatever's below come up to you
   next: harbour_ambush_open
   effects:
     flags:

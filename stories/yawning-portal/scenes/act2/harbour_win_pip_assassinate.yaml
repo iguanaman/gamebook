@@ -1,19 +1,19 @@
 text:
-- |-
-  Pip doesn't telegraph it. One moment she is two steps behind you; the next she is behind the man in the dock-coat, her knife at the hinge of his jaw, and what she does is fast and quiet and certain.
-- |-
-  The kuo-toa stop. Not slow down — stop. Whatever thin thread was running from the man to them, it goes slack the instant he does. They stand there with their lamprey mouths working, hands opening and closing, and in the four seconds before they find their own will again you are already moving.
-- |-
-  Two kuo-toa in four seconds. A scorching ray through the chest of the first; your blade through the eye socket of the second when it staggers. It makes a sound like cracking shellfish and its other eye keeps going until the body stops.
-- female_young_american_lisp: |-
-    Told you. Cut the string, the puppets fall.
-- |-
-  She wipes her knife on the inside of the dock-coat, finds the journal page in the man's breast pocket — folded, barely wet — and holds it out.
-
-
+- Pip doesn't telegraph it. One moment she is two steps behind you; the next she is
+  behind the man in the dock-coat, her knife at the hinge of his jaw, and what she
+  does is fast and quiet and certain.
+- The kuo-toa stop. Not slow down — stop. Whatever thin thread was running from the
+  man to them, it goes slack the instant he does. They stand there with their lamprey
+  mouths working, hands opening and closing, and in the four seconds before they find
+  their own will again you are already moving.
+- Two kuo-toa in four seconds. A scorching ray through the chest of the first; your
+  blade through the eye socket of the second when it staggers. It makes a sound like
+  cracking shellfish and its other eye keeps going until the body stops.
+- female_young_american_lisp: Told you. Cut the string, the puppets fall.
+- She wipes her knife on the inside of the dock-coat, finds the journal page in the
+  man's breast pocket — folded, barely wet — and holds it out.
 choices:
-- text: |-
-    Take the page and get off this boat
+- text: Take the page and get off this boat
   next: harbour_resolution
   effects:
     flags:

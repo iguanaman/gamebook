@@ -1,23 +1,17 @@
-journal: |-
-  Thessaly Vex brought the cellar down and didn't make the doorway. The thing below may still be rising.
-
-
+journal: Thessaly Vex brought the cellar down and didn't make the doorway. The thing
+  below may still be rising.
 text:
-- |-
-  The ceiling collapses from the far end. She is three steps from the hatch when the keystone gives.
-- |-
-  She is two steps from the hatch when the wave of stone reaches her.
-- |-
-  You hear her — one syllable, not a word, just a sound, the kind you make when something very large and very final arrives before you expected it.
-- |-
-  Then: silence below. The hatch sealed under rubble. The thing-behind, if it is still rising, rising through rock now.
-- |-
-  You do not know if that is enough. You have Linnet. You don't have Thessaly. You climb.
-
-
+- The ceiling collapses from the far end. She is three steps from the hatch when the
+  keystone gives.
+- She is two steps from the hatch when the wave of stone reaches her.
+- You hear her — one syllable, not a word, just a sound, the kind you make when something
+  very large and very final arrives before you expected it.
+- 'Then: silence below. The hatch sealed under rubble. The thing-behind, if it is
+  still rising, rising through rock now.'
+- You do not know if that is enough. You have Linnet. You don't have Thessaly. You
+  climb.
 choices:
-- text: |-
-    Climb — without her
+- text: Climb — without her
   next: act2/climb_out
   effects:
     flags:

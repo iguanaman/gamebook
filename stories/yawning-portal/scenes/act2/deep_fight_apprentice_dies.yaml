@@ -1,29 +1,25 @@
-journal: |-
-  Linnet died in the deep chamber. The thing used her as a shield and the shield broke.
-
-
+journal: Linnet died in the deep chamber. The thing used her as a shield and the shield
+  broke.
 text:
-- |-
-  The thing used her as a shield and the shield broke.
-- |-
-  There is no other way to say it. You were fighting to save her and she was between you and the thing and it placed her there deliberately, and you could see what it was doing and could not stop it in time.
-- |-
-  The thing is dead. Linnet is dead. Both of those things are true at the same time, and the second one makes the first one hollow.
-- |-
-  The chamber is quiet. The pool is still. Your companions are still standing, breathing hard, looking at the floor.
+- The thing used her as a shield and the shield broke.
+- There is no other way to say it. You were fighting to save her and she was between
+  you and the thing and it placed her there deliberately, and you could see what it
+  was doing and could not stop it in time.
+- The thing is dead. Linnet is dead. Both of those things are true at the same time,
+  and the second one makes the first one hollow.
+- The chamber is quiet. The pool is still. Your companions are still standing, breathing
+  hard, looking at the floor.
 - if:
-    flags: [recruited_vesna]
-    flags_unset: [vesna_died]
+    flags:
+    - recruited_vesna
+    flags_unset:
+    - vesna_died
   text:
-  - female_adult_american_gentle_tender_sweet: |-
-      Lady Luck willing — [sigh] — Lady Luck willing there was something she wanted, at the end. Something real.
-- |-
-  There wasn't, and you know it, and you go.
-
-
+  - female_adult_american_gentle_tender_sweet: Lady Luck willing — [sigh] — Lady Luck
+      willing there was something she wanted, at the end. Something real.
+- There wasn't, and you know it, and you go.
 choices:
-- text: |-
-    Out — without them
+- text: Out — without them
   next: act2/climb_out
   effects:
     flags:

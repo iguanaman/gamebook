@@ -1,19 +1,13 @@
 text:
-- |-
-  The thing was faster than it looked.
-- |-
-  You had Linnet's wrist. It had yours — not a hand, something that reads like a hand, cold and very precise, and Linnet is pulled back before you can brace.
-- |-
-  It knows what you were doing. It knows now.
-- male_midlife_american_deep_malevolent_ancient_slow: |-
-    We see. You are choosing the other path.
-- |-
-  Steel out. No more options.
-
-
+- The thing was faster than it looked.
+- You had Linnet's wrist. It had yours — not a hand, something that reads like a hand,
+  cold and very precise, and Linnet is pulled back before you can brace.
+- It knows what you were doing. It knows now.
+- male_midlife_american_deep_malevolent_ancient_slow: We see. You are choosing the
+    other path.
+- Steel out. No more options.
 choices:
-- text: |-
-    Steel out
+- text: Steel out
   next: act2/deep_fight_open
   effects:
     flags:

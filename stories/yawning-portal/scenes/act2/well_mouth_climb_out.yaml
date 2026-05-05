@@ -1,48 +1,79 @@
-journal: |
-  You came back up. What you brought with you is another question.
+journal: 'You came back up. What you brought with you is another question.
 
+  '
 text:
-- |-
-  You come over the lip.
-- |-
-  The common room is there. Lamplight, smoke, the particular smell of ale and damp wool and everburning tallow. A handful of regulars awake at this hour. They look up.
+- You come over the lip.
+- The common room is there. Lamplight, smoke, the particular smell of ale and damp
+  wool and everburning tallow. A handful of regulars awake at this hour. They look
+  up.
 - if:
-    flags: [stirred_something]
+    flags:
+    - stirred_something
   text:
-  - |-
-    The well behind you makes a sound.
-  - |-
-    Low. Not water. Not stone. Something else — very far down still, or not as far as it was — finding its way up through the dark in slow, even intervals like something enormous breathing.
-  - |
-    The nearest regular puts their drink down. A man by the fire looks at his hands. Nobody speaks.
-- if:
-    flags: [rescued, bargained]
-  text: |
-    Linnet is over the lip and standing in the common room of the Yawning Portal for the first time in two days. She holds her left hand against her ribs, the mark hidden. She looks around the room — the bar, the fire, the regulars staring — as if she is seeing it for the first time and for the second time at once, and neither view quite matches the one she remembers.
-- if:
-    flags: [rescued]
-    flags_unset: [bargained]
-  text: |
-    Linnet is over the lip and on her feet and she is shaking. Properly shaking — the kind that happens after, not during, the kind the body saves for when it's safe enough to fall apart. She has ink on her hands and stone-dust ground into her knees and the terrible calm she wore in the deep chamber is completely gone. She is seventeen years old. She is alive.
-- if:
-    flags_unset: [rescued]
-  text: |
-    You are over the lip. The rope hangs still. Nothing else is coming up.
-- if:
-    flags: [vesna_left]
-    flags_unset: [vesna_died]
-  text: |
-    Vesna is not with you. She stayed below by choice, in the upper chambers where the rope still reaches. You'll see her at the bar, if you look — she came up the long way, alone, and has been here longer than you.
-- if:
-    flags: [body_recovered]
-  text: |
-    You set down what you are carrying. One of the regulars crosses themselves without ceremony. That is all.
-- |
-  Durnan is at the bar. He is watching the well-mouth — has been watching it, you understand, the entire time you were below. Something in his face has been doing this for forty years and has never stopped counting the seconds. He looks at you. He looks at the rope. He nods once.
+  - The well behind you makes a sound.
+  - Low. Not water. Not stone. Something else — very far down still, or not as far
+    as it was — finding its way up through the dark in slow, even intervals like something
+    enormous breathing.
+  - 'The nearest regular puts their drink down. A man by the fire looks at his hands.
+    Nobody speaks.
 
+    '
+- if:
+    flags:
+    - rescued
+    - bargained
+  text: 'Linnet is over the lip and standing in the common room of the Yawning Portal
+    for the first time in two days. She holds her left hand against her ribs, the
+    mark hidden. She looks around the room — the bar, the fire, the regulars staring
+    — as if she is seeing it for the first time and for the second time at once, and
+    neither view quite matches the one she remembers.
+
+    '
+- if:
+    flags:
+    - rescued
+    flags_unset:
+    - bargained
+  text: 'Linnet is over the lip and on her feet and she is shaking. Properly shaking
+    — the kind that happens after, not during, the kind the body saves for when it''s
+    safe enough to fall apart. She has ink on her hands and stone-dust ground into
+    her knees and the terrible calm she wore in the deep chamber is completely gone.
+    She is seventeen years old. She is alive.
+
+    '
+- if:
+    flags_unset:
+    - rescued
+  text: 'You are over the lip. The rope hangs still. Nothing else is coming up.
+
+    '
+- if:
+    flags:
+    - vesna_left
+    flags_unset:
+    - vesna_died
+  text: 'Vesna is not with you. She stayed below by choice, in the upper chambers
+    where the rope still reaches. You''ll see her at the bar, if you look — she came
+    up the long way, alone, and has been here longer than you.
+
+    '
+- if:
+    flags:
+    - body_recovered
+  text: 'You set down what you are carrying. One of the regulars crosses themselves
+    without ceremony. That is all.
+
+    '
+- 'Durnan is at the bar. He is watching the well-mouth — has been watching it, you
+  understand, the entire time you were below. Something in his face has been doing
+  this for forty years and has never stopped counting the seconds. He looks at you.
+  He looks at the rope. He nods once.
+
+  '
 choices:
-- text: |
-    Step over the lip — into the Common Room
+- text: 'Step over the lip — into the Common Room
+
+    '
   next: act2/act3_entry
   effects:
     flags:

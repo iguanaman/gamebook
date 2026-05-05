@@ -1,19 +1,14 @@
 text:
-- |-
-  Fire answers her.
-- |-
-  Not wild — she measures it the way she measures everything, which is to say precisely and without visible effort. The fireball curves right, exactly as she said it would, and the thing is on the wrong side of it, and the thing burns.
-- |-
-  The window is narrow. Linnet is unburnt. Thessaly is unburnt. The chamber smells like old char and something worse underneath it.
-- |-
-  The thing is still. The pool is still.
-- female_adult_american_sultry_villainous: |-
-    The window was sufficient. Come.
-
-
+- Fire answers her.
+- Not wild — she measures it the way she measures everything, which is to say precisely
+  and without visible effort. The fireball curves right, exactly as she said it would,
+  and the thing is on the wrong side of it, and the thing burns.
+- The window is narrow. Linnet is unburnt. Thessaly is unburnt. The chamber smells
+  like old char and something worse underneath it.
+- The thing is still. The pool is still.
+- female_adult_american_sultry_villainous: The window was sufficient. Come.
 choices:
-- text: |-
-    Out
+- text: Out
   next: act2/climb_out
   effects:
     flags:

@@ -1,21 +1,16 @@
 text:
-- |-
-  She turns and faces the pool as the thing-behind rises, and she raises her hands, and she gives it everything she has left.
-- |-
-  The light is wrong-white — not warmth, not the sun, something older. It fills the chamber and the chamber cannot hold it. The rising thing recoils. The envoy dissolves. The pool surface goes flat.
-- |-
-  You grab Linnet. You grab Vesna. You go through the hatch.
-- |-
-  Vesna's eyes are white.
-- female_adult_american_gentle_tender_sweet: |-
-    I'm — I can't — give me a moment. I'll be — give me a moment.
-- |-
-  You give her a moment. Then you carry her.
-
-
+- She turns and faces the pool as the thing-behind rises, and she raises her hands,
+  and she gives it everything she has left.
+- The light is wrong-white — not warmth, not the sun, something older. It fills the
+  chamber and the chamber cannot hold it. The rising thing recoils. The envoy dissolves.
+  The pool surface goes flat.
+- You grab Linnet. You grab Vesna. You go through the hatch.
+- Vesna's eyes are white.
+- female_adult_american_gentle_tender_sweet: I'm — I can't — give me a moment. I'll
+    be — give me a moment.
+- You give her a moment. Then you carry her.
 choices:
-- text: |-
-    Carry her — climb
+- text: Carry her — climb
   next:
   - scene: act2/deep_stir_vesna_blind_lives
     weight: 3

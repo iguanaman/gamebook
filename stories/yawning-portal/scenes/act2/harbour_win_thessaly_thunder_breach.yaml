@@ -1,21 +1,16 @@
 text:
-- |-
-  The thunder does the job. It also does several other jobs nobody asked for.
-- |-
-  The kuo-toa die fast — two of them together in a burst that vents through the porthole, the third taking the man in the dock-coat with it into the forward bulkhead. But the hull is old. The forward strake was already sprung. The thunder finds it.
-- |-
-  Water. Cold, black, coming up through the planking in a sheet.
-- female_adult_american_sultry_villainous: |-
-    The page. Get the page first.
-- |-
-  She's already wading toward the beam it's wedged in. The Repose is settling at the bow. The deck tilts.
-- |-
-  You swim for the quay with the journal page in your teeth. The Repose goes down at the head and keeps going. It's not a slow sinking. It's a slow swallow.
-
-
+- The thunder does the job. It also does several other jobs nobody asked for.
+- The kuo-toa die fast — two of them together in a burst that vents through the porthole,
+  the third taking the man in the dock-coat with it into the forward bulkhead. But
+  the hull is old. The forward strake was already sprung. The thunder finds it.
+- Water. Cold, black, coming up through the planking in a sheet.
+- female_adult_american_sultry_villainous: The page. Get the page first.
+- She's already wading toward the beam it's wedged in. The Repose is settling at the
+  bow. The deck tilts.
+- You swim for the quay with the journal page in your teeth. The Repose goes down
+  at the head and keeps going. It's not a slow sinking. It's a slow swallow.
 choices:
-- text: |-
-    Drag yourself onto the quay — everyone accounted for
+- text: Drag yourself onto the quay — everyone accounted for
   next: harbour_resolution
   effects:
     flags:
