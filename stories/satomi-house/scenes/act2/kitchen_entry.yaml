@@ -1,0 +1,27 @@
+id: act2/kitchen_entry
+
+text:
+  - |-
+    台所は清潔だ。あなたはカウンターに指を走らせた。何もつかない。数日以内に、誰かがここを掃除した。
+  - |-
+    天井に、何かがいる。大きい。体の配置が天井向きに最適化されている。あなたが扉を閉めた瞬間、それが——びくっ、とした。全体が。それからゆっくりと静止した。
+  - |-
+    静止の方が、びくっとするより怖い。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      誰かがこの台所を最近掃除した。その誰かが天井にいる。
+
+choices:
+  - text: |-
+      冷蔵庫を開ける
+    next: act2/kitchen_fridge
+
+  - text: |-
+      天井に話しかける
+    next: act2/kitchen_creature
+    effects:
+      stats:
+        composure: -1
+
+  - text: |-
+      棚を確認する
+    next: act2/kitchen_cupboards

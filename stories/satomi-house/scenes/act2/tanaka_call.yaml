@@ -1,0 +1,34 @@
+id: act2/tanaka_call
+
+journal: |-
+  田中さんに電話した。彼は驚かなかった。それが一番怖かった。
+
+text:
+  - |-
+    電話が一度鳴った。田中さんが出た。
+  - japanese_male_midlife_japanese_mature_deep_intriguing: |-
+      はい。里見さんですね。
+  - |-
+    一度も名乗っていない。
+  - |-
+    彼は話した——ゆっくりと、間を測りながら。節子さんについて。家の評判について。以前ここに泊まった人について。
+  - japanese_male_midlife_japanese_mature_deep_intriguing: |-
+      節子さんは研究者でした。管理者と義務——そういう言葉を使っていた。珍しいとは思いませんでした、当時は。
+  - japanese_male_midlife_japanese_mature_deep_intriguing: |-
+      この家は幽霊屋敷じゃない。住んでいる。違いがあります。
+  - japanese_male_midlife_japanese_mature_deep_intriguing: |-
+      一人いました。大阪の学生さん。四日間いて、挨拶もなく帰った。六ヶ月後にハガキが来た。何も書いていない。切手だけ。家の絵でした。
+  - |-
+    彼は出るようには言わなかった。これが、出るように言うよりずっと怖い。
+  - japanese_male_midlife_japanese_mature_deep_intriguing: |-
+      里見さんも、同じ場所に立っているんでしょう。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      同じ場所。
+
+choices:
+  - text: |-
+      電話を切った
+    next: act2/basement_entry
+    effects:
+      flags:
+        tanaka_done: true

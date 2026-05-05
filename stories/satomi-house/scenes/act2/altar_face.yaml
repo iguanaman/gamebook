@@ -1,0 +1,45 @@
+id: act2/altar_face
+
+journal: |-
+  顔を見た。それは恥ずかしそうにしていた。
+
+text:
+  - |-
+    あなたは向き直った。
+  - |-
+    見えた。スケールが合っていない——空間の中での位置が、ずれている。顔、とは言えないが、顔のある方向がある。一瞬だけ、はっきりと。
+  - |-
+    そしてそれは、後ずさりし始めた。ゆっくりと。誰かが邪魔してしまったと気づいて、できるだけ静かに部屋を出ようとしているときのような、あの動きで。
+  - |-
+    恥ずかしそうにしている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      恥ずかしそうにしている。幽霊みたいなものが恥ずかしそうにしている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      わかる。
+
+choices:
+  - text: |-
+      声をかける
+    next: act2/altar_speak
+    effects:
+      stats:
+        curiosity: 1
+      flags:
+        saw_face: true
+
+  - text: |-
+      見続ける——消えるまで
+    next: act2/altar_watch
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+      flags:
+        saw_face: true
+
+  - text: |-
+      地上に戻る
+    next: act2/altar_return
+    effects:
+      flags:
+        saw_face: true

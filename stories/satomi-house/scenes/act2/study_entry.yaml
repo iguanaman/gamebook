@@ -1,0 +1,31 @@
+id: act2/study_entry
+
+text:
+  - |-
+    書斎は整理されている。書類は積まれ、相互参照され、余白に注記が入っている。節子さんは圧力の下でも秩序を保つ人だった。
+  - |-
+    棚の下段に、それがいる。指が多すぎる。配置が微妙に左右対称ではない。二組の手を使って同時に二冊のノートを開き、照合している。ページをめくる。何か気に入らないものを見つけて、小さく舌打ちをした。
+  - |-
+    あなたに気づいていない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      [sigh]
+
+choices:
+  - text: |-
+      静かに観察する
+    next: act2/study_creature_observe
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+
+  - text: |-
+      書類を読む
+    next: act2/study_documents
+
+  - text: |-
+      そっと引き返す
+    next: act2/study_retreat
+    effects:
+      stats:
+        composure: 1

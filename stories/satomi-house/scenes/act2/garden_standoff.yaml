@@ -1,0 +1,36 @@
+id: act2/garden_standoff
+
+text:
+  - |-
+    二つとも動かない。それは何かを決めかねているようだった。離れようとして、あなたに気づかれることを意識して、止まる。また離れようとする。
+  - |-
+    三回繰り返したあと、それは庭の端——竹の方向——をぐるりと大回りして、音もなく藪の中に消えた。
+  - |-
+    なかなかの努力だった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      気まずかった。お互いに。
+
+choices:
+  - text: |-
+      竹の中を見る
+    next: act2/garden_bamboo
+    requires:
+      stats:
+        curiosity: 5
+    failed_text: |-
+      *(追いかけない。それは常識だ)*
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+
+  - text: |-
+      水盤へ
+    next: act2/garden_basin
+
+  - text: |-
+      掘り返した地面へ
+    next: act2/garden_ground
+    effects:
+      stats:
+        curiosity: 1

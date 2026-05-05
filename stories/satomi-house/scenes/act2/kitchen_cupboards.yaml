@@ -1,0 +1,21 @@
+id: act2/kitchen_cupboards
+
+text:
+  - |-
+    食器、古い時代の乾物、コップが一つ——手に取ると、体温に近い温度がある。
+  - |-
+    棚の奥に、折り畳んだ紙切れ。節子さんの字。「台所のことはわかっている。」宛名はない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      「台所のことはわかっている。」誰に書いた？
+
+choices:
+  - text: |-
+      メモを持ち帰る
+    next: act2/kitchen_return
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      メモを戻す
+    next: act2/kitchen_return

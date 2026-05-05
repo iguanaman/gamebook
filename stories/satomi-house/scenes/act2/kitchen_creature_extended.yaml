@@ -1,0 +1,20 @@
+id: act2/kitchen_creature_extended
+
+text:
+  - |-
+    あなたは天井に向かって話した。この家を相続したこと。長くは居ない予定なこと。ビールを見つけたこと。
+  - |-
+    それは聞いていた。少なくとも、聞いているように見える体の向きをしていた。返答はない。
+  - |-
+    話すのをやめると、台所が静かになった。前より静かだ。何かが変わった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      何かが変わった。何かがわかった。私が何をわかったのかは、まだわからない。
+
+choices:
+  - text: |-
+      冷蔵庫を調べる
+    next: act2/kitchen_fridge
+
+  - text: |-
+      棚を先に
+    next: act2/kitchen_cupboards

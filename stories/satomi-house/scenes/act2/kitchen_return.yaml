@@ -1,0 +1,15 @@
+id: act2/kitchen_return
+
+text:
+  - |-
+    廊下に戻る。台所の扉を閉めた。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      怖くなかった。一番怖くない部屋だった。なのに、一番変だった。
+
+choices:
+  - text: |-
+      庭へ
+    next: act2/garden_entry
+    effects:
+      flags:
+        visited_kitchen: true

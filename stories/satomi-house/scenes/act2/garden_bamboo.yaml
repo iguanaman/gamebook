@@ -1,0 +1,28 @@
+id: act2/garden_bamboo
+
+text:
+  - |-
+    竹藪の中。二、三メートル進むと、それがいた。完全に静止していた。見えないと思っていると思われる。
+  - |-
+    あなたが来たことで、逃げる余地がなくなった。それはあきらめの音をたてた——小さい、低い音で、言語ではないが意味はわかった。
+  - |-
+    近くで見ると足の配置がさらに変だ。でも——竹の幹の、目の高さのあたりが、丁寧に拭かれている。何かがこの庭を手入れしている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      庭師だ。怖い庭師だ。
+
+choices:
+  - text: |-
+      水盤へ
+    next: act2/garden_basin
+
+  - text: |-
+      掘り返した地面へ
+    next: act2/garden_ground
+
+  - text: |-
+      触ってみる
+    next: act2/garden_creature_touch_bad
+    effects:
+      stats:
+        curiosity: 1
+        composure: -2

@@ -1,0 +1,23 @@
+id: act2/garden_ground
+
+text:
+  - |-
+    隅の土。掘り返した跡は意図的なものだ——動物ではなく、人の手で。端から黒い漆が見えている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      箱だ。小さい。鍵がある。
+
+choices:
+  - text: |-
+      掘り出す
+    next: act2/garden_dig
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+
+  - text: |-
+      そのままにする
+    next: act2/garden_return
+    effects:
+      stats:
+        composure: 1

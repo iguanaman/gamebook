@@ -1,0 +1,27 @@
+id: act2/kitchen_creature
+
+text:
+  - |-
+    「あの——」
+  - |-
+    天井のそれが振り向いた。関節の数が、想定より多い。あなたの方を向いて、止まった。びくっとするのをやめた。
+  - |-
+    何かが部屋の中で変わった。それはあなたを怖がるのをやめた。これがあなたを安心させるかというと——そういうわけではない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      怖くなくなった。私のことが怖くない。それで私は怖い。
+
+choices:
+  - text: |-
+      話し続ける
+    next: act2/kitchen_creature_extended
+    effects:
+      stats:
+        composure: -1
+
+  - text: |-
+      冷蔵庫へ
+    next: act2/kitchen_fridge
+
+  - text: |-
+      棚を調べる
+    next: act2/kitchen_cupboards

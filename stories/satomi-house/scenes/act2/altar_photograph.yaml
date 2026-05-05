@@ -1,0 +1,43 @@
+id: act2/altar_photograph
+
+text:
+  - |-
+    写真を手に取った。節子さんが庭に立っている。その端——コートの袖。切れていて、意図的に見える。
+  - |-
+    そのコートを、あなたは知っている。どこで見たか、言葉にはならない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      触る。
+  - |-
+    あなたは写真を戻した。
+
+choices:
+  - text: |-
+      祭壇に触れる
+    next: act2/altar_touch
+    requires:
+      stats:
+        curiosity: 5
+      flags_unset: [corridor_bad]
+    failed_text: |-
+      *(触れる気になれない)*
+    effects:
+      flags:
+        heard_name: true
+
+  - text: |-
+      祭壇に触れる
+    next: act2/altar_touch
+    requires:
+      stats:
+        curiosity: 7
+      flags: [corridor_bad]
+    failed_text: |-
+      *(触らない。廊下のことがある)*
+    effects:
+      flags:
+        heard_name: true
+    hide_if_failed: true
+
+  - text: |-
+      触れずに引き返す
+    next: act2/altar_observe

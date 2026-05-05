@@ -1,0 +1,42 @@
+id: act2/kitchen_fridge
+
+text:
+  - |-
+    冷蔵庫の中には三つ。手作りの梅干し——節子さんの字でラベルが貼ってある。日付、塩分量、漬け込み日数。そして日付。六ヶ月前。
+  - |-
+    薩摩ビールの缶。一九八七年に製造中止になった銘柄だ。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      六ヶ月前。節子さんが死んで——六ヶ月前？
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      梅干しを漬けた。ラベルを貼った。冷蔵庫にしまった。なぜ？
+  - if: {flags: [study_read]}
+    text: |-
+      管理。義務。継続。書斎のノートの言葉が重なる。輪郭が、形になった。
+
+choices:
+  - text: |-
+      梅干しの瓶を手に取る
+    next: act2/kitchen_return
+    effects:
+      stats:
+        curiosity: 1
+      flags:
+        kitchen_examined: true
+        knows_truth: true
+
+  - text: |-
+      缶ビールを手に取る
+    next: act2/kitchen_return
+    effects:
+      stats:
+        curiosity: 1
+      flags:
+        kitchen_examined: true
+        knows_truth: true
+
+  - text: |-
+      そっと閉める
+    next: act2/kitchen_return
+    effects:
+      stats:
+        composure: 1

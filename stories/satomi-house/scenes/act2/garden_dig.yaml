@@ -1,0 +1,21 @@
+id: act2/garden_dig
+
+text:
+  - |-
+    土は柔らかい。箱はすぐに出てきた。小さい。黒漆。錠前がついている——鍵はない。振ると、中で何かが動く。
+  - |-
+    あなたはそれを持ち上げた。持ち上げて、それから——戻した。土をかぶせた。ほとんど。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      持って入ろうと思ったけど——戻した。なぜ？
+
+choices:
+  - text: |-
+      箱を持って家に入る
+    next: act2/garden_return
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      やっぱり戻す
+    next: act2/garden_return

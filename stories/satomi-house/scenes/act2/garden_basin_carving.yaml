@@ -1,0 +1,30 @@
+id: act2/garden_basin_carving
+
+journal: |-
+  石水盤の裏に、里見という名が刻んであった。この家がその名前を知っているはずはなかった。
+
+text:
+  - |-
+    石の裏側に、文字が刻んである。深く、丁寧に。
+  - |-
+    里見。
+  - |-
+    あなたの姓だ。この水盤は、この土地とあなたの家族が繋がるより、少なくとも一世代古い。
+  - |-
+    庭は同じ庭だ。何も変わっていない。それが、何かが変わるより怖い。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      さとみ、という名前は、珍しくない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      ——それは関係ない。
+
+choices:
+  - text: |-
+      掘り返した地面へ
+    next: act2/garden_ground
+
+  - text: |-
+      すぐに家に戻る
+    next: act2/garden_return
+    effects:
+      stats:
+        composure: 1

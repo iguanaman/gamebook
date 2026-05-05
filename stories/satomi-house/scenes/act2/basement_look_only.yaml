@@ -1,0 +1,22 @@
+id: act2/basement_look_only
+
+text:
+  - |-
+    あなたは梯子の近くに立ったまま、祭壇を見た。距離がある。ランプの炎は安定している。誰かが管理している安定さだ。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      近づけない。近づかなければ——何も起きない。何も起きなければ——帰れる。
+
+choices:
+  - text: |-
+      やはり近づく
+    next: act2/altar_approach
+    effects:
+      flags:
+        found_altar: true
+
+  - text: |-
+      上に戻る
+    next: act2/altar_return
+    effects:
+      stats:
+        composure: 1

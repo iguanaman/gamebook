@@ -1,0 +1,15 @@
+id: act2/study_return
+
+text:
+  - |-
+    書斎の扉を閉める。廊下。後ろで何も動かない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      台所へ。
+
+choices:
+  - text: |-
+      台所へ
+    next: act2/kitchen_entry
+    effects:
+      flags:
+        visited_study: true

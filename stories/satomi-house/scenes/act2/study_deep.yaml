@@ -1,0 +1,21 @@
+id: act2/study_deep
+
+text:
+  - |-
+    ノートを読み込むほど、構造が見えてくる。節子さんが記録しているのは儀式ではなく、管理の記録だ。何十年分もの。そしてその前にも誰かが書いていた——筆跡が違う数十年分が、別の冊子に綴じてある。
+  - |-
+    この土地には、この家が建てられる前から、何かがいた。節子さんはそれと、ある種の取り決めを結んでいた。詳細はわからない。でも輪郭はわかる。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      継続。誰かが続けていた。節子さんの前にも誰かが。
+
+choices:
+  - text: |-
+      メモを書き留める
+    next: act2/study_return
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      十分だ
+    next: act2/study_return

@@ -1,0 +1,16 @@
+id: act2/basement_forced
+
+text:
+  - |-
+    あなたは蓋の前に立った。二分間。
+  - |-
+    まだ準備できていない。
+  - |-
+    三分目に、開けた。ナレーターはそれについてコメントしない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      準備ができた人間なんて存在しない。
+
+choices:
+  - text: |-
+      開ける
+    next: act2/basement_descent

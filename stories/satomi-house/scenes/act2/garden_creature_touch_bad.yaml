@@ -1,0 +1,19 @@
+id: act2/garden_creature_touch_bad
+
+text:
+  - |-
+    あなたは手を伸ばした。
+  - |-
+    反応は、予想の五倍だった。それは後退した——全体が、一度に。そのとき、それのサイズがわかった。見えていた部分より、ずっと大きかった。音がした。動物の音でもなく、人間の音でもなかった。
+  - |-
+    止まった。あなたも止まった。竹藪が静かになった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      触らなければよかった。触らなければよかった。触らなければよかった。
+
+choices:
+  - text: |-
+      庭を出る
+    next: act2/garden_return
+    effects:
+      stats:
+        composure: -2

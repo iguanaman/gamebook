@@ -1,0 +1,14 @@
+id: act2/altar_watch
+
+text:
+  - |-
+    あなたは見ていた。予想より時間がかかった。気配はゆっくりと、少しずつ薄くなっていった。
+  - |-
+    いなくなった、と気づいたとき、足が冷えていた。しばらく立っていたらしい。ランプはまだ燃えている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      長かった。待たせてしまった気がする。なぜそう思うのかはわからない。
+
+choices:
+  - text: |-
+      地上に戻る
+    next: act2/altar_return

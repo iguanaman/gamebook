@@ -1,0 +1,27 @@
+id: act2/basement_descent
+
+text:
+  - |-
+    梯子を降りる。土蔵だ。棚に保存食——傷んでいない。こんな状態で残っているはずがないものが、残っている。古い農具。縄が、使えそうな状態でまとめてある。
+  - |-
+    奥に、祭壇がある。隠されてはいない。意図を持って、あの位置に置かれている。
+  - |-
+    ランプが燃えている。小さい油ランプ。燃えていてはいけないランプが、燃えている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      ランプが燃えている。点けた人間がいない。それでも燃えている。
+
+choices:
+  - text: |-
+      祭壇に近づく
+    next: act2/altar_approach
+    effects:
+      flags:
+        found_altar: true
+
+  - text: |-
+      部屋を先に確認する
+    next: act2/basement_storehouse
+
+  - text: |-
+      入口近くで見るだけ
+    next: act2/basement_look_only

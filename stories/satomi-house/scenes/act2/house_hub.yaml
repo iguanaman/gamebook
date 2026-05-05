@@ -1,0 +1,14 @@
+id: act2/house_hub
+
+text:
+  - |-
+    廊下は昼間に見ると違う。光が入る。家の骨格が見える。書斎の扉、台所の扉、庭への引き戸——それから、廊下の突き当たり。床の蓋。
+  - |-
+    家はあなたのことを待っていた、という感じがする。あなたは自分でそれを分析しようとしたが、うまくいかなかった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      では。書斎から。リストの順番通りに。
+
+choices:
+  - text: |-
+      書斎へ入る
+    next: act2/study_entry

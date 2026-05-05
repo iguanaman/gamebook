@@ -1,0 +1,15 @@
+id: act2/basement_storehouse
+
+text:
+  - |-
+    棚の帳簿。数字の列——単位がわからない。農具のラベルは方言で書かれていて、半分しか読めない。でも意図はわかる。ここは儀礼の場所ではなく、作業の場所だ。実務として使われていた。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      儀式じゃない。作業だ。
+
+choices:
+  - text: |-
+      祭壇へ
+    next: act2/altar_approach
+    effects:
+      flags:
+        found_altar: true

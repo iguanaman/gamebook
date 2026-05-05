@@ -1,0 +1,12 @@
+id: act2/altar_retreat
+
+text:
+  - |-
+    あなたは下がった。梯子を見つけた。登った。蓋を閉めた。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      名前だけ知っている。顔は見ていない。それでいい。それでいい。
+
+choices:
+  - text: |-
+      地上に戻る
+    next: act2/altar_return

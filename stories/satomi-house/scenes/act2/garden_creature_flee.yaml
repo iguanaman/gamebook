@@ -1,0 +1,21 @@
+id: act2/garden_creature_flee
+
+text:
+  - |-
+    あなたが一歩踏み出した瞬間、それは走った。速い。方向が変で、地面に対して斜めに走っている。竹藪が揺れ、止まった。
+  - |-
+    怖がっていた。あなたのことが怖かった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      怖がっていた。私のことが怖かった。
+
+choices:
+  - text: |-
+      水盤へ
+    next: act2/garden_basin
+
+  - text: |-
+      掘り返した地面へ
+    next: act2/garden_ground
+    effects:
+      stats:
+        curiosity: 1

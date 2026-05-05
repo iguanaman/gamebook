@@ -1,0 +1,51 @@
+id: act2/altar_return
+
+text:
+  - |-
+    廊下。蓋が閉まった。上りながら段数を数えた——正確だった。
+  - if: {flags: [found_altar, heard_name, saw_face]}
+    text: |-
+      あなたは廊下に立ったまま、動かなかった。ライアンへの架空のメッセージが、今日初めて止まった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      ああ——
+    if: {flags: [found_altar, heard_name, saw_face]}
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      では。
+    if: {flags_unset: [saw_face]}
+
+choices:
+  - text: |-
+      そのまま立っている——受け取る
+    next: act2/act2_threshold
+    requires:
+      flags: [found_altar, heard_name, saw_face]
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+      flags:
+        accepted: true
+        visited_basement: true
+    hide_if_failed: true
+
+  - text: |-
+      お茶を入れる——考えを払う
+    next: act2/act2_threshold
+    requires:
+      flags: [found_altar, heard_name, saw_face]
+    effects:
+      stats:
+        composure: 1
+      flags:
+        visited_basement: true
+    hide_if_failed: true
+
+  - text: |-
+      玄関へ向かう
+    next: act2/act2_threshold
+    requires:
+      flags_unset: [saw_face]
+    effects:
+      flags:
+        visited_basement: true
+    hide_if_failed: true

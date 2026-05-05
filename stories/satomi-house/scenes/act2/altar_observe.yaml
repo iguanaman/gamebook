@@ -1,0 +1,27 @@
+id: act2/altar_observe
+
+text:
+  - |-
+    あなたは触れなかった。距離を置いたまま、観察した。写真、器、折り紙。ランプの炎——何かが炎と自分の間に立っているとき、炎はそういう動きをする。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      触らなかった。でも、ここには何かがある。
+
+choices:
+  - text: |-
+      やはり触れる
+    next: act2/altar_touch
+    requires:
+      stats:
+        curiosity: 5
+    failed_text: |-
+      *(触れる気になれない)*
+    effects:
+      flags:
+        heard_name: true
+
+  - text: |-
+      上に戻る
+    next: act2/altar_return
+    effects:
+      stats:
+        composure: 1

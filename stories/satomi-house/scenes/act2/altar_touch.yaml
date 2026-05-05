@@ -1,0 +1,31 @@
+id: act2/altar_touch
+
+journal: |-
+  祭壇に触れた。それはあなたの名前を知っていた。
+
+text:
+  - |-
+    あなたは手を触れた。ランプは揺れなかった。気配が、揺れた。
+  - |-
+    さとみ
+  - |-
+    一度だけ。問いではない。挨拶でもない。待っていた、という重さだけがある。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      名前を知っている。この気配が私の名前を知っている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      どうして？
+
+choices:
+  - text: |-
+      気配に向き直る
+    next: act2/altar_face
+    effects:
+      stats:
+        composure: -2
+
+  - text: |-
+      すぐに引き返す
+    next: act2/altar_retreat
+    effects:
+      stats:
+        composure: 1

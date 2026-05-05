@@ -1,0 +1,26 @@
+id: act2/basement_entry
+
+text:
+  - |-
+    廊下の床に、蓋がある。ずっと気づいていた。金属の掛け金。手前に引くと、錆が鳴った。
+  - |-
+    下から、空気が上がってくる。古い食料の匂いと、その下に何か別の匂い。灯油か、蝋か——小さいランプの匂い。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      地下には行かない——と思っていたが。所有者なので。行く。
+
+choices:
+  - text: |-
+      蓋を開けて降りる
+    next: act2/basement_descent
+    requires:
+      stats:
+        curiosity: 5
+    failed_text: |-
+      *(地下には行かない。きちんとした理由がある。具体的には言えないが)*
+
+  - text: |-
+      まだ準備ができていない
+    next: act2/basement_forced
+    effects:
+      stats:
+        composure: 1

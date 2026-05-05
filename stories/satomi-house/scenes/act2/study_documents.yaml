@@ -1,0 +1,32 @@
+id: act2/study_documents
+
+text:
+  - |-
+    机の上に広げられた書類。土地台帳は明治以前まで遡っている。手書きの間取り図があって、一階には存在しない部屋が描き込まれている。そしてノート——細かい字で、欄外にまで書き込みがある。
+  - |-
+    節子さんは調査をしていた。この家が建てられる前から、この土地に何があったかを。「管理者」という言葉が繰り返し出てくる。「義務」という言葉も。どちらも定義されていない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      義務。節子さんは何に対して義務があったの？
+
+choices:
+  - text: |-
+      丁寧に読む
+    next: act2/study_deep
+    effects:
+      stats:
+        curiosity: 1
+      flags:
+        study_read: true
+
+  - text: |-
+      ざっと確認する
+    next: act2/study_return
+
+  - text: |-
+      間取り図を撮影する
+    next: act2/study_deep
+    effects:
+      stats:
+        curiosity: 1
+      flags:
+        study_read: true

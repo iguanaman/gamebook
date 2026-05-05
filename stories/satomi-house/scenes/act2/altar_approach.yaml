@@ -1,0 +1,50 @@
+id: act2/altar_approach
+
+text:
+  - |-
+    祭壇の前に立つ。写真、小さな器が二つ、折り紙。ランプ。炎は揺れない。
+  - |-
+    写真に、節子さんが写っている。庭の前で。そして端に——誰かが映っている。コートを着ている。端で切れていて、顔が見えない。
+  - |-
+    この空間は、待っている。何かがいる。まだ見えない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      写真に、もう一人いる。端に切れている。コートを着ている。
+
+choices:
+  - text: |-
+      写真を見る
+    next: act2/altar_photograph
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      祭壇に触れる
+    next: act2/altar_touch
+    requires:
+      stats:
+        curiosity: 5
+      flags_unset: [corridor_bad]
+    failed_text: |-
+      *(触れる気になれない)*
+    effects:
+      flags:
+        heard_name: true
+
+  - text: |-
+      祭壇に触れる
+    next: act2/altar_touch
+    requires:
+      stats:
+        curiosity: 7
+      flags: [corridor_bad]
+    failed_text: |-
+      *(触らない。廊下のことがある。庭のこともある)*
+    effects:
+      flags:
+        heard_name: true
+    hide_if_failed: true
+
+  - text: |-
+      触れずに見る
+    next: act2/altar_observe

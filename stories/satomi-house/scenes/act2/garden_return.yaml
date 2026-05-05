@@ -1,0 +1,28 @@
+id: act2/garden_return
+
+text:
+  - |-
+    廊下に戻る。ジーンズで手を拭いた。庭の扉が閉まる。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      庭師がいる。石に名前が彫ってある。箱がある。
+
+choices:
+  - text: |-
+      次へ
+    next: act2/basement_entry
+    requires:
+      flags_unset: [met_neighbour]
+    effects:
+      flags:
+        visited_garden: true
+    hide_if_failed: true
+
+  - text: |-
+      田中さんに電話する
+    next: act2/tanaka_call
+    requires:
+      flags: [met_neighbour]
+    effects:
+      flags:
+        visited_garden: true
+    hide_if_failed: true

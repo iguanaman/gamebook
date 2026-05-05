@@ -1,0 +1,14 @@
+id: act2/study_retreat
+
+text:
+  - |-
+    あなたは書斎から静かに引き下がった。扉を閉める。廊下。
+  - |-
+    あれはまだ中にいる。おそらく。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      台所から始めよう。書斎はあとで。リストに追記。
+
+choices:
+  - text: |-
+      台所へ先に行く
+    next: act2/kitchen_entry

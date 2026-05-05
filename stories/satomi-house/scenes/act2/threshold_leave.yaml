@@ -1,0 +1,26 @@
+id: act2/threshold_leave
+
+text:
+  - |-
+    カバンを持って、門まで歩いた。道がある。車がある。普通の世界がそこにある。
+  - |-
+    でも——行けない。物理的な障害ではない。何かが、問いの形をしてそこにある。あなたはまだ答えていない。
+  - |-
+    この家は今日一日、あなたを出入りさせた。これは違う。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      行けない。行けないわけじゃないけど——行けない。
+
+choices:
+  - text: |-
+      やはり留まる
+    next: act3/act3_entry
+
+  - text: |-
+      強引に出る
+    next: act3/act3_entry
+    effects:
+      stats:
+        curiosity: -1
+        composure: 1
+      flags:
+        forced_flee: true

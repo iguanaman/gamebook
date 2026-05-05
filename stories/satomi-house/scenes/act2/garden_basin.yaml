@@ -1,0 +1,28 @@
+id: act2/garden_basin
+
+text:
+  - |-
+    石水盤。苔が厚く、重い。水は張っていない。底に影がある——裏側に何か彫ってある。見るには地面に顔を近づけなければならない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      裏に何か彫ってある。見なくていい。
+
+choices:
+  - text: |-
+      屈んで裏を読む
+    next: act2/garden_basin_carving
+    requires:
+      stats:
+        curiosity: 5
+    failed_text: |-
+      *(暗い石の下に顔を突っ込まない)*
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+
+  - text: |-
+      触らない——掘り返した地面へ
+    next: act2/garden_ground
+    effects:
+      stats:
+        composure: 1
