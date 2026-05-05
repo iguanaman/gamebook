@@ -1,11 +1,10 @@
 intro:
   narrator: narrator
   lines:
-    - Stories await
-    - Each its own world
-    - Read the scene
-    - Choose your path
-    - There will be consequences
+    - narrator_male_sean_bean: Stories await
+    - narrator_male_american_wise_captivating: Each its own world
+    - narrator_male_ron_perlman: Read the scene
+    - narrator_male_american_serious_deep_steady: Choose your path
 
 stories:
 - fallout
