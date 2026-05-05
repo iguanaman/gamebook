@@ -489,15 +489,29 @@ function actAudioSlug(actText) {
 }
 
 
-function showTitleSplash(text, audioUrl, onDone) {
+function splitActTitle(title) {
+  const sep = ' — ';
+  const idx = title.indexOf(sep);
+  if (idx === -1) return { label: null, subtitle: title };
+  return { label: title.slice(0, idx), subtitle: title.slice(idx + sep.length) };
+}
+
+function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = false } = {}) {
   app.innerHTML = '';
   document.body.classList.add('splash-active');
 
   const splash = document.createElement('div');
   splash.className = 'story-splash story-splash-hidden';
 
+  if (label) {
+    const lbl = document.createElement('p');
+    lbl.className = 'story-splash-label';
+    lbl.textContent = label;
+    splash.appendChild(lbl);
+  }
+
   const h1 = document.createElement('h1');
-  h1.className = 'story-splash-title';
+  h1.className = isStoryTitle ? 'story-splash-title story-splash-title--story' : 'story-splash-title';
   h1.textContent = text;
   splash.appendChild(h1);
 
@@ -650,7 +664,7 @@ async function startStory(storyId) {
       if (currentStoryId !== splashStoryId || !state) return;
       renderShell(meta);
       await navigateTo(startScene);
-    });
+    }, { isStoryTitle: true });
   } else {
     renderShell(meta);
     await navigateTo(startScene);
@@ -728,21 +742,23 @@ async function navigateTo(sceneId) {
       currentAct = actTitle;
       saveState();
       const actAudioUrl = `stories/${currentStoryId}/audio/${folder}/${actAudioSlug(actTitle)}.opus`;
-      showTitleSplash(actTitle, actAudioUrl, () => {
+      const { label: actLabel, subtitle: actSubtitle } = splitActTitle(actTitle);
+      showTitleSplash(actSubtitle, actAudioUrl, () => {
         renderShell(storyMeta);
         clearNarrative();
         const blocks = resolveSceneBlocks(scene);
         state.blockHashes[sceneId] = blocks.map(b => b.hash);
         saveState();
         typeBlocks(blocks, () => renderChoices(scene), sceneId);
-      });
+      }, { label: actLabel });
     }
   } else if (!alreadyVisited && scene.act && scene.act !== currentAct) {
     showingActTitle = true;
     currentAct = scene.act;
     saveState();
     const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(scene.act)}.opus`;
-    showTitleSplash(scene.act, actAudioUrl, () => {
+    const { label: actLabel2, subtitle: actSubtitle2 } = splitActTitle(scene.act);
+    showTitleSplash(actSubtitle2, actAudioUrl, () => {
       renderShell(storyMeta);
       clearNarrative();
       const blocks = resolveSceneBlocks(scene);
@@ -750,7 +766,7 @@ async function navigateTo(sceneId) {
       saveState();
       renderHud();
       typeBlocks(blocks, () => renderChoices(scene), sceneId);
-    });
+    }, { label: actLabel2 });
   }
 
   if (!showingActTitle) {
