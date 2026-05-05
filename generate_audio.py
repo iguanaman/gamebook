@@ -1,7 +1,10 @@
 """
 Generate TTS audio for all scenes in all stories.
 
-Requires the TTS server running on localhost:5500 (python tts_server.py).
+Requires TTS servers running:
+  - localhost:5500  Chatterbox Turbo for English voices  (python tts_server.py)
+  - localhost:5501  Chatterbox Multilingual for Japanese  (python tts_server_ml.py)
+Voice IDs starting with "japanese_" route to the multilingual server automatically.
 
 Usage:
     python generate_audio.py                          # skip scenes that already have audio
@@ -13,9 +16,13 @@ Usage:
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-TTS_URL       = "http://localhost:5500/tts"
+TTS_URL_TURBO = "http://localhost:5500/tts"   # Chatterbox Turbo — English voices
+TTS_URL_ML    = "http://localhost:5501/tts"   # Chatterbox Multilingual — Japanese voices
 STORIES_DIR   = "stories"
 EXAGGERATION  = 2.0  # max expressiveness; turbo may ignore but worth sending
+
+# Voice ID prefixes that should route to the multilingual server
+ML_VOICE_PREFIXES = ("japanese_",)
 
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -28,9 +35,10 @@ import requests
 import yaml
 
 
-def act_audio_slug(text):
+def act_audio_slug(text, fallback='act'):
     """Convert act title to audio slug (matching engine.js actAudioSlug)."""
-    return re.sub(r'[^a-z0-9]+', '_', text.lower()).strip('_')
+    slug = re.sub(r'[^a-z0-9]+', '_', text.lower()).strip('_')
+    return slug or fallback
 
 
 def load_yaml(path):
@@ -48,8 +56,14 @@ def normalize_text(text):
     return re.sub(r'\b[A-Z]{2,}\b', lambda m: m.group().lower(), text)
 
 
+def _tts_url(voice_id: str) -> str:
+    if any(voice_id.startswith(p) for p in ML_VOICE_PREFIXES):
+        return TTS_URL_ML
+    return TTS_URL_TURBO
+
+
 def synthesize(text, voice_id, exaggeration=1.0):
-    resp = requests.post(TTS_URL, json={"text": normalize_text(text), "voice_id": voice_id, "exaggeration": exaggeration},
+    resp = requests.post(_tts_url(voice_id), json={"text": normalize_text(text), "voice_id": voice_id, "exaggeration": exaggeration},
                          timeout=120)
     resp.raise_for_status()
     return resp.content
@@ -198,8 +212,8 @@ def process_act_titles(story_id, story, default_voice, force):
         title = act.get("title", "")
         if not title:
             continue
-        slug = act_audio_slug(title)
         act_dir = act_file.parent.name
+        slug = act_audio_slug(title, fallback=act_dir)
         out_path = story_dir / "audio" / act_dir / f"{slug}.opus"
         if out_path.exists() and not force:
             continue
