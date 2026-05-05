@@ -78,6 +78,9 @@ def blocks_for_scene(scene, default_voice):
                         voice, text = next(iter(sub.items()))
                         result.append((text, voice, raw_index, f"a{sub_i}"))
                         sub_i += 1
+            elif isinstance(if_text, dict):
+                voice, text = next(iter(if_text.items()))
+                result.append((text, voice, raw_index, "a0"))
             elif if_text:
                 result.append((if_text, default_voice, raw_index, "a0"))
             if isinstance(else_text, list):
@@ -90,6 +93,9 @@ def blocks_for_scene(scene, default_voice):
                         voice, text = next(iter(sub.items()))
                         result.append((text, voice, raw_index, f"b{sub_i}"))
                         sub_i += 1
+            elif isinstance(else_text, dict):
+                voice, text = next(iter(else_text.items()))
+                result.append((text, voice, raw_index, "b0"))
             elif else_text:
                 result.append((else_text, default_voice, raw_index, "b0"))
         else:
