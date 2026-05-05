@@ -235,7 +235,6 @@ button {
   font-size: 1rem;
   line-height: 1;
   color: var(--text-muted);
-  filter: grayscale(1);
   opacity: 0.4;
   cursor: pointer;
   transition: opacity 0.15s;
@@ -560,8 +559,8 @@ body.splash-active .ui-hint { display: none !important; }
 /* ── Journal ──────────────────────────────────────────────────────────────── */
 
 .journal-toggle {
-  bottom: 1rem;
-  left: 1rem;
+  bottom: calc(var(--frame-inset) + 0.25rem);
+  left: calc(var(--frame-inset) + 0.25rem);
   transition: opacity 0.15s, transform 0.15s;
 }
 .journal-toggle.journal-hidden,
