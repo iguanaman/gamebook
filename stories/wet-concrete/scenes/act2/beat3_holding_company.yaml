@@ -1,0 +1,22 @@
+id: act2/beat3_holding_company
+text:
+  - |-
+    The holding company is called Harmon Land Trust LLC. Frank found the name in the re-filing documents — the beneficiary listed each time a boundary shifted. Now he's going to find out who owns it.
+  - |-
+    The incorporation registry is public record. The city planning archives are not. Frank has a name, a courthouse, and the rest of the morning.
+choices:
+  - text: |-
+      Stop at the registered agent — you have enough to name the connection
+    next: act2/holding_company_agent
+    effects:
+      stats:
+        evidence: 1
+  - text: |-
+      Follow the memo thread — there's a reference to a federal highway contract in old city council minutes
+    next: act2/highway_contract_dig
+    effects:
+      stats:
+        heat: 1
+  - text: |-
+      Look up the development committee's voting record — if they voted the right way, that's the quid pro quo
+    next: act2/committee_vote_check

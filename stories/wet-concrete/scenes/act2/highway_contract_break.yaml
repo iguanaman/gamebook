@@ -1,0 +1,14 @@
+id: act2/highway_contract_break
+text:
+  - |-
+    The cabinet lock is a standard city hall Yale — older than the building, probably. A letter opener and patience. Frank is inside in under three minutes.
+  - |-
+    The federal highway contract is where he expected it. The right-of-way corridor runs directly through Aldwick's east block. City development rights for the adjacent parcels revert to whoever holds title at the time of the federal survey — Q3 1946, eighteen months away. Six parcels. Worth nothing today. Worth considerably more once the on-ramp goes in.
+  - |-
+    Harmon Land Trust is buying them now. Condemned, vacant, cheap. The boundary surveys made them cheaper.
+  - |-
+    Frank takes what he needs and gets out. The cabinet will have a broken lock by morning. Someone will notice. He was probably already noticed getting in.
+choices:
+  - text: |-
+      Get out — you've been here too long already
+    next: act2/beat3_aldwick_return

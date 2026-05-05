@@ -1,0 +1,20 @@
+id: act2/vane_contracts
+text:
+  - |-
+    Forty-three contracts approved by Vane's committee since he took the deputy chair in January of '43. Frank pulls the last fourteen months.
+  - |-
+    Twelve contracts. All in districts adjacent to the federal highway corridor — Aldwick, the Decker lots, three parcels on the east side of Quincy Street. Different neighbourhoods, same pattern: condemnation first, contractor acquisition second, title transfer to a holding company third.
+  - |-
+    Not all of them are Harmon Land Trust. Two are routed through a company called Meridian Assessment Group. Frank doesn't know that name. He writes it down anyway. The pattern is the point — the particular company is just the shell the pattern runs through.
+  - |-
+    This isn't one crooked deal. It's an operation. Somebody designed it. Somebody manages it. The committee votes are the machinery — Vane signs them, Dowd chairs them, and somewhere at the end of the corridor the money arrives.
+choices:
+  - text: |-
+      Go to Aldwick — Marta Gaines will know what this maps to on the ground
+    next: act2/aldwick_hub
+    effects:
+      stats:
+        evidence: 1
+  - text: |-
+      Go to the office — you need to think before the next move
+    next: act2/beat3_aldwick_return
