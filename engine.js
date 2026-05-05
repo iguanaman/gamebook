@@ -6,7 +6,7 @@ const app = document.getElementById('app');
 
 const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
 const HINT_KEY = key => `gamebook.hint_seen.${key}`;
-const HINTS_ALWAYS_SHOW = true; // dev flag: show hints repeatedly, revert by setting false
+const HINTS_ALWAYS_SHOW = false; // dev flag: show hints repeatedly, revert by setting false
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
@@ -291,6 +291,23 @@ let state = null;
 
 function stateKey(storyId) {
   return `gamebook.state.${storyId}`;
+}
+
+function resumeKey(storyId) {
+  return `gamebook.resume.${storyId}`;
+}
+
+function saveResume(sceneId, blockIndex) {
+  localStorage.setItem(resumeKey(currentStoryId), JSON.stringify({ scene: sceneId, blockIndex }));
+}
+
+function clearResume() {
+  localStorage.removeItem(resumeKey(currentStoryId));
+}
+
+function loadResume(storyId) {
+  const raw = localStorage.getItem(resumeKey(storyId));
+  return raw ? JSON.parse(raw) : null;
 }
 
 function initState(storyId, startingStats) {
@@ -730,31 +747,41 @@ async function navigateTo(sceneId) {
     const blockHashes = blocks.map(b => b.hash);
 
     if (alreadyVisited) {
-      const seenHashes = new Set(state.blockHashes[sceneId] ?? []);
-      const newIndices = new Set();
-      blocks.forEach((b, i) => { if (!seenHashes.has(b.hash)) newIndices.add(i); });
+      const resume = loadResume(currentStoryId);
+      const resumeIndex = (resume && resume.scene === sceneId) ? resume.blockIndex : null;
 
-      if (newIndices.size === 0) {
-        blocks.forEach(b => showBlockInstant(b));
-        renderChoices(scene);
+      if (resumeIndex !== null) {
+        blocks.slice(0, resumeIndex).forEach(b => showBlockInstant(b));
+        state.blockHashes[sceneId] = blockHashes;
+        saveState();
+        typeBlocks(blocks.slice(resumeIndex), () => renderChoices(scene), sceneId, resumeIndex);
       } else {
-        let i = 0;
-        function step() {
-          if (i >= blocks.length) {
-            state.blockHashes[sceneId] = [...new Set([...seenHashes, ...blockHashes])];
-            saveState();
-            renderChoices(scene);
-            return;
+        const seenHashes = new Set(state.blockHashes[sceneId] ?? []);
+        const newIndices = new Set();
+        blocks.forEach((b, i) => { if (!seenHashes.has(b.hash)) newIndices.add(i); });
+
+        if (newIndices.size === 0) {
+          blocks.forEach(b => showBlockInstant(b));
+          renderChoices(scene);
+        } else {
+          let i = 0;
+          function step() {
+            if (i >= blocks.length) {
+              state.blockHashes[sceneId] = [...new Set([...seenHashes, ...blockHashes])];
+              saveState();
+              renderChoices(scene);
+              return;
+            }
+            const block = blocks[i++];
+            if (!newIndices.has(i - 1)) {
+              showBlockInstant(block);
+              step();
+            } else {
+              playBlocks(sceneId, [block], (b) => showBlockReveal(b), step);
+            }
           }
-          const block = blocks[i++];
-          if (!newIndices.has(i - 1)) {
-            showBlockInstant(block);
-            step();
-          } else {
-            playBlocks(sceneId, [block], (b) => showBlockReveal(b), step);
-          }
+          step();
         }
-        step();
       }
     } else {
       state.blockHashes[sceneId] = blockHashes;
@@ -934,7 +961,7 @@ function typeBlock(block, skip, onDone) {
   return finish;
 }
 
-function typeBlocks(blocks, onDone, sceneId) {
+function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
   const session = playbackSession;
   let index = 0;
   let done = false;
@@ -977,6 +1004,7 @@ function typeBlocks(blocks, onDone, sceneId) {
     if (done || cancelled()) { finish(); return; }
     if (index >= blockCount) { finish(); return; }
     const block = blocks[index++];
+    if (sceneId) saveResume(sceneId, indexOffset + index - 1);
     skip.finished = false;
     const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); });
     if (sceneId) {
@@ -992,6 +1020,7 @@ function typeBlocks(blocks, onDone, sceneId) {
 }
 
 function renderChoices(scene) {
+  clearResume();
   const el = document.getElementById('choices-footer');
   if (!el) return;
 
