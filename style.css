@@ -299,6 +299,15 @@ body.splash-active .ui-hint { display: none !important; }
   text-align: right;
 }
 
+.ui-hint-bottom-center {
+  bottom: calc(var(--frame-inset) + 0.25rem);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.ui-hint-bottom-center.hint-visible { animation: hint-fade-in 0.5s ease 0s both; }
+.ui-hint-bottom-center.hint-gone   { animation: hint-fade-out 0.35s ease forwards; }
+
 
 @keyframes hint-fade-in {
   from { opacity: 0; transform: translateY(4px); }
@@ -386,12 +395,10 @@ body.splash-active .ui-hint { display: none !important; }
 
 .scene-opener::first-letter {
   font-family: var(--font-heading);
-  font-size: var(--drop-cap-size);
   font-weight: 600;
   color: var(--drop-cap-color);
-  float: left;
-  line-height: 1;
-  margin: 0.1em 0.08em 0 0;
+  initial-letter: 2;
+  margin-right: 0.08em;
 }
 
 /* ── Speech ───────────────────────────────────────────────────────────────── */
@@ -732,7 +739,7 @@ body.splash-active .ui-hint { display: none !important; }
 .intro-splash-body p {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   color: var(--text-muted);
   line-height: 1.7;
 }

@@ -7,6 +7,27 @@ const app = document.getElementById('app');
 const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
 const HINT_KEY = key => `gamebook.hint_seen.${key}`;
 
+const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
+
+function showSkipHint() {
+  if (localStorage.getItem(HINT_KEY('skip'))) return;
+  const el = document.getElementById('hint-skip');
+  if (!el) return;
+  el.querySelector('.ui-hint-text').textContent = isTouchDevice()
+    ? 'Double-tap to skip'
+    : 'Space to skip';
+  el.classList.add('hint-visible');
+}
+
+function hideSkipHint(dismiss) {
+  const el = document.getElementById('hint-skip');
+  if (!el || !el.classList.contains('hint-visible')) return;
+  if (dismiss) localStorage.setItem(HINT_KEY('skip'), '1');
+  el.classList.remove('hint-visible');
+  el.classList.add('hint-gone');
+  el.addEventListener('animationend', () => el.classList.remove('hint-gone'), { once: true });
+}
+
 function isHintSeen(key) { return !!localStorage.getItem(HINT_KEY(key)); }
 function markHintSeen(key) { localStorage.setItem(HINT_KEY(key), '1'); }
 
@@ -102,7 +123,9 @@ function showIntroSplash(mode) {
   body.className = 'intro-splash-body';
   body.innerHTML = `
     <p>Stories wait for you here — each its own world, its own rules, its own consequences.</p>
-    <p>Read the scene. Make your choices. Some doors close forever.</p>
+    <p>Read the scene.</p>
+    <p>Make your choices.</p>
+    <p>Some doors close forever.</p>
   `;
 
   const btn = document.createElement('button');
@@ -922,6 +945,7 @@ function typeBlocks(blocks, onDone, sceneId) {
   function cancelled() { return session !== playbackSession; }
 
   function onSkip() {
+    hideSkipHint(true);
     skip.active = true;
     stopAudio();
     if (skip.finished) next();
@@ -938,10 +962,12 @@ function typeBlocks(blocks, onDone, sceneId) {
 
   gameWrap?.addEventListener('dblclick', onSkip);
   document.addEventListener('keydown', onKeySkip);
+  showSkipHint();
 
   function finish() {
     if (done) return;
     done = true;
+    hideSkipHint(false);
     removeClickSkip();
     if (!cancelled()) onDone();
   }
