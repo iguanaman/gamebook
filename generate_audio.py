@@ -7,11 +7,13 @@ Requires TTS servers running:
 Voice IDs starting with "japanese_" route to the multilingual server automatically.
 
 Usage:
-    python generate_audio.py                          # skip scenes that already have audio
-    python generate_audio.py --force                  # regenerate everything
-    python generate_audio.py --story demo             # one story only
-    python generate_audio.py --suffix a               # regen only conditional if-branch blocks (a0, a1, ...)
-    python generate_audio.py --migrate-conditional    # delete old _block_Na/Nb.opus and regen for scenes with existing audio
+    python generate_audio.py                                    # English voices only (default)
+    python generate_audio.py --languages japanese               # Japanese voices only
+    python generate_audio.py --languages japanese english       # all voices
+    python generate_audio.py --force                            # regenerate everything
+    python generate_audio.py --story demo                       # one story only
+    python generate_audio.py --suffix a                         # regen only conditional if-branch blocks (a0, a1, ...)
+    python generate_audio.py --migrate-conditional              # delete old _block_Na/Nb.opus and regen for scenes with existing audio
 """
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -60,6 +62,24 @@ def _tts_url(voice_id: str) -> str:
     if any(voice_id.startswith(p) for p in ML_VOICE_PREFIXES):
         return TTS_URL_ML
     return TTS_URL_TURBO
+
+
+def _voice_allowed(voice_id: str, languages: list[str] | None) -> bool:
+    """Return True if this voice should be processed given the --languages filter.
+
+    No filter → English only (exclude ML prefixes).
+    --languages japanese → include only japanese_ voices.
+    --languages japanese english → include both.
+    'english' is a pseudo-language meaning non-ML voices.
+    """
+    is_ml = any(voice_id.startswith(p) for p in ML_VOICE_PREFIXES)
+    if not languages:
+        return not is_ml
+    allowed = set(languages)
+    if is_ml:
+        prefix = next(p.rstrip("_") for p in ML_VOICE_PREFIXES if voice_id.startswith(p))
+        return prefix in allowed
+    return "english" in allowed
 
 
 def synthesize(text, voice_id, exaggeration=1.0):
@@ -126,7 +146,7 @@ def block_audio_path(scene_id, raw_index, suffix=""):
     return f"audio/{act}/{scene}/{safe}_block_{raw_index}{suffix}.opus"
 
 
-def process_story(story_id, force, suffix_filter=None):
+def process_story(story_id, force, suffix_filter=None, languages=None):
     story_dir = Path(STORIES_DIR) / story_id
     story_file = story_dir / "story.yaml"
 
@@ -138,8 +158,9 @@ def process_story(story_id, force, suffix_filter=None):
     default_voice = story.get("narrator", "narrator")
     print(f"  narrator voice: {default_voice}")
 
-    process_story_title(story_id, story, default_voice, force)
-    process_act_titles(story_id, story, default_voice, force)
+    if _voice_allowed(default_voice, languages):
+        process_story_title(story_id, story, default_voice, force)
+        process_act_titles(story_id, story, default_voice, force)
 
     scenes_dir = story_dir / "scenes"
     scene_files = list(scenes_dir.rglob("*.yaml"))
@@ -153,6 +174,13 @@ def process_story(story_id, force, suffix_filter=None):
 
         scene = load_yaml(scene_file)
         scene_blocks = blocks_for_scene(scene, default_voice)
+
+        if not scene_blocks:
+            continue
+
+        # Filter blocks by language before checking paths
+        scene_blocks = [(t, v, ri, sfx) for (t, v, ri, sfx) in scene_blocks
+                        if _voice_allowed(v, languages)]
 
         if not scene_blocks:
             continue
@@ -316,6 +344,8 @@ def main():
     parser.add_argument("--suffix", help="Regenerate only blocks whose suffix matches this pattern (e.g. 'a0')")
     parser.add_argument("--migrate-conditional", action="store_true",
                         help="Delete old _block_Na/Nb.opus files and regen conditional blocks for scenes that already have other audio")
+    parser.add_argument("--languages", nargs="+", metavar="LANG",
+                        help="Voice prefixes to include (e.g. japanese). Omit to process English-only voices.")
     args = parser.parse_args()
 
     manifest_path = Path(STORIES_DIR) / "manifest.yaml"
@@ -340,7 +370,7 @@ def main():
         if args.migrate_conditional:
             migrate_conditional(story_id)
         else:
-            process_story(story_id, force=args.force, suffix_filter=args.suffix)
+            process_story(story_id, force=args.force, suffix_filter=args.suffix, languages=args.languages)
 
     print("\nDone.")
 
