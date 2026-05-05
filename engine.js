@@ -1,7 +1,8 @@
 // Gamebook engine entry point
 
-const FRESH_MODE = new URLSearchParams(location.search).has('fresh');
-if (FRESH_MODE) { localStorage.setItem = () => {}; localStorage.getItem = () => null; }
+if (new URLSearchParams(location.search).has('fresh')) {
+  Object.keys(localStorage).filter(k => k.startsWith('gamebook.')).forEach(k => localStorage.removeItem(k));
+}
 
 const app = document.getElementById('app');
 
