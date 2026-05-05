@@ -4,7 +4,7 @@
 
 ## 木村 誠一 (Kimura Seiichi) — Estate Agent
 
-**Voice:** `male_adult_american_witty_casual` — closest available to a matter-of-fact professional trying to keep things light; no Japanese-accented voice exists, so this midweight casual delivery substitutes. Note gap: a Japanese-accented male adult voice would better serve this role if added to the library.
+**Voice:** `japanese_male_adult_japanese_serious_clear_measured`
 **Body:** Crisp business card always produced a beat too early. Jacket slightly too large at the shoulders — a size up from what fits. He smooths his folder edges while listening, as if aligning them will align the conversation.
 **Voice on the page:** Neutral bureaucratic Japanese with English-loanword filler. Short declarative sentences. Switches to slightly over-formal register when discussing the haunting — more grammar, fewer contractions — the way people become precise when they don't want to be asked follow-up questions. Never volunteers information; answers what is asked and stops exactly there.
 **Contradiction:** He mentioned the haunting. He did not have to mention the haunting. He always mentions the haunting. He doesn't know why he does this.
@@ -17,7 +17,7 @@
 
 ## 田中 豊 (Tanaka Yutaka) — Elderly Neighbour
 
-**Voice:** `male_elder_american_wise_approachable` — warm and unhurried, carries the weight of someone who has observed a long time and is no longer surprised. No elderly Japanese-accented voice exists; this is the closest match for temperament. Note gap: a Japanese-accented elder male voice would be ideal.
+**Voice:** `japanese_male_midlife_japanese_mature_deep_intriguing`
 **Body:** Eighty-something and unhurried about it. Soft hands — surprising for someone who has clearly done decades of garden work. He holds the phone with two hands, you can hear it somehow. Pauses that are timed rather than uncertain.
 **Voice on the page:** Minimal sentences. He answers questions by reframing them slightly — "The house isn't haunted, it's occupied. There's a difference." He does not volunteer alarm. He does not tell her to leave. His most alarming statements are delivered with the same register as the weather. He rarely finishes a thought that he thinks she can finish herself.
 **Contradiction:** He has lived next to this house for decades without becoming part of its story. This should be impossible. He knows this.
@@ -69,7 +69,7 @@
 
 ## 祭壇の気配 (The Altar Presence) — Spirit of the Basement Altar
 
-**Voice:** `female_midlife_american_eloquent_villainous` — not villainous in the story's terms, but the voice has the quality of something articulate and old that has been waiting a very long time to speak. The eloquence fits a presence that chooses its one word carefully. Note: "villainous" is a label mismatch — this presence is embarrassed, not threatening; the voice is assigned for its weight and deliberateness.
+**Voice:** `japanese_narrator_male_inviting_clear_measured` — the Altar Presence's single word (さとみ) is read by the main narrator voice. No separate NPC voice assigned.
 **Body:** Visible only briefly, only at the edge of perception, only after contact. Does not settle on a shape — what it has settled on is close but not correct. Scale is wrong in a way that is hard to define. When seen directly, it becomes gradually less visible, backing out of the room like someone trying to leave without causing more disruption. The embarrassment is physical.
 **Voice on the page:** One word of dialogue in the entire story: Satomi's given name — さとみ — once. Not a question. It has known this name for some time. The delivery is the whole cast entry: matter-of-fact, weighted, not dramatic. The horror is in the implication.
 **Contradiction:** A presence that has been in this basement long enough to warrant a maintained altar, saying her name with the ease of someone who has been waiting for a particular person to arrive — and then seeming genuinely embarrassed when she turns and looks at it.
@@ -108,24 +108,17 @@
 
 ## Satomi Lambert (née 松島 Matsushima) — Protagonist Inner Voice
 
-**Voice:** `narrator_japanese_female` — PLACEHOLDER. This voice does not exist in `voices.yaml` yet and must be sourced or cloned. Satomi's inner voice is female, Japanese-inflected, practical and dry — warmer than the narrator, increasingly strained as composure drops. Assigned as placeholder per `brief.md`.
-
-Note: Both Japanese narrator voices (`narrator_japanese_male` for the story narrator, `narrator_japanese_female` for Satomi's inner voice) are placeholders not yet in `voices.yaml`. Both need sourcing before audio generation. All other NPC voices above are drawn from available library entries.
+**Voice:** `japanese_female_adult_japanese_cheerful_clear` — Satomi's inner voice. Cheerful and clear; the contrast between her register and the horror is intentional comedy.
 
 ---
 
 ## Voice Assignment Summary
 
-| NPC | Voice ID | Available in voices.yaml |
-|-----|----------|--------------------------|
-| Kimura Seiichi | `male_adult_american_witty_casual` | Yes |
-| Tanaka Yutaka | `male_elder_american_wise_approachable` | Yes |
-| Many-Fingered Reader | `male_midlife_british_sage_posh_wizard` | Yes |
-| Ceiling Dweller | `male_midlife_american_deep_raspy_authentic` | Yes |
-| Sprinter | `male_young_american_weak` | Yes |
-| Altar Presence | `female_midlife_american_eloquent_villainous` | Yes |
-| Setsuko Satomi | none — evidence only | N/A |
-| Ryan Lambert | `male_adult_british_calm_friendly` | Yes |
-| Satomi (inner voice) | `narrator_japanese_female` | **PLACEHOLDER — not yet in voices.yaml** |
-
-No two NPCs with dialogue share a voice. The three creature voices (Reader, Ceiling Dweller, Sprinter) are distinct from each other and from the two speaking NPCs (Kimura, Tanaka) and the two voice-only presences (Altar Presence, Ryan). Setsuko has no voice; Satomi's inner voice is a narrator-track placeholder.
+| Role | Voice ID |
+|------|----------|
+| Narrator + Ryan + Altar Presence | `japanese_narrator_male_inviting_clear_measured` |
+| Satomi (inner voice) | `japanese_female_adult_japanese_cheerful_clear` |
+| Kimura Seiichi | `japanese_male_adult_japanese_serious_clear_measured` |
+| Tanaka Yutaka | `japanese_male_midlife_japanese_mature_deep_intriguing` |
+| Setsuko | none — evidence only |
+| Creatures | no voice — no dialogue |
