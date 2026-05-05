@@ -727,7 +727,7 @@ body.splash-active .ui-hint { display: none !important; }
 .story-splash-out-slow {
   opacity: 0;
   transform: scale(0.97);
-  transition: opacity 1.4s ease, transform 1.4s ease;
+  transition: opacity 2s ease, transform 2s ease;
 }
 
 @keyframes card-pop {

@@ -90,7 +90,7 @@ async function loadManifest() {
   return fetchYaml('stories/manifest.yaml');
 }
 
-async function showSelector({ animateCards = false } = {}) {
+async function showSelector() {
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
   currentStoryId = null;
@@ -113,12 +113,6 @@ async function showSelector({ animateCards = false } = {}) {
     </div>
   `;
   manifest.stories.forEach(id => attachCardHandlers(id));
-  if (animateCards) {
-    document.querySelectorAll('.story-card-wrap').forEach((wrap, idx) => {
-      wrap.style.setProperty('--card-pop-delay', `${idx * 120}ms`);
-      wrap.classList.add('card-pop-in');
-    });
-  }
 }
 
 function showIntroSplash(mode, manifest) {
@@ -169,9 +163,17 @@ function showIntroSplash(mode, manifest) {
     overlay.classList.add('story-splash-out-slow');
     if (isFirst) {
       localStorage.setItem('gamebook.seen_intro', '1');
-      await showSelector({ animateCards: true });
+      await showSelector();
     }
-    overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
+    overlay.addEventListener('transitionend', () => {
+      overlay.remove();
+      if (isFirst) {
+        document.querySelectorAll('.story-card-wrap').forEach((wrap, idx) => {
+          wrap.style.setProperty('--card-pop-delay', `${idx * 120}ms`);
+          wrap.classList.add('card-pop-in');
+        });
+      }
+    }, { once: true });
   }
 
   btn.addEventListener('click', dismiss);
