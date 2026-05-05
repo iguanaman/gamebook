@@ -724,6 +724,23 @@ body.splash-active .ui-hint { display: none !important; }
               transform var(--anim-act-title-duration) ease;
 }
 
+.story-splash-out-slow {
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 1.4s ease, transform 1.4s ease;
+}
+
+@keyframes card-pop {
+  0%   { opacity: 0; transform: scale(0.88) translateY(12px); }
+  65%  { opacity: 1; transform: scale(1.04) translateY(-3px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.card-pop-in {
+  animation: card-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--card-pop-delay, 0ms);
+}
+
 .story-splash-title {
   font-family: var(--font-heading);
   font-size: var(--story-title-size);
