@@ -1,6 +1,6 @@
 # Act template — copy to _act.yaml in a scene subfolder (e.g. scenes/act1/_act.yaml)
 # The engine fetches this when navigating into this folder for the first time.
-# Audio: generate_audio.py reads title and outputs audio/{slug}.opus automatically.
+# Audio: generate_audio.py reads title and outputs audio/{actDir}/{slug}.opus automatically.
 
 title: Act One — The Title
 journal: "Act-opening journal entry — second person, marks the act transition for the player. Mandatory on every _act.yaml."

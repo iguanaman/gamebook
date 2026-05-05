@@ -94,11 +94,11 @@ Before any choice is acted on, `pushHistory()` snapshots `{ scene, stats, flags,
 
 ## Audio
 
-**Scene blocks:** Each text block has its own `.opus` file: `audio/{sceneId}_block_0.opus`, `audio/{sceneId}_block_1.opus`, etc. (slashes in sceneId replaced with `-`). `playBlocks()` plays them sequentially — each clip's `ended` event reveals the next narrative block and starts the next clip. Choices are rendered after the final clip ends. Autoplay errors skip straight to choices. The active clip is tracked in `currentAudio`; navigation calls `stopAudio()` first.
+**Scene blocks:** Each text block has its own `.opus` file at `audio/{act}/{scene}/{act}-{scene}_block_0.opus`, etc. `playBlocks()` plays them sequentially — each clip's `ended` event reveals the next narrative block and starts the next clip. Choices are rendered after the final clip ends. Autoplay errors skip straight to choices. The active clip is tracked in `currentAudio`; navigation calls `stopAudio()` first.
 
 **Story title audio:** Optional. On fresh/new-game start, engine looks for `audio/story_title.opus`. If found, it plays during the splash screen. Absent or blocked → silent fallback.
 
-**Act title audio:** Optional. Engine derives a slug from the act title string (lowercase, non-alphanumeric runs → `_`) and looks for `audio/{slug}.opus`. If found, it plays after the act title animation completes (delayed by `--anim-act-title-duration`). After the clip ends (or if the file is absent / autoplay blocked), the engine waits `ACT_TITLE_PAUSE_MS` (2000ms) then starts scene block audio. Act audio is also assigned to `currentAudio` so `stopAudio()` works correctly.
+**Act title audio:** Optional. Engine derives a slug from the act title string (lowercase, non-alphanumeric runs → `_`) and looks for `audio/{actDir}/{slug}.opus`. If found, it plays after the act title animation completes (delayed by `--anim-act-title-duration`). After the clip ends (or if the file is absent / autoplay blocked), the engine waits `ACT_TITLE_PAUSE_MS` (2000ms) then starts scene block audio. Act audio is also assigned to `currentAudio` so `stopAudio()` works correctly.
 
 ## Rendering
 
