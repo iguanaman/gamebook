@@ -237,6 +237,86 @@ button {
   opacity: 1;
 }
 
+.ui-hint {
+  position: fixed;
+  z-index: 399;
+  display: none;
+  gap: 0.25rem;
+  pointer-events: none;
+}
+
+.ui-hint.hint-visible {
+  display: flex;
+  animation: hint-fade-in 0.6s ease 0.8s both;
+}
+
+.ui-hint.hint-gone {
+  display: flex;
+  animation: hint-fade-out 0.4s ease forwards;
+}
+
+.ui-hint-top-right {
+  top: calc(var(--frame-inset) + 2.5rem);
+  right: calc(var(--frame-inset) + 0.5rem);
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.ui-hint-top-left {
+  top: calc(var(--frame-inset) + 2.5rem);
+  left: calc(var(--frame-inset) + 0.5rem);
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ui-hint-bottom-left {
+  bottom: calc(var(--frame-inset) + 2.8rem);
+  left: calc(var(--frame-inset) + 0.5rem);
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.ui-hint-bottom-right {
+  bottom: calc(var(--frame-inset) + 2.8rem);
+  right: calc(var(--frame-inset) + 0.5rem);
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.ui-hint-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 13rem;
+  line-height: 1.3;
+}
+
+.ui-hint-top-right .ui-hint-text,
+.ui-hint-bottom-right .ui-hint-text { text-align: right; }
+
+.ui-hint-arrow {
+  width: 60px;
+  height: 50px;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+.ui-hint-arrow-up-right { margin-right: 0.6rem; }
+.ui-hint-arrow-up-left  { margin-left: 0.6rem; }
+.ui-hint-arrow-down-left { margin-left: 0.6rem; }
+.ui-hint-arrow-down-right { margin-right: 0.6rem; }
+
+@keyframes hint-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hint-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
 /* ── Game layout ──────────────────────────────────────────────────────────── */
 
 .game-wrap {
@@ -245,6 +325,7 @@ button {
   padding: calc(var(--frame-inset) + 1.5rem) 1rem;
   min-height: 100dvh;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .narrative-area {

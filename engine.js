@@ -2,6 +2,43 @@
 
 const app = document.getElementById('app');
 
+// ── UI hints ─────────────────────────────────────────────────────────────────
+
+const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
+const HINT_KEY = key => `gamebook.hint_seen.${key}`;
+
+function isHintSeen(key) { return !!localStorage.getItem(HINT_KEY(key)); }
+function markHintSeen(key) { localStorage.setItem(HINT_KEY(key), '1'); }
+
+function dismissHint(key) {
+  const el = document.getElementById(`hint-${key}`);
+  if (!el) return;
+  markHintSeen(key);
+  el.classList.remove('hint-visible');
+  el.classList.add('hint-gone');
+  el.addEventListener('animationend', () => { el.classList.remove('hint-gone'); }, { once: true });
+  setTimeout(showNextHint, 450);
+}
+
+function isHintTargetReady(key) {
+  if (key === 'fullscreen') return true;
+  if (key === 'back') return !document.getElementById('back-btn')?.classList.contains('back-hidden');
+  if (key === 'journal') return !document.getElementById('journal-toggle')?.classList.contains('journal-hidden');
+  if (key === 'undo') return !!document.getElementById('btn-undo') && !document.getElementById('btn-undo').classList.contains('undo-disabled');
+  return false;
+}
+
+function showNextHint() {
+  for (const key of HINT_QUEUE) {
+    if (isHintSeen(key)) continue;
+    if (!isHintTargetReady(key)) break;
+    const el = document.getElementById(`hint-${key}`);
+    if (!el) break;
+    el.classList.add('hint-visible');
+    return;
+  }
+}
+
 function initFullscreen() {
   const btn = document.getElementById('fullscreen-btn');
   if (!btn) return;
@@ -11,7 +48,9 @@ function initFullscreen() {
   });
   document.addEventListener('fullscreenchange', () => {
     btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
+    if (document.fullscreenElement) dismissHint('fullscreen');
   });
+  showNextHint();
 }
 
 
@@ -1008,6 +1047,7 @@ function updateUndoButton() {
   if (!btn) return;
   const empty = !state || state.history.length === 0;
   btn.classList.toggle('undo-disabled', empty);
+  if (!empty) showNextHint();
 }
 
 function showConfirm(message, onYes) {
@@ -1047,6 +1087,7 @@ function showUndoConfirm() {
 }
 
 async function handleUndo() {
+  dismissHint('undo');
   showUndoConfirm();
 }
 
@@ -1070,6 +1111,7 @@ function renderJournal() {
   if (currentStoryId) {
     toggle.classList.remove('journal-hidden');
     document.getElementById('back-btn')?.classList.remove('back-hidden');
+    showNextHint();
   }
 
   const sceneEntries = entries.filter(e => !e.scene.startsWith('__'));
@@ -1104,8 +1146,8 @@ function toggleJournal() {
   }
 }
 
-document.getElementById('journal-toggle')?.addEventListener('click', toggleJournal);
-document.getElementById('back-btn')?.addEventListener('click', () => { cancelPlayback(); showSelector(); });
+document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
+document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); cancelPlayback(); showSelector(); });
 document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector(); });
 document.getElementById('journal-new-game')?.addEventListener('click', () => {
   if (!currentStoryId) return;
