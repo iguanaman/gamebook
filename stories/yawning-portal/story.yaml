@@ -3,7 +3,7 @@ genre: Fantasy
 prefix: D&D
 title: One Night in the Yawning Portal
 narrator: narrator_male_sean_bean
-description: A missing apprentice. An open well to Undermountain. A common room full of regulars who might just help, if you earn it. One night in Waterdeep's most famous tavern.
+description: Someone's apprentice went down Undermountain's well two days ago. Nobody's coming back up.
 cover: images/cover.jpg
 start: act1/portal_arrival
 journal: |-

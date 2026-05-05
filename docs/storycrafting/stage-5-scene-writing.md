@@ -186,6 +186,15 @@ If this is the first scene of the whole story, also:
 - Add the story ID to `stories/manifest.yaml`
 - Set `start:` to the first scene's path
 - Include a `journal:` field on `story.yaml` — this is mandatory, and is recorded as the journal's opening entry on new game
+- Write the `description:` field — shown on the story selector card. One sentence, max ~15 words. Cover only what the player knows at the very start: their situation and the immediate tension. No spoilers, no act-2 stakes, no resolution hints. The hook is the first thing the player senses, not the arc they'll discover.
+
+  ```yaml
+  # Good — early situation + immediate tension, no spoilers
+  description: You're a vault security officer. Something is wrong, and the overseer isn't talking.
+
+  # Bad — reveals mid-story stakes and framing the player doesn't have yet
+  description: The reactor is failing. The overseer is hiding it. You have 72 hours and a vault full of people who don't know they're already dead.
+  ```
 
 ---
 

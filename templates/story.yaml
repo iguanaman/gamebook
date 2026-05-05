@@ -5,7 +5,7 @@ genre: Fantasy              # main genre shown on the selector card (e.g. Sci-Fi
 prefix: Fallout             # optional label shown before title on selector card only (em dash added automatically) — not narrated
 narrator: darkest_dungeon   # default voice for all scenes; must match a file in tts_voices/
 title: Story Title
-description: One or two sentences shown on the selector screen.
+description: One sentence (~15 words max). Player's situation + immediate tension, no spoilers — only what they know at the very start.
 cover: images/cover.jpg     # optional — must be named cover.jpg; silently hidden if missing
 start: start                # ID of the first scene (can include subfolder: act1/opening)
 journal: "Opening journal entry — written in second person, sets the scene the player starts in. Mandatory."
