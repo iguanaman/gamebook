@@ -11,19 +11,18 @@ const HINTS_ALWAYS_SHOW = false; // dev flag: show hints repeatedly, revert by s
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
 function showSkipHint() {
-  if (!HINTS_ALWAYS_SHOW && localStorage.getItem(HINT_KEY('skip'))) return;
   const el = document.getElementById('hint-skip');
-  if (!el) return;
+  if (!el || el.classList.contains('hint-visible')) return;
   el.querySelector('.ui-hint-text').textContent = isTouchDevice()
     ? 'Double-tap to skip'
     : 'Space to skip';
+  el.classList.toggle('hint-skip-used', !!localStorage.getItem('gamebook.hint_skip_used'));
   el.classList.add('hint-visible');
 }
 
-function hideSkipHint(dismiss) {
+function hideSkipHint() {
   const el = document.getElementById('hint-skip');
   if (!el || !el.classList.contains('hint-visible')) return;
-  if (dismiss && !HINTS_ALWAYS_SHOW) localStorage.setItem(HINT_KEY('skip'), '1');
   el.classList.remove('hint-visible');
   el.classList.add('hint-gone');
   el.addEventListener('animationend', () => el.classList.remove('hint-gone'), { once: true });
@@ -569,6 +568,8 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
   function cancelled() { return session !== playbackSession; }
 
   function onSkip() {
+    localStorage.setItem('gamebook.hint_skip_used', '1');
+    hideSkipHint();
     stopAudio();
     playNext();
   }
@@ -584,10 +585,12 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
 
   gameWrap?.addEventListener('dblclick', onSkip);
   document.addEventListener('keydown', onKeySkip);
+  showSkipHint();
 
   function finish() {
     if (done) return;
     done = true;
+    hideSkipHint();
     removeClickSkip();
     if (!cancelled()) onDone();
   }
@@ -1017,7 +1020,8 @@ function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
   function cancelled() { return session !== playbackSession; }
 
   function onSkip() {
-    hideSkipHint(true);
+    localStorage.setItem('gamebook.hint_skip_used', '1');
+    hideSkipHint();
     skip.active = true;
     stopAudio();
     if (skip.finished) next();
@@ -1039,7 +1043,7 @@ function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
   function finish() {
     if (done) return;
     done = true;
-    hideSkipHint(false);
+    hideSkipHint();
     removeClickSkip();
     if (!cancelled()) onDone();
   }

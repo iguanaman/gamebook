@@ -271,7 +271,7 @@ body.splash-active .ui-hint { display: none !important; }
   font-style: italic;
   font-size: 0.875rem;
   color: var(--text-muted);
-  opacity: 1;
+  opacity: 0.45;
   white-space: nowrap;
   line-height: 1;
 }
@@ -306,6 +306,7 @@ body.splash-active .ui-hint { display: none !important; }
 }
 .ui-hint-bottom-center.hint-visible { animation: hint-fade-in-center 0.5s ease 0s both; }
 .ui-hint-bottom-center.hint-gone   { animation: hint-fade-out-center 0.35s ease forwards; }
+.ui-hint-bottom-center.hint-skip-used .ui-hint-text { opacity: 0.25; }
 
 @keyframes hint-fade-in-center {
   from { opacity: 0; transform: translateX(-50%) translateY(4px); }
