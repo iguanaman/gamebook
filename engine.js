@@ -103,6 +103,7 @@ async function showSelector() {
 
 function showIntroSplash(mode) {
   const isFirst = mode === 'first';
+  document.body.classList.add('splash-active');
   const overlay = document.createElement('div');
   overlay.className = 'story-splash story-splash-hidden';
 
@@ -127,6 +128,7 @@ function showIntroSplash(mode) {
   });
 
   function dismiss() {
+    document.body.classList.remove('splash-active');
     overlay.classList.remove('story-splash-visible');
     overlay.classList.add('story-splash-out');
     overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
@@ -446,6 +448,7 @@ function actAudioSlug(actText) {
 
 function showTitleSplash(text, audioUrl, onDone) {
   app.innerHTML = '';
+  document.body.classList.add('splash-active');
 
   const splash = document.createElement('div');
   splash.className = 'story-splash story-splash-hidden';
@@ -465,6 +468,7 @@ function showTitleSplash(text, audioUrl, onDone) {
   function dismiss() {
     if (dismissed) return;
     dismissed = true;
+    document.body.classList.remove('splash-active');
     stopAudio();
     splash.classList.remove('story-splash-visible');
     splash.classList.add('story-splash-out');

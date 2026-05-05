@@ -225,7 +225,8 @@ button {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: var(--text-muted);
   opacity: 0.45;
   padding: 0.25rem 0.35rem;
@@ -251,6 +252,8 @@ button {
   animation: hint-fade-in 0.5s ease 0.8s both;
 }
 
+body.splash-active .ui-hint { display: none !important; }
+
 .ui-hint.hint-gone {
   display: block;
   animation: hint-fade-out 0.35s ease forwards;
@@ -261,6 +264,7 @@ button {
   font-style: italic;
   font-size: 0.82rem;
   color: var(--text-muted);
+  opacity: 0.45;
   line-height: 1.3;
   max-width: 11rem;
   display: block;
