@@ -1,0 +1,10 @@
+id: act1/office_hub_act1
+
+text:
+  - |-
+    [Office hub Act 1 — stub. To be written in next stage.]
+
+choices:
+  - text: |-
+      Continue
+    next: act1/vera_call_check

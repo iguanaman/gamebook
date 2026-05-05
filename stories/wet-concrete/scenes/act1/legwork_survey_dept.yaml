@@ -1,0 +1,10 @@
+id: act1/legwork_survey_dept
+
+text:
+  - |-
+    [Beat 2 — stub. To be written in next stage.]
+
+choices:
+  - text: |-
+      Continue
+    next: act1/legwork_hub

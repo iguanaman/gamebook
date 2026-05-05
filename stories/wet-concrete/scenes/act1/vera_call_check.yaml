@@ -1,0 +1,10 @@
+id: act1/vera_call_check
+
+text:
+  - |-
+    [Beat 4 — stub. To be written in next stage.]
+
+choices:
+  - text: |-
+      Continue
+    next: act1/beat5_entry
