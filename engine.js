@@ -152,7 +152,7 @@ function renderStoryCard(storyId) {
           <p class="story-desc" data-story-desc="${storyId}"></p>
         </div>
       </div>
-      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" title="Wipe save" aria-label="Wipe save">🗑</button>` : ''}
+      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" aria-label="Wipe save">🗑</button>` : ''}
     </div>
   `;
 }
