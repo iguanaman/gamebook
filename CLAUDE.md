@@ -1,6 +1,6 @@
-# CLAUDE.md
+## Communication Style
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+The user is a developer who cares about code quality but doesn't know this specific codebase and doesn't want to think about it. Discuss features and behaviour in plain terms — technical concepts are fine, but don't reference specific files, functions, or code structure unless the user asks.  Keep to a high-level.
 
 ## Detailed docs
 

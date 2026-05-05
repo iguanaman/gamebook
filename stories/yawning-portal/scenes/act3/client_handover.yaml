@@ -1,131 +1,169 @@
 text:
-  # ε — stirred, Joren may have fled (show the empty-table prose regardless;
-  # on ε+Renown≥1 he stayed rigid in his chair; prose covers both sub-cases)
 - if:
-    flags: [stirred_something]
-    flags_unset: [rescued]
-  text: |-
-    Joren's corner table. The cup is there. The chair is pushed out. Whether he's still in it
-    or already gone is the kind of thing the room's mood has made ambiguous — half the patrons
-    have drifted toward the door since you came up the rope.
+    flags:
+    - stirred_something
+    flags_unset:
+    - rescued
+  text: 'Joren''s corner table. The cup is there. The chair is pushed out. Whether
+    he''s still in it
 
+    or already gone is the kind of thing the room''s mood has made ambiguous — half
+    the patrons
+
+    have drifted toward the door since you came up the rope.'
 - if:
-    flags: [stirred_something]
-    flags_unset: [rescued]
-  text: |-
-    If he's there, he's the colour of bad news. If he's not, the cold cup says enough.
-
-  # α — clean rescue, full success
+    flags:
+    - stirred_something
+    flags_unset:
+    - rescued
+  text: If he's there, he's the colour of bad news. If he's not, the cold cup says
+    enough.
 - if:
-    flags: [rescued]
-    flags_unset: [bargained, stirred_something]
-  text: |-
-    Joren sees Linnet before he sees you. Something in him — the part that has been braced
-    for the worst since you shook his hand — gives way all at once. He's out of the chair
-    before she reaches him. He says her name twice. She lets him hold on.
+    flags:
+    - rescued
+    flags_unset:
+    - bargained
+    - stirred_something
+  text: 'Joren sees Linnet before he sees you. Something in him — the part that has
+    been braced
 
+    for the worst since you shook his hand — gives way all at once. He''s out of the
+    chair
+
+    before she reaches him. He says her name twice. She lets him hold on.'
 - if:
-    flags: [rescued]
-    flags_unset: [bargained, stirred_something]
-  text: |-
-    He pulls himself back together in pieces. Turns to you. His hand is shaking when he
-    reaches for the purse.
+    flags:
+    - rescued
+    flags_unset:
+    - bargained
+    - stirred_something
+  text: 'He pulls himself back together in pieces. Turns to you. His hand is shaking
+    when he
 
+    reaches for the purse.'
 - if:
-    flags: [rescued]
-    flags_unset: [bargained, stirred_something]
-  text: |-
-    male_young_american_weak: |-
-      Here — all of it. I would have — I didn't know it would — thank you. Thank you.
-
-  # γ — rescued, bargained, not stirred: the mark
+    flags:
+    - rescued
+    flags_unset:
+    - bargained
+    - stirred_something
+  text: "male_young_american_weak: |-\n  Here — all of it. I would have — I didn't\
+    \ know it would — thank you. Thank you."
 - if:
-    flags: [rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    Joren sees Linnet and the relief hits first. Then something behind the relief — a
-    wrongness he can't locate, can't name. She looks at him and almost smiles and the almost
-    is the thing that stops him mid-step. He holds her. He doesn't say her name again.
+    flags:
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: 'Joren sees Linnet and the relief hits first. Then something behind the relief
+    — a
 
+    wrongness he can''t locate, can''t name. She looks at him and almost smiles and
+    the almost
+
+    is the thing that stops him mid-step. He holds her. He doesn''t say her name again.'
 - if:
-    flags: [rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    male_young_american_weak: |-
-      She's — she looks — [cough] here. For the trouble. For bringing her back.
-
+    flags:
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: "male_young_american_weak: |-\n  She's — she looks — [cough] here. For the\
+    \ trouble. For bringing her back."
 - if:
-    flags: [rescued, bargained]
-    flags_unset: [stirred_something]
-  text: |-
-    He doesn't meet your eyes when he passes the purse. He's still watching Linnet. She is
-    watching the wall.
+    flags:
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
+  text: 'He doesn''t meet your eyes when he passes the purse. He''s still watching
+    Linnet. She is
 
-  # ε — rescued and stirred: partial pay, Joren is still there but barely
+    watching the wall.'
 - if:
-    flags: [rescued, stirred_something]
-  text: |-
-    Joren is rigid in his chair, hands flat on the table. When you reach him he doesn't look
-    at the well. He looks at Linnet — at the stillness of her, the way she isn't quite shivering —
-    and he makes himself not look away.
+    flags:
+    - rescued
+    - stirred_something
+  text: 'Joren is rigid in his chair, hands flat on the table. When you reach him
+    he doesn''t look
 
+    at the well. He looks at Linnet — at the stillness of her, the way she isn''t
+    quite shivering —
+
+    and he makes himself not look away.'
 - if:
-    flags: [rescued, stirred_something]
-  text: |-
-    male_young_american_weak: |-
-      Is she — can she —
-
+    flags:
+    - rescued
+    - stirred_something
+  text: "male_young_american_weak: |-\n  Is she — can she —"
 - if:
-    flags: [rescued, stirred_something]
-  text: |-
-    He doesn't finish. He counts out what he has left in the purse and pushes it toward you
-    with one finger, the way a man puts his hand near something hot to check.
+    flags:
+    - rescued
+    - stirred_something
+  text: 'He doesn''t finish. He counts out what he has left in the purse and pushes
+    it toward you
 
-  # δ — not rescued, met the thing: grief money
+    with one finger, the way a man puts his hand near something hot to check.'
 - if:
-    flags: [met_the_thing_below]
-    flags_unset: [rescued, stirred_something]
-  text: |-
-    Joren's face does the subtraction. No Linnet at your side. His hands go still on the cup.
-    He asks nothing — he already has the answer, and asking it aloud would make it the kind of
-    thing you can't undo.
+    flags:
+    - met_the_thing_below
+    flags_unset:
+    - rescued
+    - stirred_something
+  text: 'Joren''s face does the subtraction. No Linnet at your side. His hands go
+    still on the cup.
 
+    He asks nothing — he already has the answer, and asking it aloud would make it
+    the kind of
+
+    thing you can''t undo.'
 - if:
-    flags: [met_the_thing_below]
-    flags_unset: [rescued, stirred_something]
-  text: |-
-    After a moment, he reaches for his coat. Pulls out the purse. Sets it on the table
-    between you.
+    flags:
+    - met_the_thing_below
+    flags_unset:
+    - rescued
+    - stirred_something
+  text: 'After a moment, he reaches for his coat. Pulls out the purse. Sets it on
+    the table
 
+    between you.'
 - if:
-    flags: [met_the_thing_below]
-    flags_unset: [rescued, stirred_something]
-  text: |-
-    male_young_american_weak: |-
-      [sigh] You went down. You did what I asked. That's — here. Take it.
-
-  # ζ — retreat: no descent, news money only
+    flags:
+    - met_the_thing_below
+    flags_unset:
+    - rescued
+    - stirred_something
+  text: "male_young_american_weak: |-\n  [sigh] You went down. You did what I asked.\
+    \ That's — here. Take it."
 - if:
-    flags_unset: [rescued, met_the_thing_below, stirred_something, descended_well]
-  text: |-
-    You tell Joren what you found. Not nothing — a direction, a lead, something the Watch
-    doesn't have and won't pursue. He listens. His wedding ring turns and turns on his finger.
+    flags_unset:
+    - rescued
+    - met_the_thing_below
+    - stirred_something
+    - descended_well
+  text: 'You tell Joren what you found. Not nothing — a direction, a lead, something
+    the Watch
 
+    doesn''t have and won''t pursue. He listens. His wedding ring turns and turns
+    on his finger.'
 - if:
-    flags_unset: [rescued, met_the_thing_below, stirred_something, descended_well]
-  text: |-
-    male_young_american_weak: |-
-      It's not — I mean, I hoped — right. Alright. For the trouble. For trying.
-
+    flags_unset:
+    - rescued
+    - met_the_thing_below
+    - stirred_something
+    - descended_well
+  text: "male_young_american_weak: |-\n  It's not — I mean, I hoped — right. Alright.\
+    \ For the trouble. For trying."
 - if:
-    flags_unset: [rescued, met_the_thing_below, stirred_something, descended_well]
-  text: |-
-    He counts out three coins and slides them over. It is a smaller sound than it should be.
-
+    flags_unset:
+    - rescued
+    - met_the_thing_below
+    - stirred_something
+    - descended_well
+  text: He counts out three coins and slides them over. It is a smaller sound than
+    it should be.
 choices:
-  # α — full pay
-- text: |-
-    Take what they offer. Go back to the bar.
+- text: Take what they offer. Go back to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -134,13 +172,13 @@ choices:
     stats:
       Coin: 10
   requires:
-    flags: [rescued]
-    flags_unset: [bargained, stirred_something]
+    flags:
+    - rescued
+    flags_unset:
+    - bargained
+    - stirred_something
   hide_if_failed: true
-
-  # γ — partial pay (bargained)
-- text: |-
-    Take the partial purse. Go back to the bar.
+- text: Take the partial purse. Go back to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -149,13 +187,13 @@ choices:
     stats:
       Coin: 6
   requires:
-    flags: [rescued, bargained]
-    flags_unset: [stirred_something]
+    flags:
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
   hide_if_failed: true
-
-  # ε rescued — partial pay (stirred)
-- text: |-
-    Take the partial pay. Go back to the bar.
+- text: Take the partial pay. Go back to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -164,12 +202,11 @@ choices:
     stats:
       Coin: 6
   requires:
-    flags: [rescued, stirred_something]
+    flags:
+    - rescued
+    - stirred_something
   hide_if_failed: true
-
-  # δ — grief pay: accept
-- text: |-
-    Take it. Go back to the bar.
+- text: Take it. Go back to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -178,13 +215,13 @@ choices:
     stats:
       Coin: 6
   requires:
-    flags: [met_the_thing_below]
-    flags_unset: [rescued, stirred_something]
+    flags:
+    - met_the_thing_below
+    flags_unset:
+    - rescued
+    - stirred_something
   hide_if_failed: true
-
-  # δ — grief pay: refuse
-- text: |-
-    Leave it. Keep it — I didn't earn it.
+- text: Leave it. Keep it — I didn't earn it.
   next: bar_settle_up
   effects:
     flags:
@@ -193,13 +230,13 @@ choices:
     stats:
       Renown: 1
   requires:
-    flags: [met_the_thing_below]
-    flags_unset: [rescued, stirred_something]
+    flags:
+    - met_the_thing_below
+    flags_unset:
+    - rescued
+    - stirred_something
   hide_if_failed: true
-
-  # ζ — news pay
-- text: |-
-    Take the three coins. Go back to the bar.
+- text: Take the three coins. Go back to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -208,12 +245,13 @@ choices:
     stats:
       Coin: 3
   requires:
-    flags_unset: [rescued, met_the_thing_below, stirred_something, descended_well]
+    flags_unset:
+    - rescued
+    - met_the_thing_below
+    - stirred_something
+    - descended_well
   hide_if_failed: true
-
-  # ε not rescued: Joren gone or refusing
-- text: |-
-    Nothing to be done here. Go back to the bar.
+- text: Nothing to be done here. Go back to the bar.
   next: bar_settle_up
   effects:
     flags:
@@ -222,6 +260,8 @@ choices:
     stats:
       Renown: -1
   requires:
-    flags: [stirred_something]
-    flags_unset: [rescued]
+    flags:
+    - stirred_something
+    flags_unset:
+    - rescued
   hide_if_failed: true

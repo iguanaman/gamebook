@@ -106,7 +106,10 @@ def blocks_for_scene(scene, default_voice):
 
 def block_audio_path(scene_id, raw_index, suffix=""):
     safe = scene_id.replace("/", "-")
-    return f"audio/{safe}_block_{raw_index}{suffix}.opus"
+    slash = scene_id.find("/")
+    act = scene_id[:slash] if slash != -1 else ""
+    scene = scene_id[slash + 1:] if slash != -1 else scene_id
+    return f"audio/{act}/{scene}/{safe}_block_{raw_index}{suffix}.opus"
 
 
 def process_story(story_id, force, suffix_filter=None):
@@ -196,14 +199,15 @@ def process_act_titles(story_id, story, default_voice, force):
         if not title:
             continue
         slug = act_audio_slug(title)
-        out_path = story_dir / "audio" / f"{slug}.opus"
+        act_dir = act_file.parent.name
+        out_path = story_dir / "audio" / act_dir / f"{slug}.opus"
         if out_path.exists() and not force:
             continue
         out_path.parent.mkdir(parents=True, exist_ok=True)
         print(f"  [gen]  act title '{title}': {default_voice!r}")
         opus = synthesize(title, default_voice, EXAGGERATION)
         out_path.write_bytes(opus)
-        print(f"         saved → audio/{slug}.opus")
+        print(f"         saved -> audio/{act_dir}/{slug}.opus")
 
 
 def migrate_conditional(story_id):
@@ -222,7 +226,7 @@ def migrate_conditional(story_id):
     # Delete old single-letter conditional files: _block_N[ab].opus (no digit after letter)
     old_pattern = _re.compile(r'_block_\d+[ab]\.opus$')
     deleted = 0
-    for f in audio_dir.glob("*.opus"):
+    for f in audio_dir.rglob("*.opus"):
         if old_pattern.search(f.name):
             f.unlink()
             print(f"  [del]  {f.name}")

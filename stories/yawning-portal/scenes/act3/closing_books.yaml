@@ -1,77 +1,87 @@
 text:
-  # stirred_something: room empties, the books cannot be closed
 - if:
-    flags: [stirred_something]
-  text: |-
-    The bar stool is still warm. You sit into the night and the night is wrong. The regulars
-    are leaving — not quickly, not in a group, but one by one the way a room empties when
-    something in the air has shifted. Nobody says it out loud. Nobody has to.
+    flags:
+    - stirred_something
+  text: 'The bar stool is still warm. You sit into the night and the night is wrong.
+    The regulars
 
+    are leaving — not quickly, not in a group, but one by one the way a room empties
+    when
+
+    something in the air has shifted. Nobody says it out loud. Nobody has to.'
 - if:
-    flags: [stirred_something]
-  text: |-
-    Durnan is looking at the well. He looks at it the way he looks at things he is preparing
-    to deal with. Not yet. But soon.
+    flags:
+    - stirred_something
+  text: 'Durnan is looking at the well. He looks at it the way he looks at things
+    he is preparing
 
+    to deal with. Not yet. But soon.'
 - if:
-    flags: [stirred_something]
-  text: |-
-    The books are not going to close themselves. You are going to have to leave them open.
-
-  # Standard close — all other paths
+    flags:
+    - stirred_something
+  text: The books are not going to close themselves. You are going to have to leave
+    them open.
 - if:
-    flags_unset: [stirred_something]
-  text: |-
-    The room has found its voice again. The dice table is back to arguing; someone has called
-    for another round. The Portal is doing what the Portal does — absorbing the night and
-    turning it into something survivable.
+    flags_unset:
+    - stirred_something
+  text: 'The room has found its voice again. The dice table is back to arguing; someone
+    has called
 
+    for another round. The Portal is doing what the Portal does — absorbing the night
+    and
+
+    turning it into something survivable.'
 - if:
-    flags_unset: [stirred_something]
-  text: |-
-    You sit with your drink. The well is still at the room's centre, the rope still coiled
-    at its rim. It was there before tonight. It will be there tomorrow.
+    flags_unset:
+    - stirred_something
+  text: 'You sit with your drink. The well is still at the room''s centre, the rope
+    still coiled
 
+    at its rim. It was there before tonight. It will be there tomorrow.'
 choices:
-  # stirred_something: forced walk-out
-- text: |-
-    Get up. Go to the door.
+- text: Get up. Go to the door.
   next: walk_out
   requires:
-    flags: [stirred_something]
+    flags:
+    - stirred_something
   hide_if_failed: true
-
-  # Ending 3 — bargained (marked apprentice went home; you carry the weight)
-- text: |-
-    Sit with your drink. Watch the door close.
+- text: Sit with your drink. Watch the door close.
   next: ending_3_bargain
   requires:
-    flags: [rescued, bargained]
-    flags_unset: [stirred_something]
+    flags:
+    - rescued
+    - bargained
+    flags_unset:
+    - stirred_something
   hide_if_failed: true
-
-  # Ending 1 — hero (Durnan's drink, full conditions)
-- text: |-
-    Sit. Take the drink. Let the room know you're staying.
+- text: Sit. Take the drink. Let the room know you're staying.
   next: ending_1_hero
   requires:
-    flags: [rescued, durnan_stood_a_drink]
-    flags_unset: [bargained, stirred_something, korsa_died, vesna_died, pip_died, thessaly_died]
+    flags:
+    - rescued
+    - durnan_stood_a_drink
+    flags_unset:
+    - bargained
+    - stirred_something
+    - korsa_died
+    - vesna_died
+    - pip_died
+    - thessaly_died
   hide_if_failed: true
-
-  # Ending 2 — quiet good (rescued but messy — catches all rescued paths not caught by Ending 1)
-- text: |-
-    Sit. The night is over.
+- text: Sit. The night is over.
   next: ending_2_quiet_good
   requires:
-    flags: [rescued]
-    flags_unset: [bargained, stirred_something, durnan_stood_a_drink]
+    flags:
+    - rescued
+    flags_unset:
+    - bargained
+    - stirred_something
+    - durnan_stood_a_drink
   hide_if_failed: true
-
-  # Ending 4 — lost in the deep (floor — not rescued, not stirred)
-- text: |-
-    Sit. The night is over.
+- text: Sit. The night is over.
   next: ending_4_lost
   requires:
-    flags_unset: [rescued, stirred_something]
+    flags_unset:
+    - rescued
+    - stirred_something
   hide_if_failed: true

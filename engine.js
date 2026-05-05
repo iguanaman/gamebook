@@ -473,7 +473,10 @@ function cancelPlayback() {
 
 function blockAudioUrl(sceneId, rawIndex, branch) {
   const safe = sceneId.replace(/\//g, '-');
-  return `stories/${currentStoryId}/audio/${safe}_block_${rawIndex}${branch}.opus`;
+  const slash = sceneId.indexOf('/');
+  const act = slash === -1 ? '' : sceneId.slice(0, slash);
+  const scene = slash === -1 ? sceneId : sceneId.slice(slash + 1);
+  return `stories/${currentStoryId}/audio/${act}/${scene}/${safe}_block_${rawIndex}${branch}.opus`;
 }
 
 function sceneFolder(sceneId) {
@@ -724,7 +727,7 @@ async function navigateTo(sceneId) {
       showingActTitle = true;
       currentAct = actTitle;
       saveState();
-      const actAudioUrl = `stories/${currentStoryId}/audio/${actAudioSlug(actTitle)}.opus`;
+      const actAudioUrl = `stories/${currentStoryId}/audio/${folder}/${actAudioSlug(actTitle)}.opus`;
       showTitleSplash(actTitle, actAudioUrl, () => {
         renderShell(storyMeta);
         clearNarrative();

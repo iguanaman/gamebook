@@ -1,25 +1,24 @@
 text:
-- |-
-  Thessaly is standing at the archway and she is not checking the frame. She is looking through it. Looking past the dark, at something the dark covers.
-- |-
-  You ask what she sees.
-- female_adult_american_sultry_villainous: |-
-    "Nothing yet. That's not what I'm doing." She touches the stone at the edge of the arch with two fingers — the burn-scar wrist, the left one. "These runes. Someone in my school carved them. A long time ago. Before I was trained." A pause. "Possibly before my teacher was trained."
-- |-
-  She turns to look at you. The horn-tips catch the lamplight.
-- female_adult_american_sultry_villainous: |-
-    "I knew, when I took the terms upstairs, that the runes would be here. I have seen them in an account. In a book that the academy considers —" she selects the word precisely "— *proprietary*."
-- |-
-  She says it like she stole the account. She probably did.
-- female_adult_american_sultry_villainous: |-
-    "[sigh] The name I am looking for — the name I mentioned, if you asked — I believe it is on the other side of this archway. Not the *thing*. The name it used to have. There is a difference." She drops her hand from the stone. "That is all I can tell you with confidence. The rest is guesswork."
-- |-
-  She does not look like someone who is guessing.
-
-
+- Thessaly is standing at the archway and she is not checking the frame. She is looking
+  through it. Looking past the dark, at something the dark covers.
+- You ask what she sees.
+- female_adult_american_sultry_villainous: '"Nothing yet. That''s not what I''m doing."
+    She touches the stone at the edge of the arch with two fingers — the burn-scar
+    wrist, the left one. "These runes. Someone in my school carved them. A long time
+    ago. Before I was trained." A pause. "Possibly before my teacher was trained."'
+- She turns to look at you. The horn-tips catch the lamplight.
+- female_adult_american_sultry_villainous: '"I knew, when I took the terms upstairs,
+    that the runes would be here. I have seen them in an account. In a book that the
+    academy considers —" she selects the word precisely "— *proprietary*."'
+- She says it like she stole the account. She probably did.
+- female_adult_american_sultry_villainous: '"[sigh] The name I am looking for — the
+    name I mentioned, if you asked — I believe it is on the other side of this archway.
+    Not the *thing*. The name it used to have. There is a difference." She drops her
+    hand from the stone. "That is all I can tell you with confidence. The rest is
+    guesswork."'
+- She does not look like someone who is guessing.
 choices:
-- text: |-
-    Back to the well-mouth.
+- text: Back to the well-mouth.
   next: act2/well_mouth_first
   effects:
     flags:
