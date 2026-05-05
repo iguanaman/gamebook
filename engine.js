@@ -47,7 +47,6 @@ function initFullscreen() {
     else document.exitFullscreen();
   });
   document.addEventListener('fullscreenchange', () => {
-    btn.title = document.fullscreenElement ? 'Exit fullscreen' : 'Toggle fullscreen';
     if (document.fullscreenElement) dismissHint('fullscreen');
   });
 showNextHint();
@@ -104,7 +103,6 @@ function showIntroSplash(mode) {
   body.innerHTML = `
     <p>Stories wait for you here — each its own world, its own rules, its own consequences.</p>
     <p>Read the scene. Make your choices. Some doors close forever.</p>
-    <p>Your progress is saved automatically.</p>
   `;
 
   const btn = document.createElement('button');
