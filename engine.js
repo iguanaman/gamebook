@@ -921,6 +921,7 @@ function typeBlock(block, skip, onDone) {
   function finish() {
     if (finished) return;
     finished = true;
+    document.removeEventListener('visibilitychange', handleVisibility);
     skip.finished = true;
     para.innerHTML = fullHtml;
     para.classList.remove('block-typing');
@@ -929,11 +930,26 @@ function typeBlock(block, skip, onDone) {
     onDone();
   }
 
-  const startTime = performance.now();
+  let startTime = performance.now();
   let charsShown = 0;
+  let pausedAt = null;
+
+  function handleVisibility() {
+    if (document.hidden) {
+      pausedAt = performance.now();
+    } else if (pausedAt !== null) {
+      // Shift startTime forward by the duration we were hidden,
+      // so targetChars doesn't jump ahead.
+      startTime += performance.now() - pausedAt;
+      pausedAt = null;
+      if (!finished) requestAnimationFrame(tick);
+    }
+  }
+  document.addEventListener('visibilitychange', handleVisibility);
 
   function tick() {
     if (finished) return;
+    if (document.hidden) return; // wait for visibilitychange to re-enter
     if (skip.active) { skip.active = false; finish(); return; }
     if (pos >= fullHtml.length) { finish(); return; }
 
