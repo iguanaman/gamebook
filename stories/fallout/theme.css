@@ -6,6 +6,8 @@
   font-display: swap;
 }
 
+body { font-size: 14px; }
+
 :root {
   --bg: #0d0d0a;
   --surface: #141410;
