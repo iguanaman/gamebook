@@ -609,6 +609,7 @@ body.splash-active .ui-hint { display: none !important; }
 .back-btn:hover { opacity: 1; }
 .back-btn.back-hidden { display: none; }
 .splash-active .back-btn { display: none; }
+.splash-active .journal-toggle { display: none; }
 
 .journal-dot { display: none; }
 
@@ -780,8 +781,18 @@ body.splash-active .ui-hint { display: none !important; }
 }
 
 .pre-intro-msg {
-  font-size: 1.5rem;
-  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.pre-intro-msg p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
 /* ── Intro splash ─────────────────────────────────────────────────────────── */

@@ -135,9 +135,10 @@ function showPreIntroSplash(manifest) {
   const body = document.createElement('div');
   body.className = 'intro-splash-body pre-intro-splash-body';
 
-  const msg = document.createElement('p');
+  const lines = manifest.pre_intro?.lines ?? ['This experience includes audio', 'Make sure your speakers are on'];
+  const msg = document.createElement('div');
   msg.className = 'intro-line intro-line-visible pre-intro-msg';
-  msg.textContent = 'This experience includes audio. Make sure your speakers are on.';
+  msg.innerHTML = lines.map(l => `<p>${l}</p>`).join('');
   body.appendChild(msg);
 
   const btn = document.createElement('button');
@@ -193,10 +194,6 @@ function showIntroSplash(mode, manifest) {
     return p;
   });
 
-  const btn = document.createElement('button');
-  btn.className = 'intro-splash-btn intro-line';
-  btn.textContent = isFirst ? 'Begin →' : 'Close ✕';
-  body.appendChild(btn);
   overlay.appendChild(body);
   document.body.appendChild(overlay);
 
@@ -217,8 +214,6 @@ function showIntroSplash(mode, manifest) {
     overlay.addEventListener('transitionend', () => { overlay.remove(); if (isFirst) popInSelector(); }, { once: true });
   }
 
-  btn.addEventListener('click', dismiss);
-
   const LINE_PAUSE_MS = 1000;
   const INITIAL_DELAY_MS = 600;
 
@@ -226,7 +221,7 @@ function showIntroSplash(mode, manifest) {
     let i = 0;
     function showNext() {
       if (i >= paras.length) {
-        btn.classList.add('intro-line-visible');
+        setTimeout(dismiss, 1000);
         return;
       }
       const el = paras[i];

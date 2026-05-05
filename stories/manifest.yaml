@@ -1,9 +1,14 @@
+pre_intro:
+  lines:
+    - This experience includes audio
+    - Make sure your speakers are on
+
 intro:
   narrator: narrator
   lines:
     - narrator_male_sean_bean: Stories await
     - narrator_male_american_wise_captivating: Each its own world
-    - narrator_male_ron_perlman: Read the scene
+    - female_adult_british_enthusiastic_expressive: Absorb it all
     - narrator_male_american_serious_deep_steady: Choose your path
 
 stories:
