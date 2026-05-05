@@ -173,19 +173,37 @@ function showIntroSplash(mode, manifest) {
   function revealLines() {
     let i = 0;
     function showNext() {
-      if (i < paras.length) {
-        paras[i].classList.remove('intro-line-hidden');
-        paras[i].classList.add('intro-line-visible');
-        if (parsedLines[i].voice) {
-          const url = `stories/audio/intro_line_${i}.opus`;
-          currentAudio = new Audio(url);
-          currentAudio.play().catch(() => {});
+      if (i >= paras.length) {
+        requestAnimationFrame(() => {
+          btn.classList.remove('intro-line-hidden');
+          requestAnimationFrame(() => btn.classList.add('intro-line-visible'));
+        });
+        return;
+      }
+      const el = paras[i];
+      const lineIndex = i;
+      i++;
+
+      requestAnimationFrame(() => {
+        el.classList.remove('intro-line-hidden');
+        requestAnimationFrame(() => el.classList.add('intro-line-visible'));
+      });
+
+      const voice = parsedLines[lineIndex].voice;
+      if (voice) {
+        const url = `stories/audio/intro_line_${lineIndex}.opus`;
+        currentAudio = new Audio(url);
+        let settled = false;
+        function afterAudio() {
+          if (settled) return;
+          settled = true;
+          setTimeout(showNext, LINE_DELAY_MS);
         }
-        i++;
-        setTimeout(showNext, LINE_DELAY_MS);
+        currentAudio.addEventListener('ended', afterAudio, { once: true });
+        currentAudio.addEventListener('error', afterAudio, { once: true });
+        currentAudio.play().catch(afterAudio);
       } else {
-        btn.classList.remove('intro-line-hidden');
-        btn.classList.add('intro-line-visible');
+        setTimeout(showNext, LINE_DELAY_MS);
       }
     }
     showNext();
