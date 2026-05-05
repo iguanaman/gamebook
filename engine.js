@@ -201,6 +201,7 @@ function showIntroSplash(mode, manifest) {
         function afterAudio() {
           if (settled) return;
           settled = true;
+          currentAudio = null;
           setTimeout(showNext, LINE_DELAY_MS);
         }
         currentAudio.addEventListener('ended', afterAudio, { once: true });
