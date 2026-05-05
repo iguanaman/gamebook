@@ -827,13 +827,13 @@ body.splash-active .ui-hint { display: none !important; }
     --border-corner-radius: 2px;
   }
 
-  /* Tighter game layout padding */
+  /* Tighter game layout padding — extra bottom room for journal/skip icons */
   .game-wrap {
-    padding: calc(var(--frame-inset) + 2rem) 0.75rem calc(var(--frame-inset) + 1.5rem);
+    padding: calc(var(--frame-inset) + 2rem) 0.75rem calc(var(--frame-inset) + 3rem);
   }
 
   .narrative-area {
-    height: calc(100dvh - (var(--frame-inset) + 2rem) - (var(--frame-inset) + 1.5rem));
+    height: calc(100dvh - (var(--frame-inset) + 2rem) - (var(--frame-inset) + 3rem));
   }
 
   /* Slightly smaller reading text */
@@ -845,8 +845,8 @@ body.splash-active .ui-hint { display: none !important; }
   .story-card { padding: 1rem; gap: 1rem; }
 
   /* Tighter choices */
-  .choice-list { gap: 0.4rem; }
-  .btn-choice { padding: 0.55rem 0.85rem; }
+  .choice-list { gap: 0.3rem; }
+  .btn-choice { padding: 0.4rem 0.75rem; }
 
   /* Splash titles */
   .story-splash-title--story {
