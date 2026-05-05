@@ -1,0 +1,19 @@
+{
+  "planPath": "docs/superpowers/plans/2026-05-05-focus-pause.md",
+  "tasks": [
+    {
+      "id": 0,
+      "subject": "Task 1: Add focus-pause support to the typewriter",
+      "status": "pending",
+      "description": "**Goal:** Make `typeBlock` idle when the tab is hidden and resume from the exact character position when the tab returns.\n\n**Files:**\n- Modify: `engine.js` — `typeBlock` function (~line 909)\n\n**Acceptance Criteria:**\n- [ ] Typewriter stops advancing characters while `document.hidden` is true\n- [ ] When tab returns, typing continues from the exact position it stopped\n- [ ] `startTime` is adjusted on resume so speed appears continuous\n- [ ] Behaviour is unchanged when tab never loses focus\n\n**Verify:** Manual — open a story, switch tabs mid-sentence, return, confirm text continues smoothly.\n\n```json:metadata\n{\"files\": [\"engine.js\"], \"verifyCommand\": \"manual\", \"acceptanceCriteria\": [\"Typewriter stops advancing while document.hidden\", \"Resumes from exact position on return\", \"startTime adjusted so speed is continuous\", \"No regression when tab keeps focus\"]}\n```"
+    },
+    {
+      "id": 1,
+      "subject": "Task 2: Add focus-pause support to audio",
+      "status": "pending",
+      "blockedBy": [0],
+      "description": "**Goal:** Pause `currentAudio` when the tab is hidden and resume it from the same position when the tab returns.\n\n**Files:**\n- Modify: `engine.js` — audio section (~line 430)\n\n**Acceptance Criteria:**\n- [ ] currentAudio pauses when tab goes hidden\n- [ ] currentAudio resumes from paused position when tab returns\n- [ ] No double-resume if audio ended while tab was hidden\n- [ ] Act title splash audio is NOT paused\n\n**Verify:** Manual — start audio narration, switch tabs ~3s, return, confirm audio resumes mid-sentence.\n\n```json:metadata\n{\"files\": [\"engine.js\"], \"verifyCommand\": \"manual\", \"acceptanceCriteria\": [\"Audio pauses on tab hide\", \"Audio resumes from same position on tab return\", \"Act splash audio unaffected\"]}\n```"
+    }
+  ],
+  "lastUpdated": "2026-05-05T00:00:00Z"
+}
