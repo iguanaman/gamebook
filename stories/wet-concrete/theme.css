@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Oswald:wght@300;400&display=swap');
+
+:root {
+  /* ── Core palette — amber, cigarette smoke, aged newsprint ── */
+  --bg: #0f0d0a;
+  --surface: #1a1610;
+  --text: #c8a96e;
+  --text-muted: #7a6542;
+  --border: #3a2e1e;
+  --hover-bg: rgba(200, 169, 110, 0.06);
+  --accent: #d4943a;
+  --accent-hover: #b87828;
+  --btn-secondary-bg: #221c12;
+  --btn-secondary-hover: #2e2518;
+  --radius: 2px;
+
+  /* ── Typography — period-authentic noir ── */
+  /* Playfair Display: editorial serif with high contrast — reads like 1940s newspaper body */
+  /* Special Elite: typewriter-adjacent, worn — for UI elements */
+  /* Oswald: condensed sans — labels, HUD keys */
+  --font-body: 'Playfair Display', Georgia, serif;
+  --font-ui: 'Special Elite', 'Courier New', monospace;
+  --font-heading: 'Oswald', 'Special Elite', sans-serif;
+
+  /* ── Parchment frame — tarnished brass ── */
+  --border-outer: #5a3e18;
+  --border-inner: #3a2710;
+  --border-corner-radius: 0px;
+  --frame-inset: 10px;
+
+  /* ── Divider — thin amber rule, like a column rule in a broadsheet ── */
+  --divider-color: #4a3318;
+  --divider-style: 1px solid var(--divider-color);
+
+  /* ── Drop cap — warm gold, slightly larger to feel like an editorial pull ── */
+  --drop-cap-color: #d4943a;
+  --drop-cap-size: 3.8em;
+
+  /* ── Act title ── */
+  --act-title-size: 1.75rem;
+  --act-rule-color: #5a3e18;
+  --act-rule-style: 1px solid var(--act-rule-color);
+
+  /* ── Animations — slightly slower, heavier, like turning a damp page ── */
+  --anim-block-duration: 450ms;
+  --anim-choice-duration: 380ms;
+  --anim-act-title-duration: 800ms;
+  --anim-choice-fade-fast: 300ms;
+  --anim-choice-linger-ms: 1400ms;
+  --anim-choice-fade-slow: 600ms;
+}
