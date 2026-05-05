@@ -1,31 +1,22 @@
 id: room4_jump_pad_assembly
 text:
-- |-
-  KNOBBELBOY. Green light. Milo: SHHHHKLAK — yellow arc, gone. Friendship bracelets dangling. He waves. Sadly.
-- |-
-  Three of us. Me. Dex. Sage. Hood up, arms folded, hasn't said a word.
-- |-
-  The conveyor drops us in a bigger room. More pads. Glowing creator posters on the walls.
-- male_young_american_forthright: |-
-    Room four. Niche. In the Vault of Secrets — what does Spooky say if you type his name?
-- male_young_american_youthful_friendly_modern: |-
-    [chuckle] I've typed it.
-- |-
-  Dex isn't even looking at the grid. He's looking at me.
-- |-
-  Sage's mouth opens a tiny bit, then closes.
-- |-
-  Spooky. The big floating pumpkin head. I've messed with that vault for hours.
+- 'KNOBBELBOY. Green light. Milo: SHHHHKLAK — yellow arc, gone. Friendship bracelets
+  dangling. He waves. Sadly.'
+- Three of us. Me. Dex. Sage. Hood up, arms folded, hasn't said a word.
+- The conveyor drops us in a bigger room. More pads. Glowing creator posters on the
+  walls.
+- male_young_american_forthright: Room four. Niche. In the Vault of Secrets — what
+    does Spooky say if you type his name?
+- male_young_american_youthful_friendly_modern: '[chuckle] I''ve typed it.'
+- Dex isn't even looking at the grid. He's looking at me.
+- Sage's mouth opens a tiny bit, then closes.
+- Spooky. The big floating pumpkin head. I've messed with that vault for hours.
 choices:
-- text: |-
-    BOO!
+- text: BOO!
   next: out_jump_pad
-- text: |-
-    Hi RubRub.
+- text: Hi RubRub.
   next: out_jump_pad
-- text: |-
-    Glubfub sent me.
+- text: Glubfub sent me.
   next: out_jump_pad
-- text: |-
-    You scared me!
+- text: You scared me!
   next: room5_wave_chamber

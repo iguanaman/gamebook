@@ -1,27 +1,19 @@
 id: room1_icon_foundry
 text:
-- |-
-  The conveyor dumps us in a factory. Robot arms stamping cube icons. Sparks. The floor is a grate. Spikes underneath. Lowkey gonna throw up.
-- |-
-  Six podiums slide up. We climb on.
-- male_young_american_forthright: |-
-    Room one. Who composed Stereo Madness — the very first level of the very first build?
-- female_young_american_youthful_sweet: |-
-    BOOM KITTY! Easy! Boom—
-- |-
-  Mara's already shouting. She didn't even let him finish.
-- |-
-  I think. Stereo Madness. Level one. The OG track. Who actually MADE that song.
+- The conveyor dumps us in a factory. Robot arms stamping cube icons. Sparks. The
+  floor is a grate. Spikes underneath. Lowkey gonna throw up.
+- Six podiums slide up. We climb on.
+- male_young_american_forthright: Room one. Who composed Stereo Madness — the very
+    first level of the very first build?
+- female_young_american_youthful_sweet: BOOM KITTY! Easy! Boom—
+- Mara's already shouting. She didn't even let him finish.
+- I think. Stereo Madness. Level one. The OG track. Who actually MADE that song.
 choices:
-- text: |-
-    Boom Kitty.
+- text: Boom Kitty.
   next: out_spike_pit
-- text: |-
-    Waterflame.
+- text: Waterflame.
   next: out_spike_pit
-- text: |-
-    ForeverBound.
+- text: ForeverBound.
   next: room2_mode_hangar
-- text: |-
-    F-777.
+- text: F-777.
   next: out_spike_pit

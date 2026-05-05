@@ -1,21 +1,14 @@
 id: out_gravity_flip
 text:
-- |-
-  The pad hums the wrong colour.
-- male_young_american_forthright: |-
-    Ohhh. Not the verifier. Drift aside.
-- |-
-  A yellow portal blinks at me and DOWN becomes UP. My stomach goes one way, the rest of me the other. I'm stuck to the ceiling.
-- |-
-  Milo floats by upside-down, friendship bracelets jangling.
-- male_young_american_weak: |-
-    you almost — [sniff] sorry — knobbel — I shoulda said it—
-- |-
-  A chute opens. WHOOSH. Foam pit. Mara and Brennan are sharing a juice box.
-- female_young_american_youthful_sweet: |-
-    Told you. Rigged.
-- male_young_american_forthright: |-
-    Bad luck, young geometrician. Mind your head.
-- |-
-  I'm out.
+- The pad hums the wrong colour.
+- male_young_american_forthright: Ohhh. Not the verifier. Drift aside.
+- A yellow portal blinks at me and DOWN becomes UP. My stomach goes one way, the rest
+  of me the other. I'm stuck to the ceiling.
+- Milo floats by upside-down, friendship bracelets jangling.
+- male_young_american_weak: you almost — [sniff] sorry — knobbel — I shoulda said
+    it—
+- A chute opens. WHOOSH. Foam pit. Mara and Brennan are sharing a juice box.
+- female_young_american_youthful_sweet: Told you. Rigged.
+- male_young_american_forthright: Bad luck, young geometrician. Mind your head.
+- I'm out.
 choices: []
