@@ -1,0 +1,32 @@
+id: act1/vera_go_immediately
+
+journal: |-
+  You got to Vera in time to hear her last words. She died in her own hallway. The file she'd held for you is in your hands.
+
+text:
+  - |-
+    He's there in twenty minutes. The door is unlocked — not forced, unlocked — and that's wrong before he's even through it.
+  - |-
+    Vera is in the hallway. She's been hit from behind. She's breathing but not well, and when she hears him she reaches for his arm with one hand. The other hand has a manila folder pressed to her chest.
+  - female_adult_american_grounded_professional: |-
+      [gasp] Ray hid it in the house. Under the water heater. I found it this morning and I didn't — I didn't tell anyone I had it.
+  - |-
+    She presses the folder into his hands.
+  - female_adult_american_grounded_professional: |-
+      Addresses. Aldwick. A name. I don't know the name but Ray underlined it twice.
+  - |-
+    He says her name. She shakes her head once, the way she shook it in his office the first day — patient, like he's missed the point.
+  - female_adult_american_grounded_professional: |-
+      Find out what happened to him. That's all.
+  - |-
+    Then she's quiet. He stays until there's nothing left to stay for.
+
+choices:
+  - text: |-
+      Take the file and go — whoever did this may still be nearby
+    next: act1/vera_death_aftermath
+    effects:
+      flags:
+        vera_dead: true
+      stats:
+        evidence: 2

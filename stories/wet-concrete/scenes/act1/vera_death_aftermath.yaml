@@ -1,0 +1,14 @@
+id: act1/vera_death_aftermath
+
+text:
+  - |-
+    He stands on the sidewalk. Morning light, thin. Someone's radio going two floors up.
+  - |-
+    Vera hired him to find Ray Doss. Ray is missing and probably dead. Vera is dead. The police wrote a report four days ago and that report is the last official interest this city will take in either of them.
+  - |-
+    He has a file, or a scrap of paper, or nothing but what's in his head. Either way, the men who did this have the police. They have the records office. They have the surveying department. They have time, and resources, and every reason to believe Frank Doyle is going to do the sensible thing.
+
+choices:
+  - text: |-
+      Go back to the office and think
+    next: act1/beat5_entry
