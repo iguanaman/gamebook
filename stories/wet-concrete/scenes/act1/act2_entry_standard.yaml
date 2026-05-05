@@ -1,15 +1,16 @@
 id: act1/act2_entry_standard
-
 text:
-  - |-
-    He lays out what he has. A parcel number. An Aldwick address, or several. A forged signature. A supervisor who checks files out of the records office and doesn't return them. A man in a dark Plymouth with a set of licence plates.
-  - |-
-    It's thin. It's not nothing.
-  - |-
-    He's going to need more names. He's going to need someone who can move inside the city machine without being seen. He's going to need to be careful about heat — he's probably already on someone's list.
-  - |-
-    He looks at the window. The alley. The city outside it, smiling the way it always smiles.
-  - |-
-    He picks up his notebook and starts a new page.
-
-choices: []
+- He lays out what he has. A parcel number. An Aldwick address, or several. A forged
+  signature. A supervisor who checks files out of the records office and doesn't return
+  them. A man in a dark Plymouth with a set of licence plates.
+- It's thin. It's not nothing.
+- He's going to need more names. He's going to need someone who can move inside the
+  city machine without being seen. He's going to need to be careful about heat — he's
+  probably already on someone's list.
+- He looks at the window. The alley. The city outside it, smiling the way it always
+  smiles.
+- He picks up his notebook and starts a new page.
+choices:
+  - text: |-
+      Start a new page
+    next: act2/act2_open

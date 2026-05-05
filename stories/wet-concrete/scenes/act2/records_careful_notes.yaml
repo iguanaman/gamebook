@@ -1,0 +1,23 @@
+id: act2/records_careful_notes
+text:
+  - |-
+    Two hours. The clerk doesn't bother him. Frank works through the Aldwick survey ledgers with a pencil and a folded sheet of paper, writing fast and small.
+  - |-
+    The boundary re-filings are all in the same cluster — east block, parcels 14 through 31. Filed in March 1944, then again in May 1945. The second set shifts the line by twenty-two feet on the north side. Both sets carry the same authorising signature.
+  - |-
+    Beneficiary on both re-filings: Harmon Land Trust LLC.
+  - |-
+    The registered agent's name is typed in the same small font as everything else. Frank copies it down without expression.
+choices:
+  - text: |-
+      Look up Harmon Land Trust in the incorporation registry before you leave
+    next: act2/harmon_land_trust_lookup
+    effects:
+      stats:
+        evidence: 1
+  - text: |-
+      That's enough — take it back to the office and think
+    next: act2/office_hub_act2
+    effects:
+      stats:
+        evidence: 1

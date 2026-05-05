@@ -1,0 +1,18 @@
+id: act2/vera_file_review
+text:
+  - |-
+    Vera's file is three pages of careful handwriting — parcel numbers, addresses in Aldwick's east block, a name she'd written twice and underlined: Harmon Land Trust.
+  - |-
+    She knew more than she told him at the intake. Or she didn't know she knew — she was a woman reading documents about her husband's work, not a detective reading evidence. The parcel list maps to the boundary re-filings.
+  - |-
+    She did the groundwork. She just didn't know what it was groundwork for.
+choices:
+  - text: |-
+      Cross-reference the parcel numbers with the records office — confirm what she found
+    next: act2/records_office_return
+    effects:
+      stats:
+        evidence: 1
+  - text: |-
+      Take the addresses straight to Aldwick — put a face to the numbers
+    next: act2/aldwick_hub
