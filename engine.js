@@ -559,7 +559,7 @@ function playChoiceCue() {
   const filter = ac.createBiquadFilter(); filter.type = 'bandpass'; filter.frequency.value = 1800; filter.Q.value = 1.2;
   const gain = ac.createGain();
   src.connect(filter); filter.connect(gain); gain.connect(ac.destination);
-  gain.gain.setValueAtTime(0.275, ac.currentTime);
+  gain.gain.setValueAtTime(0.33, ac.currentTime);
   src.start();
 }
 
