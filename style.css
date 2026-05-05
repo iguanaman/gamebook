@@ -196,7 +196,7 @@ button {
 .card-delete-btn:hover { opacity: 1 !important; }.story-info { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
 .story-title { margin: 0; font-size: var(--card-title-size, 1.2rem); }
 .story-genre {
-  display: block;
+  float: right;
   font-family: var(--font-ui);
   font-size: 0.6rem;
   font-weight: 600;
@@ -205,7 +205,7 @@ button {
   color: var(--text-muted);
   opacity: 0.7;
   line-height: 1;
-  margin-bottom: 0.2em;
+  margin-left: 0.5em;
 }
 .story-desc { margin: 0; color: var(--text-muted); font-size: var(--card-desc-size, 1rem); flex: 1; }
 
