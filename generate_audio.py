@@ -269,6 +269,32 @@ def migrate_conditional(story_id):
             out_paths[i].write_bytes(opus)
 
 
+def process_intro(manifest, force):
+    """Generate intro_line_N.opus files from manifest.yaml intro block."""
+    intro = manifest.get("intro")
+    if not intro:
+        return
+    lines = intro.get("lines", [])
+    default_narrator = intro.get("narrator", "narrator")
+    if not lines:
+        return
+    audio_dir = Path(STORIES_DIR) / "audio"
+    audio_dir.mkdir(parents=True, exist_ok=True)
+    print("\n── intro ──")
+    for i, line in enumerate(lines):
+        if isinstance(line, dict):
+            voice, text = next(iter(line.items()))
+        else:
+            voice, text = default_narrator, line
+        out_path = audio_dir / f"intro_line_{i}.opus"
+        if out_path.exists() and not force:
+            continue
+        print(f"  [gen]  intro_line_{i}: {voice!r}")
+        opus = synthesize(text, voice, EXAGGERATION)
+        out_path.write_bytes(opus)
+        print(f"         saved → audio/intro_line_{i}.opus")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", action="store_true", help="Regenerate existing audio")
@@ -291,6 +317,9 @@ def main():
             print(f"Error: story '{args.story}' not in manifest")
             sys.exit(1)
         story_ids = [args.story]
+
+    if not args.story and not args.migrate_conditional:
+        process_intro(manifest, force=args.force)
 
     for story_id in story_ids:
         print(f"\n── {story_id} ──")

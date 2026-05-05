@@ -109,27 +109,42 @@ async function showSelector() {
       </div>
     </div>
   `;
-  document.getElementById('how-to-play')?.addEventListener('click', () => showIntroSplash('revisit'));
+  document.getElementById('how-to-play')?.addEventListener('click', () => showIntroSplash('revisit', manifest));
   manifest.stories.forEach(id => attachCardHandlers(id));
 }
 
-function showIntroSplash(mode) {
+function showIntroSplash(mode, manifest) {
   const isFirst = mode === 'first';
+  const introLines = manifest?.intro?.lines ?? [
+    'Stories await',
+    'Each its own world',
+    'Read the scene',
+    'Choose your path',
+    'There will be consequences',
+  ];
+  const introNarrator = manifest?.intro?.narrator ?? null;
+
   document.body.classList.add('splash-active');
   const overlay = document.createElement('div');
   overlay.className = 'story-splash story-splash-hidden';
 
   const body = document.createElement('div');
   body.className = 'intro-splash-body';
-  body.innerHTML = `
-    <p>Stories wait for you here — each its own world, its own rules, its own consequences.</p>
-    <p>Read the scene.</p>
-    <p>Make your choices.</p>
-    <p>Some doors close forever.</p>
-  `;
+
+  const parsedLines = introLines.map(l =>
+    typeof l === 'string' ? { text: l, voice: introNarrator } : { text: Object.values(l)[0], voice: Object.keys(l)[0] }
+  );
+
+  const paras = parsedLines.map(({ text }) => {
+    const p = document.createElement('p');
+    p.textContent = text;
+    p.className = 'intro-line intro-line-hidden';
+    body.appendChild(p);
+    return p;
+  });
 
   const btn = document.createElement('button');
-  btn.className = 'intro-splash-btn';
+  btn.className = 'intro-splash-btn intro-line-hidden';
   btn.textContent = isFirst ? 'Begin →' : 'Close ✕';
   body.appendChild(btn);
   overlay.appendChild(body);
@@ -142,6 +157,7 @@ function showIntroSplash(mode) {
 
   function dismiss() {
     document.body.classList.remove('splash-active');
+    stopAudio();
     overlay.classList.remove('story-splash-visible');
     overlay.classList.add('story-splash-out');
     overlay.addEventListener('transitionend', () => overlay.remove(), { once: true });
@@ -152,6 +168,32 @@ function showIntroSplash(mode) {
   }
 
   btn.addEventListener('click', dismiss);
+
+  const LINE_DELAY_MS = 1000;
+  const INITIAL_DELAY_MS = 600;
+
+  function revealLines() {
+    let i = 0;
+    function showNext() {
+      if (i < paras.length) {
+        paras[i].classList.remove('intro-line-hidden');
+        paras[i].classList.add('intro-line-visible');
+        if (parsedLines[i].voice) {
+          const url = `stories/audio/intro_line_${i}.opus`;
+          currentAudio = new Audio(url);
+          currentAudio.play().catch(() => {});
+        }
+        i++;
+        setTimeout(showNext, LINE_DELAY_MS);
+      } else {
+        btn.classList.remove('intro-line-hidden');
+        btn.classList.add('intro-line-visible');
+      }
+    }
+    showNext();
+  }
+
+  setTimeout(revealLines, INITIAL_DELAY_MS);
 }
 
 function hasSave(storyId) {
@@ -1324,7 +1366,8 @@ document.addEventListener('keydown', (e) => {
 (async () => {
   initFullscreen();
   if (!localStorage.getItem('gamebook.seen_intro')) {
-    showIntroSplash('first');
+    const manifest = await loadManifest();
+    showIntroSplash('first', manifest);
     return;
   }
   const last = localStorage.getItem('gamebook.lastStory');

@@ -771,6 +771,17 @@ body.splash-active .ui-hint { display: none !important; }
   line-height: 1.7;
 }
 
+.intro-line-hidden {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.intro-line-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
 .intro-splash-btn {
   margin-top: 0.5rem;
   padding: 0.6rem 1.8rem;
