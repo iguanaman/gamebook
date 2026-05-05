@@ -1,34 +1,27 @@
 id: act1/legwork_survey_dept
-
 text:
-  - |-
-    The city surveying department occupies the second floor of a building that smells of mildew and carbon paper. Filing cabinets in two rows, a window that faces a brick wall, a ceiling fan that turns without doing anything useful.
-  - |-
-    Peltz is at the back desk. Young-ish, soft around the eyes. He looks up when I come in and his hand goes to his collar before I've said a word. He knows why someone like me shows up at a place like this.
-  - male_young_american_weak: |-
-      I mean — I can help you if — are you from the, um. Is this about the Aldwick filings?
-  - |-
-    He catches himself. Looks past me, not at me. The supervisor's office is at the far end. Door's open.
-
+- The city surveying department occupies the second floor of a building that smells
+  of mildew and carbon paper. Filing cabinets in two rows, a window that faces a brick
+  wall, a ceiling fan that turns without doing anything useful.
+- Peltz is at the back desk. Young-ish, soft around the eyes. He looks up when I come
+  in and his hand goes to his collar before I've said a word. He knows why someone
+  like me shows up at a place like this.
+- male_young_american_weak: I mean — I can help you if — are you from the, um. Is
+    this about the Aldwick filings?
+- He catches himself. Looks past me, not at me. The supervisor's office is at the
+  far end. Door's open.
 choices:
-  - text: |-
-      Warm Peltz up — joke about the city's filing system, build rapport
-    next: act1/peltz_warm
-    effects:
-      stats:
-        rep: 1
-
-  - text: |-
-      Press Peltz directly — what did Ray take home?
-    next: act1/peltz_pressed
-    effects:
-      stats:
-        heat: 1
-
-  - text: |-
-      Watch Peltz's face when the supervisor passes — read what you see
-    next: act1/peltz_watched
-
-  - text: |-
-      Back off — Peltz isn't going to talk here, and pushing makes noise
-    next: act1/legwork_hub
+- text: Warm Peltz up — joke about the city's filing system, build rapport
+  next: act1/peltz_warm
+  effects:
+    stats:
+      rep: 1
+- text: Press Peltz directly — what did Ray take home?
+  next: act1/peltz_pressed
+  effects:
+    stats:
+      heat: 1
+- text: Watch Peltz's face when the supervisor passes — read what you see
+  next: act1/peltz_watched
+- text: Back off — Peltz isn't going to talk here, and pushing makes noise
+  next: act1/legwork_hub

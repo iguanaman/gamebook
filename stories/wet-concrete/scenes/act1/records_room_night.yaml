@@ -1,0 +1,21 @@
+id: act1/records_room_night
+
+text:
+  - |-
+    The surveying department is quiet after seven. One light on in the back — a janitor, from the sound of it. Frank goes in through the side door he already noted this afternoon.
+  - |-
+    The filing cabinet Peltz was leaning against is a standard city-issue. Lock's a Larsen No. 4 — same as every other government cabinet in this building. Frank's had practice.
+
+choices:
+  - text: |-
+      Go in
+    next: act1/records_room_success
+    requires:
+      flags_unset: [records_room]
+    hide_if_failed: true
+    effects:
+      flags:
+        records_room: true
+      stats:
+        evidence: 1
+        heat: 1

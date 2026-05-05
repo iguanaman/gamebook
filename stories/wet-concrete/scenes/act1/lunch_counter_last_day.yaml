@@ -1,17 +1,15 @@
 id: act1/lunch_counter_last_day
-
 text:
-  - female_young_american_sweet_youthful_clear: |-
-      He didn't even sit down that last day. Stood right here at the counter, drank it standing. Paid with exact change — he usually needed me to break a five. And he left a big tip. Way bigger than usual. He didn't say anything, just put it on the counter and went.
-  - |-
-    She looks at the spot where the tip would have been.
-  - female_young_american_sweet_youthful_clear: |-
-      I remember thinking it was nice of him. I didn't — I didn't think anything else about it at the time.
-
+- female_young_american_sweet_youthful_clear: He didn't even sit down that last day.
+    Stood right here at the counter, drank it standing. Paid with exact change — he
+    usually needed me to break a five. And he left a big tip. Way bigger than usual.
+    He didn't say anything, just put it on the counter and went.
+- She looks at the spot where the tip would have been.
+- female_young_american_sweet_youthful_clear: I remember thinking it was nice of him.
+    I didn't — I didn't think anything else about it at the time.
 choices:
-  - text: |-
-      Men say goodbye differently — Ray knew something was coming
-    next: act1/legwork_hub
-    effects:
-      stats:
-        evidence: 1
+- text: Men say goodbye differently — Ray knew something was coming
+  next: act1/legwork_hub
+  effects:
+    stats:
+      evidence: 1

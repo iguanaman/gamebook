@@ -1,6 +1,39 @@
 id: act1/legwork_hub
+
 text:
-- '[Beat 2 hub — stub. To be written in next stage.]'
+  - |-
+    Frank sits in his car for a minute before he drives anywhere. The notebook has three pages now. Peltz nervous. A supervisor who shuts people down by walking through a room. A lunch counter where Ray said goodbye in the way men do when they think they might not be back.
+  - |-
+    None of it is a case yet. It's the shape of one.
+  - if: {flags: [aldwick_visited]}
+    text: |-
+      He's already been to Aldwick. There's more there — he can feel it — but the records office is the other end of the same thread.
+
 choices:
-- text: Continue
-  next: act1/office_hub_act1
+  - text: |-
+      Go to Aldwick — Ray was spending time there, and the neighbourhood is in the files
+    next: act1/aldwick_arrival
+    requires:
+      flags_unset: [aldwick_visited]
+
+  - text: |-
+      Go back to Aldwick — there's more to learn there
+    next: act1/aldwick_arrival
+    requires:
+      flags: [aldwick_visited]
+    hide_if_failed: true
+
+  - text: |-
+      Swing by the city records office — the parcel numbers will mean something if you find the right cabinet
+    next: act1/records_approach
+
+  - text: |-
+      Go back to the surveying department after hours
+    next: act1/records_room_night
+    requires:
+      flags_unset: [records_room]
+    hide_if_failed: true
+
+  - text: |-
+      Go back to the office — check the phone, think it through
+    next: act1/office_hub_act1

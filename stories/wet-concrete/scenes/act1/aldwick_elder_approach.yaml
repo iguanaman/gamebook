@@ -1,0 +1,32 @@
+id: act1/aldwick_elder_approach
+
+text:
+  - |-
+    The man on the stoop at the end of Oller Street hasn't moved since Frank parked. He's been watching the survey crews the way you watch something you've already decided is wrong.
+  - |-
+    He doesn't stand when Frank approaches. That's an answer before Frank's opened his mouth.
+  - male_elder_american_wise_approachable: |-
+      You're not city. City men have clipboards and they don't make eye contact. You got neither.
+  - |-
+    He waits. A closed door, but one that's listening.
+
+choices:
+  - text: |-
+      Be direct — you're looking for Ray Doss, a city surveyor. You think something happened to him
+    next: act1/aldwick_hector_direct
+
+  - text: |-
+      Play it oblique — you're checking up on a property boundary issue for a client
+    next: act1/aldwick_hector_oblique
+
+  - text: |-
+      Show him something — Frank's old badge card, worn soft at the edges
+    next: act1/aldwick_hector_badge
+    requires:
+      stats:
+        rep: 4
+    failed_text: |-
+      *(He'd take one look and know you were working an angle.)*
+    effects:
+      stats:
+        rep: 1

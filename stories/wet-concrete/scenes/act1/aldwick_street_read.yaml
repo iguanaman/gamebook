@@ -1,0 +1,21 @@
+id: act1/aldwick_street_read
+
+text:
+  - |-
+    Frank walks the block slowly. Not tourist-slow — working-slow, the pace of a man checking something against a list.
+  - |-
+    A permit notice is half-peeled from a door on Oller Street. The building number says 44. The permit number says something different — a parcel code that doesn't match any address Frank can place on this block. He writes it down.
+  - |-
+    The chalked address underneath, partially painted over, is older than the permit. Someone put the permit there after the chalk.
+
+choices:
+  - text: |-
+      Note the permit number and cross-check at the records office
+    next: act1/aldwick_parcel_check
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Knock on the nearest door — someone has to know who's been re-surveying here
+    next: act1/aldwick_door_knock

@@ -1,0 +1,18 @@
+id: act1/aldwick_hector_detail
+
+text:
+  - male_elder_american_wise_approachable: |-
+      Every correction in the past eighteen months moves a parcel east. Toward the old rail corridor — where they're going to put the highway on-ramp, that's what they say. Where they say it's going. The lots that move eastward on paper, they're suddenly owned by the city or by a company that doesn't have a sign on its door. Two families on this block took relocation money and left.
+  - |-
+    He's not looking at the survey crews anymore. He's looking at his hands.
+  - male_elder_american_wise_approachable: |-
+      It isn't an accident. That's what I know. I don't know whose name is on it.
+
+choices:
+  - text: |-
+      Head to the records office — if the boundaries are moving, the paperwork says where and who authorised it
+    next: act1/records_approach
+
+  - text: |-
+      Find Marta Gaines — someone documenting it is the kind of person Ray would have talked to
+    next: act1/aldwick_marta_intro
