@@ -28,7 +28,10 @@ It also fixes TTS voice assignments. Without a fixed assignment, beat writers wi
 
 1. Read `brief.md`, `structure.md`, every `act-{n}.md`, every `act-{n}-scenes.md`, and `docs/storycrafting/principles.md` (the "Characters" section).
 2. Compile the NPC roster from each scene-breakdown's "NPCs in this act" section. Include any NPC with at least one line of dialogue or one decision the player makes about them.
-3. Run `python list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. Voice IDs are leaf keys in the file (e.g. `female_adult_american_cool`, `male_midlife_english_posh`). The `narrator/` and `robot/` branches are **off-limits** for NPC assignment — narrator voices are reserved for the story's narrator (set in `story.yaml`), and robot voices are reserved for in-world computer/screen text (used directly as a voice ID prefix in scene YAML).
+3. Run `python list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. The file has three top-level keys:
+   - `characters/` — standard NPC voices, keyed by gender. Use these for all NPC assignments.
+   - `narrator/` and `robot/` — **off-limits** for NPC assignment. Narrator is reserved for `story.yaml`; robot is used ad hoc for in-world screen text.
+   - `languages/` — voices prefixed with a language (e.g. `japanese_narrator_male_...`). **Only use these when the story's language or setting calls for it** (e.g. a Japanese-language story). Do not assign language voices to NPCs in an English-language story.
 4. Assign a voice to each NPC. **Avoid reuse where possible** — if there are more NPCs than voices, only then double up, and only on NPCs who never share a scene. Match voice traits to character: a posh English accent fits an overseer better than a chirpy Scottish one.
 5. Write `cast.md`.
 
@@ -60,7 +63,8 @@ Order the cast in **first-appearance order**, not alphabetical — a scene write
 
 ## Voice assignment guidance
 
-- Never assign a `narrator/` or `robot/` voice to an NPC. Robot voices are used ad hoc in scene YAML for in-world computer/screen readouts, not for characters.
+- Never assign a `narrator/`, `robot/`, or `languages/` voice to an NPC in an English-language story. Language-prefixed voices (under `languages/` in `voices.yaml`) are only for stories whose language or setting specifically calls for them.
+- Robot voices are used ad hoc in scene YAML for in-world computer/screen readouts, not for characters.
 - An NPC with a single one-line cameo can share a voice with another minor NPC if necessary.
 - Major NPCs (player meets repeatedly) must have a unique voice — the player must be able to recognise them by sound.
 - If the available voices don't fit an NPC well, note it explicitly in the cast entry ("voice is the closest fit; consider re-recording if a {trait} voice is added").
