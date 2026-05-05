@@ -1360,15 +1360,18 @@ function renderJournal() {
 function closeJournal() {
   const panel = document.getElementById('journal-panel');
   const toggle = document.getElementById('journal-toggle');
+  const backdrop = document.getElementById('journal-backdrop');
   if (!panel) return;
   panel.classList.add('journal-panel-closed');
   panel.setAttribute('aria-hidden', 'true');
   toggle?.classList.remove('journal-toggle-open');
+  backdrop?.classList.remove('journal-backdrop-open');
 }
 
 function toggleJournal() {
   const panel = document.getElementById('journal-panel');
   const toggle = document.getElementById('journal-toggle');
+  const backdrop = document.getElementById('journal-backdrop');
   if (!panel) return;
   const isOpen = !panel.classList.contains('journal-panel-closed');
   if (isOpen) {
@@ -1377,11 +1380,14 @@ function toggleJournal() {
     panel.classList.remove('journal-panel-closed');
     panel.setAttribute('aria-hidden', 'false');
     toggle?.classList.add('journal-toggle-open');
+    backdrop?.classList.add('journal-backdrop-open');
     state.journalSeen = (state.journal ?? []).length;
     saveState();
     renderJournal();
   }
 }
+
+document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
 
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
 document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); cancelPlayback(); showSelector(); });

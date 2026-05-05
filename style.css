@@ -813,3 +813,84 @@ body.splash-active .ui-hint { display: none !important; }
   background: var(--accent-hover);
 }
 
+/* ── Journal backdrop (mobile close target) ───────────────────────────────── */
+
+.journal-backdrop {
+  display: none;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  :root {
+    --frame-inset: 3px;
+    --story-title-size: 3rem;
+    --border-corner-radius: 2px;
+  }
+
+  /* Tighter game layout padding */
+  .game-wrap {
+    padding: calc(var(--frame-inset) + 2rem) 0.75rem calc(var(--frame-inset) + 1.5rem);
+  }
+
+  .narrative-area {
+    height: calc(100dvh - (var(--frame-inset) + 2rem) - (var(--frame-inset) + 1.5rem));
+  }
+
+  /* Slightly smaller reading text */
+  .narrative { font-size: 16px; line-height: 1.75; }
+
+  /* Selector */
+  .selector { padding: 1rem; }
+  .selector-title { font-size: 1.4rem; }
+  .story-card { padding: 1rem; gap: 1rem; }
+
+  /* Tighter choices */
+  .choice-list { gap: 0.4rem; }
+  .btn-choice { padding: 0.55rem 0.85rem; }
+
+  /* Splash titles */
+  .story-splash-title--story {
+    font-size: calc(var(--story-title-size) * 1.2);
+  }
+
+  /* Intro/pre-intro text */
+  .intro-splash-body p,
+  .pre-intro-msg p { font-size: 1.1rem; }
+
+  /* Hide all hints except skip */
+  .ui-hint[data-hint] { display: none !important; }
+
+  /* Journal takes full screen — show backdrop for dismiss */
+  .journal-clip {
+    left: var(--frame-inset);
+    top: var(--frame-inset);
+    bottom: var(--frame-inset);
+    width: calc(100vw - var(--frame-inset) * 2);
+  }
+
+  .journal-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 319;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .journal-backdrop.journal-backdrop-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .journal-panel {
+    border-right: none;
+  }
+
+  .journal-footer {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
