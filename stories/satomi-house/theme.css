@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400&display=swap');
+
+:root {
+  /* ── Palette: faded traditional Japan ──────────────────────────────────── */
+  /* Old photograph left in the sun: washed yellows, cold greys, deep shadow  */
+
+  --bg: #e8e2d4;            /* aged paper — warm but drained */
+  --surface: #d4cdb8;       /* tatami/screen surface — one step darker than bg */
+  --text: #1c1710;          /* near-black ink, warm undertone */
+  --text-muted: #6b6050;    /* faded ink, dust-warm grey */
+  --border: #8a7e6a;        /* dark wood grain */
+  --hover-bg: rgba(28, 23, 16, 0.06);
+
+  --accent: #2c3a2e;        /* deep shadow-green — tokonoma alcove dark */
+  --accent-hover: #1a2319;
+  --btn-secondary-bg: #c8bfa8;
+  --btn-secondary-hover: #b8ad96;
+
+  --radius: 2px;            /* traditional woodwork is square-edged */
+
+  /* ── Typography ─────────────────────────────────────────────────────────── */
+  /* Shippori Mincho: classic Japanese-inflected serif, legible and evocative  */
+  /* Noto Serif JP fallback for full CJK coverage                              */
+  --font-body: 'Shippori Mincho', 'Noto Serif JP', Georgia, serif;
+  --font-ui: 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Noto Serif JP', 'Shippori Mincho', serif;
+
+  /* ── Parchment frame ─────────────────────────────────────────────────────── */
+  /* Dark wood outer ring, paper-screen inner — like a shoji panel in a frame  */
+  --border-outer: #3a2e1e;  /* dark wood — almost black-brown */
+  --border-inner: #c4b48a;  /* aged paper edge, washed gold */
+  --border-corner-radius: 1px;
+  --frame-inset: 8px;
+
+  /* ── Divider ─────────────────────────────────────────────────────────────── */
+  --divider-color: #8a7e6a;
+  --divider-style: 1px solid var(--divider-color);
+
+  /* ── Drop cap ────────────────────────────────────────────────────────────── */
+  --drop-cap-color: #2c3a2e;  /* same as accent — ink-dark */
+  --drop-cap-size: 3.2em;
+
+  /* ── Act title ───────────────────────────────────────────────────────────── */
+  --act-title-size: 1.9rem;
+  --act-rule-color: #8a7e6a;
+  --act-rule-style: 1px solid var(--act-rule-color);
+
+  /* ── Animations — slightly slower; the house has its own pace ───────────── */
+  --anim-block-duration: 450ms;
+  --anim-choice-duration: 380ms;
+  --anim-act-title-duration: 800ms;
+  --anim-choice-fade-fast: 280ms;
+  --anim-choice-linger-ms: 1400ms;
+  --anim-choice-fade-slow: 600ms;
+}
