@@ -6,11 +6,12 @@ const app = document.getElementById('app');
 
 const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
 const HINT_KEY = key => `gamebook.hint_seen.${key}`;
+const HINTS_ALWAYS_SHOW = true; // dev flag: show hints repeatedly, revert by setting false
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
 function showSkipHint() {
-  if (localStorage.getItem(HINT_KEY('skip'))) return;
+  if (!HINTS_ALWAYS_SHOW && localStorage.getItem(HINT_KEY('skip'))) return;
   const el = document.getElementById('hint-skip');
   if (!el) return;
   el.querySelector('.ui-hint-text').textContent = isTouchDevice()
@@ -22,14 +23,14 @@ function showSkipHint() {
 function hideSkipHint(dismiss) {
   const el = document.getElementById('hint-skip');
   if (!el || !el.classList.contains('hint-visible')) return;
-  if (dismiss) localStorage.setItem(HINT_KEY('skip'), '1');
+  if (dismiss && !HINTS_ALWAYS_SHOW) localStorage.setItem(HINT_KEY('skip'), '1');
   el.classList.remove('hint-visible');
   el.classList.add('hint-gone');
   el.addEventListener('animationend', () => el.classList.remove('hint-gone'), { once: true });
 }
 
-function isHintSeen(key) { return !!localStorage.getItem(HINT_KEY(key)); }
-function markHintSeen(key) { localStorage.setItem(HINT_KEY(key), '1'); }
+function isHintSeen(key) { return !HINTS_ALWAYS_SHOW && !!localStorage.getItem(HINT_KEY(key)); }
+function markHintSeen(key) { if (!HINTS_ALWAYS_SHOW) localStorage.setItem(HINT_KEY(key), '1'); }
 
 function dismissHint(key) {
   const el = document.getElementById(`hint-${key}`);
