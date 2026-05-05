@@ -38,3 +38,5 @@
   --anim-act-title-duration: 450ms;
   --anim-choice-fade-duration: 180ms;
 }
+
+.narrative { font-size: calc(18px * 0.8); }

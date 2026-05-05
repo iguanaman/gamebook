@@ -350,7 +350,7 @@ body.splash-active .ui-hint { display: none !important; }
   overflow-y: auto;
   padding-right: 0.5rem;
   line-height: 1.85;
-  font-size: 1rem;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
 }
