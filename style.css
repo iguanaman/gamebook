@@ -243,18 +243,16 @@ button {
   position: fixed;
   z-index: 399;
   display: none;
-  align-items: center;
-  gap: 0.4rem;
   pointer-events: none;
 }
 
 .ui-hint.hint-visible {
-  display: flex;
+  display: block;
   animation: hint-fade-in 0.5s ease 0.8s both;
 }
 
 .ui-hint.hint-gone {
-  display: flex;
+  display: block;
   animation: hint-fade-out 0.35s ease forwards;
 }
 
@@ -265,47 +263,30 @@ button {
   color: var(--text-muted);
   line-height: 1.3;
   max-width: 11rem;
+  display: block;
 }
 
-.ui-hint-arrow {
-  flex-shrink: 0;
-  color: var(--text-muted);
-  opacity: 0.55;
-}
-
-/* fullscreen: top-right, text left of arrow pointing up-right to button */
 .ui-hint-top-right {
   top: calc(var(--frame-inset) + 2.2rem);
-  right: calc(var(--frame-inset) + 0.1rem);
-  flex-direction: row;
-  align-items: flex-start;
+  right: calc(var(--frame-inset) + 0.25rem);
+  text-align: right;
 }
-.ui-hint-top-right .ui-hint-text { text-align: right; }
 
-/* back: top-left, arrow pointing up-left then text */
 .ui-hint-top-left {
   top: calc(var(--frame-inset) + 2.2rem);
-  left: calc(var(--frame-inset) + 0.1rem);
-  flex-direction: row;
-  align-items: flex-start;
+  left: calc(var(--frame-inset) + 0.25rem);
 }
 
-/* journal: bottom-left, arrow pointing down-left then text */
 .ui-hint-bottom-left {
   bottom: calc(var(--frame-inset) + 2.4rem);
-  left: calc(var(--frame-inset) + 0.1rem);
-  flex-direction: row;
-  align-items: flex-end;
+  left: calc(var(--frame-inset) + 0.25rem);
 }
 
-/* undo: bottom-right, text then arrow pointing down-right */
 .ui-hint-bottom-right {
   bottom: calc(var(--frame-inset) + 2.4rem);
-  right: calc(var(--frame-inset) + 0.1rem);
-  flex-direction: row;
-  align-items: flex-end;
+  right: calc(var(--frame-inset) + 0.25rem);
+  text-align: right;
 }
-.ui-hint-bottom-right .ui-hint-text { text-align: right; }
 
 /* Debug reset button */
 .hint-reset-btn {
