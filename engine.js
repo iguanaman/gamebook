@@ -652,7 +652,7 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
     }, animDuration);
   }
 
-  splash.addEventListener('click', dismiss, { once: true });
+  setTimeout(() => splash.addEventListener('click', dismiss, { once: true }), 500);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
