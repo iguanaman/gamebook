@@ -197,7 +197,6 @@ async function applyCardTheme(storyId) {
     vars.forEach(([, name, value]) => card.style.setProperty(name, value.trim()));
     card.style.color = 'var(--text)';
     card.style.fontFamily = 'var(--font-body)';
-    card.style.fontSize = 'var(--base-font-size, 1em)';
     card.style.background = 'var(--surface)';
     card.style.outline = 'none';
     card.style.border = '3px solid var(--border-outer)';

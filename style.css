@@ -53,6 +53,7 @@ html, body {
   font-size: 16px;
   line-height: 1.6;
   overflow: hidden;
+  user-select: none;
 }
 
 h1, h2, h3 {
@@ -312,7 +313,6 @@ body.splash-active .ui-hint { display: none !important; }
   padding: calc(var(--frame-inset) + 1.5rem) 1rem;
   min-height: 100dvh;
   box-sizing: border-box;
-  user-select: none;
 }
 
 .narrative-area {
