@@ -11,11 +11,17 @@ Usage:
 """
 
 import argparse
+import re
 import sys
 from io import StringIO
 from pathlib import Path
 from ruamel.yaml import YAML
 from ruamel.yaml.scalarstring import LiteralScalarString
+
+# Matches a string that is actually a voice-tagged dialogue line encoded as a
+# plain string, e.g. "male_old_british: |-\n  Hello there."
+# The voice key is all lowercase words joined by underscores.
+_VOICE_LINE_RE = re.compile(r'^([a-z][a-z0-9_]+):\s*\|-?\n(.*)', re.DOTALL)
 
 TEXT_KEYS = {"text", "else", "failed_text", "journal"}
 
@@ -46,6 +52,24 @@ def split_paragraphs(text):
     return [LiteralScalarString(p) for p in parts if p]
 
 
+def try_unpack_voice_line(text):
+    """If text is a mis-encoded voice line ('voice_key: |-\\n  dialogue'), return
+    a {voice_key: LiteralScalarString} dict. Otherwise return None."""
+    m = _VOICE_LINE_RE.match(text)
+    if not m:
+        return None
+    voice_key = m.group(1)
+    # Dedent the dialogue body (ruamel block scalar adds 2-space indent)
+    body_lines = m.group(2).splitlines()
+    dedented = []
+    for line in body_lines:
+        if line.startswith("  "):
+            dedented.append(line[2:])
+        else:
+            dedented.append(line.lstrip())
+    return {voice_key: LiteralScalarString("\n".join(dedented).strip())}
+
+
 def convert_node(node, parent_key=None, path=None):
     """Recursively convert text strings to |- and split multi-paragraph bare list items."""
     if isinstance(node, dict):
@@ -68,7 +92,11 @@ def convert_node(node, parent_key=None, path=None):
             item = node[i]
 
             if isinstance(item, str):
-                if "\n\n" in item:
+                unpacked = try_unpack_voice_line(item)
+                if unpacked is not None:
+                    node[i] = unpacked
+                    i += 1
+                elif "\n\n" in item:
                     # Split bare narrator paragraph into multiple list items
                     parts = split_paragraphs(item)
                     node[i:i+1] = parts
