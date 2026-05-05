@@ -1,0 +1,41 @@
+id: act3/act3_moment_of_choice
+
+text:
+  - |-
+    家の方を向く。到着したときと同じ角度で、同じ光の中にある。知っていることが変わっただけで、家は変わっていない。
+  - if: {flags: [accepted]}
+    text: |-
+      「ああ。わかっている。最初からわかっていた。」静かに、そう思う。動揺はない。
+  - if: {flags: [called_ryan]}
+    text: |-
+      さっきのメッセージが頭に戻ってくる。言いたかったことを、言わなかった。
+  - if: {stats: {composure: 4}}
+    text: |-
+      あなたが知っていることと、知らないことを数える。これくらいの情報量で決断することはある。実際よくある。
+    else: |-
+      「決める。」それだけ。
+
+
+choices:
+  - text: |-
+      逃げる——合理的な判断だ
+    next: act3/act3_flee_departure
+
+  - text: |-
+      向き合う——もう一度、中へ
+    next: act3/act3_confront_entry
+    requires:
+      flags: [saw_face]
+      stats:
+        curiosity: 6
+    failed_text: |-
+      *(何をすべきかの形が見えていない——でも、踏み出す)*
+
+  - text: |-
+      受け入れる——ここに留まる
+    next: act3/act3_embrace_entry
+    requires:
+      flags: [accepted, found_altar, heard_name, saw_face]
+      stats:
+        curiosity: 7
+    hide_if_failed: true

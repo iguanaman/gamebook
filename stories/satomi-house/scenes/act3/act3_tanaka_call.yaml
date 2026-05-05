@@ -1,0 +1,24 @@
+id: act3/act3_tanaka_call
+
+text:
+  - |-
+    着信。田中さんだ。タイミングが正確すぎる——あなたが入口に立ったのを、彼が見ていたかのように。
+  - |-
+    挨拶もなく、名前を呼ばれる。そして待たれる。
+  - japanese_male_midlife_japanese_mature_deep_intriguing: |-
+      節子さんも、あなたと同じ顔をしていました。
+  - |-
+    それだけ言って、電話が切れる。どんな顔なのか。彼がどこから見ていたのか。そもそもあなたが相続したことを、いつ知ったのか。何も説明しないまま、回線は静かになった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      同じ顔。どんな顔？
+
+choices:
+  - text: |-
+      電話を切った——ライアンにも電話する
+    next: act3/act3_ryan_voicemail
+    requires:
+      flags_unset: [called_ryan]
+
+  - text: |-
+      電話を切った——もう電話はしない
+    next: act3/act3_moment_of_choice

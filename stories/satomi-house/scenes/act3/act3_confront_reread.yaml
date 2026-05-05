@@ -1,0 +1,21 @@
+id: act3/act3_confront_reread
+
+text:
+  - |-
+    台所のランプの下でノートを開く。節子さんの小さく整った字が、ページを埋めている。
+  - |-
+    もっと時間があればよかった——そう思う。それから思い直す。持てる時間は、持てる時間だけだった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      確認できた。
+
+choices:
+  - text: |-
+      整える——続ける
+    next: act3/act3_confront_complete
+
+  - text: |-
+      壊す——終わらせる
+    next: act3/act3_confront_undo
+    effects:
+      flags:
+        confront_undo: true

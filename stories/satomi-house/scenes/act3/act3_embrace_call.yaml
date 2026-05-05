@@ -1,0 +1,35 @@
+id: act3/act3_embrace_call
+
+text:
+  - |-
+    ライアンに電話する。ロンドンは午後遅い。三コールで出る。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      ねえ、家について話があるんだけど。
+  - |-
+    「Okay。」
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      荷物を少し送ってくれる？
+  - |-
+    「……Which things？」
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      あとでリストを送るよ。急がなくていいから。
+  - |-
+    しばらく沈黙がある。それから——「Is the house nice？」
+  - |-
+    廊下を見る。寸法は合っていない。天井の住人が場所を変えた跡がある。庭の竹を、何かが手入れしている音がする。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      うん。好きになってきた。
+  - |-
+    家が、誰かが留まると理解したときに立てる音を立てる。
+  - |-
+    頭の中でリストができていく——片付けるべきものではなく、いつか彼に話すべきことのリスト。驚き具合の順番に並べている。廊下から始める。廊下が一番説明しやすいから。
+  - |-
+    ライアンが何かを言う。声に出して笑っている途中で、物語は終わる。何を言ったかは聞こえない。
+
+journal: |-
+  あなたは留まることにした。ライアンに荷物を送るよう頼んだ。家はあなたが残ると知っている。
+
+choices:
+  - text: |-
+      電話中——
+    next: act3/act3_embrace_end

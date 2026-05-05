@@ -1,0 +1,47 @@
+id: act3/act3_confront_entry
+
+text:
+  - |-
+    中に入る。家は、あなたが戻ってくることを、ある種の静けさで受け取っている。
+  - |-
+    書斎、台所、地下室——その全部がこの決断の後ろにある。
+  - if: {flags: [knows_truth]}
+    text: |-
+      「段取りはわかった。節子さんのノートに全部あった。わかっていた。」
+    else: |-
+      「何かしなければならない。何かが——でも、何を？」
+  - if: {flags: [knows_truth]}
+    text: |-
+      問題は、何をするかではない。やるかどうかだ。
+
+choices:
+  - text: |-
+      段取りを整える——節子さんのやり方で終わらせる
+    next: act3/act3_confront_complete
+    requires:
+      flags: [knows_truth]
+    hide_if_failed: true
+
+  - text: |-
+      壊す——きれいに終わらせる
+    next: act3/act3_confront_undo
+    requires:
+      flags: [knows_truth]
+    hide_if_failed: true
+    effects:
+      flags:
+        confront_undo: true
+
+  - text: |-
+      ノートをもう一度読む
+    next: act3/act3_confront_reread
+    requires:
+      flags: [knows_truth]
+    hide_if_failed: true
+
+  - text: |-
+      何かしなければならない——祭壇へ
+    next: act3/act3_confront_bad
+    requires:
+      flags_unset: [knows_truth]
+    hide_if_failed: true

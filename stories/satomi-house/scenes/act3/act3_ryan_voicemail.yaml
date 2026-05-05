@@ -1,0 +1,24 @@
+id: act3/act3_ryan_voicemail
+
+text:
+  - |-
+    四回コールする。留守番電話に繋がる。
+  - |-
+    ライアンの声——録音された、馬鹿みたいに普通の声。名前と、メッセージを残してくれという短い文。
+  - if: {stats: {composure: 6}}
+    text: |-
+      「まだここにいる。家は面白い。心配しないで。」ほぼ退屈そうな声で言えた。我ながら上出来だと思う。
+    else: |-
+      「大丈夫です」と言った。その後に空白が続いた。言いたかったことはそれではなかった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+      送ってしまった。取り消せない。
+
+choices:
+  - text: |-
+      メッセージを残した——決める時間だ
+    next: act3/act3_moment_of_choice
+    effects:
+      flags:
+        called_ryan: true
+      stats:
+        composure: 1

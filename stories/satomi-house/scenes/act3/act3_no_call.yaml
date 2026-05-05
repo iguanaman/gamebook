@@ -1,0 +1,19 @@
+id: act3/act3_no_call
+
+text:
+  - |-
+    スマートフォンをポケットに戻す。道はそのままある。
+  - if: {stats: {composure: 6}}
+    text: |-
+      ライアンには助けられない——頭の中でそれだけははっきりしている。これはライアンが来て解決できるたぐいの話ではない。
+    else: |-
+      家が静かだ。道も静かだ。特に何も言うことがない。
+
+choices:
+  - text: |-
+      決める時間だ
+    next: act3/act3_moment_of_choice
+
+  - text: |-
+      やはり電話する
+    next: act3/act3_ryan_voicemail
