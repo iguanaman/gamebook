@@ -457,6 +457,15 @@ function stopAudio() {
   }
 }
 
+document.addEventListener('visibilitychange', () => {
+  if (!currentAudio) return;
+  if (document.hidden) {
+    currentAudio.pause();
+  } else {
+    currentAudio.play().catch(() => {});
+  }
+});
+
 function cancelPlayback() {
   playbackSession++;
   stopAudio();
