@@ -103,7 +103,7 @@ async function showSelector({ holdCards = false } = {}) {
   app.innerHTML = `
     <div class="selector-bg">
       <div class="selector">
-        <h1 class="selector-title">Choose Your Story</h1>
+        <h1 class="selector-title${holdCards ? ' card-pop-pending' : ''}">Choose Your Story</h1>
         <div class="story-list">
           ${manifest.stories.length === 0
             ? '<p class="no-stories">No stories available yet.</p>'
@@ -171,8 +171,13 @@ function showIntroSplash(mode, manifest) {
     overlay.addEventListener('transitionend', () => {
       overlay.remove();
       if (isFirst) {
+        const title = document.querySelector('.selector-title');
+        if (title) {
+          title.classList.remove('card-pop-pending');
+          title.classList.add('card-pop-in');
+        }
         document.querySelectorAll('.story-card-wrap').forEach((wrap, idx) => {
-          wrap.style.setProperty('--card-pop-delay', `${idx * 120}ms`);
+          wrap.style.setProperty('--card-pop-delay', `${120 + idx * 120}ms`);
           wrap.classList.remove('card-pop-pending');
           wrap.classList.add('card-pop-in');
         });
