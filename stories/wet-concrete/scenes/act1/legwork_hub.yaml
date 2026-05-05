@@ -1,10 +1,6 @@
 id: act1/legwork_hub
-
 text:
-  - |-
-    [Beat 2 hub — stub. To be written in next stage.]
-
+- '[Beat 2 hub — stub. To be written in next stage.]'
 choices:
-  - text: |-
-      Continue
-    next: act1/office_hub_act1
+- text: Continue
+  next: act1/office_hub_act1

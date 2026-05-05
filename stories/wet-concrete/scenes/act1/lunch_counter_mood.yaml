@@ -1,0 +1,18 @@
+id: act1/lunch_counter_mood
+
+text:
+  - female_young_american_sweet_youthful_clear: |-
+      Scared isn't quite — no, it wasn't like that. It was more like, you know how a man looks when he's made a decision and he's waiting to find out if it was the right one? That's what he looked like. Not frightened. Waiting.
+  - |-
+    She tilts her head, getting it right.
+  - female_young_american_sweet_youthful_clear: |-
+      Like he'd already done the thing. Whatever the thing was. And now it was just a question of what happened next.
+
+choices:
+  - text: |-
+      Ask about the day he disappeared
+    next: act1/lunch_counter_last_day
+
+  - text: |-
+      Thank her — it's enough
+    next: act1/legwork_hub

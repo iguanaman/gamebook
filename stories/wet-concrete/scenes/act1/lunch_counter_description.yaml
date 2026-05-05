@@ -1,0 +1,17 @@
+id: act1/lunch_counter_description
+
+text:
+  - female_young_american_sweet_youthful_clear: |-
+      Average height. Older — not old, just, you know, settled. He walked like a cop, that kind of walk where you own the floor without trying. Nice suit but not showy. I thought I saw something under his jacket. A badge holder, maybe. I can't say for sure. He never showed me anything.
+  - |-
+    I write it down. A cop, or something shaped like one. Meeting with Ray Doss two days before he vanished. Didn't order. Didn't stay.
+  - |-
+    Men who don't eat at a lunch counter didn't come for the food.
+
+choices:
+  - text: |-
+      File that away — a cop-type meeting with Ray two days before he vanished
+    next: act1/legwork_hub
+    effects:
+      stats:
+        evidence: 1
