@@ -1,0 +1,31 @@
+id: act1/kimura_arrival
+
+text:
+  - |-
+    車が来た。白、小型、角が丸い。ドアが開くと、五十代の男が降りてくる——木村誠一、里見不動産合同会社担当。スーツの肩幅が一サイズ大きい。抱えたクリアファイルの端が完璧に揃っている。
+  - japanese_male_adult_japanese_serious_clear_measured: |-
+    ランバートさんでいらっしゃいますね。木村でございます。お待たせいたしました。
+  - |-
+    彼は三枚の鍵を封筒から出し、書類を並べ、電気のタイマーについて説明した。夜の十一時に切れる場合がある。懐中電灯を用意しておくとよい。それから——
+  - japanese_male_adult_japanese_serious_clear_measured: |-
+    念のためですが——この家は、その、評判が少々ございまして。
+  - |-
+    彼は「評判」という言葉を使った。「幽霊」とは言わなかった。書類の端を揃えながら、自分の車の方向を一度だけ確認した。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    念のため。いい言い回しだ。地下に何かいますとか、そういうことも念のためになるのかな。
+
+choices:
+  - text: |-
+      「節子さんのことを教えてください」
+    next: act1/kimura_setsuko
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      「近所の連絡先はありますか？」
+    next: act1/kimura_neighbour
+
+  - text: |-
+      「ありがとうございました」——折を受け取って終わりにする
+    next: act1/kimura_departure

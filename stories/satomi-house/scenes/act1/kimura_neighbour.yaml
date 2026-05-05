@@ -1,0 +1,21 @@
+id: act1/kimura_neighbour
+
+text:
+  - japanese_male_adult_japanese_serious_clear_measured: |-
+    お隣に田中さんというご老人がいらっしゃいまして。長くお住まいの方で——この家については、その、いろいろとご存知でして。
+  - |-
+    彼はクリアファイルの裏から名刺を一枚出した。小さく、薄い紙に薄いインクで刷ってある。田中豊、住所のみ。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    いろいろと。
+
+choices:
+  - text: |-
+      カードをいただく
+    next: act1/kimura_departure
+    effects:
+      flags:
+        met_neighbour: true
+
+  - text: |-
+      「いいえ、結構です」
+    next: act1/kimura_departure

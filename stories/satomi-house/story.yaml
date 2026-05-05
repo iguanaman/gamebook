@@ -1,0 +1,14 @@
+id: satomi-house
+genre: Horror
+narrator: japanese_narrator_male_inviting_clear_measured
+title: |-
+  「里見の家」
+description: |-
+  あなたは見知らぬ家を相続した。不動産屋は幽霊のことを、まるで雨漏りの話のように告げた。
+cover: images/cover.jpg
+start: act1/arrival_approach
+journal: |-
+  あなたは日本に来た。家は確かにそこにある。それで十分なはずだった。
+stats:
+  curiosity: 5
+  composure: 7

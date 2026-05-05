@@ -1,0 +1,23 @@
+id: act1/kimura_setsuko
+
+text:
+  - japanese_male_adult_japanese_serious_clear_measured: |-
+    里見さんは長年おひとりで。ご連絡先の記録がなく、相続人の特定に六ヶ月かかりました。こちらのお写真だけが残されておりまして。
+  - |-
+    彼は写真を差し出した。古いフレームに収められた、庭での一枚。白髪の女性——里見節子——が、こちらを向かずに立っている。
+  - |-
+    庭に、石灯籠がある。
+  - |-
+    今、外の庭に石灯籠はない。
+
+choices:
+  - text: |-
+      写真を受け取る
+    next: act1/kimura_departure
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      「わかりました」——写真はそのままにする
+    next: act1/kimura_departure

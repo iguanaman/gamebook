@@ -1,0 +1,24 @@
+id: act1/photo_examined
+
+text:
+  - |-
+    ランプに近づけた。石灯籠は今の庭にはない。場所から見て、抜いたか、倒れたか——いや、そんな痕跡もない。まるで最初からなかったかのように。
+  - |-
+    木の配置も違う。現在の庭では南側に松が三本。写真では一本もない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    新しい写真なのに、古い庭。あるいは古い写真なのに、新しいフレーム。どっちかわからない。どっちも嫌だ。
+
+choices:
+  - text: |-
+      日付を探す——写真の裏を確認する
+    next: act1/night_in_bed
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      写真をしまって寝る準備をする
+    next: act1/night_in_bed
+    effects:
+      stats:
+        composure: 1

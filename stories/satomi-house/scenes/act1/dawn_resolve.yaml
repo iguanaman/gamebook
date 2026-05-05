@@ -1,0 +1,17 @@
+id: act1/dawn_resolve
+
+text:
+  - |-
+    最初の夜が終わった。
+  - |-
+    家の中に何があるかはわからない。ただ、何かがある。あなたはそれを知っている。コーヒーが冷めた。
+  - if: {stats: {composure: 6}}
+    text: |-
+      では、始めよう。
+    else: |-
+      仕方ない。やるしかない。
+
+choices:
+  - text: |-
+      家の中を調べ始める
+    next: act2/house_hub

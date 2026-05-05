@@ -1,0 +1,26 @@
+id: act1/dawn_wakeup
+
+text:
+  - |-
+    光が来る前に目が覚めた。台所へ行き、インスタントコーヒーを作った。窓の外に庭がある。石灯籠があったはずの場所が、空っぽだ。
+  - |-
+    一晩で気づいたことを、頭の中で並べた。廊下。写真。音。並べたまま、しまった。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    まだここにいる。家は面白い。心配しないで。
+  - |-
+    送った。イギリスは午前三時だ。ライアンは寝ている。
+
+choices:
+  - text: |-
+      「今日は徹底的に調べる」
+    next: act1/dawn_resolve
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      「木曜日までに片付けて帰る」
+    next: act1/dawn_resolve
+    effects:
+      stats:
+        composure: 1

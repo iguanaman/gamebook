@@ -1,0 +1,27 @@
+id: act1/evening_documents
+
+text:
+  - |-
+    コンビニのおにぎりを二つ食べた。台所のテーブルに、木村が残した書類を広げた。登記簿、物件の来歴、1940年代建築・二度の増築。それから写真。
+  - if: {flags: [corridor_bad]}
+    text: |-
+      手がまだわずかに震えている。写真を広げて、畳む。また広げる。廊下のことは考えない。
+    else: |-
+      信頼できるランプが一つ。ケトルが沸いた。明日のための質問リストをメモした。
+  - |-
+    里見節子の写真。庭に立つ老女。背後の庭に、石灯籠がある。今の庭にはない。写真のフレームは古いが、印刷は新しい。
+
+choices:
+  - text: |-
+      写真をよく見る
+    next: act1/photo_examined
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      写真をしまう——明日でいい
+    next: act1/night_in_bed
+    effects:
+      stats:
+        composure: 1

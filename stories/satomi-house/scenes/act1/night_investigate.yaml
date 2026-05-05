@@ -1,0 +1,34 @@
+id: act1/night_investigate
+
+text:
+  - |-
+    踊り場に立った。電気は切れている。スマートフォンのライトだけ。
+  - |-
+    音は止まっていた。階段の下から、廊下の入口が見えた。ライトが届く先に、廊下が続いている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    廊下。もちろん廊下。
+
+choices:
+  - text: |-
+      廊下に入る
+    next: act1/night_corridor
+    requires:
+      stats:
+        curiosity: 5
+    failed_text: |-
+      *(そこには行かない。それだけははっきりしている)*
+    effects:
+      stats:
+        curiosity: 1
+
+  - text: |-
+      入口からライトで照らすだけ——中には入らない
+    next: act1/night_corridor_edge
+
+  - text: |-
+      引き返す——戻る
+    next: act1/dawn_wakeup
+    effects:
+      stats:
+        curiosity: -1
+        composure: 1

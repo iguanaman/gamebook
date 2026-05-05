@@ -1,0 +1,34 @@
+id: act1/night_in_bed
+
+text:
+  - |-
+    古い杉と花の匂いがする布団。部屋は暗い。電気は十一時に切れた、木村の言った通り。
+  - |-
+    ほとんど眠りかけていたとき、音がした。
+  - |-
+    下から。
+  - |-
+    大きくない。劇的でもない。一定の間隔で、何かが、動いた。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    パイプ。床の軋み。ネズミ。風。ケトルの余熱。風、もう一度。それから——
+  - |-
+    音が止まった。
+  - |-
+    十分後、また始まった。
+
+choices:
+  - text: |-
+      起き上がって見に行く
+    next: act1/night_investigate
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+
+  - text: |-
+      音を無視して寝る——聞こえなかった
+    next: act1/dawn_wakeup
+    effects:
+      stats:
+        curiosity: -1
+        composure: 1

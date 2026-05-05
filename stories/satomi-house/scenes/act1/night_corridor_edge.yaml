@@ -1,0 +1,15 @@
+id: act1/night_corridor_edge
+
+text:
+  - |-
+    入口で止まった。ライトを廊下の奥に向けた。光は届かなかった。廊下はまだ続いている——光が消える先にも。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    知っている。知ってしまった。寝る。
+
+choices:
+  - text: |-
+      戻る
+    next: act1/dawn_wakeup
+    effects:
+      stats:
+        composure: 1

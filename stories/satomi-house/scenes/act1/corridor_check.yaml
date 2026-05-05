@@ -1,0 +1,32 @@
+id: act1/corridor_check
+
+text:
+  - |-
+    スマートフォンのライトで照らした。光が届く範囲に、壁があるはずだった。
+  - |-
+    壁がない。廊下はまだ続いている。あなたは歩数を数えた。二十二歩。戻ってまた数えた。二十二歩。家の外からではその長さはあり得ない。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    二十二歩。外から見たら十四歩ぶんの家。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    疲れているだけだ。
+
+choices:
+  - text: |-
+      戻る——疲れているだけだ
+    next: act1/evening_documents
+    effects:
+      stats:
+        composure: 1
+
+  - text: |-
+      もっと奥へ——壁まで行く
+    next: act1/corridor_bad_branch
+    requires:
+      stats:
+        curiosity: 5
+    failed_text: |-
+      *(そこには行かない。今夜は行かない)*
+    effects:
+      stats:
+        curiosity: 1
+        composure: -2

@@ -1,0 +1,19 @@
+id: act1/kimura_departure
+
+text:
+  - |-
+    エンジンがかかった。車が砂利を踏んで動き出し、角を曲がり、見えなくなった。門が風もないのにゆっくりと戻った。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    では。
+
+choices:
+  - text: |-
+      家に入る
+    next: act1/alone_ground_floor
+
+  - text: |-
+      もう少し外に立つ
+    next: act1/alone_ground_floor
+    effects:
+      stats:
+        composure: 1

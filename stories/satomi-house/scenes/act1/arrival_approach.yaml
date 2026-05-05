@@ -1,0 +1,32 @@
+id: act1/arrival_approach
+
+text:
+  - |-
+    道の終わりに、家がある。
+  - |-
+    バスを降りてから三十分、舗装の切れた砂利道をスーツケースで引いてきた。キャスターが石畳の割れ目に何度も引っかかった。あなたはそのたびに引き抜いた。疲れてはいない。まだ。
+  - |-
+    家は古い。木造、平屋建て、瓦屋根。手入れがされていないわけではないが、長い間、誰かに住まわれていない気配がある。午後の光の中で、家は静かに、ただそこにある。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    着いた。家は確かにある。以上。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    ライアンに送ろうと思ったけど——三時だし。
+
+choices:
+  - text: |-
+      「不動産として評価する」——まず状態を確認する
+    next: act1/kimura_arrival
+    effects:
+      stats:
+        composure: 1
+
+  - text: |-
+      「家族の家だ、一応」——遠い縁の家
+    next: act1/kimura_arrival
+
+  - text: |-
+      「何かがおかしい」——まだ言葉にはしない
+    next: act1/kimura_arrival
+    effects:
+      stats:
+        composure: -1

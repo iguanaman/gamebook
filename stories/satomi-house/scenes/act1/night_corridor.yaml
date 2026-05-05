@@ -1,0 +1,33 @@
+id: act1/night_corridor
+
+journal: |-
+  夜中に廊下へ入った。廊下は昼間より長かった。
+
+text:
+  - |-
+    昼間より長い。
+  - |-
+    日中は数えなかった——数えたくなかった——が、今、歩数は明白だった。二十二歩を超えた時点で、まだ壁は来なかった。スマートフォンのライトが届く先に、暗がりが続いている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    二十二歩。もう数えない。
+
+choices:
+  - text: |-
+      さらに奥へ——突き当たりまで
+    next: act1/dawn_wakeup
+    requires:
+      stats:
+        curiosity: 6
+    failed_text: |-
+      *(ここまでだ。本当にここまでだ)*
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+
+  - text: |-
+      引き返す——確認した。それで十分だ
+    next: act1/dawn_wakeup
+    effects:
+      stats:
+        composure: 1

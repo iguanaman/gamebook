@@ -1,0 +1,24 @@
+id: act1/corridor_bad_branch
+
+journal: |-
+  廊下の奥まで踏み込んだ。何かがあなたを見ていた。壁の方向から。
+
+text:
+  - |-
+    奥の壁に、何かがある。文字かもしれない。水染みかもしれない。近づかなければわからない距離だった。
+  - |-
+    近づいた。
+  - |-
+    壁ではなかった——いや、壁だった。だが壁は、あなたのことを認識していた。音ではない。動きでもない。視線の質のようなもの。あなたが部屋に入ったとき、部屋が気づく、あの感覚。ただし、壁から。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    行かなければよかった。行かなければよかった。行かなければよかった。
+
+choices:
+  - text: |-
+      戻る——今すぐ
+    next: act1/evening_documents
+    effects:
+      flags:
+        corridor_bad: true
+      stats:
+        composure: -2

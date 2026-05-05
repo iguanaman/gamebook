@@ -1,0 +1,31 @@
+id: act1/alone_ground_floor
+
+text:
+  - |-
+    土間に立つ。靴を脱いだ。スーツケースはまだ外だ。
+  - |-
+    畳の匂い。古い木の匂い。その下に、名前のつかない匂い。電気をつけると、廊下の突き当たりまでぼんやり光が届いた——突き当たりの手前まで。廊下はその先も続いている。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    着いた。家は家です。あなたは退屈すると思う。
+  - japanese_female_adult_japanese_cheerful_clear: |-
+    ……送らない。三時だし。
+
+choices:
+  - text: |-
+      廊下を確かめる——奥まで歩いてみる
+    next: act1/corridor_check
+    effects:
+      stats:
+        curiosity: 1
+        composure: -1
+
+  - text: |-
+      台所を先に探す——ケトルと明かりが先
+    next: act1/evening_documents
+    effects:
+      stats:
+        composure: 1
+
+  - text: |-
+      固定電話を試す
+    next: act1/evening_documents
