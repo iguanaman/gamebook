@@ -41,10 +41,10 @@
   --anim-choice-fade-slow: 500ms;
 
   /* Story splash */
-  --story-title-size: 3rem;
+  --story-title-size: 6rem;
 
   /* Selector card */
-  --card-title-base: 1.2rem;
+  --card-title-base: 1.4rem;
 }
 
 html, body {
@@ -390,8 +390,8 @@ body.splash-active .ui-hint { display: none !important; }
   font-weight: 600;
   color: var(--drop-cap-color);
   float: left;
-  line-height: 0.75;
-  margin: 0.05em 0.08em 0 0;
+  line-height: 1;
+  margin: 0.1em 0.08em 0 0;
 }
 
 /* ── Speech ───────────────────────────────────────────────────────────────── */
@@ -590,6 +590,7 @@ body.splash-active .ui-hint { display: none !important; }
 }
 .back-btn:hover { opacity: 1; }
 .back-btn.back-hidden { display: none; }
+.splash-active .back-btn { display: none; }
 
 .journal-dot { display: none; }
 
