@@ -1,31 +1,33 @@
 text:
-- The harbour-master's office smells of brine and lamp-oil and overripe apple. The
-  clerk looks up once when you enter, then returns to his ledger.
-- male_adult_american_witty_casual: Help you.
-- It isn't a question. He sets his apple down very deliberately on the edge of the
-  desk and opens a second, smaller ledger — the one beneath the tidy one — with the
-  particular care of a man handling something he's been meaning to deal with.
-- male_adult_american_witty_casual: Dock 14. You're the third person to ask. The other
-    two didn't ask as nicely.
-- The manifest is there if you can read it — and there's something in the entries
-  for the Repose that doesn't fit. A passenger fee, logged two mornings ago. The Repose
-  has been listed abandoned since the night before that.
+- |-
+  The harbour-master's office smells of brine and lamp-oil and overripe apple. The clerk looks up once when you enter, then returns to his ledger.
+- male_adult_american_witty_casual: |-
+    Help you.
+- |-
+  It isn't a question. He sets his apple down very deliberately on the edge of the desk and opens a second, smaller ledger — the one beneath the tidy one — with the particular care of a man handling something he's been meaning to deal with.
+- male_adult_american_witty_casual: |-
+    Dock 14. You're the third person to ask. The other two didn't ask as nicely.
+- |-
+  The manifest is there if you can read it — and there's something in the entries for the Repose that doesn't fit. A passenger fee, logged two mornings ago. The Repose has been listed abandoned since the night before that.
 choices:
-- text: Read the manifest — work out what he's already noticed
+- text: |-
+    Read the manifest — work out what he's already noticed
   next: harbour_approach
   requires:
     stats:
       Wits: 5
     flags_unset:
     - harbour_records_done
-  failed_text: '*(Wits 5 required — the clerk''s filing system defeats you)*'
+  failed_text: |-
+    *(Wits 5 required — the clerk's filing system defeats you)*
   effects:
     flags:
       harbour_records_done: true
       apprentice_alive_recently: true
     stats:
       Coin: 4
-- text: It's beyond you — back to the dock
+- text: |-
+    It's beyond you — back to the dock
   next: harbour_approach
   requires:
     flags_unset:

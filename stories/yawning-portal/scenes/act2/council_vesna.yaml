@@ -4,13 +4,14 @@ text:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-  - Vesna is looking at the alley-end of the lane with an expression you cannot read.
-  - female_adult_american_gentle_tender_sweet: Whoever paid those toughs to sit on
-      a witness — they knew we were coming. Or they knew someone would come eventually.
-      I'm not sure which is worse.
-  - She flips the prayer-coin once. Catches it, looks at it, puts it away.
-  - female_adult_american_gentle_tender_sweet: Lady Luck willing, the witness is still
-      alive.
+  - |-
+    Vesna is looking at the alley-end of the lane with an expression you cannot read.
+  - female_adult_american_gentle_tender_sweet: |-
+      Whoever paid those toughs to sit on a witness — they knew we were coming. Or they knew someone would come eventually. I'm not sure which is worse.
+  - |-
+    She flips the prayer-coin once. Catches it, looks at it, puts it away.
+  - female_adult_american_gentle_tender_sweet: |-
+      Lady Luck willing, the witness is still alive.
 - if:
     flags:
     - alley_spoke_done
@@ -18,13 +19,14 @@ text:
     flags_unset:
     - harbour_spoke_done
   text:
-  - Vesna is quieter than she was before the alley.
-  - female_adult_american_gentle_tender_sweet: We have a name. That counts for something.
-      The girl's guide came back wrong — which means something changed him. Something
-      with a will and a purpose.
-  - She says this like she is marking it in a ledger, not like she is afraid of it.
-  - female_adult_american_gentle_tender_sweet: Names matter to things that want to
-      be forgotten. Keep it close.
+  - |-
+    Vesna is quieter than she was before the alley.
+  - female_adult_american_gentle_tender_sweet: |-
+      We have a name. That counts for something. The girl's guide came back wrong — which means something changed him. Something with a will and a purpose.
+  - |-
+    She says this like she is marking it in a ledger, not like she is afraid of it.
+  - female_adult_american_gentle_tender_sweet: |-
+      Names matter to things that want to be forgotten. Keep it close.
 - if:
     flags:
     - alley_spoke_done
@@ -32,38 +34,42 @@ text:
     flags_unset:
     - harbour_spoke_done
   text:
-  - female_adult_american_gentle_tender_sweet: He ran. We let him run. That was the
-      right call — probably.
-  - She says this like she is still deciding.
-  - female_adult_american_gentle_tender_sweet: We know the lead; we don't know the
-      guide's name. Linnet does. We'll ask her ourselves.
+  - female_adult_american_gentle_tender_sweet: |-
+      He ran. We let him run. That was the right call — probably.
+  - |-
+    She says this like she is still deciding.
+  - female_adult_american_gentle_tender_sweet: |-
+      We know the lead; we don't know the guide's name. Linnet does. We'll ask her ourselves.
 - if:
     flags_unset:
     - alley_spoke_done
     flags:
     - harbour_spoke_done
   text:
-  - Vesna is combing salt-spray out of her hair with her fingers after the harbour.
-  - female_adult_american_gentle_tender_sweet: The things on that derelict — they
-      were not there by accident. Someone let them in. The bargeman's charm at his
-      neck — did you see what it was? Not Tymora's wheel. Not any church I recognised.
-  - She looks at the harbour end of the lane.
-  - female_adult_american_gentle_tender_sweet: Whatever Linnet found, it has been
-      here longer than her.
+  - |-
+    Vesna is combing salt-spray out of her hair with her fingers after the harbour.
+  - female_adult_american_gentle_tender_sweet: |-
+      The things on that derelict — they were not there by accident. Someone let them in. The bargeman's charm at his neck — did you see what it was? Not Tymora's wheel. Not any church I recognised.
+  - |-
+    She looks at the harbour end of the lane.
+  - female_adult_american_gentle_tender_sweet: |-
+      Whatever Linnet found, it has been here longer than her.
 - if:
     flags:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-  - Vesna is turning the Tymora's coin between her fingers — flipping it, but not
-    looking at the result.
-  - female_adult_american_gentle_tender_sweet: We have what we need. Names, a thread,
-      a girl who may still be alive. Fortune's favoured us more than we had the right
-      to ask.
-  - She finally looks at the coin.
-  - female_adult_american_gentle_tender_sweet: Lady Luck willing, it holds.
+  - |-
+    Vesna is turning the Tymora's coin between her fingers — flipping it, but not looking at the result.
+  - female_adult_american_gentle_tender_sweet: |-
+      We have what we need. Names, a thread, a girl who may still be alive. Fortune's favoured us more than we had the right to ask.
+  - |-
+    She finally looks at the coin.
+  - female_adult_american_gentle_tender_sweet: |-
+      Lady Luck willing, it holds.
 choices:
-- text: Back to the council.
+- text: |-
+    Back to the council.
   next: act2/companion_council_spoke
   effects:
     flags:

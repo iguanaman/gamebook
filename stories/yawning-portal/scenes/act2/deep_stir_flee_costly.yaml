@@ -1,13 +1,15 @@
 text:
-- You run. The chamber unravels behind you — water climbing the walls, the envoy's
-  column of water crashing down, the sound from below getting larger.
-- One of your companions takes a bad step. The stone is wet; the pressure from below
-  is doing something to the angles of the room. They go down, get up, go through the
-  hatch bleeding, and you are already in the corridor.
-- Linnet did not follow.
-- You did not go back.
+- |-
+  You run. The chamber unravels behind you — water climbing the walls, the envoy's column of water crashing down, the sound from below getting larger.
+- |-
+  One of your companions takes a bad step. The stone is wet; the pressure from below is doing something to the angles of the room. They go down, get up, go through the hatch bleeding, and you are already in the corridor.
+- |-
+  Linnet did not follow.
+- |-
+  You did not go back.
 choices:
-- text: Climb — bind on the way
+- text: |-
+    Climb — bind on the way
   next: act2/climb_out
   effects:
     flags:

@@ -1,15 +1,15 @@
 text:
-- The rail is there and the harbour is the other side of it and you make the calculation
-  in half a second and go over.
-- The water hits like a closed fist. Cold, dark, immediately disorienting — you can't
-  see the surface for a moment, then the gas-lamp throws orange from above and you
-  kick toward it.
-- Your companion is in the water beside you. The kuo-toa do not follow — they wait
-  on the deck of the Repose, watching. That is, somehow, worse than if they'd followed.
-- You make the next quay on numb arms. The journal page, if there was one, is still
-  in the hold.
+- |-
+  The rail is there and the harbour is the other side of it and you make the calculation in half a second and go over.
+- |-
+  The water hits like a closed fist. Cold, dark, immediately disorienting — you can't see the surface for a moment, then the gas-lamp throws orange from above and you kick toward it.
+- |-
+  Your companion is in the water beside you. The kuo-toa do not follow — they wait on the deck of the Repose, watching. That is, somehow, worse than if they'd followed.
+- |-
+  You make the next quay on numb arms. The journal page, if there was one, is still in the hold.
 choices:
-- text: Back to the Trades Ward corner — wet and empty-handed
+- text: |-
+    Back to the Trades Ward corner — wet and empty-handed
   next: harbour_resolution
   effects:
     flags:

@@ -1,12 +1,15 @@
 text:
-- You win. The kuo-toa die, the dock-coat man breaks and runs. You win.
-- But the deck is slick and the harbour is right there, and somewhere in the middle
-  of the fight one of your companions found the rail with their back instead of the
-  hull.
-- You are at the rail. They are not in the water. They are already under it.
-- The page is in the hold. You retrieve it with hands that are not quite steady.
+- |-
+  You win. The kuo-toa die, the dock-coat man breaks and runs. You win.
+- |-
+  But the deck is slick and the harbour is right there, and somewhere in the middle of the fight one of your companions found the rail with their back instead of the hull.
+- |-
+  You are at the rail. They are not in the water. They are already under it.
+- |-
+  The page is in the hold. You retrieve it with hands that are not quite steady.
 choices:
-- text: Climb out — Korsa is gone
+- text: |-
+    Climb out — Korsa is gone
   next: harbour_resolution
   requires:
     flags:
@@ -26,7 +29,8 @@ choices:
       found_journal_waterlogged: true
     stats:
       Vigor: -3
-- text: Climb out — Vesna is gone
+- text: |-
+    Climb out — Vesna is gone
   next: harbour_resolution
   requires:
     flags:
@@ -44,7 +48,8 @@ choices:
       found_journal_waterlogged: true
     stats:
       Vigor: -3
-- text: Climb out — Pip is gone
+- text: |-
+    Climb out — Pip is gone
   next: harbour_resolution
   requires:
     flags:
@@ -63,7 +68,8 @@ choices:
       found_journal_waterlogged: true
     stats:
       Vigor: -3
-- text: Climb out — Thessaly is gone
+- text: |-
+    Climb out — Thessaly is gone
   next: harbour_resolution
   requires:
     flags:
@@ -81,7 +87,8 @@ choices:
       found_journal_waterlogged: true
     stats:
       Vigor: -3
-- text: Climb out
+- text: |-
+    Climb out
   next: harbour_resolution
   effects:
     flags:

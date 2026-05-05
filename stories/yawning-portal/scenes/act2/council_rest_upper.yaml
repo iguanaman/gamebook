@@ -1,8 +1,8 @@
 text:
-- You sit against the corridor wall, back to stone. The cold comes through your clothes
-  quickly, but the rest is real.
-- Five minutes underground. The dark past your lantern ring is total — not the dark
-  of a shuttered room but the dark of a place that has never had light of its own.
+- |-
+  You sit against the corridor wall, back to stone. The cold comes through your clothes quickly, but the rest is real.
+- |-
+  Five minutes underground. The dark past your lantern ring is total — not the dark of a shuttered room but the dark of a place that has never had light of its own.
 - if:
     flags:
     - recruited_vesna
@@ -10,19 +10,21 @@ text:
     - vesna_died
     - vesna_left
   text:
-  - Vesna passes you a small strip of dried meat from her kit, without comment. She
-    has been doing this for people for twenty years.
+  - |-
+    Vesna passes you a small strip of dried meat from her kit, without comment. She has been doing this for people for twenty years.
 - if:
     flags:
     - recruited_korsa
     flags_unset:
     - korsa_died
   text:
-  - Korsa stays on his feet. Dwarves rest differently — not horizontal, just still.
-    He looks like a piece of the wall that decided to breathe.
-- When you stand, you stand more steadily.
+  - |-
+    Korsa stays on his feet. Dwarves rest differently — not horizontal, just still. He looks like a piece of the wall that decided to breathe.
+- |-
+  When you stand, you stand more steadily.
 choices:
-- text: Back to the junction.
+- text: |-
+    Back to the junction.
   next: act2/companion_council_upper
   effects:
     flags:

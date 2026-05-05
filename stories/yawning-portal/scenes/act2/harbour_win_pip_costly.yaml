@@ -1,17 +1,17 @@
 text:
-- Pip gets the dock-coat man — throat cut, clean, decisive. But one of the kuo-toa
-  is faster than it should be in the cramped space, and it gets her arm in both hands
-  and bites down.
-- She doesn't scream. She yanks the arm free and the kuo-toa comes partway with it,
-  and the sound of the teeth pulling clear is one you will not be repeating at the
-  bar.
-- You kill the remaining two with scorching ray and bad language. Pip is sitting against
-  the mast, one hand pressed over the wound, counting her fingers with the other.
-- female_young_american_lisp: Still got all of them. Tall one. Still got them all.
-- The journal page is in the hold. It takes longer to find with one of you doing the
-  searching.
+- |-
+  Pip gets the dock-coat man — throat cut, clean, decisive. But one of the kuo-toa is faster than it should be in the cramped space, and it gets her arm in both hands and bites down.
+- |-
+  She doesn't scream. She yanks the arm free and the kuo-toa comes partway with it, and the sound of the teeth pulling clear is one you will not be repeating at the bar.
+- |-
+  You kill the remaining two with scorching ray and bad language. Pip is sitting against the mast, one hand pressed over the wound, counting her fingers with the other.
+- female_young_american_lisp: |-
+    Still got all of them. Tall one. Still got them all.
+- |-
+  The journal page is in the hold. It takes longer to find with one of you doing the searching.
 choices:
-- text: Bind her arm and get off this boat
+- text: |-
+    Bind her arm and get off this boat
   next: harbour_resolution
   effects:
     flags:

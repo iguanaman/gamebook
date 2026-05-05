@@ -2,151 +2,132 @@ text:
 - if:
     flags_unset:
     - descended_well
-  text: The rope is still coiled at the well-mouth. You never went down.
+  text: |-
+    The rope is still coiled at the well-mouth. You never went down.
 - if:
     flags_unset:
     - descended_well
-  text: The common room is loud behind you — someone has called for another round,
-    the dice table is arguing. Nobody glanced up when you stepped back from the rim.
-    Nobody noticed you had gone to the edge at all.
+  text: |-
+    The common room is loud behind you — someone has called for another round, the dice table is arguing. Nobody glanced up when you stepped back from the rim. Nobody noticed you had gone to the edge at all.
 - if:
     flags_unset:
     - descended_well
-  text: Durnan is behind the bar. He has not looked your way. The coin and the commission
-    are still in your pocket, untouched.
+  text: |-
+    Durnan is behind the bar. He has not looked your way. The coin and the commission are still in your pocket, untouched.
 - if:
     flags:
     - descended_well
-  else: The rope bites into your palms on the last few feet. Then the flagstone of
-    the well-mouth is under your boots and you are back inside the Yawning Portal,
-    smelling of torch-smoke and something older, and the room is watching.
+  else: |-
+    The rope bites into your palms on the last few feet. Then the flagstone of the well-mouth is under your boots and you are back inside the Yawning Portal, smelling of torch-smoke and something older, and the room is watching.
 - if:
     flags:
     - stirred_something
-  text: The quiet spreads outward from you the way cold spreads from an open door.
-    It reaches the nearest table first — a man mid-sentence who stops and does not
-    know why. Then the dice table. Then the fire-corner. Heads do not turn so much
-    as drift, the way a sleeper half-wakes.
+  text: |-
+    The quiet spreads outward from you the way cold spreads from an open door. It reaches the nearest table first — a man mid-sentence who stops and does not know why. Then the dice table. Then the fire-corner. Heads do not turn so much as drift, the way a sleeper half-wakes.
 - if:
     flags:
     - stirred_something
-  text: Something is not right, and the room can feel it without being able to say
-    what.
+  text: |-
+    Something is not right, and the room can feel it without being able to say what.
 - if:
     flags:
     - stirred_something
-  text: The well is breathing. You can hear it — a low pressure at the base of your
-    skull. The rim is behind you and you do not look back at it.
+  text: |-
+    The well is breathing. You can hear it — a low pressure at the base of your skull. The rim is behind you and you do not look back at it.
 - if:
     flags:
     - descended_well
     flags_unset:
     - stirred_something
-  text: The room registers the gear-shift before it makes sense of it. A tavern has
-    its own noise-weather, and this is the break in the pattern — the moment between
-    the last note and whatever comes next. Chairs scrape. Someone sets a cup down.
-    Durnan's hands go still on the bar.
+  text: |-
+    The room registers the gear-shift before it makes sense of it. A tavern has its own noise-weather, and this is the break in the pattern — the moment between the last note and whatever comes next. Chairs scrape. Someone sets a cup down. Durnan's hands go still on the bar.
 - if:
     flags:
     - descended_well
     flags_unset:
     - stirred_something
-  text: You came back up. For a breath the whole room isn't sure what to do with that.
+  text: |-
+    You came back up. For a breath the whole room isn't sure what to do with that.
 - if:
     flags:
     - rescued
     flags_unset:
     - bargained
     - stirred_something
-  text: Linnet is at your side — alive and herself, ink-stained and blinking in the
-    lamp-glow like someone who has been underground too long and is recalibrating
-    the light.
+  text: |-
+    Linnet is at your side — alive and herself, ink-stained and blinking in the lamp-glow like someone who has been underground too long and is recalibrating the light.
 - if:
     flags:
     - rescued
     - bargained
     flags_unset:
     - stirred_something
-  text: Linnet is at your side. Alive — which is the thing Joren hired you to achieve.
-    Not quite right — the other thing. Something behind her eyes tracks a beat slow,
-    the way a shadow lags the body that casts it. Her hands are still. She looks at
-    the room and almost smiles, and the almost is what stays with you.
+  text: |-
+    Linnet is at your side. Alive — which is the thing Joren hired you to achieve. Not quite right — the other thing. Something behind her eyes tracks a beat slow, the way a shadow lags the body that casts it. Her hands are still. She looks at the room and almost smiles, and the almost is what stays with you.
 - if:
     flags:
     - rescued
     - stirred_something
-  text: Linnet is at your side. She hasn't spoken since you pulled her off the ledge.
-    She is shivering in a way that has nothing to do with cold — a fine tremor in
-    the hands that stops only when she looks at the well-mouth, at which point she
-    goes absolutely still.
+  text: |-
+    Linnet is at your side. She hasn't spoken since you pulled her off the ledge. She is shivering in a way that has nothing to do with cold — a fine tremor in the hands that stops only when she looks at the well-mouth, at which point she goes absolutely still.
 - if:
     flags:
     - korsa_died
-  text: Korsa's axe-wedge is still jammed in the crack below level three where he
-    drove it into the stone to stop the door. You left it there. It will outlast the
-    door.
+  text: |-
+    Korsa's axe-wedge is still jammed in the crack below level three where he drove it into the stone to stop the door. You left it there. It will outlast the door.
 - if:
     flags:
     - vesna_died
-  text: The rope has a knot in it at arm's length that wasn't there when you tied
-    it — a reef-knot, tight, Vesna's way of marking a line she'd checked. The prayer-coin
-    is gone from the carabiner loop. You don't know when she tied the knot or when
-    she lost the coin. You didn't watch.
+  text: |-
+    The rope has a knot in it at arm's length that wasn't there when you tied it — a reef-knot, tight, Vesna's way of marking a line she'd checked. The prayer-coin is gone from the carabiner loop. You don't know when she tied the knot or when she lost the coin. You didn't watch.
 - if:
     flags:
     - pip_died
-  text: Pip's lockpick roll is in your left coat pocket. You picked it up because
-    it would have been wrong to leave it, and because your hands did the thing your
-    head hadn't decided yet. The leather is still warm from her belt.
+  text: |-
+    Pip's lockpick roll is in your left coat pocket. You picked it up because it would have been wrong to leave it, and because your hands did the thing your head hadn't decided yet. The leather is still warm from her belt.
 - if:
     flags:
     - thessaly_died
-  text: There is a sigil cooling on the third flagstone below the rim — Thessaly's
-    resonance mark, the one she set as a waypoint. It will go dark in a few minutes
-    and then it will be a scorch on the stone and nobody will know what it meant.
+  text: |-
+    There is a sigil cooling on the third flagstone below the rim — Thessaly's resonance mark, the one she set as a waypoint. It will go dark in a few minutes and then it will be a scorch on the stone and nobody will know what it meant.
 - if:
     flags:
     - body_recovered
-  text: You set the body down just inside the door, out of the threshold. It is the
-    right thing to do and it costs you something to do it, and you do it.
+  text: |-
+    You set the body down just inside the door, out of the threshold. It is the right thing to do and it costs you something to do it, and you do it.
 - if:
     flags:
     - vesna_left
     flags_unset:
     - vesna_died
-  text: Vesna is already in the room. She came out before you — her own way, her own
-    timing — and she is at the bar now with her back to the well. She does not turn
-    when you crest the rim. The Tymora coin is in her hand and she is not flipping
-    it.
+  text: |-
+    Vesna is already in the room. She came out before you — her own way, her own timing — and she is at the bar now with her back to the well. She does not turn when you crest the rim. The Tymora coin is in her hand and she is not flipping it.
 - if:
     flags:
     - descended_well
-  text: 'Durnan''s eyes find you across the room. They take stock. He sets down what
-    he was polishing — which means something — and the regulars read him for a cue.
-    Getting none explicit, they begin to talk again: quietly at first, then normally,
-    then slightly too loudly, the way a room does when it is recovering its nerve.'
+  text: |-
+    Durnan's eyes find you across the room. They take stock. He sets down what he was polishing — which means something — and the regulars read him for a cue. Getting none explicit, they begin to talk again: quietly at first, then normally, then slightly too loudly, the way a room does when it is recovering its nerve.
 - if:
     flags:
     - stirred_something
-  text: Joren's corner table — you glance over. The chair is half-pushed out. He was
-    there.
+  text: |-
+    Joren's corner table — you glance over. The chair is half-pushed out. He was there.
 - if:
     flags_unset:
     - stirred_something
     - descended_well
-  text: Joren is at the corner table with his hands around a cup he is not drinking.
-    He sees you and the hope in his face is the kind that is afraid to move in case
-    it breaks.
+  text: |-
+    Joren is at the corner table with his hands around a cup he is not drinking. He sees you and the hope in his face is the kind that is afraid to move in case it breaks.
 - if:
     flags:
     - descended_well
     flags_unset:
     - stirred_something
-  text: Joren is at the corner table. His hands are around a cup he stopped drinking
-    some time ago. He sees you — and then he sees what you have or don't have at your
-    side — and his face does the work.
+  text: |-
+    Joren is at the corner table. His hands are around a cup he stopped drinking some time ago. He sees you — and then he sees what you have or don't have at your side — and his face does the work.
 choices:
-- text: Cross to the bar.
+- text: |-
+    Cross to the bar.
   next: bar_settle_up
   effects:
     flags:

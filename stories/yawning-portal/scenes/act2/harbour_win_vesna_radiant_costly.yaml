@@ -1,18 +1,17 @@
 text:
-- The radiant burst clears the deck. Both kuo-toa fold before it, skin going grey
-  where the light touches them, and the dock-coat man drops to his knees like someone
-  cut his strings.
-- But Vesna's hands look wrong after. She holds them out and you can see the blistering
-  already rising — the coin burned through her palms, channelled something that wasn't
-  meant to come through skin.
-- female_adult_american_gentle_tender_sweet: I'm alright. It's — she asks a price
-    sometimes. Tymora. For the bigger asks.
-- Her eyes are wet. She wraps her hands in the hem of her cloak and does not look
-  at them.
-- You find the page in the hold. Her burned fingers can't manage the folding to pocket
-  it. You do it for her.
+- |-
+  The radiant burst clears the deck. Both kuo-toa fold before it, skin going grey where the light touches them, and the dock-coat man drops to his knees like someone cut his strings.
+- |-
+  But Vesna's hands look wrong after. She holds them out and you can see the blistering already rising — the coin burned through her palms, channelled something that wasn't meant to come through skin.
+- female_adult_american_gentle_tender_sweet: |-
+    I'm alright. It's — she asks a price sometimes. Tymora. For the bigger asks.
+- |-
+  Her eyes are wet. She wraps her hands in the hem of her cloak and does not look at them.
+- |-
+  You find the page in the hold. Her burned fingers can't manage the folding to pocket it. You do it for her.
 choices:
-- text: Bind her hands and climb out
+- text: |-
+    Bind her hands and climb out
   next: harbour_resolution
   effects:
     flags:

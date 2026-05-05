@@ -1,18 +1,17 @@
 text:
-- You hold the journal pages up to the lantern and read them against the pillar's
-  runes. The correspondence is exact — she was transcribing, systematically, whatever
-  the runes said. Cross-referencing. Building a grammar.
-- The last journal entry is different. Not transcription — response.
-- female_young_american_sweet_youthful_clear: It answered. When I wrote the third
-    sequence back at it, it answered. Not in the runes — in my head, which I know
-    is worse, but it wasn't threatening, it was *interested*. It asked if I could
-    come further. I said yes. I didn't ask what further meant. I should have asked.
-    I'm going to anyway.
-- 'The entry cuts off there. Below it, added later in a shakier hand: *it kept its
-  word. It is further. I am further.*'
-- The runes on the pillar are a conversation. She walked into the second half of it.
+- |-
+  You hold the journal pages up to the lantern and read them against the pillar's runes. The correspondence is exact — she was transcribing, systematically, whatever the runes said. Cross-referencing. Building a grammar.
+- |-
+  The last journal entry is different. Not transcription — response.
+- female_young_american_sweet_youthful_clear: |-
+    It answered. When I wrote the third sequence back at it, it answered. Not in the runes — in my head, which I know is worse, but it wasn't threatening, it was *interested*. It asked if I could come further. I said yes. I didn't ask what further meant. I should have asked. I'm going to anyway.
+- |-
+  The entry cuts off there. Below it, added later in a shakier hand: *it kept its word. It is further. I am further.*
+- |-
+  The runes on the pillar are a conversation. She walked into the second half of it.
 choices:
-- text: Close the journal. Back to the junction.
+- text: |-
+    Close the journal. Back to the junction.
   next: act2/upper_levels_hub
   effects:
     flags:

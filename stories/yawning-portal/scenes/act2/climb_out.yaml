@@ -2,16 +2,15 @@ text:
 - if:
     flags:
     - stirred_something
-  text: You move fast. No ceremony. The Cistern is wrong — the water is higher than
-    it was, and it is moving without current, without wind, circling the ruined pillars
-    like something below is breathing.
-  else: The upper levels are quieter going back. The fights are finished; the doors
-    are open. There is nothing left to do down here but climb.
+  text: |-
+    You move fast. No ceremony. The Cistern is wrong — the water is higher than it was, and it is moving without current, without wind, circling the ruined pillars like something below is breathing.
+  else: |-
+    The upper levels are quieter going back. The fights are finished; the doors are open. There is nothing left to do down here but climb.
 - if:
     flags:
     - stirred_something
-  text: The collapsed bridge has shifted. The gap is three inches wider than the gap
-    you crossed on the way down.
+  text: |-
+    The collapsed bridge has shifted. The gap is three inches wider than the gap you crossed on the way down.
 - if:
     flags:
     - rescued
@@ -19,80 +18,72 @@ text:
   - if:
       flags:
       - bargained
-    text: Linnet walks ahead of you. Her left hand stays against her ribs, the marked
-      side turned in. She doesn't look at the Apprentice's Camp. She doesn't look
-      at the runes on the pillar she scratched herself, two days ago, in a different
-      life. She looks at the rope, and her step doesn't waver, and that is the most
-      unsettling thing about her.
-    else: Linnet stays close — a step behind your off-hand, where you'd carry a shield
-      if you owned one. She has stopped repeating your words back at you as questions.
-      She holds the rungs with both hands, ink-stained fingers and stone-dust ground
-      into the knuckles, and she climbs. Seventeen years old. She climbs.
+    text: |-
+      Linnet walks ahead of you. Her left hand stays against her ribs, the marked side turned in. She doesn't look at the Apprentice's Camp. She doesn't look at the runes on the pillar she scratched herself, two days ago, in a different life. She looks at the rope, and her step doesn't waver, and that is the most unsettling thing about her.
+    else: |-
+      Linnet stays close — a step behind your off-hand, where you'd carry a shield if you owned one. She has stopped repeating your words back at you as questions. She holds the rungs with both hands, ink-stained fingers and stone-dust ground into the knuckles, and she climbs. Seventeen years old. She climbs.
 - if:
     flags_unset:
     - rescued
-  text: You have what you came back with. Whatever that is.
+  text: |-
+    You have what you came back with. Whatever that is.
 - if:
     flags:
     - body_recovered
-  text: 'You are carrying someone. The weight of them is wrong — too heavy for the
-    size of them, the way the dead always are. Every person you have ever seen carry
-    a body has said the same thing afterward: heavier than they looked. Now you know.'
+  text: |-
+    You are carrying someone. The weight of them is wrong — too heavy for the size of them, the way the dead always are. Every person you have ever seen carry a body has said the same thing afterward: heavier than they looked. Now you know.
 - if:
     flags:
     - recruited_vesna
     flags_unset:
     - vesna_died
     - vesna_left
-  text: Vesna climbs beside you, her silver coin looped through two fingers on the
-    rail where she only needs one hand. She is murmuring — not a prayer, or not exactly;
-    something shorter and more personal, the same phrase repeated. You don't ask what
-    it is. Some things are between a person and their god.
+  text: |-
+    Vesna climbs beside you, her silver coin looped through two fingers on the rail where she only needs one hand. She is murmuring — not a prayer, or not exactly; something shorter and more personal, the same phrase repeated. You don't ask what it is. Some things are between a person and their god.
 - if:
     flags:
     - recruited_vesna
     - vesna_left
     flags_unset:
     - vesna_died
-  text: Vesna is not behind you. She is somewhere in the upper chambers, by her own
-    choice. You heard her say she would follow when she was ready. You did not look
-    back to see if she meant it.
+  text: |-
+    Vesna is not behind you. She is somewhere in the upper chambers, by her own choice. You heard her say she would follow when she was ready. You did not look back to see if she meant it.
 - if:
     flags:
     - recruited_korsa
     flags_unset:
     - korsa_died
-  text: Korsa climbs in silence. Plate on stone, breath measured, axe-haft braced
-    across his back where rope won't reach. That's how you know he's all right.
+  text: |-
+    Korsa climbs in silence. Plate on stone, breath measured, axe-haft braced across his back where rope won't reach. That's how you know he's all right.
 - if:
     flags:
     - recruited_pip
     flags_unset:
     - pip_died
-  text: Pip is already three rungs above you. She has been counting something under
-    her breath — exits, maybe, or just rungs — and she is not going to stop until
-    she sees sky.
+  text: |-
+    Pip is already three rungs above you. She has been counting something under her breath — exits, maybe, or just rungs — and she is not going to stop until she sees sky.
 - if:
     flags:
     - recruited_thessaly
     flags_unset:
     - thessaly_died
-  text: Thessaly climbs without looking up. Her burnt wrist brushes the rope. Once
-    she pauses — just for a breath, on a rung below you — and tilts her head as if
-    she's listening. Whatever she hears or doesn't hear, she keeps moving.
+  text: |-
+    Thessaly climbs without looking up. Her burnt wrist brushes the rope. Once she pauses — just for a breath, on a rung below you — and tilts her head as if she's listening. Whatever she hears or doesn't hear, she keeps moving.
 - if:
     flags:
     - stirred_something
-  text: Below you, in the deep shaft of the well, something shifts. Not water. Not
-    stone. A pressure that registers in the ears before the mind catches up. You do
-    not look down.
+  text: |-
+    Below you, in the deep shaft of the well, something shifts. Not water. Not stone. A pressure that registers in the ears before the mind catches up. You do not look down.
 - if:
     flags:
     - stirred_something
-  text: You climb faster.
-- The rope. The well-mouth. The faint smear of lamplight from above.
+  text: |-
+    You climb faster.
+- |-
+  The rope. The well-mouth. The faint smear of lamplight from above.
 choices:
-- text: Up — to the well-mouth
+- text: |-
+    Up — to the well-mouth
   next: act2/well_mouth_climb_out
   effects:
     stats:

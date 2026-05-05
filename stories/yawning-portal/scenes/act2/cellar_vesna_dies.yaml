@@ -1,16 +1,17 @@
 text:
-- She opens the coin and the light comes, and it is enough — the pack breaks, the
-  undead frames shatter, the warlock hollows. It is enough for the fight.
-- But the channel goes too wide. You see it happening and there is nothing to close
-  it in time — the light goes out of her hands, then out of her eyes, not dramatically,
-  not with sound. Just gone. She's on the floor before you can cross the chamber.
-- Tymora's coin rolls in a slow circle and comes to rest face-up.
-- The fight is over. You are the one still standing, and you are the one who has to
-  decide.
-- journal: Vesna gave everything in the cellar and left nothing for herself. Tymora's
-    coin landed face-up beside her.
+- |-
+  She opens the coin and the light comes, and it is enough — the pack breaks, the undead frames shatter, the warlock hollows. It is enough for the fight.
+- |-
+  But the channel goes too wide. You see it happening and there is nothing to close it in time — the light goes out of her hands, then out of her eyes, not dramatically, not with sound. Just gone. She's on the floor before you can cross the chamber.
+- |-
+  Tymora's coin rolls in a slow circle and comes to rest face-up.
+- |-
+  The fight is over. You are the one still standing, and you are the one who has to decide.
+- journal: |-
+    Vesna gave everything in the cellar and left nothing for herself. Tymora's coin landed face-up beside her.
 choices:
-- text: Take Tymora's coin from her hand. Carry her through.
+- text: |-
+    Take Tymora's coin from her hand. Carry her through.
   next: act2/deep_chamber_enter
   effects:
     flags:
@@ -22,7 +23,8 @@ choices:
     stats:
       Vigor: -3
       Renown: 1
-- text: Leave her. She'd want it that way.
+- text: |-
+    Leave her. She'd want it that way.
   next: act2/deep_chamber_enter
   effects:
     flags:

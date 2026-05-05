@@ -4,58 +4,64 @@ text:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-  - Thessaly is standing with her arms folded, looking at the south end of the lane
-    — the harbour direction.
-  - female_adult_american_sultry_villainous: The harbour, I think, before the alley.
-      Whatever is in that derelict — I would like to know its vocabulary before we
-      go below.
-  - She turns her head slightly. Not to look at you. To look at something past you.
-  - female_adult_american_sultry_villainous: Things that live in still water tend
-      to speak in terms. Offers. It helps to have heard the phrasing.
-  - She says this as if it is common knowledge.
+  - |-
+    Thessaly is standing with her arms folded, looking at the south end of the lane — the harbour direction.
+  - female_adult_american_sultry_villainous: |-
+      The harbour, I think, before the alley. Whatever is in that derelict — I would like to know its vocabulary before we go below.
+  - |-
+    She turns her head slightly. Not to look at you. To look at something past you.
+  - female_adult_american_sultry_villainous: |-
+      Things that live in still water tend to speak in terms. Offers. It helps to have heard the phrasing.
+  - |-
+    She says this as if it is common knowledge.
 - if:
     flags:
     - alley_spoke_done
     flags_unset:
     - harbour_spoke_done
   text:
-  - Thessaly is tracing something on the back of her left wrist — not the burn-scar,
-    beside it. A pattern that isn't there.
-  - female_adult_american_sultry_villainous: The toughs in that alley were hired by
-      someone who follows a certain school of accounting. The kind where debts are
-      paid in favours rather than coin.
-  - She meets your eyes.
-  - female_adult_american_sultry_villainous: The same school that set that sigil in
-      the derelict's hold. I would like to be right about that. I think I am.
+  - |-
+    Thessaly is tracing something on the back of her left wrist — not the burn-scar, beside it. A pattern that isn't there.
+  - female_adult_american_sultry_villainous: |-
+      The toughs in that alley were hired by someone who follows a certain school of accounting. The kind where debts are paid in favours rather than coin.
+  - |-
+    She meets your eyes.
+  - female_adult_american_sultry_villainous: |-
+      The same school that set that sigil in the derelict's hold. I would like to be right about that. I think I am.
 - if:
     flags_unset:
     - alley_spoke_done
     flags:
     - harbour_spoke_done
   text:
-  - Thessaly came off that derelict quieter than she went on. She has been quiet since.
-  - female_adult_american_sultry_villainous: The algae on the hold's walls. The patterns.
-      Someone taught them to grow that way. Deliberately. Over years.
-  - A pause.
-  - female_adult_american_sultry_villainous: '"The sigil I have here —" she does not
-      indicate where "— is the same family. Not the same hand. Older."'
-  - She does not offer to explain further. The look she gives you says she has already
-    said more than she intended.
+  - |-
+    Thessaly came off that derelict quieter than she went on. She has been quiet since.
+  - female_adult_american_sultry_villainous: |-
+      The algae on the hold's walls. The patterns. Someone taught them to grow that way. Deliberately. Over years.
+  - |-
+    A pause.
+  - female_adult_american_sultry_villainous: |-
+      "The sigil I have here —" she does not indicate where "— is the same family. Not the same hand. Older."
+  - |-
+    She does not offer to explain further. The look she gives you says she has already said more than she intended.
 - if:
     flags:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-  - Thessaly is quiet in a way she has not been quiet before — a focused quiet, not
-    a withheld one.
-  - female_adult_american_sultry_villainous: I know what's down there. Not — exactly.
-      But the shape of it. I've been looking for that shape for two years.
-  - She puts her hand over her left wrist, briefly.
-  - female_adult_american_sultry_villainous: When we reach it, let me speak first.
-      Will you do that for me.
-  - It is not quite a question.
+  - |-
+    Thessaly is quiet in a way she has not been quiet before — a focused quiet, not a withheld one.
+  - female_adult_american_sultry_villainous: |-
+      I know what's down there. Not — exactly. But the shape of it. I've been looking for that shape for two years.
+  - |-
+    She puts her hand over her left wrist, briefly.
+  - female_adult_american_sultry_villainous: |-
+      When we reach it, let me speak first. Will you do that for me.
+  - |-
+    It is not quite a question.
 choices:
-- text: Back to the council.
+- text: |-
+    Back to the council.
   next: act2/companion_council_spoke
   effects:
     flags:

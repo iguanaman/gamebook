@@ -1,21 +1,25 @@
 text:
-- There is no clever angle. You go straight at it.
-- Steel rings, a spell follows the steel, your companions fill the space beside you,
-  and the thing discovers that whatever it is, it is not immune to the particular
-  combination of iron and fire and two very tired people who have been fighting their
-  way down here all night.
-- It takes longer than it should. The pool behind it helps it — something to draw
-  on, something to feed the regeneration — but you are not giving it time to regenerate.
-  You give it nothing.
-- The thing dies. You're bleeding from three places you'll only notice later.
-- Linnet has her back against the wall and is watching you with eyes that are entirely
-  her own again.
-- female_young_american_sweet_youthful_clear: You — came.
-- 'A pause. Then:'
-- female_young_american_sweet_youthful_clear: Came?
-- Yes. You came.
+- |-
+  There is no clever angle. You go straight at it.
+- |-
+  Steel rings, a spell follows the steel, your companions fill the space beside you, and the thing discovers that whatever it is, it is not immune to the particular combination of iron and fire and two very tired people who have been fighting their way down here all night.
+- |-
+  It takes longer than it should. The pool behind it helps it — something to draw on, something to feed the regeneration — but you are not giving it time to regenerate. You give it nothing.
+- |-
+  The thing dies. You're bleeding from three places you'll only notice later.
+- |-
+  Linnet has her back against the wall and is watching you with eyes that are entirely her own again.
+- female_young_american_sweet_youthful_clear: |-
+    You — came.
+- |-
+  A pause. Then:
+- female_young_american_sweet_youthful_clear: |-
+    Came?
+- |-
+  Yes. You came.
 choices:
-- text: Out
+- text: |-
+    Out
   next: act2/climb_out
   effects:
     flags:

@@ -1,19 +1,17 @@
 text:
-- Korsa plants himself at the gangway head with his axe across the width of it and
-  his feet set wide, and nothing gets off the boat.
-- That is not, strictly, what you needed — you needed them dead, not contained. But
-  Korsa turns out to have opinions about kuo-toa, specifically that they are ugly
-  and deserve it, and he expresses both opinions with the back edge of his axe and
-  then the front edge when he gets bored of the back.
-- The first kuo-toa loses a hand at the wrist when it tries to pass. The second takes
-  an axe-haft to the snout and goes down with its own teeth scattered across the gangway
-  planking. The dock-coat man breaks and runs for the rail — you put a scorching ray
-  through his back and he goes over anyway, on fire, which is worse.
-- male_midlife_british_tough_calloused: Good boat. Solid footing, if you don't count
-    the slime.
-- The page is jammed under a beam in the hold. Dry enough.
+- |-
+  Korsa plants himself at the gangway head with his axe across the width of it and his feet set wide, and nothing gets off the boat.
+- |-
+  That is not, strictly, what you needed — you needed them dead, not contained. But Korsa turns out to have opinions about kuo-toa, specifically that they are ugly and deserve it, and he expresses both opinions with the back edge of his axe and then the front edge when he gets bored of the back.
+- |-
+  The first kuo-toa loses a hand at the wrist when it tries to pass. The second takes an axe-haft to the snout and goes down with its own teeth scattered across the gangway planking. The dock-coat man breaks and runs for the rail — you put a scorching ray through his back and he goes over anyway, on fire, which is worse.
+- male_midlife_british_tough_calloused: |-
+    Good boat. Solid footing, if you don't count the slime.
+- |-
+  The page is jammed under a beam in the hold. Dry enough.
 choices:
-- text: Pocket the page and climb out
+- text: |-
+    Pocket the page and climb out
   next: harbour_resolution
   effects:
     flags:

@@ -1,14 +1,17 @@
 text:
-- The light works. The thing recoils, you get to Linnet, you pull her free.
-- 'What it costs Vesna: she poured past the safe line. The light was brighter than
-  it needed to be, and she knew it, and she did it anyway. When it fades she is pale
-  down to the bone, blood welling at her gums where the vessels gave.'
-- She stays upright. Barely.
-- female_adult_american_gentle_tender_sweet: I'm — I'll make it. Don't look at me
-    like that.
-- You look at her exactly like that.
+- |-
+  The light works. The thing recoils, you get to Linnet, you pull her free.
+- |-
+  What it costs Vesna: she poured past the safe line. The light was brighter than it needed to be, and she knew it, and she did it anyway. When it fades she is pale down to the bone, blood welling at her gums where the vessels gave.
+- |-
+  She stays upright. Barely.
+- female_adult_american_gentle_tender_sweet: |-
+    I'm — I'll make it. Don't look at me like that.
+- |-
+  You look at her exactly like that.
 choices:
-- text: Out — carry her
+- text: |-
+    Out — carry her
   next: act2/climb_out
   effects:
     flags:

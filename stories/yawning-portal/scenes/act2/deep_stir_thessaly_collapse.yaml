@@ -1,16 +1,19 @@
 text:
-- She stays at the hatch as the rest of you go through.
-- female_adult_american_sultry_villainous: The keystone is the Cistern pillar — the
-    one with the sigil. I need one more moment.
-- You don't argue. You take Linnet and run.
-- 'Behind you: the sound of a chain-spell, longer and lower than the one she used
-  in the cellar, the kind that costs more than she should spend. Then a crack in the
-  stone above you, travelling fast, following you up through the levels.'
-- Then — silence from below. The hatch, sealed under three tonnes of collapsed ceiling.
-- Whether the thing-behind is sealed with it, or simply slowed, you will not know
-  until much later.
+- |-
+  She stays at the hatch as the rest of you go through.
+- female_adult_american_sultry_villainous: |-
+    The keystone is the Cistern pillar — the one with the sigil. I need one more moment.
+- |-
+  You don't argue. You take Linnet and run.
+- |-
+  Behind you: the sound of a chain-spell, longer and lower than the one she used in the cellar, the kind that costs more than she should spend. Then a crack in the stone above you, travelling fast, following you up through the levels.
+- |-
+  Then — silence from below. The hatch, sealed under three tonnes of collapsed ceiling.
+- |-
+  Whether the thing-behind is sealed with it, or simply slowed, you will not know until much later.
 choices:
-- text: Climb
+- text: |-
+    Climb
   next:
   - scene: act2/deep_stir_thessaly_collapse_lives
     weight: 3

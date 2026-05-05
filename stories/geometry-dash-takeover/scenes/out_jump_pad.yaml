@@ -1,14 +1,19 @@
 id: out_jump_pad
 text:
-- The pad goes SHHHHKLAK.
-- I am LAUNCHED. Big neon arc. I can SEE the whole factory from up here. Tiny RobTop.
-  Tiny Dex.
-- I land in the OUT bleachers in a pile of foam. Hair full of static. I can taste
-  colours.
-- Sage is already up there. She doesn't even look at me. Just nods.
-- female_young_american_sweet_youthful_clear: You scared me.
-- Yeah, Sage. NOW I know.
-- male_young_american_forthright: Beautifully airborne, young geometrician. Rejoin
-    the audience.
-- I'm out.
+- |-
+  The pad goes SHHHHKLAK.
+- |-
+  I am LAUNCHED. Big neon arc. I can SEE the whole factory from up here. Tiny RobTop. Tiny Dex.
+- |-
+  I land in the OUT bleachers in a pile of foam. Hair full of static. I can taste colours.
+- |-
+  Sage is already up there. She doesn't even look at me. Just nods.
+- female_young_american_sweet_youthful_clear: |-
+    You scared me.
+- |-
+  Yeah, Sage. NOW I know.
+- male_young_american_forthright: |-
+    Beautifully airborne, young geometrician. Rejoin the audience.
+- |-
+  I'm out.
 choices: []

@@ -1,66 +1,57 @@
 text:
-- The fence operates out of a doorframe — literally in the doorframe, one shoulder
-  inside, one out, a knife on a table you can see but she has not touched.
-- Pip's introduction is two words and a nod. The fence's response is a laugh that
-  comes before her smile does, like the laugh is always slightly ahead of the rest
-  of her.
-- female_midlife_african-american_casual_opinionated: Little knife. Still alive. Good.
-    Bring your employer?
-- female_young_american_lisp: Working. We need a name.
-- female_midlife_african-american_casual_opinionated: Names cost.
-- female_young_american_lisp: Names cost. What's the rate on alley muscle, Trades
-    Ward, six of them, paid to sit on a witness?
-- The fence looks at you for the first time. Her assessment takes about three seconds
-  and arrives at a number.
+- |-
+  The fence operates out of a doorframe — literally in the doorframe, one shoulder inside, one out, a knife on a table you can see but she has not touched.
+- |-
+  Pip's introduction is two words and a nod. The fence's response is a laugh that comes before her smile does, like the laugh is always slightly ahead of the rest of her.
+- female_midlife_african-american_casual_opinionated: |-
+    Little knife. Still alive. Good. Bring your employer?
+- female_young_american_lisp: |-
+    Working. We need a name.
+- female_midlife_african-american_casual_opinionated: |-
+    Names cost.
+- female_young_american_lisp: |-
+    Names cost. What's the rate on alley muscle, Trades Ward, six of them, paid to sit on a witness?
+- |-
+  The fence looks at you for the first time. Her assessment takes about three seconds and arrives at a number.
 - if:
     flags_unset:
     - alley_spoke_done
     - harbour_spoke_done
-  text: She tilts her head toward the harbour end of the lane, then the alley end.
+  text: |-
+    She tilts her head toward the harbour end of the lane, then the alley end.
 - if:
     flags_unset:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-    female_midlife_african-american_casual_opinionated: 'Alley: man named Crick hired
-      the muscle. Runs a little book-keeping for the kind of people who don''t use
-      real accountants. Witness goes by Sable — missing half an ear, works out of
-      the chandler''s building. Harbour: bargeman at Dock 14 goes by Ossian. He was
-      owed something by the man who took the girl. Tell him you know about the charm
-      at his neck — he''ll open up.'
+    female_midlife_african-american_casual_opinionated: "Alley: man named Crick hired the muscle. Runs a little book-keeping for the kind of people who don't use real accountants. Witness goes by Sable — missing half an ear, works out of the chandler's building. Harbour: bargeman at Dock 14 goes by Ossian. He was owed something by the man who took the girl. Tell him you know about the charm at his neck — he'll open up."
 - if:
     flags:
     - alley_spoke_done
     flags_unset:
     - harbour_spoke_done
   text:
-    female_midlife_african-american_casual_opinionated: Still need the harbour? Bargeman
-      at Dock 14 is called Ossian. He was owed something by the man who took the girl.
-      He hasn't slept since. Tell him you know about the charm at his neck — he'll
-      open up.
+    female_midlife_african-american_casual_opinionated: Still need the harbour? Bargeman at Dock 14 is called Ossian. He was owed something by the man who took the girl. He hasn't slept since. Tell him you know about the charm at his neck — he'll open up.
 - if:
     flags_unset:
     - alley_spoke_done
     flags:
     - harbour_spoke_done
   text:
-    female_midlife_african-american_casual_opinionated: 'Alley side: man named Crick
-      hired the muscle. Witness is called Sable — missing half an ear. He''s scared
-      enough to talk. Find him before Crick''s people do.'
+    female_midlife_african-american_casual_opinionated: "Alley side: man named Crick hired the muscle. Witness is called Sable — missing half an ear. He's scared enough to talk. Find him before Crick's people do."
 - if:
     flags:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-    female_midlife_african-american_casual_opinionated: Both spokes done, little knife?
-      Then you're just here to let me know you're still walking. Good. Come back the
-      same way.
-- female_midlife_african-american_casual_opinionated: You owe me one. The knife owes
-    me two. We settle when you're back.
-- She steps inside and the door closes without a sound. Pip says nothing. She is already
-  checking her belt-pouches.
+    female_midlife_african-american_casual_opinionated: Both spokes done, little knife? Then you're just here to let me know you're still walking. Good. Come back the same way.
+- female_midlife_african-american_casual_opinionated: |-
+    You owe me one. The knife owes me two. We settle when you're back.
+- |-
+  She steps inside and the door closes without a sound. Pip says nothing. She is already checking her belt-pouches.
 choices:
-- text: Pocket the name. Back to the corner.
+- text: |-
+    Pocket the name. Back to the corner.
   next: act2/spoke_hub
   effects:
     flags:

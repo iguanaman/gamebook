@@ -1,18 +1,17 @@
 text:
-- The bargeman is sitting on an upturned crate outside his shanty, chewing the stem
-  of an unlit pipe. He has the build of someone who has hauled rope for thirty years
-  and the eyes of someone who has not slept well recently.
-- He watches you come down the pier without greeting you. The wooden charm at his
-  neck — something carved, nothing you recognise — turns between two fingers.
-- male_midlife_american_dark_tough: Was she alone, you ask. She wasn't. There was
-    a guide. Paid passage for two, named one.
-- He says this like he's been rehearsing it. Like he's been waiting for someone to
-  come asking.
-- male_midlife_american_dark_tough: Paid well. Didn't ask about the ship's condition.
-    Didn't ask about the tides. Didn't ask me for anything except one thing — how
-    deep the water ran under that old hull.
+- |-
+  The bargeman is sitting on an upturned crate outside his shanty, chewing the stem of an unlit pipe. He has the build of someone who has hauled rope for thirty years and the eyes of someone who has not slept well recently.
+- |-
+  He watches you come down the pier without greeting you. The wooden charm at his neck — something carved, nothing you recognise — turns between two fingers.
+- male_midlife_american_dark_tough: |-
+    Was she alone, you ask. She wasn't. There was a guide. Paid passage for two, named one.
+- |-
+  He says this like he's been rehearsing it. Like he's been waiting for someone to come asking.
+- male_midlife_american_dark_tough: |-
+    Paid well. Didn't ask about the ship's condition. Didn't ask about the tides. Didn't ask me for anything except one thing — how deep the water ran under that old hull.
 choices:
-- text: Bribe him — 3 Coin, the rest of what he knows
+- text: |-
+    Bribe him — 3 Coin, the rest of what he knows
   next: harbour_approach
   requires:
     stats:
@@ -26,20 +25,23 @@ choices:
       knows_apprentice_paid_for_passage: true
     stats:
       Coin: -3
-- text: Read him — what's he actually afraid of?
+- text: |-
+    Read him — what's he actually afraid of?
   next: harbour_approach
   requires:
     stats:
       Wits: 6
     flags_unset:
     - harbour_bargeman_done
-  failed_text: '*(Wits 6 required — something in his manner is just beyond your read)*'
+  failed_text: |-
+    *(Wits 6 required — something in his manner is just beyond your read)*
   effects:
     flags:
       harbour_bargeman_done: true
       knows_apprentice_paid_for_passage: true
       knows_bargeman_terrified: true
-- text: Korsa steps forward — the bargeman reconsiders his silence
+- text: |-
+    Korsa steps forward — the bargeman reconsiders his silence
   next: harbour_approach
   requires:
     flags:
@@ -55,7 +57,8 @@ choices:
       knows_apprentice_paid_for_passage: true
     stats:
       Renown: -1
-- text: Walk away — he's not worth it
+- text: |-
+    Walk away — he's not worth it
   next: harbour_approach
   requires:
     flags_unset:

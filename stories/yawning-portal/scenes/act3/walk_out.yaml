@@ -2,75 +2,63 @@ text:
 - if:
     flags:
     - stirred_something
-  text: 'The Portal''s common room is nearly empty by the time you reach the door.
-    The fire is still
-
-    going. The drinks are still on the tables. The people are just — elsewhere, one
-    by one,
-
-    without quite deciding to leave, the way a crowd thins before a storm that nobody
-    has
-
-    named yet.'
+  text: |-
+    The Portal's common room is nearly empty by the time you reach the door. The fire is still
+    going. The drinks are still on the tables. The people are just — elsewhere, one by one,
+    without quite deciding to leave, the way a crowd thins before a storm that nobody has
+    named yet.
 - if:
     flags:
     - stirred_something
-  text: 'The well is at the room''s centre. It is always at the room''s centre. But
-    tonight it is
-
-    also doing something — a sound, barely at the edge of hearing, more pressure than
-    noise.
-
-    Durnan is at the bar and he is staring at the rope.'
+  text: |-
+    The well is at the room's centre. It is always at the room's centre. But tonight it is
+    also doing something — a sound, barely at the edge of hearing, more pressure than noise.
+    Durnan is at the bar and he is staring at the rope.
 - if:
     flags:
     - stirred_something
-  text: He does not call out as you cross to the door. That is the point.
+  text: |-
+    He does not call out as you cross to the door. That is the point.
 - if:
     flags:
     - stirred_something
     - rescued
-  text: 'Linnet is at your side. She is not shivering now. Her eyes track the well-mouth
-    as you
-
-    pass it — with recognition, not fear.'
+  text: |-
+    Linnet is at your side. She is not shivering now. Her eyes track the well-mouth as you
+    pass it — with recognition, not fear.
 - if:
     flags:
     - stirred_something
     flags_unset:
     - rescued
-  text: 'You are alone at the door. Whatever you did not bring back up the rope is
-    still down
-
-    there, or was — or is something else now, wearing a new configuration.'
+  text: |-
+    You are alone at the door. Whatever you did not bring back up the rope is still down
+    there, or was — or is something else now, wearing a new configuration.
 - if:
     flags:
     - left_without_settling
     flags_unset:
     - stirred_something
-  text: 'The room is loud and warm and ordinary, the way it always is at this hour.
-    Someone at
-
-    the dice table wins something; a small cheer. The Portal is doing fine. You are
-    not
-
-    closing the books tonight.'
+  text: |-
+    The room is loud and warm and ordinary, the way it always is at this hour. Someone at
+    the dice table wins something; a small cheer. The Portal is doing fine. You are not
+    closing the books tonight.
 - if:
     flags:
     - left_without_settling
     flags_unset:
     - stirred_something
-  text: 'You cross to the door. Nobody stops you. Durnan does not look up. You pull
-    the latch
-
-    and the cold air comes in and you step through.'
+  text: |-
+    You cross to the door. Nobody stops you. Durnan does not look up. You pull the latch
+    and the cold air comes in and you step through.
 - if:
     flags:
     - recruited_korsa
     flags_unset:
     - korsa_died
     - korsa_farewell_done
-  text: Korsa raises his cup from the bar as you pass. He does not follow.
+  text: |-
+    Korsa raises his cup from the bar as you pass. He does not follow.
 - if:
     flags:
     - recruited_vesna
@@ -78,45 +66,43 @@ text:
     - vesna_died
     - vesna_farewell_done
     - vesna_left
-  text: 'Vesna catches your eye. She puts two fingers to her lips and then to the
-    Tymora coin.
-
-    She does not follow.'
+  text: |-
+    Vesna catches your eye. She puts two fingers to her lips and then to the Tymora coin.
+    She does not follow.
 - if:
     flags:
     - recruited_pip
     flags_unset:
     - pip_died
     - pip_farewell_done
-  text: Pip is gone. You don't know when she left.
+  text: |-
+    Pip is gone. You don't know when she left.
 - if:
     flags:
     - recruited_thessaly
     flags_unset:
     - thessaly_died
     - thessaly_farewell_done
-  text: 'Thessaly watches from her table. She nods — the small, careful nod of someone
-    who knew
-
-    this was coming.'
+  text: |-
+    Thessaly watches from her table. She nods — the small, careful nod of someone who knew
+    this was coming.
 - if:
     flags:
     - body_recovered
     - stirred_something
     flags_unset:
     - companion_body_honoured
-  text: Behind you, as the door swings, you hear Durnan reach for a cloth.
-- 'Waterdeep''s pre-dawn streets. The everburning lamps run orange-gold along the
-  cobbles. A
-
-  cart somewhere in the distance. Cold air with salt and pitch on it from the harbour
-  a
-
-  mile south.'
-- Behind the closed door, somewhere under the Portal's flagstone floor, something
-  breathes.
+  text: |-
+    Behind you, as the door swings, you hear Durnan reach for a cloth.
+- |-
+  Waterdeep's pre-dawn streets. The everburning lamps run orange-gold along the cobbles. A
+  cart somewhere in the distance. Cold air with salt and pitch on it from the harbour a
+  mile south.
+- |-
+  Behind the closed door, somewhere under the Portal's flagstone floor, something breathes.
 choices:
-- text: Out into the street.
+- text: |-
+    Out into the street.
   next: ending_6_worse_door
   effects:
     flags:

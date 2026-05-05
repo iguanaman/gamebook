@@ -1,23 +1,23 @@
 id: act1/cole_force_death
-journal: You went for Voss's holster. You did not get it. The second shot was closer
-  to your ear than the first. Cole nodded at the lamp. The carpet was burgundy.
+journal: |-
+  You went for Voss's holster. You did not get it. The second shot was closer to your ear than the first. Cole nodded at the lamp. The carpet was burgundy.
 text:
-- You get a hand on Voss's holster. You get the gun half clear of it. Voss is not
-  Bregman. Voss does not pause.
-- The second shot is louder than the first because it is closer to your ear. After
-  it there is nothing — not pain, not the carpet, not the burgundy — there is only
-  the hum of the green-shaded lamp on the desk, and then not even that.
-- Cole stands behind the desk. He takes a long slow breath through his nose. He nods,
-  once, at the lamp, as though correcting it for an infraction it has been politely
-  warned about before.
-- male_midlife_american_deep_malevolent_ancient_slow: Bregman. The carpet. And the
-    ledger, please. The ledger above all.
-- He sits down.
-- '---'
-- '*VAULT-TEC INTERNAL MEMORANDUM — POSTHUMOUS, FOR ARCHIVAL PURPOSES ONLY*'
-- '*RE: SECURITY OFFICER, VAULT 34. INCIDENT IN OVERSEER''S OFFICE.*'
-- '*Subject discharged a service weapon in a restricted area following an unauthorised
-  entry and physical assault upon the Warden. Subject was neutralised by attending
-  officers in the course of duty. No further action required. Subject''s effects to
-  be returned to next of kin where applicable. Do not redistribute.*'
+- |-
+  You get a hand on Voss's holster. You get the gun half clear of it. Voss is not Bregman. Voss does not pause.
+- |-
+  The second shot is louder than the first because it is closer to your ear. After it there is nothing — not pain, not the carpet, not the burgundy — there is only the hum of the green-shaded lamp on the desk, and then not even that.
+- |-
+  Cole stands behind the desk. He takes a long slow breath through his nose. He nods, once, at the lamp, as though correcting it for an infraction it has been politely warned about before.
+- male_midlife_american_deep_malevolent_ancient_slow: |-
+    Bregman. The carpet. And the ledger, please. The ledger above all.
+- |-
+  He sits down.
+- |-
+  ---
+- |-
+  *VAULT-TEC INTERNAL MEMORANDUM — POSTHUMOUS, FOR ARCHIVAL PURPOSES ONLY*
+- |-
+  *RE: SECURITY OFFICER, VAULT 34. INCIDENT IN OVERSEER'S OFFICE.*
+- |-
+  *Subject discharged a service weapon in a restricted area following an unauthorised entry and physical assault upon the Warden. Subject was neutralised by attending officers in the course of duty. No further action required. Subject's effects to be returned to next of kin where applicable. Do not redistribute.*
 choices: []

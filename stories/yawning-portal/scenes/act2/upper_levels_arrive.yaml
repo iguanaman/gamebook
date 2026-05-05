@@ -1,36 +1,36 @@
 text:
-- The tunnel opens into a low corridor — cut stone, not natural cave. Old work, precise,
-  the kind that takes generations and does not hurry. Three passages branch ahead
-  of you, each one a different shade of dark.
-- Someone scratched an arrow into the left-hand wall once, in chalk. The chalk is
-  long gone but the scratch is still there. It points nowhere useful.
+- |-
+  The tunnel opens into a low corridor — cut stone, not natural cave. Old work, precise, the kind that takes generations and does not hurry. Three passages branch ahead of you, each one a different shade of dark.
+- |-
+  Someone scratched an arrow into the left-hand wall once, in chalk. The chalk is long gone but the scratch is still there. It points nowhere useful.
 - if:
     flags:
     - lead_followed_direct
-  text: You came without the leads. The city's threads are still hanging loose behind
-    you. Whatever you learn, you learn down here.
+  text: |-
+    You came without the leads. The city's threads are still hanging loose behind you. Whatever you learn, you learn down here.
 - if:
     flags:
     - lead_followed_alley
     flags_unset:
     - lead_followed_harbour
-  text: The alley witness gave you a name. The name has a shape now that you're in
-    the dark where it belongs.
+  text: |-
+    The alley witness gave you a name. The name has a shape now that you're in the dark where it belongs.
 - if:
     flags:
     - lead_followed_harbour
     flags_unset:
     - lead_followed_alley
-  text: The harbour gave you a page of the apprentice's journal. The runes she sketched
-    match the stone around you more than you'd like.
+  text: |-
+    The harbour gave you a page of the apprentice's journal. The runes she sketched match the stone around you more than you'd like.
 - if:
     flags:
     - lead_followed_alley
     - lead_followed_harbour
-  text: Both leads spent. The alley gave you a name; the harbour gave you the apprentice's
-    own handwriting. You know the shape of this place before you've walked it.
-- The lantern throws three shadows ahead of you — one for each passage — and all three
-  reach the same dark.
+  text: |-
+    Both leads spent. The alley gave you a name; the harbour gave you the apprentice's own handwriting. You know the shape of this place before you've walked it.
+- |-
+  The lantern throws three shadows ahead of you — one for each passage — and all three reach the same dark.
 choices:
-- text: Take stock of what's ahead.
+- text: |-
+    Take stock of what's ahead.
   next: act2/upper_levels_hub

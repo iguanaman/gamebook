@@ -1,21 +1,26 @@
 id: foyer
 text:
-- RobTop is retiring. THE RobTop. He picked six superfans. One of us walks out owning
-  the studio. I got picked. I am sweating through my hoodie.
-- Cyan light. Black glass. The atrium floor is a giant glowing cube icon. A CUBE.
-  ICON. As a FLOOR.
-- Cyan velvet blazer, neon glasses, finger tapping a beat on the railing. That's RobTop.
-- male_young_american_forthright: Welcome, my finalists. Six in. One out — owning
-    my studio. The rest take an early bow.
-- I scan the kids. Mara — drawstring chewer, loud. Brennan — cracked tablet, untied
-  laces. Milo — tiny, swimming in his hoodie. Sage — quiet, watching. Dex — gelled
-  spike, smug. Eyes on me already. Sus.
-- female_young_american_youthful_sweet: '[chuckle] Obviously it''s me. Duh.'
-- male_young_american_youthful_friendly_modern: To be fair. I cleared Tartarus.
-- TARTARUS. He says it like homework.
-- male_young_american_forthright: One question per room, young geometricians. Wrong
-    answer — well. The HQ has its ways.
-- A magenta conveyor grinds out of the floor under us.
+- |-
+  RobTop is retiring. THE RobTop. He picked six superfans. One of us walks out owning the studio. I got picked. I am sweating through my hoodie.
+- |-
+  Cyan light. Black glass. The atrium floor is a giant glowing cube icon. A CUBE. ICON. As a FLOOR.
+- |-
+  Cyan velvet blazer, neon glasses, finger tapping a beat on the railing. That's RobTop.
+- male_young_american_forthright: |-
+    Welcome, my finalists. Six in. One out — owning my studio. The rest take an early bow.
+- |-
+  I scan the kids. Mara — drawstring chewer, loud. Brennan — cracked tablet, untied laces. Milo — tiny, swimming in his hoodie. Sage — quiet, watching. Dex — gelled spike, smug. Eyes on me already. Sus.
+- female_young_american_youthful_sweet: |-
+    [chuckle] Obviously it's me. Duh.
+- male_young_american_youthful_friendly_modern: |-
+    To be fair. I cleared Tartarus.
+- |-
+  TARTARUS. He says it like homework.
+- male_young_american_forthright: |-
+    One question per room, young geometricians. Wrong answer — well. The HQ has its ways.
+- |-
+  A magenta conveyor grinds out of the floor under us.
 choices:
-- text: Step onto the conveyor.
+- text: |-
+    Step onto the conveyor.
   next: room1_icon_foundry

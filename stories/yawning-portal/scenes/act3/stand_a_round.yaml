@@ -1,23 +1,18 @@
 text:
-- 'You catch Durnan''s eye and wave him over. Tell him to stand whatever the nearest
-  table is
-
-  having and put it on your count. Durnan gives you the flat look he gives people
-  who are
-
-  about to do something he''s seen done before, then nods and goes.'
-- 'The nearest table — the off-duty Watch sergeant, the dicing pair, the man nursing
-  his
-
-  second cup at the fire-corner — look up when the fresh drinks land. They look at
-  you.
-
+- |-
+  You catch Durnan's eye and wave him over. Tell him to stand whatever the nearest table is
+  having and put it on your count. Durnan gives you the flat look he gives people who are
+  about to do something he's seen done before, then nods and goes.
+- |-
+  The nearest table — the off-duty Watch sergeant, the dicing pair, the man nursing his
+  second cup at the fire-corner — look up when the fresh drinks land. They look at you.
   Someone raises a cup. Someone else says something too quiet to hear, and it sounds
-
-  like a name.'
-- Your name.
+  like a name.
+- |-
+  Your name.
 choices:
-- text: Go back to the bar.
+- text: |-
+    Go back to the bar.
   next: bar_settle_up
   effects:
     flags:

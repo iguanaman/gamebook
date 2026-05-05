@@ -1,30 +1,24 @@
 text:
 - if: visited
-  text: 'The bar again. Durnan''s polishing cloth moves in slow circles. The room
-    has recovered
-
-    its voice, mostly — the well is still there at the room''s centre, and everyone
-    is
-
-    performing not-looking at it with moderate success.'
+  text: |-
+    The bar again. Durnan's polishing cloth moves in slow circles. The room has recovered
+    its voice, mostly — the well is still there at the room's centre, and everyone is
+    performing not-looking at it with moderate success.
 - if:
     flags_unset:
     - client_handed_over
     - stirred_something
-  text: 'Joren is still at his corner table. The cup has been refilled by someone
-    with charitable
-
-    instincts; he isn''t drinking it.'
+  text: |-
+    Joren is still at his corner table. The cup has been refilled by someone with charitable
+    instincts; he isn't drinking it.
 - if:
     flags:
     - stirred_something
     flags_unset:
     - client_handed_over
-  text: 'Joren''s corner table — the cup is there, the chair pushed half out. He was
-    there when
-
-    you came up the rope. The room has been thinning since, and he may have gone with
-    it.'
+  text: |-
+    Joren's corner table — the cup is there, the chair pushed half out. He was there when
+    you came up the rope. The room has been thinning since, and he may have gone with it.
 - if:
     flags:
     - mirt_owes_favour
@@ -33,22 +27,24 @@ text:
     flags_unset:
     - mirt_offer_resolved
     - stirred_something
-  text: 'Across the room, Mirt lifts his tankard half an inch in your direction. Not
-    a toast —
-
-    a question. The fire behind him is the only warm thing in that corner right now.'
+  text: |-
+    Across the room, Mirt lifts his tankard half an inch in your direction. Not a toast —
+    a question. The fire behind him is the only warm thing in that corner right now.
 choices:
-- text: Find Joren — or what he left behind.
+- text: |-
+    Find Joren — or what he left behind.
   next: client_handover
   requires:
     flags_unset:
     - client_handed_over
-- text: A word with Durnan.
+- text: |-
+    A word with Durnan.
   next: durnan_final
   requires:
     flags_unset:
     - durnan_final_done
-- text: A word with Korsa.
+- text: |-
+    A word with Korsa.
   next: farewell_korsa
   requires:
     flags:
@@ -57,7 +53,8 @@ choices:
     - korsa_died
     - korsa_farewell_done
   hide_if_failed: true
-- text: A word with Vesna.
+- text: |-
+    A word with Vesna.
   next: farewell_vesna
   requires:
     flags:
@@ -66,7 +63,8 @@ choices:
     - vesna_died
     - vesna_farewell_done
   hide_if_failed: true
-- text: A word with Pip.
+- text: |-
+    A word with Pip.
   next: farewell_pip
   requires:
     flags:
@@ -75,7 +73,8 @@ choices:
     - pip_died
     - pip_farewell_done
   hide_if_failed: true
-- text: A word with Thessaly.
+- text: |-
+    A word with Thessaly.
   next: farewell_thessaly
   requires:
     flags:
@@ -84,7 +83,8 @@ choices:
     - thessaly_died
     - thessaly_farewell_done
   hide_if_failed: true
-- text: Cross to Mirt's table — he's lifted his tankard at you.
+- text: |-
+    Cross to Mirt's table — he's lifted his tankard at you.
   next: mirt_offer
   requires:
     flags:
@@ -95,7 +95,8 @@ choices:
     - mirt_offer_resolved
     - stirred_something
   hide_if_failed: true
-- text: Pay the night's tab unprompted.
+- text: |-
+    Pay the night's tab unprompted.
   next: pay_tab_unprompted
   requires:
     stats:
@@ -103,8 +104,10 @@ choices:
     flags_unset:
     - paid_tab_unprompted
     - durnan_respects_you
-  failed_text: '*(Not enough coin — the tab will have to wait.)*'
-- text: Stand a round for the regulars.
+  failed_text: |-
+    *(Not enough coin — the tab will have to wait.)*
+- text: |-
+    Stand a round for the regulars.
   next: stand_a_round
   requires:
     stats:
@@ -112,14 +115,18 @@ choices:
       Renown: 3
     flags_unset:
     - stood_a_round
-  failed_text: '*(The room doesn''t know you well enough for the gesture to land yet.)*'
-- text: Close the books — sit into the night.
+  failed_text: |-
+    *(The room doesn't know you well enough for the gesture to land yet.)*
+- text: |-
+    Close the books — sit into the night.
   next: closing_books
   requires:
     flags:
     - client_handed_over
-  failed_text: '*(Settle the apprentice''s fate first.)*'
-- text: Walk to the door without settling.
+  failed_text: |-
+    *(Settle the apprentice's fate first.)*
+- text: |-
+    Walk to the door without settling.
   next: walk_out
   effects:
     flags:

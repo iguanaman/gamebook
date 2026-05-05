@@ -1,11 +1,13 @@
 text:
-- First strike is yours. Pip drops through the hatch silently, lands on something
-  soft that doesn't make a sound for half a second, and the half-second is enough.
-- A scorching ray from you through the hatch opening. A hiss, a thump.
-- Then it's a fight — close, fast, tight. But they're already short a chief and you
-  have the momentum.
+- |-
+  First strike is yours. Pip drops through the hatch silently, lands on something soft that doesn't make a sound for half a second, and the half-second is enough.
+- |-
+  A scorching ray from you through the hatch opening. A hiss, a thump.
+- |-
+  Then it's a fight — close, fast, tight. But they're already short a chief and you have the momentum.
 choices:
-- text: Korsa plates the hatch — the rest fight clean behind him
+- text: |-
+    Korsa plates the hatch — the rest fight clean behind him
   next:
   - scene: act2/cellar_win_korsa_plate
     weight: 6
@@ -23,7 +25,8 @@ choices:
   effects:
     flags:
       tactic_korsa_plate: true
-- text: Vesna — mass-heal, spend herself if she has to
+- text: |-
+    Vesna — mass-heal, spend herself if she has to
   next:
   - scene: act2/cellar_win_vesna_mass_heal
     weight: 5
@@ -41,7 +44,8 @@ choices:
   effects:
     flags:
       tactic_vesna_mass_heal: true
-- text: Pip — flank and throat-cut the chief in one stroke
+- text: |-
+    Pip — flank and throat-cut the chief in one stroke
   next:
   - scene: act2/cellar_win_pip_decapitate
     weight: 6
@@ -60,7 +64,8 @@ choices:
   effects:
     flags:
       tactic_pip_decapitate: true
-- text: Thessaly — chain-spell, clear the room and crack the hatch below
+- text: |-
+    Thessaly — chain-spell, clear the room and crack the hatch below
   next:
   - scene: act2/cellar_win_thessaly_chain
     weight: 5
@@ -78,7 +83,8 @@ choices:
   effects:
     flags:
       tactic_thessaly_chain: true
-- text: Steel and spell — all of us, planted
+- text: |-
+    Steel and spell — all of us, planted
   next:
   - scene: act2/cellar_win_straight
     weight: 5

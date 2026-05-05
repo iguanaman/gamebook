@@ -1,13 +1,17 @@
 text:
-- The fire works. The thing burns.
-- 'What it costs Thessaly: the burn-scar on her wrist opens along its old lines, weeping,
-  and the backs of both hands are blistered to the second knuckle. The window was
-  narrow and she stood inside it.'
-- She looks at her hands the way a professional looks at a tool that needs service.
-- female_adult_american_sultry_villainous: I'll need something cold. After.
-- Linnet is free. That's what matters right now.
+- |-
+  The fire works. The thing burns.
+- |-
+  What it costs Thessaly: the burn-scar on her wrist opens along its old lines, weeping, and the backs of both hands are blistered to the second knuckle. The window was narrow and she stood inside it.
+- |-
+  She looks at her hands the way a professional looks at a tool that needs service.
+- female_adult_american_sultry_villainous: |-
+    I'll need something cold. After.
+- |-
+  Linnet is free. That's what matters right now.
 choices:
-- text: Out — slowly
+- text: |-
+    Out — slowly
   next: act2/climb_out
   effects:
     flags:

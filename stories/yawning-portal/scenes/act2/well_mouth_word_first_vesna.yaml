@@ -1,21 +1,19 @@
 text:
-- Vesna is kneeling at the wall — not the archway, the near wall, where something
-  has been scratched at roughly knee-height. You crouch beside her.
-- It's a name. Linnet. Fresh scratches, a penknife or a ring-stone. She scratched
-  it on the way down and it is right there in the stone, and neither of you says anything
-  about it for a moment.
-- female_adult_american_gentle_tender_sweet: '"I''ve been down in dark places before.
-    Ships, mostly. When the hold floods you learn very quickly that the dark is not
-    the enemy — the dark is just the medium. The thing in the dark is the matter."
-    She traces the name with one finger, does not touch it. "She was frightened. She
-    still stopped to mark her name."'
-- She stands, the coin already turning.
-- female_adult_american_gentle_tender_sweet: Lady Luck willing, we mark it on the
-    way *out* and not the way down. That's all I ask.
-- She smiles. It is a real smile. The grief in it is twenty years old and she wears
-  it like a coat that finally fits.
+- |-
+  Vesna is kneeling at the wall — not the archway, the near wall, where something has been scratched at roughly knee-height. You crouch beside her.
+- |-
+  It's a name. Linnet. Fresh scratches, a penknife or a ring-stone. She scratched it on the way down and it is right there in the stone, and neither of you says anything about it for a moment.
+- female_adult_american_gentle_tender_sweet: |-
+    "I've been down in dark places before. Ships, mostly. When the hold floods you learn very quickly that the dark is not the enemy — the dark is just the medium. The thing in the dark is the matter." She traces the name with one finger, does not touch it. "She was frightened. She still stopped to mark her name."
+- |-
+  She stands, the coin already turning.
+- female_adult_american_gentle_tender_sweet: |-
+    Lady Luck willing, we mark it on the way *out* and not the way down. That's all I ask.
+- |-
+  She smiles. It is a real smile. The grief in it is twenty years old and she wears it like a coat that finally fits.
 choices:
-- text: Back to the well-mouth.
+- text: |-
+    Back to the well-mouth.
   next: act2/well_mouth_first
   effects:
     flags:

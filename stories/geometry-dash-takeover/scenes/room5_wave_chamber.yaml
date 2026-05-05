@@ -1,23 +1,31 @@
 id: room5_wave_chamber
 text:
-- 'YOU SCARED ME. Green light. Sage: SHHHHKLAK. Pink neon arc into the bleachers.
-  She lands and nods like — yeah, that tracks.'
-- Two of us. Me and Dex.
-- male_young_american_youthful_friendly_modern: Down to us, dude. I knew it'd be us.
-- The conveyor slides us into a flooded room. Glowing liquid in channels. Sluice gates
-  on every wall. RobTop is here in person now. No balcony.
-- male_young_american_forthright: Final question, young geometricians. The Chamber
-    of Time. What unlocks it?
-- male_young_american_youthful_friendly_modern: '[chuckle] Easy. The Demon Key, obviously—'
-- Dex doesn't even pause. He sounds so sure.
-- But that's not it. The Chamber of Time. Not Demon Keys. Something else. Something
-  rarer.
+- |-
+  YOU SCARED ME. Green light. Sage: SHHHHKLAK. Pink neon arc into the bleachers. She lands and nods like — yeah, that tracks.
+- |-
+  Two of us. Me and Dex.
+- male_young_american_youthful_friendly_modern: |-
+    Down to us, dude. I knew it'd be us.
+- |-
+  The conveyor slides us into a flooded room. Glowing liquid in channels. Sluice gates on every wall. RobTop is here in person now. No balcony.
+- male_young_american_forthright: |-
+    Final question, young geometricians. The Chamber of Time. What unlocks it?
+- male_young_american_youthful_friendly_modern: |-
+    [chuckle] Easy. The Demon Key, obviously—
+- |-
+  Dex doesn't even pause. He sounds so sure.
+- |-
+  But that's not it. The Chamber of Time. Not Demon Keys. Something else. Something rarer.
 choices:
-- text: A Demon Key.
+- text: |-
+    A Demon Key.
   next: out_wave_washout
-- text: The Master Emblem.
+- text: |-
+    The Master Emblem.
   next: win_heir
-- text: A Diamond Shard.
+- text: |-
+    A Diamond Shard.
   next: out_wave_washout
-- text: 500 secret coins.
+- text: |-
+    500 secret coins.
   next: out_wave_washout

@@ -1,43 +1,43 @@
 text:
-- The rope is thick and well-greased. You go down hand over hand, the lantern swinging
-  below you on its hook, throwing orange light on walls of old stone slick with moisture.
-- The common room above shrinks to a circle of amber. Someone at the bar laughs at
-  something — the sound drops away before it reaches you.
-- 'The cold comes up to meet you. Not the cold of a winter street but the cold of
-  sealed places, stone that has not felt sun in centuries. It has a smell: mineral,
-  old, like the inside of a well-cap.'
+- |-
+  The rope is thick and well-greased. You go down hand over hand, the lantern swinging below you on its hook, throwing orange light on walls of old stone slick with moisture.
+- |-
+  The common room above shrinks to a circle of amber. Someone at the bar laughs at something — the sound drops away before it reaches you.
+- |-
+  The cold comes up to meet you. Not the cold of a winter street but the cold of sealed places, stone that has not felt sun in centuries. It has a smell: mineral, old, like the inside of a well-cap.
 - if:
     flags:
     - recruited_korsa
     flags_unset:
     - korsa_died
-  text: Korsa descends without comment, his plate scraping the stone twice on the
-    way down. He lands in a crouch and waits.
+  text: |-
+    Korsa descends without comment, his plate scraping the stone twice on the way down. He lands in a crouch and waits.
 - if:
     flags:
     - recruited_vesna
     flags_unset:
     - vesna_died
-  text: Vesna murmurs something as she goes — not to you, not to the rope. Her prayer-coin
-    catches the light once and is gone.
+  text: |-
+    Vesna murmurs something as she goes — not to you, not to the rope. Her prayer-coin catches the light once and is gone.
 - if:
     flags:
     - recruited_pip
     flags_unset:
     - pip_died
-  text: Pip goes down fast, almost soundless. She's already counting exits by the
-    time you reach the bottom.
+  text: |-
+    Pip goes down fast, almost soundless. She's already counting exits by the time you reach the bottom.
 - if:
     flags:
     - recruited_thessaly
     flags_unset:
     - thessaly_died
-  text: Thessaly descends last, looking up — not down. Whatever she's looking for
-    in that circle of light, she doesn't find it.
-- The tunnel floor is grit and old flagstone. The lantern light doesn't reach far.
-  Somewhere ahead, the rock settles with a sound like a held breath.
+  text: |-
+    Thessaly descends last, looking up — not down. Whatever she's looking for in that circle of light, she doesn't find it.
+- |-
+  The tunnel floor is grit and old flagstone. The lantern light doesn't reach far. Somewhere ahead, the rock settles with a sound like a held breath.
 choices:
-- text: Deeper.
+- text: |-
+    Deeper.
   next: act2/upper_levels_arrive
   effects:
     stats:

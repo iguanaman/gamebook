@@ -1,19 +1,21 @@
 text:
-- The thunder goes off between Thessaly's hands and the recoil throws her sideways
-  like a slap. Her heels find the slick rail where the algae is thickest, and then
-  she's not there.
-- The splash is small. The harbour at Dock 14 is deep.
-- You get to the rail in two steps. The surface closes. The gas-lamp throws orange
-  across it. There is nothing to see — no hand, no pale face, no violet skin against
-  black water.
-- Something was in that water. You saw it move toward the splash.
-- The two remaining kuo-toa are confused without whatever signal the man in the dock-coat
-  was giving them. You kill them before they sort it out. The work is quick and joyless.
-- The page is where it always was — jammed in the beam, getting wetter.
-journal: Thessaly Vex drowned in the harbour at Dock 14. Something in the water took
-  her before you could reach the rail.
+- |-
+  The thunder goes off between Thessaly's hands and the recoil throws her sideways like a slap. Her heels find the slick rail where the algae is thickest, and then she's not there.
+- |-
+  The splash is small. The harbour at Dock 14 is deep.
+- |-
+  You get to the rail in two steps. The surface closes. The gas-lamp throws orange across it. There is nothing to see — no hand, no pale face, no violet skin against black water.
+- |-
+  Something was in that water. You saw it move toward the splash.
+- |-
+  The two remaining kuo-toa are confused without whatever signal the man in the dock-coat was giving them. You kill them before they sort it out. The work is quick and joyless.
+- |-
+  The page is where it always was — jammed in the beam, getting wetter.
+journal: |-
+  Thessaly Vex drowned in the harbour at Dock 14. Something in the water took her before you could reach the rail.
 choices:
-- text: Take the page. Get off the boat.
+- text: |-
+    Take the page. Get off the boat.
   next: harbour_resolution
   effects:
     flags:

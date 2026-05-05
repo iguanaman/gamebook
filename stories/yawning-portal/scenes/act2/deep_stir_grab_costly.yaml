@@ -1,16 +1,15 @@
 text:
-- You get to Linnet. The chamber is coming apart around you — the pool overflowing
-  its banks, the walls sweating something dark, the envoy dissolving into the noise
-  it came from.
-- One of your companions catches an edge of what's rising — not a blow, the presence
-  itself, the pressure wave of something vast becoming aware of the room. They go
-  down hard.
-- You don't stop. You haul Linnet through the hatch with one arm, your other hand
-  on the companion who's still standing. The one who went down — they get up. They
-  have to get up.
-- They get up.
+- |-
+  You get to Linnet. The chamber is coming apart around you — the pool overflowing its banks, the walls sweating something dark, the envoy dissolving into the noise it came from.
+- |-
+  One of your companions catches an edge of what's rising — not a blow, the presence itself, the pressure wave of something vast becoming aware of the room. They go down hard.
+- |-
+  You don't stop. You haul Linnet through the hatch with one arm, your other hand on the companion who's still standing. The one who went down — they get up. They have to get up.
+- |-
+  They get up.
 choices:
-- text: Climb — carry whoever's down
+- text: |-
+    Climb — carry whoever's down
   next: act2/climb_out
   effects:
     flags:

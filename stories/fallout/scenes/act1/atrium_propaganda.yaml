@@ -1,25 +1,22 @@
 id: act1/atrium_propaganda
 text:
-- You stop under the speaker. The recording is on a fourteen-minute loop. You've heard
-  it your whole life, the way a fish hears water. Today you make yourself listen.
-- male_midlife_american_deep_malevolent_ancient_slow: Good afternoon, residents. This
-    is your Overseer.
-- male_midlife_american_deep_malevolent_ancient_slow: I would like to take a moment
-    to thank you, the population, for your continued patience during the ongoing programme
-    of atmospheric optimisation. Reports of elevated humidity in sub-levels four and
-    five remain under review, and I can confirm that the engineering staff have my
-    complete confidence.
-- male_midlife_american_deep_malevolent_ancient_slow: I would also like to remind
-    residents that the discharge of personal sidearms in the atrium is a Level Three
-    infraction and will be addressed accordingly. Vault-Tec thanks you for your service
-    to the experiment.
-- male_midlife_american_deep_malevolent_ancient_slow: Have a productive shift.
-- There is a small click. The loop resets to the top. Cole has been dead-calm in that
-  voice since you were a kid. Today, knowing what you know, it sounds less like a
-  man addressing his vault and more like a man reading the eulogy in advance.
-- Nobody else is listening. They never are.
+- |-
+  You stop under the speaker. The recording is on a fourteen-minute loop. You've heard it your whole life, the way a fish hears water. Today you make yourself listen.
+- male_midlife_american_deep_malevolent_ancient_slow: |-
+    Good afternoon, residents. This is your Overseer.
+- male_midlife_american_deep_malevolent_ancient_slow: |-
+    I would like to take a moment to thank you, the population, for your continued patience during the ongoing programme of atmospheric optimisation. Reports of elevated humidity in sub-levels four and five remain under review, and I can confirm that the engineering staff have my complete confidence.
+- male_midlife_american_deep_malevolent_ancient_slow: |-
+    I would also like to remind residents that the discharge of personal sidearms in the atrium is a Level Three infraction and will be addressed accordingly. Vault-Tec thanks you for your service to the experiment.
+- male_midlife_american_deep_malevolent_ancient_slow: |-
+    Have a productive shift.
+- |-
+  There is a small click. The loop resets to the top. Cole has been dead-calm in that voice since you were a kid. Today, knowing what you know, it sounds less like a man addressing his vault and more like a man reading the eulogy in advance.
+- |-
+  Nobody else is listening. They never are.
 choices:
-- text: Back to the atrium.
+- text: |-
+    Back to the atrium.
   next: act1/atrium_first
   effects:
     flags:

@@ -1,22 +1,29 @@
-journal: Korsa Ironbrow stayed at the hatch while the dark rose beneath him. He bought
-  you a window. He bought it in full.
+journal: |-
+  Korsa Ironbrow stayed at the hatch while the dark rose beneath him. He bought you a window. He bought it in full.
 text:
-- He doesn't make it a discussion.
-- male_midlife_british_tough_calloused: I'll hold the hatch. You take the girl and
-    go.
-- You open your mouth. He doesn't let you.
-- male_midlife_british_tough_calloused: Go.
-- You go. You take Linnet's wrist and you pull, and she comes with you, and behind
-  you the hatch closes and there is the sound of an axe landing on something that
-  is not stone.
-- Then there is a different sound, from very far below — the thing-behind, waking
-  fully, finding the envoy, finding the room.
-- Then there is Korsa's voice, one more time, very clearly.
-- male_midlife_british_tough_calloused: Come on then.
-- Then silence.
-- You climb.
+- |-
+  He doesn't make it a discussion.
+- male_midlife_british_tough_calloused: |-
+    I'll hold the hatch. You take the girl and go.
+- |-
+  You open your mouth. He doesn't let you.
+- male_midlife_british_tough_calloused: |-
+    Go.
+- |-
+  You go. You take Linnet's wrist and you pull, and she comes with you, and behind you the hatch closes and there is the sound of an axe landing on something that is not stone.
+- |-
+  Then there is a different sound, from very far below — the thing-behind, waking fully, finding the envoy, finding the room.
+- |-
+  Then there is Korsa's voice, one more time, very clearly.
+- male_midlife_british_tough_calloused: |-
+    Come on then.
+- |-
+  Then silence.
+- |-
+  You climb.
 choices:
-- text: Climb — Korsa earned this run
+- text: |-
+    Climb — Korsa earned this run
   next: act2/climb_out
   effects:
     flags:

@@ -1,16 +1,19 @@
 text:
-- You leave her.
-- There is a moment — brief, honest — where you calculate the cost, and the calculation
-  comes up wrong, and you leave her anyway. The chamber is coming apart. The envoy
-  is dissolving. The thing below it is rising. You are not strong enough for this.
-- You run.
-- Linnet is still kneeling when you go through the hatch. The last thing you see is
-  her face turned toward the pool — not terrified. The calm is back. She was waiting
-  for the envoy to fall, you think.
-- She was waiting to speak to what's below it.
-- The hatch falls shut behind you.
+- |-
+  You leave her.
+- |-
+  There is a moment — brief, honest — where you calculate the cost, and the calculation comes up wrong, and you leave her anyway. The chamber is coming apart. The envoy is dissolving. The thing below it is rising. You are not strong enough for this.
+- |-
+  You run.
+- |-
+  Linnet is still kneeling when you go through the hatch. The last thing you see is her face turned toward the pool — not terrified. The calm is back. She was waiting for the envoy to fall, you think.
+- |-
+  She was waiting to speak to what's below it.
+- |-
+  The hatch falls shut behind you.
 choices:
-- text: Climb
+- text: |-
+    Climb
   next: act2/climb_out
   effects:
     flags:

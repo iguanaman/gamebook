@@ -1,34 +1,38 @@
 text:
-- A moment in the corridor. The stone holds sound differently than the street — quieter,
-  and then suddenly not.
+- |-
+  A moment in the corridor. The stone holds sound differently than the street — quieter, and then suddenly not.
 - if:
     flags:
     - recruited_korsa
     flags_unset:
     - korsa_died
-  text: Korsa is running his thumb along a seam in the stonework, reading the cut.
+  text: |-
+    Korsa is running his thumb along a seam in the stonework, reading the cut.
 - if:
     flags:
     - recruited_vesna
     flags_unset:
     - vesna_died
     - vesna_left
-  text: Vesna has the prayer-coin out, turning it. She won't flip it here — not yet.
+  text: |-
+    Vesna has the prayer-coin out, turning it. She won't flip it here — not yet.
 - if:
     flags:
     - recruited_pip
     flags_unset:
     - pip_died
-  text: Pip is already on her second circuit of the junction, checking angles.
+  text: |-
+    Pip is already on her second circuit of the junction, checking angles.
 - if:
     flags:
     - recruited_thessaly
     flags_unset:
     - thessaly_died
-  text: Thessaly is standing where the three passages meet, looking at all three simultaneously.
-    Or trying to.
+  text: |-
+    Thessaly is standing where the three passages meet, looking at all three simultaneously. Or trying to.
 choices:
-- text: A word with Korsa.
+- text: |-
+    A word with Korsa.
   next: act2/council_korsa_upper
   requires:
     flags:
@@ -37,7 +41,8 @@ choices:
     - korsa_died
     - council_korsa_done_at_upper
   hide_if_failed: true
-- text: A word with Vesna.
+- text: |-
+    A word with Vesna.
   next: act2/council_vesna_upper
   requires:
     flags:
@@ -47,7 +52,8 @@ choices:
     - vesna_left
     - council_vesna_done_at_upper
   hide_if_failed: true
-- text: A word with Pip.
+- text: |-
+    A word with Pip.
   next: act2/council_pip_upper
   requires:
     flags:
@@ -56,7 +62,8 @@ choices:
     - pip_died
     - council_pip_done_at_upper
   hide_if_failed: true
-- text: A word with Thessaly.
+- text: |-
+    A word with Thessaly.
   next: act2/council_thessaly_upper
   requires:
     flags:
@@ -65,12 +72,14 @@ choices:
     - thessaly_died
     - council_thessaly_done_at_upper
   hide_if_failed: true
-- text: Sit down a minute — catch your breath.
+- text: |-
+    Sit down a minute — catch your breath.
   next: act2/council_rest_upper
   requires:
     flags_unset:
     - council_rest_used
-- text: Back to the junction.
+- text: |-
+    Back to the junction.
   next: act2/upper_levels_hub
   effects:
     flags:

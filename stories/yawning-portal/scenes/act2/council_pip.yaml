@@ -4,52 +4,58 @@ text:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-  - Pip is eating the thing from her pouch and looking at you with the assessment
-    of someone checking a price.
-  - female_young_american_lisp: Six toughs in an alley, which we'll probably end up
-      in, and a wet derelict at the harbour, which we'll probably end up on. One of
-      those has better exit options than the other.
-  - She does not say which. You wait.
-  - female_young_american_lisp: Harbour. Three sides off the boat if it goes bad.
-      Alley's a box.
-  - She shrugs.
-  - female_young_american_lisp: Two coppers, free advice.
+  - |-
+    Pip is eating the thing from her pouch and looking at you with the assessment of someone checking a price.
+  - female_young_american_lisp: |-
+      Six toughs in an alley, which we'll probably end up in, and a wet derelict at the harbour, which we'll probably end up on. One of those has better exit options than the other.
+  - |-
+    She does not say which. You wait.
+  - female_young_american_lisp: |-
+      Harbour. Three sides off the boat if it goes bad. Alley's a box.
+  - |-
+    She shrugs.
+  - female_young_american_lisp: |-
+      Two coppers, free advice.
 - if:
     flags:
     - alley_spoke_done
     flags_unset:
     - harbour_spoke_done
   text:
-  - Pip is rubbing a bruise she collected in the alley, if she collected one, or rubbing
-    where the bruise would have been if she'd been less lucky.
-  - female_young_american_lisp: 'Chandler''s alley: noted as a place I will not go
-      back to. Dock 14: open water. I can work with open water.'
-  - She seems genuinely cheered by this.
+  - |-
+    Pip is rubbing a bruise she collected in the alley, if she collected one, or rubbing where the bruise would have been if she'd been less lucky.
+  - female_young_american_lisp: |-
+      Chandler's alley: noted as a place I will not go back to. Dock 14: open water. I can work with open water.
+  - |-
+    She seems genuinely cheered by this.
 - if:
     flags_unset:
     - alley_spoke_done
     flags:
     - harbour_spoke_done
   text:
-  - Pip was the one who went aboard first, if she went aboard first, and her boots
-    are still wet.
-  - female_young_american_lisp: Alley next. The witness is in a building, which means
-      at least four ways out if you count the chimney. Tight ones, but they're there.
-  - She counts them on her fingers. You are not sure she is joking.
+  - |-
+    Pip was the one who went aboard first, if she went aboard first, and her boots are still wet.
+  - female_young_american_lisp: |-
+      Alley next. The witness is in a building, which means at least four ways out if you count the chimney. Tight ones, but they're there.
+  - |-
+    She counts them on her fingers. You are not sure she is joking.
 - if:
     flags:
     - alley_spoke_done
     - harbour_spoke_done
   text:
-  - Pip is doing a final check of her belt-pouches — caltrops, picks, the small knife
-    she keeps separate from the big knife.
-  - female_young_american_lisp: City's paid out. What's down the well is going to
-      be underground, which I hate, but there'll be two ways out of anything or I'll
-      make one. That's the plan.
-  - She zips the pouch and looks up.
-  - female_young_american_lisp: Good plan. Let's go.
+  - |-
+    Pip is doing a final check of her belt-pouches — caltrops, picks, the small knife she keeps separate from the big knife.
+  - female_young_american_lisp: |-
+      City's paid out. What's down the well is going to be underground, which I hate, but there'll be two ways out of anything or I'll make one. That's the plan.
+  - |-
+    She zips the pouch and looks up.
+  - female_young_american_lisp: |-
+      Good plan. Let's go.
 choices:
-- text: Back to the council.
+- text: |-
+    Back to the council.
   next: act2/companion_council_spoke
   effects:
     flags:

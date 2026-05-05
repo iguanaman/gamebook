@@ -1,27 +1,29 @@
 text:
-- Thessaly wades into the water without removing her boots. She doesn't feel the cold,
-  or decides not to. She stops at the vault's centre, looking at the pillar glyph
-  from fifteen feet.
-- Then she goes very still.
-- female_adult_american_sultry_villainous: This is Maeriveth's notation. He developed
-    it — a compression system for high-order sigils. I learned it from him. I've used
-    it for eleven years.
-- She wades to the pillar. Reads the signature at the base.
-- female_adult_american_sultry_villainous: He died in a tower collapse near Baldur's
-    Gate. That's what the papers said.
-- She doesn't look away from the glyph.
-- female_adult_american_sultry_villainous: Someone came here after him. Learned from
-    his notes. Continued the work.
+- |-
+  Thessaly wades into the water without removing her boots. She doesn't feel the cold, or decides not to. She stops at the vault's centre, looking at the pillar glyph from fifteen feet.
+- |-
+  Then she goes very still.
+- female_adult_american_sultry_villainous: |-
+    This is Maeriveth's notation. He developed it — a compression system for high-order sigils. I learned it from him. I've used it for eleven years.
+- |-
+  She wades to the pillar. Reads the signature at the base.
+- female_adult_american_sultry_villainous: |-
+    He died in a tower collapse near Baldur's Gate. That's what the papers said.
+- |-
+  She doesn't look away from the glyph.
+- female_adult_american_sultry_villainous: |-
+    Someone came here after him. Learned from his notes. Continued the work.
 - if:
     flags:
     - knows_thessaly_motive
   text:
-  - The name she's been chasing for two years. It's here, notated in the hand of someone
-    who knew the same dead man she did.
-  - Her expression doesn't change. But her hand goes to the burn-scar on her wrist,
-    and stays there.
+  - |-
+    The name she's been chasing for two years. It's here, notated in the hand of someone who knew the same dead man she did.
+  - |-
+    Her expression doesn't change. But her hand goes to the burn-scar on her wrist, and stays there.
 choices:
-- text: Back to the junction.
+- text: |-
+    Back to the junction.
   next: act2/upper_levels_hub
   effects:
     flags:
