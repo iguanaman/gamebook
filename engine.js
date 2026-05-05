@@ -34,7 +34,7 @@ function markHintSeen(key) { if (!HINTS_ALWAYS_SHOW) localStorage.setItem(HINT_K
 
 function dismissHint(key) {
   const el = document.getElementById(`hint-${key}`);
-  if (!el) return;
+  if (!el || !el.classList.contains('hint-visible')) return;
   markHintSeen(key);
   el.classList.remove('hint-visible');
   el.classList.add('hint-gone');
