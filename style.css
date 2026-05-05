@@ -773,6 +773,17 @@ body.splash-active .ui-hint { display: none !important; }
   margin: 0 0 0.5rem;
 }
 
+/* ── Pre-intro splash ────────────────────────────────────────────────────── */
+
+.pre-intro-splash-body {
+  gap: 2rem;
+}
+
+.pre-intro-msg {
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
 /* ── Intro splash ─────────────────────────────────────────────────────────── */
 
 .intro-splash-body {

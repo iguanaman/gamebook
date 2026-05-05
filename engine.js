@@ -127,6 +127,43 @@ async function showSelector({ defer = false } = {}) {
   if (!defer) requestAnimationFrame(popInSelector);
 }
 
+function showPreIntroSplash(manifest) {
+  document.body.classList.add('splash-active');
+  const overlay = document.createElement('div');
+  overlay.className = 'story-splash story-splash-hidden';
+
+  const body = document.createElement('div');
+  body.className = 'intro-splash-body pre-intro-splash-body';
+
+  const msg = document.createElement('p');
+  msg.className = 'intro-line intro-line-visible pre-intro-msg';
+  msg.textContent = 'Turn your speakers on for the full experience.';
+  body.appendChild(msg);
+
+  const btn = document.createElement('button');
+  btn.className = 'intro-splash-btn intro-line-visible';
+  btn.textContent = 'Begin →';
+  body.appendChild(btn);
+
+  overlay.appendChild(body);
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(() => {
+    overlay.classList.remove('story-splash-hidden');
+    overlay.classList.add('story-splash-visible');
+  });
+
+  btn.addEventListener('click', () => {
+    document.body.classList.remove('splash-active');
+    overlay.classList.remove('story-splash-visible');
+    overlay.classList.add('story-splash-out-slow');
+    overlay.addEventListener('transitionend', () => {
+      overlay.remove();
+      showIntroSplash('first', manifest);
+    }, { once: true });
+  }, { once: true });
+}
+
 function showIntroSplash(mode, manifest) {
   const isFirst = mode === 'first';
   const introLines = manifest?.intro?.lines ?? [
@@ -1411,7 +1448,7 @@ document.addEventListener('keydown', (e) => {
   initFullscreen();
   if (!localStorage.getItem('gamebook.seen_intro')) {
     const manifest = await loadManifest();
-    showIntroSplash('first', manifest);
+    showPreIntroSplash(manifest);
     return;
   }
   const last = localStorage.getItem('gamebook.lastStory');
