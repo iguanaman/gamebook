@@ -1,0 +1,20 @@
+id: act2/kellner_first_contact
+text:
+- The number Kellner left rings three times before he picks up. His voice is the same
+  as Frank remembers — unhurried, calibrated to put you at ease.
+- male_midlife_american_rich_smooth_rugged: Frank. I was wondering when you'd call.
+    You look well — well, assuming. Word travels.
+- He says he's heard Frank's been asking around Aldwick. Says it the way a man mentions
+  the weather — neutral, observational. Suggests they get together for coffee. An
+  old colleague catching up. He names a diner on Fifth he'd have picked himself.
+choices:
+- text: Agree to the meeting
+  next: act2/office_hub_act2
+  effects:
+    flags:
+      kellner_surfaced: true
+- text: Keep it vague — say you'll call when you have time
+  next: act2/office_hub_act2
+  effects:
+    flags:
+      kellner_surfaced: true

@@ -1,0 +1,26 @@
+id: act2/kellner_drop_advice
+text:
+- Kellner looks at his cup. Doesn't drink.
+- male_midlife_american_rich_smooth_rugged: There are cases that don't end well for
+    the man who works them, Frank. Not because he did anything wrong. Because the
+    shape of the thing is bigger than one man with a licence. I've seen it. So have
+    you, if you think about it.
+- He says it as a friend. He says it like he knows something specific is coming and
+  has decided not to name it. Frank can read it either way — a warning from a man
+  who cares, or a message from a man who needs him to stop.
+choices:
+- text: Tell him you don't drop cases
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_topic_drop: true
+- text: Tell him you'll think about it — and mean the opposite
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_topic_drop: true
+- text: Agree — put him at ease
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_topic_drop: true

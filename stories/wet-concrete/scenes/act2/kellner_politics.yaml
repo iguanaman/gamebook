@@ -1,0 +1,19 @@
+id: act2/kellner_politics
+text:
+- Kellner considers the question with the care of a man who has already considered
+  it.
+- male_midlife_american_rich_smooth_rugged: Leland Dowd. That's the name to understand
+    if you want to understand how Harmon City development actually works. Committee
+    chair. He's been chair since forty-two and nothing in the corridor districts moves
+    without his signature — formally or otherwise.
+- He says it with the neutrality of a man delivering a briefing. Not a warning. Not
+  an opinion. The name sits on the table between them like something Kellner set down
+  deliberately and is now waiting to see Frank pick up.
+choices:
+- text: Back to conversation
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_topic_politics: true
+    stats:
+      evidence: 1

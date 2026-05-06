@@ -1,0 +1,17 @@
+id: act2/mail_package
+text:
+- The post office two blocks from Trumbull. Frank wraps the key pages in brown paper
+  — the original coordinates, the column of discrepancies, the letter to the auditor
+  Ray never sent. He addresses it to Dora Reyes, care of the editorial desk at the
+  Tribune. No return address.
+- The clerk takes it without looking up.
+choices:
+- text: Drop it in the box — it's done. If something happens to you, it gets out anyway
+  next: act2/mail_package_done
+  requires:
+    flags_unset:
+    - left_package
+  hide_if_failed: true
+  effects:
+    flags:
+      left_package: true

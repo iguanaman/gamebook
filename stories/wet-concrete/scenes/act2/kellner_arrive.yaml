@@ -1,0 +1,19 @@
+id: act2/kellner_arrive
+text:
+- The diner on Fifth. Kellner is already there — corner booth, back to the wall, the
+  way old cops sit. He looks good. Well-fed, unhurried, the ease of a man whose career
+  went the way careers are supposed to. He stands when Frank walks in. Handshake,
+  not a nod.
+- male_midlife_american_rich_smooth_rugged: Frank. Good to see you in person. Coffee?
+- He orders for both of them without asking. Sits back. Lets the silence work for
+  him.
+journal: You met Walt Kellner in person. He was warm, specific, and precise. You couldn't
+  tell yet what he wanted.
+choices:
+- text: Keep it light — catch up before you figure out what he actually wants
+  next: act2/kellner_hub
+  effects:
+    stats:
+      rep: 1
+- text: Skip the warmth — what does Kellner want?
+  next: act2/kellner_hub

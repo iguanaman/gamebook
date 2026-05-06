@@ -1,0 +1,49 @@
+id: act2/kellner_hub
+text:
+- Kellner's coffee goes cold while he talks. His hands stay flat on the table. The
+  diner hums around them — plates, radio, the counter girl refilling cups. Kellner
+  doesn't look at any of it.
+- if: visited
+  text: He picks up easily where he left off. The ease of a man who does not lose
+    his place.
+choices:
+- text: The old days — you and Frank, what you did together
+  next: act2/kellner_frank_past
+  requires:
+    flags_unset:
+    - kellner_topic_past
+- text: What Kellner knows about Aldwick
+  next: act2/kellner_aldwick
+  requires:
+    flags_unset:
+    - kellner_topic_aldwick
+- text: City politics — who really moves development decisions in Harmon City
+  next: act2/kellner_politics
+  requires:
+    flags:
+    - kellner_topic_aldwick
+    flags_unset:
+    - kellner_topic_politics
+  failed_text: '*(He''d shrug that off. Get him talking about Aldwick first.)*'
+- text: Whether Frank should drop the case
+  next: act2/kellner_drop_advice
+  requires:
+    flags_unset:
+    - kellner_topic_drop
+- text: Tell Kellner what you've found — the surveys, the holding company name
+  next: act2/kellner_confide
+  requires:
+    flags_unset:
+    - trusted_kellner
+  hide_if_failed: true
+- text: Ask why Frank was really pushed out of the force
+  next: act2/kellner_pushout
+  requires:
+    stats:
+      rep: 6
+    flags_unset:
+    - frank_past_revealed
+  failed_text: '*(Kellner would deflect. You don''t have the standing to push him
+    yet.)*'
+- text: Good seeing you, Walt — I'll be in touch
+  next: act2/office_hub_act2

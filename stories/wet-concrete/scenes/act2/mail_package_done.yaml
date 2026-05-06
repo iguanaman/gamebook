@@ -1,0 +1,8 @@
+id: act2/mail_package_done
+text:
+- Frank walks away from the post office. The package is in the system. He can't get
+  it back. He doesn't want to.
+- Whatever happens next, the ledger is no longer only in his hands.
+choices:
+- text: Go to the office — there's one more move before this is over
+  next: act2/office_hub_act2

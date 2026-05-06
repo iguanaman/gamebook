@@ -1,0 +1,19 @@
+id: act2/kellner_confide
+text:
+- Frank tells him. The boundary re-filings — twice in fourteen months, same parcel
+  cluster, same holding company as beneficiary every time. Harmon Land Trust LLC.
+  The registered agent's name on the development committee. He lays it out clean,
+  the way he'd brief a partner.
+- Kellner listens. Doesn't interrupt. Nods in the right places. When Frank finishes,
+  Kellner picks up his cup and holds it without drinking.
+- male_midlife_american_rich_smooth_rugged: That's — Frank, that's more than I expected
+    you to have. I'll ask around quietly. I have contacts in the OCU who run city
+    contracts. If there's something to this I'll hear something.
+- He says he'll be in touch. He sounds like a man who intends to do exactly what he
+  said. Frank has handed him a map.
+choices:
+- text: Back to conversation
+  next: act2/kellner_hub
+  effects:
+    flags:
+      trusted_kellner: true

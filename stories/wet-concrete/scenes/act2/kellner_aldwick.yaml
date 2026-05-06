@@ -1,0 +1,17 @@
+id: act2/kellner_aldwick
+text:
+- Kellner nods when Frank says the name. Slowly. Like a man confirming something he
+  already knew.
+- male_midlife_american_rich_smooth_rugged: Aldwick is — it's a neighbourhood with
+    a lot of attention on it right now, Frank. City planning, federal corridor money,
+    the usual. The kind of attention that attracts people who have more pull than
+    a private detective. I'm not telling you to stop. I'm telling you to be careful
+    about what you pull on and how hard.
+- He says it like a friend. He says it like a man who knows something Frank doesn't
+  and has decided not to say it. The two things are not incompatible.
+choices:
+- text: Back to conversation
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_topic_aldwick: true
