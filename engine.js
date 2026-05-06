@@ -39,9 +39,15 @@ let crossfading = false;
 function crossfadeTo(mode) {
   return new Promise(resolve => {
     if (crossfading) { setActiveMode(mode); resolve(); return; }
-    crossfading = true;
     const target = mode === 'menu' ? menuRoot : storyRoot;
     const source = mode === 'menu' ? storyRoot : menuRoot;
+    // Source already hidden → already on target mode, no crossfade needed
+    if (source.classList.contains('mode-hidden')) {
+      setActiveMode(mode);
+      resolve();
+      return;
+    }
+    crossfading = true;
     target.classList.remove('mode-hidden');
     app = mode === 'menu' ? menuApp : storyApp;
     requestAnimationFrame(() => {
