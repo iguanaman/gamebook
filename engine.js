@@ -108,6 +108,7 @@ function popInSelector() {
 }
 
 async function showSelector({ defer = false } = {}) {
+  stopMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
   currentStoryId = null;
@@ -612,6 +613,45 @@ function hashString(str) {
 const ACT_TITLE_PAUSE_MS = 2000;
 let currentAudio = null;
 let playbackSession = 0;
+let musicAudio = null;
+
+function startMusic(storyId, isNew, targetVolume = 1) {
+  stopMusic();
+  const audio = new Audio(`stories/${storyId}/audio/music.opus`);
+  audio.loop = true;
+  audio.volume = isNew ? targetVolume : 0;
+  musicAudio = audio;
+
+  if (!isNew) {
+    audio.addEventListener('loadedmetadata', () => {
+      const maxStart = audio.duration * 0.75;
+      audio.currentTime = Math.random() * maxStart;
+      audio.play().catch(() => {});
+      fadeInMusic(audio, 3000, targetVolume);
+    }, { once: true });
+  } else {
+    audio.play().catch(() => {});
+  }
+}
+
+function fadeInMusic(audio, durationMs, targetVolume = 1) {
+  const start = performance.now();
+  function tick() {
+    if (audio !== musicAudio) return;
+    const elapsed = performance.now() - start;
+    audio.volume = Math.min((elapsed / durationMs) * targetVolume, targetVolume);
+    if (elapsed < durationMs) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function stopMusic() {
+  if (musicAudio) {
+    musicAudio.pause();
+    musicAudio.src = '';
+    musicAudio = null;
+  }
+}
 
 function playChoiceCue() {
   const ac = new (window.AudioContext || window.webkitAudioContext)();
@@ -638,11 +678,12 @@ function stopAudio() {
 }
 
 document.addEventListener('visibilitychange', () => {
-  if (!currentAudio) return;
   if (document.hidden) {
-    currentAudio.pause();
+    currentAudio?.pause();
+    musicAudio?.pause();
   } else {
-    currentAudio.play().catch(() => {});
+    currentAudio?.play().catch(() => {});
+    musicAudio?.play().catch(() => {});
   }
 });
 
@@ -848,10 +889,12 @@ async function startStory(storyId) {
     const splashStoryId = currentStoryId;
     showTitleSplash(meta.title, `stories/${currentStoryId}/audio/story_title.opus`, async () => {
       if (currentStoryId !== splashStoryId || !state) return;
+      startMusic(currentStoryId, true, meta.music_volume ?? 1);
       renderShell(meta);
       await navigateTo(startScene);
     }, { isStoryTitle: true });
   } else {
+    startMusic(storyId, false, meta.music_volume ?? 1);
     renderShell(meta);
     await navigateTo(startScene);
     scrollNarrativeToBottom();
@@ -1423,6 +1466,11 @@ function renderJournal() {
     : entries.map(e => `<div class="journal-entry"><p>${e.text.replace(/\n\n/g, '</p><p>')}</p></div>`).join('');
 }
 
+function isJournalOpen() {
+  const panel = document.getElementById('journal-panel');
+  return panel ? !panel.classList.contains('journal-panel-closed') : false;
+}
+
 function closeJournal() {
   const panel = document.getElementById('journal-panel');
   const toggle = document.getElementById('journal-toggle');
@@ -1432,6 +1480,8 @@ function closeJournal() {
   panel.setAttribute('aria-hidden', 'true');
   toggle?.classList.remove('journal-toggle-open');
   backdrop?.classList.remove('journal-backdrop-open');
+  currentAudio?.play().catch(() => {});
+  musicAudio?.play().catch(() => {});
 }
 
 function toggleJournal() {
@@ -1450,6 +1500,8 @@ function toggleJournal() {
     state.journalSeen = (state.journal ?? []).length;
     saveState();
     renderJournal();
+    currentAudio?.pause();
+    musicAudio?.pause();
   }
 }
 
@@ -1492,7 +1544,8 @@ document.addEventListener('keydown', (e) => {
 
   if (e.key === 'Escape' && inGame()) {
     e.preventDefault();
-    confirmExit();
+    if (isJournalOpen()) closeJournal();
+    else toggleJournal();
     return;
   }
 
