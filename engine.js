@@ -422,8 +422,8 @@ async function applyCardTheme(storyId) {
       }
     });
 
-    // Extract CSS custom properties from the :root block
-    const rootMatch = css.match(/:root\s*\{([^}]+)\}/s);
+    // Extract CSS custom properties from the theme block
+    const rootMatch = css.match(/(?::root|body\.story-active)\s*\{([^}]+)\}/s);
     if (!rootMatch) return;
     const vars = [...rootMatch[1].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)];
     if (!vars.length) return;
@@ -956,10 +956,12 @@ function applyStoryTheme(storyId) {
   link.rel = 'stylesheet';
   link.href = `stories/${storyId}/theme.css`;
   document.head.appendChild(link);
+  document.body.classList.add('story-active');
 }
 
 function removeStoryTheme() {
   document.getElementById('story-theme')?.remove();
+  document.body.classList.remove('story-active');
 }
 
 async function startStory(storyId, { onReady } = {}) {
