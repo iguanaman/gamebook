@@ -1,20 +1,16 @@
 id: act3/running_warned_june_full
-
 text:
-  - |-
-    Frank tells her the whole shape of it — Ray Doss, the boundary surveys, the holding company, Kellner's name and what it means. June sits at the kitchen table with her hands flat on the folders she keeps there and doesn't interrupt.
-  - |-
-    When he's done she's quiet for a moment.
-  - female_adult_american_droll_wry_dry: |-
-      Is anyone going to do something with what you have?
-  - |-
-    He tells her he's going to try.
-  - female_adult_american_droll_wry_dry: |-
-      Ray Doss used to bring coffee from the counter on his survey days. The small kind, with the paper cup. I never asked him to.
-  - |-
-    She says it like it's the only thing she can give him that costs her something. Frank takes it.
-
+- Frank tells her the whole shape of it — Ray Doss, the boundary surveys, the holding
+  company, Kellner's name and what it means. June sits at the kitchen table with her
+  hands flat on the folders she keeps there and doesn't interrupt.
+- When he's done she's quiet for a moment.
+- female_adult_american_droll_wry_dry: Is anyone going to do something with what you
+    have?
+- He tells her he's going to try.
+- female_adult_american_droll_wry_dry: Ray Doss used to bring coffee from the counter
+    on his survey days. The small kind, with the paper cup. I never asked him to.
+- She says it like it's the only thing she can give him that costs her something.
+  Frank takes it.
 choices:
-  - text: |-
-      Leave — there's nothing else to say and the clock is running.
-    next: act3/running_dark_progress
+- text: Leave — there's nothing else to say and the clock is running.
+  next: act3/running_dark_progress
