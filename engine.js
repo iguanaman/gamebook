@@ -79,12 +79,13 @@ function crossfadeTo(mode) {
 
   const DENSITY = 0.00010;   // particles per CSS pixel of viewport area
   const MAX_DPR = 1;
+  const RENDER_SCALE = 0.5;   // render at 50% then CSS-scale up — 4x fewer pixels
   const FRAME_MS = 1000 / 24; // throttle to ~24fps
   let particles = [];
   let cssW = 0, cssH = 0, dpr = 1;
 
   function targetPixels() {
-    const d = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+    const d = Math.min(window.devicePixelRatio || 1, MAX_DPR) * RENDER_SCALE;
     const w = Math.round(window.innerWidth  * d);
     const h = Math.round(window.innerHeight * d);
     return { w, h, d, cw: window.innerWidth, ch: window.innerHeight };
