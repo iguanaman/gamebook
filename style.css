@@ -617,7 +617,7 @@ body.splash-active #journal-toggle { display: none; }
   overflow-y: auto;
   padding-right: 0.5rem;
   line-height: 1.85;
-  font-size: 18px;
+  font-size: 22px;
   display: flex;
   flex-direction: column;
   transition: scrollbar-color 0.4s ease;
