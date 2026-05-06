@@ -173,8 +173,6 @@ function showCommission() {
               <div class="commission-tier-price">$10</div>
             </div>
           </div>
-          <p class="commission-cta">Ready to get started? Send us your idea.</p>
-          <a class="btn btn-primary commission-btn" href="mailto:commissions@example.com">Get in Touch</a>
         </div>
       </div>
     `;
