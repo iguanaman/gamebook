@@ -1894,6 +1894,12 @@ document.addEventListener('keydown', (e) => {
     return;
   }
 
+  if (e.key === ' ' && inGame()) {
+    e.preventDefault();
+    if (e.target instanceof HTMLElement) e.target.blur();
+    return;
+  }
+
   if (e.key >= '1' && e.key <= '9' && inGame()) {
     const footer = storyApp.querySelector('#choices-footer');
     const buttons = footer?.querySelectorAll('.btn-choice:not([disabled])');
