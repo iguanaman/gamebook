@@ -1,18 +1,16 @@
 id: act3/last_angle_reconsider
-
 text:
-  - |-
-    Ray Doss put this ledger under a floorboard and went back to his desk. He knew what was in it. He knew what having it meant. He didn't run with it immediately — he was careful, methodical, the same way he'd been careful and methodical his whole career. And then he disappeared.
-  - |-
-    Vera hired Frank to find her husband. She found the ledger instead, and she called Frank, and now she's gone too.
-  - |-
-    The ledger wants to do something. It has weight — the specific weight of paper that documents a crime. Whether Frank is the one who carries it the last step is what he's been deciding since Vera sat down in his office.
-
+- Ray Doss put this ledger under a floorboard and went back to his desk. He knew what
+  was in it. He knew what having it meant. He didn't run with it immediately — he
+  was careful, methodical, the same way he'd been careful and methodical his whole
+  career. And then he disappeared.
+- Vera hired Frank to find her husband. She found the ledger instead, and she called
+  Frank, and now she's gone too.
+- The ledger wants to do something. It has weight — the specific weight of paper that
+  documents a crime. Whether Frank is the one who carries it the last step is what
+  he's been deciding since Vera sat down in his office.
 choices:
-  - text: |-
-      You didn't come this far to walk away. Move toward Dora Reyes.
-    next: act3/beat4_final_choice
-
-  - text: |-
-      You came this far knowing it might not be enough. It still might not be enough.
-    next: act3/beat4_final_choice
+- text: You didn't come this far to walk away. Move toward Dora Reyes.
+  next: act3/beat4_final_choice
+- text: You came this far knowing it might not be enough. It still might not be enough.
+  next: act3/beat4_final_choice

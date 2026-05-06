@@ -1,26 +1,23 @@
 id: act3/last_angle_high_evidence_options
-
 text:
-  - |-
-    The ledger and the documents together are enough for a story. Maybe enough for a state auditor. Possibly enough for something worse, for Kellner and the men above him.
-  - |-
-    There's still one thing Frank hasn't done. The package. If the key pages are in the postal system, they move whether or not Frank does. A dead man's mail still arrives. But the window won't stay open.
-
+- The ledger and the documents together are enough for a story. Maybe enough for a
+  state auditor. Possibly enough for something worse, for Kellner and the men above
+  him.
+- There's still one thing Frank hasn't done. The package. If the key pages are in
+  the postal system, they move whether or not Frank does. A dead man's mail still
+  arrives. But the window won't stay open.
 choices:
-  - text: |-
-      Mail the key pages to Dora now — get them into the system before anything else happens.
-    next: act3/last_angle_mail_package
-    requires:
-      flags:
-        - found_ledger
-      flags_unset:
-        - left_package
-    hide_if_failed: true
-
-  - text: |-
-      Take everything directly to Dora — go in person, put it on her desk, watch her read it.
-    next: act3/beat4_final_choice
-
-  - text: |-
-      Think it through one more time — this is the last moment to change your mind.
-    next: act3/last_angle_reconsider
+- text: Mail the key pages to Dora now — get them into the system before anything
+    else happens.
+  next: act3/last_angle_mail_package
+  requires:
+    flags:
+    - found_ledger
+    flags_unset:
+    - left_package
+  hide_if_failed: true
+- text: Take everything directly to Dora — go in person, put it on her desk, watch
+    her read it.
+  next: act3/beat4_final_choice
+- text: Think it through one more time — this is the last moment to change your mind.
+  next: act3/last_angle_reconsider

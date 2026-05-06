@@ -41,7 +41,8 @@ import yaml
 
 def act_audio_slug(text, fallback='act'):
     """Convert act title to audio slug (matching engine.js actAudioSlug)."""
-    slug = re.sub(r'[^a-z0-9]+', '_', text.lower()).strip('_')
+    label = text.split(' — ')[0] if ' — ' in text else text
+    slug = re.sub(r'[^a-z0-9]+', '_', label.lower()).strip('_')
     return slug or fallback
 
 

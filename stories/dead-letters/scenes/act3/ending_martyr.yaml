@@ -1,29 +1,27 @@
 id: act3/ending_martyr
-
-journal: |-
-  Kellner's men found you before you reached the choice. The package was already in transit.
-
+journal: Kellner's men found you before you reached the choice. The package was already
+  in transit.
 text:
-  - |-
-    He doesn't reach the final choice. Marsh Street, a car pulling alongside, two men closing the distance before he can measure it. This is how it ends, on a Tuesday evening, in a city he knew too well and not well enough.
-  - |-
-    He has time to understand one thing: it doesn't matter.
-  - |-
-    The package is in transit. Dropped at a post office on Poole Street, care of the editorial desk, Dora Reyes, no return address. The men who built this machine can't stop mail they don't know is moving. They found Frank. They didn't find the parcel.
-  - if:
-      flags:
-        - june_warned
-    text: |-
-      He thinks of June Holt, briefly. He warned her. That will have to be enough.
-  - |-
-    Dora Reyes opens the package on Thursday morning. She reads it twice. She calls the state auditor's office before noon.
-  - |-
-    The story runs. Frank doesn't read it.
-  - |-
-    He did everything right. He investigated a missing person and found the machine that disappeared him. He found the ledger. He followed the money. He mailed the evidence before the net closed. He died in a city he knew wasn't worth dying for, except it was, except he was the one who decided that, except nobody asked him to.
-  - |-
-    The Aldwick rezoning is referred to the state auditor. A committee is suspended. A lieutenant requests administrative leave. The highway corridor is delayed eighteen months.
-  - |-
-    Frank Cain. Ex-detective. Did everything right. Didn't survive it.
-
+- He doesn't reach the final choice. Marsh Street, a car pulling alongside, two men
+  closing the distance before he can measure it. This is how it ends, on a Tuesday
+  evening, in a city he knew too well and not well enough.
+- 'He has time to understand one thing: it doesn''t matter.'
+- The package is in transit. Dropped at a post office on Poole Street, care of the
+  editorial desk, Dora Reyes, no return address. The men who built this machine can't
+  stop mail they don't know is moving. They found Frank. They didn't find the parcel.
+- if:
+    flags:
+    - june_warned
+  text: He thinks of June Holt, briefly. He warned her. That will have to be enough.
+- Dora Reyes opens the package on Thursday morning. She reads it twice. She calls
+  the state auditor's office before noon.
+- The story runs. Frank doesn't read it.
+- He did everything right. He investigated a missing person and found the machine
+  that disappeared him. He found the ledger. He followed the money. He mailed the
+  evidence before the net closed. He died in a city he knew wasn't worth dying for,
+  except it was, except he was the one who decided that, except nobody asked him to.
+- The Aldwick rezoning is referred to the state auditor. A committee is suspended.
+  A lieutenant requests administrative leave. The highway corridor is delayed eighteen
+  months.
+- Frank Cain. Ex-detective. Did everything right. Didn't survive it.
 choices: []

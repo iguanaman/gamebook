@@ -32,5 +32,54 @@
         "showReuseMessage": false
       }
     }
+    ,{
+      "label": "Generate Audio",
+      "type": "shell",
+      "command": "python generate_audio.py",
+      "icon": { "id": "play", "color": "terminal.ansiCyan" },
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "dedicated",
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "List Voices",
+      "type": "shell",
+      "command": "python list_voices.py",
+      "icon": { "id": "list-unordered", "color": "terminal.ansiWhite" },
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "Convert Voices to WAV",
+      "type": "shell",
+      "command": "python convert_voices_to_wav.py",
+      "icon": { "id": "file-media", "color": "terminal.ansiWhite" },
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "storyId",
+      "type": "promptString",
+      "description": "Story ID (e.g. dead-letters)"
+    }
   ]
 }

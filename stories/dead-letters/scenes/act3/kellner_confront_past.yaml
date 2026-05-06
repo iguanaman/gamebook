@@ -1,17 +1,12 @@
 id: act3/kellner_confront_past
-
-journal: |-
-  You named the Eastwick job to Kellner's face. He went still. That stillness was all the confirmation you needed.
-
+journal: You named the Eastwick job to Kellner's face. He went still. That stillness
+  was all the confirmation you needed.
 text:
-  - |-
-    Kellner goes very still. Not frozen — still. The kind of stillness a man achieves when he has been trained not to react and is now training hard.
-  - male_midlife_american_rich_smooth_rugged: |-
-      [sigh] You should have stayed gone, Frank.
-  - |-
-    He says it quietly. Not as a threat — as a fact he finds genuinely sad. His hand moves from the table. It is not moving toward his coffee.
-
+- Kellner goes very still. Not frozen — still. The kind of stillness a man achieves
+  when he has been trained not to react and is now training hard.
+- male_midlife_american_rich_smooth_rugged: '[sigh] You should have stayed gone, Frank.'
+- He says it quietly. Not as a threat — as a fact he finds genuinely sad. His hand
+  moves from the table. It is not moving toward his coffee.
 choices:
-  - text: |-
-      Move. You have about four seconds before the door closes.
-    next: act3/kellner_betrayal_escape
+- text: Move. You have about four seconds before the door closes.
+  next: act3/kellner_betrayal_escape

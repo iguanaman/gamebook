@@ -1,14 +1,14 @@
 id: act3/ending_expose_approach
-
 text:
-  - |-
-    He knows what follows this. He's known for a while, the way you know something when you stop pretending the math comes out differently.
-  - |-
-    Career over. Whatever arrangement he has with the city — the ex-cop's invisible courtesy, the benefit of the doubt, the licence — gone. Safety: gone. He's handing a document to a journalist that names a sitting committee chair and a lieutenant in the Organised Crime Unit and implicates both of them in two deaths. The men who built this machine will not be quiet about it.
-  - |-
-    He goes anyway. The Tribune's print floor entrance is off the loading alley on Marsh Street, night side. Unlocked until two in the morning.
-
+- He knows what follows this. He's known for a while, the way you know something when
+  you stop pretending the math comes out differently.
+- 'Career over. Whatever arrangement he has with the city — the ex-cop''s invisible
+  courtesy, the benefit of the doubt, the licence — gone. Safety: gone. He''s handing
+  a document to a journalist that names a sitting committee chair and a lieutenant
+  in the Organised Crime Unit and implicates both of them in two deaths. The men who
+  built this machine will not be quiet about it.'
+- He goes anyway. The Tribune's print floor entrance is off the loading alley on Marsh
+  Street, night side. Unlocked until two in the morning.
 choices:
-  - text: |-
-      Walk in. Put it on her desk. Tell her everything.
-    next: act3/ending_expose
+- text: Walk in. Put it on her desk. Tell her everything.
+  next: act3/ending_expose

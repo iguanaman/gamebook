@@ -1,14 +1,12 @@
 id: act3/kellner_confrontation_open
-
 text:
-  - male_midlife_american_rich_smooth_rugged: |-
-      You're making this harder than it needs to be.
-  - |-
-    He doesn't confirm. He doesn't deny. He says it the way a doctor says a diagnosis — not cruel, just declarative. The man at the door has stood up. He's not looking at you yet.
-  - |-
-    There is nothing left to say. The moment where words could have changed anything passed a few sentences ago.
-
+- male_midlife_american_rich_smooth_rugged: You're making this harder than it needs
+    to be.
+- He doesn't confirm. He doesn't deny. He says it the way a doctor says a diagnosis
+  — not cruel, just declarative. The man at the door has stood up. He's not looking
+  at you yet.
+- There is nothing left to say. The moment where words could have changed anything
+  passed a few sentences ago.
 choices:
-  - text: |-
-      Go. Now, while there's still a way through.
-    next: act3/kellner_betrayal_escape
+- text: Go. Now, while there's still a way through.
+  next: act3/kellner_betrayal_escape

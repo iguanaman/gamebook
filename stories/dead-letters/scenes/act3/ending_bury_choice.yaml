@@ -1,18 +1,15 @@
 id: act3/ending_bury_choice
-
 text:
-  - |-
-    He's made the decision. The question now is what he's walking away from — and whether he knows.
-
+- He's made the decision. The question now is what he's walking away from — and whether
+  he knows.
 choices:
-  - text: |-
-      You know exactly what you're leaving behind. The full ledger. Ray's letter. Everything. You choose to live.
-    next: act3/ending_bury_informed
-    requires:
-      flags:
-        - found_ledger
-    hide_if_failed: true
-
-  - text: |-
-      You don't have enough. The city beat you on the facts. That's how this one goes.
-    next: act3/ending_bury_low
+- text: You know exactly what you're leaving behind. The full ledger. Ray's letter.
+    Everything. You choose to live.
+  next: act3/ending_bury_informed
+  requires:
+    flags:
+    - found_ledger
+  hide_if_failed: true
+- text: You don't have enough. The city beat you on the facts. That's how this one
+    goes.
+  next: act3/ending_bury_low

@@ -1,29 +1,27 @@
 id: act3/last_angle_scrape
-
 text:
-  - |-
-    Frank goes through everything one last time. The photographs. His own notes. The parcel numbers Marta traced. The name of the clerk who checked out the Aldwick files. The penmanship on the forged survey — Peltz noticed it was wrong before Frank asked, which means it would hold up if Peltz said so in a room.
-  - if:
-      stats:
-        evidence: 4
-    text: |-
-      It's thin. But it's something — a thread a determined reporter could pull. Not the ledger, but not nothing either.
-  - if:
-      stats:
-        evidence: 4
-    else: |-
-      It doesn't add up to enough. Peltz clammed up, or Frank never found him, or the trail ran cold too early. What's here won't hold against the men who built it.
-
+- Frank goes through everything one last time. The photographs. His own notes. The
+  parcel numbers Marta traced. The name of the clerk who checked out the Aldwick files.
+  The penmanship on the forged survey — Peltz noticed it was wrong before Frank asked,
+  which means it would hold up if Peltz said so in a room.
+- if:
+    stats:
+      evidence: 4
+  text: It's thin. But it's something — a thread a determined reporter could pull.
+    Not the ledger, but not nothing either.
+- if:
+    stats:
+      evidence: 4
+  else: It doesn't add up to enough. Peltz clammed up, or Frank never found him, or
+    the trail ran cold too early. What's here won't hold against the men who built
+    it.
 choices:
-  - text: |-
-      Peltz's account plus the parcel numbers — thin but something. Take it as far as it goes.
-    next: act3/beat4_final_choice
-    requires:
-      stats:
-        evidence: 4
-    failed_text: |-
-      *(You don't have enough. What you have won't hold.)*
-
-  - text: |-
-      There's nothing more to find — take what you have to the ending it earns.
-    next: act3/beat4_final_choice
+- text: Peltz's account plus the parcel numbers — thin but something. Take it as far
+    as it goes.
+  next: act3/beat4_final_choice
+  requires:
+    stats:
+      evidence: 4
+  failed_text: '*(You don''t have enough. What you have won''t hold.)*'
+- text: There's nothing more to find — take what you have to the ending it earns.
+  next: act3/beat4_final_choice

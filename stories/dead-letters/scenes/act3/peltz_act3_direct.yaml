@@ -1,22 +1,18 @@
 id: act3/peltz_act3_direct
-
 text:
-  - |-
-    Frank tells him it's happening. There's a ledger. There are names. When it goes to the Tribune, what Peltz knew and when he knew it is going to be part of the record whether he talks to Frank or not.
-  - |-
-    Peltz doesn't argue. He looks down at his glass.
-  - male_young_american_weak: |-
-      I knew when Ray started taking the Aldwick files home. He'd come in early, pull the folder, and it would be in his bag before nine o'clock. I didn't stop him.
-  - male_young_american_weak: |-
-      I don't know if that counts for something. I'm not asking you to —
-  - |-
-    He stops. He doesn't finish the sentence. He doesn't ask Frank to make promises.
-
+- Frank tells him it's happening. There's a ledger. There are names. When it goes
+  to the Tribune, what Peltz knew and when he knew it is going to be part of the record
+  whether he talks to Frank or not.
+- Peltz doesn't argue. He looks down at his glass.
+- male_young_american_weak: I knew when Ray started taking the Aldwick files home.
+    He'd come in early, pull the folder, and it would be in his bag before nine o'clock.
+    I didn't stop him.
+- male_young_american_weak: I don't know if that counts for something. I'm not asking
+    you to —
+- He stops. He doesn't finish the sentence. He doesn't ask Frank to make promises.
 choices:
-  - text: |-
-      Ask if he'll testify — if this gets to the state auditor, they'll need more than Frank's word.
-    next: act3/peltz_testify_ask
-
-  - text: |-
-      That's enough — leave him with his answer.
-    next: act3/peltz_act3_resolve
+- text: Ask if he'll testify — if this gets to the state auditor, they'll need more
+    than Frank's word.
+  next: act3/peltz_testify_ask
+- text: That's enough — leave him with his answer.
+  next: act3/peltz_act3_resolve

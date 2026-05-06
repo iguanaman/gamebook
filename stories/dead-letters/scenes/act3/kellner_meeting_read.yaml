@@ -1,16 +1,13 @@
 id: act3/kellner_meeting_read
-
 text:
-  - |-
-    Kellner's coffee is untouched. The man at the booth near the door has been there longer than you have — his coat is still on. And three minutes into the meeting, Kellner mentioned the ledger. You hadn't said the word yet.
-  - |-
-    He knows what you have. Which means someone told him. The warmth is real — you believe the warmth is real — but there is a man at the door and Kellner knew what you were carrying before you sat down.
-
+- Kellner's coffee is untouched. The man at the booth near the door has been there
+  longer than you have — his coat is still on. And three minutes into the meeting,
+  Kellner mentioned the ledger. You hadn't said the word yet.
+- He knows what you have. Which means someone told him. The warmth is real — you believe
+  the warmth is real — but there is a man at the door and Kellner knew what you were
+  carrying before you sat down.
 choices:
-  - text: |-
-      You see it. Play for the exit before it closes.
-    next: act3/kellner_betrayal_escape
-
-  - text: |-
-      Call it out. "You already knew what I had. Who told you?"
-    next: act3/kellner_confrontation_open
+- text: You see it. Play for the exit before it closes.
+  next: act3/kellner_betrayal_escape
+- text: Call it out. "You already knew what I had. Who told you?"
+  next: act3/kellner_confrontation_open

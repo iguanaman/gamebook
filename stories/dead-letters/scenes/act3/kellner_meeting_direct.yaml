@@ -1,20 +1,14 @@
 id: act3/kellner_meeting_direct
-
 text:
-  - male_midlife_american_rich_smooth_rugged: |-
-      Frank —
-  - |-
-    He pauses. One beat — just one — and in it you see the calculation. Then the smile closes back over it like water over a stone.
-  - male_midlife_american_rich_smooth_rugged: |-
-      I want to help you not make a mistake. That's all I've ever wanted here.
-  - |-
-    In the pause you saw the whole thing. The warmth is not a lie — that's the worst part. The warmth is genuine, and it doesn't change any of the other facts.
-
+- male_midlife_american_rich_smooth_rugged: Frank —
+- He pauses. One beat — just one — and in it you see the calculation. Then the smile
+  closes back over it like water over a stone.
+- male_midlife_american_rich_smooth_rugged: I want to help you not make a mistake.
+    That's all I've ever wanted here.
+- In the pause you saw the whole thing. The warmth is not a lie — that's the worst
+  part. The warmth is genuine, and it doesn't change any of the other facts.
 choices:
-  - text: |-
-      The pause was enough. Get up, move toward the door.
-    next: act3/kellner_betrayal_escape
-
-  - text: |-
-      "You're the mistake, Walt. You've been the mistake since the beginning."
-    next: act3/kellner_confrontation_open
+- text: The pause was enough. Get up, move toward the door.
+  next: act3/kellner_betrayal_escape
+- text: '"You''re the mistake, Walt. You''ve been the mistake since the beginning."'
+  next: act3/kellner_confrontation_open

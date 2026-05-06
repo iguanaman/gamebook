@@ -1,14 +1,11 @@
 id: act3/last_angle_package_sent
-
 text:
-  - |-
-    The post office door swings shut behind him. He stands on the pavement for a moment and notices the weight that isn't there anymore.
-  - |-
-    He didn't choose what happens to the package. He chose to let it happen. That's different, in a way that probably only matters to him.
-  - |-
-    The window is shut now. Whatever comes next, those pages are in the system.
-
+- The post office door swings shut behind him. He stands on the pavement for a moment
+  and notices the weight that isn't there anymore.
+- He didn't choose what happens to the package. He chose to let it happen. That's
+  different, in a way that probably only matters to him.
+- The window is shut now. Whatever comes next, those pages are in the system.
 choices:
-  - text: |-
-      Move toward the final choice — you've already done something that can't be undone.
-    next: act3/beat4_final_choice
+- text: Move toward the final choice — you've already done something that can't be
+    undone.
+  next: act3/beat4_final_choice

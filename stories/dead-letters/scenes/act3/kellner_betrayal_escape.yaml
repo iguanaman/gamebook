@@ -1,20 +1,15 @@
 id: act3/kellner_betrayal_escape
-
-journal: |-
-  Walt Kellner built the trap and put his name on the invitation.
-
+journal: Walt Kellner built the trap and put his name on the invitation.
 text:
-  - |-
-    You move toward the door. The man near it turns — not fast, but with the ease of someone who expected this. A second man outside the glass. Kellner's voice carries from the booth without rising.
-  - male_midlife_american_rich_smooth_rugged: |-
-      Frank. Don't.
-  - |-
-    The kitchen swing door is ten feet away. Through it and out the back before the second man circles the building.
-
+- You move toward the door. The man near it turns — not fast, but with the ease of
+  someone who expected this. A second man outside the glass. Kellner's voice carries
+  from the booth without rising.
+- male_midlife_american_rich_smooth_rugged: Frank. Don't.
+- The kitchen swing door is ten feet away. Through it and out the back before the
+  second man circles the building.
 choices:
-  - text: |-
-      Go. Now.
-    next: act3/kellner_escape_resolve
-    effects:
-      flags:
-        confronted_kellner: true
+- text: Go. Now.
+  next: act3/kellner_escape_resolve
+  effects:
+    flags:
+      confronted_kellner: true

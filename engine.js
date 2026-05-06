@@ -657,7 +657,8 @@ function sceneFolder(sceneId) {
 }
 
 function actAudioSlug(actText, fallback = 'act') {
-  const slug = actText.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+  const label = actText.includes(' — ') ? actText.split(' — ')[0] : actText;
+  const slug = label.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
   return slug || fallback;
 }
 

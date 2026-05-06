@@ -1,30 +1,25 @@
 id: act3/running_warn_june
-
 text:
-  - |-
-    June Holt's building is six blocks east on Fenwick — a walk Frank has made twice before, both times in daylight. He makes it now in shadow, hat down, checking corners out of habit.
-  - |-
-    She opens the door a hand's width before she opens it all the way. When she sees his face she opens it the rest of the way without asking.
-  - female_adult_american_droll_wry_dry: |-
-      You look like a man who's been running.
-  - |-
-    Frank tells her the short version. The men who demolished the Aldwick east block have her name. They know she talked. They know what she kept.
-  - female_adult_american_droll_wry_dry: |-
-      How much time do I have?
-  - |-
-    He doesn't know. Maybe days. Maybe less if they're already moving.
-
+- June Holt's building is six blocks east on Fenwick — a walk Frank has made twice
+  before, both times in daylight. He makes it now in shadow, hat down, checking corners
+  out of habit.
+- She opens the door a hand's width before she opens it all the way. When she sees
+  his face she opens it the rest of the way without asking.
+- female_adult_american_droll_wry_dry: You look like a man who's been running.
+- Frank tells her the short version. The men who demolished the Aldwick east block
+  have her name. They know she talked. They know what she kept.
+- female_adult_american_droll_wry_dry: How much time do I have?
+- He doesn't know. Maybe days. Maybe less if they're already moving.
 choices:
-  - text: |-
-      Tell her everything, quickly — she deserves to understand the full picture before she decides anything.
-    next: act3/running_warned_june_full
-    effects:
-      flags:
-        june_warned: true
-
-  - text: |-
-      Give her only what she needs — names, timeline, where not to be. The less she knows, the safer she is.
-    next: act3/running_warned_june_spare
-    effects:
-      flags:
-        june_warned: true
+- text: Tell her everything, quickly — she deserves to understand the full picture
+    before she decides anything.
+  next: act3/running_warned_june_full
+  effects:
+    flags:
+      june_warned: true
+- text: Give her only what she needs — names, timeline, where not to be. The less
+    she knows, the safer she is.
+  next: act3/running_warned_june_spare
+  effects:
+    flags:
+      june_warned: true

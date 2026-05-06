@@ -1,27 +1,29 @@
 id: act3/ending_expose
-
-journal: |-
-  You put the ledger on Dora Reyes's desk and told her everything. The story ran.
-
+journal: You put the ledger on Dora Reyes's desk and told her everything. The story
+  ran.
 text:
-  - |-
-    Dora Reyes is at the far end of a long table covered in galleys. She looks up when Frank comes in, takes one look at the ledger under his arm, and clears a space.
-  - |-
-    He puts it down. He puts everything down — Ray's letter, the holding company chain, the original boundary coordinates, the authorisation trail, three years of contracts with the same two names at the top. He talks for twenty minutes without stopping and she doesn't interrupt him once.
-  - |-
-    When he finishes, she reads. She goes through every page. She makes notes in the margin with a red pencil. The ink-smell of the press floor drifts in from the other side of the door.
-  - female_adult_american_crisp_direct_clear: |-
-      Are you sure?
-  - |-
-    He is.
-  - if:
-      flags:
-        - june_warned
-    text: |-
-      He thinks of June Holt. Her stack of folders. The one question she asked him. He doesn't know if her name will stay out of it — he warned her, which is all he could do.
-  - |-
-    The story runs. Three days later, across four columns on the front page. The city machine slows — not stops, but slows. A committee is suspended pending investigation. A lieutenant in the Organised Crime Unit requests administrative leave and does not return. The Aldwick rezoning order is referred to the state auditor.
-  - |-
-    Frank Cain reads the paper in a diner he'll have to stop using. He finishes his coffee. He leaves a reasonable tip. He doesn't know what comes next, and he has stopped pretending he does.
-
+- Dora Reyes is at the far end of a long table covered in galleys. She looks up when
+  Frank comes in, takes one look at the ledger under his arm, and clears a space.
+- He puts it down. He puts everything down — Ray's letter, the holding company chain,
+  the original boundary coordinates, the authorisation trail, three years of contracts
+  with the same two names at the top. He talks for twenty minutes without stopping
+  and she doesn't interrupt him once.
+- When he finishes, she reads. She goes through every page. She makes notes in the
+  margin with a red pencil. The ink-smell of the press floor drifts in from the other
+  side of the door.
+- female_adult_american_crisp_direct_clear: Are you sure?
+- He is.
+- if:
+    flags:
+    - june_warned
+  text: He thinks of June Holt. Her stack of folders. The one question she asked him.
+    He doesn't know if her name will stay out of it — he warned her, which is all
+    he could do.
+- The story runs. Three days later, across four columns on the front page. The city
+  machine slows — not stops, but slows. A committee is suspended pending investigation.
+  A lieutenant in the Organised Crime Unit requests administrative leave and does
+  not return. The Aldwick rezoning order is referred to the state auditor.
+- Frank Cain reads the paper in a diner he'll have to stop using. He finishes his
+  coffee. He leaves a reasonable tip. He doesn't know what comes next, and he has
+  stopped pretending he does.
 choices: []
