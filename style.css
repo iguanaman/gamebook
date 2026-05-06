@@ -159,11 +159,13 @@ button {
    horizontally at different speeds for a parallax wind effect. */
 .dust-layer {
   position: absolute;
-  inset: 0;
+  inset: calc(var(--frame-inset) + 6px);
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
 }
+
+#story-root .dust-layer { display: none; }
 .dust-layer::before,
 .dust-layer::after {
   content: "";
@@ -448,7 +450,7 @@ body.splash-active #journal-toggle { display: none; }
 /* ── 7. Menu mode ─────────────────────────────────────────────────────────── */
 
 #menu-root {
-  --bg: #f9f6f1;
+  --bg: #f5e7cf;
   --surface: #ffffff;
   --text: #1a1a1a;
   --text-muted: #6b6b6b;
@@ -471,27 +473,11 @@ body.splash-active #journal-toggle { display: none; }
   position: relative;
   min-height: 100dvh;
   padding: calc(var(--frame-inset) + 1.5rem) 1rem;
-  background:
-    radial-gradient(ellipse at 50% 30%, rgba(255, 188, 110, 0.28), transparent 65%),
-    radial-gradient(ellipse at 80% 90%, rgba(220, 140, 60, 0.18), transparent 60%),
-    linear-gradient(180deg, #fbf3e4 0%, #f5e7cf 100%);
+  background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-}
-
-/* Warm vignette overlay above particles, below content */
-#menu-root .selector-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(255, 170, 80, 0.10), transparent 70%),
-    radial-gradient(ellipse at 50% 110%, rgba(120, 60, 20, 0.18), transparent 55%);
-  mix-blend-mode: multiply;
-  z-index: 0;
 }
 .selector { position: relative; z-index: 1; width: 100%; max-width: 800px; padding: 2rem 3rem; }
 .selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: var(--text); }
