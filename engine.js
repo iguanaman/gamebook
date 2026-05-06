@@ -4,7 +4,7 @@ if (new URLSearchParams(location.search).has('fresh')) {
   Object.keys(localStorage).filter(k => k.startsWith('gamebook.')).forEach(k => localStorage.removeItem(k));
 }
 
-const app = document.getElementById('app');
+let app = document.getElementById('app');
 
 let gamePaused = false;
 const isGamePaused = () => document.hidden || gamePaused;
@@ -119,6 +119,8 @@ async function showSelector({ defer = false } = {}) {
   startSelectorMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
+  document.getElementById('story-layer')?.remove();
+  app = document.getElementById('app');
   currentStoryId = null;
   state = null;
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
@@ -455,27 +457,17 @@ function animateCardSelect(storyId) {
   const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
   setTimeout(() => {
-    const selectorBg = app.querySelector('.selector-bg');
-    if (selectorBg) {
-      const ghost = selectorBg.cloneNode(true);
-      ghost.id = 'selector-ghost';
-      ghost.style.position = 'fixed';
-      ghost.style.inset = '0';
-      ghost.style.zIndex = '100';
-      ghost.style.pointerEvents = 'none';
-      ghost.style.transition = 'opacity 0.6s ease';
-      ghost.querySelectorAll('*').forEach(el => {
-        el.style.animation = 'none';
-        el.classList.remove('card-pop-pending', 'card-pop-in', 'card-fade-out');
-      });
-      document.body.appendChild(ghost);
-      app.innerHTML = '';
-      requestAnimationFrame(() => { ghost.style.opacity = '0'; });
-      setTimeout(() => ghost.remove(), 700);
-    } else {
-      app.innerHTML = '';
-    }
+    const layer = document.createElement('div');
+    layer.id = 'story-layer';
+    layer.style.position = 'fixed';
+    layer.style.inset = '0';
+    layer.style.zIndex = '100';
+    layer.style.opacity = '0';
+    layer.style.transition = 'opacity 0.6s ease';
+    document.body.appendChild(layer);
+    app = layer;
     startStory(storyId);
+    requestAnimationFrame(() => { layer.style.opacity = '1'; });
   }, 300);
 }
 
