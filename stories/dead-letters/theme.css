@@ -49,3 +49,36 @@
   --anim-choice-linger-ms: 1400ms;
   --anim-choice-fade-slow: 600ms;
 }
+
+/* ── Film grain overlay ─────────────────────────────────────────────────── */
+#story-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0.12;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.2 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+  animation: dl-grain 720ms steps(6) infinite;
+}
+
+@keyframes dl-grain {
+  0%   { background-position: 0 0; }
+  20%  { background-position: -40px 30px; }
+  40%  { background-position: 50px -20px; }
+  60%  { background-position: -25px -45px; }
+  80%  { background-position: 35px 40px; }
+  100% { background-position: 0 0; }
+}
+
+/* Subtle vignette to round out the noir feel */
+#story-root::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.45) 100%);
+}
