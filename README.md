@@ -31,6 +31,6 @@ Run `/new-story` in Claude Code to start the guided story creation pipeline.
 Once the story is written, generate audio:
 
 ```
-python tts_server.py        # start TTS server (port 5500)
-python generate_audio.py    # generate audio for all stories
+python scripts/tts_server.py        # start TTS server (port 5500)
+python scripts/generate_audio.py    # generate audio for all stories
 ```

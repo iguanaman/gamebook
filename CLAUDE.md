@@ -60,9 +60,9 @@ See `templates/scene.yaml` for the full annotated schema.
 Set `narrator: voice-name` in `story.yaml` (defaults to `"narrator"` if omitted). Then run:
 
 ```
-python generate_audio.py              # skip scenes that already have audio
-python generate_audio.py --force      # regenerate everything
-python generate_audio.py --story demo # one story only
+python scripts/generate_audio.py              # skip scenes that already have audio
+python scripts/generate_audio.py --force      # regenerate everything
+python scripts/generate_audio.py --story demo # one story only
 ```
 
-Requires the TTS server running (`python tts_server.py`, port 5500). Voice files live in `tts_voices/{name}.wav`. The TTS server encodes output as Opus at 48kbps via ffmpeg. The script generates one `.opus` file per text block under `audio/{act}/{scene}/`. Act title audio goes to `audio/{act}/{slug}.opus`. Story title goes to `audio/story_title.opus`.
+Requires the TTS server running (`python scripts/tts_server.py`, port 5500). Voice files live in `tts_voices/{name}.wav`. The TTS server encodes output as Opus at 48kbps via ffmpeg. The script generates one `.opus` file per text block under `audio/{act}/{scene}/`. Act title audio goes to `audio/{act}/{slug}.opus`. Story title goes to `audio/story_title.opus`.

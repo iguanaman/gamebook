@@ -20,7 +20,7 @@
     {
       "label": "Chatterbox TTS",
       "type": "shell",
-      "command": "python tts_server.py",
+      "command": "python scripts/tts_server.py",
       "icon": { "id": "unmute", "color": "terminal.ansiMagenta" },
       "isBackground": true,
       "problemMatcher": [],
@@ -35,7 +35,7 @@
     ,{
       "label": "Generate Audio",
       "type": "shell",
-      "command": "python generate_audio.py",
+      "command": "python scripts/generate_audio.py",
       "icon": { "id": "play", "color": "terminal.ansiCyan" },
       "problemMatcher": [],
       "presentation": {
@@ -49,7 +49,7 @@
     {
       "label": "List Voices",
       "type": "shell",
-      "command": "python list_voices.py",
+      "command": "python scripts/list_voices.py",
       "icon": { "id": "list-unordered", "color": "terminal.ansiWhite" },
       "problemMatcher": [],
       "presentation": {
@@ -63,7 +63,7 @@
     {
       "label": "Convert Voices to WAV",
       "type": "shell",
-      "command": "python convert_voices_to_wav.py",
+      "command": "python scripts/convert_voices_to_wav.py",
       "icon": { "id": "file-media", "color": "terminal.ansiWhite" },
       "problemMatcher": [],
       "presentation": {
