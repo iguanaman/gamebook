@@ -121,6 +121,7 @@ async function showSelector({ defer = false } = {}) {
   removeStoryTheme();
   document.getElementById('story-layer')?.remove();
   app = document.getElementById('app');
+  if (app) app.style.display = '';
   currentStoryId = null;
   state = null;
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
@@ -465,9 +466,11 @@ function animateCardSelect(storyId) {
     layer.style.opacity = '0';
     layer.style.transition = 'opacity 0.6s ease';
     document.body.appendChild(layer);
+    const realApp = document.getElementById('app');
     app = layer;
     startStory(storyId);
     requestAnimationFrame(() => { layer.style.opacity = '1'; });
+    setTimeout(() => { if (realApp) realApp.style.display = 'none'; }, 700);
   }, 300);
 }
 
