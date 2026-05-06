@@ -522,6 +522,7 @@ body.splash-active #journal-toggle { display: none; }
 .story-card.card-fade-out { opacity: 0; transform: scale(0.97); pointer-events: none; }
 .story-start-hint.card-fade-out { opacity: 0; transition: opacity 0.3s ease; }
 .card-delete-btn.card-fade-out { opacity: 0 !important; pointer-events: none; transition: opacity 0.3s ease; }
+.selector-title.card-fade-out { opacity: 0; transition: opacity 0.3s ease; }
 
 .story-card-wrap { position: relative; }
 .card-delete-btn {

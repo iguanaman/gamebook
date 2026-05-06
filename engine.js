@@ -700,6 +700,7 @@ function animateCardSelect(storyId) {
   others.forEach(c => c.classList.add('card-fade-out'));
   menuApp.querySelectorAll('.card-delete-btn').forEach(b => b.classList.add('card-fade-out'));
   menuApp.querySelectorAll('.story-start-hint').forEach(h => h.classList.add('card-fade-out'));
+  menuApp.querySelectorAll('.selector-title').forEach(t => t.classList.add('card-fade-out'));
   setTimeout(() => {
     startStory(storyId, { withCrossfade: true });
   }, 300);
