@@ -2,7 +2,7 @@
 
 ## Acts
 
-- **Act 1 — The Sealed Door:** Player discovers the suppressed reactor report and must open the vault door. Branches by approach (stealth, force, persuasion, alliance), with the overseer Cole as the central obstacle. Ends when the vault door opens — alone, with allies, or with a mob.
+- **Act 1 — The Final Hours:** Player discovers the suppressed reactor report and must open the vault door. Branches by approach (stealth, force, persuasion, alliance), with the overseer Cole as the central obstacle. Ends when the vault door opens — alone, with allies, or with a mob.
 - **Act 2 — The Surface:** Player exits into the ruins of pre-war Bakersfield. Must find water/food/shelter, navigate first encounters with raiders and the Followers of the Apocalypse analogue ("the Salvagers"). Hub-based (the Diner, a half-collapsed roadside refuge). Ends in one of four endings depending on faction allegiance, who came with you, and a final moral confrontation.
 
 ## Turning Points

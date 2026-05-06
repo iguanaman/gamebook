@@ -1,4 +1,4 @@
-# Vault 34 — Act 1: The Sealed Door
+# Vault 34 — Act 1: The Final Hours
 
 ## Entry
 
