@@ -730,6 +730,11 @@ body.splash-active .ui-hint { display: none !important; }
   color: var(--text-muted);
 }
 
+.journal-music-toggle { font-size: 1.1rem; padding: 0.25rem 0.4rem; color: var(--text-muted); }
+.journal-music-toggle .music-icon-off { display: none; }
+.journal-music-toggle.music-muted .music-icon-on { display: none; }
+.journal-music-toggle.music-muted .music-icon-off { display: inline; }
+
 /* ── Story title splash ───────────────────────────────────────────────────── */
 
 .story-splash {

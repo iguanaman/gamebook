@@ -115,7 +115,8 @@ function popInSelector() {
 }
 
 async function showSelector({ defer = false } = {}) {
-  stopMusic();
+  if (!selectorMusicPlaying) stopMusic();
+  startSelectorMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
   currentStoryId = null;
@@ -125,6 +126,7 @@ async function showSelector({ defer = false } = {}) {
   document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
   document.getElementById('back-btn')?.classList.add('back-hidden');
   const manifest = await loadManifest();
+  if (manifest.music_volume != null) selectorMusicVolume = manifest.music_volume;
   app.innerHTML = `
     <div class="selector-bg">
       <div class="selector">
@@ -227,6 +229,7 @@ function showPreIntroSplash(manifest) {
   });
 
   btn.addEventListener('click', () => {
+    startSelectorMusic();
     document.body.classList.remove('splash-active');
     overlay.classList.remove('story-splash-visible');
     overlay.classList.add('story-splash-out-slow');
@@ -474,6 +477,7 @@ async function attachCardHandlers(storyId) {
 // ── State ─────────────────────────────────────────────────────────────────────
 
 let currentStoryId = null;
+let selectorMusicVolume = 1;
 const storyMusicVolumes = {};
 let currentAct = null;
 let currentActFolder = null;
@@ -647,8 +651,12 @@ function startMusic(storyId, isNew, targetVolume = 1) {
 }
 
 function toggleMusic() {
+  if (!currentStoryId) return;
   musicMuted = !musicMuted;
-  if (musicAudio) musicAudio.volume = musicMuted ? 0 : (storyMeta?.music_volume ?? 1);
+  if (musicAudio) {
+    if (musicMuted) musicAudio.pause();
+    else musicAudio.play().catch(() => {});
+  }
   const btn = document.getElementById('journal-music-toggle');
   btn?.classList.toggle('music-muted', musicMuted);
 }
@@ -664,12 +672,28 @@ function fadeInMusic(audio, durationMs, targetVolume = 1) {
   requestAnimationFrame(tick);
 }
 
+let selectorMusicPlaying = false;
+
 function stopMusic() {
   if (musicAudio) {
     musicAudio.pause();
     musicAudio.src = '';
     musicAudio = null;
   }
+  selectorMusicPlaying = false;
+  musicMuted = false;
+  document.getElementById('journal-music-toggle')?.classList.remove('music-muted');
+}
+
+function startSelectorMusic() {
+  if (selectorMusicPlaying) return;
+  stopMusic();
+  selectorMusicPlaying = true;
+  const audio = new Audio('stories/audio/music.opus');
+  audio.loop = true;
+  audio.volume = selectorMusicVolume;
+  musicAudio = audio;
+  audio.play().catch(() => {});
 }
 
 function playChoiceCue() {
@@ -699,10 +723,10 @@ function stopAudio() {
 function onPauseStateChange() {
   if (isGamePaused()) {
     currentAudio?.pause();
-    musicAudio?.pause();
+    if (document.hidden && !musicMuted) musicAudio?.pause();
   } else {
     currentAudio?.play().catch(() => {});
-    musicAudio?.play().catch(() => {});
+    if (!document.hidden && !musicMuted) musicAudio?.play().catch(() => {});
   }
 }
 document.addEventListener('visibilitychange', onPauseStateChange);
@@ -1585,6 +1609,7 @@ document.addEventListener('keydown', (e) => {
   initFullscreen();
   if (!localStorage.getItem('gamebook.seen_intro')) {
     const manifest = await loadManifest();
+    if (manifest.music_volume != null) selectorMusicVolume = manifest.music_volume;
     showPreIntroSplash(manifest);
     return;
   }
