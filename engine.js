@@ -434,8 +434,8 @@ function animateCardSelect(storyId) {
     cover.className = 'screen-fade-cover';
     document.body.appendChild(cover);
     requestAnimationFrame(() => cover.classList.add('screen-fade-cover-in'));
-    setTimeout(() => {
-      startStory(storyId);
+    setTimeout(async () => {
+      await startStory(storyId);
       cover.classList.remove('screen-fade-cover-in');
       cover.addEventListener('transitionend', () => cover.remove(), { once: true });
     }, 600);
@@ -711,15 +711,13 @@ function startSelectorMusic(fromSplash = false) {
   selectorMusicPlaying = true;
   const audio = new Audio('stories/audio/music.opus');
   audio.loop = true;
-  audio.volume = fromSplash ? selectorMusicVolume : 0;
+  audio.volume = 0;
   musicAudio = audio;
   if (!fromSplash) {
     audio.addEventListener('loadedmetadata', () => { audio.currentTime = 12; }, { once: true });
-    audio.play().catch(() => {});
-    fadeInMusic(audio, 10000, selectorMusicVolume);
-  } else {
-    audio.play().catch(() => {});
   }
+  audio.play().catch(() => {});
+  fadeInMusic(audio, 10000, selectorMusicVolume);
 }
 
 function playChoiceCue() {
