@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Oswald:wght@300;400&display=swap');
 
 #story-root {
-  /* ── Core palette — amber, cigarette smoke, aged newsprint ── */
-  --bg: #0f0d0a;
-  --surface: #1a1610;
-  --text: #c8a96e;
-  --text-muted: #7a6542;
-  --border: #3a2e1e;
-  --hover-bg: rgba(200, 169, 110, 0.06);
-  --accent: #d4943a;
-  --accent-hover: #b87828;
-  --btn-secondary-bg: #221c12;
-  --btn-secondary-hover: #2e2518;
+  /* ── Core palette — classic noir film, silver nitrate on black ── */
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --text: #d8d8d8;
+  --text-muted: #888888;
+  --border: #2e2e2e;
+  --hover-bg: rgba(220, 220, 220, 0.06);
+  --accent: #e8e8e8;
+  --accent-hover: #ffffff;
+  --btn-secondary-bg: #1c1c1c;
+  --btn-secondary-hover: #262626;
   --radius: 2px;
 
   /* ── Typography — period-authentic noir ── */
@@ -22,23 +22,23 @@
   --font-ui: 'Special Elite', 'Courier New', monospace;
   --font-heading: 'Oswald', 'Special Elite', sans-serif;
 
-  /* ── Parchment frame — tarnished brass ── */
-  --border-outer: #5a3e18;
-  --border-inner: #3a2710;
+  /* ── Frame — brushed silver on black ── */
+  --border-outer: #4a4a4a;
+  --border-inner: #2a2a2a;
   --border-corner-radius: 0px;
   --frame-inset: 10px;
 
-  /* ── Divider — thin amber rule, like a column rule in a broadsheet ── */
-  --divider-color: #4a3318;
+  /* ── Divider — thin silver rule, like a column rule in a broadsheet ── */
+  --divider-color: #3a3a3a;
   --divider-style: 1px solid var(--divider-color);
 
-  /* ── Drop cap — warm gold, slightly larger to feel like an editorial pull ── */
-  --drop-cap-color: #d4943a;
+  /* ── Drop cap — bright silver, slightly larger to feel like an editorial pull ── */
+  --drop-cap-color: #f0f0f0;
   --drop-cap-size: 3.8em;
 
   /* ── Act title ── */
   --act-title-size: 1.75rem;
-  --act-rule-color: #5a3e18;
+  --act-rule-color: #4a4a4a;
   --act-rule-style: 1px solid var(--act-rule-color);
 
   /* ── Animations — slightly slower, heavier, like turning a damp page ── */
