@@ -78,7 +78,8 @@ function crossfadeTo(mode) {
   if (reduced) return; // CSS hides it; don't bother running the loop.
 
   const DENSITY = 0.00010;   // particles per CSS pixel of viewport area
-  const MAX_DPR = 2;
+  const MAX_DPR = 1;
+  const FRAME_MS = 1000 / 24; // throttle to ~24fps
   let particles = [];
   let cssW = 0, cssH = 0, dpr = 1;
 
@@ -132,13 +133,16 @@ function crossfadeTo(mode) {
   window.addEventListener('resize', resize);
 
   let last = 0;
+  let lastDraw = 0;
   function frame(now) {
     requestAnimationFrame(frame);
-    if (document.hidden) { last = 0; return; }
-    if (menuRootEl && menuRootEl.classList.contains('mode-hidden')) { last = 0; return; }
+    if (document.hidden) { last = 0; lastDraw = 0; return; }
+    if (menuRootEl && menuRootEl.classList.contains('mode-hidden')) { last = 0; lastDraw = 0; return; }
+    if (lastDraw && now - lastDraw < FRAME_MS) return;
 
-    const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
+    const dt = last ? Math.min(0.1, (now - last) / 1000) : 0;
     last = now;
+    lastDraw = now;
 
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, cssW, cssH);
