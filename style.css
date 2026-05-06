@@ -180,26 +180,43 @@ button {
 }
 .dust-layer::before {
   background-image:
-    radial-gradient(circle at 8%  17%, var(--accent) 1.4px, transparent 2.2px),
-    radial-gradient(circle at 23% 71%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 38% 33%, var(--accent) 1.6px, transparent 2.4px),
-    radial-gradient(circle at 51% 88%, var(--accent) 1.1px, transparent 1.9px),
-    radial-gradient(circle at 64% 12%, var(--accent) 1.5px, transparent 2.3px),
-    radial-gradient(circle at 77% 56%, var(--accent) 1.3px, transparent 2.1px),
-    radial-gradient(circle at 89% 41%, var(--accent) 1.4px, transparent 2.2px),
-    radial-gradient(circle at 14% 94%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 95% 79%, var(--accent) 1.5px, transparent 2.3px);
-  background-size: 180px 180px;
+    radial-gradient(circle at  3.7%  11.2%, var(--accent) 1.4px, transparent 2.2px),
+    radial-gradient(circle at  9.1%  47.8%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 13.4%  82.6%, var(--accent) 1.5px, transparent 2.3px),
+    radial-gradient(circle at 17.8%  29.3%, var(--accent) 1.3px, transparent 2.1px),
+    radial-gradient(circle at 22.5%  64.1%, var(--accent) 1.6px, transparent 2.4px),
+    radial-gradient(circle at 27.9%   6.4%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 31.6%  91.7%, var(--accent) 1.4px, transparent 2.2px),
+    radial-gradient(circle at 36.2%  38.5%, var(--accent) 1.3px, transparent 2.1px),
+    radial-gradient(circle at 41.7%  73.9%, var(--accent) 1.5px, transparent 2.3px),
+    radial-gradient(circle at 46.3%  19.8%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 51.8%  55.1%, var(--accent) 1.6px, transparent 2.4px),
+    radial-gradient(circle at 55.4%  87.3%, var(--accent) 1.3px, transparent 2.1px),
+    radial-gradient(circle at 60.9%  13.7%, var(--accent) 1.4px, transparent 2.2px),
+    radial-gradient(circle at 65.7%  44.6%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 70.3%  78.9%, var(--accent) 1.5px, transparent 2.3px),
+    radial-gradient(circle at 74.8%  25.4%, var(--accent) 1.3px, transparent 2.1px),
+    radial-gradient(circle at 79.5%  61.2%, var(--accent) 1.4px, transparent 2.2px),
+    radial-gradient(circle at 84.1%   8.9%, var(--accent) 1.6px, transparent 2.4px),
+    radial-gradient(circle at 88.6%  93.4%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 92.9%  35.7%, var(--accent) 1.5px, transparent 2.3px),
+    radial-gradient(circle at 96.4%  69.5%, var(--accent) 1.3px, transparent 2.1px);
+  background-size: 720px 720px;
   opacity: 0.72;
   animation: dust-drift 60s linear infinite;
 }
 .dust-layer::after {
   background-image:
-    radial-gradient(circle at 19% 28%, var(--accent) 2.4px, transparent 3.6px),
-    radial-gradient(circle at 47% 62%, var(--accent) 2.2px, transparent 3.4px),
-    radial-gradient(circle at 73% 14%, var(--accent) 2.6px, transparent 3.8px),
-    radial-gradient(circle at 86% 83%, var(--accent) 2.3px, transparent 3.5px);
-  background-size: 320px 320px;
+    radial-gradient(circle at  6.3%  21.5%, var(--accent) 2.4px, transparent 3.6px),
+    radial-gradient(circle at 17.9%  68.2%, var(--accent) 2.2px, transparent 3.4px),
+    radial-gradient(circle at 28.7%  41.8%, var(--accent) 2.6px, transparent 3.8px),
+    radial-gradient(circle at 39.4%   9.6%, var(--accent) 2.3px, transparent 3.5px),
+    radial-gradient(circle at 49.8%  85.3%, var(--accent) 2.5px, transparent 3.7px),
+    radial-gradient(circle at 61.2%  53.7%, var(--accent) 2.2px, transparent 3.4px),
+    radial-gradient(circle at 72.6%  27.4%, var(--accent) 2.4px, transparent 3.6px),
+    radial-gradient(circle at 83.1%  76.8%, var(--accent) 2.6px, transparent 3.8px),
+    radial-gradient(circle at 93.7%  44.2%, var(--accent) 2.3px, transparent 3.5px);
+  background-size: 1100px 1100px;
   opacity: 0.40;
   animation: dust-drift 95s linear infinite;
   animation-delay: -20s;
