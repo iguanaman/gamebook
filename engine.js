@@ -293,36 +293,58 @@ function showIntroSplash(mode, manifest) {
   const LINE_PAUSE_MS = 1000;
   const INITIAL_DELAY_MS = 600;
 
+  function deferUntilVisible(ms, fn) {
+    function attempt() {
+      if (isGamePaused()) {
+        document.addEventListener('visibilitychange', onVis, { once: true });
+        document.addEventListener('gamebook-visibility', onVis, { once: true });
+        return;
+      }
+      setTimeout(fn, ms);
+    }
+    function onVis() { attempt(); }
+    attempt();
+  }
+
   function revealLines() {
     let i = 0;
     function showNext() {
       if (i >= paras.length) {
-        setTimeout(dismiss, 1000);
+        deferUntilVisible(1000, dismiss);
         return;
       }
       const el = paras[i];
       const { text, voice } = parsedLines[i];
       i++;
 
-      // type the line character by character
-      const startTime = performance.now();
+      let startTime = performance.now();
+      let pausedAt = null;
       let pos = 0;
       let typingDone = false;
       let audioDone = !voice;
 
       function afterBoth() {
-        if (typingDone && audioDone) setTimeout(showNext, LINE_PAUSE_MS);
+        if (typingDone && audioDone) deferUntilVisible(LINE_PAUSE_MS, showNext);
       }
 
       function tick() {
-        if (isGamePaused()) { document.addEventListener('visibilitychange', onVisible, { once: true }); document.addEventListener('gamebook-visibility', onVisible, { once: true }); return; }
+        if (isGamePaused()) {
+          pausedAt = performance.now();
+          document.addEventListener('visibilitychange', onVisible, { once: true });
+          document.addEventListener('gamebook-visibility', onVisible, { once: true });
+          return;
+        }
         const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
         while (pos < text.length && pos < targetChars) { pos++; }
         el.textContent = text.slice(0, pos);
         if (pos >= text.length) { typingDone = true; afterBoth(); return; }
         requestAnimationFrame(tick);
       }
-      function onVisible() { if (!isGamePaused()) requestAnimationFrame(tick); }
+      function onVisible() {
+        if (isGamePaused()) return;
+        if (pausedAt !== null) { startTime += performance.now() - pausedAt; pausedAt = null; }
+        requestAnimationFrame(tick);
+      }
       requestAnimationFrame(tick);
 
       if (voice) {
@@ -853,8 +875,16 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
       settled = true;
       setTimeout(dismiss, ACT_TITLE_PAUSE_MS);
     }
-    currentAudio.addEventListener('ended', settle, { once: true });
-    currentAudio.addEventListener('error', settle, { once: true });
+    function deferSettle() {
+      if (isGamePaused()) {
+        document.addEventListener('visibilitychange', deferSettle, { once: true });
+        document.addEventListener('gamebook-visibility', deferSettle, { once: true });
+        return;
+      }
+      settle();
+    }
+    currentAudio.addEventListener('ended', deferSettle, { once: true });
+    currentAudio.addEventListener('error', deferSettle, { once: true });
     currentAudio.play().catch(settle);
   }, animDuration);
 }
