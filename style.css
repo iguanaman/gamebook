@@ -131,6 +131,7 @@ button {
     0 0 0 2px var(--border-outer);
   pointer-events: none;
   z-index: 300;
+  transition: border-color 1.2s ease, outline-color 1.2s ease, box-shadow 1.2s ease;
 }
 
 /* ── Selector ─────────────────────────────────────────────────────────────── */
@@ -238,16 +239,15 @@ button {
 }
 .story-card:focus-visible { outline: 2px solid var(--accent, #888); outline-offset: 2px; }
 .story-card.card-fade-out { opacity: 0; transform: scale(0.97); pointer-events: none; }
-.screen-fade-cover {
+.story-crossfade-layer {
   position: fixed;
   inset: 0;
-  background: #f9f6f1;
   opacity: 0;
-  transition: opacity 12s ease;
-  z-index: 9999;
-  pointer-events: none;
+  transition: opacity 1.2s ease;
+  z-index: 500;
+  overflow: hidden;
 }
-.screen-fade-cover-in { opacity: 1; }
+.story-crossfade-layer-in { opacity: 1; }
 .story-card-wrap {
   position: relative;
 }

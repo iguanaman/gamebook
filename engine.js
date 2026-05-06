@@ -4,7 +4,7 @@ if (new URLSearchParams(location.search).has('fresh')) {
   Object.keys(localStorage).filter(k => k.startsWith('gamebook.')).forEach(k => localStorage.removeItem(k));
 }
 
-const app = document.getElementById('app');
+let app = document.getElementById('app');
 
 let gamePaused = false;
 const isGamePaused = () => document.hidden || gamePaused;
@@ -430,18 +430,24 @@ function animateCardSelect(storyId) {
   const chosen = document.querySelector(`.story-card[data-story="${storyId}"]`);
   setTimeout(() => { if (chosen) chosen.classList.add('card-fade-out'); }, 1000);
   setTimeout(() => {
-    const cover = document.createElement('div');
-    cover.className = 'screen-fade-cover';
-    document.body.appendChild(cover);
-    requestAnimationFrame(() => cover.classList.add('screen-fade-cover-in'));
-    setTimeout(async () => {
-      await startStory(storyId);
-      const splashFadeMs = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--anim-act-title-duration')) || 600;
-      setTimeout(() => {
-        cover.classList.remove('screen-fade-cover-in');
-        cover.addEventListener('transitionend', () => cover.remove(), { once: true });
-      }, splashFadeMs);
-    }, 600);
+    const realApp = document.getElementById('app');
+    const layer = document.createElement('div');
+    layer.className = 'story-crossfade-layer';
+    document.body.appendChild(layer);
+    app = layer;
+    startStory(storyId, {
+      onReady() {
+        const selectorBg = realApp.querySelector('.selector-bg');
+        if (selectorBg) { selectorBg.style.transition = 'opacity 1.2s ease'; selectorBg.style.opacity = '0'; }
+        layer.classList.add('story-crossfade-layer-in');
+        layer.addEventListener('transitionend', () => {
+          app = realApp;
+          realApp.innerHTML = '';
+          while (layer.firstChild) realApp.appendChild(layer.firstChild);
+          layer.remove();
+        }, { once: true });
+      }
+    });
   }, 1600);
 }
 
@@ -926,7 +932,7 @@ function removeStoryTheme() {
   document.getElementById('story-theme')?.remove();
 }
 
-async function startStory(storyId) {
+async function startStory(storyId, { onReady } = {}) {
   sessionStorage.removeItem('gamebook.atSelector');
   localStorage.setItem('gamebook.lastStory', storyId);
   const meta = await loadStoryMeta(storyId);
@@ -963,12 +969,14 @@ async function startStory(storyId) {
       if (currentStoryId !== splashStoryId || !state) return;
       renderShell(meta);
       await navigateTo(startScene);
+      onReady?.();
     }, { isStoryTitle: true });
   } else {
     startMusic(storyId, false, meta.music_volume ?? 1);
     renderShell(meta);
     await navigateTo(startScene);
     scrollNarrativeToBottom();
+    onReady?.();
   }
 }
 
