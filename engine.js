@@ -1010,6 +1010,13 @@ async function startStory(storyId) {
   } else {
     startMusic(storyId, false, meta.volume_music ?? 1);
     renderShell(meta);
+    app.style.opacity = '0';
+    app.style.transition = 'opacity 1.2s ease';
+    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+    app.style.opacity = '1';
+    await new Promise(r => setTimeout(r, 1200));
+    app.style.transition = '';
+    app.style.opacity = '';
     await navigateTo(startScene);
     scrollNarrativeToBottom();
   }
