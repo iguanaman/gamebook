@@ -875,6 +875,7 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
     function settle() {
       if (settled) return;
       settled = true;
+      currentAudio = null;
       deferUntilVisible(ACT_TITLE_PAUSE_MS, dismiss);
     }
     function deferSettle() {
