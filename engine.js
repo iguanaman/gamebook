@@ -169,17 +169,14 @@ function renderCommissionContent() {
         <div class="commission-tier">
           <div class="commission-tier-name">Short</div>
           <div class="commission-tier-length">~15 min read</div>
-          <div class="commission-tier-price">$5</div>
         </div>
         <div class="commission-tier">
           <div class="commission-tier-name">Medium</div>
           <div class="commission-tier-length">~30 min read</div>
-          <div class="commission-tier-price">$8</div>
         </div>
         <div class="commission-tier">
           <div class="commission-tier-name">Long</div>
           <div class="commission-tier-length">~60 min read</div>
-          <div class="commission-tier-price">$10</div>
         </div>
       </div>
     `;

@@ -218,12 +218,6 @@ button {
   color: var(--text);
   opacity: 0.5;
 }
-.commission-tier-price {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  color: var(--accent, var(--text));
-  margin-top: 0.25rem;
-}
 
 .story-card {
   position: relative;
