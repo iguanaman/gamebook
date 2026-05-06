@@ -138,8 +138,11 @@ async function fetchYaml(url) {
   return jsyaml.load(await res.text());
 }
 
+let cachedManifest = null;
 async function loadManifest() {
-  return fetchYaml('stories/manifest.yaml');
+  if (cachedManifest) return cachedManifest;
+  cachedManifest = await fetchYaml('stories/manifest.yaml');
+  return cachedManifest;
 }
 
 function popInSelector() {
