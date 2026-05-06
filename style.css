@@ -160,92 +160,92 @@ button {
 /* Drifting dust/particles overlay — used on splashes and the menu selector.
    Two layers of tiny radial-gradient dots on wide tiled backgrounds, panning
    horizontally at different speeds for a parallax wind effect. */
-.dust-layer {
+.dust-layer, .leaf-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
 }
-.dust-layer::before,
-.dust-layer::after {
-  content: "";
+
+/* Outer .layer drifts (translate). Inner .spin rotates. Two transforms,
+   one per element, so they compose without conflict. The .spin is oversized
+   and centered so rotation never reveals empty edges. */
+.dust-layer .layer,
+.leaf-layer .layer {
   position: absolute;
-  top: -10%;
-  left: -50%;
-  width: 300%;
-  height: 120%;
-  background-repeat: repeat;
+  inset: 0;
   will-change: transform;
 }
-.dust-layer::before {
+.dust-layer .spin,
+.leaf-layer .spin {
+  position: absolute;
+  top: -75%;
+  left: -75%;
+  width: 250%;
+  height: 250%;
+  background-repeat: repeat;
+  will-change: transform;
+  transform-origin: 50% 50%;
+}
+
+/* Dust A */
+.dust-layer .dust-a { animation: drift-a 60s linear infinite; }
+.dust-layer .dust-a > .spin {
   background-image:
     radial-gradient(circle at 12% 30%, var(--accent) 1.6px, transparent 2.4px),
     radial-gradient(circle at 70% 65%, var(--accent) 1.2px, transparent 2px),
     radial-gradient(circle at 40% 85%, var(--accent) 1.4px, transparent 2.2px);
   background-size: 220px 180px, 320px 240px, 280px 200px;
   opacity: 0.72;
-  animation: dust-drift 60s linear infinite;
+  animation: spin-cw 480s linear infinite;
 }
-.dust-layer::after {
+/* Dust B */
+.dust-layer .dust-b { animation: drift-b 95s linear infinite; animation-delay: -20s; }
+.dust-layer .dust-b > .spin {
   background-image:
     radial-gradient(circle at 25% 50%, var(--accent) 2.6px, transparent 3.8px),
     radial-gradient(circle at 80% 20%, var(--accent) 2.2px, transparent 3.4px);
   background-size: 460px 320px, 540px 380px;
   opacity: 0.40;
-  animation: dust-drift 95s linear infinite;
-  animation-delay: -20s;
+  animation: spin-ccw 620s linear infinite;
 }
 
-/* Leaf layer — SVG leaves drifting across, slightly faster than dust,
-   with a gentle vertical sway. */
-.leaf-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-.leaf-layer::before,
-.leaf-layer::after {
-  content: "";
-  position: absolute;
-  top: -10%;
-  left: -50%;
-  width: 300%;
-  height: 120%;
-  background-repeat: repeat;
-  will-change: transform;
-  /* Tint the (currently var(--accent)-coloured) SVG via filter — works because
-     the SVG is intrinsically dark; we let the layer's own opacity soften it. */
-  opacity: 0.55;
-}
-.leaf-layer::before {
+/* Leaf A */
+.leaf-layer .leaf-a { animation: drift-c 45s linear infinite; }
+.leaf-layer .leaf-a > .spin {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'><path d='M80 72 C77 74 75 77.5 75.5 82 C76 84.5 78 86 80 86 C82 86 84 84.5 84.5 82 C85 77.5 83 74 80 72 Z M80 74 L80 85' fill='%234a3728' stroke='%234a3728' stroke-width='0.4' opacity='0.85'/></svg>");
   background-size: 180px 150px;
-  animation: leaf-drift-a 45s linear infinite;
+  opacity: 0.55;
+  animation: spin-cw 380s linear infinite;
 }
-.leaf-layer::after {
+/* Leaf B */
+.leaf-layer .leaf-b { animation: drift-d 70s linear infinite; animation-delay: -15s; }
+.leaf-layer .leaf-b > .spin {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'><g transform='rotate(35 80 80)'><path d='M80 73 C77.5 75 75.5 78 76 82 C76.5 84 78.5 85.5 80 85.5 C81.5 85.5 83.5 84 84 82 C84.5 78 82.5 75 80 73 Z M80 75 L80 84.5' fill='%238b6914' stroke='%238b6914' stroke-width='0.4' opacity='0.8'/></g></svg>");
   background-size: 240px 200px;
   opacity: 0.45;
-  animation: leaf-drift-b 70s linear infinite;
-  animation-delay: -15s;
+  animation: spin-ccw 540s linear infinite;
 }
 
-@keyframes leaf-drift-a {
-  0%   { transform: translate3d(0, 0, 0); }
-  25%  { transform: translate3d(8.5%, -1.5%, 0); }
-  50%  { transform: translate3d(16.6%, 0.5%, 0); }
-  75%  { transform: translate3d(25%, -2%, 0); }
-  100% { transform: translate3d(33.333%, -3%, 0); }
+@keyframes drift-a {
+  from { transform: translate3d(-5%, 0, 0); }
+  to   { transform: translate3d(5%, -2%, 0); }
 }
-@keyframes leaf-drift-b {
-  0%   { transform: translate3d(0, 0, 0); }
-  30%  { transform: translate3d(10%, 1%, 0); }
-  60%  { transform: translate3d(20%, -2%, 0); }
-  100% { transform: translate3d(33.333%, -1%, 0); }
+@keyframes drift-b {
+  from { transform: translate3d(-4%, 1%, 0); }
+  to   { transform: translate3d(6%, -1%, 0); }
 }
+@keyframes drift-c {
+  from { transform: translate3d(-6%, 1%, 0); }
+  to   { transform: translate3d(6%, -3%, 0); }
+}
+@keyframes drift-d {
+  from { transform: translate3d(-5%, -1%, 0); }
+  to   { transform: translate3d(5%, 1%, 0); }
+}
+@keyframes spin-cw  { from { transform: rotate(0deg); }   to { transform: rotate(360deg); } }
+@keyframes spin-ccw { from { transform: rotate(0deg); }   to { transform: rotate(-360deg); } }
 
 @keyframes dust-drift {
   from { transform: translate3d(0, 0, 0); }
@@ -253,10 +253,10 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dust-layer::before,
-  .dust-layer::after,
-  .leaf-layer::before,
-  .leaf-layer::after { animation: none; }
+  .dust-layer .layer,
+  .dust-layer .spin,
+  .leaf-layer .layer,
+  .leaf-layer .spin { animation: none; }
 }
 
 .splash > *:not(.dust-layer) { position: relative; z-index: 1; }
