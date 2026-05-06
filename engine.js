@@ -163,14 +163,12 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   if (!selectorMusicPlaying) stopMusic();
   startSelectorMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
-  removeStoryTheme();
   currentStoryId = null;
   state = null;
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
   document.getElementById('journal-toggle')?.classList.remove('journal-toggle-open');
   document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
   document.getElementById('back-btn')?.classList.add('back-hidden');
-  storyApp.innerHTML = '';
   const manifest = await loadManifest();
   if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
   if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
@@ -197,6 +195,8 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   } else {
     setActiveMode('menu');
   }
+  storyApp.innerHTML = '';
+  removeStoryTheme();
   if (!defer) requestAnimationFrame(popInSelector);
 }
 
@@ -1033,11 +1033,11 @@ async function startStory(storyId, { withCrossfade = false } = {}) {
   } else {
     startMusic(storyId, false, meta.volume_music ?? 1);
     renderShell(meta);
-    await navigateTo(startScene);
-    scrollNarrativeToBottom();
     if (withCrossfade) await crossfadeTo('story');
     else setActiveMode('story');
     document.body.style.visibility = '';
+    await navigateTo(startScene);
+    scrollNarrativeToBottom();
   }
 }
 
