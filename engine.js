@@ -698,7 +698,7 @@ function animateCardSelect(storyId) {
   startMusic(storyId, true, storyMusicVolumes[storyId] ?? 1);
   const others = menuApp.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
-  menuApp.querySelectorAll(`.card-delete-btn:not([data-delete="${storyId}"])`).forEach(b => b.classList.add('card-fade-out'));
+  menuApp.querySelectorAll('.card-delete-btn').forEach(b => b.classList.add('card-fade-out'));
   menuApp.querySelectorAll('.story-start-hint').forEach(h => h.classList.add('card-fade-out'));
   setTimeout(() => {
     startStory(storyId, { withCrossfade: true });
