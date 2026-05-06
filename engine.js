@@ -160,23 +160,30 @@ function updateDustMask(layer) {
   const cRect = container.getBoundingClientRect();
   if (!cRect.width || !cRect.height) return;
   const targets = container.querySelectorAll('.story-card, .commission-tier, .commission-perks, .commission-intro, .selector-title, .commission-link-wrap');
-  const masks = [];
+  const w = Math.round(cRect.width);
+  const h = Math.round(cRect.height);
+  const ellipses = [];
   targets.forEach(el => {
     const r = el.getBoundingClientRect();
     if (!r.width || !r.height) return;
-    const cx = ((r.left + r.width / 2) - cRect.left) / cRect.width * 100;
-    const cy = ((r.top + r.height / 2) - cRect.top) / cRect.height * 100;
-    const rx = (r.width / 2 + 40) / cRect.width * 100;
-    const ry = (r.height / 2 + 40) / cRect.height * 100;
-    masks.push(`radial-gradient(ellipse ${rx}% ${ry}% at ${cx}% ${cy}%, transparent 35%, #000 95%)`);
+    const cx = (r.left + r.width / 2) - cRect.left;
+    const cy = (r.top + r.height / 2) - cRect.top;
+    const rx = r.width / 2 + 50;
+    const ry = r.height / 2 + 50;
+    ellipses.push(`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="url(#fade)"/>`);
   });
-  if (!masks.length) {
+  if (!ellipses.length) {
     layer.style.removeProperty('--dust-mask');
     return;
   }
-  layer.style.setProperty('--dust-mask', masks.join(', '));
-  layer.style.setProperty('-webkit-mask-composite', 'source-in');
-  layer.style.setProperty('mask-composite', 'intersect');
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
+      `<defs><radialGradient id="fade"><stop offset="0%" stop-color="black"/><stop offset="70%" stop-color="black" stop-opacity="0.3"/><stop offset="100%" stop-color="white"/></radialGradient></defs>` +
+      `<rect width="100%" height="100%" fill="white"/>` +
+      ellipses.join('') +
+    `</svg>`;
+  const url = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+  layer.style.setProperty('--dust-mask', url);
 }
 
 function refreshAllDustMasks() {
