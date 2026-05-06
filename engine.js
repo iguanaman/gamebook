@@ -69,6 +69,93 @@ function setGamePaused(paused) {
   document.dispatchEvent(new Event('gamebook-visibility'));
 }
 
+// ── Dust particles ───────────────────────────────────────────────────────────
+//
+// Lightweight canvas particle system. Each .dust-canvas in the DOM gets its own
+// particle array; a single RAF loop ticks them all. Particles drift right with
+// slight upward bias and minor jitter, wrapping when off-canvas.
+
+const DUST_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const DUST_DENSITY = 0.00012; // particles per pixel of canvas area
+const dustState = new WeakMap(); // canvas -> { particles, w, h, dpr }
+
+function dustInit(canvas) {
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || !rect.height) return null;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.floor(rect.width * dpr);
+  canvas.height = Math.floor(rect.height * dpr);
+  const w = rect.width, h = rect.height;
+  const count = Math.max(20, Math.floor(w * h * DUST_DENSITY));
+  const particles = [];
+  for (let i = 0; i < count; i++) {
+    const big = Math.random() < 0.18;
+    particles.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (big ? 12 : 20) + Math.random() * 18, // px/sec
+      vy: -2 - Math.random() * 4,
+      r: big ? 1.8 + Math.random() * 0.6 : 0.8 + Math.random() * 0.6,
+      a: big ? 0.20 + Math.random() * 0.10 : 0.30 + Math.random() * 0.15,
+    });
+  }
+  const state = { particles, w, h, dpr };
+  dustState.set(canvas, state);
+  return state;
+}
+
+function dustResizeIfNeeded(canvas) {
+  const state = dustState.get(canvas);
+  const rect = canvas.getBoundingClientRect();
+  if (!rect.width || !rect.height) return null;
+  if (!state || Math.abs(state.w - rect.width) > 1 || Math.abs(state.h - rect.height) > 1) {
+    return dustInit(canvas);
+  }
+  return state;
+}
+
+function dustTick(canvas, dt) {
+  const state = dustResizeIfNeeded(canvas);
+  if (!state) return;
+  const { particles, w, h, dpr } = state;
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, w, h);
+  // Read accent colour once per frame (cheap; cached by browser).
+  const accent = getComputedStyle(canvas).getPropertyValue('--accent').trim() || '#4a3728';
+  ctx.fillStyle = accent;
+  for (let i = 0; i < particles.length; i++) {
+    const p = particles[i];
+    p.x += p.vx * dt;
+    p.y += p.vy * dt;
+    if (p.x - p.r > w) { p.x = -p.r; p.y = Math.random() * h; }
+    if (p.y + p.r < 0) { p.y = h + p.r; }
+    ctx.globalAlpha = p.a;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+}
+
+let dustLastTime = 0;
+function dustFrame(now) {
+  const dt = dustLastTime ? Math.min(0.05, (now - dustLastTime) / 1000) : 0;
+  dustLastTime = now;
+  if (!document.hidden && !DUST_REDUCED) {
+    document.querySelectorAll('.dust-canvas').forEach(canvas => {
+      // Skip canvases whose mode root is hidden
+      const root = canvas.closest('.mode-root');
+      if (root && root.classList.contains('mode-hidden')) return;
+      if (canvas.offsetParent === null) return;
+      dustTick(canvas, dt);
+    });
+  }
+  requestAnimationFrame(dustFrame);
+}
+requestAnimationFrame(dustFrame);
+
+
 // ── UI hints ─────────────────────────────────────────────────────────────────
 
 const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
@@ -183,7 +270,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   startSelectorMusic();
   menuApp.innerHTML = `
     <div class="selector-bg">
-      <div class="dust-layer" aria-hidden="true"></div>
+      <canvas class="dust-canvas" aria-hidden="true"></canvas>
       <div class="selector">${renderSelectorContent(manifest)}</div>
     </div>
   `;
@@ -295,10 +382,10 @@ function renderCommissionContent() {
 function makeSplash() {
   const el = document.createElement('div');
   el.className = 'splash splash-hidden';
-  const dust = document.createElement('div');
-  dust.className = 'dust-layer';
-  dust.setAttribute('aria-hidden', 'true');
-  el.appendChild(dust);
+  const canvas = document.createElement('canvas');
+  canvas.className = 'dust-canvas';
+  canvas.setAttribute('aria-hidden', 'true');
+  el.appendChild(canvas);
   return el;
 }
 
