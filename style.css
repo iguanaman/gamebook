@@ -584,7 +584,23 @@ body.splash-active #journal-toggle { display: none; }
   50% { transform: translateX(0.4rem); }
 }
 @media (max-width: 700px) {
-  .story-start-hint { display: none; }
+  .story-start-hint {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: calc(100% + 0.5rem);
+    transform: translateX(-50%);
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .story-start-hint-arrow {
+    transform: rotate(90deg);
+    animation: start-hint-arrow-down 1.4s ease-in-out infinite;
+  }
+}
+@keyframes start-hint-arrow-down {
+  0%, 100% { transform: rotate(90deg) translateX(0); }
+  50% { transform: rotate(90deg) translateX(0.4rem); }
 }
 .story-desc { margin: 0; color: var(--text-muted); font-size: var(--card-desc-size, 1rem); flex: 1; }
 
