@@ -1,0 +1,17 @@
+id: act2/office_window_police
+
+text:
+  - |-
+    The officer who takes Frank's report doesn't sit down. He stands with his pad open and writes "vandalism" before Frank finishes the second sentence.
+  - |-
+    He asks if Frank has any enemies. Frank says probably. The officer writes nothing. Closes the pad. Tells Frank to call if there's another incident, by which he means: don't call.
+  - |-
+    He's out the door before Frank says thank you, which Frank wasn't going to say.
+
+choices:
+  - text: |-
+      Let it go — the report is on paper, for whatever that's worth
+    next: act2/office_hub_act2
+    effects:
+      flags:
+        window_threat_seen: true

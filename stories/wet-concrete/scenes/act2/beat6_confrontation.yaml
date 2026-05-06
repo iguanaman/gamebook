@@ -1,0 +1,42 @@
+id: act2/beat6_confrontation
+
+text:
+  - |-
+    They follow him up. Inside his office the shorter one closes the door and stays in front of it. The taller one takes the chair Frank keeps for clients and sits down like he's been in the room before.
+  - |-
+    The taller one says: "Frank Carver. We thought we'd save you a trip."
+  - |-
+    They know about Trumbull Street. The taller one says the address the way a man says a word he's already filed. Frank doesn't react. The shorter one watches Frank not react.
+  - |-
+    Professional courtesy. That's the phrase. Nobody says what courtesy is being extended for, or what happens when it runs out.
+
+journal: |-
+  Two plainclothes officers came to the office. Professional courtesy, they called it. They knew about Trumbull Street.
+
+choices:
+  - text: |-
+      Read it as a bluff — nod along, send them out the door
+    next: act2/beat6_bluff
+    effects:
+      flags:
+        cops_warned_off: true
+  - text: |-
+      Read it as real — back off. You know the math.
+    next: act2/beat6_back_off
+    effects:
+      flags:
+        cops_warned_off: true
+  - text: |-
+      Turn it back on them — a man who knows what you know doesn't scare easy
+    next: act2/beat6_pushback
+    requires:
+      stats:
+        rep: 5
+    failed_text: |-
+      *(You don't have the standing to back them down. Not yet.)*
+    effects:
+      flags:
+        cops_warned_off: true
+      stats:
+        heat: 1
+        evidence: 1

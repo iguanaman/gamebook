@@ -1,0 +1,17 @@
+id: act2/beat6_back_off
+
+text:
+  - |-
+    Frank backs off. Not the ledger — he keeps that — but the motion. No new moves for two days. He goes to the diner at hours he's never gone. Buys a paper and reads it without reading it.
+  - |-
+    On the second evening he thinks about what backing off actually costs. He's still carrying the same evidence. The same names are on the same documents. The men who sent that warning aren't going to be satisfied with two days of quiet. They'll want this to be his last two days of quiet, permanently.
+  - |-
+    Staying still isn't a position. It's just losing more slowly.
+
+choices:
+  - text: |-
+      You can't stay backed off — it's just a slower way of losing
+    next: act2/beat6_exit
+    effects:
+      stats:
+        heat: -1

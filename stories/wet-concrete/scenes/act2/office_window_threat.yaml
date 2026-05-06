@@ -1,0 +1,31 @@
+id: act2/office_window_threat
+
+text:
+  - |-
+    Frank is at his desk at two in the morning when the window goes. Not the whole pane — a brick, lower third, the crack spreading fast across old glass. He's on the floor before he knows he's moved.
+  - |-
+    No second throw. No footsteps on the stairs. Just the cold coming in through the hole and the street noise, ordinary, like nothing happened.
+  - |-
+    He sits in the dark with the lights off for ten minutes. Thinking about who sends that kind of message to a private detective, and what it means that they didn't leave a note.
+
+choices:
+  - text: |-
+      Report it to the police — put it on record
+    next: act2/office_window_police
+    effects:
+      flags:
+        window_threat_seen: true
+  - text: |-
+      Don't report it — reporting it is telling them you noticed, and they already know you noticed
+    next: act2/office_hub_act2
+    effects:
+      flags:
+        window_threat_seen: true
+      stats:
+        heat: -1
+  - text: |-
+      Move the desk away from the window and keep working
+    next: act2/office_hub_act2
+    effects:
+      flags:
+        window_threat_seen: true
