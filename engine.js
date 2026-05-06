@@ -241,6 +241,19 @@ function showPreIntroSplash(manifest) {
   }, { once: true });
 }
 
+function deferUntilVisible(ms, fn) {
+  function attempt() {
+    if (isGamePaused()) {
+      document.addEventListener('visibilitychange', onVis, { once: true });
+      document.addEventListener('gamebook-visibility', onVis, { once: true });
+      return;
+    }
+    setTimeout(fn, ms);
+  }
+  function onVis() { attempt(); }
+  attempt();
+}
+
 function showIntroSplash(mode, manifest) {
   const isFirst = mode === 'first';
   const introLines = manifest?.intro?.lines ?? [
@@ -292,19 +305,6 @@ function showIntroSplash(mode, manifest) {
 
   const LINE_PAUSE_MS = 1000;
   const INITIAL_DELAY_MS = 600;
-
-  function deferUntilVisible(ms, fn) {
-    function attempt() {
-      if (isGamePaused()) {
-        document.addEventListener('visibilitychange', onVis, { once: true });
-        document.addEventListener('gamebook-visibility', onVis, { once: true });
-        return;
-      }
-      setTimeout(fn, ms);
-    }
-    function onVis() { attempt(); }
-    attempt();
-  }
 
   function revealLines() {
     let i = 0;
@@ -873,7 +873,7 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
     function settle() {
       if (settled) return;
       settled = true;
-      setTimeout(dismiss, ACT_TITLE_PAUSE_MS);
+      deferUntilVisible(ACT_TITLE_PAUSE_MS, dismiss);
     }
     function deferSettle() {
       if (isGamePaused()) {
@@ -885,7 +885,7 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
     }
     currentAudio.addEventListener('ended', deferSettle, { once: true });
     currentAudio.addEventListener('error', deferSettle, { once: true });
-    currentAudio.play().catch(settle);
+    currentAudio.play().catch(deferSettle);
   }, animDuration);
 }
 
