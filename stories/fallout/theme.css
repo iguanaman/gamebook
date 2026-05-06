@@ -48,7 +48,8 @@
 }
 
 /* ── CRT scanlines ──────────────────────────────────────────────────────── */
-#story-root::before {
+#story-root::before,
+.story-card[data-story="fallout"]::before {
   content: "";
   position: absolute;
   inset: 0;

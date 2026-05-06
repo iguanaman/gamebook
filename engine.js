@@ -671,6 +671,18 @@ async function applyCardTheme(storyId) {
       }
     });
 
+    // Inject any rule that targets this story's card (e.g. ::before overlays from theme.css)
+    const cardSelector = `.story-card[data-story="${storyId}"]`;
+    const cardRules = [...css.matchAll(/([^{}]+)\{([^}]*)\}/g)]
+      .filter(([, sel]) => sel.includes(cardSelector))
+      .map(([, sel, body]) => `${sel.trim()} {${body}}`);
+    if (cardRules.length && !document.querySelector(`style[data-card-theme="${storyId}"]`)) {
+      const style = document.createElement('style');
+      style.setAttribute('data-card-theme', storyId);
+      style.textContent = cardRules.join('\n');
+      document.head.appendChild(style);
+    }
+
     // Pull theme vars from the #story-root block (or legacy :root) and apply them inline to the card
     const themeMatch = css.match(/(?:#story-root|:root|body\.story-active)\s*\{([^}]+)\}/s);
     if (!themeMatch) { themeMissing.add(storyId); return; }

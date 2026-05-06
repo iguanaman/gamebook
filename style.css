@@ -499,6 +499,7 @@ body.splash-active #journal-toggle { display: none; }
 
 .story-card {
   position: relative;
+  overflow: hidden;
   display: flex;
   gap: 1.5rem;
   padding: 1.5rem;
@@ -508,6 +509,7 @@ body.splash-active #journal-toggle { display: none; }
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s, transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
 }
+.story-card > * { position: relative; z-index: 1; }
 .story-card:hover {
   border-color: var(--border-hover, var(--accent, #888));
   background: var(--surface-hover, var(--surface));

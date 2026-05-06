@@ -51,7 +51,8 @@
 }
 
 /* ── Static film grain ──────────────────────────────────────────────────── */
-#story-root::before {
+#story-root::before,
+.story-card[data-story="dead-letters"]::before {
   content: "";
   position: absolute;
   inset: 0;

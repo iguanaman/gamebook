@@ -40,7 +40,8 @@
 }
 
 /* ── Neon grid overlay ──────────────────────────────────────────────────── */
-#story-root::before {
+#story-root::before,
+.story-card[data-story="geometry-dash-takeover"]::before {
   content: "";
   position: absolute;
   inset: 0;
