@@ -6,6 +6,13 @@ if (new URLSearchParams(location.search).has('fresh')) {
 
 const app = document.getElementById('app');
 
+let gamePaused = false;
+const isGamePaused = () => document.hidden || gamePaused;
+function setGamePaused(paused) {
+  gamePaused = paused;
+  document.dispatchEvent(new Event('gamebook-visibility'));
+}
+
 // ── UI hints ─────────────────────────────────────────────────────────────────
 
 const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
@@ -304,14 +311,14 @@ function showIntroSplash(mode, manifest) {
       }
 
       function tick() {
-        if (document.hidden) { document.addEventListener('visibilitychange', onVisible, { once: true }); return; }
+        if (isGamePaused()) { document.addEventListener('visibilitychange', onVisible, { once: true }); document.addEventListener('gamebook-visibility', onVisible, { once: true }); return; }
         const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
         while (pos < text.length && pos < targetChars) { pos++; }
         el.textContent = text.slice(0, pos);
         if (pos >= text.length) { typingDone = true; afterBoth(); return; }
         requestAnimationFrame(tick);
       }
-      function onVisible() { requestAnimationFrame(tick); }
+      function onVisible() { if (!isGamePaused()) requestAnimationFrame(tick); }
       requestAnimationFrame(tick);
 
       if (voice) {
@@ -412,6 +419,7 @@ async function applyCardTheme(storyId) {
 }
 
 function animateCardSelect(storyId) {
+  startMusic(storyId, true, storyMusicVolumes[storyId] ?? 1);
   const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
   setTimeout(() => {
@@ -438,6 +446,7 @@ async function attachCardHandlers(storyId) {
     if (prefixEl && meta.prefix) prefixEl.textContent = meta.prefix + ' — ';
     if (descEl) descEl.textContent = meta.description;
     if (genreEl && meta.genre) genreEl.textContent = meta.genre;
+    if (meta.music_volume != null) storyMusicVolumes[storyId] = meta.music_volume;
   } catch (e) { /* story.yaml missing — skip */ }
 
   applyCardTheme(storyId);
@@ -465,6 +474,7 @@ async function attachCardHandlers(storyId) {
 // ── State ─────────────────────────────────────────────────────────────────────
 
 let currentStoryId = null;
+const storyMusicVolumes = {};
 let currentAct = null;
 let currentActFolder = null;
 let storyMeta = null;
@@ -614,12 +624,13 @@ const ACT_TITLE_PAUSE_MS = 2000;
 let currentAudio = null;
 let playbackSession = 0;
 let musicAudio = null;
+let musicMuted = false;
 
 function startMusic(storyId, isNew, targetVolume = 1) {
   stopMusic();
   const audio = new Audio(`stories/${storyId}/audio/music.opus`);
   audio.loop = true;
-  audio.volume = isNew ? targetVolume : 0;
+  audio.volume = 0;
   musicAudio = audio;
 
   if (!isNew) {
@@ -627,11 +638,19 @@ function startMusic(storyId, isNew, targetVolume = 1) {
       const maxStart = audio.duration * 0.75;
       audio.currentTime = Math.random() * maxStart;
       audio.play().catch(() => {});
-      fadeInMusic(audio, 3000, targetVolume);
+      if (!musicMuted) fadeInMusic(audio, 3000, targetVolume);
     }, { once: true });
   } else {
     audio.play().catch(() => {});
+    if (!musicMuted) fadeInMusic(audio, 3000, targetVolume);
   }
+}
+
+function toggleMusic() {
+  musicMuted = !musicMuted;
+  if (musicAudio) musicAudio.volume = musicMuted ? 0 : (storyMeta?.music_volume ?? 1);
+  const btn = document.getElementById('journal-music-toggle');
+  btn?.classList.toggle('music-muted', musicMuted);
 }
 
 function fadeInMusic(audio, durationMs, targetVolume = 1) {
@@ -677,15 +696,17 @@ function stopAudio() {
   }
 }
 
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
+function onPauseStateChange() {
+  if (isGamePaused()) {
     currentAudio?.pause();
     musicAudio?.pause();
   } else {
     currentAudio?.play().catch(() => {});
     musicAudio?.play().catch(() => {});
   }
-});
+}
+document.addEventListener('visibilitychange', onPauseStateChange);
+document.addEventListener('gamebook-visibility', onPauseStateChange);
 
 function cancelPlayback() {
   playbackSession++;
@@ -889,7 +910,6 @@ async function startStory(storyId) {
     const splashStoryId = currentStoryId;
     showTitleSplash(meta.title, `stories/${currentStoryId}/audio/story_title.opus`, async () => {
       if (currentStoryId !== splashStoryId || !state) return;
-      startMusic(currentStoryId, true, meta.music_volume ?? 1);
       renderShell(meta);
       await navigateTo(startScene);
     }, { isStoryTitle: true });
@@ -1179,6 +1199,7 @@ function typeBlock(block, skip, onDone) {
     if (finished) return;
     finished = true;
     document.removeEventListener('visibilitychange', handleVisibility);
+    document.removeEventListener('gamebook-visibility', handleVisibility);
     skip.finished = true;
     para.innerHTML = fullHtml;
     para.classList.remove('block-typing');
@@ -1192,21 +1213,20 @@ function typeBlock(block, skip, onDone) {
   let pausedAt = null;
 
   function handleVisibility() {
-    if (document.hidden) {
+    if (isGamePaused()) {
       pausedAt = performance.now();
     } else if (pausedAt !== null) {
-      // Shift startTime forward by the duration we were hidden,
-      // so targetChars doesn't jump ahead.
       startTime += performance.now() - pausedAt;
       pausedAt = null;
       if (!finished) requestAnimationFrame(tick);
     }
   }
   document.addEventListener('visibilitychange', handleVisibility);
+  document.addEventListener('gamebook-visibility', handleVisibility);
 
   function tick() {
     if (finished) return;
-    if (document.hidden) return; // wait for visibilitychange to re-enter
+    if (isGamePaused()) return; // wait for gamebook-visibility to re-enter
     if (skip.active) { skip.active = false; finish(); return; }
     if (pos >= fullHtml.length) { finish(); return; }
 
@@ -1480,8 +1500,7 @@ function closeJournal() {
   panel.setAttribute('aria-hidden', 'true');
   toggle?.classList.remove('journal-toggle-open');
   backdrop?.classList.remove('journal-backdrop-open');
-  currentAudio?.play().catch(() => {});
-  musicAudio?.play().catch(() => {});
+  setGamePaused(false);
 }
 
 function toggleJournal() {
@@ -1500,13 +1519,13 @@ function toggleJournal() {
     state.journalSeen = (state.journal ?? []).length;
     saveState();
     renderJournal();
-    currentAudio?.pause();
-    musicAudio?.pause();
+    setGamePaused(true);
   }
 }
 
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
 
+document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
 document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); cancelPlayback(); showSelector(); });
 document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector(); });
