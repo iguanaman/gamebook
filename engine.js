@@ -506,10 +506,34 @@ function renderStoryCard(storyId) {
   `;
 }
 
+const cachedThemeVars = {};
+const themeMissing = new Set();
+
+function applyThemeVarsToCard(storyId, vars) {
+  const card = menuApp.querySelector(`.story-card[data-story="${storyId}"]`);
+  if (!card) return;
+  vars.forEach(([name, value]) => card.style.setProperty(name, value));
+  card.style.color = 'var(--text)';
+  card.style.fontFamily = 'var(--font-body)';
+  card.style.background = 'var(--surface)';
+  card.style.outline = 'none';
+  card.style.border = '3px solid var(--border-outer)';
+  card.style.boxShadow = 'inset 0 0 0 2px var(--border-inner), inset 0 0 0 10px var(--bg), 0 0 0 2px var(--border-outer)';
+  card.style.borderRadius = 'var(--border-corner-radius)';
+  card.style.padding = 'calc(1.5rem + 10px)';
+  const titleEl = card.querySelector('.story-title');
+  if (titleEl) titleEl.style.fontFamily = 'var(--font-heading)';
+}
+
 async function applyCardTheme(storyId) {
+  if (themeMissing.has(storyId)) return;
+  if (cachedThemeVars[storyId]) {
+    applyThemeVarsToCard(storyId, cachedThemeVars[storyId]);
+    return;
+  }
   try {
     const res = await fetch(`stories/${storyId}/theme.css`);
-    if (!res.ok) return;
+    if (!res.ok) { themeMissing.add(storyId); return; }
     const css = await res.text();
 
     // Inject @import font rules (deduped by href)
@@ -537,24 +561,13 @@ async function applyCardTheme(storyId) {
 
     // Pull theme vars from the #story-root block (or legacy :root) and apply them inline to the card
     const themeMatch = css.match(/(?:#story-root|:root|body\.story-active)\s*\{([^}]+)\}/s);
-    if (!themeMatch) return;
-    const vars = [...themeMatch[1].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)];
-    if (!vars.length) return;
+    if (!themeMatch) { themeMissing.add(storyId); return; }
+    const vars = [...themeMatch[1].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)].map(([, name, value]) => [name, value.trim()]);
+    if (!vars.length) { themeMissing.add(storyId); return; }
 
-    const card = menuApp.querySelector(`.story-card[data-story="${storyId}"]`);
-    if (!card) return;
-    vars.forEach(([, name, value]) => card.style.setProperty(name, value.trim()));
-    card.style.color = 'var(--text)';
-    card.style.fontFamily = 'var(--font-body)';
-    card.style.background = 'var(--surface)';
-    card.style.outline = 'none';
-    card.style.border = '3px solid var(--border-outer)';
-    card.style.boxShadow = 'inset 0 0 0 2px var(--border-inner), inset 0 0 0 10px var(--bg), 0 0 0 2px var(--border-outer)';
-    card.style.borderRadius = 'var(--border-corner-radius)';
-    card.style.padding = 'calc(1.5rem + 10px)';
-    const titleEl = card.querySelector('.story-title');
-    if (titleEl) titleEl.style.fontFamily = 'var(--font-heading)';
-  } catch (e) { /* theme.css missing — skip */ }
+    cachedThemeVars[storyId] = vars;
+    applyThemeVarsToCard(storyId, vars);
+  } catch (e) { themeMissing.add(storyId); }
 }
 
 function animateCardSelect(storyId) {
@@ -1133,8 +1146,13 @@ function renderShell(meta) {
   storyApp.querySelector('#btn-undo')?.addEventListener('click', handleUndo);
 }
 
+const cachedScenes = {};
 async function loadScene(storyId, sceneId) {
-  return fetchYaml(`stories/${storyId}/scenes/${sceneId}.yaml`);
+  const key = `${storyId}/${sceneId}`;
+  if (cachedScenes[key]) return cachedScenes[key];
+  const scene = await fetchYaml(`stories/${storyId}/scenes/${sceneId}.yaml`);
+  cachedScenes[key] = scene;
+  return scene;
 }
 
 async function navigateTo(sceneId) {
