@@ -150,27 +150,21 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--bg);
   overflow: hidden;
 }
 
 /* Canvas-based drifting dust. Single fixed-position canvas sized to the
    viewport; particles are managed in engine.js. Hidden via body class in
    story mode and when prefers-reduced-motion is set. */
-#dust-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
+.dust-canvas {
+  position: absolute;
+  inset: calc(var(--frame-inset) + 6px);
   pointer-events: none;
-  z-index: 11;
+  z-index: 0;
   display: block;
-  /* Clip to inside the gold frame so dots don't draw over the border. */
-  clip-path: inset(calc(var(--frame-inset) + 6px));
 }
-body.dust-disabled #dust-canvas { display: none; }
 @media (prefers-reduced-motion: reduce) {
-  #dust-canvas { display: none; }
+  .dust-canvas { display: none; }
 }
 .splash-hidden {
   opacity: 0;
@@ -405,7 +399,6 @@ body.splash-active #journal-toggle { display: none; }
   position: relative;
   min-height: 100dvh;
   padding: calc(var(--frame-inset) + 1.5rem) 1rem;
-  background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;

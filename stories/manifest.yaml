@@ -10,8 +10,8 @@ intro:
   lines:
     - narrator_male_sean_bean: Stories await
     - narrator_male_american_wise_captivating: Each its own world
-    - female_adult_british_enthusiastic_expressive: Adventure into the unknown
-    - narrator_male_american_serious_deep_steady: Choose your path
+    - narrator_male_american_serious_deep_steady: Adventure into the unknown
+    - female_adult_british_enthusiastic_expressive: Choose your path
 
 volume_music: 0.5
 volume_choice_cue: 0.4

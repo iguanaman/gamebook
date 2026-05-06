@@ -71,7 +71,7 @@ function crossfadeTo(mode) {
 // and when prefers-reduced-motion is set.
 
 (function setupDust() {
-  const canvas = document.getElementById('dust-canvas');
+  const canvas = document.querySelector('#menu-root .dust-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d', { alpha: true });
   if (!ctx) return;
@@ -86,13 +86,15 @@ function crossfadeTo(mode) {
 
   function targetPixels() {
     const d = Math.min(window.devicePixelRatio || 1, MAX_DPR);
-    const w = Math.round(window.innerWidth  * d);
-    const h = Math.round(window.innerHeight * d);
-    return { w, h, d, cw: window.innerWidth, ch: window.innerHeight };
+    const rect = canvas.getBoundingClientRect();
+    const cw = Math.round(rect.width);
+    const ch = Math.round(rect.height);
+    return { w: cw * d, h: ch * d, d, cw, ch };
   }
 
   function resize() {
     const t = targetPixels();
+    if (!t.cw || !t.ch) return false;
     if (canvas.width === t.w && canvas.height === t.h) return false;
     canvas.width = t.w;
     canvas.height = t.h;
@@ -128,7 +130,7 @@ function crossfadeTo(mode) {
   // mobile, and listen to window.resize for desktop. Both call resize(), which
   // is a no-op when integer pixel size hasn't changed.
   if (window.ResizeObserver) {
-    new ResizeObserver(() => resize()).observe(document.documentElement);
+    new ResizeObserver(() => resize()).observe(canvas);
   }
   window.addEventListener('resize', resize);
 

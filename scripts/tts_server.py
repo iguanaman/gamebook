@@ -33,7 +33,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import Response
 from pydantic import BaseModel
 
-VOICES_DIR = Path(__file__).parent / "tts_voices"
+VOICES_DIR = Path(__file__).resolve().parent.parent / "tts_voices"
 PORT = 5500
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 _DEFAULT_VOICE = os.environ.get("TTS_DEFAULT_VOICE", "narrator")
