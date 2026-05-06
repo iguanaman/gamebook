@@ -170,7 +170,6 @@ function popInSelector() {
 
 async function showSelector({ defer = false, withCrossfade = false } = {}) {
   if (!selectorMusicPlaying) stopMusic();
-  startSelectorMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
   currentStoryId = null;
   state = null;
@@ -181,6 +180,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   const manifest = await loadManifest();
   if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
   if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
+  startSelectorMusic();
   menuApp.innerHTML = `
     <div class="selector-bg">
       <div class="dust-layer" aria-hidden="true"></div>
@@ -793,10 +793,10 @@ function startSelectorMusic(fromSplash = false) {
   audio.volume = 0;
   musicAudio = audio;
   if (!fromSplash) {
-    audio.addEventListener('loadedmetadata', () => { audio.currentTime = 12; }, { once: true });
+    audio.addEventListener('loadedmetadata', () => { audio.currentTime = 40; }, { once: true });
   }
   audio.play().catch(() => {});
-  fadeInMusic(audio, 10000, selectorMusicVolume);
+  fadeInMusic(audio, 5000, selectorMusicVolume);
 }
 
 function playChoiceCue() {
