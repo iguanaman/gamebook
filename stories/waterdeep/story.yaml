@@ -8,7 +8,7 @@ cover: images/cover.jpg
 start: act1/portal_arrival
 journal: |-
   You walked into the Yawning Portal with road dust on your cloak and the night ahead of you. Daggerford behind, Waterdeep above, and a hole in the floor at the heart of the room going down to gods know where.
-volume_music: 0.3
+volume_music: 0.15
 stats:
   Coin: 5
   Vigor: 8
