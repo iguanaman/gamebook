@@ -229,7 +229,8 @@ function showPreIntroSplash(manifest) {
   });
 
   btn.addEventListener('click', () => {
-    startSelectorMusic();
+    if (manifest.music_volume != null) selectorMusicVolume = manifest.music_volume;
+    startSelectorMusic(true);
     document.body.classList.remove('splash-active');
     overlay.classList.remove('story-splash-visible');
     overlay.classList.add('story-splash-out-slow');
@@ -422,9 +423,12 @@ async function applyCardTheme(storyId) {
 }
 
 function animateCardSelect(storyId) {
+  fadeOutMusic(3000);
   startMusic(storyId, true, storyMusicVolumes[storyId] ?? 1);
   const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
+  const chosen = document.querySelector(`.story-card[data-story="${storyId}"]`);
+  setTimeout(() => { if (chosen) chosen.classList.add('card-fade-out'); }, 150);
   setTimeout(() => {
     const cover = document.createElement('div');
     cover.className = 'screen-fade-cover';
@@ -672,6 +676,22 @@ function fadeInMusic(audio, durationMs, targetVolume = 1) {
   requestAnimationFrame(tick);
 }
 
+function fadeOutMusic(durationMs) {
+  const audio = musicAudio;
+  if (!audio) return;
+  musicAudio = null;
+  selectorMusicPlaying = false;
+  const startVol = audio.volume;
+  const start = performance.now();
+  function tick() {
+    const elapsed = performance.now() - start;
+    audio.volume = Math.max(startVol * (1 - elapsed / durationMs), 0);
+    if (elapsed < durationMs) requestAnimationFrame(tick);
+    else { audio.pause(); audio.src = ''; }
+  }
+  requestAnimationFrame(tick);
+}
+
 let selectorMusicPlaying = false;
 
 function stopMusic() {
@@ -685,15 +705,21 @@ function stopMusic() {
   document.getElementById('journal-music-toggle')?.classList.remove('music-muted');
 }
 
-function startSelectorMusic() {
+function startSelectorMusic(fromSplash = false) {
   if (selectorMusicPlaying) return;
   stopMusic();
   selectorMusicPlaying = true;
   const audio = new Audio('stories/audio/music.opus');
   audio.loop = true;
-  audio.volume = selectorMusicVolume;
+  audio.volume = fromSplash ? selectorMusicVolume : 0;
   musicAudio = audio;
-  audio.play().catch(() => {});
+  if (!fromSplash) {
+    audio.addEventListener('loadedmetadata', () => { audio.currentTime = 12; }, { once: true });
+    audio.play().catch(() => {});
+    fadeInMusic(audio, 10000, selectorMusicVolume);
+  } else {
+    audio.play().catch(() => {});
+  }
 }
 
 function playChoiceCue() {
