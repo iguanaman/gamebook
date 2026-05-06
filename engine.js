@@ -465,17 +465,13 @@ function animateCardSelect(storyId) {
     layer.style.zIndex = '100';
     layer.style.opacity = '0';
     layer.style.background = 'var(--bg)';
-    layer.style.transition = 'opacity 1.2s ease';
+    layer.style.transition = 'opacity 12s ease';
     document.body.appendChild(layer);
     const realApp = document.getElementById('app');
     app = layer;
-    if (realApp) {
-      realApp.style.transition = 'opacity 0.6s ease';
-      realApp.style.opacity = '0';
-    }
     await startStory(storyId);
+    if (realApp) realApp.style.display = 'none';
     requestAnimationFrame(() => { layer.style.opacity = '1'; });
-    setTimeout(() => { if (realApp) realApp.style.display = 'none'; }, 1300);
   }, 300);
 }
 
