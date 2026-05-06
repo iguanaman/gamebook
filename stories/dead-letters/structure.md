@@ -1,4 +1,4 @@
-# Wet Concrete — Structure
+# Dead Letters — Structure
 
 > **Detective's name chosen:** Frank Cady — period-appropriate, slightly worn, nothing heroic.
 > **Betrayal character:** Walt Kellner — old partner from Frank's cop days, now a lieutenant in the city's Organized Crime Unit. He's the one who got Frank pushed out of the force, and Frank never fully put that together. The betrayal lands because Frank trusted him anyway.

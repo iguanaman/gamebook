@@ -1,4 +1,4 @@
-# Wet Concrete — Act 3: The Cost
+# Dead Letters — Act 3: The Cost
 
 ## Journal Entry
 I knew what the city was. I just didn't know it had been watching me the same way I'd been watching it.
