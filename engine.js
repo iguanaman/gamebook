@@ -331,7 +331,7 @@ function renderSelectorContent(manifest) {
     <div class="story-list">
       ${manifest.stories.length === 0
         ? '<p class="no-stories">No stories available yet.</p>'
-        : manifest.stories.map(id => renderStoryCard(id)).join('')}
+        : manifest.stories.map((id, i) => renderStoryCard(id, i === 0)).join('')}
     </div>
     <div class="commission-link-wrap card-pop-pending">
       <button class="commission-link" id="btn-commission">Create your own story</button>
@@ -595,8 +595,9 @@ async function loadStoryMeta(storyId) {
   return meta;
 }
 
-function renderStoryCard(storyId) {
+function renderStoryCard(storyId, isFirst = false) {
   const saved = hasSave(storyId);
+  const showStartHere = isFirst && !saved;
   const meta = cachedStoryMeta[storyId];
   const title = meta?.title ?? 'Loading...';
   const prefix = meta?.prefix ? `${meta.prefix} — ` : '';
@@ -605,6 +606,7 @@ function renderStoryCard(storyId) {
   return `
     <div class="story-card-wrap">
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
+        ${showStartHere ? '<span class="story-start-hint">Start here</span>' : ''}
         <div class="story-info">
           <span class="story-genre" data-story-genre="${storyId}">${genre}</span>
           <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}">${prefix}</span><span data-story-title="${storyId}">${title}</span></h2>
