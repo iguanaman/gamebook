@@ -71,7 +71,7 @@ function crossfadeTo(mode) {
 (function setupDust() {
   const canvas = document.getElementById('dust-canvas');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d', { alpha: true });
+  const ctx = canvas.getContext('2d', { alpha: false });
   if (!ctx) return;
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -119,6 +119,7 @@ function crossfadeTo(mode) {
 
   const menuRootEl = document.getElementById('menu-root');
   const accentColor = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--accent').trim()) || '#4a3728';
+  const bgColor     = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--bg').trim())     || '#f5e7cf';
 
   resize();
 
@@ -139,7 +140,8 @@ function crossfadeTo(mode) {
     const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
     last = now;
 
-    ctx.clearRect(0, 0, cssW, cssH);
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, cssW, cssH);
     ctx.fillStyle = accentColor;
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
