@@ -65,9 +65,9 @@
   z-index: 6;
   background:
     radial-gradient(ellipse at 50% 90%,
-      rgba(176, 31, 151, 0.18) 0%,
-      rgba(13, 154, 184, 0.08) 40%,
-      transparent 70%);
+      rgba(176, 31, 151, 0.08) 0%,
+      rgba(13, 154, 184, 0.03) 40%,
+      transparent 75%);
   mix-blend-mode: screen;
 }
 

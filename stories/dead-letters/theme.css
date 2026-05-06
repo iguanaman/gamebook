@@ -51,34 +51,61 @@
 }
 
 /* ── Film grain overlay ─────────────────────────────────────────────────── */
-#story-root::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 6;
-  opacity: 0.12;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.2 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size: 160px 160px;
-  animation: dl-grain 720ms steps(6) infinite;
-}
-
-@keyframes dl-grain {
-  0%   { background-position: 0 0; }
-  20%  { background-position: -40px 30px; }
-  40%  { background-position: 50px -20px; }
-  60%  { background-position: -25px -45px; }
-  80%  { background-position: 35px 40px; }
-  100% { background-position: 0 0; }
-}
-
-/* Subtle vignette to round out the noir feel */
+/* Standard recipe: oversized noise layer (300%) translated in big random
+   jumps with steps() timing — the jerky cadence is what reads as film grain
+   rather than TV static. Two layers (bright + dark) give tonal variation
+   like real silver-halide grain. */
+#story-root::before,
 #story-root::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
   pointer-events: none;
   z-index: 6;
-  background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.45) 100%);
+  background-repeat: repeat;
+}
+
+#story-root::before {
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation: dl-grain 8s steps(10) infinite;
+}
+
+#story-root::after {
+  opacity: 0.10;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch' seed='3'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.2 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation: dl-grain-b 8s steps(10) infinite;
+}
+
+@keyframes dl-grain {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-12%, -8%); }
+  20%  { transform: translate(15%, 6%); }
+  30%  { transform: translate(-8%, 14%); }
+  40%  { transform: translate(18%, -10%); }
+  50%  { transform: translate(-15%, 8%); }
+  60%  { transform: translate(7%, -16%); }
+  70%  { transform: translate(-18%, -6%); }
+  80%  { transform: translate(12%, 18%); }
+  90%  { transform: translate(-6%, -14%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes dl-grain-b {
+  0%   { transform: translate(0, 0) rotate(90deg); }
+  10%  { transform: translate(14%, -10%) rotate(90deg); }
+  20%  { transform: translate(-9%, 16%) rotate(90deg); }
+  30%  { transform: translate(17%, 4%) rotate(90deg); }
+  40%  { transform: translate(-13%, -7%) rotate(90deg); }
+  50%  { transform: translate(6%, 18%) rotate(90deg); }
+  60%  { transform: translate(-16%, -12%) rotate(90deg); }
+  70%  { transform: translate(11%, 9%) rotate(90deg); }
+  80%  { transform: translate(-8%, -16%) rotate(90deg); }
+  90%  { transform: translate(15%, 13%) rotate(90deg); }
+  100% { transform: translate(0, 0) rotate(90deg); }
 }

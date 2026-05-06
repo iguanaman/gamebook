@@ -169,13 +169,14 @@ button {
   content: "";
   position: absolute;
   top: -10%;
-  left: -50%;
-  width: 300%;
+  left: -25%;
+  width: 200%;
   height: 120%;
   background-repeat: repeat;
   will-change: transform;
 }
 .dust-layer::before {
+  --tile: 720px;
   background-image:
     radial-gradient(circle at  3.7%  11.2%, var(--accent) 1.4px, transparent 2.2px),
     radial-gradient(circle at  9.1%  47.8%, var(--accent) 1.2px, transparent 2px),
@@ -198,11 +199,12 @@ button {
     radial-gradient(circle at 88.6%  93.4%, var(--accent) 1.2px, transparent 2px),
     radial-gradient(circle at 92.9%  35.7%, var(--accent) 1.5px, transparent 2.3px),
     radial-gradient(circle at 96.4%  69.5%, var(--accent) 1.3px, transparent 2.1px);
-  background-size: 720px 720px;
+  background-size: var(--tile) var(--tile);
   opacity: 0.36;
-  animation: dust-drift 60s linear infinite;
+  animation: dust-drift-a 60s linear infinite;
 }
 .dust-layer::after {
+  --tile: 1100px;
   background-image:
     radial-gradient(circle at  6.3%  21.5%, var(--accent) 2.4px, transparent 3.6px),
     radial-gradient(circle at 17.9%  68.2%, var(--accent) 2.2px, transparent 3.4px),
@@ -213,16 +215,20 @@ button {
     radial-gradient(circle at 72.6%  27.4%, var(--accent) 2.4px, transparent 3.6px),
     radial-gradient(circle at 83.1%  76.8%, var(--accent) 2.6px, transparent 3.8px),
     radial-gradient(circle at 93.7%  44.2%, var(--accent) 2.3px, transparent 3.5px);
-  background-size: 1100px 1100px;
+  background-size: var(--tile) var(--tile);
   opacity: 0.20;
-  animation: dust-drift 95s linear infinite;
+  animation: dust-drift-b 95s linear infinite;
   animation-delay: -20s;
 }
 
 
-@keyframes dust-drift {
+@keyframes dust-drift-a {
   from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(33.333%, -2%, 0); }
+  to   { transform: translate3d(720px, -14px, 0); }
+}
+@keyframes dust-drift-b {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(1100px, -22px, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

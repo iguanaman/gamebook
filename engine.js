@@ -1059,7 +1059,7 @@ function applyStoryTheme(storyId) {
     link.id = 'story-theme';
     link.rel = 'stylesheet';
     link.href = `stories/${storyId}/theme.css`;
-    link.addEventListener('load', resolve, { once: true });
+    link.addEventListener('load', () => { syncBodyBgToStory(); resolve(); }, { once: true });
     link.addEventListener('error', resolve, { once: true });
     document.head.appendChild(link);
   });
@@ -1067,6 +1067,14 @@ function applyStoryTheme(storyId) {
 
 function removeStoryTheme() {
   document.getElementById('story-theme')?.remove();
+  document.body.style.background = '';
+}
+
+function syncBodyBgToStory() {
+  const storyRoot = document.getElementById('story-root');
+  if (!storyRoot) return;
+  const bg = getComputedStyle(storyRoot).getPropertyValue('--bg').trim();
+  if (bg) document.body.style.background = bg;
 }
 
 async function startStory(storyId, { withCrossfade = false } = {}) {
