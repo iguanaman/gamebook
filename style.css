@@ -180,18 +180,26 @@ button {
 }
 .dust-layer::before {
   background-image:
-    radial-gradient(circle at 12% 30%, var(--accent) 1.6px, transparent 2.4px),
-    radial-gradient(circle at 70% 65%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 40% 85%, var(--accent) 1.4px, transparent 2.2px);
-  background-size: 220px 180px, 320px 240px, 280px 200px;
+    radial-gradient(circle at 8%  17%, var(--accent) 1.4px, transparent 2.2px),
+    radial-gradient(circle at 23% 71%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 38% 33%, var(--accent) 1.6px, transparent 2.4px),
+    radial-gradient(circle at 51% 88%, var(--accent) 1.1px, transparent 1.9px),
+    radial-gradient(circle at 64% 12%, var(--accent) 1.5px, transparent 2.3px),
+    radial-gradient(circle at 77% 56%, var(--accent) 1.3px, transparent 2.1px),
+    radial-gradient(circle at 89% 41%, var(--accent) 1.4px, transparent 2.2px),
+    radial-gradient(circle at 14% 94%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 95% 79%, var(--accent) 1.5px, transparent 2.3px);
+  background-size: 180px 180px;
   opacity: 0.72;
   animation: dust-drift 60s linear infinite;
 }
 .dust-layer::after {
   background-image:
-    radial-gradient(circle at 25% 50%, var(--accent) 2.6px, transparent 3.8px),
-    radial-gradient(circle at 80% 20%, var(--accent) 2.2px, transparent 3.4px);
-  background-size: 460px 320px, 540px 380px;
+    radial-gradient(circle at 19% 28%, var(--accent) 2.4px, transparent 3.6px),
+    radial-gradient(circle at 47% 62%, var(--accent) 2.2px, transparent 3.4px),
+    radial-gradient(circle at 73% 14%, var(--accent) 2.6px, transparent 3.8px),
+    radial-gradient(circle at 86% 83%, var(--accent) 2.3px, transparent 3.5px);
+  background-size: 320px 320px;
   opacity: 0.40;
   animation: dust-drift 95s linear infinite;
   animation-delay: -20s;
