@@ -183,14 +183,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   startSelectorMusic();
   menuApp.innerHTML = `
     <div class="selector-bg">
-      <div class="dust-layer" aria-hidden="true">
-        <div class="layer dust-a"><div class="spin"></div></div>
-        <div class="layer dust-b"><div class="spin"></div></div>
-      </div>
-      <div class="leaf-layer" aria-hidden="true">
-        <div class="layer leaf-a"><div class="spin"></div></div>
-        <div class="layer leaf-b"><div class="spin"></div></div>
-      </div>
+      <div class="dust-layer" aria-hidden="true"></div>
       <div class="selector">
         <h1 class="selector-title card-pop-pending">Choose Your Story</h1>
         <div class="story-list">
@@ -282,13 +275,7 @@ function makeSplash() {
   const dust = document.createElement('div');
   dust.className = 'dust-layer';
   dust.setAttribute('aria-hidden', 'true');
-  dust.innerHTML = '<div class="layer dust-a"><div class="spin"></div></div><div class="layer dust-b"><div class="spin"></div></div>';
   el.appendChild(dust);
-  const leaves = document.createElement('div');
-  leaves.className = 'leaf-layer';
-  leaves.setAttribute('aria-hidden', 'true');
-  leaves.innerHTML = '<div class="layer leaf-a"><div class="spin"></div></div><div class="layer leaf-b"><div class="spin"></div></div>';
-  el.appendChild(leaves);
   return el;
 }
 
