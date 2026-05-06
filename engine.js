@@ -988,6 +988,7 @@ async function startStory(storyId) {
   storyMeta = meta;
   if (!storyMeta.flags) storyMeta.flags = {};
   await applyStoryTheme(storyId);
+  document.body.style.visibility = '';
 
   const _rawSaved = loadState(storyId);
   if (_rawSaved && !_rawSaved.scene) {
@@ -1704,6 +1705,7 @@ document.addEventListener('keydown', (e) => {
   }
   const last = localStorage.getItem('gamebook.lastStory');
   if (last && hasSave(last) && !sessionStorage.getItem('gamebook.atSelector')) {
+    document.body.style.visibility = 'hidden';
     startStory(last);
   } else {
     showSelector();
