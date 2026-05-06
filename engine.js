@@ -129,8 +129,8 @@ function crossfadeTo(mode) {
   // Use ResizeObserver on documentElement to catch URL-bar dvh changes on
   // mobile, and listen to window.resize for desktop. Both call resize(), which
   // is a no-op when integer pixel size hasn't changed.
-  if (window.ResizeObserver) {
-    new ResizeObserver(() => resize()).observe(canvas);
+  if (window.ResizeObserver && menuRootEl) {
+    new ResizeObserver(() => resize()).observe(menuRootEl);
   }
   window.addEventListener('resize', resize);
 
