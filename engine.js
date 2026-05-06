@@ -457,13 +457,13 @@ function animateCardSelect(storyId) {
   setTimeout(() => {
     const selectorBg = app.querySelector('.selector-bg');
     if (selectorBg) {
-      selectorBg.style.transition = 'opacity 1.2s ease';
+      selectorBg.style.transition = 'opacity 0.6s ease';
       selectorBg.style.opacity = '0';
     }
     setTimeout(() => {
       app.innerHTML = '';
       startStory(storyId);
-    }, 1200);
+    }, 600);
   }, 300);
 }
 
@@ -1011,10 +1011,10 @@ async function startStory(storyId) {
     startMusic(storyId, false, meta.volume_music ?? 1);
     renderShell(meta);
     app.style.opacity = '0';
-    app.style.transition = 'opacity 1.2s ease';
+    app.style.transition = 'opacity 0.6s ease';
     await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
     app.style.opacity = '1';
-    await new Promise(r => setTimeout(r, 1200));
+    await new Promise(r => setTimeout(r, 600));
     app.style.transition = '';
     app.style.opacity = '';
     await navigateTo(startScene);
