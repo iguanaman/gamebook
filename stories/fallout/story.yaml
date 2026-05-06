@@ -3,7 +3,7 @@ genre: Post-Apocalyptic
 prefix: Fallout
 title: Vault 34
 narrator: narrator_male_ron_perlman
-description: You're a security officer in Vault 34. Something is wrong, and the overseer isn't talking.
+description: You're a security officer in Vault 34. Lately, the vault feels different.
 cover: images/cover.jpg
 start: act1/intro
 journal: |-

@@ -3,7 +3,7 @@ genre: Fantasy
 prefix: D&D
 title: One Night in Waterdeep
 narrator: narrator_male_sean_bean
-description: Someone's apprentice went down Undermountain's well two days ago. Nobody's coming back up.
+description: A wizard's apprentice descended into Undermountain two days ago. You've been hired to find them.
 cover: images/cover.jpg
 start: act1/portal_arrival
 journal: |-
