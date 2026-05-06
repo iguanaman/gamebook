@@ -122,8 +122,8 @@ body {
       0deg,
       transparent 0,
       transparent 320px,
-      #2a1408 320px,
-      #2a1408 326px
+      #fff 320px,
+      #fff 326px
     ),
     /* Bevel shadow around each gap — soft dark falloff above & below the
        black line so the plank edges read as recessed / 3D. */
