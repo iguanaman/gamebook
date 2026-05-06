@@ -184,7 +184,7 @@ button {
     radial-gradient(circle at 70% 65%, var(--accent) 0.6px, transparent 1px),
     radial-gradient(circle at 40% 85%, var(--accent) 0.7px, transparent 1.1px);
   background-size: 220px 180px, 320px 240px, 280px 200px;
-  opacity: 0.36;
+  opacity: 0.72;
   animation: dust-drift 60s linear infinite;
 }
 .dust-layer::after {
@@ -192,7 +192,7 @@ button {
     radial-gradient(circle at 25% 50%, var(--accent) 1.4px, transparent 2px),
     radial-gradient(circle at 80% 20%, var(--accent) 1.2px, transparent 1.8px);
   background-size: 460px 320px, 540px 380px;
-  opacity: 0.20;
+  opacity: 0.40;
   animation: dust-drift 95s linear infinite;
   animation-delay: -20s;
 }
