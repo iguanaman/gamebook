@@ -1296,7 +1296,7 @@ function showBlockReveal(block) {
 
 const TYPING_MS_PER_CHAR = 64;
 
-function typeBlock(block, skip, onDone) {
+function typeBlock(block, skip, onDone, session) {
   const para = appendBlockPara(block);
   if (!para) { onDone(); return () => {}; }
 
@@ -1339,6 +1339,12 @@ function typeBlock(block, skip, onDone) {
 
   function tick() {
     if (finished) return;
+    if (session !== undefined && session !== playbackSession) {
+      finished = true;
+      document.removeEventListener('visibilitychange', handleVisibility);
+      document.removeEventListener('gamebook-visibility', handleVisibility);
+      return;
+    }
     if (isGamePaused()) return;
     if (skip.active) { skip.active = false; finish(); return; }
     if (pos >= fullHtml.length) { finish(); return; }
@@ -1411,7 +1417,7 @@ function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
     const block = blocks[index++];
     if (sceneId) saveResume(sceneId, indexOffset + index - 1);
     skip.finished = false;
-    const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); });
+    const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); }, session);
     if (sceneId) {
       stopAudio();
       const audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
