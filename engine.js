@@ -119,6 +119,10 @@ async function showSelector({ defer = false } = {}) {
   startSelectorMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
+  const realApp = document.getElementById('app');
+  const layer = document.getElementById('app-layer');
+  if (layer) { layer.remove(); }
+  if (realApp) { realApp.style.display = ''; app = realApp; }
   currentStoryId = null;
   state = null;
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
@@ -463,10 +467,8 @@ function animateCardSelect(storyId) {
         if (selectorBg) { selectorBg.style.transition = 'opacity 1.2s ease'; selectorBg.style.opacity = '0'; }
         layer.classList.add('story-crossfade-layer-in');
         layer.addEventListener('transitionend', () => {
-          app = realApp;
-          realApp.innerHTML = '';
-          while (layer.firstChild) realApp.appendChild(layer.firstChild);
-          layer.remove();
+          realApp.style.display = 'none';
+          layer.id = 'app-layer';
         }, { once: true });
       }
     });
