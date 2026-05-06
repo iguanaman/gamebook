@@ -1,31 +1,23 @@
 id: act1/vera_call_check
-
 text:
-  - |-
-    The phone rings just after ten. Frank picks up on the second ring.
-  - female_adult_american_grounded_professional: |-
-      Mr. Doyle. I'm glad you're there.
-  - |-
-    Her voice is level. That's the thing about Vera — level is how she sounds when she's decided not to be frightened.
-  - female_adult_american_grounded_professional: |-
-      Someone followed me today. A dark Plymouth, parked across the street for two hours. I didn't go out. I didn't open the blinds after noon.
-  - |-
-    A beat. She breathes.
-  - female_adult_american_grounded_professional: |-
-      I think they were waiting to see if I'd call someone.
-
+- The phone rings just after ten. Frank picks up on the second ring.
+- female_adult_american_grounded_professional: Mr. Doyle. I'm glad you're there.
+- Her voice is level. That's the thing about Vera — level is how she sounds when she's
+  decided not to be frightened.
+- female_adult_american_grounded_professional: Someone followed me today. A dark Plymouth,
+    parked across the street for two hours. I didn't go out. I didn't open the blinds
+    after noon.
+- A beat. She breathes.
+- female_adult_american_grounded_professional: I think they were waiting to see if
+    I'd call someone.
 choices:
-  - text: |-
-      Go to her now — whoever's following her isn't going to wait
-    next: act1/vera_go_immediately
-
-  - text: |-
-      Tell her to sit tight — you'll be there first thing tomorrow, when it's daylight
-    next: act1/vera_wait_morning
-
-  - text: |-
-      Ask her to describe who followed her — the more you know before you go in, the better
-    next: act1/vera_describe_follower
-    effects:
-      stats:
-        evidence: 1
+- text: Go to her now — whoever's following her isn't going to wait
+  next: act1/vera_go_immediately
+- text: Tell her to sit tight — you'll be there first thing tomorrow, when it's daylight
+  next: act1/vera_wait_morning
+- text: Ask her to describe who followed her — the more you know before you go in,
+    the better
+  next: act1/vera_describe_follower
+  effects:
+    stats:
+      evidence: 1

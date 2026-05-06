@@ -1,18 +1,14 @@
 id: act1/aldwick_marta_wait
-
 text:
-  - |-
-    Frank doesn't say anything. He stands in the doorway, hands visible, and waits.
-  - |-
-    Marta looks at him. The silence goes a few seconds past comfortable. Then she steps back.
-  - female_midlife_african-american_casual_opinionated: |-
-      Hector sent me a note this morning. Said someone was asking about Ray. I figured you'd get here eventually.
-  - |-
-    She says it without warmth, but without hostility. She goes to the kitchen table and sits.
-  - female_midlife_african-american_casual_opinionated: |-
-      I've been hoping someone would come. I just wasn't sure anyone would.
-
+- Frank doesn't say anything. He stands in the doorway, hands visible, and waits.
+- Marta looks at him. The silence goes a few seconds past comfortable. Then she steps
+  back.
+- female_midlife_african-american_casual_opinionated: Hector sent me a note this morning.
+    Said someone was asking about Ray. I figured you'd get here eventually.
+- She says it without warmth, but without hostility. She goes to the kitchen table
+  and sits.
+- female_midlife_african-american_casual_opinionated: I've been hoping someone would
+    come. I just wasn't sure anyone would.
 choices:
-  - text: |-
-      Ask about the notebook
-    next: act1/aldwick_marta_ray
+- text: Ask about the notebook
+  next: act1/aldwick_marta_ray

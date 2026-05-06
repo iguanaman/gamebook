@@ -1,28 +1,25 @@
 id: act1/office_intake_warm
-
 text:
-  - |-
-    I push the coffee to one side and give her the desk. The whole desk. She sits like the chair is temporary, which it is.
-  - |-
-    She tells it without embellishment — Ray works city surveying, nine years, no trouble. Last Thursday he left for work and didn't come home. She called his office; they said he hadn't come in. She waited until Friday morning to call the police, because she thought she should be sure first.
-  - female_adult_american_grounded_professional: |-
-      I know how it sounds. A wife waiting twenty-four hours to report her husband missing. They wrote it down very politely.
-  - |-
-    There's a small silence. She doesn't fill it.
-  - female_adult_american_grounded_professional: |-
-      He was distracted the last week or two. Working late, but not at the office — I could tell. He'd sit at the kitchen table with papers and then stop when I came in.
-
+- I push the coffee to one side and give her the desk. The whole desk. She sits like
+  the chair is temporary, which it is.
+- She tells it without embellishment — Ray works city surveying, nine years, no trouble.
+  Last Thursday he left for work and didn't come home. She called his office; they
+  said he hadn't come in. She waited until Friday morning to call the police, because
+  she thought she should be sure first.
+- female_adult_american_grounded_professional: I know how it sounds. A wife waiting
+    twenty-four hours to report her husband missing. They wrote it down very politely.
+- There's a small silence. She doesn't fill it.
+- female_adult_american_grounded_professional: He was distracted the last week or
+    two. Working late, but not at the office — I could tell. He'd sit at the kitchen
+    table with papers and then stop when I came in.
 choices:
-  - text: |-
-      Tell her you'll find Ray — she needs to hear it
-    next: act1/office_accepts_case
-    effects:
-      flags:
-        met_vera: true
-
-  - text: |-
-      Tell her you'll look — no promises
-    next: act1/office_accepts_case
-    effects:
-      flags:
-        met_vera: true
+- text: Tell her you'll find Ray — she needs to hear it
+  next: act1/office_accepts_case
+  effects:
+    flags:
+      met_vera: true
+- text: Tell her you'll look — no promises
+  next: act1/office_accepts_case
+  effects:
+    flags:
+      met_vera: true

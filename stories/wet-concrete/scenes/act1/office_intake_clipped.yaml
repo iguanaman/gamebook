@@ -1,28 +1,24 @@
 id: act1/office_intake_clipped
-
 text:
-  - |-
-    I find a pad and a pen. She gives me the facts in the order I ask for them — last name, husband's full name, employer, date last seen, physical description. She doesn't editorialize. Neither do I.
-  - female_adult_american_grounded_professional: |-
-      Raymond Earl Doss. City surveying department, nine years. He left for work Thursday the seventeenth and didn't come home. He wasn't a drinker and he didn't have debts that I know of.
-  - |-
-    The qualifier at the end — that I know of — is delivered without self-pity. She's already done this math herself.
-  - female_adult_american_grounded_professional: |-
-      He'd been working on something at home. Papers he didn't explain. I didn't ask. I should have asked.
-  - |-
-    She says it like a note she's making to herself, not an appeal for reassurance.
-
+- I find a pad and a pen. She gives me the facts in the order I ask for them — last
+  name, husband's full name, employer, date last seen, physical description. She doesn't
+  editorialize. Neither do I.
+- female_adult_american_grounded_professional: Raymond Earl Doss. City surveying department,
+    nine years. He left for work Thursday the seventeenth and didn't come home. He
+    wasn't a drinker and he didn't have debts that I know of.
+- The qualifier at the end — that I know of — is delivered without self-pity. She's
+  already done this math herself.
+- female_adult_american_grounded_professional: He'd been working on something at home.
+    Papers he didn't explain. I didn't ask. I should have asked.
+- She says it like a note she's making to herself, not an appeal for reassurance.
 choices:
-  - text: |-
-      Get the facts down, name your rate, take the case
-    next: act1/office_accepts_case
-    effects:
-      flags:
-        met_vera: true
-
-  - text: |-
-      Tell her the police are better equipped — test whether she pushes back
-    next: act1/office_accepts_case
-    effects:
-      flags:
-        met_vera: true
+- text: Get the facts down, name your rate, take the case
+  next: act1/office_accepts_case
+  effects:
+    flags:
+      met_vera: true
+- text: Tell her the police are better equipped — test whether she pushes back
+  next: act1/office_accepts_case
+  effects:
+    flags:
+      met_vera: true

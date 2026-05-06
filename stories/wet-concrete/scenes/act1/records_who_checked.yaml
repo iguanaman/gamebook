@@ -1,19 +1,14 @@
 id: act1/records_who_checked
-
 text:
-  - |-
-    The clerk hesitates. Looks at the ledger like he's deciding something.
-  - |-
-    The files were checked out to the office of the city surveying supervisor. Three weeks ago. The return date is blank.
-  - |-
-    Frank thanks him and writes it down. The same supervisor who walked through Peltz's floor and ended the conversation without saying a word.
-  - |-
-    Those files haven't been returned because they're not meant to be.
-
+- The clerk hesitates. Looks at the ledger like he's deciding something.
+- The files were checked out to the office of the city surveying supervisor. Three
+  weeks ago. The return date is blank.
+- Frank thanks him and writes it down. The same supervisor who walked through Peltz's
+  floor and ended the conversation without saying a word.
+- Those files haven't been returned because they're not meant to be.
 choices:
-  - text: |-
-      That's the same supervisor who watched Peltz shut down
-    next: act1/beat3_exit
-    effects:
-      stats:
-        evidence: 1
+- text: That's the same supervisor who watched Peltz shut down
+  next: act1/beat3_exit
+  effects:
+    stats:
+      evidence: 1

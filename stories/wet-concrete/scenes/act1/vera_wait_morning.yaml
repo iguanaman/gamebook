@@ -1,29 +1,23 @@
 id: act1/vera_wait_morning
-
-journal: |-
-  Vera was dead when you arrived. Someone got there first, and they took what she'd found.
-
+journal: Vera was dead when you arrived. Someone got there first, and they took what
+  she'd found.
 text:
-  - |-
-    He gets there at half past seven. The light is already on inside, which is how he knows before he opens the door.
-  - |-
-    Vera is in the living room. The house has been gone through — but carefully, the way professionals go through a house. Drawers closed, cushions replaced. You'd miss it if you didn't know what you were looking at.
-  - |-
-    No file. No notepad. Whatever she found in the house, they took it.
-  - |-
-    He stands in the hallway for a long moment. On the table by the door: a glass of water, half drunk. She'd been awake when they came.
-
+- He gets there at half past seven. The light is already on inside, which is how he
+  knows before he opens the door.
+- Vera is in the living room. The house has been gone through — but carefully, the
+  way professionals go through a house. Drawers closed, cushions replaced. You'd miss
+  it if you didn't know what you were looking at.
+- No file. No notepad. Whatever she found in the house, they took it.
+- 'He stands in the hallway for a long moment. On the table by the door: a glass of
+  water, half drunk. She''d been awake when they came.'
 choices:
-  - text: |-
-      Check the scene — see if they missed anything
-    next: act1/vera_missed_clue
-    effects:
-      flags:
-        vera_dead: true
-
-  - text: |-
-      Get out — the police will be here soon and you don't want to explain yourself
-    next: act1/vera_death_aftermath
-    effects:
-      flags:
-        vera_dead: true
+- text: Check the scene — see if they missed anything
+  next: act1/vera_missed_clue
+  effects:
+    flags:
+      vera_dead: true
+- text: Get out — the police will be here soon and you don't want to explain yourself
+  next: act1/vera_death_aftermath
+  effects:
+    flags:
+      vera_dead: true

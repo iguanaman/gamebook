@@ -1,17 +1,17 @@
 id: act1/aldwick_parcel_check
-
 text:
-  - |-
-    Frank has the permit number. He has the street address. They don't match — not by a typo, by a different parcel entirely.
-  - |-
-    He writes both numbers down and draws a line between them. Then looks up the address on the permit. It's Aldwick land. Reassigned. The title date is recent — within eighteen months. The authorising surveyor's signature at the bottom is Ray Doss.
-  - |-
-    Except Ray didn't sign this. Frank knows what he's looking at. He doesn't know all of what it means yet, but he knows what a forgery looks like. He's read enough of them.
-
+- Frank has the permit number. He has the street address. They don't match — not by
+  a typo, by a different parcel entirely.
+- He writes both numbers down and draws a line between them. Then looks up the address
+  on the permit. It's Aldwick land. Reassigned. The title date is recent — within
+  eighteen months. The authorising surveyor's signature at the bottom is Ray Doss.
+- Except Ray didn't sign this. Frank knows what he's looking at. He doesn't know all
+  of what it means yet, but he knows what a forgery looks like. He's read enough of
+  them.
 choices:
-  - text: |-
-      That's a forgery — Ray's signature on a document reseizing his own community's land
-    next: act1/records_approach
-    effects:
-      stats:
-        evidence: 1
+- text: That's a forgery — Ray's signature on a document reseizing his own community's
+    land
+  next: act1/records_approach
+  effects:
+    stats:
+      evidence: 1

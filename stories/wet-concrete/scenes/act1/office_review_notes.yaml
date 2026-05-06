@@ -1,42 +1,38 @@
 id: act1/office_review_notes
-
 text:
-  - |-
-    Frank puts it on paper. One page, no headers.
-  - |-
-    Ray Doss, city surveyor. Took files home the week before he vanished. Peltz saw it and kept quiet. The supervisor shut down the room without saying a word. The lunch counter — Ray sitting alone, something folded in his breast pocket, a man who came to say goodbye without saying it.
-  - |-
-    Aldwick. Boundaries moving east. Permits with parcel numbers that don't match their addresses. Ray's signature on documents he didn't sign.
-  - |-
-    A records office with the relevant files checked out for three weeks, to the same supervisor who shuts rooms down.
-  - |-
-    Not a missing husband. A missing witness. And Frank is the only person currently looking for him.
-
+- Frank puts it on paper. One page, no headers.
+- Ray Doss, city surveyor. Took files home the week before he vanished. Peltz saw
+  it and kept quiet. The supervisor shut down the room without saying a word. The
+  lunch counter — Ray sitting alone, something folded in his breast pocket, a man
+  who came to say goodbye without saying it.
+- Aldwick. Boundaries moving east. Permits with parcel numbers that don't match their
+  addresses. Ray's signature on documents he didn't sign.
+- A records office with the relevant files checked out for three weeks, to the same
+  supervisor who shuts rooms down.
+- Not a missing husband. A missing witness. And Frank is the only person currently
+  looking for him.
 choices:
-  - text: |-
-      Wait for Vera to call — she may know more than she told you
-    next: act1/vera_call_check
-    requires:
-      flags_unset: [vera_dead]
-    hide_if_failed: true
-
-  - text: |-
-      Go back to Aldwick — Marta Gaines knows more than she said
-    next: act1/aldwick_marta_intro
-    requires:
-      flags: [aldwick_visited]
-    hide_if_failed: true
-
-  - text: |-
-      Go back to the surveying department — there's something in that filing cabinet
-    next: act1/records_room_night
-    requires:
-      flags_unset: [records_room]
-    hide_if_failed: true
-
-  - text: |-
-      There's nothing more to do tonight — let it settle
-    next: act1/vera_call_check
-    requires:
-      flags_unset: [vera_dead]
-    hide_if_failed: true
+- text: Wait for Vera to call — she may know more than she told you
+  next: act1/vera_call_check
+  requires:
+    flags_unset:
+    - vera_dead
+  hide_if_failed: true
+- text: Go back to Aldwick — Marta Gaines knows more than she said
+  next: act1/aldwick_marta_intro
+  requires:
+    flags:
+    - aldwick_visited
+  hide_if_failed: true
+- text: Go back to the surveying department — there's something in that filing cabinet
+  next: act1/records_room_night
+  requires:
+    flags_unset:
+    - records_room
+  hide_if_failed: true
+- text: There's nothing more to do tonight — let it settle
+  next: act1/vera_call_check
+  requires:
+    flags_unset:
+    - vera_dead
+  hide_if_failed: true

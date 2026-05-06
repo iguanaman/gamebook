@@ -1,21 +1,16 @@
 id: act1/peltz_files_hint
-
 text:
-  - |-
-    Peltz glances at the supervisor's door one more time and drops his voice.
-  - male_young_american_weak: |-
-      It wasn't the usual survey maps. Oversized paper, brown folder. I think — the thing is, I think it was boundary documentation. The kind you use when you're re-titling parcels. Not reviewing. Re-titling.
-  - |-
-    He says it like he's been carrying the observation for a while and is relieved to put it down somewhere else.
-
+- Peltz glances at the supervisor's door one more time and drops his voice.
+- male_young_american_weak: It wasn't the usual survey maps. Oversized paper, brown
+    folder. I think — the thing is, I think it was boundary documentation. The kind
+    you use when you're re-titling parcels. Not reviewing. Re-titling.
+- He says it like he's been carrying the observation for a while and is relieved to
+  put it down somewhere else.
 choices:
-  - text: |-
-      Ask if Ray mentioned Aldwick
-    next: act1/peltz_aldwick_name
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      Thank Peltz and go — you have enough
-    next: act1/legwork_hub
+- text: Ask if Ray mentioned Aldwick
+  next: act1/peltz_aldwick_name
+  effects:
+    stats:
+      evidence: 1
+- text: Thank Peltz and go — you have enough
+  next: act1/legwork_hub

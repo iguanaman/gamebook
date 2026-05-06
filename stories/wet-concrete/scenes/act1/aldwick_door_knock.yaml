@@ -1,28 +1,21 @@
 id: act1/aldwick_door_knock
-
 text:
-  - |-
-    The door opens about six inches. A woman — young, pregnant, one hand still on the latch — looks at Frank the way she's learned to look at men who knock on doors in this neighbourhood.
-  - |-
-    She doesn't say anything. Neither does he, for a moment. The survey crews are audible one street over.
-
+- The door opens about six inches. A woman — young, pregnant, one hand still on the
+  latch — looks at Frank the way she's learned to look at men who knock on doors in
+  this neighbourhood.
+- She doesn't say anything. Neither does he, for a moment. The survey crews are audible
+  one street over.
 choices:
-  - text: |-
-      Tell her you're not city — you're looking for someone who may have been hurt
-    next: act1/aldwick_door_sympathy
-
-  - text: |-
-      Show your licence — private detective, not city
-    next: act1/aldwick_door_licence
-    requires:
-      stats:
-        rep: 4
-    failed_text: |-
-      *(She'd see the licence as city-adjacent. She'd close the door.)*
-    effects:
-      stats:
-        rep: 1
-
-  - text: |-
-      Back off — she doesn't want to talk and you don't want to make it worse
-    next: act1/aldwick_parcel_check
+- text: Tell her you're not city — you're looking for someone who may have been hurt
+  next: act1/aldwick_door_sympathy
+- text: Show your licence — private detective, not city
+  next: act1/aldwick_door_licence
+  requires:
+    stats:
+      rep: 4
+  failed_text: '*(She''d see the licence as city-adjacent. She''d close the door.)*'
+  effects:
+    stats:
+      rep: 1
+- text: Back off — she doesn't want to talk and you don't want to make it worse
+  next: act1/aldwick_parcel_check

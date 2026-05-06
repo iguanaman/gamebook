@@ -1,37 +1,32 @@
 id: act1/office_hub_act1
-
 text:
-  - |-
-    Frank's office. The desk, the ashtray, the window that faces the alley. The phone hasn't rung.
-  - if: {flags: [aldwick_visited]}
-    text: |-
-      His notes from Aldwick are spread across the desk — parcel numbers, Hector's careful words, whatever Marta told him. The shape of it is there. It wants more.
-  - if: visited
-    text: |-
-      He's been back here enough tonight that the coffee is cold.
-
+- Frank's office. The desk, the ashtray, the window that faces the alley. The phone
+  hasn't rung.
+- if:
+    flags:
+    - aldwick_visited
+  text: His notes from Aldwick are spread across the desk — parcel numbers, Hector's
+    careful words, whatever Marta told him. The shape of it is there. It wants more.
+- if: visited
+  text: He's been back here enough tonight that the coffee is cold.
 choices:
-  - text: |-
-      Check the phone — see if Vera called
-    next: act1/vera_call_check
-    requires:
-      flags_unset: [vera_dead]
-    hide_if_failed: true
-
-  - text: |-
-      Lay out what you have — parcel numbers, names, Aldwick
-    next: act1/office_review_notes
-
-  - text: |-
-      Go back to Aldwick — there's more to learn there
-    next: act1/aldwick_arrival
-    requires:
-      flags: [aldwick_visited]
-    hide_if_failed: true
-
-  - text: |-
-      It's late enough — the phone rings when it rings
-    next: act1/vera_call_check
-    requires:
-      flags_unset: [vera_dead]
-    hide_if_failed: true
+- text: Check the phone — see if Vera called
+  next: act1/vera_call_check
+  requires:
+    flags_unset:
+    - vera_dead
+  hide_if_failed: true
+- text: Lay out what you have — parcel numbers, names, Aldwick
+  next: act1/office_review_notes
+- text: Go back to Aldwick — there's more to learn there
+  next: act1/aldwick_arrival
+  requires:
+    flags:
+    - aldwick_visited
+  hide_if_failed: true
+- text: It's late enough — the phone rings when it rings
+  next: act1/vera_call_check
+  requires:
+    flags_unset:
+    - vera_dead
+  hide_if_failed: true

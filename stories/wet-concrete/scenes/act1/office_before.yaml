@@ -1,23 +1,20 @@
 id: act1/office_before
-
 text:
-  - |-
-    The office smells like yesterday's coffee and the kind of quiet that follows a phone that stopped ringing. Three unpaid bills face down on the desk — I stopped turning them over last Tuesday. Outside, Harmon City is doing what it does in the late afternoon: making noise that sounds like progress.
-  - |-
-    The door opens without a knock. She's in her late thirties, dark coat one size too large, hands folded in her lap before she's even sat down. Composed the way people are when they've decided not to cry in front of a stranger.
-  - female_adult_american_grounded_professional: |-
-      My name is Vera Doss. My husband Ray has been missing four days. I called the police. They wrote a report.
-  - |-
-    She doesn't say what happened after the report. She doesn't need to.
-
+- 'The office smells like yesterday''s coffee and the kind of quiet that follows a
+  phone that stopped ringing. Three unpaid bills face down on the desk — I stopped
+  turning them over last Tuesday. Outside, Harmon City is doing what it does in the
+  late afternoon: making noise that sounds like progress.'
+- The door opens without a knock. She's in her late thirties, dark coat one size too
+  large, hands folded in her lap before she's even sat down. Composed the way people
+  are when they've decided not to cry in front of a stranger.
+- female_adult_american_grounded_professional: My name is Vera Doss. My husband Ray
+    has been missing four days. I called the police. They wrote a report.
+- She doesn't say what happened after the report. She doesn't need to.
 choices:
-  - text: |-
-      Take her in — she's holding herself together by a thread
-    next: act1/office_intake_warm
-    effects:
-      stats:
-        rep: 1
-
-  - text: |-
-      Hear her out without comment — keep it professional
-    next: act1/office_intake_clipped
+- text: Take her in — she's holding herself together by a thread
+  next: act1/office_intake_warm
+  effects:
+    stats:
+      rep: 1
+- text: Hear her out without comment — keep it professional
+  next: act1/office_intake_clipped

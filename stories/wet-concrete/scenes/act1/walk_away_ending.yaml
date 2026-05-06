@@ -1,20 +1,15 @@
 id: act1/walk_away_ending
-
 text:
-  - |-
-    He takes his name off the case in his own head. It's not a ceremony. It's just a decision, the way you decide to stop carrying something.
-  - |-
-    Vera is dead. Ray is probably dead. The police will find a cause of death that satisfies a report. The men who moved those boundaries will keep moving them. The city will keep smiling.
-  - |-
-    Frank pours himself a drink and tries to remember how to not think about it.
-  - |-
-    He can't.
-
+- He takes his name off the case in his own head. It's not a ceremony. It's just a
+  decision, the way you decide to stop carrying something.
+- Vera is dead. Ray is probably dead. The police will find a cause of death that satisfies
+  a report. The men who moved those boundaries will keep moving them. The city will
+  keep smiling.
+- Frank pours himself a drink and tries to remember how to not think about it.
+- He can't.
 choices:
-  - text: |-
-      Leave town — there's nothing left in Harmon City for a man who knows too much and not enough
-    next: act1/ending_bury_early
-
-  - text: |-
-      Stay, but stay out of it — you know what you know. Keep it.
-    next: act1/ending_bury_early
+- text: Leave town — there's nothing left in Harmon City for a man who knows too much
+    and not enough
+  next: act1/ending_bury_early
+- text: Stay, but stay out of it — you know what you know. Keep it.
+  next: act1/ending_bury_early

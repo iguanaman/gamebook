@@ -1,16 +1,12 @@
 id: act1/peltz_aldwick_name
-
 text:
-  - |-
-    The word lands wrong on Peltz. Not like he doesn't know it — like he knows it too well. His hand is back at his collar.
-  - male_young_american_weak: |-
-      I — I don't — look, I really can't —
-  - |-
-    He doesn't finish the sentence. He turns back to his desk, picks up a pen, and writes nothing. The conversation is over. He's told me with his silence what he won't say with his mouth.
-  - |-
-    I have a direction. Aldwick. That's enough.
-
+- The word lands wrong on Peltz. Not like he doesn't know it — like he knows it too
+  well. His hand is back at his collar.
+- male_young_american_weak: I — I don't — look, I really can't —
+- He doesn't finish the sentence. He turns back to his desk, picks up a pen, and writes
+  nothing. The conversation is over. He's told me with his silence what he won't say
+  with his mouth.
+- I have a direction. Aldwick. That's enough.
 choices:
-  - text: |-
-      Leave — Peltz has given everything he's going to give
-    next: act1/legwork_hub
+- text: Leave — Peltz has given everything he's going to give
+  next: act1/legwork_hub

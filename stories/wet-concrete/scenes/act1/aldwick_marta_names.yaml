@@ -1,21 +1,19 @@
 id: act1/aldwick_marta_names
-
 text:
-  - female_midlife_african-american_casual_opinionated: |-
-      I don't know who's at the top of it. But I know the city contracts for the new survey work all went through the same company — Harmon Land Assessment. No storefront. I looked.
-  - |-
-    She opens the notebook to a page near the back. Two names circled.
-  - female_midlife_african-american_casual_opinionated: |-
-      Every permit revision in the past eighteen months has a deputy's signature on it. Deputy in the mayor's office. Name is Aldous Vane. I've seen it on enough paper that I stopped being surprised by it.
-  - |-
-    She closes the notebook and sets it on top of the stack.
-  - female_midlife_african-american_casual_opinionated: |-
-      Ray saw the same name. That was when he stopped writing things down at the office.
-
+- female_midlife_african-american_casual_opinionated: I don't know who's at the top
+    of it. But I know the city contracts for the new survey work all went through
+    the same company — Harmon Land Assessment. No storefront. I looked.
+- She opens the notebook to a page near the back. Two names circled.
+- female_midlife_african-american_casual_opinionated: Every permit revision in the
+    past eighteen months has a deputy's signature on it. Deputy in the mayor's office.
+    Name is Aldous Vane. I've seen it on enough paper that I stopped being surprised
+    by it.
+- She closes the notebook and sets it on top of the stack.
+- female_midlife_african-american_casual_opinionated: Ray saw the same name. That
+    was when he stopped writing things down at the office.
 choices:
-  - text: |-
-      Note the name — that's a thread for later
-    next: act1/beat3_exit
-    effects:
-      stats:
-        evidence: 1
+- text: Note the name — that's a thread for later
+  next: act1/beat3_exit
+  effects:
+    stats:
+      evidence: 1

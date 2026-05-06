@@ -1,21 +1,18 @@
 id: act1/peltz_watched
-
 text:
-  - |-
-    I don't ask anything. I stand near the counter and watch. After about four minutes, a man in a grey suit comes through from the back — the supervisor's door, not a side entrance. He doesn't look at Peltz. Peltz looks at him the way a man looks at a thing he's trying not to look at.
-  - |-
-    The supervisor walks to the window, checks something on the sill, and walks back. The whole performance takes thirty seconds. Peltz's hand comes off the filing cabinet he'd been leaning against only after the door closes.
-  - |-
-    Second cabinet from the left. City-standard lock.
-
+- I don't ask anything. I stand near the counter and watch. After about four minutes,
+  a man in a grey suit comes through from the back — the supervisor's door, not a
+  side entrance. He doesn't look at Peltz. Peltz looks at him the way a man looks
+  at a thing he's trying not to look at.
+- The supervisor walks to the window, checks something on the sill, and walks back.
+  The whole performance takes thirty seconds. Peltz's hand comes off the filing cabinet
+  he'd been leaning against only after the door closes.
+- Second cabinet from the left. City-standard lock.
 choices:
-  - text: |-
-      Note the cabinet number and come back after hours
-    next: act1/legwork_hub
-
-  - text: |-
-      Follow the supervisor out — see where he goes
-    next: act1/supervisor_follow
-    effects:
-      stats:
-        heat: 1
+- text: Note the cabinet number and come back after hours
+  next: act1/legwork_hub
+- text: Follow the supervisor out — see where he goes
+  next: act1/supervisor_follow
+  effects:
+    stats:
+      heat: 1

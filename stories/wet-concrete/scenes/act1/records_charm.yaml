@@ -1,20 +1,16 @@
 id: act1/records_charm
-
 text:
-  - |-
-    Frank tells the clerk he's been sent around on the same filing cabinet four times already today, and he suspects the city keeps duplicates of everything as a matter of policy, which seems prudent given the rate at which originals seem to go missing.
-  - |-
-    The clerk almost smiles.
-  - |-
-    There's a pre-war parcels ledger in the back — the original boundary documentation, before the revision system was modernised. It doesn't have the recent corrections. What it has is the original lines.
-  - |-
-    The clerk sets it on the counter and goes back to his desk.
-
+- Frank tells the clerk he's been sent around on the same filing cabinet four times
+  already today, and he suspects the city keeps duplicates of everything as a matter
+  of policy, which seems prudent given the rate at which originals seem to go missing.
+- The clerk almost smiles.
+- There's a pre-war parcels ledger in the back — the original boundary documentation,
+  before the revision system was modernised. It doesn't have the recent corrections.
+  What it has is the original lines.
+- The clerk sets it on the counter and goes back to his desk.
 choices:
-  - text: |-
-      Compare them — if the corrections are forgeries, the originals prove it
-    next: act1/records_compare
-
-  - text: |-
-      Take a note of the ledger's location — useful later, maybe under different circumstances
-    next: act1/beat3_exit
+- text: Compare them — if the corrections are forgeries, the originals prove it
+  next: act1/records_compare
+- text: Take a note of the ledger's location — useful later, maybe under different
+    circumstances
+  next: act1/beat3_exit

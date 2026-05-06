@@ -1,28 +1,23 @@
 id: act1/vera_describe_follower
-
 text:
-  - female_adult_american_grounded_professional: |-
-      Dark Plymouth, two-door, 1949 or 1950. I wrote the plates down. Do you want them?
-  - |-
-    She reads them off before he answers. Six digits. She's been sitting by the phone with a notepad.
-  - female_adult_american_grounded_professional: |-
-      He was there from half past two until nearly five. Then he drove away. Not quickly. Like he had somewhere else to be.
-  - |-
-    There's nothing frightened in how she delivers this. The fear is underneath — the composure is doing all the work.
-  - female_adult_american_grounded_professional: |-
-      Mr. Doyle. I found something in the house. Something Ray left. I think you should see it.
-
+- female_adult_american_grounded_professional: Dark Plymouth, two-door, 1949 or 1950.
+    I wrote the plates down. Do you want them?
+- She reads them off before he answers. Six digits. She's been sitting by the phone
+  with a notepad.
+- female_adult_american_grounded_professional: He was there from half past two until
+    nearly five. Then he drove away. Not quickly. Like he had somewhere else to be.
+- There's nothing frightened in how she delivers this. The fear is underneath — the
+  composure is doing all the work.
+- female_adult_american_grounded_professional: Mr. Doyle. I found something in the
+    house. Something Ray left. I think you should see it.
 choices:
-  - text: |-
-      Get the plates and go to her now
-    next: act1/vera_go_immediately
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      Get the plates and tell her you'll be there in the morning
-    next: act1/vera_wait_morning
-    effects:
-      stats:
-        evidence: 1
+- text: Get the plates and go to her now
+  next: act1/vera_go_immediately
+  effects:
+    stats:
+      evidence: 1
+- text: Get the plates and tell her you'll be there in the morning
+  next: act1/vera_wait_morning
+  effects:
+    stats:
+      evidence: 1

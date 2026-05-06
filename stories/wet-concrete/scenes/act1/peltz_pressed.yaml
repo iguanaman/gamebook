@@ -1,23 +1,18 @@
 id: act1/peltz_pressed
-
 text:
-  - |-
-    I ask him straight: what did Ray take home? Peltz goes the colour of old office paper. His mouth opens and nothing comes out. The blink rate doubles.
-  - male_young_american_weak: |-
-      I — I don't — that's not something I — you'd have to talk to the —
-  - |-
-    He stops. Looks past me again. Someone from the back office is watching. A man in a grey suit, standing very still near the supervisor's door. He's been there long enough that the stillness is the point.
-  - |-
-    Peltz turns back to his desk and does not look up again.
-
+- 'I ask him straight: what did Ray take home? Peltz goes the colour of old office
+  paper. His mouth opens and nothing comes out. The blink rate doubles.'
+- male_young_american_weak: I — I don't — that's not something I — you'd have to talk
+    to the —
+- He stops. Looks past me again. Someone from the back office is watching. A man in
+  a grey suit, standing very still near the supervisor's door. He's been there long
+  enough that the stillness is the point.
+- Peltz turns back to his desk and does not look up again.
 choices:
-  - text: |-
-      Leave — you've already made a mark being here
-    next: act1/legwork_hub
-
-  - text: |-
-      Double down — someone has to know something
-    next: act1/peltz_double_down
-    effects:
-      stats:
-        heat: 1
+- text: Leave — you've already made a mark being here
+  next: act1/legwork_hub
+- text: Double down — someone has to know something
+  next: act1/peltz_double_down
+  effects:
+    stats:
+      heat: 1
