@@ -10,8 +10,8 @@ journal: |-
 volume_music: 0.3
 effects:
   rain:
-    interval: 280
-    jitter: 220
+    interval: 1120
+    jitter: 880
 stats:
   evidence: 0
   heat: 0
