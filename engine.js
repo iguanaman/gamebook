@@ -1016,7 +1016,43 @@ function cancelPlayback({ fadeMs = 0 } = {}) {
 function returnToSelector() {
   fadeOutAudio(2000);
   hideSkipHint();
+  stopRain();
   showSelector({ withCrossfade: true });
+}
+
+// ── Rain effect ────────────────────────────────────────────────────────────
+let rainTimer = null;
+let rainLayer = null;
+
+function startRain(opts = {}) {
+  stopRain();
+  const { interval = 280, jitter = 220 } = opts;
+  rainLayer = document.createElement('div');
+  rainLayer.className = 'rain-layer';
+  storyRoot.appendChild(rainLayer);
+  const spawn = () => {
+    spawnRaindrop(rainLayer);
+    rainTimer = setTimeout(spawn, interval + Math.random() * jitter);
+  };
+  spawn();
+}
+
+function stopRain() {
+  if (rainTimer) { clearTimeout(rainTimer); rainTimer = null; }
+  if (rainLayer) { rainLayer.remove(); rainLayer = null; }
+}
+
+function spawnRaindrop(layer) {
+  const drop = document.createElement('span');
+  drop.className = 'raindrop';
+  drop.style.left = Math.random() * 100 + '%';
+  const duration = 380 + Math.random() * 240;
+  drop.style.animationDuration = duration + 'ms';
+  const len = 6 + Math.random() * 6;
+  drop.style.height = len + 'px';
+  drop.style.opacity = (0.35 + Math.random() * 0.35).toFixed(2);
+  drop.addEventListener('animationend', () => drop.remove(), { once: true });
+  layer.appendChild(drop);
 }
 
 function blockAudioUrl(sceneId, rawIndex, branch) {
@@ -1196,6 +1232,8 @@ async function startStory(storyId, { withCrossfade = false } = {}) {
   storyMeta = meta;
   if (!storyMeta.flags) storyMeta.flags = {};
   await applyStoryTheme(storyId);
+  stopRain();
+  if (meta.effects?.rain) startRain(typeof meta.effects.rain === 'object' ? meta.effects.rain : {});
 
   const _rawSaved = loadState(storyId);
   if (_rawSaved && !_rawSaved.scene) {
