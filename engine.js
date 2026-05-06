@@ -605,8 +605,8 @@ function renderStoryCard(storyId, isFirst = false) {
   const genre = meta?.genre ?? '';
   return `
     <div class="story-card-wrap">
+      ${showStartHere ? '<span class="story-start-hint" aria-hidden="true">Start here <span class="story-start-hint-arrow">&rarr;</span></span>' : ''}
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
-        ${showStartHere ? '<span class="story-start-hint">Start here</span>' : ''}
         <div class="story-info">
           <span class="story-genre" data-story-genre="${storyId}">${genre}</span>
           <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}">${prefix}</span><span data-story-title="${storyId}">${title}</span></h2>
@@ -687,6 +687,7 @@ function animateCardSelect(storyId) {
   startMusic(storyId, true, storyMusicVolumes[storyId] ?? 1);
   const others = menuApp.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
+  menuApp.querySelectorAll('.story-start-hint').forEach(h => h.classList.add('card-fade-out'));
   setTimeout(() => {
     startStory(storyId, { withCrossfade: true });
   }, 300);
