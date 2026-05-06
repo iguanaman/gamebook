@@ -78,7 +78,7 @@ function crossfadeTo(mode) {
   if (reduced) return; // CSS hides it; don't bother running the loop.
 
   const DENSITY = 0.00010;   // particles per CSS pixel of viewport area
-  const MAX_DPR = 1;
+  const MAX_DPR = 0.5;
   const FRAME_MS = 1000 / 24; // throttle to ~24fps
   let particles = [];
   let cssW = 0, cssH = 0, dpr = 1;
