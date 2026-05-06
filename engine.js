@@ -457,13 +457,19 @@ function animateCardSelect(storyId) {
   setTimeout(() => {
     const selectorBg = app.querySelector('.selector-bg');
     if (selectorBg) {
-      selectorBg.style.transition = 'opacity 0.6s ease';
-      selectorBg.style.opacity = '0';
+      const ghost = selectorBg.cloneNode(true);
+      ghost.style.position = 'fixed';
+      ghost.style.inset = '0';
+      ghost.style.zIndex = '250';
+      ghost.style.pointerEvents = 'none';
+      ghost.style.transition = 'opacity 0.6s ease';
+      ghost.style.opacity = '1';
+      document.body.appendChild(ghost);
+      requestAnimationFrame(() => { ghost.style.opacity = '0'; });
+      setTimeout(() => ghost.remove(), 600);
     }
-    setTimeout(() => {
-      app.innerHTML = '';
-      startStory(storyId);
-    }, 600);
+    app.innerHTML = '';
+    startStory(storyId);
   }, 300);
 }
 
