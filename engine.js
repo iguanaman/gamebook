@@ -62,35 +62,116 @@ function crossfadeTo(mode) {
 
 // ── Dust particles ────────────────────────────────────────────────────────────
 //
-// ~80 individual <span class="dust-dot"> elements inside #menu-root, each given
-// random size, vertical position, opacity, drift duration, and start delay via
-// CSS custom properties. A single shared CSS keyframe translates each dot
-// horizontally across the viewport. No JS RAF loop, no canvas pixel writes —
-// just compositor-only transforms.
+// Single fixed-position canvas behind chrome, sized to the viewport. We resize
+// only when the integer device-pixel size actually changes (drift-proof) and
+// cap DPR at 2 to keep the texture small. ~80 dots are drawn per frame; a single
+// RAF loop runs while the canvas is visible. CSS hides the canvas in story mode
+// and when prefers-reduced-motion is set.
 
 (function setupDust() {
-  const host = document.getElementById('dust-host');
-  if (!host) return;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) return;
+  const canvas = document.getElementById('dust-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d', { alpha: false });
+  if (!ctx) return;
 
-  const COUNT = 80;
-  const frag = document.createDocumentFragment();
-  for (let i = 0; i < COUNT; i++) {
-    const big = Math.random() < 0.18;
-    const dot = document.createElement('span');
-    dot.className = 'dust-dot';
-    const yPct  = Math.random() * 100;            // vertical start
-    const size  = big ? 2.4 + Math.random() * 1.2 : 1.4 + Math.random() * 0.8; // px
-    const alpha = big ? 0.20 + Math.random() * 0.10 : 0.30 + Math.random() * 0.15;
-    const dur   = big ? 60 + Math.random() * 40 : 30 + Math.random() * 30; // seconds
-    const delay = -Math.random() * dur;            // negative so they're already in flight
-    dot.style.cssText =
-      `--y:${yPct}%;--size:${size}px;--alpha:${alpha};` +
-      `animation-duration:${dur}s;animation-delay:${delay}s;`;
-    frag.appendChild(dot);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return; // CSS hides it; don't bother running the loop.
+
+  const DENSITY = 0.00010;   // particles per CSS pixel of viewport area
+  const MAX_DPR = 1;
+  const FRAME_MS = 1000 / 24; // throttle to ~24fps
+  let particles = [];
+  let cssW = 0, cssH = 0, dpr = 1;
+
+  function targetPixels() {
+    const d = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+    const inset = parseFloat(getComputedStyle(document.body).getPropertyValue('--frame-inset')) || 8;
+    const cw = Math.max(0, window.innerWidth  - (inset + 6) * 2);
+    const ch = Math.max(0, window.innerHeight - (inset + 6) * 2);
+    const w = Math.round(cw * d);
+    const h = Math.round(ch * d);
+    return { w, h, d, cw, ch };
   }
-  host.appendChild(frag);
+
+  const menuRootEl = document.getElementById('menu-root');
+  const accentColor = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--accent').trim()) || '#4a3728';
+  const bgColor     = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--bg').trim())     || '#f5e7cf';
+
+  function resize() {
+    const t = targetPixels();
+    if (canvas.width === t.w && canvas.height === t.h) return false;
+    canvas.width = t.w;
+    canvas.height = t.h;
+    cssW = t.cw;
+    cssH = t.ch;
+    dpr  = t.d;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Immediately repaint bg so the freshly-allocated transparent buffer doesn't flash black.
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, cssW, cssH);
+    // Resample particle count to viewport area, preserving existing positions.
+    const desired = Math.max(20, Math.floor(cssW * cssH * DENSITY));
+    while (particles.length < desired) particles.push(spawn(true));
+    if (particles.length > desired) particles.length = desired;
+    return true;
+  }
+
+  let resizeTimer = 0;
+  function scheduleResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 120);
+  }
+
+  function spawn(initial) {
+    const big = Math.random() < 0.18;
+    return {
+      x: initial ? Math.random() * cssW : -4,
+      y: Math.random() * cssH,
+      vx: (big ? 12 : 20) + Math.random() * 18,
+      vy: -2 - Math.random() * 4,
+      r: big ? 1.8 + Math.random() * 0.6 : 0.8 + Math.random() * 0.6,
+      a: big ? 0.20 + Math.random() * 0.10 : 0.30 + Math.random() * 0.15,
+    };
+  }
+
+  resize();
+
+  // Debounce resize so dragging the window doesn't re-allocate the canvas (and
+  // flash black) every fire. ResizeObserver also catches mobile URL-bar dvh.
+  if (window.ResizeObserver) {
+    new ResizeObserver(scheduleResize).observe(document.documentElement);
+  }
+  window.addEventListener('resize', scheduleResize);
+
+  let last = 0;
+  let lastDraw = 0;
+  function frame(now) {
+    requestAnimationFrame(frame);
+    if (document.hidden) { last = 0; lastDraw = 0; return; }
+    if (menuRootEl && menuRootEl.classList.contains('mode-hidden')) { last = 0; lastDraw = 0; return; }
+    if (lastDraw && now - lastDraw < FRAME_MS) return;
+
+    const dt = last ? Math.min(0.1, (now - last) / 1000) : 0;
+    last = now;
+    lastDraw = now;
+
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, cssW, cssH);
+    ctx.fillStyle = accentColor;
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      if (p.x - p.r > cssW) { p.x = -p.r; p.y = Math.random() * cssH; }
+      if (p.y + p.r < 0) { p.y = cssH + p.r; }
+      ctx.globalAlpha = p.a;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  requestAnimationFrame(frame);
 })();
 
 

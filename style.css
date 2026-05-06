@@ -157,10 +157,10 @@ button {
 /* Story-mode splashes still need an opaque bg since there's no dust canvas behind them. */
 #story-root .splash { background: var(--bg); }
 
-/* DOM-element drifting dust. Each .dust-dot is a small absolutely-positioned
-   span with its own CSS animation translating it across the viewport. The host
-   container clips dots inside the gold frame. */
-#dust-host {
+/* Canvas-based drifting dust. Single fixed-position canvas sized to the
+   viewport; particles are managed in engine.js. Hidden via body class in
+   story mode and when prefers-reduced-motion is set. */
+#dust-canvas {
   position: absolute;
   top: calc(var(--frame-inset) + 6px);
   left: calc(var(--frame-inset) + 6px);
@@ -168,28 +168,10 @@ button {
   height: calc(100% - (var(--frame-inset) + 6px) * 2);
   pointer-events: none;
   z-index: 1;
-  overflow: hidden;
-}
-.dust-dot {
-  position: absolute;
-  top: var(--y);
-  left: 0;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  background: var(--accent);
-  opacity: var(--alpha);
-  will-change: transform;
-  animation-name: dust-drift;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-@keyframes dust-drift {
-  from { transform: translate3d(-10px, 0, 0); }
-  to   { transform: translate3d(calc(100vw + 10px), -8px, 0); }
+  display: block;
 }
 @media (prefers-reduced-motion: reduce) {
-  #dust-host { display: none; }
+  #dust-canvas { display: none; }
 }
 .splash-hidden {
   opacity: 0;
