@@ -169,7 +169,7 @@ function popInSelector() {
 }
 
 async function showSelector({ defer = false, withCrossfade = false } = {}) {
-  if (!selectorMusicPlaying) stopMusic();
+  if (!selectorMusicPlaying) fadeOutMusic(3000);
   sessionStorage.setItem('gamebook.atSelector', '1');
   currentStoryId = null;
   state = null;
@@ -197,7 +197,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
       </div>
     </div>
   `;
-  manifest.stories.forEach(id => attachCardHandlers(id));
+  const handlersReady = Promise.all(manifest.stories.map(id => attachCardHandlers(id)));
   menuApp.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
   document.getElementById('btn-commission')?.addEventListener('click', showCommission);
   if (withCrossfade) {
@@ -207,7 +207,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   }
   storyApp.innerHTML = '';
   removeStoryTheme();
-  if (!defer) requestAnimationFrame(popInSelector);
+  if (!defer) handlersReady.then(() => requestAnimationFrame(popInSelector));
 }
 
 function showCommission() {
@@ -549,7 +549,7 @@ async function attachCardHandlers(storyId) {
     if (meta.volume_music != null) storyMusicVolumes[storyId] = meta.volume_music;
   } catch (e) { /* story.yaml missing — skip */ }
 
-  applyCardTheme(storyId);
+  await applyCardTheme(storyId);
 
   const card = menuApp.querySelector(`.story-card[data-story="${storyId}"]`);
   if (card) {
@@ -821,6 +821,21 @@ function stopAudio() {
     audio.src = '';
     audio.load();
   }
+}
+
+function fadeOutAudio(durationMs) {
+  if (!currentAudio) return;
+  const audio = currentAudio;
+  currentAudio = null;
+  const startVol = audio.volume;
+  const start = performance.now();
+  function tick() {
+    const elapsed = performance.now() - start;
+    audio.volume = Math.max(startVol * (1 - elapsed / durationMs), 0);
+    if (elapsed < durationMs) requestAnimationFrame(tick);
+    else { audio.pause(); audio.src = ''; audio.load(); }
+  }
+  requestAnimationFrame(tick);
 }
 
 function onPauseStateChange() {
@@ -1559,7 +1574,8 @@ function showConfirm(message, onYes) {
       </div>
     </div>
   `;
-  document.body.appendChild(overlay);
+  const host = menuRoot.classList.contains('mode-hidden') ? storyRoot : menuRoot;
+  host.appendChild(overlay);
 
   const cleanup = () => { overlay.remove(); document.removeEventListener('keydown', onKey); };
 
@@ -1656,8 +1672,8 @@ function toggleJournal() {
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
-document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); cancelPlayback(); showSelector({ withCrossfade: true }); });
-document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector({ withCrossfade: true }); });
+document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); playbackSession++; hideSkipHint(); fadeOutAudio(3000); showSelector({ withCrossfade: true }); });
+document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); playbackSession++; hideSkipHint(); fadeOutAudio(3000); showSelector({ withCrossfade: true }); });
 document.getElementById('journal-new-game')?.addEventListener('click', () => {
   if (!currentStoryId) return;
   showConfirm('Start a new game? Progress will be lost.', () => {
