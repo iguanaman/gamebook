@@ -457,24 +457,25 @@ function animateCardSelect(storyId) {
   startMusic(storyId, true, storyMusicVolumes[storyId] ?? 1);
   const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
-  setTimeout(() => {
+  setTimeout(async () => {
     const layer = document.createElement('div');
     layer.id = 'story-layer';
     layer.style.position = 'fixed';
     layer.style.inset = '0';
     layer.style.zIndex = '100';
     layer.style.opacity = '0';
-    layer.style.transition = 'opacity 0.6s ease';
+    layer.style.background = 'var(--bg)';
+    layer.style.transition = 'opacity 1.2s ease';
     document.body.appendChild(layer);
     const realApp = document.getElementById('app');
     app = layer;
-    startStory(storyId);
     if (realApp) {
       realApp.style.transition = 'opacity 0.6s ease';
       realApp.style.opacity = '0';
     }
+    await startStory(storyId);
     requestAnimationFrame(() => { layer.style.opacity = '1'; });
-    setTimeout(() => { if (realApp) realApp.style.display = 'none'; }, 700);
+    setTimeout(() => { if (realApp) realApp.style.display = 'none'; }, 1300);
   }, 300);
 }
 
@@ -1022,13 +1023,6 @@ async function startStory(storyId) {
   } else {
     startMusic(storyId, false, meta.volume_music ?? 1);
     renderShell(meta);
-    app.style.opacity = '0';
-    app.style.transition = 'opacity 0.6s ease';
-    await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
-    app.style.opacity = '1';
-    await new Promise(r => setTimeout(r, 600));
-    app.style.transition = '';
-    app.style.opacity = '';
     await navigateTo(startScene);
     scrollNarrativeToBottom();
   }
