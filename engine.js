@@ -127,7 +127,7 @@ async function showSelector({ defer = false } = {}) {
             : manifest.stories.map(id => renderStoryCard(id)).join('')}
         </div>
         <div class="commission-link-wrap card-pop-pending">
-          <button class="commission-link" id="btn-commission">Create your own custom story</button>
+          <button class="commission-link" id="btn-commission">Create your own story</button>
         </div>
       </div>
     </div>
@@ -139,47 +139,59 @@ async function showSelector({ defer = false } = {}) {
 }
 
 function showCommission() {
-  const cover = document.createElement('div');
-  cover.className = 'screen-fade-cover';
-  document.body.appendChild(cover);
-  requestAnimationFrame(() => cover.classList.add('screen-fade-cover-in'));
-  setTimeout(() => {
-    app.innerHTML = `
-      <div class="selector-bg">
-        <div class="selector commission-screen">
-          <h1 class="selector-title">Commission a Custom Story</h1>
-          <p class="commission-intro">All you need to provide is a genre and anything else you'd like — we handle everything else.</p>
-          <ul class="commission-perks">
-            <li>Fully voice acted — up to 10 unique characters</li>
-            <li>Original score and ambient audio throughout</li>
-            <li>Branching narrative with meaningful choices</li>
-            <li>Professionally written by our story team</li>
-            <li>Delivered as a playable gamebook experience</li>
-          </ul>
-          <div class="commission-tiers">
-            <div class="commission-tier">
-              <div class="commission-tier-name">Short</div>
-              <div class="commission-tier-length">~15 min read</div>
-              <div class="commission-tier-price">$5</div>
-            </div>
-            <div class="commission-tier">
-              <div class="commission-tier-name">Medium</div>
-              <div class="commission-tier-length">~30 min read</div>
-              <div class="commission-tier-price">$8</div>
-            </div>
-            <div class="commission-tier">
-              <div class="commission-tier-name">Long</div>
-              <div class="commission-tier-length">~60 min read</div>
-              <div class="commission-tier-price">$10</div>
-            </div>
-          </div>
+  const selector = app.querySelector('.selector');
+  if (selector) {
+    selector.style.transition = 'opacity 0.35s ease';
+    selector.style.opacity = '0';
+    selector.addEventListener('transitionend', () => renderCommissionContent(), { once: true });
+  } else {
+    renderCommissionContent();
+  }
+}
+
+function renderCommissionContent() {
+  const selector = app.querySelector('.selector');
+  if (selector) {
+    selector.classList.add('commission-screen');
+    selector.style.transition = '';
+    selector.style.opacity = '';
+    selector.innerHTML = `
+      <h1 class="selector-title card-pop-pending">Commission a Custom Story</h1>
+      <p class="commission-intro card-pop-pending">All you need to provide is a genre and anything else you'd like — we handle everything else.</p>
+      <ul class="commission-perks card-pop-pending">
+        <li>Fully voice acted — up to 10 unique characters</li>
+        <li>Original score and ambient audio throughout</li>
+        <li>Branching narrative with meaningful choices</li>
+        <li>Professionally written by our story team</li>
+        <li>Delivered as a playable gamebook experience</li>
+      </ul>
+      <div class="commission-tiers card-pop-pending">
+        <div class="commission-tier">
+          <div class="commission-tier-name">Short</div>
+          <div class="commission-tier-length">~15 min read</div>
+          <div class="commission-tier-price">$5</div>
+        </div>
+        <div class="commission-tier">
+          <div class="commission-tier-name">Medium</div>
+          <div class="commission-tier-length">~30 min read</div>
+          <div class="commission-tier-price">$8</div>
+        </div>
+        <div class="commission-tier">
+          <div class="commission-tier-name">Long</div>
+          <div class="commission-tier-length">~60 min read</div>
+          <div class="commission-tier-price">$10</div>
         </div>
       </div>
     `;
-    document.getElementById('back-btn')?.classList.remove('back-hidden');
-    cover.classList.remove('screen-fade-cover-in');
-    cover.addEventListener('transitionend', () => cover.remove(), { once: true });
-  }, 600);
+  }
+  document.getElementById('back-btn')?.classList.remove('back-hidden');
+  requestAnimationFrame(() => {
+    app.querySelectorAll('.commission-screen .card-pop-pending').forEach((el, idx) => {
+      el.style.setProperty('--card-pop-delay', `${idx * 120}ms`);
+      el.classList.remove('card-pop-pending');
+      el.classList.add('card-pop-in');
+    });
+  });
 }
 
 function showPreIntroSplash(manifest) {
