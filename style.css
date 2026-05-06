@@ -151,9 +151,11 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--bg);
+  background: transparent;
   overflow: hidden;
 }
+/* Story-mode splashes still need an opaque bg since there's no dust canvas behind them. */
+#story-root .splash { background: var(--bg); }
 
 /* Canvas-based drifting dust. Single fixed-position canvas sized to the
    viewport; particles are managed in engine.js. Hidden via body class in
