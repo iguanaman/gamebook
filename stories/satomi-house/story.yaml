@@ -9,6 +9,7 @@ cover: images/cover.jpg
 start: act1/arrival_approach
 journal: |-
   あなたは日本に来た。家は確かにそこにある。それで十分なはずだった。
+music_volume: 0.3
 stats:
   curiosity: 5
   composure: 7

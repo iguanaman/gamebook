@@ -8,6 +8,7 @@ cover: images/cover.jpg
 start: act1/intro
 journal: |-
   You are a security officer in Vault 34, eighty-seven years sealed beneath the bedrock. The fluorescents still hum. The Overseer still broadcasts. Down on the reactor deck, something has started to go wrong.
+music_volume: 0.5
 stats:
   STR: 5
   PER: 5

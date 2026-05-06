@@ -7,6 +7,7 @@ cover: images/cover.jpg
 start: act1/office_before
 journal: |-
   A woman walked into my office with a missing husband and a face that already knew something was wrong.
+music_volume: 0.3
 stats:
   evidence: 0
   heat: 0
