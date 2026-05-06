@@ -241,9 +241,9 @@ button {
 .screen-fade-cover {
   position: fixed;
   inset: 0;
-  background: var(--bg);
+  background: #f9f6f1;
   opacity: 0;
-  transition: opacity 1.2s ease;
+  transition: opacity 12s ease;
   z-index: 9999;
   pointer-events: none;
 }
