@@ -464,7 +464,7 @@ function animateCardSelect(storyId) {
       app.innerHTML = '';
       startStory(storyId);
     }, 1200);
-  }, 1000);
+  }, 300);
 }
 
 async function attachCardHandlers(storyId) {
