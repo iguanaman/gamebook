@@ -4,7 +4,7 @@ if (new URLSearchParams(location.search).has('fresh')) {
   Object.keys(localStorage).filter(k => k.startsWith('gamebook.')).forEach(k => localStorage.removeItem(k));
 }
 
-let app = document.getElementById('app');
+const app = document.getElementById('app');
 
 let gamePaused = false;
 const isGamePaused = () => document.hidden || gamePaused;
@@ -119,10 +119,6 @@ async function showSelector({ defer = false } = {}) {
   startSelectorMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
-  const realApp = document.getElementById('app');
-  const layer = document.getElementById('app-layer');
-  if (layer) { layer.remove(); }
-  if (realApp) { realApp.style.display = ''; app = realApp; }
   currentStoryId = null;
   state = null;
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
@@ -459,22 +455,15 @@ function animateCardSelect(storyId) {
   const chosen = document.querySelector(`.story-card[data-story="${storyId}"]`);
   setTimeout(() => { if (chosen) chosen.classList.add('card-fade-out'); }, 1000);
   setTimeout(() => {
-    const realApp = document.getElementById('app');
-    const layer = document.createElement('div');
-    layer.className = 'story-crossfade-layer';
-    document.body.appendChild(layer);
-    app = layer;
-    startStory(storyId, {
-      onReady() {
-        const selectorBg = realApp.querySelector('.selector-bg');
-        if (selectorBg) { selectorBg.style.transition = 'opacity 1.2s ease'; selectorBg.style.opacity = '0'; }
-        layer.classList.add('story-crossfade-layer-in');
-        layer.addEventListener('transitionend', () => {
-          realApp.style.display = 'none';
-          layer.id = 'app-layer';
-        }, { once: true });
-      }
-    });
+    const selectorBg = app.querySelector('.selector-bg');
+    if (selectorBg) {
+      selectorBg.style.transition = 'opacity 1.2s ease';
+      selectorBg.style.opacity = '0';
+    }
+    setTimeout(() => {
+      app.innerHTML = '';
+      startStory(storyId);
+    }, 1200);
   }, 1600);
 }
 
@@ -957,12 +946,21 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
 function applyStoryTheme(storyId) {
   document.getElementById('frame').classList.remove('frame-neutral');
   document.getElementById('story-theme')?.remove();
-  const link = document.createElement('link');
-  link.id = 'story-theme';
-  link.rel = 'stylesheet';
-  link.href = `stories/${storyId}/theme.css`;
-  document.head.appendChild(link);
-  document.body.classList.add('story-active');
+  return new Promise(resolve => {
+    const link = document.createElement('link');
+    link.id = 'story-theme';
+    link.rel = 'stylesheet';
+    link.href = `stories/${storyId}/theme.css`;
+    link.addEventListener('load', () => {
+      document.body.classList.add('story-active');
+      resolve();
+    }, { once: true });
+    link.addEventListener('error', () => {
+      document.body.classList.add('story-active');
+      resolve();
+    }, { once: true });
+    document.head.appendChild(link);
+  });
 }
 
 function removeStoryTheme() {
@@ -970,14 +968,14 @@ function removeStoryTheme() {
   document.body.classList.remove('story-active');
 }
 
-async function startStory(storyId, { onReady } = {}) {
+async function startStory(storyId) {
   sessionStorage.removeItem('gamebook.atSelector');
   localStorage.setItem('gamebook.lastStory', storyId);
   const meta = await loadStoryMeta(storyId);
   currentStoryId = storyId;
   storyMeta = meta;
   if (!storyMeta.flags) storyMeta.flags = {};
-  applyStoryTheme(storyId);
+  await applyStoryTheme(storyId);
 
   const _rawSaved = loadState(storyId);
   if (_rawSaved && !_rawSaved.scene) {
@@ -1007,14 +1005,12 @@ async function startStory(storyId, { onReady } = {}) {
       if (currentStoryId !== splashStoryId || !state) return;
       renderShell(meta);
       await navigateTo(startScene);
-      onReady?.();
     }, { isStoryTitle: true });
   } else {
     startMusic(storyId, false, meta.music_volume ?? 1);
     renderShell(meta);
     await navigateTo(startScene);
     scrollNarrativeToBottom();
-    onReady?.();
   }
 }
 

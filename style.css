@@ -57,6 +57,7 @@ html, body {
   line-height: 1.6;
   overflow: hidden;
   user-select: none;
+  transition: background-color 1.2s ease;
 }
 
 h1, h2, h3 {
@@ -143,6 +144,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 1.2s ease;
 }
 .selector { width: 100%; max-width: 800px; padding: 2rem; }
 .selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: var(--text); }
