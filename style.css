@@ -119,6 +119,10 @@ button {
   pointer-events: none;
 }
 
+/* On initial boot into a saved story, skip the opacity transition so the
+   parchment doesn't fade in over the body bg. */
+body.boot-no-fade .mode-root { transition: none; }
+
 .mode-content {
   position: relative;
   width: 100%;

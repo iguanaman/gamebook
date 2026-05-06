@@ -1242,6 +1242,7 @@ async function startStory(storyId, { withCrossfade = false } = {}) {
     document.body.style.visibility = '';
     await navigateTo(startScene);
     scrollNarrativeToBottom();
+    requestAnimationFrame(() => document.body.classList.remove('boot-no-fade'));
   }
 }
 
@@ -1928,6 +1929,7 @@ document.addEventListener('keydown', (e) => {
   const last = localStorage.getItem('gamebook.lastStory');
   if (last && hasSave(last) && !sessionStorage.getItem('gamebook.atSelector')) {
     document.body.style.visibility = 'hidden';
+    document.body.classList.add('boot-no-fade');
     setActiveMode('story');
     startStory(last);
   } else {
