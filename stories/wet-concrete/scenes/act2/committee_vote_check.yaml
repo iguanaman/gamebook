@@ -1,22 +1,23 @@
 id: act2/committee_vote_check
-journal: |-
-  The committee voted unanimous on every Aldwick motion. Vane's deputy. Dowd's chair. The conspiracy had a hierarchy.
+journal: The committee voted unanimous on every Aldwick motion. Vane's deputy. Dowd's
+  chair. The conspiracy had a hierarchy.
 text:
-  - |-
-    The development committee's public voting record goes back to 1941. Frank pulls the relevant motions — Aldwick condemnation authorisations, boundary re-filing approvals, contractor certifications. Eleven votes across fourteen months.
-  - |-
-    Every one unanimous. No dissent, no abstentions, no procedural objections recorded. In a seven-member committee, that doesn't happen by accident.
-  - |-
-    The committee chair's name appears at the top of every motion: Leland Dowd. Above Vane in the committee structure, above Vane on the organisation chart, above Vane in every city hall directory Frank has ever read. A powerbroker. The kind of name that appears in the Tribune's society pages and nowhere else.
-  - |-
-    Frank writes it down next to Vane's. The deputy and the chair. Vane's the registered agent. Dowd's the authority that made the votes go right.
+- The development committee's public voting record goes back to 1941. Frank pulls
+  the relevant motions — Aldwick condemnation authorisations, boundary re-filing approvals,
+  contractor certifications. Eleven votes across fourteen months.
+- Every one unanimous. No dissent, no abstentions, no procedural objections recorded.
+  In a seven-member committee, that doesn't happen by accident.
+- 'The committee chair''s name appears at the top of every motion: Leland Dowd. Above
+  Vane in the committee structure, above Vane on the organisation chart, above Vane
+  in every city hall directory Frank has ever read. A powerbroker. The kind of name
+  that appears in the Tribune''s society pages and nowhere else.'
+- Frank writes it down next to Vane's. The deputy and the chair. Vane's the registered
+  agent. Dowd's the authority that made the votes go right.
 choices:
-  - text: |-
-      Look up Dowd — see what connects him to Harmon Land Trust
-    next: act2/vane_contracts
-    effects:
-      stats:
-        evidence: 1
-  - text: |-
-      You have the chain — take it to the office
-    next: act2/beat3_aldwick_return
+- text: Look up Dowd — see what connects him to Harmon Land Trust
+  next: act2/vane_contracts
+  effects:
+    stats:
+      evidence: 1
+- text: You have the chain — take it to the office
+  next: act2/beat3_aldwick_return

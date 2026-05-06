@@ -1,25 +1,19 @@
 id: act2/office_note_threat
-
 text:
-  - |-
-    Plain paper. Typed, no signature. The message is one sentence.
-  - |-
-    "A man your age shouldn't be spending his evenings in government archives."
-  - |-
-    Two-day-old information. Whoever sent it has been watching him longer than the note suggests.
-
+- Plain paper. Typed, no signature. The message is one sentence.
+- '"A man your age shouldn''t be spending his evenings in government archives."'
+- Two-day-old information. Whoever sent it has been watching him longer than the note
+  suggests.
 choices:
-  - text: |-
-      File it — knowing they're watching is itself information
-    next: act2/office_hub_act2
-    effects:
-      flags:
-        office_note_read: true
-  - text: |-
-      Burn it — if they wanted a reaction, don't give them one
-    next: act2/office_hub_act2
-    effects:
-      flags:
-        office_note_read: true
-      stats:
-        rep: 1
+- text: File it — knowing they're watching is itself information
+  next: act2/office_hub_act2
+  effects:
+    flags:
+      office_note_read: true
+- text: Burn it — if they wanted a reaction, don't give them one
+  next: act2/office_hub_act2
+  effects:
+    flags:
+      office_note_read: true
+    stats:
+      rep: 1

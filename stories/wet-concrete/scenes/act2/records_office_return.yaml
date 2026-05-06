@@ -1,28 +1,27 @@
 id: act2/records_office_return
 text:
-  - |-
-    The records office smells the same — old paper, floor wax, the particular staleness of a room that sees mostly clerks and almost never anyone who needs anything urgently.
-  - |-
-    The woman who helped him last time isn't here. The man behind the counter has the watchful stillness of someone who's been told to pay attention to who comes in asking about what. He hasn't moved since Frank walked through the door.
-  - if: visited
-    text: |-
-      Coming back was the risk. A man who returns to the same records office twice in a week is a man with a reason.
-  - |-
-    The Aldwick files are three shelves back. The question is whether Frank gets to them clean.
+- The records office smells the same — old paper, floor wax, the particular staleness
+  of a room that sees mostly clerks and almost never anyone who needs anything urgently.
+- The woman who helped him last time isn't here. The man behind the counter has the
+  watchful stillness of someone who's been told to pay attention to who comes in asking
+  about what. He hasn't moved since Frank walked through the door.
+- if: visited
+  text: Coming back was the risk. A man who returns to the same records office twice
+    in a week is a man with a reason.
+- The Aldwick files are three shelves back. The question is whether Frank gets to
+  them clean.
 choices:
-  - text: |-
-      Take careful notes — transcribe the filing dates, parcel numbers, the holding company name
-    next: act2/records_careful_notes
-  - text: |-
-      Photograph the documents — faster, more complete, but in front of a stranger
-    next: act2/records_photograph
-    requires:
-      flags_unset:
-        - records_room
-    hide_if_failed: true
-  - text: |-
-      Try to charm the new clerk — a cooperative clerk gets you the authorisation chain
-    next: act2/records_charm_act2
-  - text: |-
-      Leave — the records are thin cover. Something feels wrong today
-    next: act2/act2_open
+- text: Take careful notes — transcribe the filing dates, parcel numbers, the holding
+    company name
+  next: act2/records_careful_notes
+- text: Photograph the documents — faster, more complete, but in front of a stranger
+  next: act2/records_photograph
+  requires:
+    flags_unset:
+    - records_room
+  hide_if_failed: true
+- text: Try to charm the new clerk — a cooperative clerk gets you the authorisation
+    chain
+  next: act2/records_charm_act2
+- text: Leave — the records are thin cover. Something feels wrong today
+  next: act2/act2_open

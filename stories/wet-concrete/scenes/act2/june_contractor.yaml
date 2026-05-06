@@ -1,21 +1,17 @@
 id: act2/june_contractor
-
 text:
-  - female_adult_american_droll_wry_dry: |-
-      I looked them up. They have a business address — I wrote it down somewhere.
-  - |-
-    She finds a slip of paper tucked into the back of the folder. Holds it out without letting go.
-  - female_adult_american_droll_wry_dry: |-
-      North end of city hall block. 1140 Coburn Street. Same block as the development committee office — they share a building directory.
-  - |-
-    Frank copies the address. The same block. Of course it is.
-
+- female_adult_american_droll_wry_dry: I looked them up. They have a business address
+    — I wrote it down somewhere.
+- She finds a slip of paper tucked into the back of the folder. Holds it out without
+  letting go.
+- female_adult_american_droll_wry_dry: North end of city hall block. 1140 Coburn Street.
+    Same block as the development committee office — they share a building directory.
+- Frank copies the address. The same block. Of course it is.
 choices:
-  - text: |-
-      Back to conversation
-    next: act2/june_hub
-    effects:
-      flags:
-        june_topic_contractor: true
-      stats:
-        evidence: 1
+- text: Back to conversation
+  next: act2/june_hub
+  effects:
+    flags:
+      june_topic_contractor: true
+    stats:
+      evidence: 1

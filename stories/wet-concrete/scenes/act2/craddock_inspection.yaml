@@ -1,21 +1,20 @@
 id: act2/craddock_inspection
-
 text:
-  - |-
-    Craddock sets the thermos down.
-  - male_midlife_american_dark_tough: |-
-      Half an hour. I timed it. Half an hour for a building that should've taken most of a day — you got four floors, a basement, a crawl space under the back addition. The man didn't take a flashlight into the basement. Didn't open the utility panel. Wrote on his form the whole time he was there, which means he wasn't looking at anything, which means he already knew what he was going to write.
-  - male_midlife_american_dark_tough: |-
-      I did inspections for twenty-two years. Half an hour. Half an hour.
-  - |-
-    He says it twice — the way a man does when he wants to make sure it lands.
-
+- Craddock sets the thermos down.
+- male_midlife_american_dark_tough: Half an hour. I timed it. Half an hour for a building
+    that should've taken most of a day — you got four floors, a basement, a crawl
+    space under the back addition. The man didn't take a flashlight into the basement.
+    Didn't open the utility panel. Wrote on his form the whole time he was there,
+    which means he wasn't looking at anything, which means he already knew what he
+    was going to write.
+- male_midlife_american_dark_tough: I did inspections for twenty-two years. Half an
+    hour. Half an hour.
+- He says it twice — the way a man does when he wants to make sure it lands.
 choices:
-  - text: |-
-      Back to conversation
-    next: act2/craddock_hub
-    effects:
-      flags:
-        craddock_topic_inspection: true
-      stats:
-        evidence: 1
+- text: Back to conversation
+  next: act2/craddock_hub
+  effects:
+    flags:
+      craddock_topic_inspection: true
+    stats:
+      evidence: 1

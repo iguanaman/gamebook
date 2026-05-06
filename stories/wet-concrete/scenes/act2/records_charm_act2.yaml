@@ -1,23 +1,23 @@
 id: act2/records_charm_act2
 text:
-  - |-
-    The clerk's name is on a small card by his elbow: D. Prewitt. Frank uses it once, quietly, and explains that he's doing background research on a property dispute — a deceased client's estate. The kind of thing that has to be done right.
-  - |-
-    Prewitt thaws incrementally. He doesn't offer anything extra. But he pulls the authorisation chain without being asked specifically, and he leaves it on the counter long enough for Frank to work through it.
-  - |-
-    Three names sign off at three levels. At the top: a deputy city official, whose department is listed as Development and Infrastructure Planning. Frank writes down his name.
-  - |-
-    Prewitt collects the files before Frank finishes the last line. Conversation over.
+- 'The clerk''s name is on a small card by his elbow: D. Prewitt. Frank uses it once,
+  quietly, and explains that he''s doing background research on a property dispute
+  — a deceased client''s estate. The kind of thing that has to be done right.'
+- Prewitt thaws incrementally. He doesn't offer anything extra. But he pulls the authorisation
+  chain without being asked specifically, and he leaves it on the counter long enough
+  for Frank to work through it.
+- 'Three names sign off at three levels. At the top: a deputy city official, whose
+  department is listed as Development and Infrastructure Planning. Frank writes down
+  his name.'
+- Prewitt collects the files before Frank finishes the last line. Conversation over.
 choices:
-  - text: |-
-      Note the deputy's name and look up what committee he sits on
-    next: act2/harmon_land_trust_lookup
-    effects:
-      stats:
-        evidence: 1
-  - text: |-
-      That's the thread — get out before someone notices you sitting here
-    next: act2/office_hub_act2
-    effects:
-      stats:
-        evidence: 1
+- text: Note the deputy's name and look up what committee he sits on
+  next: act2/harmon_land_trust_lookup
+  effects:
+    stats:
+      evidence: 1
+- text: That's the thread — get out before someone notices you sitting here
+  next: act2/office_hub_act2
+  effects:
+    stats:
+      evidence: 1

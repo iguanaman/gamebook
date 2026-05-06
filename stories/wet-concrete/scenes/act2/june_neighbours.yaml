@@ -1,23 +1,21 @@
 id: act2/june_neighbours
-
 text:
-  - female_adult_american_droll_wry_dry: |-
-      Three families on this block took the offer. The Pruitts, the Nguyens, and old Mr. Castellano — he was eighty-one, he couldn't fight it. They left inside two weeks. I don't know where they went.
-  - |-
-    She picks up her coffee cup and puts it back down without drinking from it.
-  - female_adult_american_droll_wry_dry: |-
-      Two families refused. The city filed a boundary dispute against one of them — claimed the parcel boundary ran through the kitchen. They're still in litigation. The other one, the Beales, they had a lease going back to 1929. City dropped that action after three months and hasn't come back.
-  - female_adult_american_droll_wry_dry: |-
-      My lease is from 1932. Same situation. They know it. That's the only reason I'm still here.
-  - |-
-    She says it without satisfaction. Winning on a technicality is not the same as winning.
-
+- female_adult_american_droll_wry_dry: Three families on this block took the offer.
+    The Pruitts, the Nguyens, and old Mr. Castellano — he was eighty-one, he couldn't
+    fight it. They left inside two weeks. I don't know where they went.
+- She picks up her coffee cup and puts it back down without drinking from it.
+- female_adult_american_droll_wry_dry: Two families refused. The city filed a boundary
+    dispute against one of them — claimed the parcel boundary ran through the kitchen.
+    They're still in litigation. The other one, the Beales, they had a lease going
+    back to 1929. City dropped that action after three months and hasn't come back.
+- female_adult_american_droll_wry_dry: My lease is from 1932. Same situation. They
+    know it. That's the only reason I'm still here.
+- She says it without satisfaction. Winning on a technicality is not the same as winning.
 choices:
-  - text: |-
-      Back to conversation
-    next: act2/june_hub
-    effects:
-      flags:
-        june_topic_neighbours: true
-      stats:
-        rep: 1
+- text: Back to conversation
+  next: act2/june_hub
+  effects:
+    flags:
+      june_topic_neighbours: true
+    stats:
+      rep: 1

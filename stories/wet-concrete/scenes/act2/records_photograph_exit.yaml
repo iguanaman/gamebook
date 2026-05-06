@@ -1,18 +1,17 @@
 id: act2/records_photograph_exit
 text:
-  - |-
-    The street outside is ordinary. A woman with a grocery bag. Two men talking at a corner. Frank walks the block once before he decides nobody followed him out.
-  - |-
-    The camera has the complete set — the re-filings, the authorisation chain, the holding company name in the registered agent field. Better than notes. More complete than anything he'd have gotten taking his time.
-  - |-
-    The clerk's face stays with him. The way a man looks when he's already decided who to call.
+- The street outside is ordinary. A woman with a grocery bag. Two men talking at a
+  corner. Frank walks the block once before he decides nobody followed him out.
+- The camera has the complete set — the re-filings, the authorisation chain, the holding
+  company name in the registered agent field. Better than notes. More complete than
+  anything he'd have gotten taking his time.
+- The clerk's face stays with him. The way a man looks when he's already decided who
+  to call.
 choices:
-  - text: |-
-      Look up Harmon Land Trust before the heat settles — push your luck once more
-    next: act2/harmon_land_trust_lookup
-    effects:
-      stats:
-        heat: 1
-  - text: |-
-      Get clear — go to the office and sort through what you took
-    next: act2/office_hub_act2
+- text: Look up Harmon Land Trust before the heat settles — push your luck once more
+  next: act2/harmon_land_trust_lookup
+  effects:
+    stats:
+      heat: 1
+- text: Get clear — go to the office and sort through what you took
+  next: act2/office_hub_act2

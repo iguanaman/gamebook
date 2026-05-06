@@ -1,47 +1,39 @@
 id: act2/craddock_hub
-
 text:
-  - |-
-    Craddock's thermos sits between them on the step. He doesn't offer to refill it. A man who worked in buildings for thirty years — he looks at the condemned notices across the street the way a doctor looks at a bad chart.
-  - if: visited
-    text: |-
-      He picks up where they left off. No preamble. Good.
-
+- Craddock's thermos sits between them on the step. He doesn't offer to refill it.
+  A man who worked in buildings for thirty years — he looks at the condemned notices
+  across the street the way a doctor looks at a bad chart.
+- if: visited
+  text: He picks up where they left off. No preamble. Good.
 choices:
-  - text: |-
-      What made the inspector's visit wrong?
-    next: act2/craddock_inspection
-    requires:
-      flags_unset:
-        - craddock_topic_inspection
-  - text: |-
-      Who authorised the condemnations?
-    next: act2/craddock_authorisation
-    requires:
-      flags:
-        - craddock_topic_inspection
-      flags_unset:
-        - craddock_topic_auth
-    failed_text: |-
-      *(He'll get to that — ask him about the inspection first.)*
-  - text: |-
-      Have you talked to anyone else about this?
-    next: act2/craddock_others
-    requires:
-      flags_unset:
-        - craddock_topic_others
-  - text: |-
-      That's enough for now, Mr. Craddock — I'll be back
-    next: act2/aldwick_hub
-    effects:
-      flags:
-        craddock_exhausted: true
-    requires:
-      flags:
-        - craddock_topic_inspection
-        - craddock_topic_auth
-        - craddock_topic_others
-    hide_if_failed: true
-  - text: |-
-      Leave it there for today
-    next: act2/aldwick_hub
+- text: What made the inspector's visit wrong?
+  next: act2/craddock_inspection
+  requires:
+    flags_unset:
+    - craddock_topic_inspection
+- text: Who authorised the condemnations?
+  next: act2/craddock_authorisation
+  requires:
+    flags:
+    - craddock_topic_inspection
+    flags_unset:
+    - craddock_topic_auth
+  failed_text: '*(He''ll get to that — ask him about the inspection first.)*'
+- text: Have you talked to anyone else about this?
+  next: act2/craddock_others
+  requires:
+    flags_unset:
+    - craddock_topic_others
+- text: That's enough for now, Mr. Craddock — I'll be back
+  next: act2/aldwick_hub
+  effects:
+    flags:
+      craddock_exhausted: true
+  requires:
+    flags:
+    - craddock_topic_inspection
+    - craddock_topic_auth
+    - craddock_topic_others
+  hide_if_failed: true
+- text: Leave it there for today
+  next: act2/aldwick_hub

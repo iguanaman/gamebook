@@ -1,77 +1,68 @@
 id: act2/office_hub_act2
-
 text:
-  - |-
-    Frank's office. The phone on the desk. The window with the crack in the lower pane he keeps meaning to fix. The work spread across the table in two stacks — what he knows, what he still needs.
-  - if:
-      stats:
-        heat: 3
-    text: |-
-      A note was slid under the door while he was out. He hasn't opened it yet.
-  - if:
-      stats:
-        heat: 5
-    text: |-
-      He keeps the overhead light off when he's not moving around. The desk lamp is enough, and it doesn't show from the street.
-  - if:
-      flags:
-        - cops_warned_off
-    text: |-
-      The office feels smaller than it used to. Not the room — the room is the same. The options.
-
+- Frank's office. The phone on the desk. The window with the crack in the lower pane
+  he keeps meaning to fix. The work spread across the table in two stacks — what he
+  knows, what he still needs.
+- if:
+    stats:
+      heat: 3
+  text: A note was slid under the door while he was out. He hasn't opened it yet.
+- if:
+    stats:
+      heat: 5
+  text: He keeps the overhead light off when he's not moving around. The desk lamp
+    is enough, and it doesn't show from the street.
+- if:
+    flags:
+    - cops_warned_off
+  text: The office feels smaller than it used to. Not the room — the room is the same.
+    The options.
 choices:
-  - text: |-
-      Go up — two men outside didn't come to use the stairs
-    next: act2/beat6_approach
-    requires:
-      flags:
-        - found_ledger
-      flags_unset:
-        - cops_warned_off
-    hide_if_failed: true
-  - text: |-
-      Read the note that was slid under the door
-    next: act2/office_note_threat
-    requires:
-      flags_unset:
-        - office_note_read
-      stats:
-        heat: 3
-    hide_if_failed: true
-  - text: |-
-      The window — someone put a brick through it last night
-    next: act2/office_window_threat
-    requires:
-      flags_unset:
-        - window_threat_seen
-      stats:
-        heat: 5
-    hide_if_failed: true
-  - text: |-
-      Call Walt Kellner back — he's been leaving messages
-    next: act2/kellner_first_contact
-    requires:
-      flags_unset:
-        - kellner_surfaced
-    hide_if_failed: true
-  - text: |-
-      Go see Kellner — the meeting he suggested
-    next: act2/kellner_arrive
-    requires:
-      flags:
-        - kellner_surfaced
-      flags_unset:
-        - confronted_kellner
-    hide_if_failed: true
-  - text: |-
-      Mail the evidence copy to Dora Reyes — insurance
-    next: act2/mail_package
-    requires:
-      flags:
-        - found_ledger
-      flags_unset:
-        - left_package
-    hide_if_failed: true
-  - text: |-
-      Get back to work — Aldwick has more to give
-    next: act2/aldwick_hub
+- text: Go up — two men outside didn't come to use the stairs
+  next: act2/beat6_approach
+  requires:
+    flags:
+    - found_ledger
+    flags_unset:
+    - cops_warned_off
+  hide_if_failed: true
+- text: Read the note that was slid under the door
+  next: act2/office_note_threat
+  requires:
+    flags_unset:
+    - office_note_read
+    stats:
+      heat: 3
+  hide_if_failed: true
+- text: The window — someone put a brick through it last night
+  next: act2/office_window_threat
+  requires:
+    flags_unset:
+    - window_threat_seen
+    stats:
+      heat: 5
+  hide_if_failed: true
+- text: Call Walt Kellner back — he's been leaving messages
+  next: act2/kellner_first_contact
+  requires:
+    flags_unset:
+    - kellner_surfaced
+  hide_if_failed: true
+- text: Go see Kellner — the meeting he suggested
+  next: act2/kellner_arrive
+  requires:
+    flags:
+    - kellner_surfaced
+    flags_unset:
+    - confronted_kellner
+  hide_if_failed: true
+- text: Mail the evidence copy to Dora Reyes — insurance
+  next: act2/mail_package
+  requires:
+    flags:
+    - found_ledger
+    flags_unset:
+    - left_package
+  hide_if_failed: true
+- text: Get back to work — Aldwick has more to give
+  next: act2/aldwick_hub
