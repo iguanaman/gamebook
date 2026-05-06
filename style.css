@@ -132,6 +132,8 @@ button {
   position: absolute;
   inset: var(--frame-inset);
   border: 3px solid var(--border-outer);
+  outline: 2px solid var(--border-inner);
+  outline-offset: -6px;
   border-radius: var(--border-corner-radius);
   pointer-events: none;
   z-index: 5;
