@@ -940,32 +940,47 @@ function returnToSelector() {
 }
 
 // ── Rain effect ────────────────────────────────────────────────────────────
-let rainTimer = null;
-let rainLayer = null;
+// Drops are scheduled by elapsed real time, not by a chained setTimeout.
+// Backgrounded tabs throttle timers, so the prior approach piled up a burst
+// of drops on refocus. Now: one rAF loop, only spawns when visible, and
+// clamps any "owed" drops to a small max to avoid a downpour on refocus.
+let rainState = null;
 
 function startRain(opts = {}) {
   stopRain();
   const { interval = 280, jitter = 220 } = opts;
-  rainLayer = document.createElement('div');
-  rainLayer.className = 'rain-layer';
-  storyRoot.appendChild(rainLayer);
-  const spawn = () => {
-    spawnRaindrop(rainLayer);
-    rainTimer = setTimeout(spawn, interval + Math.random() * jitter);
+  const layer = document.createElement('div');
+  layer.className = 'rain-layer';
+  storyRoot.appendChild(layer);
+  rainState = { layer, interval, jitter, nextAt: 0, raf: 0 };
+  const tick = () => {
+    if (!rainState) return;
+    rainState.raf = requestAnimationFrame(tick);
+    if (document.hidden) { rainState.nextAt = 0; return; }
+    const now = performance.now();
+    if (!rainState.nextAt) rainState.nextAt = now + rainState.interval + Math.random() * rainState.jitter;
+    let budget = 3;
+    while (now >= rainState.nextAt && budget-- > 0) {
+      spawnRaindrop(rainState.layer);
+      rainState.nextAt += rainState.interval + Math.random() * rainState.jitter;
+    }
+    if (now > rainState.nextAt) rainState.nextAt = now + rainState.interval;
   };
-  spawn();
+  rainState.raf = requestAnimationFrame(tick);
 }
 
 function stopRain() {
-  if (rainTimer) { clearTimeout(rainTimer); rainTimer = null; }
-  if (rainLayer) { rainLayer.remove(); rainLayer = null; }
+  if (!rainState) return;
+  cancelAnimationFrame(rainState.raf);
+  rainState.layer.remove();
+  rainState = null;
 }
 
 function spawnRaindrop(layer) {
   const drop = document.createElement('span');
   drop.className = 'raindrop';
   drop.style.left = Math.random() * 100 + '%';
-  const duration = 380 + Math.random() * 240;
+  const duration = 190 + Math.random() * 120;
   drop.style.animationDuration = duration + 'ms';
   const len = 6 + Math.random() * 6;
   drop.style.height = len + 'px';
