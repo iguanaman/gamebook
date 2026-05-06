@@ -265,9 +265,10 @@ function makeSplash() {
   return el;
 }
 
-function showSplash(splash, host) {
+function showSplash(splash, mode) {
   document.body.classList.add('splash-active');
-  host.appendChild(splash);
+  const root = mode === 'menu' ? menuRoot : storyRoot;
+  root.appendChild(splash);
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       splash.classList.remove('splash-hidden');
@@ -298,7 +299,7 @@ function showPreIntroSplash(manifest) {
   body.appendChild(btn);
 
   splash.appendChild(body);
-  showSplash(splash, menuApp);
+  showSplash(splash, 'menu');
 
   btn.addEventListener('click', () => {
     if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
@@ -356,7 +357,7 @@ function showIntroSplash(mode, manifest) {
   });
 
   splash.appendChild(body);
-  showSplash(splash, menuApp);
+  showSplash(splash, 'menu');
 
   async function dismiss() {
     document.body.classList.remove('splash-active');
@@ -869,7 +870,7 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
   h1.textContent = text;
   splash.appendChild(h1);
 
-  showSplash(splash, storyApp);
+  showSplash(splash, 'story');
 
   const animDuration = parseFloat(
     getComputedStyle(storyRoot).getPropertyValue('--anim-act-title-duration')
