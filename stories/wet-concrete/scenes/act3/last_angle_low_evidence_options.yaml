@@ -1,0 +1,16 @@
+id: act3/last_angle_low_evidence_options
+
+text:
+  - |-
+    He knows. That's the problem — he knows, and knowing without proof is exactly the kind of thing Harmon City is designed to survive. The rezoning, the money, the forgeries, Ray and Vera. He can see the whole machine. He can't hand it to anyone who can do something with it.
+  - |-
+    The question is whether there's one more piece he hasn't checked, or whether this is already the end of the road.
+
+choices:
+  - text: |-
+      Accept it — you did what you could. The city was holding better cards.
+    next: act3/beat4_final_choice
+
+  - text: |-
+      There might still be a way — Peltz's testimony, the forged signatures, what's left of Vera's file.
+    next: act3/last_angle_scrape

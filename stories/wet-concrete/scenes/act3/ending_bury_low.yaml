@@ -1,0 +1,20 @@
+id: act3/ending_bury_low
+
+journal: |-
+  You walked away. You didn't have enough to make it stick, and you knew it.
+
+text:
+  - |-
+    There's nothing to burn. He doesn't have the ledger — nobody does now, or somebody does and it's not Frank's problem anymore. He has notes. Photographs of things that could mean anything. Parcel numbers. A pattern he can see and can't hand to anyone.
+  - |-
+    He drives north out of Harmon City before morning. The highway stretches out ahead of him.
+  - |-
+    He was never going to win this one on the evidence. The city was holding better cards from the start — better access, better lawyers, better men in better offices. Frank found the shape of the thing. He couldn't get to the thing itself.
+  - |-
+    That's how this one went. He didn't choose to let it. The city beat him on the facts.
+  - |-
+    Walt Kellner will shake someone's hand at a function. Leland Dowd's highway corridor will break ground in the spring. The Aldwick residents will get their relocation checks. The city will keep going.
+  - |-
+    Frank drives. After a while the lights disappear behind him and there's just the road and the dark.
+
+choices: []

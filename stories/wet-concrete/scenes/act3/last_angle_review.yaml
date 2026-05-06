@@ -1,0 +1,29 @@
+id: act3/last_angle_review
+
+text:
+  - if:
+      flags:
+        - found_ledger
+    text: |-
+      Frank spreads the pages on the table. Ray's handwriting — small and methodical, the script of a man who trusted paper. The original boundary coordinates, annotated in pencil where the official versions diverge. The auditor's letter that never got sent. Forty-three contracts, three names repeating. The holding company dissolved six weeks after the highway corridor vote.
+  - if:
+      flags:
+        - found_ledger
+    else: |-
+      Frank spreads what he has. Notes. His own handwriting now, not Ray's. Parcel numbers, dates, the gap between the original survey and the filed version. A photograph of a man he can't place. The shape of the thing but not the thing itself — evidence of a conclusion, not the path to it.
+  - |-
+    He sits with it until the coffee goes cold.
+
+choices:
+  - text: |-
+      This is enough to run with — take it to Dora Reyes.
+    next: act3/last_angle_high_evidence_options
+    requires:
+      stats:
+        evidence: 6
+    failed_text: |-
+      *(You don't have enough to make it stick. A story needs facts, not a pattern.)*
+
+  - text: |-
+      Figure out what you're doing with this before someone takes it away.
+    next: act3/last_angle_low_evidence_options
