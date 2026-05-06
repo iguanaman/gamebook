@@ -148,6 +148,92 @@ button {
 .story-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .no-stories { text-align: center; opacity: 0.5; font-family: var(--font-ui); }
 
+.commission-link-wrap {
+  text-align: center;
+  margin-top: 2rem;
+}
+.commission-link {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: 0.5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+.commission-link:hover { opacity: 0.85; }
+
+.commission-screen { text-align: center; }
+.commission-intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.commission-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.commission-perks li {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text);
+  opacity: 0.75;
+}
+.commission-perks li::before { content: '✦  '; opacity: 0.5; }
+.commission-tiers {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.commission-tier {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1.25rem 1.75rem;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.commission-tier-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--text);
+}
+.commission-tier-length {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--text);
+  opacity: 0.5;
+}
+.commission-tier-price {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--accent, var(--text));
+  margin-top: 0.25rem;
+}
+.commission-cta {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text);
+  opacity: 0.7;
+  margin-bottom: 1.25rem;
+}
+.commission-btn { display: inline-block; text-decoration: none; }
+
 .story-card {
   position: relative;
   display: flex;

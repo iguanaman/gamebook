@@ -93,11 +93,18 @@ async function loadManifest() {
 function popInSelector() {
   const title = document.querySelector('.selector-title');
   if (title) { title.classList.remove('card-pop-pending'); title.classList.add('card-pop-in'); }
-  document.querySelectorAll('.story-card-wrap').forEach((wrap, idx) => {
+  const cards = document.querySelectorAll('.story-card-wrap');
+  cards.forEach((wrap, idx) => {
     wrap.style.setProperty('--card-pop-delay', `${120 + idx * 120}ms`);
     wrap.classList.remove('card-pop-pending');
     wrap.classList.add('card-pop-in');
   });
+  const commissionLink = document.querySelector('.commission-link-wrap');
+  if (commissionLink) {
+    commissionLink.style.setProperty('--card-pop-delay', `${120 + cards.length * 120}ms`);
+    commissionLink.classList.remove('card-pop-pending');
+    commissionLink.classList.add('card-pop-in');
+  }
 }
 
 async function showSelector({ defer = false } = {}) {
@@ -119,12 +126,62 @@ async function showSelector({ defer = false } = {}) {
             ? '<p class="no-stories">No stories available yet.</p>'
             : manifest.stories.map(id => renderStoryCard(id)).join('')}
         </div>
+        <div class="commission-link-wrap card-pop-pending">
+          <button class="commission-link" id="btn-commission">Create your own custom story</button>
+        </div>
       </div>
     </div>
   `;
   manifest.stories.forEach(id => attachCardHandlers(id));
   document.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
+  document.getElementById('btn-commission')?.addEventListener('click', showCommission);
   if (!defer) requestAnimationFrame(popInSelector);
+}
+
+function showCommission() {
+  const cover = document.createElement('div');
+  cover.className = 'screen-fade-cover';
+  document.body.appendChild(cover);
+  requestAnimationFrame(() => cover.classList.add('screen-fade-cover-in'));
+  setTimeout(() => {
+    app.innerHTML = `
+      <div class="selector-bg">
+        <div class="selector commission-screen">
+          <h1 class="selector-title">Commission a Custom Story</h1>
+          <p class="commission-intro">All you need to provide is a genre and anything else you'd like — we handle everything else.</p>
+          <ul class="commission-perks">
+            <li>Fully voice acted — up to 10 unique characters</li>
+            <li>Original score and ambient audio throughout</li>
+            <li>Branching narrative with meaningful choices</li>
+            <li>Professionally written by our story team</li>
+            <li>Delivered as a playable gamebook experience</li>
+          </ul>
+          <div class="commission-tiers">
+            <div class="commission-tier">
+              <div class="commission-tier-name">Short</div>
+              <div class="commission-tier-length">~15 min read</div>
+              <div class="commission-tier-price">$5</div>
+            </div>
+            <div class="commission-tier">
+              <div class="commission-tier-name">Medium</div>
+              <div class="commission-tier-length">~30 min read</div>
+              <div class="commission-tier-price">$8</div>
+            </div>
+            <div class="commission-tier">
+              <div class="commission-tier-name">Long</div>
+              <div class="commission-tier-length">~60 min read</div>
+              <div class="commission-tier-price">$10</div>
+            </div>
+          </div>
+          <p class="commission-cta">Ready to get started? Send us your idea.</p>
+          <a class="btn btn-primary commission-btn" href="mailto:commissions@example.com">Get in Touch</a>
+        </div>
+      </div>
+    `;
+    document.getElementById('back-btn')?.classList.remove('back-hidden');
+    cover.classList.remove('screen-fade-cover-in');
+    cover.addEventListener('transitionend', () => cover.remove(), { once: true });
+  }, 600);
 }
 
 function showPreIntroSplash(manifest) {
