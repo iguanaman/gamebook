@@ -252,7 +252,10 @@ function deferUntilVisible(ms, fn) {
       document.addEventListener('gamebook-visibility', onVis, { once: true });
       return;
     }
-    setTimeout(fn, ms);
+    setTimeout(() => {
+      if (isGamePaused()) { attempt(); return; }
+      fn();
+    }, ms);
   }
   function onVis() { attempt(); }
   attempt();
