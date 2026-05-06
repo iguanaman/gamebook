@@ -166,14 +166,6 @@ button {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  --dust-mask: none;
-  -webkit-mask-image: var(--dust-mask);
-          mask-image: var(--dust-mask);
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-          mask-size: 100% 100%;
-  transition: -webkit-mask-image 0.4s ease, mask-image 0.4s ease;
 }
 .dust-layer::before,
 .dust-layer::after {
@@ -188,21 +180,71 @@ button {
 }
 .dust-layer::before {
   background-image:
-    radial-gradient(circle at 12% 30%, var(--accent) 0.8px, transparent 1.2px),
-    radial-gradient(circle at 70% 65%, var(--accent) 0.6px, transparent 1px),
-    radial-gradient(circle at 40% 85%, var(--accent) 0.7px, transparent 1.1px);
+    radial-gradient(circle at 12% 30%, var(--accent) 1.6px, transparent 2.4px),
+    radial-gradient(circle at 70% 65%, var(--accent) 1.2px, transparent 2px),
+    radial-gradient(circle at 40% 85%, var(--accent) 1.4px, transparent 2.2px);
   background-size: 220px 180px, 320px 240px, 280px 200px;
   opacity: 0.72;
   animation: dust-drift 60s linear infinite;
 }
 .dust-layer::after {
   background-image:
-    radial-gradient(circle at 25% 50%, var(--accent) 1.4px, transparent 2px),
-    radial-gradient(circle at 80% 20%, var(--accent) 1.2px, transparent 1.8px);
+    radial-gradient(circle at 25% 50%, var(--accent) 2.6px, transparent 3.8px),
+    radial-gradient(circle at 80% 20%, var(--accent) 2.2px, transparent 3.4px);
   background-size: 460px 320px, 540px 380px;
   opacity: 0.40;
   animation: dust-drift 95s linear infinite;
   animation-delay: -20s;
+}
+
+/* Leaf layer — SVG leaves drifting across, slightly faster than dust,
+   with a gentle vertical sway. */
+.leaf-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.leaf-layer::before,
+.leaf-layer::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -50%;
+  width: 300%;
+  height: 120%;
+  background-repeat: repeat;
+  will-change: transform;
+  /* Tint the (currently var(--accent)-coloured) SVG via filter — works because
+     the SVG is intrinsically dark; we let the layer's own opacity soften it. */
+  opacity: 0.55;
+}
+.leaf-layer::before {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 2 C9 6 4 13 5 22 C6 27 11 30 16 30 C21 30 26 27 27 22 C28 13 23 6 16 2 Z M16 6 L16 28' fill='%234a3728' stroke='%234a3728' stroke-width='0.6' opacity='0.85'/></svg>");
+  background-size: 380px 260px;
+  animation: leaf-drift-a 45s linear infinite;
+}
+.leaf-layer::after {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><g transform='rotate(35 16 16)'><path d='M16 3 C10 7 6 14 7 21 C8 26 12 29 16 29 C20 29 24 26 25 21 C26 14 22 7 16 3 Z M16 7 L16 27' fill='%238b6914' stroke='%238b6914' stroke-width='0.6' opacity='0.8'/></g></svg>");
+  background-size: 540px 360px;
+  opacity: 0.45;
+  animation: leaf-drift-b 70s linear infinite;
+  animation-delay: -15s;
+}
+
+@keyframes leaf-drift-a {
+  0%   { transform: translate3d(0, 0, 0); }
+  25%  { transform: translate3d(8.5%, -1.5%, 0); }
+  50%  { transform: translate3d(16.6%, 0.5%, 0); }
+  75%  { transform: translate3d(25%, -2%, 0); }
+  100% { transform: translate3d(33.333%, -3%, 0); }
+}
+@keyframes leaf-drift-b {
+  0%   { transform: translate3d(0, 0, 0); }
+  30%  { transform: translate3d(10%, 1%, 0); }
+  60%  { transform: translate3d(20%, -2%, 0); }
+  100% { transform: translate3d(33.333%, -1%, 0); }
 }
 
 @keyframes dust-drift {
@@ -212,7 +254,9 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .dust-layer::before,
-  .dust-layer::after { animation: none; }
+  .dust-layer::after,
+  .leaf-layer::before,
+  .leaf-layer::after { animation: none; }
 }
 
 .splash > *:not(.dust-layer) { position: relative; z-index: 1; }
@@ -450,11 +494,27 @@ body.splash-active #journal-toggle { display: none; }
   position: relative;
   min-height: 100dvh;
   padding: calc(var(--frame-inset) + 1.5rem) 1rem;
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(255, 188, 110, 0.28), transparent 65%),
+    radial-gradient(ellipse at 80% 90%, rgba(220, 140, 60, 0.18), transparent 60%),
+    linear-gradient(180deg, #fbf3e4 0%, #f5e7cf 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+/* Warm vignette overlay above particles, below content */
+#menu-root .selector-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(255, 170, 80, 0.10), transparent 70%),
+    radial-gradient(ellipse at 50% 110%, rgba(120, 60, 20, 0.18), transparent 55%);
+  mix-blend-mode: multiply;
+  z-index: 0;
 }
 .selector { position: relative; z-index: 1; width: 100%; max-width: 800px; padding: 2rem; }
 .selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: var(--text); }

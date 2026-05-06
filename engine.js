@@ -151,53 +151,6 @@ async function loadManifest() {
   return cachedManifest;
 }
 
-// Punch soft holes in a dust layer's mask wherever story cards / commission
-// tiles sit, so dust fades out near them and fades back in away from them.
-function updateDustMask(layer) {
-  if (!layer) return;
-  const container = layer.parentElement;
-  if (!container) return;
-  const cRect = container.getBoundingClientRect();
-  if (!cRect.width || !cRect.height) return;
-  const targets = container.querySelectorAll('.story-card, .commission-tier, .commission-perks, .commission-intro, .selector-title, .commission-link-wrap');
-  const w = Math.round(cRect.width);
-  const h = Math.round(cRect.height);
-  const ellipses = [];
-  targets.forEach(el => {
-    const r = el.getBoundingClientRect();
-    if (!r.width || !r.height) return;
-    const cx = (r.left + r.width / 2) - cRect.left;
-    const cy = (r.top + r.height / 2) - cRect.top;
-    const rx = r.width / 2 + 50;
-    const ry = r.height / 2 + 50;
-    ellipses.push(`<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="url(#fade)"/>`);
-  });
-  if (!ellipses.length) {
-    layer.style.removeProperty('--dust-mask');
-    return;
-  }
-  const svg =
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
-      `<defs><radialGradient id="fade"><stop offset="0%" stop-color="black"/><stop offset="70%" stop-color="black" stop-opacity="0.3"/><stop offset="100%" stop-color="white"/></radialGradient></defs>` +
-      `<rect width="100%" height="100%" fill="white"/>` +
-      ellipses.join('') +
-    `</svg>`;
-  const url = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
-  layer.style.setProperty('--dust-mask', url);
-}
-
-function refreshAllDustMasks() {
-  document.querySelectorAll('.dust-layer').forEach(updateDustMask);
-}
-
-let dustMaskRaf = 0;
-function scheduleDustMaskRefresh() {
-  if (dustMaskRaf) return;
-  dustMaskRaf = requestAnimationFrame(() => { dustMaskRaf = 0; refreshAllDustMasks(); });
-}
-
-window.addEventListener('resize', scheduleDustMaskRefresh);
-
 function popInSelector() {
   const title = menuApp.querySelector('.selector-title');
   if (title) { title.classList.remove('card-pop-pending'); title.classList.add('card-pop-in'); }
@@ -213,8 +166,6 @@ function popInSelector() {
     commissionLink.classList.remove('card-pop-pending');
     commissionLink.classList.add('card-pop-in');
   }
-  scheduleDustMaskRefresh();
-  setTimeout(scheduleDustMaskRefresh, 600 + cards.length * 120);
 }
 
 async function showSelector({ defer = false, withCrossfade = false } = {}) {
@@ -233,6 +184,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   menuApp.innerHTML = `
     <div class="selector-bg">
       <div class="dust-layer" aria-hidden="true"></div>
+      <div class="leaf-layer" aria-hidden="true"></div>
       <div class="selector">
         <h1 class="selector-title card-pop-pending">Choose Your Story</h1>
         <div class="story-list">
@@ -257,7 +209,6 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   storyApp.innerHTML = '';
   removeStoryTheme();
   if (!defer) requestAnimationFrame(popInSelector);
-  scheduleDustMaskRefresh();
 }
 
 function showCommission() {
@@ -310,8 +261,6 @@ function renderCommissionContent() {
       el.classList.remove('card-pop-pending');
       el.classList.add('card-pop-in');
     });
-    scheduleDustMaskRefresh();
-    setTimeout(scheduleDustMaskRefresh, 1200);
   });
 }
 
@@ -328,6 +277,10 @@ function makeSplash() {
   dust.className = 'dust-layer';
   dust.setAttribute('aria-hidden', 'true');
   el.appendChild(dust);
+  const leaves = document.createElement('div');
+  leaves.className = 'leaf-layer';
+  leaves.setAttribute('aria-hidden', 'true');
+  el.appendChild(leaves);
   return el;
 }
 
