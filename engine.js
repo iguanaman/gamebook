@@ -78,7 +78,7 @@ function crossfadeTo(mode) {
   if (reduced) return; // CSS hides it; don't bother running the loop.
 
   const DENSITY = 0.00010;   // particles per CSS pixel of viewport area
-  const MAX_DPR = 0.5;
+  const MAX_DPR = 1;
   const FRAME_MS = 1000 / 24; // throttle to ~24fps
   let particles = [];
   let cssW = 0, cssH = 0, dpr = 1;
@@ -93,6 +93,10 @@ function crossfadeTo(mode) {
     return { w, h, d, cw, ch };
   }
 
+  const menuRootEl = document.getElementById('menu-root');
+  const accentColor = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--accent').trim()) || '#4a3728';
+  const bgColor     = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--bg').trim())     || '#f5e7cf';
+
   function resize() {
     const t = targetPixels();
     if (canvas.width === t.w && canvas.height === t.h) return false;
@@ -102,11 +106,20 @@ function crossfadeTo(mode) {
     cssH = t.ch;
     dpr  = t.d;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Immediately repaint bg so the freshly-allocated transparent buffer doesn't flash black.
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, cssW, cssH);
     // Resample particle count to viewport area, preserving existing positions.
     const desired = Math.max(20, Math.floor(cssW * cssH * DENSITY));
     while (particles.length < desired) particles.push(spawn(true));
     if (particles.length > desired) particles.length = desired;
     return true;
+  }
+
+  let resizeTimer = 0;
+  function scheduleResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 120);
   }
 
   function spawn(initial) {
@@ -121,19 +134,14 @@ function crossfadeTo(mode) {
     };
   }
 
-  const menuRootEl = document.getElementById('menu-root');
-  const accentColor = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--accent').trim()) || '#4a3728';
-  const bgColor     = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--bg').trim())     || '#f5e7cf';
-
   resize();
 
-  // Use ResizeObserver on documentElement to catch URL-bar dvh changes on
-  // mobile, and listen to window.resize for desktop. Both call resize(), which
-  // is a no-op when integer pixel size hasn't changed.
+  // Debounce resize so dragging the window doesn't re-allocate the canvas (and
+  // flash black) every fire. ResizeObserver also catches mobile URL-bar dvh.
   if (window.ResizeObserver) {
-    new ResizeObserver(() => resize()).observe(document.documentElement);
+    new ResizeObserver(scheduleResize).observe(document.documentElement);
   }
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', scheduleResize);
 
   let last = 0;
   let lastDraw = 0;
