@@ -604,7 +604,7 @@ function renderStoryCard(storyId, isFirst = false) {
   const desc = meta?.description ?? '';
   const genre = meta?.genre ?? '';
   return `
-    <div class="story-card-wrap">
+    <div class="story-card-wrap" data-story="${storyId}">
       ${showStartHere ? '<span class="story-start-hint" aria-hidden="true">Start here <span class="story-start-hint-arrow">&rarr;</span></span>' : ''}
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
         <div class="story-info">
@@ -671,7 +671,7 @@ async function applyCardTheme(storyId) {
     });
 
     // Inject any rule that targets this story's card (e.g. ::before overlays from theme.css)
-    const cardSelector = `.story-card[data-story="${storyId}"]`;
+    const cardSelector = `[data-story="${storyId}"]`;
     const cardRules = [...css.matchAll(/([^{}]+)\{([^}]*)\}/g)]
       .filter(([, sel]) => sel.includes(cardSelector))
       .map(([, sel, body]) => `${sel.trim()} {${body}}`);
