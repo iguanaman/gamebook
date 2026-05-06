@@ -184,17 +184,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   menuApp.innerHTML = `
     <div class="selector-bg">
       <div class="dust-layer" aria-hidden="true"></div>
-      <div class="selector">
-        <h1 class="selector-title card-pop-pending">Choose Your Story</h1>
-        <div class="story-list">
-          ${manifest.stories.length === 0
-            ? '<p class="no-stories">No stories available yet.</p>'
-            : manifest.stories.map(id => renderStoryCard(id)).join('')}
-        </div>
-        <div class="commission-link-wrap card-pop-pending">
-          <button class="commission-link" id="btn-commission">Create your own story</button>
-        </div>
-      </div>
+      <div class="selector">${renderSelectorContent(manifest)}</div>
     </div>
   `;
   const handlersReady = Promise.all(manifest.stories.map(id => attachCardHandlers(id)));
@@ -219,6 +209,39 @@ function showCommission() {
   } else {
     renderCommissionContent();
   }
+}
+
+function renderSelectorContent(manifest) {
+  return `
+    <h1 class="selector-title card-pop-pending">Choose Your Story</h1>
+    <div class="story-list">
+      ${manifest.stories.length === 0
+        ? '<p class="no-stories">No stories available yet.</p>'
+        : manifest.stories.map(id => renderStoryCard(id)).join('')}
+    </div>
+    <div class="commission-link-wrap card-pop-pending">
+      <button class="commission-link" id="btn-commission">Create your own story</button>
+    </div>
+  `;
+}
+
+async function hideCommission() {
+  const selector = menuApp.querySelector('.selector');
+  if (!selector) { showSelector({ withCrossfade: false }); return; }
+  document.getElementById('back-btn')?.classList.add('back-hidden');
+  selector.style.transition = 'opacity 0.35s ease';
+  selector.style.opacity = '0';
+  await new Promise(resolve => {
+    selector.addEventListener('transitionend', resolve, { once: true });
+  });
+  const manifest = await loadManifest();
+  selector.classList.remove('commission-screen');
+  selector.style.transition = '';
+  selector.style.opacity = '';
+  selector.innerHTML = renderSelectorContent(manifest);
+  const handlersReady = Promise.all(manifest.stories.map(id => attachCardHandlers(id)));
+  document.getElementById('btn-commission')?.addEventListener('click', showCommission);
+  handlersReady.then(() => requestAnimationFrame(popInSelector));
 }
 
 function renderCommissionContent() {
@@ -469,7 +492,7 @@ function renderStoryCard(storyId) {
           <p class="story-desc" data-story-desc="${storyId}"></p>
         </div>
       </div>
-      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" aria-label="Wipe save">🗑</button>` : ''}
+      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" aria-label="Wipe save"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></button>` : ''}
     </div>
   `;
 }
@@ -561,10 +584,11 @@ async function attachCardHandlers(storyId) {
     if (delBtn) {
       delBtn.addEventListener('click', e => {
         e.stopPropagation();
+        const wrap = delBtn.closest('.story-card-wrap');
         showConfirm('Wipe saved progress?', () => {
           localStorage.removeItem(stateKey(storyId));
           delBtn.remove();
-        });
+        }, { anchor: wrap });
         return;
       });
     }
@@ -850,10 +874,16 @@ function onPauseStateChange() {
 document.addEventListener('visibilitychange', onPauseStateChange);
 document.addEventListener('gamebook-visibility', onPauseStateChange);
 
-function cancelPlayback() {
+function cancelPlayback({ fadeMs = 0 } = {}) {
   playbackSession++;
-  stopAudio();
+  if (fadeMs > 0) fadeOutAudio(fadeMs);
+  else stopAudio();
   hideSkipHint();
+}
+
+function returnToSelector() {
+  cancelPlayback({ fadeMs: 2000 });
+  showSelector({ withCrossfade: true });
 }
 
 function blockAudioUrl(sceneId, rawIndex, branch) {
@@ -1562,9 +1592,9 @@ function updateUndoButton() {
   if (!empty) showNextHint();
 }
 
-function showConfirm(message, onYes) {
+function showConfirm(message, onYes, opts = {}) {
   const overlay = document.createElement('div');
-  overlay.className = 'undo-confirm-overlay';
+  overlay.className = 'undo-confirm-overlay' + (opts.anchor ? ' undo-confirm-anchored' : '');
   overlay.innerHTML = `
     <div class="undo-confirm">
       <p class="undo-confirm-msg">${message}</p>
@@ -1574,7 +1604,7 @@ function showConfirm(message, onYes) {
       </div>
     </div>
   `;
-  const host = menuRoot.classList.contains('mode-hidden') ? storyRoot : menuRoot;
+  const host = opts.anchor || (menuRoot.classList.contains('mode-hidden') ? storyRoot : menuRoot);
   host.appendChild(overlay);
 
   const cleanup = () => { overlay.remove(); document.removeEventListener('keydown', onKey); };
@@ -1672,8 +1702,18 @@ function toggleJournal() {
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
-document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); playbackSession++; hideSkipHint(); fadeOutAudio(3000); showSelector({ withCrossfade: true }); });
-document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); playbackSession++; hideSkipHint(); fadeOutAudio(3000); showSelector({ withCrossfade: true }); });
+document.getElementById('back-btn')?.addEventListener('click', () => {
+  dismissHint('back');
+  if (menuApp.querySelector('.commission-screen')) {
+    hideCommission();
+  } else {
+    returnToSelector();
+  }
+});
+document.getElementById('journal-quit')?.addEventListener('click', () => {
+  closeJournal();
+  returnToSelector();
+});
 document.getElementById('journal-new-game')?.addEventListener('click', () => {
   if (!currentStoryId) return;
   showConfirm('Start a new game? Progress will be lost.', () => {

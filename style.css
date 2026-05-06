@@ -487,7 +487,7 @@ body.splash-active #journal-toggle { display: none; }
   mix-blend-mode: multiply;
   z-index: 0;
 }
-.selector { position: relative; z-index: 1; width: 100%; max-width: 800px; padding: 2rem; }
+.selector { position: relative; z-index: 1; width: 100%; max-width: 800px; padding: 2rem 3rem; }
 .selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: var(--text); }
 .story-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .no-stories { text-align: center; opacity: 0.5; font-family: var(--font-ui); }
@@ -532,8 +532,22 @@ body.splash-active #journal-toggle { display: none; }
   font-size: 0.95rem;
   color: var(--text);
   opacity: 0.75;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
 }
-.commission-perks li::before { content: '✦  '; opacity: 0.5; }
+.commission-perks li::before {
+  content: '';
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 0.85em;
+  height: 0.85em;
+  opacity: 0.5;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z'/></svg>") center / contain no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2 L13.5 10.5 L22 12 L13.5 13.5 L12 22 L10.5 13.5 L2 12 L10.5 10.5 Z'/></svg>") center / contain no-repeat;
+  transform: translateY(0.05em);
+}
 .commission-tiers {
   display: flex;
   gap: 1.25rem;
@@ -574,25 +588,24 @@ body.splash-active #journal-toggle { display: none; }
 .story-card:focus-visible { outline: 2px solid var(--accent, #888); outline-offset: 2px; }
 .story-card.card-fade-out { opacity: 0; transform: scale(0.97); pointer-events: none; }
 
-.story-card-wrap { position: relative; isolation: isolate; }
+.story-card-wrap { position: relative; }
 .card-delete-btn {
   position: absolute;
-  right: 0.75rem;
-  bottom: 0.75rem;
+  right: -2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   font-size: 1.5rem;
   line-height: 1;
   padding: 0.25rem;
   color: var(--text);
-  opacity: 0.35;
+  opacity: 0;
   cursor: pointer;
   transition: opacity 0.15s;
-  filter: grayscale(1);
-  z-index: 2;
 }
 .story-card-wrap:hover .card-delete-btn,
-.card-delete-btn:focus-visible { opacity: 0.7; }
+.card-delete-btn:focus-visible { opacity: 0.5; }
 .card-delete-btn:hover { opacity: 1 !important; }
 
 .story-info { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -815,6 +828,20 @@ body.splash-active #journal-toggle { display: none; }
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.45);
+}
+.undo-confirm-overlay.undo-confirm-anchored {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.55);
+}
+.undo-confirm-overlay.undo-confirm-anchored .undo-confirm {
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.undo-confirm-overlay.undo-confirm-anchored .undo-confirm-msg {
+  font-size: 0.9rem;
+  margin: 0 0 0.6rem;
 }
 .undo-confirm {
   background: var(--surface);
