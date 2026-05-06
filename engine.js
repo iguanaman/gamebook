@@ -464,6 +464,10 @@ function animateCardSelect(storyId) {
       ghost.style.zIndex = '100';
       ghost.style.pointerEvents = 'none';
       ghost.style.transition = 'opacity 0.6s ease';
+      ghost.querySelectorAll('*').forEach(el => {
+        el.style.animation = 'none';
+        el.classList.remove('card-pop-pending', 'card-pop-in', 'card-fade-out');
+      });
       document.body.appendChild(ghost);
       app.innerHTML = '';
       requestAnimationFrame(() => { ghost.style.opacity = '0'; });
