@@ -477,19 +477,28 @@ function hasSave(storyId) {
   return !!localStorage.getItem(`gamebook.state.${storyId}`);
 }
 
+const cachedStoryMeta = {};
 async function loadStoryMeta(storyId) {
-  return fetchYaml(`stories/${storyId}/story.yaml`);
+  if (cachedStoryMeta[storyId]) return cachedStoryMeta[storyId];
+  const meta = await fetchYaml(`stories/${storyId}/story.yaml`);
+  cachedStoryMeta[storyId] = meta;
+  return meta;
 }
 
 function renderStoryCard(storyId) {
   const saved = hasSave(storyId);
+  const meta = cachedStoryMeta[storyId];
+  const title = meta?.title ?? 'Loading...';
+  const prefix = meta?.prefix ? `${meta.prefix} — ` : '';
+  const desc = meta?.description ?? '';
+  const genre = meta?.genre ?? '';
   return `
     <div class="story-card-wrap">
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
         <div class="story-info">
-          <span class="story-genre" data-story-genre="${storyId}"></span>
-          <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}"></span><span data-story-title="${storyId}">Loading...</span></h2>
-          <p class="story-desc" data-story-desc="${storyId}"></p>
+          <span class="story-genre" data-story-genre="${storyId}">${genre}</span>
+          <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}">${prefix}</span><span data-story-title="${storyId}">${title}</span></h2>
+          <p class="story-desc" data-story-desc="${storyId}">${desc}</p>
         </div>
       </div>
       ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" aria-label="Wipe save"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></button>` : ''}
