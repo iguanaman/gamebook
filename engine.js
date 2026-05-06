@@ -605,7 +605,7 @@ function renderStoryCard(storyId, isFirst = false) {
   const genre = meta?.genre ?? '';
   return `
     <div class="story-card-wrap" data-story="${storyId}">
-      ${showStartHere ? '<span class="story-start-hint" aria-hidden="true">Start here <span class="story-start-hint-arrow">&rarr;</span></span>' : ''}
+      ${showStartHere ? '<span class="story-start-hint" aria-hidden="true"><span class="story-start-hint-arrow story-start-hint-arrow-left">&rarr;</span>Start here<span class="story-start-hint-arrow story-start-hint-arrow-right">&rarr;</span></span>' : ''}
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
         <div class="story-info">
           <span class="story-genre" data-story-genre="${storyId}">${genre}</span>
