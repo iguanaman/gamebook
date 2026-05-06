@@ -183,6 +183,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
   menuApp.innerHTML = `
     <div class="selector-bg">
+      <div class="dust-layer" aria-hidden="true"></div>
       <div class="selector">
         <h1 class="selector-title card-pop-pending">Choose Your Story</h1>
         <div class="story-list">
@@ -271,6 +272,10 @@ function renderCommissionContent() {
 function makeSplash() {
   const el = document.createElement('div');
   el.className = 'splash splash-hidden';
+  const dust = document.createElement('div');
+  dust.className = 'dust-layer';
+  dust.setAttribute('aria-hidden', 'true');
+  el.appendChild(dust);
   return el;
 }
 
