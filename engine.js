@@ -20,12 +20,10 @@ function setActiveMode(mode) {
     menuRoot.classList.remove('mode-hidden');
     storyRoot.classList.add('mode-hidden');
     app = menuApp;
-    document.body.classList.remove('dust-disabled');
   } else {
     storyRoot.classList.remove('mode-hidden');
     menuRoot.classList.add('mode-hidden');
     app = storyApp;
-    document.body.classList.add('dust-disabled');
   }
 }
 
@@ -71,7 +69,7 @@ function crossfadeTo(mode) {
 // and when prefers-reduced-motion is set.
 
 (function setupDust() {
-  const canvas = document.querySelector('#menu-root .dust-canvas');
+  const canvas = document.getElementById('dust-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d', { alpha: true });
   if (!ctx) return;
@@ -86,15 +84,13 @@ function crossfadeTo(mode) {
 
   function targetPixels() {
     const d = Math.min(window.devicePixelRatio || 1, MAX_DPR);
-    const rect = canvas.getBoundingClientRect();
-    const cw = Math.round(rect.width);
-    const ch = Math.round(rect.height);
-    return { w: cw * d, h: ch * d, d, cw, ch };
+    const w = Math.round(window.innerWidth  * d);
+    const h = Math.round(window.innerHeight * d);
+    return { w, h, d, cw: window.innerWidth, ch: window.innerHeight };
   }
 
   function resize() {
     const t = targetPixels();
-    if (!t.cw || !t.ch) return false;
     if (canvas.width === t.w && canvas.height === t.h) return false;
     canvas.width = t.w;
     canvas.height = t.h;
@@ -129,8 +125,8 @@ function crossfadeTo(mode) {
   // Use ResizeObserver on documentElement to catch URL-bar dvh changes on
   // mobile, and listen to window.resize for desktop. Both call resize(), which
   // is a no-op when integer pixel size hasn't changed.
-  if (window.ResizeObserver && menuRootEl) {
-    new ResizeObserver(() => resize()).observe(menuRootEl);
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => resize()).observe(document.documentElement);
   }
   window.addEventListener('resize', resize);
 
@@ -138,8 +134,7 @@ function crossfadeTo(mode) {
   function frame(now) {
     requestAnimationFrame(frame);
     if (document.hidden) { last = 0; return; }
-    if (document.body.classList.contains('dust-disabled')) { last = 0; return; }
-    if (canvas.offsetParent === null && getComputedStyle(canvas).display === 'none') { last = 0; return; }
+    if (menuRootEl && menuRootEl.classList.contains('mode-hidden')) { last = 0; return; }
 
     const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
     last = now;
