@@ -166,6 +166,14 @@ button {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  --dust-mask: none;
+  -webkit-mask-image: var(--dust-mask);
+          mask-image: var(--dust-mask);
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  transition: -webkit-mask-image 0.4s ease, mask-image 0.4s ease;
 }
 .dust-layer::before,
 .dust-layer::after {

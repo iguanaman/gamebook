@@ -151,6 +151,46 @@ async function loadManifest() {
   return cachedManifest;
 }
 
+// Punch soft holes in a dust layer's mask wherever story cards / commission
+// tiles sit, so dust fades out near them and fades back in away from them.
+function updateDustMask(layer) {
+  if (!layer) return;
+  const container = layer.parentElement;
+  if (!container) return;
+  const cRect = container.getBoundingClientRect();
+  if (!cRect.width || !cRect.height) return;
+  const targets = container.querySelectorAll('.story-card, .commission-tier, .commission-perks, .commission-intro, .selector-title, .commission-link-wrap');
+  const masks = [];
+  targets.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    const cx = ((r.left + r.width / 2) - cRect.left) / cRect.width * 100;
+    const cy = ((r.top + r.height / 2) - cRect.top) / cRect.height * 100;
+    const rx = (r.width / 2 + 40) / cRect.width * 100;
+    const ry = (r.height / 2 + 40) / cRect.height * 100;
+    masks.push(`radial-gradient(ellipse ${rx}% ${ry}% at ${cx}% ${cy}%, transparent 35%, #000 95%)`);
+  });
+  if (!masks.length) {
+    layer.style.removeProperty('--dust-mask');
+    return;
+  }
+  layer.style.setProperty('--dust-mask', masks.join(', '));
+  layer.style.setProperty('-webkit-mask-composite', 'source-in');
+  layer.style.setProperty('mask-composite', 'intersect');
+}
+
+function refreshAllDustMasks() {
+  document.querySelectorAll('.dust-layer').forEach(updateDustMask);
+}
+
+let dustMaskRaf = 0;
+function scheduleDustMaskRefresh() {
+  if (dustMaskRaf) return;
+  dustMaskRaf = requestAnimationFrame(() => { dustMaskRaf = 0; refreshAllDustMasks(); });
+}
+
+window.addEventListener('resize', scheduleDustMaskRefresh);
+
 function popInSelector() {
   const title = menuApp.querySelector('.selector-title');
   if (title) { title.classList.remove('card-pop-pending'); title.classList.add('card-pop-in'); }
@@ -166,6 +206,8 @@ function popInSelector() {
     commissionLink.classList.remove('card-pop-pending');
     commissionLink.classList.add('card-pop-in');
   }
+  scheduleDustMaskRefresh();
+  setTimeout(scheduleDustMaskRefresh, 600 + cards.length * 120);
 }
 
 async function showSelector({ defer = false, withCrossfade = false } = {}) {
@@ -208,6 +250,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   storyApp.innerHTML = '';
   removeStoryTheme();
   if (!defer) requestAnimationFrame(popInSelector);
+  scheduleDustMaskRefresh();
 }
 
 function showCommission() {
@@ -260,6 +303,8 @@ function renderCommissionContent() {
       el.classList.remove('card-pop-pending');
       el.classList.add('card-pop-in');
     });
+    scheduleDustMaskRefresh();
+    setTimeout(scheduleDustMaskRefresh, 1200);
   });
 }
 
