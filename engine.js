@@ -436,8 +436,11 @@ function animateCardSelect(storyId) {
     requestAnimationFrame(() => cover.classList.add('screen-fade-cover-in'));
     setTimeout(async () => {
       await startStory(storyId);
-      cover.classList.remove('screen-fade-cover-in');
-      cover.addEventListener('transitionend', () => cover.remove(), { once: true });
+      const splashFadeMs = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--anim-act-title-duration')) || 600;
+      setTimeout(() => {
+        cover.classList.remove('screen-fade-cover-in');
+        cover.addEventListener('transitionend', () => cover.remove(), { once: true });
+      }, splashFadeMs);
     }, 600);
   }, 1600);
 }

@@ -243,7 +243,7 @@ button {
   inset: 0;
   background: var(--bg);
   opacity: 0;
-  transition: opacity 0.55s ease;
+  transition: opacity 1.2s ease;
   z-index: 9999;
   pointer-events: none;
 }
