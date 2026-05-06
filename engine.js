@@ -454,8 +454,6 @@ function animateCardSelect(storyId) {
   startMusic(storyId, true, storyMusicVolumes[storyId] ?? 1);
   const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
-  const chosen = document.querySelector(`.story-card[data-story="${storyId}"]`);
-  setTimeout(() => { if (chosen) chosen.classList.add('card-fade-out'); }, 1000);
   setTimeout(() => {
     const selectorBg = app.querySelector('.selector-bg');
     if (selectorBg) {
@@ -466,7 +464,7 @@ function animateCardSelect(storyId) {
       app.innerHTML = '';
       startStory(storyId);
     }, 1200);
-  }, 1600);
+  }, 1000);
 }
 
 async function attachCardHandlers(storyId) {
