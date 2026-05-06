@@ -12,48 +12,58 @@
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 </head>
 <body>
-  <div id="frame"></div>
-  <button id="fullscreen-btn" class="ui-icon-btn fullscreen-btn"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
+  <div id="chrome-root">
+    <button id="fullscreen-btn" class="ui-icon-btn fullscreen-btn"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></button>
+    <button id="back-btn" class="ui-icon-btn back-btn back-hidden" aria-label="Back to story selection"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></button>
 
-  <div id="hint-fullscreen" class="ui-hint ui-hint-top-right" data-hint="fullscreen">
-    <span class="ui-hint-text">Click for a fullscreen experience!</span>
-  </div>
-  <div id="hint-back" class="ui-hint ui-hint-top-left" data-hint="back">
-    <span class="ui-hint-text">Return to the story menu</span>
-  </div>
-  <div id="hint-journal" class="ui-hint ui-hint-bottom-left" data-hint="journal">
-    <span class="ui-hint-text">Track story notes in your journal</span>
-  </div>
-  <div id="hint-undo" class="ui-hint ui-hint-bottom-right" data-hint="undo">
-    <span class="ui-hint-text">Made a bad choice? Undo it!</span>
-  </div>
-  <div id="hint-skip" class="ui-hint ui-hint-bottom-center">
-    <span class="ui-hint-text"></span>
+    <div id="hint-fullscreen" class="ui-hint ui-hint-top-right" data-hint="fullscreen">
+      <span class="ui-hint-text">Click for a fullscreen experience!</span>
+    </div>
+    <div id="hint-back" class="ui-hint ui-hint-top-left" data-hint="back">
+      <span class="ui-hint-text">Return to the story menu</span>
+    </div>
+    <div id="hint-journal" class="ui-hint ui-hint-bottom-left" data-hint="journal">
+      <span class="ui-hint-text">Track story notes in your journal</span>
+    </div>
+    <div id="hint-undo" class="ui-hint ui-hint-bottom-right" data-hint="undo">
+      <span class="ui-hint-text">Made a bad choice? Undo it!</span>
+    </div>
+    <div id="hint-skip" class="ui-hint ui-hint-bottom-center">
+      <span class="ui-hint-text"></span>
+    </div>
   </div>
 
-  <button id="back-btn" class="ui-icon-btn back-btn back-hidden" aria-label="Back to story selection"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></button>
-  <div id="app"></div>
-  <button id="journal-toggle" class="ui-icon-btn journal-toggle journal-hidden" aria-label="Open journal">
-    <span class="journal-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
-    <span class="journal-dot" aria-hidden="true"></span>
-  </button>
-  <div id="journal-backdrop" class="journal-backdrop"></div>
-  <div class="journal-clip">
-    <aside id="journal-panel" class="journal-panel journal-panel-closed" aria-hidden="true">
-      <div class="journal-header">
-        <h2 class="journal-title">Journal</h2>
-      </div>
-      <div id="journal-entries" class="journal-entries"></div>
-      <div class="journal-footer">
-        <button class="btn btn-ghost" id="journal-new-game">New Game</button>
-        <button class="btn btn-ghost journal-music-toggle" id="journal-music-toggle" aria-label="Toggle music">
-          <span class="music-icon-on" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span>
-          <span class="music-icon-off" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></span>
-        </button>
-        <button class="btn btn-ghost journal-quit" id="journal-quit">Back to Stories</button>
-      </div>
-    </aside>
+  <div id="menu-root" class="mode-root">
+    <div class="frame"></div>
+    <div class="mode-content"></div>
   </div>
+
+  <div id="story-root" class="mode-root mode-hidden">
+    <div class="frame"></div>
+    <div class="mode-content"></div>
+    <button id="journal-toggle" class="ui-icon-btn journal-toggle journal-hidden" aria-label="Open journal">
+      <span class="journal-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+      <span class="journal-dot" aria-hidden="true"></span>
+    </button>
+    <div id="journal-backdrop" class="journal-backdrop"></div>
+    <div class="journal-clip">
+      <aside id="journal-panel" class="journal-panel journal-panel-closed" aria-hidden="true">
+        <div class="journal-header">
+          <h2 class="journal-title">Journal</h2>
+        </div>
+        <div id="journal-entries" class="journal-entries"></div>
+        <div class="journal-footer">
+          <button class="btn btn-ghost" id="journal-new-game">New Game</button>
+          <button class="btn btn-ghost journal-music-toggle" id="journal-music-toggle" aria-label="Toggle music">
+            <span class="music-icon-on" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span>
+            <span class="music-icon-off" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></span>
+          </button>
+          <button class="btn btn-ghost journal-quit" id="journal-quit">Back to Stories</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
 <script src="engine.js"></script>
 </body>
 </html>

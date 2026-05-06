@@ -16,7 +16,7 @@
    generic serif so legibility never depends on the webfont.
    ────────────────────────────────────────────────────────────────────────── */
 
-body.story-active {
+#story-root {
   /* ── Palette ─────────────────────────────────────────────────────────── */
   --bg: #f1e7d0;             /* aged parchment, warm off-white */
   --surface: #f6efdc;         /* slightly lighter card / panel */

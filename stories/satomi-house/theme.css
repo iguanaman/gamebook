@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500&family=Noto+Sans+JP:wght@300;400&display=swap');
 
-body.story-active {
+#story-root {
   /* ── Palette: faded traditional Japan ──────────────────────────────────── */
   /* Old photograph left in the sun: washed yellows, cold greys, deep shadow  */
 

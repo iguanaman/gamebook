@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Oswald:wght@300;400&display=swap');
 
-body.story-active {
+#story-root {
   /* ── Core palette — amber, cigarette smoke, aged newsprint ── */
   --bg: #0f0d0a;
   --surface: #1a1610;

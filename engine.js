@@ -4,7 +4,57 @@ if (new URLSearchParams(location.search).has('fresh')) {
   Object.keys(localStorage).filter(k => k.startsWith('gamebook.')).forEach(k => localStorage.removeItem(k));
 }
 
-let app = document.getElementById('app');
+// ── Mode roots ────────────────────────────────────────────────────────────────
+//
+// Two visual layers (#menu-root and #story-root) sit side-by-side and crossfade
+// between each other. `app` always points at the active mode's content area.
+
+const menuRoot = document.getElementById('menu-root');
+const storyRoot = document.getElementById('story-root');
+const menuApp = menuRoot.querySelector('.mode-content');
+const storyApp = storyRoot.querySelector('.mode-content');
+let app = menuApp;
+
+function setActiveMode(mode) {
+  if (mode === 'menu') {
+    menuRoot.classList.remove('mode-hidden');
+    storyRoot.classList.add('mode-hidden');
+    app = menuApp;
+  } else {
+    storyRoot.classList.remove('mode-hidden');
+    menuRoot.classList.add('mode-hidden');
+    app = storyApp;
+  }
+}
+
+function fadeDurationMs() {
+  const v = parseFloat(getComputedStyle(document.body).getPropertyValue('--mode-fade-duration')) || 1.2;
+  return v < 50 ? v * 1000 : v;
+}
+
+let crossfading = false;
+
+// Crossfade from current visible mode to target. Caller renders content into
+// the target's `app` BEFORE calling crossfadeTo, so the fade reveals it.
+function crossfadeTo(mode) {
+  return new Promise(resolve => {
+    if (crossfading) { setActiveMode(mode); resolve(); return; }
+    crossfading = true;
+    const target = mode === 'menu' ? menuRoot : storyRoot;
+    const source = mode === 'menu' ? storyRoot : menuRoot;
+    target.classList.remove('mode-hidden');
+    app = mode === 'menu' ? menuApp : storyApp;
+    requestAnimationFrame(() => {
+      source.classList.add('mode-hidden');
+      setTimeout(() => {
+        crossfading = false;
+        resolve();
+      }, fadeDurationMs() + 50);
+    });
+  });
+}
+
+// ── Pause / visibility ────────────────────────────────────────────────────────
 
 let gamePaused = false;
 const isGamePaused = () => document.hidden || gamePaused;
@@ -17,7 +67,7 @@ function setGamePaused(paused) {
 
 const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
 const HINT_KEY = key => `gamebook.hint_seen.${key}`;
-const HINTS_ALWAYS_SHOW = false; // dev flag: show hints repeatedly, revert by setting false
+const HINTS_ALWAYS_SHOW = false;
 
 const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches;
 
@@ -71,19 +121,14 @@ function showNextHint() {
   }
 }
 
-function initFullscreen() {
-  const btn = document.getElementById('fullscreen-btn');
-  if (!btn) return;
-  btn.addEventListener('click', () => {
-    if (!document.fullscreenElement) document.documentElement.requestFullscreen();
-    else document.exitFullscreen();
-  });
-  document.addEventListener('fullscreenchange', () => {
-    if (document.fullscreenElement) dismissHint('fullscreen');
-  });
-showNextHint();
-}
-
+const fullscreenBtn = document.getElementById('fullscreen-btn');
+fullscreenBtn?.addEventListener('click', () => {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+});
+document.addEventListener('fullscreenchange', () => {
+  if (document.fullscreenElement) dismissHint('fullscreen');
+});
 
 // ── Manifest / selector ───────────────────────────────────────────────────────
 
@@ -98,15 +143,15 @@ async function loadManifest() {
 }
 
 function popInSelector() {
-  const title = document.querySelector('.selector-title');
+  const title = menuApp.querySelector('.selector-title');
   if (title) { title.classList.remove('card-pop-pending'); title.classList.add('card-pop-in'); }
-  const cards = document.querySelectorAll('.story-card-wrap');
+  const cards = menuApp.querySelectorAll('.story-card-wrap');
   cards.forEach((wrap, idx) => {
     wrap.style.setProperty('--card-pop-delay', `${120 + idx * 120}ms`);
     wrap.classList.remove('card-pop-pending');
     wrap.classList.add('card-pop-in');
   });
-  const commissionLink = document.querySelector('.commission-link-wrap');
+  const commissionLink = menuApp.querySelector('.commission-link-wrap');
   if (commissionLink) {
     commissionLink.style.setProperty('--card-pop-delay', `${120 + cards.length * 120}ms`);
     commissionLink.classList.remove('card-pop-pending');
@@ -114,24 +159,22 @@ function popInSelector() {
   }
 }
 
-async function showSelector({ defer = false } = {}) {
+async function showSelector({ defer = false, withCrossfade = false } = {}) {
   if (!selectorMusicPlaying) stopMusic();
   startSelectorMusic();
   sessionStorage.setItem('gamebook.atSelector', '1');
   removeStoryTheme();
-  document.getElementById('story-layer')?.remove();
-  app = document.getElementById('app');
-  if (app) { app.style.display = ''; app.style.opacity = ''; app.style.transition = ''; }
   currentStoryId = null;
   state = null;
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
   document.getElementById('journal-toggle')?.classList.remove('journal-toggle-open');
   document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
   document.getElementById('back-btn')?.classList.add('back-hidden');
+  storyApp.innerHTML = '';
   const manifest = await loadManifest();
   if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
   if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
-  app.innerHTML = `
+  menuApp.innerHTML = `
     <div class="selector-bg">
       <div class="selector">
         <h1 class="selector-title card-pop-pending">Choose Your Story</h1>
@@ -147,13 +190,18 @@ async function showSelector({ defer = false } = {}) {
     </div>
   `;
   manifest.stories.forEach(id => attachCardHandlers(id));
-  document.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
+  menuApp.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
   document.getElementById('btn-commission')?.addEventListener('click', showCommission);
+  if (withCrossfade) {
+    await crossfadeTo('menu');
+  } else {
+    setActiveMode('menu');
+  }
   if (!defer) requestAnimationFrame(popInSelector);
 }
 
 function showCommission() {
-  const selector = app.querySelector('.selector');
+  const selector = menuApp.querySelector('.selector');
   if (selector) {
     selector.style.transition = 'opacity 0.35s ease';
     selector.style.opacity = '0';
@@ -164,7 +212,7 @@ function showCommission() {
 }
 
 function renderCommissionContent() {
-  const selector = app.querySelector('.selector');
+  const selector = menuApp.querySelector('.selector');
   if (selector) {
     selector.classList.add('commission-screen');
     selector.style.transition = '';
@@ -197,7 +245,7 @@ function renderCommissionContent() {
   }
   document.getElementById('back-btn')?.classList.remove('back-hidden');
   requestAnimationFrame(() => {
-    app.querySelectorAll('.commission-screen .card-pop-pending').forEach((el, idx) => {
+    menuApp.querySelectorAll('.commission-screen .card-pop-pending').forEach((el, idx) => {
       el.style.setProperty('--card-pop-delay', `${idx * 120}ms`);
       el.classList.remove('card-pop-pending');
       el.classList.add('card-pop-in');
@@ -205,11 +253,36 @@ function renderCommissionContent() {
   });
 }
 
-function showPreIntroSplash(manifest) {
-  document.body.classList.add('splash-active');
-  const overlay = document.createElement('div');
-  overlay.className = 'story-splash story-splash-hidden';
+// ── Splashes ──────────────────────────────────────────────────────────────────
 
+// All splashes use the shared `.splash` base + fade classes. Splashes mount into
+// whichever root they belong to: menu splashes into menuApp, story splashes into
+// storyApp. While a splash is up, body.splash-active hides chrome buttons/hints.
+
+function makeSplash() {
+  const el = document.createElement('div');
+  el.className = 'splash splash-hidden';
+  return el;
+}
+
+function showSplash(splash, host) {
+  document.body.classList.add('splash-active');
+  host.appendChild(splash);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      splash.classList.remove('splash-hidden');
+      splash.classList.add('splash-visible');
+    });
+  });
+}
+
+function hideSplash(splash, { slow = false } = {}) {
+  splash.classList.remove('splash-visible');
+  splash.classList.add(slow ? 'splash-out-slow' : 'splash-out');
+}
+
+function showPreIntroSplash(manifest) {
+  const splash = makeSplash();
   const body = document.createElement('div');
   body.className = 'intro-splash-body pre-intro-splash-body';
 
@@ -224,23 +297,17 @@ function showPreIntroSplash(manifest) {
   btn.textContent = 'Begin →';
   body.appendChild(btn);
 
-  overlay.appendChild(body);
-  document.body.appendChild(overlay);
-
-  requestAnimationFrame(() => {
-    overlay.classList.remove('story-splash-hidden');
-    overlay.classList.add('story-splash-visible');
-  });
+  splash.appendChild(body);
+  showSplash(splash, menuApp);
 
   btn.addEventListener('click', () => {
     if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
     if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
     startSelectorMusic(true);
     document.body.classList.remove('splash-active');
-    overlay.classList.remove('story-splash-visible');
-    overlay.classList.add('story-splash-out-slow');
-    overlay.addEventListener('transitionend', () => {
-      overlay.remove();
+    hideSplash(splash, { slow: true });
+    splash.addEventListener('transitionend', () => {
+      splash.remove();
       showIntroSplash('first', manifest);
     }, { once: true });
   }, { once: true });
@@ -273,10 +340,7 @@ function showIntroSplash(mode, manifest) {
   ];
   const introNarrator = manifest?.intro?.narrator ?? null;
 
-  document.body.classList.add('splash-active');
-  const overlay = document.createElement('div');
-  overlay.className = 'story-splash story-splash-hidden';
-
+  const splash = makeSplash();
   const body = document.createElement('div');
   body.className = 'intro-splash-body';
 
@@ -291,24 +355,18 @@ function showIntroSplash(mode, manifest) {
     return p;
   });
 
-  overlay.appendChild(body);
-  document.body.appendChild(overlay);
-
-  requestAnimationFrame(() => {
-    overlay.classList.remove('story-splash-hidden');
-    overlay.classList.add('story-splash-visible');
-  });
+  splash.appendChild(body);
+  showSplash(splash, menuApp);
 
   async function dismiss() {
     document.body.classList.remove('splash-active');
     stopAudio();
-    overlay.classList.remove('story-splash-visible');
-    overlay.classList.add('story-splash-out-slow');
+    hideSplash(splash, { slow: true });
     if (isFirst) {
       localStorage.setItem('gamebook.seen_intro', '1');
       await showSelector({ defer: true });
     }
-    overlay.addEventListener('transitionend', () => { overlay.remove(); if (isFirst) popInSelector(); }, { once: true });
+    splash.addEventListener('transitionend', () => { splash.remove(); if (isFirst) popInSelector(); }, { once: true });
   }
 
   const LINE_PAUSE_MS = 1000;
@@ -390,7 +448,7 @@ function renderStoryCard(storyId) {
   return `
     <div class="story-card-wrap">
       <div class="story-card" data-story="${storyId}" role="button" tabindex="0">
-<div class="story-info">
+        <div class="story-info">
           <span class="story-genre" data-story-genre="${storyId}"></span>
           <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}"></span><span data-story-title="${storyId}">Loading...</span></h2>
           <p class="story-desc" data-story-desc="${storyId}"></p>
@@ -407,9 +465,9 @@ async function applyCardTheme(storyId) {
     if (!res.ok) return;
     const css = await res.text();
 
-    // Inject @import rules for fonts (deduplicated by href)
+    // Inject @import font rules (deduped by href)
     const imports = [...css.matchAll(/@import\s+url\(['"]?([^'")\s]+)['"]?\)[^;]*;/g)];
-    imports.forEach(([rule, url]) => {
+    imports.forEach(([, url]) => {
       if (!document.querySelector(`link[href="${url}"]`)) {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -418,7 +476,7 @@ async function applyCardTheme(storyId) {
       }
     });
 
-    // Inject @font-face blocks (deduplicated by family name)
+    // Inject @font-face blocks (deduped by family name)
     const fontFaces = [...css.matchAll(/@font-face\s*\{[^}]+\}/g)];
     fontFaces.forEach(([block]) => {
       const familyMatch = block.match(/font-family\s*:\s*['"]?([^'";]+)['"]?/);
@@ -430,13 +488,13 @@ async function applyCardTheme(storyId) {
       }
     });
 
-    // Extract CSS custom properties from the theme block
-    const rootMatch = css.match(/(?::root|body\.story-active)\s*\{([^}]+)\}/s);
-    if (!rootMatch) return;
-    const vars = [...rootMatch[1].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)];
+    // Pull theme vars from the #story-root block (or legacy :root) and apply them inline to the card
+    const themeMatch = css.match(/(?:#story-root|:root|body\.story-active)\s*\{([^}]+)\}/s);
+    if (!themeMatch) return;
+    const vars = [...themeMatch[1].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)];
     if (!vars.length) return;
 
-    const card = document.querySelector(`.story-card[data-story="${storyId}"]`);
+    const card = menuApp.querySelector(`.story-card[data-story="${storyId}"]`);
     if (!card) return;
     vars.forEach(([, name, value]) => card.style.setProperty(name, value.trim()));
     card.style.color = 'var(--text)';
@@ -455,33 +513,20 @@ async function applyCardTheme(storyId) {
 function animateCardSelect(storyId) {
   fadeOutMusic(3000);
   startMusic(storyId, true, storyMusicVolumes[storyId] ?? 1);
-  const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
+  const others = menuApp.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
-  setTimeout(async () => {
-    const layer = document.createElement('div');
-    layer.id = 'story-layer';
-    layer.style.position = 'fixed';
-    layer.style.inset = '0';
-    layer.style.zIndex = '100';
-    layer.style.opacity = '0';
-    layer.style.background = 'var(--bg)';
-    layer.style.transition = 'opacity 12s ease';
-    document.body.appendChild(layer);
-    const realApp = document.getElementById('app');
-    app = layer;
-    await startStory(storyId);
-    if (realApp) realApp.style.display = 'none';
-    requestAnimationFrame(() => { layer.style.opacity = '1'; });
+  setTimeout(() => {
+    startStory(storyId, { withCrossfade: true });
   }, 300);
 }
 
 async function attachCardHandlers(storyId) {
   try {
     const meta = await loadStoryMeta(storyId);
-    const titleEl = document.querySelector(`[data-story-title="${storyId}"]`);
-    const prefixEl = document.querySelector(`[data-story-prefix="${storyId}"]`);
-    const descEl = document.querySelector(`[data-story-desc="${storyId}"]`);
-    const genreEl = document.querySelector(`[data-story-genre="${storyId}"]`);
+    const titleEl = menuApp.querySelector(`[data-story-title="${storyId}"]`);
+    const prefixEl = menuApp.querySelector(`[data-story-prefix="${storyId}"]`);
+    const descEl = menuApp.querySelector(`[data-story-desc="${storyId}"]`);
+    const genreEl = menuApp.querySelector(`[data-story-genre="${storyId}"]`);
     if (titleEl) titleEl.textContent = meta.title;
     if (prefixEl && meta.prefix) prefixEl.textContent = meta.prefix + ' — ';
     if (descEl) descEl.textContent = meta.description;
@@ -491,13 +536,13 @@ async function attachCardHandlers(storyId) {
 
   applyCardTheme(storyId);
 
-  const card = document.querySelector(`.story-card[data-story="${storyId}"]`);
+  const card = menuApp.querySelector(`.story-card[data-story="${storyId}"]`);
   if (card) {
     const launch = () => animateCardSelect(storyId);
     card.addEventListener('click', launch);
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') launch(); });
 
-    const delBtn = document.querySelector(`[data-delete="${storyId}"]`);
+    const delBtn = menuApp.querySelector(`[data-delete="${storyId}"]`);
     if (delBtn) {
       delBtn.addEventListener('click', e => {
         e.stopPropagation();
@@ -522,13 +567,8 @@ let currentActFolder = null;
 let storyMeta = null;
 let state = null;
 
-function stateKey(storyId) {
-  return `gamebook.state.${storyId}`;
-}
-
-function resumeKey(storyId) {
-  return `gamebook.resume.${storyId}`;
-}
+function stateKey(storyId) { return `gamebook.state.${storyId}`; }
+function resumeKey(storyId) { return `gamebook.resume.${storyId}`; }
 
 function saveResume(sceneId, blockIndex) {
   localStorage.setItem(resumeKey(currentStoryId), JSON.stringify({ scene: sceneId, blockIndex }));
@@ -588,10 +628,6 @@ function undo() {
   return true;
 }
 
-function setFlag(key, value = true) {
-  state.flags[key] = value;
-}
-
 function applyEffects(effects) {
   if (!effects) return;
   if (effects.stats) {
@@ -626,12 +662,9 @@ function meetsRequirements(requires) {
   return true;
 }
 
-
 function resolveBlock(block, sceneId) {
-  // Plain string — no condition
   if (typeof block === 'string') return { content: block, isSpeech: false, branch: '' };
 
-  // Conditional block: has an 'if' key
   if ('if' in block) {
     const cond = block.if;
     const pass = cond === 'visited'
@@ -649,7 +682,6 @@ function resolveBlock(block, sceneId) {
     return null;
   }
 
-  // Voice-tagged block (no condition): e.g. {male1: "..."}
   const key = Object.keys(block)[0];
   return { content: block[key], isSpeech: true, branch: '' };
 }
@@ -667,6 +699,7 @@ let currentAudio = null;
 let playbackSession = 0;
 let musicAudio = null;
 let musicMuted = false;
+let selectorMusicPlaying = false;
 
 function startMusic(storyId, isNew, targetVolume = 1) {
   stopMusic();
@@ -695,8 +728,7 @@ function toggleMusic() {
     if (musicMuted) musicAudio.pause();
     else musicAudio.play().catch(() => {});
   }
-  const btn = document.getElementById('journal-music-toggle');
-  btn?.classList.toggle('music-muted', musicMuted);
+  document.getElementById('journal-music-toggle')?.classList.toggle('music-muted', musicMuted);
 }
 
 function fadeInMusic(audio, durationMs, targetVolume = 1) {
@@ -725,8 +757,6 @@ function fadeOutMusic(durationMs) {
   }
   requestAnimationFrame(tick);
 }
-
-let selectorMusicPlaying = false;
 
 function stopMusic() {
   if (musicAudio) {
@@ -815,7 +845,6 @@ function actAudioSlug(actText, fallback = 'act') {
   return slug || fallback;
 }
 
-
 function splitActTitle(title) {
   const sep = ' — ';
   const idx = title.indexOf(sep);
@@ -823,29 +852,27 @@ function splitActTitle(title) {
   return { label: title.slice(0, idx), subtitle: title.slice(idx + sep.length) };
 }
 
+// Story title / act title splash. Renders into storyApp.
 function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = false } = {}) {
-  app.innerHTML = '';
-  document.body.classList.add('splash-active');
-
-  const splash = document.createElement('div');
-  splash.className = 'story-splash story-splash-hidden';
+  storyApp.innerHTML = '';
+  const splash = makeSplash();
 
   if (label) {
     const lbl = document.createElement('p');
-    lbl.className = 'story-splash-label';
+    lbl.className = 'splash-label';
     lbl.textContent = label;
     splash.appendChild(lbl);
   }
 
   const h1 = document.createElement('h1');
-  h1.className = isStoryTitle ? 'story-splash-title story-splash-title--story' : 'story-splash-title';
+  h1.className = isStoryTitle ? 'splash-title splash-title--story' : 'splash-title';
   h1.textContent = text;
   splash.appendChild(h1);
 
-  document.body.appendChild(splash);
+  showSplash(splash, storyApp);
 
   const animDuration = parseFloat(
-    getComputedStyle(document.documentElement).getPropertyValue('--anim-act-title-duration')
+    getComputedStyle(storyRoot).getPropertyValue('--anim-act-title-duration')
   ) || 600;
 
   let dismissed = false;
@@ -854,21 +881,12 @@ function showTitleSplash(text, audioUrl, onDone, { label = null, isStoryTitle = 
     dismissed = true;
     document.body.classList.remove('splash-active');
     stopAudio();
-    splash.classList.remove('story-splash-visible');
-    splash.classList.add('story-splash-out');
+    hideSplash(splash);
     setTimeout(() => {
       splash.remove();
       onDone();
     }, animDuration);
   }
-
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      splash.classList.remove('story-splash-hidden');
-      splash.classList.add('story-splash-visible');
-    });
-  });
 
   setTimeout(() => {
     currentAudio = new Audio(audioUrl);
@@ -899,7 +917,7 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
   let done = false;
   const blockCount = blocks.length;
 
-  const gameWrap = document.querySelector('.game-wrap');
+  const gameWrap = storyApp.querySelector('.game-wrap');
 
   function cancelled() { return session !== playbackSession; }
 
@@ -953,31 +971,23 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
 // ── Game shell ────────────────────────────────────────────────────────────────
 
 function applyStoryTheme(storyId) {
-  document.getElementById('frame').classList.remove('frame-neutral');
   document.getElementById('story-theme')?.remove();
   return new Promise(resolve => {
     const link = document.createElement('link');
     link.id = 'story-theme';
     link.rel = 'stylesheet';
     link.href = `stories/${storyId}/theme.css`;
-    link.addEventListener('load', () => {
-      document.body.classList.add('story-active');
-      resolve();
-    }, { once: true });
-    link.addEventListener('error', () => {
-      document.body.classList.add('story-active');
-      resolve();
-    }, { once: true });
+    link.addEventListener('load', resolve, { once: true });
+    link.addEventListener('error', resolve, { once: true });
     document.head.appendChild(link);
   });
 }
 
 function removeStoryTheme() {
   document.getElementById('story-theme')?.remove();
-  document.body.classList.remove('story-active');
 }
 
-async function startStory(storyId) {
+async function startStory(storyId, { withCrossfade = false } = {}) {
   sessionStorage.removeItem('gamebook.atSelector');
   localStorage.setItem('gamebook.lastStory', storyId);
   const meta = await loadStoryMeta(storyId);
@@ -985,7 +995,6 @@ async function startStory(storyId) {
   storyMeta = meta;
   if (!storyMeta.flags) storyMeta.flags = {};
   await applyStoryTheme(storyId);
-  document.body.style.visibility = '';
 
   const _rawSaved = loadState(storyId);
   if (_rawSaved && !_rawSaved.scene) {
@@ -1010,6 +1019,11 @@ async function startStory(storyId) {
   const startScene = saved ? state.scene : meta.start;
 
   if (!saved) {
+    storyApp.innerHTML = '';
+    if (withCrossfade) await crossfadeTo('story');
+    else setActiveMode('story');
+    document.body.style.visibility = '';
+
     const splashStoryId = currentStoryId;
     showTitleSplash(meta.title, `stories/${currentStoryId}/audio/story_title.opus`, async () => {
       if (currentStoryId !== splashStoryId || !state) return;
@@ -1021,13 +1035,15 @@ async function startStory(storyId) {
     renderShell(meta);
     await navigateTo(startScene);
     scrollNarrativeToBottom();
+    if (withCrossfade) await crossfadeTo('story');
+    else setActiveMode('story');
+    document.body.style.visibility = '';
   }
 }
 
 function renderShell(meta) {
-  app.innerHTML = `
-    <div class="hud-wrap">
-    </div>
+  storyApp.innerHTML = `
+    <div class="hud-wrap"></div>
     <div class="game-wrap">
       <div class="narrative-area">
         <div class="narrative at-bottom" id="narrative"></div>
@@ -1037,7 +1053,7 @@ function renderShell(meta) {
     </div>
     <button class="ui-icon-btn btn-undo-fixed undo-disabled" id="btn-undo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></button>
   `;
-  const narrative = document.getElementById('narrative');
+  const narrative = storyApp.querySelector('#narrative');
   if (narrative) {
     const updateAtBottom = () => {
       const atBottom = narrative.scrollTop + narrative.clientHeight >= narrative.scrollHeight - 2;
@@ -1045,13 +1061,12 @@ function renderShell(meta) {
     };
     narrative.addEventListener('scroll', updateAtBottom, { passive: true });
   }
-  document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
+  storyApp.querySelector('#btn-undo')?.addEventListener('click', handleUndo);
 }
 
 async function loadScene(storyId, sceneId) {
   return fetchYaml(`stories/${storyId}/scenes/${sceneId}.yaml`);
 }
-
 
 async function navigateTo(sceneId) {
   cancelPlayback();
@@ -1086,7 +1101,6 @@ async function navigateTo(sceneId) {
         }
       }
     } catch { /* no _act.yaml — no act title */ }
-    // fallback: honour inline act: if _act.yaml wasn't found
     if (!actTitle && scene.act && scene.act !== currentAct) actTitle = scene.act;
 
     if (actTitle) {
@@ -1116,7 +1130,6 @@ async function navigateTo(sceneId) {
       const blocks = resolveSceneBlocks(scene);
       state.blockHashes[sceneId] = blocks.map(b => b.hash);
       saveState();
-      renderHud();
       typeBlocks(blocks, () => renderChoices(scene), sceneId);
     }, { label: actLabel2 });
   }
@@ -1172,7 +1185,7 @@ async function navigateTo(sceneId) {
 }
 
 function resolveSceneBlocks(scene) {
-  const el = document.getElementById('narrative');
+  const el = storyApp.querySelector('#narrative');
   const isFirstScene = el && el.querySelector('p') === null;
   const rawBlocks = Array.isArray(scene.text) ? scene.text : [scene.text];
 
@@ -1206,8 +1219,6 @@ function resolveSceneBlocks(scene) {
   return blocks;
 }
 
-// Paralinguistic tags like [sigh], [chuckle] — sent to TTS, hidden from viewer.
-// Strip the tag and any surrounding whitespace it leaves behind.
 const PARALINGUISTIC_TAGS = ['clear throat', 'sigh', 'shush', 'cough', 'groan', 'sniff', 'gasp', 'chuckle', 'laugh'];
 const PARALINGUISTIC_RE = new RegExp(`\\s*\\[(?:${PARALINGUISTIC_TAGS.join('|')})\\]\\s*`, 'gi');
 function stripParalinguisticTags(text) {
@@ -1238,21 +1249,21 @@ function buildBlockPara(block) {
 }
 
 function clearNarrative() {
-  const el = document.getElementById('narrative');
+  const el = storyApp.querySelector('#narrative');
   if (el) el.innerHTML = '';
-  const footer = document.getElementById('choices-footer');
+  const footer = storyApp.querySelector('#choices-footer');
   if (footer) footer.innerHTML = '';
-  const divider = document.getElementById('choices-divider');
+  const divider = storyApp.querySelector('#choices-divider');
   if (divider) divider.classList.add('choices-hidden');
 }
 
 function scrollNarrativeToBottom() {
-  const el = document.getElementById('narrative');
+  const el = storyApp.querySelector('#narrative');
   if (el) el.scrollTop = el.scrollHeight;
 }
 
 function appendBlockPara(block) {
-  const el = document.getElementById('narrative');
+  const el = storyApp.querySelector('#narrative');
   if (!el) return null;
   const p = buildBlockPara(block);
   el.appendChild(p);
@@ -1267,7 +1278,7 @@ function showBlockInstant(block) {
 }
 
 function appendChosenChoice(text) {
-  const el = document.getElementById('narrative');
+  const el = storyApp.querySelector('#narrative');
   if (!el) return;
   const p = document.createElement('p');
   p.className = 'chosen-choice';
@@ -1283,7 +1294,6 @@ function showBlockReveal(block) {
   return p;
 }
 
-// Typewriter speed: milliseconds per character. Higher = slower.
 const TYPING_MS_PER_CHAR = 64;
 
 function typeBlock(block, skip, onDone) {
@@ -1329,11 +1339,10 @@ function typeBlock(block, skip, onDone) {
 
   function tick() {
     if (finished) return;
-    if (isGamePaused()) return; // wait for gamebook-visibility to re-enter
+    if (isGamePaused()) return;
     if (skip.active) { skip.active = false; finish(); return; }
     if (pos >= fullHtml.length) { finish(); return; }
 
-    // HTML tags and entities emit atomically without consuming time
     if (fullHtml[pos] === '<') {
       const end = fullHtml.indexOf('>', pos);
       if (end !== -1) { pos = end + 1; tick(); return; }
@@ -1343,7 +1352,6 @@ function typeBlock(block, skip, onDone) {
       if (end !== -1) { pos = end + 1; charsShown++; para.innerHTML = fullHtml.slice(0, pos); requestAnimationFrame(tick); return; }
     }
 
-    // Reveal up to the number of chars that should be visible by now
     const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
     if (charsShown >= targetChars) { requestAnimationFrame(tick); return; }
 
@@ -1364,7 +1372,7 @@ function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
   const skip = { active: false };
   const blockCount = blocks.length;
 
-  const gameWrap = document.querySelector('.game-wrap');
+  const gameWrap = storyApp.querySelector('.game-wrap');
 
   function cancelled() { return session !== playbackSession; }
 
@@ -1418,10 +1426,10 @@ function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
 
 function renderChoices(scene) {
   clearResume();
-  const el = document.getElementById('choices-footer');
+  const el = storyApp.querySelector('#choices-footer');
   if (!el) return;
 
-  const divider = document.getElementById('choices-divider');
+  const divider = storyApp.querySelector('#choices-divider');
 
   const allChoices = scene.choices ?? [];
   const passing = allChoices.filter(c => meetsRequirements(c.requires));
@@ -1433,8 +1441,8 @@ function renderChoices(scene) {
       <button class="btn btn-secondary" id="btn-restart">↺ Restart</button>
       <button class="btn btn-secondary" id="btn-selector">Back to Stories</button>
     `;
-    document.getElementById('btn-restart')?.addEventListener('click', () => { localStorage.removeItem(stateKey(currentStoryId)); startStory(currentStoryId); });
-    document.getElementById('btn-selector')?.addEventListener('click', () => showSelector());
+    el.querySelector('#btn-restart')?.addEventListener('click', () => { localStorage.removeItem(stateKey(currentStoryId)); startStory(currentStoryId); });
+    el.querySelector('#btn-selector')?.addEventListener('click', () => showSelector({ withCrossfade: true }));
     return;
   }
 
@@ -1465,12 +1473,11 @@ function renderChoices(scene) {
       allBtns.forEach(b => { b.disabled = true; });
       chosenBtn.classList.add('btn-choice-selected');
 
-      const root = getComputedStyle(document.documentElement);
+      const root = getComputedStyle(storyRoot);
       const fastMs = parseFloat(root.getPropertyValue('--anim-choice-fade-fast')) || 250;
       const lingerMs = parseFloat(root.getPropertyValue('--anim-choice-linger-ms')) || 1200;
       const slowMs = parseFloat(root.getPropertyValue('--anim-choice-fade-slow')) || 500;
 
-      const divider = document.getElementById('choices-divider');
       if (divider) {
         divider.style.transition = `opacity ${fastMs}ms ease`;
         divider.style.opacity = '0';
@@ -1495,7 +1502,6 @@ function renderChoices(scene) {
 
 function resolveNext(next) {
   if (typeof next === 'string') return next;
-  // weighted random: [{scene, weight}, ...] — weight defaults to 1
   const total = next.reduce((sum, e) => sum + (e.weight ?? 1), 0);
   let roll = Math.random() * total;
   for (const entry of next) {
@@ -1513,7 +1519,7 @@ async function handleChoice(choice) {
 }
 
 function updateUndoButton() {
-  const btn = document.getElementById('btn-undo');
+  const btn = storyApp.querySelector('#btn-undo');
   if (!btn) return;
   const empty = !state || state.history.length === 0;
   btn.classList.toggle('undo-disabled', empty);
@@ -1627,11 +1633,10 @@ function toggleJournal() {
 }
 
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
-
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
-document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); cancelPlayback(); showSelector(); });
-document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector(); });
+document.getElementById('back-btn')?.addEventListener('click', () => { dismissHint('back'); cancelPlayback(); showSelector({ withCrossfade: true }); });
+document.getElementById('journal-quit')?.addEventListener('click', () => { closeJournal(); cancelPlayback(); showSelector({ withCrossfade: true }); });
 document.getElementById('journal-new-game')?.addEventListener('click', () => {
   if (!currentStoryId) return;
   showConfirm('Start a new game? Progress will be lost.', () => {
@@ -1651,12 +1656,7 @@ document.addEventListener('click', e => {
 // ── Keyboard ──────────────────────────────────────────────────────────────────
 
 function inGame() {
-  return !!document.getElementById('choices-footer');
-}
-
-function confirmExit() {
-  cancelPlayback();
-  showSelector();
+  return !!storyApp.querySelector('#choices-footer');
 }
 
 document.addEventListener('keydown', (e) => {
@@ -1672,7 +1672,7 @@ document.addEventListener('keydown', (e) => {
   }
 
   if (e.key >= '1' && e.key <= '9' && inGame()) {
-    const footer = document.getElementById('choices-footer');
+    const footer = storyApp.querySelector('#choices-footer');
     const buttons = footer?.querySelectorAll('.btn-choice:not([disabled])');
     const idx = parseInt(e.key, 10) - 1;
     if (buttons && buttons[idx]) {
@@ -1685,8 +1685,8 @@ document.addEventListener('keydown', (e) => {
 // ── Boot ──────────────────────────────────────────────────────────────────────
 
 (async () => {
-  initFullscreen();
   if (!localStorage.getItem('gamebook.seen_intro')) {
+    setActiveMode('menu');
     const manifest = await loadManifest();
     if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
     if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
@@ -1696,6 +1696,7 @@ document.addEventListener('keydown', (e) => {
   const last = localStorage.getItem('gamebook.lastStory');
   if (last && hasSave(last) && !sessionStorage.getItem('gamebook.atSelector')) {
     document.body.style.visibility = 'hidden';
+    setActiveMode('story');
     startStory(last);
   } else {
     showSelector();
