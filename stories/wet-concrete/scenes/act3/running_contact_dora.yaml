@@ -1,0 +1,27 @@
+id: act3/running_contact_dora
+
+text:
+  - |-
+    The hotel lobby on Calder has a phone booth in the corner that faces away from the desk. Frank uses it.
+  - |-
+    The Tribune's after-hours desk connects him through two transfers. He waits with his back to the booth, watching the lobby door.
+  - |-
+    She picks up on the third ring. She doesn't say hello. She says the name of the paper.
+  - female_adult_american_crisp_direct_clear: |-
+      Harmon Courier.
+  - |-
+    Frank says the name Ray Doss.
+  - |-
+    There's a pause that tells him everything he needed to know about whether she's been waiting for a call like this.
+
+choices:
+  - text: |-
+      Tell her what's coming — prepare her for the package even if you don't mail it now.
+    next: act3/running_dark_progress_dora
+    effects:
+      stats:
+        rep: 1
+
+  - text: |-
+      Don't say anything useful on the phone — just ask if she'll meet.
+    next: act3/running_dark_progress_dora

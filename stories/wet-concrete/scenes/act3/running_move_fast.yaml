@@ -1,0 +1,14 @@
+id: act3/running_move_fast
+
+text:
+  - |-
+    No detours. Frank moves through the city on the routes he memorised when routes like this still meant something professional — the maintenance corridors, the loading docks, the two-block stretches where the street cameras don't reach because the alderman on that block never lobbied for them.
+  - |-
+    He knows which streets are watched and which aren't. He moves through the unwatched ones.
+  - |-
+    June Holt and Peltz are behind him. So is whatever they knew. He kept the heat down and bought himself a few extra hours. Whether it's enough depends on what he does with them.
+
+choices:
+  - text: |-
+      Move — there's no time to think, only to move.
+    next: act3/running_dark_progress

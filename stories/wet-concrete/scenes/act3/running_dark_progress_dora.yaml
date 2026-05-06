@@ -1,0 +1,18 @@
+id: act3/running_dark_progress_dora
+
+text:
+  - |-
+    Dora doesn't ask questions Frank can't answer safely on an open line. She doesn't tell him to come in. She doesn't tell him to wait.
+  - female_adult_american_crisp_direct_clear: |-
+      I've been waiting for a call like this.
+  - |-
+    She gives him an address — the Tribune's print floor entrance, night side, off the loading alley on Marsh Street. Unlocked until two in the morning.
+  - female_adult_american_crisp_direct_clear: |-
+      Bring whatever you have.
+  - |-
+    Frank hangs up. There's an option now that wasn't there an hour ago.
+
+choices:
+  - text: |-
+      Note it — and keep moving toward the last angle.
+    next: act3/beat3_last_angle

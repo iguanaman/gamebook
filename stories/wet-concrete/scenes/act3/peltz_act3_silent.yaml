@@ -1,0 +1,25 @@
+id: act3/peltz_act3_silent
+
+text:
+  - |-
+    Frank says nothing. Peltz fills it.
+  - male_young_american_weak: |-
+      I mean — look. I knew the surveys were wrong. Not because I understood — I mean, I didn't understand what they were doing. But the signature on the corrected versions wasn't the same as the original. The penmanship was different. That's all I had.
+  - male_young_american_weak: |-
+      I didn't report it. I have — the thing is, I have children.
+  - |-
+    He finishes his glass.
+  - male_young_american_weak: |-
+      I know that's not an answer.
+
+choices:
+  - text: |-
+      That's the forgery confirmed in the first person — note it.
+    next: act3/peltz_act3_resolve
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Let him be — you have what you came for.
+    next: act3/peltz_act3_resolve

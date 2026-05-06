@@ -1,0 +1,12 @@
+id: act3/peltz_act3_resolve
+
+text:
+  - |-
+    Frank walks out of the bar into the grey afternoon. Whatever Peltz gave him — a confirmation, a lead, a non-answer that was almost an answer — it's done.
+  - |-
+    The clock hasn't stopped.
+
+choices:
+  - text: |-
+      Move — the meeting with Peltz cost time, and Kellner's net is tightening.
+    next: act3/running_dark_progress

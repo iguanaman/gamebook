@@ -1,0 +1,19 @@
+id: act3/peltz_act3_specific
+
+text:
+  - |-
+    Peltz touches his collar before he answers.
+  - male_young_american_weak: |-
+      The Aldwick east block. Original boundary coordinates — the pre-correction version. Ray had a second set, the one before someone ran a line through the measurements and wrote in new numbers.
+  - male_young_american_weak: |-
+      The official versions on file were different. The official versions were — I mean, look. The official versions were the forgeries. That's what Ray was carrying home.
+  - |-
+    He blinks too fast when Frank asks how he knows. He says the same signature that signed the corrected surveys signed an inspection report Peltz filed himself, in 1944. He knows what that signature looks like. The corrections didn't match it.
+
+choices:
+  - text: |-
+      Take note — the original coordinates confirm the forgery, independently of Ray's ledger.
+    next: act3/peltz_act3_resolve
+    effects:
+      stats:
+        evidence: 1
