@@ -161,7 +161,7 @@ button {
   position: absolute;
   inset: calc(var(--frame-inset) + 6px);
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
   overflow: hidden;
 }
 
