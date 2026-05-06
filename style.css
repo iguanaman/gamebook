@@ -162,7 +162,10 @@ button {
    story mode and when prefers-reduced-motion is set. */
 #dust-canvas {
   position: absolute;
-  inset: calc(var(--frame-inset) + 6px);
+  top: calc(var(--frame-inset) + 6px);
+  left: calc(var(--frame-inset) + 6px);
+  width: calc(100% - (var(--frame-inset) + 6px) * 2);
+  height: calc(100% - (var(--frame-inset) + 6px) * 2);
   pointer-events: none;
   z-index: 1;
   display: block;
