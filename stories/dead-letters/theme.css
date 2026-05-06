@@ -78,8 +78,8 @@
 
 #story-root::after {
   background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='900'><g stroke='%23cfd6dc' stroke-width='1' stroke-linecap='round' opacity='0.55'><line x1='80' y1='120' x2='80' y2='128'/><line x1='430' y1='540' x2='430' y2='548'/><line x1='220' y1='760' x2='220' y2='768'/></g></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='720' height='1080'><g stroke='%23e8eef3' stroke-width='1' stroke-linecap='round' opacity='0.4'><line x1='180' y1='300' x2='180' y2='307'/><line x1='560' y1='820' x2='560' y2='827'/></g></svg>");
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='900'><line x1='220' y1='4' x2='220' y2='12' stroke='%23cfd6dc' stroke-width='1' stroke-linecap='round' opacity='0.6'/></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='720' height='1080'><line x1='480' y1='4' x2='480' y2='11' stroke='%23e8eef3' stroke-width='1' stroke-linecap='round' opacity='0.45'/></svg>");
   background-repeat: repeat;
   background-size: 600px 900px, 720px 1080px;
   animation: dl-rain-near 0.7s linear infinite, dl-rain-far 0.95s linear infinite;
