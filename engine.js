@@ -86,9 +86,12 @@ function crossfadeTo(mode) {
 
   function targetPixels() {
     const d = Math.min(window.devicePixelRatio || 1, MAX_DPR) * RENDER_SCALE;
-    const w = Math.round(window.innerWidth  * d);
-    const h = Math.round(window.innerHeight * d);
-    return { w, h, d, cw: window.innerWidth, ch: window.innerHeight };
+    const inset = parseFloat(getComputedStyle(document.body).getPropertyValue('--frame-inset')) || 8;
+    const cw = Math.max(0, window.innerWidth  - (inset + 6) * 2);
+    const ch = Math.max(0, window.innerHeight - (inset + 6) * 2);
+    const w = Math.round(cw * d);
+    const h = Math.round(ch * d);
+    return { w, h, d, cw, ch };
   }
 
   function resize() {
