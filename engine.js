@@ -20,10 +20,12 @@ function setActiveMode(mode) {
     menuRoot.classList.remove('mode-hidden');
     storyRoot.classList.add('mode-hidden');
     app = menuApp;
+    document.body.classList.remove('dust-disabled');
   } else {
     storyRoot.classList.remove('mode-hidden');
     menuRoot.classList.add('mode-hidden');
     app = storyApp;
+    document.body.classList.add('dust-disabled');
   }
 }
 
@@ -59,6 +61,105 @@ function crossfadeTo(mode) {
     });
   });
 }
+
+// ── Dust particles ────────────────────────────────────────────────────────────
+//
+// Single fixed-position canvas behind chrome, sized to the viewport. We resize
+// only when the integer device-pixel size actually changes (drift-proof) and
+// cap DPR at 2 to keep the texture small. ~80 dots are drawn per frame; a single
+// RAF loop runs while the canvas is visible. CSS hides the canvas in story mode
+// and when prefers-reduced-motion is set.
+
+(function setupDust() {
+  const canvas = document.getElementById('dust-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d', { alpha: true });
+  if (!ctx) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return; // CSS hides it; don't bother running the loop.
+
+  const DENSITY = 0.00010;   // particles per CSS pixel of viewport area
+  const MAX_DPR = 2;
+  let particles = [];
+  let cssW = 0, cssH = 0, dpr = 1;
+
+  function targetPixels() {
+    const d = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+    const w = Math.round(window.innerWidth  * d);
+    const h = Math.round(window.innerHeight * d);
+    return { w, h, d, cw: window.innerWidth, ch: window.innerHeight };
+  }
+
+  function resize() {
+    const t = targetPixels();
+    if (canvas.width === t.w && canvas.height === t.h) return false;
+    canvas.width = t.w;
+    canvas.height = t.h;
+    cssW = t.cw;
+    cssH = t.ch;
+    dpr  = t.d;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // Resample particle count to viewport area, preserving existing positions.
+    const desired = Math.max(20, Math.floor(cssW * cssH * DENSITY));
+    while (particles.length < desired) particles.push(spawn(true));
+    if (particles.length > desired) particles.length = desired;
+    return true;
+  }
+
+  function spawn(initial) {
+    const big = Math.random() < 0.18;
+    return {
+      x: initial ? Math.random() * cssW : -4,
+      y: Math.random() * cssH,
+      vx: (big ? 12 : 20) + Math.random() * 18,
+      vy: -2 - Math.random() * 4,
+      r: big ? 1.8 + Math.random() * 0.6 : 0.8 + Math.random() * 0.6,
+      a: big ? 0.20 + Math.random() * 0.10 : 0.30 + Math.random() * 0.15,
+    };
+  }
+
+  const menuRootEl = document.getElementById('menu-root');
+  const accentColor = (menuRootEl && getComputedStyle(menuRootEl).getPropertyValue('--accent').trim()) || '#4a3728';
+
+  resize();
+
+  // Use ResizeObserver on documentElement to catch URL-bar dvh changes on
+  // mobile, and listen to window.resize for desktop. Both call resize(), which
+  // is a no-op when integer pixel size hasn't changed.
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => resize()).observe(document.documentElement);
+  }
+  window.addEventListener('resize', resize);
+
+  let last = 0;
+  function frame(now) {
+    requestAnimationFrame(frame);
+    if (document.hidden) { last = 0; return; }
+    if (document.body.classList.contains('dust-disabled')) { last = 0; return; }
+    if (canvas.offsetParent === null && getComputedStyle(canvas).display === 'none') { last = 0; return; }
+
+    const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
+    last = now;
+
+    ctx.clearRect(0, 0, cssW, cssH);
+    ctx.fillStyle = accentColor;
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      if (p.x - p.r > cssW) { p.x = -p.r; p.y = Math.random() * cssH; }
+      if (p.y + p.r < 0) { p.y = cssH + p.r; }
+      ctx.globalAlpha = p.a;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  requestAnimationFrame(frame);
+})();
+
 
 // ── Pause / visibility ────────────────────────────────────────────────────────
 
@@ -183,7 +284,6 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   startSelectorMusic();
   menuApp.innerHTML = `
     <div class="selector-bg">
-      <div class="dust-layer" aria-hidden="true"></div>
       <div class="selector">${renderSelectorContent(manifest)}</div>
     </div>
   `;
@@ -295,10 +395,6 @@ function renderCommissionContent() {
 function makeSplash() {
   const el = document.createElement('div');
   el.className = 'splash splash-hidden';
-  const dust = document.createElement('div');
-  dust.className = 'dust-layer';
-  dust.setAttribute('aria-hidden', 'true');
-  el.appendChild(dust);
   return el;
 }
 

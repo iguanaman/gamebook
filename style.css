@@ -154,92 +154,24 @@ button {
   overflow: hidden;
 }
 
-/* Drifting dust/particles overlay — used on splashes and the menu selector.
-   Two layers of tiny radial-gradient dots on wide tiled backgrounds, panning
-   horizontally at different speeds for a parallax wind effect. */
-.dust-layer {
-  position: absolute;
-  inset: calc(var(--frame-inset) + 6px);
+/* Canvas-based drifting dust. Single fixed-position canvas sized to the
+   viewport; particles are managed in engine.js. Hidden via body class in
+   story mode and when prefers-reduced-motion is set. */
+#dust-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
+  z-index: 11;
+  display: block;
+  /* Clip to inside the gold frame so dots don't draw over the border. */
+  clip-path: inset(calc(var(--frame-inset) + 6px));
 }
-
-#story-root .dust-layer { display: none; }
-.dust-layer::before,
-.dust-layer::after {
-  content: "";
-  position: absolute;
-  top: -10%;
-  left: -25%;
-  width: 200%;
-  height: 120%;
-  background-repeat: repeat;
-  will-change: transform;
-}
-.dust-layer::before {
-  --tile: 720px;
-  background-image:
-    radial-gradient(circle at  3.7%  11.2%, var(--accent) 1.4px, transparent 2.2px),
-    radial-gradient(circle at  9.1%  47.8%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 13.4%  82.6%, var(--accent) 1.5px, transparent 2.3px),
-    radial-gradient(circle at 17.8%  29.3%, var(--accent) 1.3px, transparent 2.1px),
-    radial-gradient(circle at 22.5%  64.1%, var(--accent) 1.6px, transparent 2.4px),
-    radial-gradient(circle at 27.9%   6.4%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 31.6%  91.7%, var(--accent) 1.4px, transparent 2.2px),
-    radial-gradient(circle at 36.2%  38.5%, var(--accent) 1.3px, transparent 2.1px),
-    radial-gradient(circle at 41.7%  73.9%, var(--accent) 1.5px, transparent 2.3px),
-    radial-gradient(circle at 46.3%  19.8%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 51.8%  55.1%, var(--accent) 1.6px, transparent 2.4px),
-    radial-gradient(circle at 55.4%  87.3%, var(--accent) 1.3px, transparent 2.1px),
-    radial-gradient(circle at 60.9%  13.7%, var(--accent) 1.4px, transparent 2.2px),
-    radial-gradient(circle at 65.7%  44.6%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 70.3%  78.9%, var(--accent) 1.5px, transparent 2.3px),
-    radial-gradient(circle at 74.8%  25.4%, var(--accent) 1.3px, transparent 2.1px),
-    radial-gradient(circle at 79.5%  61.2%, var(--accent) 1.4px, transparent 2.2px),
-    radial-gradient(circle at 84.1%   8.9%, var(--accent) 1.6px, transparent 2.4px),
-    radial-gradient(circle at 88.6%  93.4%, var(--accent) 1.2px, transparent 2px),
-    radial-gradient(circle at 92.9%  35.7%, var(--accent) 1.5px, transparent 2.3px),
-    radial-gradient(circle at 96.4%  69.5%, var(--accent) 1.3px, transparent 2.1px);
-  background-size: var(--tile) var(--tile);
-  opacity: 0.36;
-  animation: dust-drift-a 60s linear infinite;
-}
-.dust-layer::after {
-  --tile: 1100px;
-  background-image:
-    radial-gradient(circle at  6.3%  21.5%, var(--accent) 2.4px, transparent 3.6px),
-    radial-gradient(circle at 17.9%  68.2%, var(--accent) 2.2px, transparent 3.4px),
-    radial-gradient(circle at 28.7%  41.8%, var(--accent) 2.6px, transparent 3.8px),
-    radial-gradient(circle at 39.4%   9.6%, var(--accent) 2.3px, transparent 3.5px),
-    radial-gradient(circle at 49.8%  85.3%, var(--accent) 2.5px, transparent 3.7px),
-    radial-gradient(circle at 61.2%  53.7%, var(--accent) 2.2px, transparent 3.4px),
-    radial-gradient(circle at 72.6%  27.4%, var(--accent) 2.4px, transparent 3.6px),
-    radial-gradient(circle at 83.1%  76.8%, var(--accent) 2.6px, transparent 3.8px),
-    radial-gradient(circle at 93.7%  44.2%, var(--accent) 2.3px, transparent 3.5px);
-  background-size: var(--tile) var(--tile);
-  opacity: 0.20;
-  animation: dust-drift-b 95s linear infinite;
-  animation-delay: -20s;
-}
-
-
-@keyframes dust-drift-a {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(720px, -14px, 0); }
-}
-@keyframes dust-drift-b {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(1100px, -22px, 0); }
-}
-
+body.dust-disabled #dust-canvas { display: none; }
 @media (prefers-reduced-motion: reduce) {
-  .dust-layer::before,
-  .dust-layer::after { animation: none; }
+  #dust-canvas { display: none; }
 }
-
-.splash > *:not(.dust-layer) { position: relative; z-index: 1; }
-
 .splash-hidden {
   opacity: 0;
   transform: scale(1.05);
