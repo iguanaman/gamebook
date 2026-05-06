@@ -78,22 +78,22 @@
 
 #story-root::after {
   background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='480'><g stroke='%23cfd6dc' stroke-width='1' stroke-linecap='round' opacity='0.55'><line x1='40' y1='20' x2='34' y2='44'/><line x1='210' y1='90' x2='204' y2='114'/><line x1='120' y1='200' x2='114' y2='224'/><line x1='280' y1='310' x2='274' y2='334'/><line x1='70' y1='380' x2='64' y2='404'/></g></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='600'><g stroke='%23e8eef3' stroke-width='1.2' stroke-linecap='round' opacity='0.4'><line x1='90' y1='60' x2='82' y2='92'/><line x1='340' y1='180' x2='332' y2='212'/><line x1='200' y1='340' x2='192' y2='372'/><line x1='30' y1='480' x2='22' y2='512'/></g></svg>");
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='900'><g stroke='%23cfd6dc' stroke-width='1' stroke-linecap='round' opacity='0.55'><line x1='80' y1='120' x2='80' y2='128'/><line x1='430' y1='540' x2='430' y2='548'/><line x1='220' y1='760' x2='220' y2='768'/></g></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='720' height='1080'><g stroke='%23e8eef3' stroke-width='1' stroke-linecap='round' opacity='0.4'><line x1='180' y1='300' x2='180' y2='307'/><line x1='560' y1='820' x2='560' y2='827'/></g></svg>");
   background-repeat: repeat;
-  background-size: 320px 480px, 420px 600px;
-  animation: dl-rain-near 1.6s linear infinite, dl-rain-far 2.6s linear infinite;
+  background-size: 600px 900px, 720px 1080px;
+  animation: dl-rain-near 0.7s linear infinite, dl-rain-far 0.95s linear infinite;
   will-change: background-position;
 }
 
 @keyframes dl-rain-near {
   from { background-position: 0 0, 0 0; }
-  to   { background-position: -60px 480px, 0 0; }
+  to   { background-position: 0 900px, 0 0; }
 }
 
 @keyframes dl-rain-far {
   from { background-position: 0 0, 0 0; }
-  to   { background-position: 0 0, -40px 600px; }
+  to   { background-position: 0 0, 0 1080px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
