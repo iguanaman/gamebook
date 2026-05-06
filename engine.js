@@ -428,7 +428,7 @@ function animateCardSelect(storyId) {
   const others = document.querySelectorAll(`.story-card:not([data-story="${storyId}"])`);
   others.forEach(c => c.classList.add('card-fade-out'));
   const chosen = document.querySelector(`.story-card[data-story="${storyId}"]`);
-  setTimeout(() => { if (chosen) chosen.classList.add('card-fade-out'); }, 150);
+  setTimeout(() => { if (chosen) chosen.classList.add('card-fade-out'); }, 1000);
   setTimeout(() => {
     const cover = document.createElement('div');
     cover.className = 'screen-fade-cover';
@@ -439,7 +439,7 @@ function animateCardSelect(storyId) {
       cover.classList.remove('screen-fade-cover-in');
       cover.addEventListener('transitionend', () => cover.remove(), { once: true });
     }, 600);
-  }, 500);
+  }, 1600);
 }
 
 async function attachCardHandlers(storyId) {
