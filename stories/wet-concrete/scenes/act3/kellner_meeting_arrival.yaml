@@ -1,0 +1,22 @@
+id: act3/kellner_meeting_arrival
+
+text:
+  - |-
+    Kellner chose the place — a diner booth on Calder Street, back corner, vinyl seats. He's already seated when you arrive. Coffee in front of him, both hands on the table. He smiles when he sees you, the easy smile of a man who has been looking forward to this.
+  - male_midlife_american_rich_smooth_rugged: |-
+      Frank. Sit down. You look like you've been sleeping in your car.
+  - |-
+    He says it warmly. He says everything warmly. There's a man at the booth nearest the door who arrived before you did, and Kellner has not introduced him, and Kellner's coffee has not been touched.
+
+choices:
+  - text: |-
+      Take it at face value — hear what Kellner says he came to say.
+    next: act3/kellner_meeting_surface
+
+  - text: |-
+      Watch the room. Kellner is talking but his eyes keep moving to the door.
+    next: act3/kellner_meeting_read
+
+  - text: |-
+      Ask directly. "What is it you actually want, Walt?"
+    next: act3/kellner_meeting_direct

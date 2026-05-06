@@ -1,0 +1,24 @@
+id: act3/act3_open
+
+text:
+  - |-
+    The messages came over three days. Walt Kellner's handwriting on the telephone slip, the same number twice. A man who wants to help leaves one message. He left four.
+  - |-
+    The meeting is already happening. You are either on your way or he found you. Either way the room is waiting.
+
+choices:
+  - text: |-
+      He's been leaving messages like a man who wants to help — play it that way, see if it holds.
+    next: act3/kellner_meeting_arrival
+
+  - text: |-
+      Something in the last message was off. You're going in expecting a trap, not a cup of coffee.
+    next: act3/kellner_meeting_cautious
+
+  - text: |-
+      You know what he is. He ran this same play once before, different case, different neighbourhood. He's running it again.
+    next: act3/kellner_meeting_knowing
+    requires:
+      flags:
+        - frank_past_revealed
+    hide_if_failed: true

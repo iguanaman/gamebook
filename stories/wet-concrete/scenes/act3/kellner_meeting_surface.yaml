@@ -1,0 +1,22 @@
+id: act3/kellner_meeting_surface
+
+text:
+  - male_midlife_american_rich_smooth_rugged: |-
+      The way I see it, Frank, you've got something that belongs in official hands. The OCU has the jurisdiction — I can walk it through the right channels, make sure it reaches the people who can actually use it. No noise. No exposure for you.
+  - |-
+    He says it like he's explaining traffic directions. His hands have not moved from the table. His coffee has not been touched. The man near the door is reading a paper he hasn't turned a page of in four minutes.
+  - male_midlife_american_rich_smooth_rugged: |-
+      You've done good work here, Frank. Better than good. Let me finish it.
+
+choices:
+  - text: |-
+      Tell him you'll think about it. Buy yourself time to move.
+    next: act3/kellner_betrayal_escape
+
+  - text: |-
+      Tell him you don't have the ledger — flat denial.
+    next: act3/kellner_betrayal_escape
+
+  - text: |-
+      Something's wrong. Trust the instinct and get up to leave.
+    next: act3/kellner_betrayal_escape

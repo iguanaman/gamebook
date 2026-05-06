@@ -1,0 +1,25 @@
+id: act3/kellner_meeting_knowing
+
+text:
+  - |-
+    The Eastwick job was 1941. A surveyor named Broich who'd found something he shouldn't have. Kellner pulled him into a meeting just like this one — warm, reasonable, a man who wanted to help. Broich gave up the file. Two weeks later he was working freight in Dunmore.
+  - |-
+    You are sitting across from the same play. Different neighbourhood, same warm voice, same untouched coffee, same man near the door. Kellner finished setting it up before you arrived.
+  - male_midlife_american_rich_smooth_rugged: |-
+      Frank. You look like you've been carrying something heavy. Let me help you put it down.
+
+choices:
+  - text: |-
+      Let Kellner run his pitch before you move. Knowing what he is doesn't help unless you let him show his hand.
+    next: act3/kellner_meeting_surface
+
+  - text: |-
+      Name the old case. "This is the Eastwick job, Walt. Same move, different street."
+    next: act3/kellner_confront_past
+    requires:
+      flags:
+        - frank_past_revealed
+    hide_if_failed: true
+    effects:
+      stats:
+        heat: 1
