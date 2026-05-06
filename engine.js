@@ -630,9 +630,8 @@ function applyThemeVarsToCard(storyId, vars) {
   card.style.background = 'var(--surface)';
   card.style.outline = 'none';
   card.style.border = '3px solid var(--border-outer)';
-  card.style.boxShadow = 'inset 0 0 0 2px var(--border-inner), inset 0 0 0 10px var(--bg), 0 0 0 2px var(--border-outer)';
+  card.style.boxShadow = 'inset 0 0 0 2px var(--border-inner), 0 0 0 2px var(--border-outer)';
   card.style.borderRadius = 'var(--border-corner-radius)';
-  card.style.padding = 'calc(1.5rem + 10px)';
   const titleEl = card.querySelector('.story-title');
   if (titleEl) titleEl.style.fontFamily = 'var(--font-heading)';
 }

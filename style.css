@@ -544,8 +544,8 @@ body.splash-active #journal-toggle { display: none; }
 .story-title { margin: 0; font-size: var(--card-title-size, var(--card-title-base)); }
 .story-genre {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0rem;
+  right: 0rem;
   font-family: var(--font-ui);
   font-size: 0.6rem;
   font-weight: 600;
