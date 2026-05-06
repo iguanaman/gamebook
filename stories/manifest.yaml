@@ -13,7 +13,8 @@ intro:
     - female_adult_british_enthusiastic_expressive: Absorb it all
     - narrator_male_american_serious_deep_steady: Choose your path
 
-music_volume: 0.6
+volume_music: 0.6
+volume_choice_cue: 0.33
 
 stories:
 - dead-letters

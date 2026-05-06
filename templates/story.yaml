@@ -9,7 +9,7 @@ description: One sentence (~15 words max). Player's situation + immediate tensio
 cover: images/cover.jpg     # optional — must be named cover.jpg; silently hidden if missing
 start: start                # ID of the first scene (can include subfolder: act1/opening)
 journal: "Opening journal entry — written in second person, sets the scene the player starts in. Mandatory."
-music_volume: 0.3          # background music volume (0.0–1.0); omit if no music.opus present
+volume_music: 0.3          # background music volume (0.0–1.0); omit if no music.opus present
 stats:
   gold: 10                  # author-defined numeric stats; omit block entirely if none needed
   stamina: 20

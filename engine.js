@@ -126,7 +126,8 @@ async function showSelector({ defer = false } = {}) {
   document.getElementById('journal-panel')?.classList.add('journal-panel-closed');
   document.getElementById('back-btn')?.classList.add('back-hidden');
   const manifest = await loadManifest();
-  if (manifest.music_volume != null) selectorMusicVolume = manifest.music_volume;
+  if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
+  if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
   app.innerHTML = `
     <div class="selector-bg">
       <div class="selector">
@@ -229,7 +230,8 @@ function showPreIntroSplash(manifest) {
   });
 
   btn.addEventListener('click', () => {
-    if (manifest.music_volume != null) selectorMusicVolume = manifest.music_volume;
+    if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
+    if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
     startSelectorMusic(true);
     document.body.classList.remove('splash-active');
     overlay.classList.remove('story-splash-visible');
@@ -478,7 +480,7 @@ async function attachCardHandlers(storyId) {
     if (prefixEl && meta.prefix) prefixEl.textContent = meta.prefix + ' — ';
     if (descEl) descEl.textContent = meta.description;
     if (genreEl && meta.genre) genreEl.textContent = meta.genre;
-    if (meta.music_volume != null) storyMusicVolumes[storyId] = meta.music_volume;
+    if (meta.volume_music != null) storyMusicVolumes[storyId] = meta.volume_music;
   } catch (e) { /* story.yaml missing — skip */ }
 
   applyCardTheme(storyId);
@@ -507,6 +509,7 @@ async function attachCardHandlers(storyId) {
 
 let currentStoryId = null;
 let selectorMusicVolume = 1;
+let choiceCueVolume = 0.33;
 const storyMusicVolumes = {};
 let currentAct = null;
 let currentActFolder = null;
@@ -755,7 +758,7 @@ function playChoiceCue() {
   const filter = ac.createBiquadFilter(); filter.type = 'bandpass'; filter.frequency.value = 1800; filter.Q.value = 1.2;
   const gain = ac.createGain();
   src.connect(filter); filter.connect(gain); gain.connect(ac.destination);
-  gain.gain.setValueAtTime(0.33, ac.currentTime);
+  gain.gain.setValueAtTime(choiceCueVolume, ac.currentTime);
   src.start();
 }
 
@@ -1007,7 +1010,7 @@ async function startStory(storyId) {
       await navigateTo(startScene);
     }, { isStoryTitle: true });
   } else {
-    startMusic(storyId, false, meta.music_volume ?? 1);
+    startMusic(storyId, false, meta.volume_music ?? 1);
     renderShell(meta);
     await navigateTo(startScene);
     scrollNarrativeToBottom();
@@ -1678,7 +1681,8 @@ document.addEventListener('keydown', (e) => {
   initFullscreen();
   if (!localStorage.getItem('gamebook.seen_intro')) {
     const manifest = await loadManifest();
-    if (manifest.music_volume != null) selectorMusicVolume = manifest.music_volume;
+    if (manifest.volume_music != null) selectorMusicVolume = manifest.volume_music;
+    if (manifest.volume_choice_cue != null) choiceCueVolume = manifest.volume_choice_cue;
     showPreIntroSplash(manifest);
     return;
   }
