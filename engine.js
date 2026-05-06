@@ -904,7 +904,8 @@ function cancelPlayback({ fadeMs = 0 } = {}) {
 }
 
 function returnToSelector() {
-  cancelPlayback({ fadeMs: 2000 });
+  fadeOutAudio(2000);
+  hideSkipHint();
   showSelector({ withCrossfade: true });
 }
 

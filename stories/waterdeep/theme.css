@@ -68,49 +68,61 @@
 }
 
 /* ── Dust motes overlay ─────────────────────────────────────────────────── */
-/* Two drifting layers of pale specks — like sunbeam dust over parchment.
-   Warm tone matches the candle/ink palette; slow upward drift. */
-#story-root::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 6;
-  opacity: 0.55;
-  background-image:
-    radial-gradient(circle at 12% 30%, rgba(255, 245, 215, 0.9) 0.8px, transparent 1.6px),
-    radial-gradient(circle at 78% 65%, rgba(255, 240, 200, 0.85) 0.9px, transparent 1.8px),
-    radial-gradient(circle at 45% 15%, rgba(255, 245, 215, 0.7) 0.7px, transparent 1.4px),
-    radial-gradient(circle at 88% 22%, rgba(255, 240, 200, 0.8) 1px, transparent 2px),
-    radial-gradient(circle at 22% 80%, rgba(255, 245, 215, 0.75) 0.8px, transparent 1.6px),
-    radial-gradient(circle at 60% 48%, rgba(255, 245, 215, 0.65) 0.6px, transparent 1.3px);
-  background-size: 380px 380px;
-  animation: wd-dust-slow 32s linear infinite;
-}
-
+/* Two drifting layers of dark specks — sepia ink dust on the parchment.
+   Translated via transform (GPU compositor) so animation is cheap. */
+#story-root::before,
 #story-root::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: -10%;
+  left: -25%;
+  width: 200%;
+  height: 120%;
   pointer-events: none;
   z-index: 6;
-  opacity: 0.45;
+  background-repeat: repeat;
+  will-change: transform;
+}
+
+#story-root::before {
+  --tile: 380px;
+  opacity: 0.35;
   background-image:
-    radial-gradient(circle at 33% 70%, rgba(255, 250, 225, 0.9) 1.1px, transparent 2.2px),
-    radial-gradient(circle at 70% 18%, rgba(255, 245, 215, 0.85) 0.9px, transparent 1.8px),
-    radial-gradient(circle at 8% 55%, rgba(255, 245, 215, 0.8) 0.8px, transparent 1.6px),
-    radial-gradient(circle at 92% 88%, rgba(255, 250, 225, 0.85) 1px, transparent 2px),
-    radial-gradient(circle at 50% 92%, rgba(255, 245, 215, 0.7) 0.7px, transparent 1.5px);
-  background-size: 520px 520px;
-  animation: wd-dust-fast 22s linear infinite;
+    radial-gradient(circle at 12% 30%, rgba(74, 42, 26, 0.9) 0.8px, transparent 1.6px),
+    radial-gradient(circle at 78% 65%, rgba(74, 42, 26, 0.85) 0.9px, transparent 1.8px),
+    radial-gradient(circle at 45% 15%, rgba(74, 42, 26, 0.7) 0.7px, transparent 1.4px),
+    radial-gradient(circle at 88% 22%, rgba(74, 42, 26, 0.8) 1px, transparent 2px),
+    radial-gradient(circle at 22% 80%, rgba(74, 42, 26, 0.75) 0.8px, transparent 1.6px),
+    radial-gradient(circle at 60% 48%, rgba(74, 42, 26, 0.65) 0.6px, transparent 1.3px);
+  background-size: var(--tile) var(--tile);
+  animation: wd-dust-slow 60s linear infinite;
+}
+
+#story-root::after {
+  --tile: 520px;
+  opacity: 0.22;
+  background-image:
+    radial-gradient(circle at 33% 70%, rgba(74, 42, 26, 0.9) 1.1px, transparent 2.2px),
+    radial-gradient(circle at 70% 18%, rgba(74, 42, 26, 0.85) 0.9px, transparent 1.8px),
+    radial-gradient(circle at 8% 55%, rgba(74, 42, 26, 0.8) 0.8px, transparent 1.6px),
+    radial-gradient(circle at 92% 88%, rgba(74, 42, 26, 0.85) 1px, transparent 2px),
+    radial-gradient(circle at 50% 92%, rgba(74, 42, 26, 0.7) 0.7px, transparent 1.5px);
+  background-size: var(--tile) var(--tile);
+  animation: wd-dust-fast 90s linear infinite;
+  animation-delay: -15s;
 }
 
 @keyframes wd-dust-slow {
-  from { background-position: 0 0; }
-  to   { background-position: 60px -380px; }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(380px, -7px, 0); }
 }
 
 @keyframes wd-dust-fast {
-  from { background-position: 0 0; }
-  to   { background-position: -80px -520px; }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(520px, -10px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #story-root::before,
+  #story-root::after { animation: none; }
 }
