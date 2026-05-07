@@ -32,7 +32,7 @@ body {
   --mode-fade-duration: 1.2s;
   --frame-inset: 8px;
   --chrome-corner-offset: 16px;
-  --chrome-hint-gap: 36px;
+  --chrome-hint-gap: 40px;
   --chrome-icon-size: 1.25rem;
   --border-corner-radius: 4px;
   --radius: 4px;
