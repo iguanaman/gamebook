@@ -2,5 +2,6 @@
 Thumbs.db
 tmp/
 *.log
+__pycache__/
 docs/superpowers/
 tts_voices/
