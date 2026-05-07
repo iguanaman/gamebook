@@ -677,6 +677,10 @@ body.splash-active #journal-toggle { display: none; }
 }
 #story-root .narrative.at-bottom { scrollbar-color: transparent transparent; }
 #story-root .narrative p { margin: 0 0 1em; }
+
+@media (max-width: 600px) { #story-root .narrative { line-height: 1.6; } }
+@media (max-width: 480px) { #story-root .narrative { line-height: 1.5; } }
+@media (max-width: 360px) { #story-root .narrative { line-height: 1.4; } }
 #story-root .narrative p:last-child { margin-bottom: 0; }
 
 #story-root .choices-divider {
