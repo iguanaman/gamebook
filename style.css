@@ -683,14 +683,14 @@ body.journal-open #fullscreen-btn {
 #story-root .game-wrap {
   display: flex;
   justify-content: center;
-  padding: calc(var(--frame-inset) + 24px) 20px calc(var(--frame-inset) + 28px);
+  padding: calc(var(--frame-inset) + 24px) 20px calc(var(--frame-inset) + 10px);
   min-height: 100dvh;
   box-sizing: border-box;
 }
 
 #story-root .narrative-area {
   width: min(680px, 100%);
-  height: calc(100dvh - (var(--frame-inset) + 24px) - (var(--frame-inset) + 28px));
+  height: calc(100dvh - (var(--frame-inset) + 24px) - (var(--frame-inset) + 10px));
   display: flex;
   flex-direction: column;
 }
