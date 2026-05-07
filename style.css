@@ -794,7 +794,7 @@ body.journal-open #journal-toggle { opacity: 0; pointer-events: none; }
   width: 1.6em;
   height: 1.6em;
   border-radius: 50%;
-  background: currentColor;
+  background: var(--text);
   color: transparent;
   font-variant-numeric: tabular-nums;
 }
