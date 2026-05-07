@@ -181,12 +181,13 @@ The engine fetches this when the player first enters the folder — it clears th
 
 ## First scene in a story
 
-If this is the first scene of the whole story, also:
-- Create `stories/{id}/story.yaml` (copy from `templates/story.yaml`)
-- Add the story ID to `stories/manifest.yaml`
-- Set `start:` to the first scene's path
-- Include a `journal:` field on `story.yaml` — this is mandatory, and is recorded as the journal's opening entry on new game
-- Write the `description:` field — shown on the story selector card. One sentence, max ~15 words. Cover only what the player knows at the very start: their situation and the immediate tension. No spoilers, no act-2 stakes, no resolution hints. The hook is the first thing the player senses, not the arc they'll discover.
+`story.yaml` and the manifest entry were created in stage 1. When you write the first scene of the whole story, just update `story.yaml`:
+
+- Set `start:` to the first scene's path (e.g. `act1/opening`).
+
+Everything else on `story.yaml` (stats, narrator, description, opening `journal:`, visible flags) was already filled in at stage 1 and should not need changes here. If something is missing, that's a stage-1 gap — fix it on `story.yaml` directly, but flag it.
+
+For reference, a good `description:` reads like:
 
   ```yaml
   # Good — early situation + immediate tension, no spoilers

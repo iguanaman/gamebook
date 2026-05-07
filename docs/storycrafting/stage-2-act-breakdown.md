@@ -1,8 +1,10 @@
-# Stage 2: Act Beats
+# Stage 2: Act Beats + Principal Cast
 
-**Goal:** Expand one act into its beats — the high-level emotional/narrative units. No scene lists yet, no choice-by-choice mapping. Output: `stories/{id}/act-{n}.md`.
+**Goal:** Expand one act into its beats — the high-level emotional/narrative units — AND draft cast entries for every principal NPC the act introduces or significantly develops. No scene lists yet, no choice-by-choice mapping. Outputs: `stories/{id}/act-{n}.md` and updates to `stories/{id}/cast.md`.
 
 **Prerequisite:** `structure.md` must exist. Run this stage once per act, in order (Act 1 → Act 2 → ...). Each act's entry depends on the previous act's exits.
+
+**Why cast lives here, not Stage 4.** When a beat author commits to who's on stage — an overseer's contradiction, an ally's voice — the beat shapes itself around real people instead of placeholder roles. Casting later means reverse-engineering characterisation onto already-written beats. Stage 4 still runs, but as a reconciliation pass that folds in supporting NPCs from Stage 3 and resolves clashes.
 
 ---
 
@@ -26,7 +28,7 @@ Acts also have to interlock: Act N+1's entry must match Act N's exits. Locking e
 
 ## What to do
 
-Read `brief.md`, `structure.md`, `docs/storycrafting/principles.md`, and (if N > 1) all previous `act-{M}.md` files. Expand the target act into:
+Read `brief.md`, `structure.md`, `docs/storycrafting/principles.md`, `docs/storycrafting/stage-4-cast.md` (for cast entry format and voice-assignment rules), `tts_voices/voices.yaml`, and (if N > 1) all previous `act-{M}.md` files plus the existing `cast.md`. Expand the target act into:
 
 1. **Beats** — the 4–8 narrative units that make up the act. Each beat is a clear chunk of story (an arrival, a confrontation, a discovery, a hub stay). One sentence on what happens, one on what the player decides or learns.
 2. **Beat connections** — which beats follow which. Linear chain, branching, hub-and-spoke. A beat may have multiple downstream beats based on player choice — note the branch condition (flag, stat, or simply the player's pick), not the choice text yet.
@@ -34,8 +36,9 @@ Read `brief.md`, `structure.md`, `docs/storycrafting/principles.md`, and (if N >
 4. **Entry** — what the player arrives with (carried flags, stats, allies). Match to previous act's exits.
 5. **Exits** — define each distinct exit configuration explicitly: who exited with the player, which flags are set, stat shifts, which beat/scene the player leaves from. Aim for 4–6 distinct exit states. The next act's author needs these to design clean entry branching.
 6. **Flags/stats touched** — what changes in this act and why. Note which flags should be **player-visible** in the HUD.
+7. **Principal cast additions** — for every named NPC the act introduces or significantly develops, append a full entry to `stories/{id}/cast.md` per the stage-4 doc's format (voice assignment, body, voice on the page, contradiction, wants, fears, first seen, recurs in). Reuse principals introduced in earlier acts rather than recasting them. Avoid voice clashes against entries already in `cast.md`. If `cast.md` does not exist yet, create it with a `# {Title} — Cast` header before adding entries. Do NOT include bit-part / one-scene cameos here — those are added in Stage 3.
 
-Keep it narrative, not technical. No YAML, no engine syntax, no scene names. Just the act's bones.
+Keep act content narrative, not technical. No YAML, no engine syntax, no scene names. Just the act's bones.
 
 **Pacing context.** When considering how many beats an act needs, remember scenes will be short (~15–30 seconds of reading) with frequent choices (3–6 per scene, including convergent ones). Don't try to cram a beat's worth of story into one big set-piece — beats expand to multiple scenes in Stage 3, so a beat can be small.
 
@@ -95,4 +98,5 @@ Where it sits in the beat flow: ...
 - Exits are distinct, named, and specify carried state — Stage 3 and the next act can both use them
 - Hubs and conversations are named (full design happens in Stage 3)
 - All flags/stats changes are listed with player-visible marking
+- Every principal NPC introduced or developed in this act has a full entry in `stories/{id}/cast.md` (voice assigned, characterisation filled, no placeholders), and no voice clashes with entries from earlier acts
 - A scene-breakdown writer (Stage 3) could expand any beat without further clarification

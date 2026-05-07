@@ -1,6 +1,6 @@
 # Stage 1: Structure
 
-**Goal:** Define the act structure and overall narrative shape, and lock in the concrete commitments deferred from Stage 0 (visual theme). Outputs: `stories/{id}/structure.md` and `stories/{id}/theme.css`.
+**Goal:** Define the act structure and overall narrative shape, and lock in the concrete commitments deferred from Stage 0 (visual theme, story metadata, stats). Outputs: `stories/{id}/structure.md`, `stories/{id}/theme.css`, and `stories/{id}/story.yaml`.
 
 **Prerequisite:** `brief.md` must exist and be complete.
 
@@ -18,7 +18,7 @@ Stage 0 was the question stage. From Stage 1 onward, run hands-off:
 
 ## What to do
 
-Read `brief.md`. Then produce a high-level structure: acts, major turning points, and which endings branch off where.
+Read `brief.md` and `docs/storycrafting/principles.md` — the principles set the bar for failure design, branching, red herrings, and endings, and stage 1 is where those commitments must show up in the act structure. Then produce a high-level structure: acts, major turning points, and which endings branch off where.
 
 Don't invent scene names or write prose yet. This is a skeleton — the shape the story hangs on.
 
@@ -31,6 +31,12 @@ Cover:
    - **NPC conversations** — any NPC the player can question across multiple topics. These are hubs too — plan them as named nodes ("talk to the innkeeper"), not as individual exchanges.
 4. **Ending paths** — which act/fork leads to which ending and roughly why
 5. **Stats/flags in play** — which mechanics gate what, and when they matter. When planning flags, mark any that gate a **consumable choice** — a choice that should disappear after being taken (the merchant sold their last potion; the door was only unlocked once). These require deliberate `flags_unset` + `effects` pairing in scene YAML. A consumable choice that isn't planned is easy to forget, leaving the option available indefinitely. Also note which flags should be **player-visible** (shown in HUD — e.g. "Lantern", "Password to the vault") and which gated choices should **grey out** vs **stay hidden** when failed — grey out when the player should know the option exists; hide when the option's existence would be a spoiler.
+
+   **Stats must be designed as mechanics, not flavour.** A stat that only modifies a finale check is decoration — the player never feels it during play. For each stat, commit to:
+   - **Consequence curve** — concrete thresholds and what each one triggers (e.g. "heat ≥ 4 by act 3 = ambush scene intercepts; rep < 0 = certain NPCs refuse to talk; evidence < 3 by end of act 2 closes the expose ending"). Don't just say "evidence accumulates."
+   - **Mid-story gate** — at least one threshold check **before the finale**. Acts 1→2 and mid-act-2 are natural pressure points. Without a mid-story gate, the stat doesn't bite during play and the player won't think about it.
+   - **Tradeoff economy** — earning the stat should cost something. Evidence costs heat. Rep costs evidence (helping someone vs. pressing them). A stat that only goes up in one direction is a counter, not a resource.
+   - **Demote to flag if it fails the bar** — if a "stat" only gates one ending and has no mid-story consequence and no tradeoff, it's really a flag. Cut it from the stat list and track it as a flag instead. Keep the stat list honest: 2–3 real stats beats 5 decorative ones.
 
 If something in the brief is underspecified for structure (e.g. "multiple endings" but no sense of what differentiates them), make the most reasonable choice consistent with the brief, note it inline in `structure.md`, and continue — hands-off mode applies.
 
@@ -62,9 +68,10 @@ Write `stories/{id}/structure.md`:
 - **Ending 2 — {name}:** ...
 
 ## Mechanics Summary
-Stats: ...
+Stats:
+- **{stat_name}** — earned by ..., costs ... | mid-story gate: {act/beat where it bites} | thresholds: {value → consequence}, {value → consequence} | finale role: ...
 Flags: ...
-When they matter: ...
+Consumable choices: ...
 ```
 
 ---
@@ -130,9 +137,39 @@ Pick the palette that best fits the brief's Visual Feel and write it. Hands-off 
 
 ---
 
+## story.yaml
+
+Create `stories/{id}/story.yaml` (copy from `templates/story.yaml`) and fill in everything stage 1 has decided:
+
+- `id`, `title`, `genre`, optional `prefix`
+- `narrator` — the narrator voice ID (decided in stage 0; must match a file in `tts_voices/`)
+- `description` — the selector card hook. One sentence, ~15 words max. Player's situation + immediate tension at the very start, no spoilers, no act-2 stakes, no resolution hints.
+- `stats` — every stat from the Mechanics Summary above, with explicit starting values. Omit the block entirely if the story has no stats; do not declare stats with no design behind them.
+- `flags` — any flags that should be **player-visible** (HUD-shown), with their `label`. Engine-only flags don't go here.
+- `journal` — the opening journal entry, written in second person, setting the player's starting situation. Mandatory.
+- `start` — leave as a placeholder (`start`) for now; stage 5 will set it to the actual first scene path.
+- `cover` — leave the default `images/cover.jpg` reference; the image itself is added later if at all.
+
+Also add the story ID to `stories/manifest.yaml` so it appears on the selector during development.
+
+Description examples:
+
+```yaml
+# Good — early situation + immediate tension, no spoilers
+description: You're a vault security officer. Something is wrong, and the overseer isn't talking.
+
+# Bad — spoils the arc
+description: Uncover a conspiracy that reaches the highest levels of the vault.
+```
+
+---
+
 ## Done when
 
 - `structure.md` exists with all sections filled
 - Endings are distinct and each reachable from structure
 - No act is a black box — each has a one-sentence purpose
+- Each stat has a consequence curve, mid-story gate, and tradeoff economy documented; decorative stats demoted to flags
 - `theme.css` exists with all variables overridden, palette consistent with the brief's Visual Feel
+- `story.yaml` exists with stats, narrator, description, journal, and visible flags filled in
+- Story ID added to `stories/manifest.yaml`

@@ -18,15 +18,15 @@ Stage 0 was the question stage. From Stage 1 onward, run hands-off:
 
 ## Why this stage exists
 
-Stage 2 defines beats; Stage 4 (cast) and Stage 5 (scene writing) need to know the *scenes* — how a beat splits into individual decision points, where it branches, what each choice does, what's gated, what's consumable. Doing this between beats and writing keeps each scene small and lets choice density be planned deliberately rather than ad-libbed during prose.
+Stage 2 defines beats and drafts the principal cast; Stage 5 (scene writing) needs to know the *scenes* — how a beat splits into individual decision points, where it branches, what each choice does, what's gated, what's consumable. Doing this between beats and writing keeps each scene small and lets choice density be planned deliberately rather than ad-libbed during prose.
 
-It also surfaces every named NPC the act needs *before* the cast sheet is written, so Stage 4 has a complete list.
+It also surfaces every supporting NPC the act needs (bit parts, one-scene cameos) so they can be added to `cast.md` before scene writing. Principals are already cast from Stage 2 — this stage reuses them by name.
 
 ---
 
 ## What to do
 
-Read `brief.md`, `structure.md`, the act's `act-{n}.md`, `docs/storycrafting/principles.md`, and (if N > 1) all previous `act-{M}-scenes.md` files for context.
+Read `brief.md`, `structure.md`, the act's `act-{n}.md`, `stories/{id}/cast.md` (principal cast already drafted in Stage 2), `docs/storycrafting/principles.md`, `docs/storycrafting/stage-4-cast.md` (for cast entry format and voice rules), `tts_voices/voices.yaml`, and (if N > 1) all previous `act-{M}-scenes.md` files for context.
 
 For each beat in the act:
 
@@ -40,7 +40,7 @@ For each beat in the act:
 5. **Weighted random `next`** — choices whose destination is uncertain (travel, exploration, NPC mood). Note the destinations and rough odds.
 6. **Hub structure** — if a beat is a hub, list the available actions/topics, their gates (open/close as flags change), and the always-available exit choice.
 7. **Conversation structure** — if a beat is a conversation, list each topic, the flag it sets when exhausted, and the always-available walk-away choice.
-8. **NPCs appearing** — every named NPC in the beat. This list feeds Stage 4 (cast).
+8. **NPCs appearing** — every named NPC in the beat. Reuse principal cast names from `cast.md` exactly. For supporting NPCs (bit parts, one-scene cameos) introduced here for the first time, append a new entry to `stories/{id}/cast.md` per the stage-4 doc's format, picking a voice that doesn't clash with principals sharing the scene.
 
 Keep it narrative-tight, but more concrete than Stage 2: scene names, choice intents, gates. No YAML — that comes in Stage 5.
 
@@ -96,5 +96,5 @@ Walk-away: {always-available exit choice}
 - All consumable choices have both `flags_unset` planned on `requires` AND flag set on `effects`
 - All weighted random destinations have intended odds
 - Hubs and conversations have full topic lists with gates and an exit choice
-- Every named NPC the act uses is listed in the "NPCs in this act" section
+- Every named NPC the act uses is listed in the "NPCs in this act" section, and every name in that list resolves to an entry in `cast.md` (principals were drafted in Stage 2; supporting NPCs introduced here have been appended)
 - The act-to-act handoff (entry/exits from `act-{n}.md`) is preserved — exit scenes feed the right exit configurations

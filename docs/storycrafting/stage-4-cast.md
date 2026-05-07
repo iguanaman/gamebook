@@ -1,8 +1,10 @@
-# Stage 4: Cast Sheet
+# Stage 4: Cast Reconciliation
 
-**Goal:** Define every named NPC the player will meet — voice, contradiction, body, mannerism, motive — and assign each a TTS voice. Output: `stories/{id}/cast.md`.
+**Goal:** Reconcile the cast sheet that Stages 2 and 3 have already populated — fill any gaps, resolve voice clashes, normalise ordering and characterisation. Output: a finalised `stories/{id}/cast.md`.
 
-**Prerequisite:** All `act-{n}.md` (beats) and `act-{n}-scenes.md` (scene breakdowns) files must exist. The cast is gathered from across all acts — each scene-breakdown's "NPCs in this act" section is the authoritative list to draw from.
+**Prerequisite:** All `act-{n}.md` (beats) and `act-{n}-scenes.md` (scene breakdowns) files must exist, and `cast.md` already exists with entries appended by Stage 2 (principals) and Stage 3 (supporting NPCs).
+
+This document also defines the **cast entry format and voice-assignment rules** used by Stages 2 and 3 — read it whenever you are adding cast entries, not just at Stage 4.
 
 ---
 
@@ -22,18 +24,23 @@ Without a cast sheet, each scene-writing subagent invents an NPC's voice from sc
 
 It also fixes TTS voice assignments. Without a fixed assignment, beat writers will either omit voice prefixes (everything is narrator) or guess inconsistently. The cast sheet locks one voice ID per NPC.
 
+Most casting now happens earlier — Stage 2 commits principals as part of writing the act, and Stage 3 appends supporting NPCs as scene breakdowns expose them. This stage is the final reconciliation pass that catches gaps and clashes.
+
 ---
 
 ## What to do
 
-1. Read `brief.md`, `structure.md`, every `act-{n}.md`, every `act-{n}-scenes.md`, and `docs/storycrafting/principles.md` (the "Characters" section).
-2. Compile the NPC roster from each scene-breakdown's "NPCs in this act" section. Include any NPC with at least one line of dialogue or one decision the player makes about them.
-3. Run `python list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. The file has three top-level keys:
+1. Read `brief.md`, `structure.md`, every `act-{n}.md`, every `act-{n}-scenes.md`, the existing `cast.md`, and `docs/storycrafting/principles.md` (the "Characters" section).
+2. **Verify completeness.** Walk every scene-breakdown's "NPCs in this act" section. Every named NPC with at least one line of dialogue or one decision the player makes about them must have an entry in `cast.md`. Add any that are missing.
+3. **Resolve voice clashes.** No two major NPCs sharing scenes may share a voice. If Stage 2/3 left a clash, reassign one (prefer keeping the earlier-introduced NPC's voice and reassigning the later one).
+4. **Normalise ordering and content.** Re-order entries by first appearance (act/beat order). Fill any placeholder characterisation. Make sure every entry has all required fields (voice, body, voice on the page, contradiction, wants, fears, first seen, recurs in).
+5. **Drop ghosts.** If an entry is for an NPC no longer referenced anywhere, remove it.
+6. Run `python list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. The file has three top-level keys:
    - `characters/` — standard NPC voices, keyed by gender. Use these for all NPC assignments.
    - `narrator/` and `robot/` — **off-limits** for NPC assignment. Narrator is reserved for `story.yaml`; robot is used ad hoc for in-world screen text.
    - `languages/` — voices prefixed with a language (e.g. `japanese_narrator_male_...`). **Only use these when the story's language or setting calls for it** (e.g. a Japanese-language story). Do not assign language voices to NPCs in an English-language story.
-4. Assign a voice to each NPC. **Avoid reuse where possible** — if there are more NPCs than voices, only then double up, and only on NPCs who never share a scene. Match voice traits to character: a posh English accent fits an overseer better than a chirpy Scottish one.
-5. Write `cast.md`.
+7. **Voice assignment rule (used by Stages 2/3/4).** Avoid reuse where possible — if there are more NPCs than voices, only then double up, and only on NPCs who never share a scene. Match voice traits to character: a posh English accent fits an overseer better than a chirpy Scottish one.
+8. Rewrite `cast.md` with the reconciled, ordered, complete roster.
 
 ---
 

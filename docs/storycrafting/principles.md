@@ -10,15 +10,45 @@ Write characters with contradiction. A villain who is right about something. A m
 
 ---
 
-## Permadeath and Consequences
+## Failure, Permadeath, and Consequence
 
-Bad choices should kill or permanently close paths. Don't soften fatal outcomes into "you are wounded, turn to X." If the player walks into a fight they can't win, they die — `choices: []` with a death scene. Permanent loss of an ally, a path, a stat below zero — these should be real and unrecoverable. Stakes make choices matter.
+A gamebook without failure is a slideshow. The player needs to feel that wrong choices have weight — otherwise every decision is decoration. Aim wide: a single death ending in a 150-scene story is not enough.
+
+**Hard failures.** Walking into an unwinnable fight, trusting the wrong NPC, ignoring a clear warning — these should kill or trap the character. `choices: []` and a death scene. Don't soften with "you are wounded, turn back." Permanent. The player reloads or restarts, and that's the contract.
+
+**Soft failures.** Not every wrong move is fatal — but a wrong move should still cost something the player can feel. A path closes. An ally walks. A stat moves the wrong way. A clue is destroyed. The story continues but the next act is harder, narrower, or sadder. Soft failures are how a story stays playable while still teaching the player that choices matter.
+
+**Narrative-only failures count.** A choice can fail without any mechanical consequence at all — the player learns something painful about themselves or a character, the tone darkens, an NPC remembers it. Even pure prose-level failure ("you said the wrong thing; she will not forget it") makes choices feel weighted. Use these freely; they're cheap and effective.
+
+**Spread failure across the story, not just the finale.** Each act should have at least one fail state — death, soft loss, or narrative wound. A story where you can only fail at the climax has nothing at stake until the climax. Design failure into act 1 so the player learns early that they can lose.
+
+**Make failure legible.** The player should understand *why* they failed, even if they couldn't have known in advance. A death scene that explains the misjudgement, a soft loss that names what was lost, a tonal failure that shows the cost. Failure that feels arbitrary is just punishment.
+
+---
+
+## Red Herrings and Wrong Choices
+
+A real investigation, journey, or struggle has dead ends. A gamebook that telegraphs the right answer at every fork is a corridor with extra steps. The player needs to be able to *misread* situations and pay for it.
+
+**Plant red herrings.** Suspects who didn't do it. Clues that point the wrong way. NPCs who lie convincingly. Choices that look like the obvious right move and turn out to cost time, evidence, or rep. The player should be able to follow a thread for an entire act and discover it was the wrong thread — that disappointment is the story doing its job.
+
+**Reward suspicion, but not always.** If the player is right to be cautious, sometimes confirm it. If they're being paranoid about the wrong thing, let them waste effort. A story where every "trust them" choice betrays you and every "don't trust them" choice is vindicated trains the player to never trust anyone — which collapses the genre.
+
+**Choices that look equivalent shouldn't be.** Two options framed similarly should have different consequences when the player thinks about them. The cautious option might miss a window. The bold option might burn a source. Hidden costs are fine as long as they're discoverable in retrospect ("right — I should have noticed she was watching the door").
+
+**Don't punish curiosity.** Investigating a red herring should still produce *something* — atmosphere, character beat, ruled-out possibility. The player should never feel that pursuing a lead was wasted prose, only that it didn't lead where they hoped.
 
 ---
 
 ## Good and Bad Paths
 
 There should be at least two meaningfully different routes through the story — not just flavour variation but genuinely different experiences, encounters, and endings. A player who took the coward's path should have a different story than one who fought. Design for replay, not for a single "correct" playthrough.
+
+**Branches need to diverge early enough to matter.** A story that runs as a single corridor for two acts and then forks at the end is functionally linear. Players should be able to make a choice in act 1 that closes off content in act 2. That's expensive to author, but it's the difference between a branching story and a story with branching endings.
+
+**Locked content is a feature.** If a player can see every scene in one playthrough, the choices weren't meaningful. A second playthrough should reveal scenes, NPCs, or whole sub-paths the first one couldn't reach. Tell authors this explicitly so they don't optimise for "show all the content to every player."
+
+**Endings should reflect the path, not just the final choice.** An ending that hinges entirely on the last decision makes the preceding 150 scenes feel like prologue. Use stat thresholds, flag combinations, and earlier branch state to gate or modify endings — so the same final choice produces different outcomes depending on how the player got there.
 
 ---
 
@@ -174,8 +204,12 @@ Topics without `flags_unset` are always visible. Topics with it vanish once exha
 Before calling a story done, verify:
 - [ ] At least one random event scene
 - [ ] At least one hub or loop (if the setting supports it)
-- [ ] At least two meaningfully different paths
-- [ ] At least two distinct endings
-- [ ] Permadeath exists on at least one path
+- [ ] At least two meaningfully different paths, diverging by mid-act-1 at the latest
+- [ ] At least three distinct endings (not just three flavours of the same outcome)
+- [ ] At least one fail state per act — death, soft loss, or narrative wound
+- [ ] Permadeath exists on at least two paths, not just one
+- [ ] At least one red herring — a lead, suspect, or clue that doesn't pay off the way the player expects
+- [ ] At least one scene that closes off content permanently when chosen (so a second playthrough can find what was missed)
+- [ ] Endings vary based on accumulated state (stats, flags, prior branches) — not only the final choice
 - [ ] Conversation topics deplete correctly
-- [ ] A second playthrough would feel genuinely different
+- [ ] A second playthrough would feel genuinely different — different scenes, different NPCs, different ending texture
