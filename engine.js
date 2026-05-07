@@ -321,6 +321,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
   storyApp.innerHTML = '';
   removeStoryTheme();
   if (!defer) handlersReady.then(() => requestAnimationFrame(popInSelector));
+  showNextHint();
 }
 
 function showCommission() {
