@@ -14,6 +14,23 @@ Two mode roots crossfade between each other — `#menu-root` and `#story-root`. 
 
 Width capped at 680px for readability.
 
+## CSS file map
+
+`style.css` is one file divided into 8 numbered sections. Header comments (`/* ── N. Name ── */`) mark each boundary — search for `── 4.` to jump to section 4. Use this map before scanning the file:
+
+| § | Name | What's in it |
+|---|---|---|
+| 1 | Reset + body | Box-sizing reset, `html`/`body` defaults, the global CSS variables defined on `body` (fonts, frame inset, chrome offsets, radii). |
+| 2 | Shared base | Typography (`h1`–`h3`), `.btn` / `.btn-secondary` / `.btn-ghost`, scrollbar styling for `.selector` and `.narrative-area`. |
+| 3 | Mode roots | `.mode-root` crossfade machinery (`mode-hidden`, `mode-content`, `boot-no-fade`). |
+| 4 | Frame | `.mode-root .frame` — the shared decorative screen border. **Shared between menu and story; do not override per-mode.** |
+| 5 | Splash | All splash screens (menu splash, story title splash, intro splash, pre-intro). `.splash`, `.splash-title`, `.intro-splash-body`, `#dust-canvas`, splash transition classes. |
+| 6 | Chrome layer | `#chrome-root` and its children: fullscreen button, back button, hint tooltips. Lives above both modes. |
+| 7 | Menu mode | Everything scoped to `#menu-root`: palette overrides, `.selector`, `.story-card` and its hover/delete/fade states, commission screen, card pop-in animation. |
+| 8 | Story mode | Everything scoped to `#story-root`: palette overrides, `.hud-wrap`, `.narrative` + drop cap, `.choice-list` / `.btn-choice`, `.choice-num`, undo confirm, end message, journal panel + backdrop + music toggle. |
+
+Mode-specific palette variables (colours, accent, etc.) are defined inside §7 (`#menu-root`) and §8 (`#story-root`), not in §1. The global vars on `body` are only the ones that must stay consistent across both modes.
+
 ## CSS Architecture
 
 Single `style.css` defines defaults. Stories can override via `stories/{id}/theme.css` (loaded dynamically by the engine, scoped to `#story-root`). All visual properties are CSS custom properties so `theme.css` gets full control — **except** the variables listed under "Frame is shared" below, which apply to the screen border and must stay consistent across menu and story.
