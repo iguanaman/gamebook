@@ -645,8 +645,8 @@ body.journal-open #journal-toggle { display: none; }
   --anim-choice-fade-fast: 250ms;
   --anim-choice-linger-ms: 400ms;
   --anim-choice-fade-slow: 500ms;
-  --choice-pad-y: clamp(6px, calc(6px + (100vw - 360px) * 6 / 360), 12px);
-  --choice-pad-x: clamp(12px, calc(12px + (100vw - 360px) * 4 / 360), 16px);
+  --choice-pad-y: clamp(6px, calc(6px + (100vw - 360px) * 2 / 360), 8px);
+  --choice-pad-x: 12px;
 }
 
 #story-root .hud-wrap {
@@ -732,7 +732,7 @@ body.journal-open #journal-toggle { display: none; }
 #story-root .choice-list {
   display: flex;
   flex-direction: column;
-  gap: clamp(4px, calc(4px + (100vw - 360px) * 4 / 360), 8px);
+  gap: clamp(4px, calc(4px + (100vw - 360px) * 6 / 360), 10px);
   opacity: 0;
   transform: translateY(100%);
   pointer-events: none;
@@ -898,10 +898,10 @@ body.journal-open #journal-toggle { display: none; }
 
 .journal-clip {
   position: absolute;
-  top: var(--frame-inset);
-  left: var(--frame-inset);
-  bottom: var(--frame-inset);
-  width: min(360px, calc(100vw - var(--frame-inset) * 2));
+  top: calc(var(--frame-inset) + 6px);
+  left: calc(var(--frame-inset) + 6px);
+  bottom: calc(var(--frame-inset) + 6px);
+  width: min(360px, calc(100vw - (var(--frame-inset) + 6px) * 2));
   z-index: 4;
   overflow: hidden;
   pointer-events: none;
