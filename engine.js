@@ -186,7 +186,7 @@ function setGamePaused(paused) {
 
 // ── UI hints ─────────────────────────────────────────────────────────────────
 
-const HINT_QUEUE = ['fullscreen', 'journal', 'undo'];
+const HINT_QUEUE = ['fullscreen', 'journal'];
 const HINT_KEY = key => `gamebook.hint_seen.${key}`;
 const HINTS_ALWAYS_SHOW = false;
 
@@ -226,7 +226,6 @@ function dismissHint(key) {
 function isHintTargetReady(key) {
   if (key === 'fullscreen') return true;
   if (key === 'journal') return !document.getElementById('journal-toggle')?.classList.contains('journal-hidden');
-  if (key === 'undo') return !!document.getElementById('btn-undo') && !document.getElementById('btn-undo').classList.contains('undo-disabled');
   return false;
 }
 
@@ -251,6 +250,16 @@ document.addEventListener('fullscreenchange', () => {
 });
 
 // ── Manifest / selector ───────────────────────────────────────────────────────
+
+function attachScrollFade(el) {
+  if (!el) return;
+  let timer = null;
+  el.addEventListener('scroll', () => {
+    el.classList.add('is-scrolling');
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => el.classList.remove('is-scrolling'), 1000);
+  }, { passive: true });
+}
 
 async function fetchYaml(url) {
   const res = await fetch(url);
@@ -300,6 +309,7 @@ async function showSelector({ defer = false, withCrossfade = false } = {}) {
       <div class="selector">${renderSelectorContent(manifest)}</div>
     </div>
   `;
+  attachScrollFade(menuApp.querySelector('.selector'));
   const handlersReady = Promise.all(manifest.stories.map(id => attachCardHandlers(id)));
   menuApp.querySelectorAll('.story-card-wrap').forEach(wrap => wrap.classList.add('card-pop-pending'));
   document.getElementById('btn-commission')?.addEventListener('click', showCommission);
@@ -611,8 +621,8 @@ function renderStoryCard(storyId, isFirst = false) {
           <h2 class="story-title"><span class="story-prefix" data-story-prefix="${storyId}">${prefix}</span><span data-story-title="${storyId}">${title}</span></h2>
           <p class="story-desc" data-story-desc="${storyId}">${desc}</p>
         </div>
+        ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" aria-label="Wipe save"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></button>` : ''}
       </div>
-      ${saved ? `<button class="card-delete-btn" data-delete="${storyId}" aria-label="Wipe save"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></button>` : ''}
     </div>
   `;
 }
@@ -1041,8 +1051,8 @@ function fadeOutStoryContent() {
     el.style.opacity = '0';
   });
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
-  storyApp.querySelector('#btn-undo')?.classList.add('undo-disabled');
-  ['journal', 'undo'].forEach(key => {
+  document.getElementById('btn-undo')?.classList.add('undo-disabled');
+  ['journal'].forEach(key => {
     const el = document.getElementById(`hint-${key}`);
     if (el && el.classList.contains('hint-visible')) {
       el.classList.remove('hint-visible');
@@ -1293,7 +1303,6 @@ function renderShell(meta) {
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
-    <button class="ui-icon-btn btn-undo-fixed undo-disabled" id="btn-undo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></button>
   `;
   const narrative = storyApp.querySelector('#narrative');
   if (narrative) {
@@ -1303,7 +1312,6 @@ function renderShell(meta) {
     };
     narrative.addEventListener('scroll', updateAtBottom, { passive: true });
   }
-  storyApp.querySelector('#btn-undo')?.addEventListener('click', handleUndo);
 }
 
 const cachedScenes = {};
@@ -1524,17 +1532,6 @@ function showBlockInstant(block) {
   return p;
 }
 
-function appendChosenChoice(text) {
-  const el = storyApp.querySelector('#narrative');
-  if (!el) return;
-  const p = document.createElement('p');
-  p.className = 'chosen-choice';
-  p.textContent = text;
-  el.appendChild(p);
-  scrollNarrativeToBottom();
-  requestAnimationFrame(() => p.classList.add('block-visible'));
-}
-
 function showBlockReveal(block) {
   const p = appendBlockPara(block);
   if (p) requestAnimationFrame(() => p.classList.add('block-visible'));
@@ -1745,7 +1742,6 @@ function renderChoices(scene) {
       setTimeout(() => {
         chosenBtn.style.opacity = '0';
         setTimeout(() => {
-          appendChosenChoice(choice.text);
           handleChoice(choice);
         }, slowMs);
       }, fastMs + lingerMs);
@@ -1772,11 +1768,10 @@ async function handleChoice(choice) {
 }
 
 function updateUndoButton() {
-  const btn = storyApp.querySelector('#btn-undo');
+  const btn = document.getElementById('btn-undo');
   if (!btn) return;
   const empty = !state || state.history.length === 0;
   btn.classList.toggle('undo-disabled', empty);
-  if (!empty) showNextHint();
 }
 
 function showConfirm(message, onYes, opts = {}) {
@@ -1817,7 +1812,6 @@ function showUndoConfirm() {
 }
 
 async function handleUndo() {
-  dismissHint('undo');
   showUndoConfirm();
 }
 
@@ -1892,6 +1886,7 @@ function toggleJournal() {
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-close')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
+document.getElementById('btn-undo')?.addEventListener('click', handleUndo);
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
 document.getElementById('back-btn')?.addEventListener('click', () => {
   if (menuApp.querySelector('.commission-screen')) hideCommission();

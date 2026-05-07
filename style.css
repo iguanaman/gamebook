@@ -103,6 +103,17 @@ button {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-button { display: none; }
 
+.selector::-webkit-scrollbar-thumb { background: transparent; transition: background 0.6s ease; }
+.selector.is-scrolling::-webkit-scrollbar-thumb { transition: none; }
+.selector::-webkit-scrollbar-button,
+.selector::-webkit-scrollbar-button:start,
+.selector::-webkit-scrollbar-button:end,
+.selector::-webkit-scrollbar-button:vertical:decrement,
+.selector::-webkit-scrollbar-button:vertical:increment { display: none !important; height: 0 !important; width: 0 !important; background: transparent !important; }
+.selector.is-scrolling::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--border-inner) 30%, transparent); }
+.selector { scrollbar-color: transparent transparent; transition: scrollbar-color 0.6s ease; }
+.selector.is-scrolling { scrollbar-color: color-mix(in srgb, var(--border-inner) 30%, transparent) transparent; transition: none; }
+
 
 /* ── 3. Mode roots ────────────────────────────────────────────────────────── */
 
@@ -431,15 +442,23 @@ body.journal-open #fullscreen-btn {
 
 #menu-root .selector-bg {
   position: relative;
-  min-height: 100dvh;
-  padding: calc(var(--frame-inset) + 1.5rem) 1rem;
+  height: 100dvh;
+  padding: calc(var(--frame-inset) + 8px) 1rem;
   background: transparent;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   overflow: hidden;
 }
-.selector { position: relative; z-index: 1; width: 100%; max-width: 800px; padding: 32px clamp(16px, 6.5vw, 48px); }
+.selector {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: 1.5rem;
+  padding-inline: max(clamp(8px, calc(13.33vw - 48px), 48px), calc((100% - 800px) / 2));
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: var(--text); }
 .story-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .no-stories { text-align: center; opacity: 0.5; font-family: var(--font-ui); }
@@ -550,29 +569,29 @@ body.journal-open #fullscreen-btn {
 .story-card-wrap { position: relative; }
 .card-delete-btn {
   position: absolute;
-  right: -2.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 0.25rem;
+  bottom: 0;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 16px;
   line-height: 1;
   padding: 0.25rem;
-  color: var(--text);
+  color: #fff;
+  mix-blend-mode: difference;
   opacity: 0;
   cursor: pointer;
-  transition: opacity 0.15s;
+  transition: opacity 0.2s ease;
 }
 .story-card-wrap:hover .card-delete-btn,
-.card-delete-btn:focus-visible { opacity: 0.5; }
+.card-delete-btn:focus-visible { opacity: 0.7; }
 .card-delete-btn:hover { opacity: 1 !important; }
 
 .story-info { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
 .story-title { margin: 0; font-size: var(--card-title-size, var(--card-title-base)); }
 .story-genre {
   position: absolute;
-  top: 0rem;
-  right: 0rem;
+  top: -12px;
+  right: -10px;
   font-family: var(--font-ui);
   font-size: 0.6rem;
   font-weight: 600;
@@ -811,14 +830,8 @@ body.journal-open #fullscreen-btn {
   color: var(--text-muted);
 }
 
-.btn-undo-fixed {
-  position: fixed;
-  bottom: var(--chrome-corner-offset);
-  right: var(--chrome-corner-offset);
-  z-index: 3;
-}
-.btn-undo-fixed { transition: opacity 350ms ease; }
-.btn-undo-fixed.undo-disabled { opacity: 0; pointer-events: none; }
+.journal-undo { font-size: 1.1rem; padding: 0.25rem 0.4rem; color: var(--text-muted); transition: opacity 200ms ease; }
+.journal-undo.undo-disabled { opacity: 0.3; pointer-events: none; }
 
 .undo-confirm-overlay {
   position: fixed;
