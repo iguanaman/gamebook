@@ -910,6 +910,25 @@ body.journal-open .ui-hint.hint-visible {
 }
 .journal-title { margin: 0; font-size: 1.3rem; color: var(--accent); }
 
+.journal-close {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text-muted);
+  opacity: 0.5;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s;
+}
+.journal-close:hover { opacity: 1; }
+.journal-close svg { width: 100%; height: 100%; display: block; }
+
 .journal-entries {
   flex: 1;
   overflow-y: auto;

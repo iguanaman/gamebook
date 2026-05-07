@@ -1888,6 +1888,7 @@ function toggleJournal() {
 }
 
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
+document.getElementById('journal-close')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
 document.getElementById('back-btn')?.addEventListener('click', () => {
