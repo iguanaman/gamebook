@@ -1,23 +1,22 @@
 id: act1/locker_room
 text:
-- |-
-  The fluorescent strip above locker 14 has been dying for six years. It hums in a key that gets into your teeth. End of shift. You unbuckle the duty belt, hang the baton, thumb the locker open.
-- |-
-  There is a folder on top of your spare jumpsuit.
-- |-
-  Manila. Stamped ENGINEERING — INTERNAL CIRCULATION — DO NOT REMOVE in the soft red ink Vault-Tec used before they ran out of soft red ink in '78. Tucked under the clip is a sticky note in handwriting you recognise: Mira, the junior tech who eats lunch alone and flinches when officers walk past.
-- |-
-  *Misfiled. Thought it was yours. — M*
-- |-
-  Mira does not misfile things. Mira alphabetises her socks.
-- |-
-  The locker room is empty. Shift change was twenty minutes ago. Through the bulkhead you can hear the recorded voice of the Overseer reminding residents that the atrium fountain has been temporarily decommissioned for "scheduled aesthetic review" and will return to service "imminently." It has been decommissioned for eleven years.
-- |-
-  The folder is heavier than a folder should be.
+- The fluorescent strip above locker 14 has been dying for six years. It hums in a
+  key that gets into your teeth. End of shift. You unbuckle the duty belt, hang the
+  baton, thumb the locker open.
+- There is a folder on top of your spare jumpsuit.
+- 'Manila. Stamped ENGINEERING — INTERNAL CIRCULATION — DO NOT REMOVE in the soft
+  red ink Vault-Tec used before they ran out of soft red ink in ''78. Tucked under
+  the clip is a sticky note in handwriting you recognise: Mira, the junior tech who
+  eats lunch alone and flinches when officers walk past.'
+- '*Misfiled. Thought it was yours. — M*'
+- Mira does not misfile things. Mira alphabetises her socks.
+- The locker room is empty. Shift change was twenty minutes ago. Through the bulkhead
+  you can hear the recorded voice of the Overseer reminding residents that the atrium
+  fountain has been temporarily decommissioned for "scheduled aesthetic review" and
+  will return to service "imminently." It has been decommissioned for eleven years.
+- The folder is heavier than a folder should be.
 choices:
-- text: |-
-    Open the folder.
+- text: Open the folder.
   next: act1/read_report
-- text: |-
-    Shove it back in the locker. Not your problem. Not your shift.
+- text: Shove it back in the locker. Not your problem. Not your shift.
   next: act1/dismiss_report

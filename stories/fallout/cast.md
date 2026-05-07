@@ -71,7 +71,7 @@ Order: first-appearance order across Act 1 and Act 2. Narrator (`ron_perlman`) i
 
 ## Warden Aldric Cole (Vault 34 overseer, primary antagonist)
 
-**Voice:** `male_midlife_english_posh` — bureaucratic, well-spoken, slightly weary. The posh midlife English register fits the brief's "memo from the overseer" register exactly: institutional language used for atrocity, performed with the calm of a man who genuinely believes he is the adult in the room.
+**Voice:** `male_midlife_american_deep_malevolent_ancient_slow` — bureaucratic, well-spoken, slightly weary. The posh midlife English register fits the brief's "memo from the overseer" register exactly: institutional language used for atrocity, performed with the calm of a man who genuinely believes he is the adult in the room.
 **Body:** Vault-Tec dress uniform always immaculate, but his collar is loose and the skin underneath is grey. A wedding ring on a chain rather than a finger — he removed it months ago and won't say why. Sweats more than the air handlers should permit.
 **Voice on the page:** complete sentences, subordinate clauses, the passive voice for anything that might be his fault ("a decision was taken", "the report was retained"). Calls residents "the population." Never raises his voice — when he is most angry, he goes quieter and more polite. Avoids the words "die", "death", "meltdown" — substitutes "attrition", "outcome", "thermal event".
 **Contradiction:** genuinely believes he is being merciful. Letting the vault die quietly, in his frame, is kinder than admitting the experiment failed and watching the population tear itself apart in the surface unknown. He is the villain who is right about something — the surface really is hostile, and some of his people really will die out there.

@@ -1,18 +1,24 @@
 id: act1/armoury
 text:
-- |-
-  The armoury is in the back of the security block, behind a cage that has, since 2079, been opened with a key that everyone on the duty roster knows the location of. This is the Vault-Tec philosophy of armed self-sufficiency in action.
-- |-
-  The reinforced suit is on the back rack. It belonged to an officer named Halverson, who was one of the eleven people who died in the '72 incident and whose locker was never reassigned because the cage had a sentimental memo taped to it for a decade and then nobody bothered to take it down. The memo is gone. The suit is still there.
-- |-
-  It is heavier than the standard vault blues — ceramic plate sewn into the chest and thigh panels, a high collar with a riot liner. You strip out of yours. You shrug into Halverson's. The shoulders are wider than yours. The plate shifts and settles. You move. You move better than you'd expected.
-- |-
-  In the inside pocket, somebody — Halverson? somebody after Halverson? — has left a single-shot stim and a folded note that says *FOR THE BAD DAY.* You take the stim. You leave the note where it is. Some of it should stay with the suit.
-- |-
-  You sign the cage out under your own name in the duty book and underline it twice. If anyone asks, you'll say you were authorised. If they ask twice, you'll say you weren't. By the time the question gets that far, the answer will not matter.
+- The armoury is in the back of the security block, behind a cage that has, since
+  2079, been opened with a key that everyone on the duty roster knows the location
+  of. This is the Vault-Tec philosophy of armed self-sufficiency in action.
+- The reinforced suit is on the back rack. It belonged to an officer named Halverson,
+  who was one of the eleven people who died in the '72 incident and whose locker was
+  never reassigned because the cage had a sentimental memo taped to it for a decade
+  and then nobody bothered to take it down. The memo is gone. The suit is still there.
+- It is heavier than the standard vault blues — ceramic plate sewn into the chest
+  and thigh panels, a high collar with a riot liner. You strip out of yours. You shrug
+  into Halverson's. The shoulders are wider than yours. The plate shifts and settles.
+  You move. You move better than you'd expected.
+- In the inside pocket, somebody — Halverson? somebody after Halverson? — has left
+  a single-shot stim and a folded note that says *FOR THE BAD DAY.* You take the stim.
+  You leave the note where it is. Some of it should stay with the suit.
+- You sign the cage out under your own name in the duty book and underline it twice.
+  If anyone asks, you'll say you were authorised. If they ask twice, you'll say you
+  weren't. By the time the question gets that far, the answer will not matter.
 choices:
-- text: |-
-    Back to the atrium. Heavier and steadier.
+- text: Back to the atrium. Heavier and steadier.
   next: act1/atrium_hub
   effects:
     flags:

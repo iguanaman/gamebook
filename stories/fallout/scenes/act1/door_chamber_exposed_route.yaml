@@ -1,33 +1,48 @@
 id: act1/door_chamber_exposed_route
 text:
-- |-
-  The maintenance shaft swallows the column the way a drain swallows water — twelve people, fifteen, more, dropping down the ladder one at a time, the rungs ringing under boot after boot. The woman from sub-five goes second. You go first. Yuna's stencilled arrow on the far wall — *DOOR MECH ACCESS* — is still where it was when you scouted the route, pointing into the dark, and the dark goes for forty yards along the inner skin of the vault before it opens out into a service alcove the size of a barracks bunkroom.
-- |-
-  The corridor side of the door mechanism is in the alcove. A hand-crank job, exactly as advertised — a six-foot iron wheel set into a gearbox the size of a footlocker, designed for two people working in opposition. It has been bolted to this wall since 1074 and turned, in earnest, never. There is a maintenance log clipped to the gearbox. The most recent entry is dated 2096 and reads *quarterly inspection — no faults — A. Lindqvist*. A. Lindqvist has been dead for forty years.
-- |-
-  The mechanism does not need a key. It needs hands. It needs a lot of hands.
+- The maintenance shaft swallows the column the way a drain swallows water — twelve
+  people, fifteen, more, dropping down the ladder one at a time, the rungs ringing
+  under boot after boot. The woman from sub-five goes second. You go first. Yuna's
+  stencilled arrow on the far wall — *DOOR MECH ACCESS* — is still where it was when
+  you scouted the route, pointing into the dark, and the dark goes for forty yards
+  along the inner skin of the vault before it opens out into a service alcove the
+  size of a barracks bunkroom.
+- The corridor side of the door mechanism is in the alcove. A hand-crank job, exactly
+  as advertised — a six-foot iron wheel set into a gearbox the size of a footlocker,
+  designed for two people working in opposition. It has been bolted to this wall since
+  1074 and turned, in earnest, never. There is a maintenance log clipped to the gearbox.
+  The most recent entry is dated 2096 and reads *quarterly inspection — no faults
+  — A. Lindqvist*. A. Lindqvist has been dead for forty years.
+- The mechanism does not need a key. It needs hands. It needs a lot of hands.
 - if:
     flags:
     - recruited_doc
-  text: |-
-    Reyes drops down the ladder fourth, bag held in front of her in the awkward two-handed grip of someone who has never been on a maintenance ladder before and does not intend to make a thing of it. She does not speak. She finds a wall to set the bag against. The notebook stays in the bag.
+  text: Reyes drops down the ladder fourth, bag held in front of her in the awkward
+    two-handed grip of someone who has never been on a maintenance ladder before and
+    does not intend to make a thing of it. She does not speak. She finds a wall to
+    set the bag against. The notebook stays in the bag.
 - if:
     flags:
     - recruited_yuna
-  text: |-
-    Yuna is already at the gearbox before you have finished counting heads down the ladder. She has the inspection plate off in under a minute. She mutters something to herself in the technical-and-profane register and then says, more loudly, *the bolts are seated, the gear train is dry, the wheel is the wheel, you do not need me for this*, and steps back, which from Yuna is the highest compliment a piece of pre-war engineering can be paid.
-- |-
-  The woman from sub-five takes the wheel on the right side. She looks at you. *You take the other. The rest line up behind us. We swap out every two minutes. Nobody talks. Nobody hurries. Nobody stops. You ready.*
-- |-
-  It is not a question. The column is forming up behind her without being told. Three deep, four deep. Hands on shoulders. The maintenance worker with his ladder hinge bolt has put it in his pocket and rolled his sleeves.
+  text: Yuna is already at the gearbox before you have finished counting heads down
+    the ladder. She has the inspection plate off in under a minute. She mutters something
+    to herself in the technical-and-profane register and then says, more loudly, *the
+    bolts are seated, the gear train is dry, the wheel is the wheel, you do not need
+    me for this*, and steps back, which from Yuna is the highest compliment a piece
+    of pre-war engineering can be paid.
+- The woman from sub-five takes the wheel on the right side. She looks at you. *You
+  take the other. The rest line up behind us. We swap out every two minutes. Nobody
+  talks. Nobody hurries. Nobody stops. You ready.*
+- It is not a question. The column is forming up behind her without being told. Three
+  deep, four deep. Hands on shoulders. The maintenance worker with his ladder hinge
+  bolt has put it in his pocket and rolled his sleeves.
 - if:
     flags:
     - radiation_sick
     flags_unset:
     - reyes_treated_you
-  text: |-
-    The metallic taste is in the back of your throat. You swallow. The wheel is going to be heavy. You tell yourself you are going to be fine.
+  text: The metallic taste is in the back of your throat. You swallow. The wheel is
+    going to be heavy. You tell yourself you are going to be fine.
 choices:
-- text: |-
-    Take the wheel. Start the count.
+- text: Take the wheel. Start the count.
   next: act1/force_door
