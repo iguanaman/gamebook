@@ -1909,6 +1909,12 @@ document.getElementById('journal-new-game')?.addEventListener('click', () => {
   });
 });
 
+document.addEventListener('click', e => {
+  const panel = document.getElementById('journal-panel');
+  if (!panel || panel.classList.contains('journal-panel-closed')) return;
+  if (!panel.contains(e.target)) closeJournal();
+});
+
 
 // ── Keyboard ──────────────────────────────────────────────────────────────────
 
