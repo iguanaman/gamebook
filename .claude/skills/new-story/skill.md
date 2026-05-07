@@ -47,24 +47,27 @@ Wait for: `stories/{id}/structure.md` and `stories/{id}/theme.css` to exist.
 Acts must be expanded in order: Act 1 → Act 2 → Act 3 → ... Each act's entry depends on the previous act's exits, so the next subagent must read the previous act's `act-{N}.md` to design entry states that match. **Never dispatch acts in parallel.**
 
 For each act, dispatch a subagent:
-> Run `/storycraft {id} stage 2 act {N}`. Read `stories/{id}/structure.md`, `stories/{id}/brief.md`, and (if N > 1) all previous `stories/{id}/act-{M}.md` files. Expand Act {N} into beats only — high-level narrative units, no scene lists or choice-by-choice mapping yet. Write `stories/{id}/act-{N}.md`. CRITICAL: define each distinct exit configuration explicitly (who exited with the player, which flags are set, stat shifts) so the next act's author can branch entry cleanly. Aim for 4-6 distinct exit states. **Hands-off mode:** do not ask the user questions; pick the most reasonable interpretation consistent with the brief/structure and continue. Auto-fix any validation issues — do not halt.
+> Run `/storycraft {id} stage 2 act {N}`. Read `stories/{id}/structure.md`, `stories/{id}/brief.md`, `tts_voices/voices.yaml`, and (if N > 1) all previous `stories/{id}/act-{M}.md` files plus the existing `stories/{id}/cast.md`. Expand Act {N} into beats only — high-level narrative units, no scene lists or choice-by-choice mapping yet. Write `stories/{id}/act-{N}.md`. CRITICAL: define each distinct exit configuration explicitly (who exited with the player, which flags are set, stat shifts) so the next act's author can branch entry cleanly. Aim for 4-6 distinct exit states. **Also extend `stories/{id}/cast.md`** — for every principal NPC introduced or significantly developed in this act, add a full cast entry (voice assignment + characterisation) per the stage-4 doc's format. If `cast.md` does not yet exist, create it; otherwise append, preserving prior entries and avoiding voice reuse against them. **Hands-off mode:** do not ask the user questions; pick the most reasonable interpretation consistent with the brief/structure and continue. Auto-fix any validation issues — do not halt.
 
-Wait for `act-{N}.md` to exist before dispatching act N+1.
+Wait for `act-{N}.md` to exist (and `cast.md` to have been updated) before dispatching act N+1.
 
 ---
 
 **Stage 3 — Scene Breakdown (one subagent per act)**
 
 For each act, dispatch a subagent:
-> Run `/storycraft {id} stage 3 act {N}`. Read `stories/{id}/structure.md`, `stories/{id}/brief.md`, `stories/{id}/act-{N}.md` (beats), and (if N > 1) previous `stories/{id}/act-{M}-scenes.md` files. Expand each beat into named scenes with choices, gating, convergent groupings, weighted random destinations, and an NPC roster. Target 3–6 choices per scene (convergent choices encouraged). Write `stories/{id}/act-{N}-scenes.md`. **Hands-off mode:** do not ask the user questions; pick the most reasonable interpretation and continue. Auto-fix any validation issues — do not halt.
+> Run `/storycraft {id} stage 3 act {N}`. Read `stories/{id}/structure.md`, `stories/{id}/brief.md`, `stories/{id}/act-{N}.md` (beats), `stories/{id}/cast.md` (principal cast already drafted in Stage 2), `tts_voices/voices.yaml`, and (if N > 1) previous `stories/{id}/act-{M}-scenes.md` files. Expand each beat into named scenes with choices, gating, convergent groupings, weighted random destinations, and an NPC roster. Reuse principal cast entries by name; for new supporting NPCs (bit parts, one-scene cameos), append a cast entry to `stories/{id}/cast.md` with a voice assignment that does not clash with principals sharing the scene. Target 3–6 choices per scene (convergent choices encouraged). Write `stories/{id}/act-{N}-scenes.md`. **Hands-off mode:** do not ask the user questions; pick the most reasonable interpretation and continue. Auto-fix any validation issues — do not halt.
 
 Wait for `act-{N}-scenes.md` to exist before dispatching the next act's scene breakdown. Acts can be scene-broken sequentially or independently — but all act-{N}-scenes.md files must exist before Stage 4.
 
 ---
 
-**Stage 4 — Cast (one subagent, runs once)**
+**Stage 4 — Cast Reconciliation (one subagent, runs once)**
+
+Principal cast was already drafted in Stage 2 and supporting NPCs were added in Stage 3. This stage is a final pass that folds everything together and resolves clashes.
+
 Dispatch a subagent with this prompt:
-> Run `/storycraft {id} stage 4`. Read `stories/{id}/brief.md`, `stories/{id}/structure.md`, every `stories/{id}/act-{N}.md`, every `stories/{id}/act-{N}-scenes.md`, and `tts_voices/voices.yaml`. Compile the NPC roster from each scene-breakdown's "NPCs in this act" section and write `stories/{id}/cast.md` per the stage-4 doc. Each NPC gets a TTS voice ID assigned (from non-narrator voices in `tts_voices/voices.yaml`); avoid voice reuse where possible. **Hands-off mode:** do not ask the user questions; pick the closest available voice and note any gap inline. Auto-fix any validation issues — do not halt.
+> Run `/storycraft {id} stage 4`. Read `stories/{id}/brief.md`, `stories/{id}/structure.md`, every `stories/{id}/act-{N}.md`, every `stories/{id}/act-{N}-scenes.md`, the existing `stories/{id}/cast.md` (already populated by Stages 2 and 3), and `tts_voices/voices.yaml`. Reconcile the cast: ensure every named NPC referenced in any scene breakdown has a full entry, no two major NPCs sharing scenes use the same voice, ordering is first-appearance, and every entry has full characterisation (no placeholders). Add any missing supporting NPCs introduced in scene breakdowns but not yet cast. Rewrite `stories/{id}/cast.md` per the stage-4 doc. **Hands-off mode:** do not ask the user questions; pick the closest available voice and note any gap inline. Auto-fix any validation issues — do not halt.
 
 Wait for: `stories/{id}/cast.md` to exist.
 
