@@ -31,7 +31,7 @@ html, body {
 body {
   --mode-fade-duration: 1.2s;
   --frame-inset: 8px;
-  --chrome-corner-offset: 14px;
+  --chrome-corner-offset: 16px;
   --chrome-hint-gap: 36px;
   --chrome-icon-size: 1.25rem;
   --border-corner-radius: 4px;
@@ -348,7 +348,7 @@ body.boot-no-fade .mode-root { transition: none; }
   display: none;
   align-items: center;
   pointer-events: none;
-  height: calc(1.5rem + 0.5rem);
+  height: var(--chrome-icon-size);
 }
 .ui-hint.hint-visible {
   display: flex;
