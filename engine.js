@@ -1711,8 +1711,10 @@ function renderChoices(scene) {
 
   const choiceList = el.querySelector('.choice-list');
   if (choiceList) {
+    scrollNarrativeToBottom();
     requestAnimationFrame(() => {
       if (divider) { divider.style.opacity = ''; divider.style.transition = ''; divider.classList.remove('choices-hidden'); }
+      scrollNarrativeToBottom();
       requestAnimationFrame(() => choiceList.classList.add('choices-visible'));
     });
   }
