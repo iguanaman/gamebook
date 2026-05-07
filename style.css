@@ -800,6 +800,7 @@ body.journal-open #journal-toggle { display: none; }
   font-size: 0.8em;
   font-weight: 600;
   line-height: 1;
+  padding-top: 0.15em;
   font-variant-numeric: tabular-nums;
 }
 
