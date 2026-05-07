@@ -71,7 +71,7 @@
 **Recurs in:** Act 2 Beats 5 (if she points Frank to the ledger) and 6 (potential off-screen squeeze fallout). Referenced in Act 3 if `marta_talked`.
 
 ## Salzano (real-estate fixer)
-**Voice:** `male_midlife_american_deep_raspy_authentic` — deep, raspy, calm; the polite voice a man uses when violence is already in the price. Distinct from Brennan's hot bark and Kellner's smooth warmth — Salzano is the one who never raises his.
+**Voice:** `male_midlife_british_dark_seductive_deep` — dark, deep, controlled; the polite voice a man uses when violence is already in the price. A faint English polish on a New York fixer reads as money, not foreignness. Distinct from Brennan's hot American bark and Kellner's smooth American warmth — Salzano is the one who never raises his.
 **Body:** clean fingernails kept shorter than fashion; a small white scar through his upper lip he touches when he's amused.
 **Voice on the page:** Quiet declaratives. Uses the conditional to threaten ("it would be a shame"). Calls Frank "Mr. Cady" with the same courtesy he'd call him by his first name; the difference between is unsettling. Never repeats himself. Does not need to.
 **Contradiction:** Speaks like a lawyer, dresses like a banker, is the man the conspiracy sends when it wants someone hurt without paperwork. Genuinely believes he is the reasonable one in the room.
@@ -101,7 +101,7 @@
 **Recurs in:** Act 3 — present on Expose and Martyr endings (in person on Expose, posthumously in voiceover/coda on Martyr).
 
 ## Halston Thorne (the Mayor's brother / conspiracy principal)
-**Voice:** `male_midlife_english_posh` — cold, English-posh, faintly amused; the man who owns the room and has never had to raise his voice to prove it. Distinct from Voss's heartfelt municipal posh and from Kellner's American smooth — Thorne is the register of a person who learned manners as a weapon.
+**Voice:** `male_midlife_british_sage_posh_wizard` — midlife English posh with a sage, measured cadence; the man who owns the room and has never had to raise his voice to prove it. The "wizard" register reads here as the smug elder-statesman certainty of someone who believes himself the cleverest person in any building. Distinct from Voss's heartfelt municipal posh (warm, apologetic) and from Salzano's dark seductive deep (menace) — Thorne is the register of a person who learned manners as a weapon.
 **Body:** a signet ring on the little finger of the left hand he taps once on a table to end a sentence; a tan that has nothing to do with the season — he winters somewhere the city pays for.
 **Voice on the page:** Sentences finished. Vowels drawn. Calls Frank "Mr. Cady" the way one calls a tradesman by surname. Quotes nobody, never raises an idiom, never swears. When he is most dangerous he is most polite. Off-page until the Expose coda — only ever named, written about, or seen briefly through a window in Act 2's records-room scene as "a man with a tan in a suit too good for the building."
 **Contradiction:** Has never personally killed anyone and is the reason Ray Doss and Vera Doss are dead. Believes he is the civic-minded one in his family — the Mayor is the politician; Thorne is the man who *gets things done* — and the things he gets done are an accounting of corpses he has never had to look at.
@@ -109,6 +109,26 @@
 **Fears:** that one of the men he has paid is keeping a notebook of his own. (He is correct. Ray Doss kept it.)
 **First seen:** Act 3, Beat 6 (Expose coda, by name, as the man arrested before his lawyer arrives). Glimpsed off-page in Act 2 records-room scene; named in the ledger at Beat 5 of Act 2.
 **Recurs in:** Act 3 codas — by name in Expose, by absence in Bury It late, by Dora's voiceover in Martyr.
+
+## Edmund Tice (junior clerk, City Engineer's Office)
+**Voice:** `male_young_american_weak` — young, thin, anxious; fits a clerk too frightened to say what he knows out loud. Distinct from Voss's heartfelt posh and from Quint's forthright register.
+**Body:** ink-stained shirt cuff he keeps tucking; a wristwatch a size too large that slides on his forearm.
+**Voice on the page:** Half-finished sentences. Says the noun and lets Frank fill in the verb. "Ray was — yeah." Looks at the corridor before he speaks. Calls Frank "sir" without thinking.
+**Contradiction:** Wants to be the one who told someone, and is going to spend the next ten years pretending he wasn't.
+**Wants:** to keep his job and to have done the right thing — in that order, and he knows it.
+**Fears:** Voss noticed; Voss didn't notice and the next person to ask isn't Frank.
+**First seen:** Act 1, Beat 3 (corridor outside Voss's office).
+**Recurs in:** Act 1 only — single-scene cameo. Referenced by name in Act 2 if Frank revisits the engineer's office.
+
+## Mrs. Pell (boarding house landlady)
+**Voice:** `female_elder_american_relatable_likeable` — elder American, warm in ordinary weather and shaken when the weather changes; fits a woman who has run rooms for thirty years and has never had a tenant die in one.
+**Body:** apron pockets that always have a folded letter or a bobby pin in them; a chain of small keys at her hip she touches when she's flustered.
+**Voice on the page:** Run-on sentences when alarmed; clipped when she's lying. Calls Frank "the gentleman" to other people and "Mr. Cady" to his face. Apologises for the stairs. Pretends not to have noticed things she has counted twice.
+**Contradiction:** Likes Vera and was paid this morning by a man in a good suit not to mention the second visitor; will tell Frank anyway if he asks the right way.
+**Wants:** the house to stay quiet and the rent to keep coming.
+**Fears:** the man in the good suit coming back.
+**First seen:** Act 1, Beat 5 (boarding house front room) or Beat 6 (panicked summons), depending on path.
+**Recurs in:** Act 1 only — Beats 5 and 6. Not referenced after Act 1.
 
 ## Officer Daniel Quint (clean cop / Beat 3 ride-out)
 **Voice:** `male_young_american_forthright` — young, plain American, forthright; a uniform who hasn't yet learned to hedge. Distinct from Brennan's hard bark, Salzano's quiet danger, Kellner's smooth warmth — Quint is the only honest cop voice in the story and sounds it.
