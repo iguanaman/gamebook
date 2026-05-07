@@ -1890,7 +1890,11 @@ function toggleJournal() {
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-close')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
-document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
+document.getElementById('journal-toggle')?.addEventListener('click', () => {
+  if (isJournalOpen()) return;
+  dismissHint('journal');
+  toggleJournal();
+});
 document.getElementById('back-btn')?.addEventListener('click', () => {
   if (menuApp.querySelector('.commission-screen')) hideCommission();
 });
