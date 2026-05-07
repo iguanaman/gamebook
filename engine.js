@@ -1863,6 +1863,7 @@ function closeJournal() {
   toggle?.classList.remove('journal-toggle-open');
   backdrop?.classList.remove('journal-backdrop-open');
   document.body.classList.remove('journal-open');
+  if (toggle) toggle.style.display = '';
   setGamePaused(false);
 }
 
@@ -1880,6 +1881,7 @@ function toggleJournal() {
     toggle?.classList.add('journal-toggle-open');
     backdrop?.classList.add('journal-backdrop-open');
     document.body.classList.add('journal-open');
+    if (toggle) toggle.style.display = 'none';
     state.journalSeen = (state.journal ?? []).length;
     saveState();
     renderJournal();
@@ -1890,11 +1892,7 @@ function toggleJournal() {
 document.getElementById('journal-backdrop')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-close')?.addEventListener('click', () => closeJournal());
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
-document.getElementById('journal-toggle')?.addEventListener('click', () => {
-  if (isJournalOpen()) return;
-  dismissHint('journal');
-  toggleJournal();
-});
+document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
 document.getElementById('back-btn')?.addEventListener('click', () => {
   if (menuApp.querySelector('.commission-screen')) hideCommission();
 });
