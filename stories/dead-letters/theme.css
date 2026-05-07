@@ -25,7 +25,6 @@
   /* ── Frame — brushed silver on black ── */
   --border-outer: #4a4a4a;
   --border-inner: #2a2a2a;
-  --border-corner-radius: 0px;
   --frame-inset: 10px;
 
   /* ── Divider — thin silver rule, like a column rule in a broadsheet ── */

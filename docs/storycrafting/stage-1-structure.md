@@ -94,7 +94,6 @@ Base variables (from `style.css`):
 /* Parchment frame */
 --border-outer          /* outer ring colour */
 --border-inner          /* inner ring colour */
---border-corner-radius  /* frame corner rounding */
 --frame-inset           /* gap between frame and viewport edge */
 
 /* Narrative / choices divider */

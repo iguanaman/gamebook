@@ -29,7 +29,6 @@
   /* Dark wood outer ring, paper-screen inner — like a shoji panel in a frame  */
   --border-outer: #3a2e1e;  /* dark wood — almost black-brown */
   --border-inner: #c4b48a;  /* aged paper edge, washed gold */
-  --border-corner-radius: 1px;
   --frame-inset: 8px;
 
   /* ── Divider ─────────────────────────────────────────────────────────────── */

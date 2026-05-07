@@ -6,7 +6,7 @@ The user is a developer who cares about code quality but doesn't know this speci
 
 - [docs/foundation.md](docs/foundation.md) — design philosophy, story model, what this is and isn't
 - [docs/engine.md](docs/engine.md) — boot sequence, state shape, navigation, effects, undo, audio
-- [docs/frontend.md](docs/frontend.md) — layout, CSS variables, HUD, choices, rendering approach
+- [docs/frontend.md](docs/frontend.md) — layout, CSS variables, HUD, choices, rendering approach. **You MUST read this before any CSS/HTML/UI work** — it documents which CSS variables are shared across menu and story modes vs theme-overridable, and how the frame is structured.
 
 ## Tech stack
 

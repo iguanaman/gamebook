@@ -2,34 +2,39 @@
 
 ## Layout
 
-Two distinct views share the `#app` mount point — only one is ever visible:
+Two mode roots crossfade between each other — `#menu-root` and `#story-root`. Both share the same decorative frame (`<div class="frame">` inside each root, styled by `.mode-root .frame` in `style.css`). The frame is `pointer-events: none`, `z-index: 5`, inset from the viewport edge by `--frame-inset`, with a 3px outer border + 2px outline (inner ring) and corner rounding from `--border-corner-radius` (defined globally on `body`, **not** intended to be overridden per story — see "Frame is shared" below).
 
-**Selector** — centred single-column list of story cards. Each card shows cover art (optional), title, description, and a Play or Continue button.
+**Menu mode** — centred single-column list of story cards. Each card shows cover art (optional), title, description, and a Play or Continue button. Has a `<canvas id="dust-canvas">` particle effect inside the frame.
 
-**Game** — two-region layout inside a fixed viewport parchment frame:
-- `#narrative` — scrollable pane, fills all available height. Cleared on every scene navigation; text starts at top, scrolls to bottom as blocks appear.
-- `#choices-footer` — pinned below narrative, hidden (divider invisible) while text is streaming, revealed when choices are ready.
-- HUD — fixed top-right, outside the game layout.
-- `#frame` — fixed full-viewport decorative border (`pointer-events: none`, `z-index: 100`).
+**Story mode** — narrative + choices inside the same frame:
+- `.narrative-area` — scrollable pane, fills all available height. Cleared on every scene navigation; text starts at top, scrolls to bottom as blocks appear.
+- `.choices-footer` — pinned below narrative, hidden (divider invisible) while text is streaming, revealed when choices are ready.
+- HUD (`.hud-wrap`) — absolute top-right, outside the game wrap.
+- Journal slides in from the left (`.journal-clip` / `.journal-panel`).
 
 Width capped at 680px for readability.
 
 ## CSS Architecture
 
-Single `style.css` defines defaults. Stories can override via `stories/{id}/theme.css` (loaded dynamically by the engine). All visual properties are CSS custom properties so `theme.css` gets full control.
+Single `style.css` defines defaults. Stories can override via `stories/{id}/theme.css` (loaded dynamically by the engine, scoped to `#story-root`). All visual properties are CSS custom properties so `theme.css` gets full control — **except** the variables listed under "Frame is shared" below, which apply to the screen border and must stay consistent across menu and story.
 
-**Full variable reference** (all overridable in `theme.css`):
+**Full variable reference**:
 
-| Group | Variables |
-|---|---|
-| Colours | `--bg`, `--surface`, `--text`, `--text-muted`, `--border`, `--hover-bg`, `--accent`, `--accent-hover`, `--btn-secondary-bg`, `--btn-secondary-hover` |
-| Fonts | `--font-body` (EB Garamond, narrative + choices), `--font-heading` (Cinzel, act titles + HUD labels), `--font-ui` (system sans, buttons) |
-| Frame | `--border-outer`, `--border-inner`, `--border-corner-radius`, `--frame-inset` |
-| Divider | `--divider-color`, `--divider-style` |
-| Drop cap | `--drop-cap-color`, `--drop-cap-size` |
-| Act title | `--act-title-size`, `--act-rule-color`, `--act-rule-style` |
-| Animations | `--anim-block-duration`, `--anim-choice-duration`, `--anim-act-title-duration`, `--anim-choice-fade-fast`, `--anim-choice-linger-ms`, `--anim-choice-fade-slow` |
-| Misc | `--radius` |
+| Group | Variables | Theme-overridable? |
+|---|---|---|
+| Colours | `--bg`, `--surface`, `--text`, `--text-muted`, `--border`, `--hover-bg`, `--accent`, `--accent-hover`, `--btn-secondary-bg`, `--btn-secondary-hover` | yes |
+| Fonts | `--font-body` (EB Garamond, narrative + choices), `--font-heading` (Cinzel, act titles + HUD labels), `--font-ui` (system sans, buttons) | yes |
+| Frame colour | `--border-outer`, `--border-inner` | yes |
+| Frame shape | `--border-corner-radius`, `--frame-inset` | **no — shared** |
+| Divider | `--divider-color`, `--divider-style` | yes |
+| Drop cap | `--drop-cap-color`, `--drop-cap-size` | yes |
+| Act title | `--act-title-size`, `--act-rule-color`, `--act-rule-style` | yes |
+| Animations | `--anim-block-duration`, `--anim-choice-duration`, `--anim-act-title-duration`, `--anim-choice-fade-fast`, `--anim-choice-linger-ms`, `--anim-choice-fade-slow` | yes |
+| Misc | `--radius` | yes |
+
+## Frame is shared
+
+The decorative screen border is the same element in menu and story modes — both render `<div class="frame">` inside their mode root, both styled by the single `.mode-root .frame` rule. **Do not** add a per-mode override to `.frame`, and **do not** override `--border-corner-radius` or `--frame-inset` in a story `theme.css` — that would make the screen border visually different between menu and story, which is jarring during the crossfade. Themes may recolour the frame (`--border-outer`, `--border-inner`) but corner shape and inset are app-wide.
 
 ## HUD
 

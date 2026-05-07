@@ -39,7 +39,6 @@
   /* ── Parchment frame (hand-bound notebook ruling) ────────────────────── */
   --border-outer: #8a6a3d;    /* darker leather-edge brown */
   --border-inner: #c4a874;    /* lighter tan inner ruling */
-  --border-corner-radius: 3px;
 
 
   /* ── Narrative / choices divider ─────────────────────────────────────── */
