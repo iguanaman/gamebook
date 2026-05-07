@@ -790,6 +790,10 @@ body.journal-open .ui-hint.hint-visible {
   font-variant-numeric: tabular-nums;
 }
 
+@media (hover: none) and (pointer: coarse), (max-width: 720px) {
+  .choice-num { display: none; }
+}
+
 .choice-failed-text {
   font-size: 0.8rem;
   font-family: var(--font-ui);
