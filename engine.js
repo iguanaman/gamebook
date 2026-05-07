@@ -1041,6 +1041,17 @@ function fadeOutStoryContent() {
     el.style.transition = `opacity ${ms}ms ease`;
     el.style.opacity = '0';
   });
+  document.getElementById('back-btn')?.classList.add('back-hidden');
+  document.getElementById('journal-toggle')?.classList.add('journal-hidden');
+  storyApp.querySelector('#btn-undo')?.classList.add('undo-disabled');
+  ['back', 'journal', 'undo'].forEach(key => {
+    const el = document.getElementById(`hint-${key}`);
+    if (el && el.classList.contains('hint-visible')) {
+      el.classList.remove('hint-visible');
+      el.classList.add('hint-gone');
+      el.addEventListener('animationend', () => el.classList.remove('hint-gone'), { once: true });
+    }
+  });
   return new Promise(resolve => setTimeout(resolve, ms + 50));
 }
 
