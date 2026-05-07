@@ -342,7 +342,7 @@ body.boot-no-fade .mode-root { transition: none; }
   left: var(--chrome-corner-offset);
 }
 .back-btn { transition: opacity 350ms ease; }
-.back-btn.back-hidden { opacity: 0; pointer-events: none; }
+.back-btn.back-hidden { display: none; }
 
 .ui-hint {
   position: fixed;
