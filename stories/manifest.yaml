@@ -1,9 +1,8 @@
 pre_intro:
   lines:
     - This experience includes audio
-    - Make sure your speakers are on
-    - All devices supported
-    - Best on tablet
+    - Volume set?
+    - Lets...
 
 intro:
   narrator: narrator
