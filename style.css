@@ -862,7 +862,7 @@ body.journal-open .ui-hint.hint-visible {
 
 .journal-toggle {
   position: fixed;
-  bottom: var(--chrome-corner-offset);
+  top: var(--chrome-corner-offset);
   left: var(--chrome-corner-offset);
   z-index: 6;
   transition: opacity 350ms ease, transform 0.15s;

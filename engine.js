@@ -186,7 +186,7 @@ function setGamePaused(paused) {
 
 // ── UI hints ─────────────────────────────────────────────────────────────────
 
-const HINT_QUEUE = ['fullscreen', 'back', 'journal', 'undo'];
+const HINT_QUEUE = ['fullscreen', 'journal', 'undo'];
 const HINT_KEY = key => `gamebook.hint_seen.${key}`;
 const HINTS_ALWAYS_SHOW = false;
 
@@ -225,7 +225,6 @@ function dismissHint(key) {
 
 function isHintTargetReady(key) {
   if (key === 'fullscreen') return true;
-  if (key === 'back') return !document.getElementById('back-btn')?.classList.contains('back-hidden');
   if (key === 'journal') return !document.getElementById('journal-toggle')?.classList.contains('journal-hidden');
   if (key === 'undo') return !!document.getElementById('btn-undo') && !document.getElementById('btn-undo').classList.contains('undo-disabled');
   return false;
@@ -1041,10 +1040,9 @@ function fadeOutStoryContent() {
     el.style.transition = `opacity ${ms}ms ease`;
     el.style.opacity = '0';
   });
-  document.getElementById('back-btn')?.classList.add('back-hidden');
   document.getElementById('journal-toggle')?.classList.add('journal-hidden');
   storyApp.querySelector('#btn-undo')?.classList.add('undo-disabled');
-  ['back', 'journal', 'undo'].forEach(key => {
+  ['journal', 'undo'].forEach(key => {
     const el = document.getElementById(`hint-${key}`);
     if (el && el.classList.contains('hint-visible')) {
       el.classList.remove('hint-visible');
@@ -1842,7 +1840,6 @@ function renderJournal() {
   const entries = state?.journal ?? [];
   if (currentStoryId) {
     toggle.classList.remove('journal-hidden');
-    document.getElementById('back-btn')?.classList.remove('back-hidden');
     showNextHint();
   }
 
@@ -1894,12 +1891,7 @@ document.getElementById('journal-backdrop')?.addEventListener('click', () => clo
 document.getElementById('journal-music-toggle')?.addEventListener('click', () => toggleMusic());
 document.getElementById('journal-toggle')?.addEventListener('click', () => { dismissHint('journal'); toggleJournal(); });
 document.getElementById('back-btn')?.addEventListener('click', () => {
-  dismissHint('back');
-  if (menuApp.querySelector('.commission-screen')) {
-    hideCommission();
-  } else {
-    returnToSelector();
-  }
+  if (menuApp.querySelector('.commission-screen')) hideCommission();
 });
 document.getElementById('journal-quit')?.addEventListener('click', () => {
   closeJournal();
