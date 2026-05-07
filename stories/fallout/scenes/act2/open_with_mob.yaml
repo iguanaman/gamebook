@@ -1,0 +1,24 @@
+id: act2/open_with_mob
+text:
+- |-
+  The column comes out of the door blinking. Twelve, fifteen, more — the count keeps moving — and almost every one of them stops within a pace or two of the threshold and just *stands*, hands going up to shield eyes that have lived under fluorescent for the entire span of human memory. Somebody behind you is crying. Somebody else is laughing in the same key as the crying. The maintenance worker with the ladder hinge bolt is standing very still with one hand on the frame of the door, as if he is making sure it is real.
+- |-
+  And one man — middle-aged, grey at the temples, vault blues with the elbows worn shiny — turns around. He is going back. He is twelve paces out of the vault and he is going *back*, hands flat against the door that has just sealed itself, and he is saying *open it open it open it* in a voice that is not so much panic as it is a person reciting an instruction to themselves.
+- |-
+  The woman from sub-five is at your shoulder. *He's going to start a thing if we let him,* she says, low. *They watch him, they pick a side, we lose half the column right here. Your call, Officer. Quick.*
+choices:
+- text: |-
+    Walk over and talk him down. Slow voice. Hands visible.
+  next: act2/surface_first_breath
+  effects:
+    flags:
+      kept_morale: true
+- text: |-
+    Tell the column to form up and move out. Don't look at him.
+  next: act2/surface_first_breath
+- text: |-
+    Let him go. The vault is shut. The door doesn't open from this side.
+  next: act2/surface_first_breath
+  effects:
+    flags:
+      lost_one: true

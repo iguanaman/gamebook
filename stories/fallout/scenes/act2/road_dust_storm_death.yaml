@@ -1,0 +1,34 @@
+id: act2/road_dust_storm_death
+journal: |-
+  You walked into the storm. Your lungs did not come out the other side.
+text:
+- |-
+  You put your head down. You walk into it.
+- |-
+  The first ten paces are merely terrible. The dust gets in under your eyelids and makes a paste at the corners of your eyes. The wind takes the sound out of your ears and replaces it with a roar that has no source. You cannot see your own boots.
+- |-
+  Somewhere around the twentieth pace your chest gives up its argument with itself. The next breath you try to take does not come. You stop walking, because you have to, and you put your hands on your knees, and you make the shape a person makes who is trying to cough something out, but there is nothing to cough out. There is only the dust, and the dust is in you now, and the dust is what your lungs are doing instead of breathing.
+- |-
+  You go down on one knee. Then the other.
+- if:
+    flags:
+    - recruited_doc
+  text: |-
+    Reyes reaches you a second too late. She gets her hand on the back of your neck. She is saying something. You can see her saying something. The wind takes the words.
+- if:
+    flags:
+    - recruited_yuna
+  text: |-
+    Yuna is screaming your name. You can see her screaming your name. The wind takes it.
+- if:
+    flags:
+    - led_evacuation
+  text: |-
+    The column behind you has stopped. Somebody is shouting at somebody to keep moving. Somebody is shouting that you have stopped.
+- |-
+  The dust closes over you the way a sheet closes over a piece of furniture in a house nobody is coming back to.
+- |-
+  '---'
+- |-
+  *On the other side of the storm the building is still there. The smoke is still rising. Somebody else, on some other day, will walk in out of the dust and find the booth you would have picked, and sit in it, and not know.*
+choices: []

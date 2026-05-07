@@ -1,0 +1,20 @@
+id: act2/open_with_yuna
+text:
+- |-
+  Yuna stops about six paces past the door and tips her head back so far you think for a second she is going to fall over. The goggles slide further up into her hair. The multitool spins on its lanyard, slows, stops. She is looking straight up.
+- |-
+  Then she laughs.
+- |-
+  It is a sound you have never heard her make. You have heard her swear, mock, complain, and on one memorable occasion sing a Vault-Tec safety jingle in a register designed to peel paint. You have not, in the eight months you have known Yuna, heard her *laugh*. The sound is short and surprised and a little embarrassed, as if she has caught herself doing it.
+- female_young_american_lisp: |-
+    [chuckle] It's just *up there*. The whole — it just keeps going. Look at it. *Look at it.*
+- |-
+  She is not pointing. She is gesturing with her whole open hand at the entire sky, the way a person gestures at a problem that is too large for the gesture to mean anything.
+- female_young_american_lisp: |-
+    All right. All right. I'm done. I'm done. Let's go.
+- |-
+  She is not done. She keeps glancing up as the two of you walk.
+choices:
+- text: |-
+    Walk together.
+  next: act2/surface_first_breath

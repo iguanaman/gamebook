@@ -1,0 +1,30 @@
+id: act2/organise_watches
+text:
+- |-
+  You climb onto the counter so you are looking down at them, the way Cole used to look down at the duty roster from the mezzanine, and the parallel does not escape you. You wait until the arguing in the back stops on its own. It takes longer than it should.
+- |-
+  *Three on, six off,* you say. *Door, two windows. Two-hour rotation. If your name is on the duty book back home you're on the first three. If you don't know what a duty book is you're on the last three. Anybody falls asleep on watch I'm not going to shout at you, I'm going to put somebody else on with you. We are not going to die in this building because nobody could be bothered to count.*
+- |-
+  The room is silent. The maintenance worker with the ladder hinge bolt — he is here, he made the walk — nods slowly. The woman from sub-five folds her arms and looks at the people she has been carrying since the door opened.
+- |-
+  Whether they will do it is a different question.
+choices:
+- text: |-
+    Lay it out plain. Names, slots, the rotation. The way Cole would have done it if Cole had ever cared.
+  next: act2/diner_hub
+  requires:
+    stats:
+      CHR: 5
+  effects:
+    flags:
+      organise_watches_attempted: true
+      diner_organised: true
+  failed_text: |-
+    *(Charisma 5 — the room hears you. The room does not move.)*
+- text: |-
+    Step back. Let the woman from sub-five sort it. She knows them. You don't.
+  next: act2/diner_hub
+  effects:
+    flags:
+      organise_watches_attempted: true
+      morale_cracking: true

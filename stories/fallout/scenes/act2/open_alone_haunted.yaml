@@ -1,0 +1,16 @@
+id: act2/open_alone_haunted
+text:
+- |-
+  The door is closing behind you when the shout comes.
+- |-
+  It comes through the narrowing gap — not a word, exactly, or if it is a word it is the front half of one — somebody calling your name in a register you did not know your name had. The sound enters the chamber, hits the closing edge of the door, and is sliced clean in half. The second half stays in the vault. The first half is in your ear. It is going to be in your ear for a while.
+- |-
+  The seal hisses. The hiss runs out. There is the soft mechanical *thunk* of the locking pins re-seating themselves, eighty-seven years of design doing its one job correctly and finally, and then there is the silence on this side of the door, which is not the silence of a place that has nothing in it but the silence of a place that has just had something removed.
+- |-
+  You do not look back at the door. There is nothing to look at. The voice was not a person — was not, by the time it reached you, anything more than a sound. You tell yourself this once.
+- |-
+  You will tell yourself this again.
+choices:
+- text: |-
+    Walk away from the door.
+  next: act2/surface_first_breath

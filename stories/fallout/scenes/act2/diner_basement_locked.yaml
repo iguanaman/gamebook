@@ -1,0 +1,47 @@
+id: act2/diner_basement_locked
+text:
+- |-
+  In the corner of the kitchen, behind where the dishwasher used to live, there is a hatch in the floor. Steel. Square. Counter-sunk handle. The padlock is the size of a fist and is not pre-war — somebody put this on later, somebody who had a basement full of something they wanted to keep, and a key that they did not, in the end, come back for.
+- |-
+  The hasp is welded to the hatch and the staple is welded to the frame. The lock is American, brass, and has corroded shut in a position that suggests force is the only conversation it is going to have.
+- |-
+  You set your feet. You wedge a piece of rebar from the rubble of the south wall into the loop of the lock. You take a breath.
+- if:
+    flags:
+    - vault_suit_upgraded
+  text: |-
+    The reinforced suit means you have your weight to put behind the bar. Halverson would have done it in one. You are not Halverson, but you are wearing his shoulders.
+choices:
+- text: |-
+    Force the door. Lever, weight, all of it.
+  next: act2/diner_hub
+  requires:
+    stats:
+      STR: 7
+  failed_text: |-
+    *(Strength 7 — the hasp won't give. Even with the bar, you can't get the angle.)*
+  effects:
+    flags:
+      tried_basement: true
+      surface_cache_found: true
+- text: |-
+    Force the door. The suit is doing half the work for you. (Strength 6, suited)
+  next: act2/diner_hub
+  requires:
+    stats:
+      STR: 6
+    flags:
+    - vault_suit_upgraded
+  failed_text: |-
+    *(Strength 6 — even with the suit, the hasp holds. The bar slips and the rebar bends in your hand.)*
+  hide_if_failed: true
+  effects:
+    flags:
+      tried_basement: true
+      surface_cache_found: true
+- text: |-
+    Walk away. Whatever is down there can stay down there.
+  next: act2/diner_hub
+  effects:
+    flags:
+      tried_basement: true

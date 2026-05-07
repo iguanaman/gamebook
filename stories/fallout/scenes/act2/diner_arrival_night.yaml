@@ -1,0 +1,33 @@
+id: act2/diner_arrival_night
+journal: |-
+  You sheltered through the storm and walked the last of the road in the dark. The diner was still standing when you got there.
+text:
+- |-
+  The storm takes most of the afternoon and the rest of the light with it.
+- |-
+  When the wind drops enough to walk in, the sky has gone the colour of a bruise — a low red dusk, the sun a smudge above the horizon, the dust in the air making the light come at you sideways. The road is buried in places under drifts of it. You walk on instinct. You walk on the column of smoke, which is not a column of smoke any more — it is a small orange flicker, somebody's fire, two miles ahead.
+- if:
+    flags:
+    - recruited_doc
+  text: |-
+    Reyes does not complain. She does not even speak. She walks behind you with her hand on the strap of the bag and her mouth set in the line that means she is conserving breath she is not sure she has.
+- if:
+    flags:
+    - recruited_yuna
+  text: |-
+    Yuna walks with her goggles down for the first time you have seen them down. The lenses fog. She does not lift them.
+- if:
+    flags:
+    - led_evacuation
+  text: |-
+    The column has gone quiet. People are walking with their heads turned slightly down and slightly to the side, a posture you will come to recognise as *wasteland walking*. They learn it fast.
+- |-
+  Up close, the building is a *diner*.
+- |-
+  Long, low, windows to the floor on three sides, a fire going somewhere inside through a stove-pipe in what is left of the kitchen roof. The orange light moves on the broken glass of the windows like an animal pacing. The door is propped open with a chunk of cinder block.
+- |-
+  Whoever has the fire going is *in* there. Or was. Or will be back.
+choices:
+- text: |-
+    Step inside.
+  next: act2/diner_hub

@@ -1,0 +1,37 @@
+id: act2/doc_clinic
+text:
+- |-
+  Reyes has picked the booth. It is the one nearest the kitchen door, which means water if there is any to be had, and good light from the south-facing window, which she has cleared of glass with the side of her boot in a series of small precise kicks.
+- |-
+  She lays her things out on the formica table the way she lays her things out on a hospital tray. The notebook. The pre-war ballpoint. Three pre-cut squares of clean cloth. Two stim packs in a tin. The tweezers. A glass jar of something pink that you do not ask about. The mug, with the nothing in it, set well to the side where she will not knock it.
+- female_adult_american_cool: |-
+    This is a clinic now. Tell anyone who's bleeding to come and sit. Tell anyone who isn't to give me ten paces.
+- |-
+  She does not look at you when she says it. She is laying the cloth squares out in a line, smoothing each one flat with her thumb. The clinic is open. The clinic was open the moment she put the bag down.
+- if:
+    flags:
+    - radiation_sick
+  text: |-
+    She finishes the cloth squares. Then she looks up. Her eyes are on the sheen on your forehead and the way you are standing slightly off your right side, and you can see the diagnosis happening in real time, two seconds before she says anything. *Sit down, Officer. You first. I should have done you in the medical office and I didn't, and I have been thinking about it since the door closed.*
+choices:
+- text: |-
+    Stand back. Let her work. The first patient is whoever needs it most.
+  next: act2/diner_hub
+  effects:
+    flags:
+      doc_clinic_open: true
+- text: |-
+    Sit down. Let her treat the sickness here. Now. While there is time.
+  next: act2/diner_hub
+  requires:
+    flags:
+    - radiation_sick
+    flags_unset:
+    - doc_clinic_treated
+  hide_if_failed: true
+  effects:
+    flags:
+      doc_clinic_open: true
+      doc_clinic_treated: true
+      reyes_treated_you: true
+      radiation_sick: false

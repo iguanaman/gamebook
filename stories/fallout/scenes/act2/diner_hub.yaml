@@ -1,0 +1,112 @@
+id: act2/diner_hub
+journal: |-
+  The diner is the only roof for miles. The booths still hold the ghost of who sat in them. You decide, for now, to stay.
+text:
+- |-
+  Inside, the diner has the long, low quiet of a room that has been abandoned in stages — first by the people who ate in it, then by the people who slept in it after the people who ate in it stopped coming, then by the people who used it as a fort, and last of all by whoever lit the fire in the kitchen and walked out an hour before you walked in.
+- if:
+    flags_unset:
+    - recruited_doc
+    - recruited_yuna
+    - led_evacuation
+  text: |-
+    Your boots are the only sound. You stand at the counter for a second too long before you put a hand on it. The vinyl of the nearest booth has split along the seam from a hundred summers of sun. You pick a stool, you pick a booth, you pick where the bag goes — and every choice feels like the choice of where to put your name down.
+- if:
+    flags:
+    - recruited_doc
+    flags_unset:
+    - recruited_yuna
+    - led_evacuation
+  text: |-
+    Reyes works through the booths from the door inwards, brushing glass off each seat with the side of her hand before she will look at the next one. She finds one she approves of — third along, two intact panes behind it — and lays the canvas bag down on it like a verdict. *That one,* she says. *First watch is mine. You sleep first. Don't argue with me about it.*
+- if:
+    flags:
+    - recruited_yuna
+    flags_unset:
+    - recruited_doc
+    - led_evacuation
+  text: |-
+    Yuna does a circuit of the room with the multitool out, tapping fittings, peering up at the stove-pipe, pressing a thumb against the wood of the counter to see how far it gives. *Salvageable,* she says, mostly to herself. *Lots of it. Mast on the roof — did you see the mast on the roof? — that's salvageable.* She picks the booth nearest the window. *I'll take first watch.*
+- if:
+    flags:
+    - recruited_doc
+    - recruited_yuna
+    flags_unset:
+    - led_evacuation
+  text: |-
+    Reyes claims a booth. Yuna claims a different booth, then changes her mind and claims the one nearest the kitchen door instead. Reyes does not comment. The two of them work out, between them and without consulting you, that you are sleeping first and that one of them is on watch.
+- if:
+    flags:
+    - led_evacuation
+  text: |-
+    The column comes in behind you and the diner shrinks. People sit on the floor, on the counter, on each other. Somebody is already crying behind the bar. Two men are already arguing about the rationing of something they do not yet have. A child has found a salt cellar and is solemnly trying to give it to you. The diner was always going to be too small.
+- |-
+  This is, for the moment, a place. You can do things in it.
+choices:
+- text: |-
+    Search the dining room. The booths, the counter, the mess on the floor.
+  next: act2/diner_first_search
+  requires:
+    flags_unset:
+    - searched_dining
+  hide_if_failed: true
+- text: |-
+    Check the back room. The kitchen door is half off its hinges.
+  next: act2/diner_back_room
+  requires:
+    flags_unset:
+    - searched_back
+  hide_if_failed: true
+- text: |-
+    Climb to the roof. See what there is to see.
+  next: act2/diner_roof
+  requires:
+    flags_unset:
+    - searched_roof
+  hide_if_failed: true
+- text: |-
+    Try the basement door. There is a basement door. It has a padlock the size of a fist.
+  next: act2/diner_basement_locked
+  requires:
+    flags_unset:
+    - tried_basement
+  hide_if_failed: true
+- text: |-
+    Get the residents into watches. Three on, six off. Lay it out plain.
+  next: act2/organise_watches
+  requires:
+    flags:
+    - led_evacuation
+    flags_unset:
+    - organise_watches_attempted
+  hide_if_failed: true
+- text: |-
+    The man at the door is going to turn around in a minute. Talk to him before he does.
+  next: act2/talk_down_returner
+  requires:
+    flags:
+    - led_evacuation
+    flags_unset:
+    - talk_down_attempted
+  hide_if_failed: true
+- text: |-
+    Reyes wants a booth for a clinic. Help her clear one.
+  next: act2/doc_clinic
+  requires:
+    flags:
+    - recruited_doc
+    flags_unset:
+    - doc_clinic_open
+  hide_if_failed: true
+- text: |-
+    Yuna wants to look at the radio mast on the roof. Hold the mast for her.
+  next: act2/yuna_radio
+  requires:
+    flags:
+    - recruited_yuna
+    flags_unset:
+    - yuna_radio_attempted
+  hide_if_failed: true
+- text: |-
+    Settle in. Sleep. Let the surface come at you in the morning.
+  next: act2/diner_settle

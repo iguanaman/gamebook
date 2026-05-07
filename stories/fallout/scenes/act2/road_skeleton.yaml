@@ -1,0 +1,26 @@
+id: act2/road_skeleton
+text:
+- |-
+  About four hours in, off the shoulder of the road, you find them.
+- |-
+  A campfire — long cold, the ash compacted into a grey disc the wind has not quite been able to lift. Beside it, propped against the rusting bulk of what used to be a road sign, a *body*. Or what is left of one. The bones are clean. The animals have been and gone. What the animals left, the wind has been polishing for a long time.
+- |-
+  The thing that stops you is the suit.
+- |-
+  Vault-issue. Blue, faded almost to grey on the sun-side, still stubbornly blue on the side that has been against the post. The collar has the same Vault-Tec stitch as yours. The number on the chest is not 34. You cannot quite read it — the fabric there has gone — but it is not 34.
+- |-
+  Somebody from somewhere else came out. Somebody from somewhere else got this far. Somebody from somewhere else sat down beside a fire that they could no longer keep lit, and did not get up.
+- |-
+  You do not touch the suit. You do not take anything. You look at the boots — which are still on, laced — for a long second, and then you look at the road again, and you keep walking.
+- if:
+    flags:
+    - recruited_yuna
+  text: |-
+    Yuna stops a pace behind you. She does not say anything. She is looking at the number on the chest. After a second she shakes her head, very small, and walks on.
+choices:
+- text: |-
+    Move on. Don't look back.
+  next: act2/diner_arrival
+  effects:
+    flags:
+      saw_predecessor: true

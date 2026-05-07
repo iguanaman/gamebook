@@ -1,0 +1,27 @@
+id: act2/cache_recovery
+text:
+- |-
+  The tracks you spotted from the roof go north and they go straight, which is the kind of detail that says *somebody used this regularly* in a wasteland where nothing else is straight. You walk them.
+- |-
+  Two hours out from the diner, the tracks bend around a low hill and end at a culvert under a piece of broken state highway. A rusted iron grate has been pulled out and propped beside the opening. The grate has been pulled out *more than once* — the dirt around it is scraped, the propping is practised. Somebody used this place. Somebody who is no longer using it, or the cache would not still be a cache.
+- |-
+  The wind here is colder. The hill blocks the diner from view. The diner blocks the hill from anyone watching the diner. It is a *quiet* place, in the wasteland sense — quiet meaning *out of sight of the things that hurt you*.
+- if:
+    flags:
+    - radiation_sick
+    flags_unset:
+    - reyes_treated_you
+  text: |-
+    You stand a moment with a hand on the lip of the culvert, breathing the way Reyes told you to breathe when the breath gets short. Your chest gives back, eventually, what it took.
+- |-
+  The mouth of the culvert is dark. Something is down there. Something specific.
+choices:
+- text: |-
+    Go in. Whatever's there is there.
+  next:
+  - scene: act2/cache_clean
+    weight: 3
+  - scene: act2/cache_squatters
+    weight: 2
+  - scene: act2/cache_trap
+    weight: 1

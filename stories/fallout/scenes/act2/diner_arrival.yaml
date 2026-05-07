@@ -1,0 +1,67 @@
+id: act2/diner_arrival
+journal: You found the building under the smoke. A pre-war diner, half-collapsed.
+  The first place you stopped on the surface.
+text:
+- Up close, the building is a *diner*.
+- You did not know the word until you saw the shape. Long, low, windows to the floor
+  on three sides, a roof that humps up over a sign-stand the sign has long since fallen
+  out of. Half of one wall has come down — the south wall, where the road turns —
+  and the rubble of it is piled in a careful sort of way that suggests somebody once
+  thought about clearing it and then thought about something else.
+- The smoke is coming from a stove-pipe poked up through what is left of the kitchen
+  roof. *Was* coming. As you watch, the column thins and stops, the way a fire goes
+  out when nobody is feeding it. Whoever was here is not here now.
+- if:
+    flags:
+    - pushed_storm
+  text: The dust is still on you. You will be brushing it out of folds of yourself
+    for days. But you came through the wall of it, and the building did not move,
+    and here you are.
+- if:
+    flags_unset:
+    - recruited_doc
+    - recruited_yuna
+    - led_evacuation
+  text: You stop at the edge of the lot. There is one set of footprints on the ground
+    in front of the door — yours, the moment you make them. The silence around the
+    building is louder than the silence on the road.
+- if:
+    flags:
+    - recruited_doc
+    flags_unset:
+    - recruited_yuna
+    - led_evacuation
+  text: The two of you stop at the edge of the lot. Reyes looks at the building the
+    way a clinician looks at a patient she has not yet been introduced to. *We pick
+    a booth that doesn't have glass in it,* she says. *That'll do.*
+- if:
+    flags:
+    - recruited_yuna
+    flags_unset:
+    - recruited_doc
+    - led_evacuation
+  text: Yuna stops a pace ahead of you. She is staring at the windows — at the *glass*
+    in the windows, the bits of it still hanging in the frames — like she has just
+    remembered glass exists. *Pre-war,* she says, mostly to herself. *Whole panes.
+    Look at that.*
+- if:
+    flags:
+    - recruited_doc
+    - recruited_yuna
+    flags_unset:
+    - led_evacuation
+  text: The three of you stop at the edge of the lot. Reyes is already looking for
+    a booth. Yuna is already looking at the glass. You are looking at the door, which
+    is propped open with a chunk of cinder block, and which has not been closed in
+    a long time.
+- if:
+    flags:
+    - led_evacuation
+  text: The column behind you fans out across the lot without being told. Somebody
+    sits down on a kerb. Somebody starts arguing about who carries what. A child finds
+    a bottle cap and holds it up like a coin. The diner is, you understand at once,
+    going to be too small for all of you. It is also the only roof.
+- The door is open. The smoke is gone. You can step in.
+choices:
+- text: Step inside.
+  next: act2/diner_hub

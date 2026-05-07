@@ -1,0 +1,135 @@
+id: act2/raider_scouts_arrive
+journal: |-
+  Three Iron Sons scouts came out of the smoke before you got to it. They wanted a tax. The wasteland has rules and you have just been read them.
+text:
+- |-
+  You are about a kilometre out from the diner, on the lip of a long flat that runs east toward the smoke, when the smoke does the thing the briefings warned about. It produces people.
+- |-
+  Three of them. Road-leathers stitched out of pre-war seat fabric. Two carrying short metal pipes wrapped in tape; the third, a woman, carrying a sawn-off pump-action she has not raised yet but is *holding* in a way that is the same as raising. They come up out of a shallow that wasn't a shallow until they were in it, and they have arranged themselves so that the geometry of you talking to them is the geometry of you being surrounded.
+- |-
+  The one in the middle, broad shoulders, a brand on the back of his hand, walks two steps closer than the others and stops. He looks at you the way you'd look at a wheel you were thinking of buying.
+- |-
+  *Vault,* he says. Not a question. *We tax the road. Half of whatever the diner gave you. Today, and every time you walk this way. Call it lease. Call it whatever you want. Pay it now and we don't have to discuss it.*
+- if:
+    flags:
+    - read_raider_sign
+  text: |-
+    The marks on his leathers — the brand on his hand, the colour of the tape on the pipe — line up with what you read off the corpse pile on the road in. *Iron Sons,* the corpse pile said. Three of them, one boss. You know the shape of this conversation before it starts.
+- if:
+    flags:
+    - led_evacuation
+    - diner_organised
+  text: |-
+    Behind you, the diner has shutters and the shutters have people behind them. You did not bring the residents; the residents are the *reason* you didn't bring the residents. But they're there, and the woman with the pump-action is looking past you at them with the face of somebody re-counting a number she'd already counted.
+- if:
+    flags:
+    - radiation_sick
+    flags_unset:
+    - reyes_treated_you
+  text: |-
+    Your chest is tight from the walk out. You can feel where standing still is going to start to cost you.
+- |-
+  The woman with the pump-action shifts her grip. The man on the right rolls his neck. The one in the middle is waiting.
+choices:
+- text: |-
+    Pay it. Half the diner. Take it and go.
+  next: act2/diner_hub
+  effects:
+    flags:
+      raider_tribute_paid: true
+      raiders_contact: true
+- text: |-
+    Stand them down. You're vault, you've got the suit on, and the suit means what it means. (Strength 6, suited)
+  next: act2/diner_hub
+  requires:
+    stats:
+      STR: 6
+    flags:
+    - vault_suit_upgraded
+  hide_if_failed: true
+  effects:
+    flags:
+      raiders_contact: true
+      raiders_respect: true
+  failed_text: |-
+    *(Strength 6 — even the suit doesn't make you tall enough to face down three.)*
+- text: |-
+    Stand them down. Three on one, but the one is you.
+  next: act2/diner_hub
+  requires:
+    stats:
+      STR: 7
+    flags_unset:
+    - vault_suit_upgraded
+  effects:
+    flags:
+      raiders_contact: true
+      raiders_respect: true
+  failed_text: |-
+    *(Strength 7 — three on one is still three on one, suit or no suit.)*
+- text: |-
+    Stand them down. The corpse pile told you who they are; now they can hear who you are. (Strength 6, raider sign)
+  next: act2/diner_hub
+  requires:
+    stats:
+      STR: 6
+    flags:
+    - read_raider_sign
+    flags_unset:
+    - vault_suit_upgraded
+  hide_if_failed: true
+  effects:
+    flags:
+      raiders_contact: true
+      raiders_respect: true
+- text: |-
+    Talk to their boss. Tell them you've got things to discuss with the man whose name is on the brand.
+  next: act2/diner_hub
+  requires:
+    stats:
+      CHR: 6
+    flags_unset:
+    - read_raider_sign
+  effects:
+    flags:
+      raiders_contact: true
+      invited_to_raider_camp: true
+  failed_text: |-
+    *(Charisma 6 — the man in the middle does not look like he's the asking-for-a-meeting type.)*
+- text: |-
+    Talk to their boss. Drop the brand by name. Watch the silence. (Charisma 5, raider sign)
+  next: act2/diner_hub
+  requires:
+    stats:
+      CHR: 5
+    flags:
+    - read_raider_sign
+  hide_if_failed: true
+  effects:
+    flags:
+      raiders_contact: true
+      invited_to_raider_camp: true
+- text: |-
+    Wave at the diner. The shutters open. The residents show themselves at the windows. Let the geometry change. (Charisma 4, organised)
+  next: act2/diner_hub
+  requires:
+    stats:
+      CHR: 4
+    flags:
+    - led_evacuation
+    - diner_organised
+  hide_if_failed: true
+  effects:
+    flags:
+      raiders_contact: true
+      raiders_wary: true
+  failed_text: |-
+    *(Charisma 4 — the shutters open, the people show, and the woman with the pump-action counts them and is unimpressed.)*
+- text: |-
+    Refuse — and take the beating that comes with it.
+  next: act2/diner_hub
+  effects:
+    flags:
+      raiders_contact: true
+      radiation_sick: true
+      morale_cracking: true

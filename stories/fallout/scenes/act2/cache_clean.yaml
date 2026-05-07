@@ -1,0 +1,18 @@
+id: act2/cache_clean
+journal: |-
+  The culvert was a cache and the cache was untouched. Ammunition. Stims. A working radio battery. The diner is, fractionally, a fort.
+text:
+- |-
+  The culvert is dry. Six paces in, the cache. Three steel ammo cans wired shut against rats; two pre-war first-aid tins; a hand-crank radio with the casing cracked but the *battery* — the battery, sealed in a foil pouch, is what your eye goes to. A working radio battery. Somebody packed this for somebody, and the somebody never came back.
+- |-
+  You take what you can carry. You leave what you can't, because you might come this way again, and because the wasteland has rules about what you do with caches that do not belong to you and the rule is *take half and leave the can shut.* You shut the cans. You walk out.
+- |-
+  The walk back is uneventful. The diner has not moved. The stack of crates by the door, when you get there, is taller than it was.
+choices:
+- text: |-
+    Set down the bag. Get inside.
+  next: act2/diner_hub
+  effects:
+    flags:
+      cache_attempted: true
+      surface_cache_found: true

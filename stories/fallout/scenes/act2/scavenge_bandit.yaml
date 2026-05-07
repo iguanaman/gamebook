@@ -1,0 +1,128 @@
+id: act2/scavenge_bandit
+text:
+- |-
+  Fourth wreck. A panel van on its side, the back doors yawing open, somebody's nest of rags and tinfoil inside. You smell him before you see him — the human smell of unwashed, of wound, of a man who has not had clean water in a long time.
+- |-
+  He comes out of the rags fast. Scarred face, no shirt under the coat, a length of pipe with a nail through one end. He is not, you realise, a raider — he is alone, and the alone of him is the most dangerous thing about him. Raiders have rules. This man is past rules.
+- |-
+  *Mine,* he says. *This is mine. The road is mine. You are mine.* The pipe comes up.
+- if:
+    flags:
+    - radiation_sick
+    flags_unset:
+    - reyes_treated_you
+  text: |-
+    Your chest is tight. Your hands, when you tell them what to do, take a beat too long to do it. You feel the cost of every second of this, and you have not started yet.
+choices:
+- text: |-
+    Fight him off. Close the distance. Take the pipe before he can swing it.
+  next: act2/diner_hub
+  requires:
+    stats:
+      STR: 5
+    flags_unset:
+    - radiation_sick
+  effects:
+    flags:
+      scavenged_local: true
+      has_pistol: true
+  failed_text: |-
+    *(Strength 5 — the pipe gets through your guard.)*
+- text: |-
+    Fight him off. Close the distance. Take the pipe before he can swing it.
+  next: act2/diner_hub
+  requires:
+    stats:
+      STR: 5
+    flags:
+    - reyes_treated_you
+  effects:
+    flags:
+      scavenged_local: true
+      has_pistol: true
+  failed_text: |-
+    *(Strength 5 — the pipe gets through your guard.)*
+- text: |-
+    Fight him off. The lungs cost you, but the lungs are what you have. (Strength 5)
+  next: act2/scavenge_bandit_death
+  requires:
+    stats:
+      STR: 5
+    flags:
+    - radiation_sick
+    flags_unset:
+    - reyes_treated_you
+  hide_if_failed: true
+  effects:
+    flags:
+      scavenged_local: true
+      has_pistol: true
+- text: |-
+    Outflank him. Read the angle of the pipe, the foot he's leading with, the way the van leans. Move around it.
+  next: act2/diner_hub
+  requires:
+    stats:
+      perception: 6
+    flags_unset:
+    - radiation_sick
+  effects:
+    flags:
+      scavenged_local: true
+      has_pistol: true
+  failed_text: |-
+    *(Perception 6 — the van's a wall, not an angle.)*
+- text: |-
+    Outflank him. Read the angle of the pipe, the foot he's leading with, the way the van leans. Move around it.
+  next: act2/diner_hub
+  requires:
+    stats:
+      perception: 6
+    flags:
+    - reyes_treated_you
+  effects:
+    flags:
+      scavenged_local: true
+      has_pistol: true
+  failed_text: |-
+    *(Perception 6 — the van's a wall, not an angle.)*
+- text: |-
+    Outflank him. The angle is there if your eyes can find it before your lungs go. (Perception 6)
+  next: act2/scavenge_bandit_death
+  requires:
+    stats:
+      perception: 6
+    flags:
+    - radiation_sick
+    flags_unset:
+    - reyes_treated_you
+  hide_if_failed: true
+  effects:
+    flags:
+      scavenged_local: true
+      has_pistol: true
+- text: |-
+    Back off. Slowly. Hands open. Let him keep his van and his pipe and his road.
+  next: act2/diner_hub
+  effects:
+    flags:
+      scavenged_local: true
+- text: |-
+    Take the beating. The pipe finds its angle. You walk back coughing.
+  next: act2/diner_hub
+  requires:
+    flags_unset:
+    - radiation_sick
+  hide_if_failed: true
+  effects:
+    flags:
+      scavenged_local: true
+      radiation_sick: true
+- text: |-
+    Take the beating. Lungs already gone. Walk into it anyway.
+  next: act2/scavenge_bandit_death
+  requires:
+    flags:
+    - radiation_sick
+    flags_unset:
+    - reyes_treated_you
+  hide_if_failed: true
