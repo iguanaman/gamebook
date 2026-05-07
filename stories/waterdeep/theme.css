@@ -54,9 +54,6 @@
   --act-rule-color: #b89a64;
   --act-rule-style: 1px solid var(--act-rule-color);
 
-  /* ── Story splash ────────────────────────────────────────────────────── */
-  --story-title-size: 3rem;
-
   /* ── Animations (slightly slower than default — atmospheric, not snappy) */
   --anim-block-duration: 420ms;
   --anim-choice-duration: 350ms;

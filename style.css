@@ -220,7 +220,13 @@ body.boot-no-fade .mode-root { transition: none; }
   text-transform: uppercase;
   color: var(--accent);
   text-align: center;
-  padding: 0 2rem;
+  padding: 0 1rem;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+}
+@media (max-width: 600px) {
+  .splash-title { letter-spacing: 0.04em; }
 }
 
 .splash-title--story {
@@ -431,7 +437,7 @@ body.journal-open #fullscreen-btn {
   --border-inner: #c9a84c;
   --divider-color: #c9a84c;
   --divider-style: 2px solid var(--divider-color);
-  --story-title-size: 6rem;
+  --story-title-size: clamp(1.5rem, 6vw, 6rem);
   --card-title-base: 1.4rem;
   --anim-act-title-duration: 600ms;
 }
@@ -658,7 +664,7 @@ body.journal-open #fullscreen-btn {
   --divider-style: 2px solid var(--divider-color);
   --drop-cap-color: var(--accent);
   --drop-cap-size: 3.5em;
-  --story-title-size: 6rem;
+  --story-title-size: clamp(1.5rem, 6vw, 6rem);
   --anim-block-duration: 350ms;
   --anim-choice-duration: 300ms;
   --anim-act-title-duration: 600ms;
