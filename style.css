@@ -395,11 +395,16 @@ body.splash-active .ui-hint { display: none !important; }
 body.splash-active #back-btn,
 body.splash-active #journal-toggle { display: none; }
 
-/* Fade chrome hints out while the journal is open */
+/* Fade chrome hints + fullscreen icon out while the journal is open */
 body.journal-open .ui-hint.hint-visible {
   animation: hint-fade-out 0.35s ease forwards;
 }
 body.journal-open #journal-toggle { display: none; }
+body.journal-open #fullscreen-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
 
 
 /* ── 7. Menu mode ─────────────────────────────────────────────────────────── */
@@ -434,7 +439,7 @@ body.journal-open #journal-toggle { display: none; }
   align-items: center;
   overflow: hidden;
 }
-.selector { position: relative; z-index: 1; width: 100%; max-width: 800px; padding: 2rem 3rem; }
+.selector { position: relative; z-index: 1; width: 100%; max-width: 800px; padding: 32px clamp(16px, 6.5vw, 48px); }
 .selector-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; color: var(--text); }
 .story-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .no-stories { text-align: center; opacity: 0.5; font-family: var(--font-ui); }
@@ -772,21 +777,6 @@ body.journal-open #journal-toggle { display: none; }
   animation: btn-choice-pulse 220ms ease;
   transition: opacity var(--anim-choice-fade-slow) ease;
 }
-
-.chosen-choice {
-  text-align: left;
-  padding: var(--choice-pad-y) var(--choice-pad-x);
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  border-radius: var(--radius);
-  display: block;
-  opacity: 0;
-  transition: opacity var(--anim-choice-fade-fast) ease;
-}
-.chosen-choice.block-visible { opacity: 1; }
 
 .choice-num {
   display: inline-flex;
