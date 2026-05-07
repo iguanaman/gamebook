@@ -40,7 +40,31 @@ These are defaults, not laws. Override when the brief calls for it: a maximalist
 
 Short scenes, frequent choices. The player should be making decisions often, not reading long passages between them. Aim for roughly 15–30 seconds of reading per scene before a choice point — if a beat is running long, split it across two scenes rather than padding one.
 
-Offer more choices per scene than feels strictly necessary — 3–6 options is the target, not 2. Convergent branching is encouraged: several choices can resolve to the same next scene as long as each is a distinct expression of player intent (cautious vs. blunt vs. sly, or fight vs. flee vs. parley that all end at the same hub). The freedom to *choose how* matters even when the destination is fixed. Variety of voice keeps replays fresh.
+Offer more choices per scene than feels strictly necessary — 3–6 options is the target, not 2. Single-choice scenes are legitimate as a pacing tool — they keep the player tapping and break long passages into bite-sized beats. But they should be the minority, not the default. If most of your scenes have one "continue" choice, you are writing prose with buttons, not a gamebook.
+
+**Convergent branching is the default, not a fallback.** Treat any scene where the plot only goes one way as a candidate for 3 convergent framings — cautious / blunt / sly, or pragmatic / emotional / detached — all routing to the same `next`. The destination is fixed; the *voice* is the choice. Variety of expression keeps replays fresh and gives the player a sense of character even when the path is linear.
+
+Worked example. A scene where the player has just found a body and must report it to the captain. Don't write:
+
+```yaml
+choices:
+- text: Report it to the captain.
+  next: act1/captain_office
+```
+
+Write:
+
+```yaml
+choices:
+- text: Walk straight to the captain. Say it plain.            # blunt
+  next: act1/captain_office
+- text: Find the captain alone first. This needs to be quiet.  # cautious
+  next: act1/captain_office
+- text: Mention it in passing at the next briefing. Watch who reacts.  # sly
+  next: act1/captain_office
+```
+
+Same destination, three different player postures, near-zero plot cost. Stage 5 must write each framing as genuinely distinct — not three rephrasings of the same line.
 
 This shapes earlier stages too: when planning acts and beats (stages 1–2), favour many small decision points over fewer long set-pieces. A beat with one big choice usually wants to be three beats with a choice each.
 

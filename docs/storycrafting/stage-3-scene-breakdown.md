@@ -31,7 +31,7 @@ Read `brief.md`, `structure.md`, the act's `act-{n}.md`, `docs/storycrafting/pri
 For each beat in the act:
 
 1. **Scene list** — named scenes (descriptive names, not YAML IDs yet — `forest_edge`, `confront_overseer`, `tavern_hub`). Each scene should be a tight beat (~15–30 seconds of reading) ending in a choice. If you find yourself writing a scene that needs more than that, split it.
-2. **Choices per scene** — list each choice's text intent and what it does. **Hard cap: 6 active choices per scene.** (Active = passes `requires` for a typical player at that point; gated/hidden choices that most players won't see don't count toward the cap.) If a scene naturally produces more than 6, split it into a sub-scene: pick the most natural mid-point, make the first half a scene that ends with 3–4 choices routing to sub-scenes, then continue. Convergent choices are encouraged: cautious / blunt / sly framings of the same action that all route to the same next scene give variety of expression even when destinations converge. Mark convergent groups explicitly so the scene writer (Stage 5) knows to write distinct framings rather than collapsing them.
+2. **Choices per scene** — list each choice's text intent and what it does. **Hard cap: 6 active choices per scene.** (Active = passes `requires` for a typical player at that point; gated/hidden choices that most players won't see don't count toward the cap.) If a scene naturally produces more than 6, split it into a sub-scene: pick the most natural mid-point, make the first half a scene that ends with 3–4 choices routing to sub-scenes, then continue. **Convergent choices are the default, not a bonus.** Any scene where the plot only goes one way should still get 3 convergent framings (cautious / blunt / sly, pragmatic / emotional / detached) routing to the same `next` — see `principles.md` for a worked example. Single-choice scenes are allowed as deliberate pacing beats, but they should be the minority; do not let them become the lazy default for "this scene only goes one place." Mark convergent groups explicitly so the scene writer (Stage 5) knows to write distinct framings rather than collapsing them.
 3. **Gating per choice** — for each gated choice note:
    - **Requirement:** flag, flags_unset, stat minimum, or combination
    - **Grey out vs hide** — grey out when the player should know the option exists; hide (`hide_if_failed`) when its existence would be a spoiler
@@ -89,8 +89,9 @@ Walk-away: {always-available exit choice}
 ## Done when
 
 - Every beat from `act-{n}.md` has a scene list
-- Every scene has 3–6 active choices listed and never more than 6 (or is a justified exception — endings, forced transitions); scenes that would exceed 6 have been split into sub-scenes
+- Every scene has 3–6 active choices listed and never more than 6 (or is a justified exception — endings, forced transitions, deliberate pacing beats); scenes that would exceed 6 have been split into sub-scenes
 - Convergent choice groups are marked
+- **Choice density gate.** At the end of the act, count active choices across all scenes and report the average. Target ≥3.0; ≥2.5 acceptable. If the act averages below 2.5, you have defaulted to single-choice scenes — go back through every 1-choice scene and either (a) add convergent framings, (b) merge it into the previous scene, or (c) justify it inline as a pacing beat. Re-count and only proceed when the gate passes. Also flag if more than ~25% of scenes have a single choice — convergent framings are the fix.
 - All gated choices specify requirement + grey-out vs hide + consumable status
 - All consumable choices have both `flags_unset` planned on `requires` AND flag set on `effects`
 - All weighted random destinations have intended odds
