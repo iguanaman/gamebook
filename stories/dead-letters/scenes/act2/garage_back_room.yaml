@@ -1,0 +1,40 @@
+id: act2/garage_back_room
+
+text:
+  - |-
+    Lemoine in the late afternoon. The garage shut, the metal pull-down door padlocked at the bottom, paint flaked off the sign so that only the *G* and the *E* still read.
+  - |-
+    The workshop next door was open. A man at a bench, two fingers missing on the right hand, looked up once and went back to his coffee. I said the name Marta had given me. He did not answer. He reached behind him without looking and took a side-door key off a nail and put it on the counter between us.
+  - |-
+    *Bring it back when you're done*, he said. *Same nail.* Then he went back to the coffee.
+  - |-
+    The side door fit the key the way a door fits a key when somebody has been keeping it oiled. Inside: a tool chest under a sheet, a pile of canvas tarps stiff with old grease, a workbench wiped cleaner than the rest of the room. The floor under the bench was concrete except for one square where it was board.
+  - |-
+    The board lifted. Underneath: a soft leather-bound notebook, the size of a hand, wrapped once in a square of oilcloth.
+  - |-
+    Ray Doss had hidden it three weeks before the river.
+
+choices:
+  - text: |-
+      Take the whole notebook.
+    next: act2/ledger_inspect_take
+    effects:
+      flags:
+        found_ledger: true
+      stats:
+        evidence: 3
+        heat: 2
+
+  - text: |-
+      Photograph the pages here. Leave the original.
+    next: act2/ledger_inspect_photo
+    effects:
+      flags:
+        found_ledger: true
+        ledger_left_in_place: true
+      stats:
+        evidence: 2
+
+  - text: |-
+      Read it through once before deciding.
+    next: act2/ledger_read_then_decide

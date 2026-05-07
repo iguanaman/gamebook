@@ -1,0 +1,52 @@
+id: act2/ledger_read_then_decide
+
+text:
+  - |-
+    I read the first ten pages standing up. Did not sit. Sitting would have meant deciding I was here a while.
+  - |-
+    The names lined up. Halston Thorne, three columns over from Aldwick parcel numbers, four columns over from payment dates. The same parcel boundary numbers I had seen redrawn in Voss's records room appeared here a year before they appeared on a city map. Whoever had drawn the lines had been paid to draw them, and the payments had been logged by a man who knew what he was logging.
+  - |-
+    On page seven the hand changed for half a line — pencil where the rest was ink — and then went back. A second pass. A correction.
+  - |-
+    On page nine, in the margin, in pencil, twice: *W. Kellner.* Underlined both times.
+  - |-
+    Walt Kellner. My old partner. The lieutenant in Organized Crime who had called the office last week to ask after my health.
+  - |-
+    I closed the book on my thumb and held it shut. The hand that was holding it was steadier than I had expected. Some part of me had already known.
+
+journal: |
+  Ray's book names Halston Thorne — the mayor's brother. Walt Kellner is in the margin, in pencil, twice.
+
+choices:
+  - text: |-
+      Take the notebook. The risk is the cost of having the case.
+    next: act2/ledger_inspect_take
+    effects:
+      flags:
+        found_ledger: true
+        kellner_in_ledger: true
+      stats:
+        evidence: 3
+        heat: 1
+
+  - text: |-
+      Photograph it. Leave it. Have both versions.
+    next: act2/ledger_inspect_photo
+    effects:
+      flags:
+        found_ledger: true
+        ledger_left_in_place: true
+        kellner_in_ledger: true
+      stats:
+        evidence: 2
+
+  - text: |-
+      Tear out the Kellner pages. Take only those. Leave the rest.
+    next: act2/ledger_inspect_partial
+    effects:
+      flags:
+        found_ledger: true
+        kellner_in_ledger: true
+        ledger_partial: true
+      stats:
+        evidence: 2

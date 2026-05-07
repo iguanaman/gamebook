@@ -1,0 +1,14 @@
+id: act2/ledger_inspect_take
+
+text:
+  - |-
+    The notebook against my ribs, inside the coat, under the arm. The streetcar back to the office at five.
+  - |-
+    I counted stops. Counted the men in the car who had looked at me twice. Two. Maybe three. One of them was reading a paper that did not turn. The other got off at Fourth and did not look back, which was the kind of not-looking that was a look.
+  - |-
+    The book was warm where it pressed against me. The city's most-wanted object was inside my coat now, and the city did not yet know that I had it, which was the only minute I was going to have.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/ledger_carry_back

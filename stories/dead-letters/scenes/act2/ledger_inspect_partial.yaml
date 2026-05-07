@@ -1,0 +1,18 @@
+id: act2/ledger_inspect_partial
+
+text:
+  - |-
+    Page nine. Page ten on the other side of the same leaf. I tore them along the spine slowly, the way you tear a page when you do not want the sound to carry, and the paper gave the way old paper gives — clean for an inch, then ragged.
+  - |-
+    Folded the two sheets twice. Slid them into the inside pocket against the lining.
+  - |-
+    Put the notebook back where it had lain. Closed the locker, or set the floorboard back in its frame and dropped the rug across it.
+  - |-
+    The smaller move. The neat one. The one that protected Frank Cady from carrying the city's most-wanted object out of a back room on a Tuesday afternoon and protected the rest of the case from disappearing, both at once.
+  - |-
+    It would read, in retrospect, as the wrong move. I did not know that yet. I did not know why I was beginning, already, to feel the shape of it.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/ledger_carry_back
