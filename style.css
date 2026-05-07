@@ -795,7 +795,9 @@ body.journal-open #journal-toggle { opacity: 0; pointer-events: none; }
   height: 1.6em;
   border-radius: 50%;
   background: var(--text);
-  color: transparent;
+  color: var(--bg);
+  font-size: 0.85em;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
