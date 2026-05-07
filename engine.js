@@ -1029,10 +1029,25 @@ function cancelPlayback({ fadeMs = 0 } = {}) {
   hideSkipHint();
 }
 
+function fadeOutStoryContent() {
+  const ms = 350;
+  const targets = [
+    storyApp.querySelector('.hud-wrap'),
+    storyApp.querySelector('#narrative'),
+    storyApp.querySelector('#choices-divider'),
+    storyApp.querySelector('#choices-footer'),
+  ].filter(Boolean);
+  targets.forEach(el => {
+    el.style.transition = `opacity ${ms}ms ease`;
+    el.style.opacity = '0';
+  });
+  return new Promise(resolve => setTimeout(resolve, ms + 50));
+}
+
 function returnToSelector() {
   fadeOutAudio(2000);
   hideSkipHint();
-  showSelector({ withCrossfade: true });
+  fadeOutStoryContent().then(() => showSelector({ withCrossfade: true }));
 }
 
 function blockAudioUrl(sceneId, rawIndex, branch) {
@@ -1671,7 +1686,7 @@ function renderChoices(scene) {
       <button class="btn btn-secondary" id="btn-selector">Back to Stories</button>
     `;
     el.querySelector('#btn-restart')?.addEventListener('click', () => { localStorage.removeItem(stateKey(currentStoryId)); startStory(currentStoryId); });
-    el.querySelector('#btn-selector')?.addEventListener('click', () => showSelector({ withCrossfade: true }));
+    el.querySelector('#btn-selector')?.addEventListener('click', () => fadeOutStoryContent().then(() => showSelector({ withCrossfade: true })));
     return;
   }
 

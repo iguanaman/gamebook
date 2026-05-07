@@ -341,7 +341,8 @@ body.boot-no-fade .mode-root { transition: none; }
   top: var(--chrome-corner-offset);
   left: var(--chrome-corner-offset);
 }
-.back-btn.back-hidden { display: none; }
+.back-btn { transition: opacity 350ms ease; }
+.back-btn.back-hidden { opacity: 0; pointer-events: none; }
 
 .ui-hint {
   position: fixed;
@@ -793,7 +794,8 @@ body.splash-active #journal-toggle { display: none; }
   right: var(--chrome-corner-offset);
   z-index: 3;
 }
-.btn-undo-fixed.undo-disabled { display: none; }
+.btn-undo-fixed { transition: opacity 350ms ease; }
+.btn-undo-fixed.undo-disabled { opacity: 0; pointer-events: none; }
 
 .undo-confirm-overlay {
   position: fixed;
@@ -853,9 +855,9 @@ body.splash-active #journal-toggle { display: none; }
   position: fixed;
   bottom: var(--chrome-corner-offset);
   left: var(--chrome-corner-offset);
-  transition: opacity 0.15s, transform 0.15s;
+  transition: opacity 350ms ease, transform 0.15s;
 }
-.journal-toggle.journal-hidden,
+.journal-toggle.journal-hidden { opacity: 0; pointer-events: none; }
 .journal-toggle.journal-toggle-open { display: none; }
 .journal-icon { display: block; width: 100%; height: 100%; }
 .journal-dot { display: none; }
