@@ -1600,7 +1600,7 @@ function typeBlock(block, skip, onDone, session) {
     }
     if (fullHtml[pos] === '&') {
       const end = fullHtml.indexOf(';', pos);
-      if (end !== -1) { pos = end + 1; charsShown++; para.innerHTML = fullHtml.slice(0, pos); requestAnimationFrame(tick); return; }
+      if (end !== -1) { pos = end + 1; charsShown++; para.innerHTML = fullHtml.slice(0, pos); scrollNarrativeToBottom(); requestAnimationFrame(tick); return; }
     }
 
     const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
@@ -1609,6 +1609,7 @@ function typeBlock(block, skip, onDone, session) {
     pos++;
     charsShown++;
     para.innerHTML = fullHtml.slice(0, pos);
+    scrollNarrativeToBottom();
     requestAnimationFrame(tick);
   }
 
