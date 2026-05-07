@@ -399,7 +399,7 @@ body.splash-active #journal-toggle { display: none; }
 body.journal-open .ui-hint.hint-visible {
   animation: hint-fade-out 0.35s ease forwards;
 }
-body.journal-open #journal-toggle { opacity: 0; pointer-events: none; }
+body.journal-open #journal-toggle { display: none; }
 
 
 /* ── 7. Menu mode ─────────────────────────────────────────────────────────── */
