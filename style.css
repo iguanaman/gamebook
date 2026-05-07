@@ -666,7 +666,7 @@ body.splash-active #journal-toggle { display: none; }
   flex: 1;
   overflow-y: auto;
   padding-right: 0.5rem;
-  line-height: 1.85;
+  line-height: 1.7;
   font-size: 22px;
   display: flex;
   flex-direction: column;
@@ -957,7 +957,7 @@ body.splash-active #journal-toggle { display: none; }
   #story-root .narrative-area {
     height: calc(100dvh - (var(--frame-inset) + 2rem) - (var(--frame-inset) + 3rem));
   }
-  #story-root .narrative { font-size: 16px; line-height: 1.75; }
+  #story-root .narrative { font-size: 16px; }
 
   .selector { padding: 1rem; }
   .selector-title { font-size: 1.4rem; }
