@@ -1518,6 +1518,11 @@ function scrollNarrativeToBottom() {
   if (el) el.scrollTop = el.scrollHeight;
 }
 
+function scrollNarrativeToBottomSmooth() {
+  const el = storyApp.querySelector('#narrative');
+  if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+}
+
 function appendBlockPara(block) {
   const el = storyApp.querySelector('#narrative');
   if (!el) return null;
@@ -1547,8 +1552,11 @@ function typeBlock(block, skip, onDone, session) {
 
   const fullHtml = para.innerHTML;
   para.dataset.fullHtml = fullHtml;
+  const reservedHeight = para.offsetHeight;
+  para.style.minHeight = reservedHeight + 'px';
   para.innerHTML = '';
   para.classList.add('block-typing');
+  scrollNarrativeToBottomSmooth();
 
   let pos = 0;
   let finished = false;
@@ -1560,6 +1568,7 @@ function typeBlock(block, skip, onDone, session) {
     document.removeEventListener('gamebook-visibility', handleVisibility);
     skip.finished = true;
     para.innerHTML = fullHtml;
+    para.style.minHeight = '';
     para.classList.remove('block-typing');
     para.classList.add('block-visible');
     scrollNarrativeToBottom();
@@ -1600,7 +1609,7 @@ function typeBlock(block, skip, onDone, session) {
     }
     if (fullHtml[pos] === '&') {
       const end = fullHtml.indexOf(';', pos);
-      if (end !== -1) { pos = end + 1; charsShown++; para.innerHTML = fullHtml.slice(0, pos); scrollNarrativeToBottom(); requestAnimationFrame(tick); return; }
+      if (end !== -1) { pos = end + 1; charsShown++; para.innerHTML = fullHtml.slice(0, pos); requestAnimationFrame(tick); return; }
     }
 
     const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
@@ -1609,7 +1618,6 @@ function typeBlock(block, skip, onDone, session) {
     pos++;
     charsShown++;
     para.innerHTML = fullHtml.slice(0, pos);
-    scrollNarrativeToBottom();
     requestAnimationFrame(tick);
   }
 
@@ -1711,11 +1719,34 @@ function renderChoices(scene) {
 
   const choiceList = el.querySelector('.choice-list');
   if (choiceList) {
+    const narrative = storyApp.querySelector('#narrative');
+    const naturalHeight = choiceList.scrollHeight;
+    const durationMs = parseFloat(getComputedStyle(storyRoot).getPropertyValue('--anim-choice-duration')) || 300;
+
+    choiceList.style.height = '0px';
+    choiceList.style.overflow = 'hidden';
+    choiceList.style.transform = 'none';
+    choiceList.style.transition = `height ${durationMs}ms ease, opacity ${durationMs}ms ease`;
+    void choiceList.offsetHeight;
+
     scrollNarrativeToBottom();
     requestAnimationFrame(() => {
       if (divider) { divider.style.opacity = ''; divider.style.transition = ''; divider.classList.remove('choices-hidden'); }
-      scrollNarrativeToBottom();
-      requestAnimationFrame(() => choiceList.classList.add('choices-visible'));
+      choiceList.style.height = naturalHeight + 'px';
+      choiceList.classList.add('choices-visible');
+
+      const start = performance.now();
+      function pin() {
+        if (narrative) narrative.scrollTop = narrative.scrollHeight;
+        if (performance.now() - start < durationMs) requestAnimationFrame(pin);
+        else {
+          choiceList.style.transition = '';
+          choiceList.style.height = '';
+          choiceList.style.overflow = '';
+          choiceList.style.transform = '';
+        }
+      }
+      requestAnimationFrame(pin);
     });
   }
 
