@@ -399,6 +399,7 @@ body.splash-active #journal-toggle { display: none; }
 body.journal-open .ui-hint.hint-visible {
   animation: hint-fade-out 0.35s ease forwards;
 }
+body.journal-open #journal-toggle { opacity: 0; pointer-events: none; }
 
 
 /* ── 7. Menu mode ─────────────────────────────────────────────────────────── */
@@ -721,7 +722,7 @@ body.journal-open .ui-hint.hint-visible {
   font-weight: 600;
   color: var(--drop-cap-color);
   initial-letter: 2;
-  margin-right: 0.08em;
+  margin-right: 0.12em;
 }
 
 .speech-block { font-style: italic; }
