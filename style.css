@@ -795,7 +795,7 @@ body.journal-open #journal-toggle { display: none; }
   height: 1.6em;
   padding: 0 0.4em;
   border: 1px solid var(--text);
-  border-radius: 5px;
+  border-radius: 2px;
   background: var(--text);
   color: var(--bg);
   box-shadow:
