@@ -395,6 +395,11 @@ body.splash-active .ui-hint { display: none !important; }
 body.splash-active #back-btn,
 body.splash-active #journal-toggle { display: none; }
 
+/* Fade chrome hints out while the journal is open */
+body.journal-open .ui-hint.hint-visible {
+  animation: hint-fade-out 0.35s ease forwards;
+}
+
 
 /* ── 7. Menu mode ─────────────────────────────────────────────────────────── */
 
@@ -724,7 +729,7 @@ body.splash-active #journal-toggle { display: none; }
 #story-root .choice-list {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(4px, calc(4px + (100vw - 360px) * 8 / 360), 12px);
   opacity: 0;
   transform: translateY(100%);
   pointer-events: none;

@@ -1865,6 +1865,7 @@ function closeJournal() {
   panel.setAttribute('aria-hidden', 'true');
   toggle?.classList.remove('journal-toggle-open');
   backdrop?.classList.remove('journal-backdrop-open');
+  document.body.classList.remove('journal-open');
   setGamePaused(false);
 }
 
@@ -1881,6 +1882,7 @@ function toggleJournal() {
     panel.setAttribute('aria-hidden', 'false');
     toggle?.classList.add('journal-toggle-open');
     backdrop?.classList.add('journal-backdrop-open');
+    document.body.classList.add('journal-open');
     state.journalSeen = (state.journal ?? []).length;
     saveState();
     renderJournal();
