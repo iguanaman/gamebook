@@ -109,7 +109,12 @@ button {
 .selector::-webkit-scrollbar-button:start,
 .selector::-webkit-scrollbar-button:end,
 .selector::-webkit-scrollbar-button:vertical:decrement,
-.selector::-webkit-scrollbar-button:vertical:increment { display: none !important; height: 0 !important; width: 0 !important; background: transparent !important; }
+.selector::-webkit-scrollbar-button:vertical:increment,
+#story-root .narrative-area::-webkit-scrollbar-button,
+#story-root .narrative-area::-webkit-scrollbar-button:start,
+#story-root .narrative-area::-webkit-scrollbar-button:end,
+#story-root .narrative-area::-webkit-scrollbar-button:vertical:decrement,
+#story-root .narrative-area::-webkit-scrollbar-button:vertical:increment { display: none !important; height: 0 !important; width: 0 !important; background: transparent !important; }
 .selector.is-scrolling::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--border-inner) 30%, transparent); }
 .selector { scrollbar-color: transparent transparent; transition: scrollbar-color 0.6s ease; }
 .selector.is-scrolling { scrollbar-color: color-mix(in srgb, var(--border-inner) 30%, transparent) transparent; transition: none; }
