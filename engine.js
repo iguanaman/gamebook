@@ -1269,7 +1269,7 @@ function renderShell(meta) {
         <div class="choices-footer" id="choices-footer"></div>
       </div>
     </div>
-    <button class="ui-icon-btn btn-undo-fixed undo-disabled" id="btn-undo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg></button>
+    <button class="ui-icon-btn btn-undo-fixed undo-disabled" id="btn-undo"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"/><path d="M3 13a9 9 0 1 0 3-7L3 9"/></svg></button>
   `;
   const narrative = storyApp.querySelector('#narrative');
   if (narrative) {
