@@ -710,6 +710,7 @@ function animateCardSelect(storyId) {
   menuApp.querySelectorAll('.card-delete-btn').forEach(b => b.classList.add('card-fade-out'));
   menuApp.querySelectorAll('.story-start-hint').forEach(h => h.classList.add('card-fade-out'));
   menuApp.querySelectorAll('.commission-link').forEach(t => t.classList.add('card-fade-out'));
+  menuApp.querySelectorAll('.undo-confirm-overlay.undo-confirm-anchored').forEach(o => o.classList.add('card-fade-out'));
   setTimeout(() => {
     startStory(storyId, { withCrossfade: true });
   }, 300);

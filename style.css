@@ -846,7 +846,12 @@ body.journal-open #fullscreen-btn {
   position: absolute;
   inset: 0;
   border-radius: var(--radius);
-  background: rgba(0, 0, 0, 0.55);
+  background: transparent;
+  transition: opacity 0.3s ease;
+}
+.undo-confirm-overlay.undo-confirm-anchored.card-fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 .undo-confirm-overlay.undo-confirm-anchored .undo-confirm {
   padding: 0.75rem 1rem;

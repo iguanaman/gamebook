@@ -67,7 +67,7 @@ Choices are rendered as full-width left-aligned buttons in the serif body font â
 
 Choices that fail `requires` checks are rendered as disabled greyed-out buttons (`.btn-choice-failed`) with failure text below the choice label, unless `hide_if_failed: true` hides them entirely. Failure text comes from `failed_text` on the choice, or is auto-generated from the `requires` shape (e.g. `*(Requires: gold â‰¥ 5)*`).
 
-The choices-footer is hidden (divider invisible) while blocks are streaming. When choices are ready, the divider fades in and the choice list (`.choice-list`) slides up from below (opacity + translateY animation). On click, all buttons are immediately disabled; unchosen options fade out fast (`--anim-choice-fade-fast`), the chosen option lingers (`--anim-choice-linger-ms`) then fades out (`--anim-choice-fade-slow`), then the chosen text is prepended to the narrative as a `.chosen-choice` paragraph and navigation fires.
+The choices-footer is hidden (divider invisible) while blocks are streaming. When choices are ready, the divider fades in and the choice list (`.choice-list`) slides up from below (opacity + translateY animation). On click, all buttons are immediately disabled; unchosen options fade out fast (`--anim-choice-fade-fast`), the chosen option lingers (`--anim-choice-linger-ms`) then fades out (`--anim-choice-fade-slow`), then navigation fires.
 
 The Undo button sits below choices, ghost-styled. It is disabled (not hidden) when history is empty.
 
