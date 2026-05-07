@@ -859,6 +859,7 @@ body.splash-active #journal-toggle { display: none; }
   position: fixed;
   bottom: var(--chrome-corner-offset);
   left: var(--chrome-corner-offset);
+  z-index: 6;
   transition: opacity 350ms ease, transform 0.15s;
 }
 .journal-toggle.journal-hidden { opacity: 0; pointer-events: none; }
