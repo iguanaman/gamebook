@@ -1911,8 +1911,9 @@ document.getElementById('journal-new-game')?.addEventListener('click', () => {
 
 document.addEventListener('click', e => {
   const panel = document.getElementById('journal-panel');
+  const toggle = document.getElementById('journal-toggle');
   if (!panel || panel.classList.contains('journal-panel-closed')) return;
-  if (!panel.contains(e.target)) closeJournal();
+  if (!panel.contains(e.target) && !toggle?.contains(e.target)) closeJournal();
 });
 
 
