@@ -1,0 +1,13 @@
+id: act2/cold_trail_press
+
+# Exit C entry — with a friend in print. Mort still owes one. Drops to cold open.
+text:
+  - |-
+    A week passed the way the bad ones do. Mort had said he owed me one and I'd thanked him because that's what you say. The slip with ALDWICK on it stayed under the desk lamp where I'd left it, and the city walked around the office like it didn't owe me anything.
+  - |-
+    There would be a moment, soon, when Mort's debt was the only currency I had. I wasn't there yet. I climbed the stairs.
+
+choices:
+  - text: |-
+      Climb the stairs to the office.
+    next: act2/office_cold_open

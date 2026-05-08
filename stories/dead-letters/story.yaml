@@ -1,0 +1,14 @@
+id: dead-letters
+genre: Noir
+narrator: narrator_male_american_deep_raspy_authentic
+title: Dead Letters
+description: A dame, a missing husband, a city that doesn't want answers.
+cover: images/cover.jpg
+start: act1/office_open
+journal: |-
+  A woman walked into my office with a missing husband and a face that already knew something was wrong.
+volume_music: 0.3
+stats:
+  evidence: 0
+  heat: 0
+  rep: 3

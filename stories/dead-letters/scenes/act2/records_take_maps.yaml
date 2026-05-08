@@ -1,0 +1,23 @@
+id: act2/records_take_maps
+
+text:
+  - |-
+    The boundary maps were rolled in a tube the colour of old tea. Heavier than they looked — three sets of plates, the real survey under the filed one, both stamped, both signed, neither agreeing about where Carmody Street stopped being Carmody Street and started being a parcel that could be condemned.
+  - |-
+    I slung the tube under my coat across my shoulder. The lamp off. The reading shade off. The room dark except the line of corridor light under the door.
+
+choices:
+  - text: |-
+      Walk out the way you came.
+    next: act2/records_corridor_exit
+
+  - text: |-
+      Walk out past Voss's office. Read the desk.
+    next: act2/records_voss_note
+
+  - text: |-
+      Walk out past the phone office. See if Salzano is still there.
+    next: act2/records_corridor_intercept
+    effects:
+      stats:
+        heat: 2

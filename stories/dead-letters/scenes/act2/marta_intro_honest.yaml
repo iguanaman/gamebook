@@ -1,0 +1,32 @@
+id: act2/marta_intro_honest
+
+text:
+  - |-
+    I said it the way I would have said it to a judge. Name. Trade. Who I was looking for and why.
+  - |-
+    Marta let me finish. She did not sit. She held the pencil between two fingers the way a woman holds a thing she is going to use.
+  - female_midlife_african-american_casual_opinionated: |-
+      Two questions, Mr. Cady. Who hired you. And who paid you.
+  - |-
+    I gave her both. The hire and the death. The retainer in my drawer that nobody had asked for back. She nodded once, the way a person nods who has already filed the answer.
+  - female_midlife_african-american_casual_opinionated: |-
+      Come to my kitchen after the meeting if you want the whole answer. I'm two doors down. The blue step.
+
+choices:
+  - text: |-
+      Wait through the meeting. Take a chair.
+    next: act2/marta_kitchen
+    effects:
+      stats:
+        rep: 1
+
+  - text: |-
+      Step outside. Smoke. Come back.
+    next: act2/marta_kitchen
+
+  - text: |-
+      Ask the room a question while you have it.
+    next: act2/marta_room_question
+    effects:
+      stats:
+        heat: 1

@@ -1,0 +1,19 @@
+id: act2/records_janitor
+
+text:
+  - |-
+    The bell pull. Footsteps that did not hurry. The side door open six inches and the janitor's face in the gap, tired the way a man is tired when his shift is half over and the racing form is not yet decided.
+  - |-
+    I held out the bill folded once. He took it without counting it. He looked me in the face long enough to remember it.
+  - male_midlife_british_tough_calloused: |-
+      Third floor. Last office. Mind the wax in the corridor.
+  - |-
+    He stepped aside and locked the door behind me. The lock was a good one. I was inside a building I had no right to be inside, and the man who had let me in was reading about horses again before I had reached the stair.
+
+choices:
+  - text: |-
+      Continue to the records corridor.
+    next: act2/records_corridor
+    effects:
+      flags:
+        voss_after_hours_visited: true

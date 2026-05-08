@@ -1,0 +1,33 @@
+id: act1/vera_room_dead
+
+text:
+  - |-
+    I went past Brennan with my shoulder set and he let me get four steps before his hand closed on my elbow at the landing.
+  - |-
+    I had four steps and the angle of the open bathroom door at the end of the hall. Four steps is enough.
+  - |-
+    The bath was still half-full. The water had gone the colour of weak tea and there was a towel on the floor folded the way a person folds a towel, not the way a towel falls. The dresser was visible through the open bedroom door beside it. Wedding photograph frame on the dresser, glass intact, the photograph itself gone. The frame was empty. Someone had taken the picture and left the frame.
+  - |-
+    The picture Vera laid on my desk on a wet Tuesday and asked me to find the man inside it.
+  - male_midlife_american_dark_tough: |-
+      I said off the stoop, Cady. That goes double for the hallway.
+
+choices:
+  - text: |-
+      Pocket the empty frame on the dresser before Brennan turns his head. The date stamp on the back will say the picture was real.
+    next: act1/brennan_throws_out
+    effects:
+      stats:
+        heat: 2
+        evidence: 1
+
+  - text: |-
+      Ask Brennan one question while you have him close. Make it the one he'll answer before he thinks.
+    next: act1/brennan_throws_out
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Don't take anything. Don't ask anything. Walk out under your own power before he has to make you.
+    next: act1/brennan_throws_out

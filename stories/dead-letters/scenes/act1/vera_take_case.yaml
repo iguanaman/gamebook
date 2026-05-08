@@ -1,0 +1,21 @@
+id: act1/vera_take_case
+
+journal: |-
+  You took Vera Doss's case. A missing surveyor and a widow who already knew which word she was avoiding.
+
+text:
+  - |-
+    I told her my rate. She didn't blink. She wrote a number on a slip of paper — the boarding house phone — and underlined it once. Mrs. Pell's place, off Carlton.
+  - female_adult_american_gentle_tender_sweet: |-
+      Any hour. I'll come down to the hall. Mrs. Pell doesn't like the phone after nine.
+  - |-
+    She stood. The envelope went in my drawer, the photograph stayed on my desk, and she put her hand out across it like a woman shaking on a debt.
+  - |-
+    Her hand was cold. The smell of her coat lingered after she'd gone — wet wool and a perfume so faint it might have been Ray's, kept in a bottle she hadn't touched since Friday.
+  - |-
+    The door clicked shut. The rain went on doing what rain does.
+
+choices:
+  - text: |-
+      Get to work.
+    next: act1/office_hub

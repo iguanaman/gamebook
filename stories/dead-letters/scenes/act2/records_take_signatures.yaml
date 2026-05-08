@@ -1,0 +1,23 @@
+id: act2/records_take_signatures
+
+text:
+  - |-
+    I rolled the pages tight and put them inside my coat against my ribs where a wallet would not have lived. The matched signatures — the same hand on three documents that had been signed by three different men in three different offices on three different days. Paper that proved the lie.
+  - |-
+    The brass lamp clicked off under my thumb as a courtesy I did not need to give. The room went green from the reading shade alone. The corridor was on the other side of a door that had stopped being a door and become a decision.
+
+choices:
+  - text: |-
+      Walk out the way you came.
+    next: act2/records_corridor_exit
+
+  - text: |-
+      Walk out past Voss's office. Slip the door open. Look at the desk.
+    next: act2/records_voss_note
+
+  - text: |-
+      Walk out past the office Salzano was on the phone in. See if he's still there.
+    next: act2/records_corridor_intercept
+    effects:
+      stats:
+        heat: 2

@@ -1,0 +1,21 @@
+id: act1/bury_it_early_setup
+
+text:
+  - |-
+    I slid the envelope back across the desk. I told her I wasn't her man. I told her kindly. It didn't matter how I told her.
+  - |-
+    She didn't argue. She picked up the photograph with both hands, like it was already a thing remembered, and she carried it down the stairs without looking back.
+  - |-
+    Three days later I read about the body in the late edition. Two paragraphs. Accident. Bath. Boarding house off Carlton.
+  - |-
+    I didn't go to the funeral. I told myself I didn't know her. By Friday I almost believed it.
+
+choices:
+  - text: |-
+      Continue.
+    next: act1/act_1_bury_it_early
+    effects:
+      flags:
+        met_vera: true
+        vera_dead: true
+        bury_it_early: true

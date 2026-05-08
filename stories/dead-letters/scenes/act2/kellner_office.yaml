@@ -1,0 +1,32 @@
+id: act2/kellner_office
+
+text:
+  - |-
+    He was in my chair when I got back. Hat on the desk, brim out. The fountain pen out of his jacket pocket, uncapped, pointed at the brick on the floor by the radiator the way another man might point with a finger.
+  - male_midlife_american_rich_smooth_rugged: |-
+      We need to talk, Cady. You'll forgive the chair. The visitor's side never did agree with my back.
+  - |-
+    He had let himself in. He had let himself sit. The door behind me was the same door I had locked an hour ago and he had not asked for the key.
+
+choices:
+  - text: |-
+      Sit on the visitor's side of your own desk. Hear him out.
+    next: act2/kellner_hub
+    effects:
+      flags:
+        kellner_met: true
+
+  - text: |-
+      Tell him to get out of your chair first.
+    next: act2/kellner_hub
+    effects:
+      flags:
+        kellner_met: true
+        kellner_brisk: true
+
+  - text: |-
+      Pour two. Take the bottle out of the drawer in front of him.
+    next: act2/kellner_hub
+    effects:
+      flags:
+        kellner_met: true

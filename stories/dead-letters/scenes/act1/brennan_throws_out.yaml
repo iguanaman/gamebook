@@ -1,0 +1,32 @@
+id: act1/brennan_throws_out
+
+text:
+  - |-
+    Brennan walked me to the kerb the way a man walks a guest he no longer cares to entertain. His hand stayed near my elbow without touching it. Two uniforms watched.
+  - male_midlife_american_dark_tough: |-
+      The case is closed, Cady. It was closed before you got here. Make sure it stays closed. Stay out of this house. Stay out of this neighbourhood. Stay out of the part of this city that has my name on it. Are we hearing each other now.
+  - |-
+    The brown sedan that had sat across the street the day I'd watched Vera give me the key was gone. A different car was in its place — a dark green coupe, two men in the front, neither of them looking at the boarding house. They were looking at me.
+  - |-
+    The hand-off was visible if you knew where to look. The cops would clear in an hour. The coupe would still be there.
+
+choices:
+  - text: |-
+      Walk to the streetcar without looking back. Don't give them a face to remember.
+    next: act1/office_alone
+
+  - text: |-
+      Stand on the kerb until the new car drives off. Let them see you see them. Make it expensive to be here.
+    next: act1/office_alone
+    effects:
+      stats:
+        heat: 1
+
+  - text: |-
+      Find a phone box on the next corner. Call Mort before you go home. Don't go home alone tonight.
+    next: act1/mort_aftermath
+    requires:
+      flags:
+        - mort_owes_one
+    failed_text: |-
+      *(You don't have anyone to call. Not tonight.)*

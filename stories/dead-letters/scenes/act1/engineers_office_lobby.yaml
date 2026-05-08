@@ -1,0 +1,30 @@
+id: act1/engineers_office_lobby
+
+text:
+  - |-
+    The City Engineer's Office occupied a marble lobby that was pretending to be a bank. Brass elevator doors. A floor polished to the kind of shine you don't walk on without a reason. A secretary at a desk the size of a coffin, who looked up at me the way you look up at a draft.
+  - |-
+    I told her who I was looking for. She told me Mr. Voss was just coming. Then I sat on a green leather bench under a portrait of a man in a wing collar who had been dead long enough that nobody had bothered to clean the frame, and I waited forty minutes for a man who was just coming.
+  - |-
+    There are three ways into a room like this. The honest one. The lie that gets you in faster. And the one where you don't ask at all.
+
+choices:
+  - text: |-
+      Sign in honestly. Print the name, write the time, sit and wait it out.
+    next: act1/voss_office
+
+  - text: |-
+      Lean on the desk and tell her you're with Mort Halloran's paper, and Mr. Voss is expecting you.
+    next: act1/voss_office
+    effects:
+      stats:
+        heat: 1
+        rep: 1
+
+  - text: |-
+      Walk past the desk like you'd been walking past it your whole life.
+    next:
+      - scene: act1/voss_office
+        weight: 3
+      - scene: act1/voss_office_late
+        weight: 1

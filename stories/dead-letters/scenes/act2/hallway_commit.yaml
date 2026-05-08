@@ -1,0 +1,24 @@
+id: act2/hallway_commit
+
+text:
+  - |-
+    The drawer slid out the way a drawer slides out when the man pulling it has decided what is in it. The gun was where it had been since 'thirty-nine. I had cleaned it twice in those years and fired it none.
+  - |-
+    The bottle stayed in the drawer. The retainer envelope was still unopened — Vera's name on the front in the careful hand she had used the morning she sat on the other side of the desk and turned the gold band on her finger and called me Mr. Cady.
+  - |-
+    I put the lamp out. The street outside was empty in a way that felt rehearsed. A car passed at the end of the block going south and did not come back. Somewhere two streets over a dog had been barking for ten minutes and stopped halfway through the next bark as if a hand had gone over its mouth.
+  - |-
+    The warehouse on Pier 14 was forty minutes on foot. I had forty-five.
+
+choices:
+  - text: |-
+      Down the stairs. Through the front door. Out into it.
+    next: act2/act_2_to_act_3
+
+  - text: |-
+      The back stairs. The service door. Out into it.
+    next: act2/act_2_to_act_3
+
+  - text: |-
+      The front door. Slow. Like a man with nowhere to be.
+    next: act2/act_2_to_act_3

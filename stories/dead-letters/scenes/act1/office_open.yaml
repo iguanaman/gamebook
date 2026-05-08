@@ -1,0 +1,29 @@
+id: act1/office_open
+
+text:
+  - |-
+    Tuesday rain on the window, the kind that does not stop, only thickens. Two months on the gas bill. Three weeks since a man who could pay walked through my door.
+  - |-
+    I had the bottle out. I had my feet up. I had nothing.
+  - |-
+    Then footsteps on the stair — slow ones, careful ones, the kind a woman takes when she is not sure she wants to arrive.
+  - |-
+    A pause outside the frosted glass. Long enough to read the lettering. Long enough to change her mind, if she was going to.
+  - |-
+    She did not.
+
+choices:
+  - text: |-
+      Stand up. Meet her at the door like she's a person, not a fee.
+    next: act1/vera_intro
+
+  - text: |-
+      Stay behind the desk. Let her come the rest of the way to you.
+    next: act1/vera_intro
+
+  - text: |-
+      Sweep the bottle into the drawer first. Tidy what she's about to see.
+    next: act1/vera_intro
+    effects:
+      flags:
+        frank_hid_bottle: true

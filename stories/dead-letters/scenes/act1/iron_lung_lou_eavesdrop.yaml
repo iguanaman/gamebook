@@ -1,0 +1,33 @@
+id: act1/iron_lung_lou_eavesdrop
+
+text:
+  - |-
+    Lou didn't turn his head. He tilted his chin a quarter-inch toward the end of the bar, a gesture so small a man not looking for it wouldn't see it.
+  - male_adult_american_witty_casual: |-
+      Every afternoon for a week, buddy. Different drink each time. Pays cash. Doesn't tip.
+  - |-
+    Then, lower:
+  - male_adult_american_witty_casual: |-
+      Doesn't drink 'em either.
+
+choices:
+  - text: |-
+      Hold his eye and nod once. Let him know you saw the tilt.
+    next: act1/iron_lung_lou_open
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Don't acknowledge it. Sip. File it. Keep your face on the rye.
+    next: act1/iron_lung_lou_open
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Smirk into the glass. Let Lou see he made you smile. Bartenders remember that more than money.
+    next: act1/iron_lung_lou_open
+    effects:
+      stats:
+        evidence: 1

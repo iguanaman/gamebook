@@ -1,0 +1,12 @@
+id: act2/reuben_silent
+
+text:
+  - |-
+    He did not speak. He watched me back down the path and he watched me to the corner and he watched me onto the streetcar.
+  - |-
+    The silence said what a sentence would have said and a little more.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/aldwick_exit

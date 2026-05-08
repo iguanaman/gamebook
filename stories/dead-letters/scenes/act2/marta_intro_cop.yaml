@@ -1,0 +1,33 @@
+id: act2/marta_intro_cop
+
+text:
+  - |-
+    I said I was with the department. The lie came out clean and the room cooled around it like water around a stone.
+  - |-
+    Marta did not call me on it. She did not have to. She told me, politely, that she had nothing to say, and turned back to the lectern.
+  - female_midlife_african-american_casual_opinionated: |-
+      Pastor. Would you walk the gentleman to the door.
+  - |-
+    The pastor took my elbow without ceremony and took me to the door without saying a word. Outside, the wind had a different smell than it had ten minutes ago.
+
+choices:
+  - text: |-
+      Apologise on the way out. Salvage what you can.
+    next: act2/aldwick_exit
+    effects:
+      stats:
+        rep: -2
+
+  - text: |-
+      Walk out without explaining. Try again on a return visit.
+    next: act2/aldwick_exit
+    effects:
+      stats:
+        rep: -1
+
+  - text: |-
+      Drop the bluff publicly. "I lied. I'm a private man hired by a dead woman."
+    next: act2/marta_kitchen
+    effects:
+      stats:
+        rep: -1

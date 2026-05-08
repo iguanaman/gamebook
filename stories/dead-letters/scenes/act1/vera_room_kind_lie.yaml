@@ -1,0 +1,42 @@
+id: act1/vera_room_kind_lie
+
+text:
+  - |-
+    You tell her you'll bring him home. You say it the way men say it in films, and she believes you the way women in films believe it — because the alternative is the rest of the afternoon alone in this room.
+  - |-
+    She takes the key out of her pocket and puts it in your hand and closes your fingers around it. Her hands are colder than yours. She does not look at the key while she does it.
+  - female_adult_american_gentle_tender_sweet: |-
+      Thank you, Mr. Cady. You're a good man.
+  - |-
+    She is wrong about that and you both know it. She gives it to you anyway, the way you give someone proof of something you have both decided to stop saying out loud.
+
+choices:
+  - text: |-
+      Take the key. Don't say anything else.
+    next: act1/vera_visit_exit
+    effects:
+      flags:
+        ray_key_kept: true
+        frank_lied_to_vera: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Take the key. Tell her she's welcome — keep it gentle.
+    next: act1/vera_visit_exit
+    effects:
+      flags:
+        ray_key_kept: true
+        frank_lied_to_vera: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Take the key. Squeeze her hand once before you let go.
+    next: act1/vera_visit_exit
+    effects:
+      flags:
+        ray_key_kept: true
+        frank_lied_to_vera: true
+      stats:
+        evidence: 1

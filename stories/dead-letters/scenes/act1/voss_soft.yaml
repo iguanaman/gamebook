@@ -1,0 +1,37 @@
+id: act1/voss_soft
+
+text:
+  - |-
+    I asked about the department. About the survey work. About what Ray Doss had been on the last week, in the gentle way you ask a man who has already decided not to tell you. He gave me tea and four sentences of nothing. *One does what one can.* *The file is in transit.* *Mr. Doss is much missed.*
+  - |-
+    Then I said it. By accident, or close enough that I could pretend.
+  - |-
+    *I imagine he was a hard man to replace.*
+  - |-
+    *Was*. Past tense. I heard it the moment it left my mouth, and so did he.
+  - male_adult_british_clear_posh_heartfelt: |-
+      Yes. Quite. He — yes.
+  - |-
+    The handkerchief stopped on the lens. The lens went down. He looked at the cup he'd poured for me and not at me. Half a second. Maybe less. Then he had himself back, and the spectacles were on, and the polite municipal English was a wall again. But I'd seen him.
+  - |-
+    He'd known Ray was dead before I came in. And he was sorry about it.
+
+choices:
+  - text: |-
+      Take the flinch and the tea both. Thank him politely. Leave him his pension.
+    next: act1/engineers_corridor
+    effects:
+      stats:
+        evidence: 1
+        rep: 1
+
+  - text: |-
+      Press the flinch. Make him say what he saw. Make him say it in front of the cup of tea he poured you.
+    next: act1/voss_hard
+
+  - text: |-
+      Apologise for the past tense. Smile through it. Walk out before he can decide what to do with what just happened.
+    next: act1/engineers_corridor
+    effects:
+      stats:
+        evidence: 1

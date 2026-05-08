@@ -1,0 +1,42 @@
+id: act1/vera_room_dead_sneak
+
+text:
+  - |-
+    Around the side of the house, past the dust-bins, the kitchen door was on the latch. Mrs. Pell's kitchen. A pot of something on the cold stove. The servant stair was steep and narrow and the boards in the middle were the loud ones — I took the outsides.
+  - |-
+    The upstairs hall had a uniform at the front end with his back to me. Vera's door was the second on the left. I had it open and shut behind me in the time it took him to laugh at something the other one said.
+  - |-
+    The bath was through the open inner door. I made myself not look. The dresser was on the wall opposite. Frame, no photograph. A drawer half-open. A sheet of writing paper on the small writing desk by the window with three words on it in Vera's hand and a fourth started.
+  - |-
+    Thirty seconds. Maybe less. Brennan's voice somewhere downstairs giving an order in the tone he used for orders he was sure of.
+
+choices:
+  - text: |-
+      Take the frame. The date stamp will tell you the picture existed. That alone is something.
+    next:
+      - scene: act1/brennan_throws_out
+        weight: 3
+      - scene: act1/brennan_catches
+        weight: 1
+    effects:
+      stats:
+        heat: 1
+        evidence: 1
+
+  - text: |-
+      Open the writing desk drawer. The sheet says — Frank — if I am — and the rest is a comma. There may be more in the drawer.
+    next:
+      - scene: act1/brennan_throws_out
+        weight: 1
+      - scene: act1/brennan_catches
+        weight: 1
+    effects:
+      stats:
+        evidence: 2
+
+  - text: |-
+      Don't touch a thing. Look. Memorise. The angle of the spilled water on the bathroom tile is wrong for an accident — it's pushed, not poured.
+    next: act1/brennan_throws_out
+    effects:
+      stats:
+        evidence: 1

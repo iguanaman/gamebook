@@ -1,0 +1,24 @@
+id: act3/office_dusk_arrive
+
+text:
+  - if: {flags: [path_dora]}
+    text: |-
+      The backroom of the *Tribune-Ledger* at dusk. Dora at the desk where she had been at noon, in a different shirt, the watch on her wrist still not being checked. The lamp on. Coffee made twice and not finished either time. The presses two floors below pushing through the day's run, and the next run, the run that was mine, set up and waiting for the word.
+  - if: {flags: [path_aldwick]}
+    text: |-
+      Marta's kitchen at dusk. The pot off the stove. The condemnation notice put away. Marta in the chair across from where I sat at noon, hands flat on the table the way a woman keeps her hands flat on a table when she has decided not to fidget. The lamp on. Reuben in the next room or on the porch — wherever he had been when I arrived, that was where he still was.
+  - if: {flags: [path_office]}
+    text: |-
+      My office at dusk. The lamp on. The retainer envelope still in the drawer where I had left it three weeks ago — or, if I had burned it this morning with the photographs, the drawer empty and faintly soot-smelling. The slip with ALDWICK on it taped to the underside of the desk where I had put it the night Vera died.
+  - if: {flags: [frank_burned_paper]}
+    text: |-
+      The sink was clean. The drain was clean. The smell was almost gone. The travel-light decision had been made; what came next, I would do with what I had on me and nothing else.
+  - |-
+    I sat down. Whatever I had brought with me, I laid out in front of me and looked at. Whatever I did not have, I did not pretend I had.
+  - |-
+    The decision was the same in any of the three rooms. The room only changed the witnesses.
+
+choices:
+  - text: |-
+      Continue.
+    next: act3/final_choice

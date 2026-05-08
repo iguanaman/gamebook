@@ -1,0 +1,30 @@
+id: act3/pavement_check
+
+text:
+  - |-
+    Salzano stepped out from behind the second car the moment my mouth had finished forming the word yes. Quiet. Practiced. The way a man comes out of a doorway he has already counted the steps from.
+  - |-
+    Walt did not look at me. The fountain pen stayed in his pocket. The hand he had touched my elbow with three minutes ago hung at his side and did not move.
+  - if: {flags: [frank_armed]}
+    text: |-
+      The revolver in my coat pocket was four inches too far away. Four inches in a shoulder I had not expected to need to move that fast. Four inches I did not have.
+  - |-
+    The first round took me in the side as I turned. The second one did not need to.
+
+choices:
+  - text: |-
+      Continue.
+    next: act3/pavement_death
+    requires:
+      stats:
+        heat: 8
+    hide_if_failed: true
+
+  - text: |-
+      Continue.
+    next: act3/warehouse_escape
+    effects:
+      stats:
+        heat: 1
+      flags:
+        wound_rib: true

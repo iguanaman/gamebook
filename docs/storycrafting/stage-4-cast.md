@@ -35,7 +35,7 @@ Most casting now happens earlier — Stage 2 commits principals as part of writi
 3. **Resolve voice clashes.** No two major NPCs sharing scenes may share a voice. If Stage 2/3 left a clash, reassign one (prefer keeping the earlier-introduced NPC's voice and reassigning the later one).
 4. **Normalise ordering and content.** Re-order entries by first appearance (act/beat order). Fill any placeholder characterisation. Make sure every entry has all required fields (voice, body, voice on the page, contradiction, wants, fears, first seen, recurs in).
 5. **Drop ghosts.** If an entry is for an NPC no longer referenced anywhere, remove it.
-6. Run `python list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. The file has three top-level keys:
+6. Run `python scripts/list_voices.py` to get the current list of available voices, then read `tts_voices/voices.yaml` for detail. The file has three top-level keys:
    - `characters/` — standard NPC voices, keyed by gender. Use these for all NPC assignments.
    - `narrator/` and `robot/` — **off-limits** for NPC assignment. Narrator is reserved for `story.yaml`; robot is used ad hoc for in-world screen text.
    - `languages/` — voices prefixed with a language (e.g. `japanese_narrator_male_...`). **Only use these when the story's language or setting calls for it** (e.g. a Japanese-language story). Do not assign language voices to NPCs in an English-language story.

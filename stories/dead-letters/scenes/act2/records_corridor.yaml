@@ -1,0 +1,29 @@
+id: act2/records_corridor
+
+text:
+  - |-
+    Third floor. The corridor smelled of floor wax laid down too thick by a man not paid enough to lay it down right.
+  - |-
+    Voss's office was at the far end, the frosted glass dark. The records room two doors short of it. Between them, a transom over an office I had never been in, and through the transom the thread of a voice on a telephone — quiet, level, a man who did not need to raise his voice because he never had to.
+  - |-
+    Salzano. I had not yet heard the name and I already knew the voice. It was the voice that had been at the bar end the night Lou had wiped the same glass three times.
+
+choices:
+  - text: |-
+      Pick the records room lock.
+    next: act2/records_inside
+
+  - text: |-
+      Try the door first — in case it's open.
+    next:
+      - scene: act2/records_inside
+        weight: 3
+      - scene: act2/records_inside_unlocked
+        weight: 1
+
+  - text: |-
+      Stop. Listen for the voice. Place it.
+    next: act2/records_listening
+    effects:
+      stats:
+        evidence: 1

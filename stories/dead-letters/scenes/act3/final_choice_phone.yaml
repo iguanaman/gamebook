@@ -1,0 +1,50 @@
+id: act3/final_choice_phone
+
+text:
+  - |-
+    I picked up the phone. Dialled the number Mort had written on the inside of a matchbook three nights ago. She picked up on the second ring the way somebody picks up who has been sitting next to a phone waiting for it.
+  - female_adult_american_crisp_direct_clear: |-
+      Reyes.
+  - |-
+    I told her who it was. She did not say my name back. Did not need to.
+  - female_adult_american_crisp_direct_clear: |-
+      Two questions, Mr. Cady. Are you publishing or are you walking. And if you're publishing, are you bringing it to me or am I coming to you.
+  - |-
+    Short questions. Short answers. The way she did everything. I could hear a typewriter going somewhere on her end of the line — somebody else's column, or the carriage return on the page she had been writing while she waited for me to call.
+  - |-
+    The lamp on the desk in front of me was the only thing in the room. The book, or the absence of the book, on the blotter. The decision was the decision. Dora was just the line you said it on.
+
+choices:
+  - text: |-
+      Tell her you're publishing. Bring the book to her in an hour.
+    next: act3/ending_expose
+    requires:
+      flags:
+        - found_ledger
+      stats:
+        evidence: 6
+    failed_text: |-
+      *(Not enough.)*
+    effects:
+      flags:
+        published: true
+        reached_dora: true
+
+  - text: |-
+      Tell her you're walking. Tell her you're sorry.
+    next: act3/ending_bury_late_with_evidence
+    requires:
+      flags:
+        - found_ledger
+    effects:
+      flags:
+        bury_it_late: true
+        told_dora_no: true
+
+  - text: |-
+      Tell her you don't have it. Tell her you're sorry.
+    next: act3/ending_bury_late_without_evidence
+    effects:
+      flags:
+        bury_it_late: true
+        told_dora_no: true

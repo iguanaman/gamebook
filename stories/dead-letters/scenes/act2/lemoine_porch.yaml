@@ -1,0 +1,33 @@
+id: act2/lemoine_porch
+
+text:
+  - |-
+    Number eighteen Lemoine. The back porch where Ray was last seen alive. A wooden step worn down at the centre by forty years of feet.
+  - |-
+    A neighbour two doors down had been hanging washing the night Ray came. She had seen him arrive with another man — tall, English in his vowels, a scar across the upper lip — and she had not seen either of them leave.
+  - |-
+    She would not give me her name. She would not be quoted. She watched me from her own porch with her arms crossed under a shawl and waited for me to leave so the block could go back to whatever it had been doing.
+
+choices:
+  - text: |-
+      Note it. Walk back to Marta's.
+    next: act2/aldwick_exit
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Ask the neighbour to come to the church hall and say it where Marta can hear.
+    next:
+      - scene: act2/neighbour_comes
+        weight: 1
+      - scene: act2/neighbour_refuses
+        weight: 3
+
+  - text: |-
+      Stand on the porch a beat too long. See who comes to the window across the street.
+    next: act2/aldwick_exit
+    effects:
+      stats:
+        heat: 1
+        evidence: 1

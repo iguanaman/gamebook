@@ -1,0 +1,64 @@
+id: act3/dora_newsroom
+
+text:
+  - |-
+    The *Tribune-Ledger* kept its backroom at the end of a hallway that smelled of carbon paper and somebody's lunch from the day before. Two desks. Two telephones on hers. A spiral notebook with the binding chewed at one corner. A typewriter with the ribbon half-worn. A wristwatch on her left wrist she checked the way other people checked a window.
+  - |-
+    Dora Reyes did not get up when I came in. Did not ask me to sit. Pointed at the chair across from her with the pencil she was holding and went back to whatever sentence she had been finishing.
+  - female_adult_american_crisp_direct_clear: |-
+      Two questions. Is it true. Can you prove it.
+  - |-
+    She put the pencil down. Looked at me for the first time. Younger than Mort by twenty years and the only person on this paper or any other paper in this city he would have given my name to.
+  - female_adult_american_crisp_direct_clear: |-
+      I have until five to file. The *Examiner* runs at noon with the police's version. If I have anything to print against that version I print it tonight. If I don't I print nothing and I read about your funeral on Wednesday. So. Two questions.
+  - if: {flags: [left_package]}
+    text:
+      - |-
+          The package was on her desk. Open. The photographs spread out the way photographs spread out when somebody has been looking at them with intent. The carbon slip with ALDWICK on it weighted down with a coffee cup.
+      - female_adult_american_crisp_direct_clear: |-
+          I got this in the mail. I have been reading it since six. I am going to need you to tell me which of these names I can use and which one is going to put a man in the river by morning.
+  - if: {flags_unset: [left_package]}
+    text: |-
+      Nothing on her desk yet. Whatever I had walked in with was what we were going to print or not print. The package, if there had been one, had not arrived.
+  - |-
+    She waited. Pencil flat against the notebook. The watch on her wrist not being checked.
+
+choices:
+  - text: |-
+      Hand her everything. Ledger, photographs, the slip with Aldwick written in carbon.
+    next: act3/dora_newsroom_commit
+    requires:
+      flags:
+        - found_ledger
+      flags_unset:
+        - ledger_dropped
+    hide_if_failed: true
+    effects:
+      flags:
+        dora_has_full: true
+
+  - text: |-
+      Tell her what you can. The photographs only.
+    next: act3/dora_newsroom_commit
+    requires:
+      stats:
+        evidence: 5
+    failed_text: |-
+      *(You don't have enough on you to walk in there with.)*
+    effects:
+      flags:
+        dora_has_partial: true
+
+  - text: |-
+      Walk her through it from memory. Make her write it down.
+    next: act3/dora_newsroom_commit
+    effects:
+      flags:
+        dora_has_testimony: true
+
+  - text: |-
+      Sit. Don't speak. Watch her decide.
+    next: act3/dora_newsroom_commit
+    effects:
+      flags:
+        dora_has_silence: true

@@ -1,0 +1,34 @@
+id: act3/kellner_topic_past
+
+text:
+  - |-
+    I said the year. I said the case. I said the report he had put on the captain's desk and the sentence in it that ended my time on the force. I said all of it in the rain in a doorway with the fountain pen clipped to his jacket pocket where it had been clipped for fifteen years.
+  - |-
+    He did not deny it. He took the pen out and looked at it the way a man looks at a thing he has owned too long. He put it back.
+  - male_midlife_american_rich_smooth_rugged: |-
+      I thought it would keep you alive, Frank. I have thought that every year since.
+  - |-
+    His hands stayed visible. That was still true.
+
+choices:
+  - text: |-
+      Make him say it out loud.
+    next: act3/kellner_talk_hub
+    effects:
+      flags:
+        confronted_kellner_past: true
+
+  - text: |-
+      Tell him you forgive him. Watch him not believe you.
+    next: act3/kellner_talk_hub
+    effects:
+      flags:
+        confronted_kellner_past: true
+        kellner_unsteadied: true
+
+  - text: |-
+      Tell him the only thing you want from him is the truth about tonight.
+    next: act3/kellner_talk_hub
+    effects:
+      flags:
+        confronted_kellner_past: true

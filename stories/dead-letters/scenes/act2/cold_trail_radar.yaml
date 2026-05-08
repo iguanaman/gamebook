@@ -1,0 +1,13 @@
+id: act2/cold_trail_radar
+
+# Exit B entry — on the radar. cops_warned_off carried in. Routes through stairwell_warning.
+text:
+  - |-
+    A week passed the way the bad ones do. The card Brennan's people had slid under my door three nights ago was still on the desk where I'd dropped it, and the slip with ALDWICK on it was still under the desk lamp.
+  - |-
+    The city had not forgotten me. Halfway up the stairs that morning, I found out it had sent somebody to remind me.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/stairwell_warning

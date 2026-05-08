@@ -1,0 +1,21 @@
+id: act2/rail_locker_tail
+
+text:
+  - |-
+    The wall of brass at Union was longer than I remembered. Three rows. Numbers in faint white paint, half of them worn off. The attendant at the cage was filing his nails and watching the women going past with suitcases. He did not look at me.
+  - |-
+    I walked the wall slow and tried the key against the first plate. The shoulder fit. The teeth almost. Right family, wrong door — and I was going to need a number.
+  - |-
+    On the bench across the platform a man was reading a paper. He had not turned the page in the time I had been at the wall. He had a hat brim low enough that I could not see his eyes and a pair of shoes too good for a man waiting on the eight-fourteen.
+  - |-
+    I left by the south stair and walked four blocks the wrong way before I doubled back. He did not follow. He did not have to. He had already seen what he had been sent to see — me at the wall, me with the key — and he had a phone to find when he was done.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/office_hub
+    effects:
+      stats:
+        heat: 1
+      flags:
+        rail_locker_known: true

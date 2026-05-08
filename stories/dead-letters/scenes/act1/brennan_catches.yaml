@@ -1,0 +1,21 @@
+id: act1/brennan_catches
+
+text:
+  - |-
+    The door opened and Brennan was in it before I had the drawer back the way I found it. His hand on my arm wasn't rough. It didn't have to be.
+  - male_midlife_american_dark_tough: |-
+      Off the stoop, Cady. I'm saying it in the hallway this time so we don't have to do it on the street with witnesses.
+  - |-
+    He could have arrested me. He had me in a private residence at a death scene with my hand in a dead woman's drawer. He chose not to. The choice wasn't for my benefit. The choice was that an arrest comes with a desk sergeant who writes things down, and Brennan was in this house tonight to make sure nothing got written down that wasn't on the script.
+  - |-
+    He filed my face. I felt him do it. He'll know it next time he sees it and the time after that.
+
+choices:
+  - text: |-
+      Continue.
+    next: act1/brennan_throws_out
+    effects:
+      stats:
+        heat: 2
+      flags:
+        cops_warned_off: true

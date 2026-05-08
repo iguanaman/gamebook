@@ -1,0 +1,66 @@
+id: act2/squeeze_open
+
+text:
+  - |-
+    The knock came the way knocks come when the man on the other side has all night. Three taps. A pause measured in cigarettes. Three more.
+  - |-
+    The lamp on the desk. The drawer half open. The brick on the floor where I had not moved it. I had been waiting for this knock for a week without knowing I was waiting for it. Now that it had come, I could feel the chair under me and the floor under the chair and the building under the floor.
+  - if: {stats: {heat: 6}}
+    text: |-
+      Heat had run high enough this past week that the city had stopped pretending. They were not going to send a card this time.
+  - if: {flags: [records_room]}
+    text: |-
+      I had taken paper out of a building I should not have been in. The man whose job it was to make sure I had not was on the other side of my door now.
+  - if: {flags: [cops_warned_off]}
+    text: |-
+      The card under the door last week had said DROP IT. I had not. The follow-up was waiting in the hall.
+  - if: {flags: [evidence_path_press]}
+    text: |-
+      It was Mort's tread, though. Quieter than it ought to be. A man who had been told something on the way over.
+  - |-
+    Whoever it was, the door was between us, and the door was not the answer.
+
+choices:
+  - text: |-
+      Open the door. (Salzano)
+    next: act2/squeeze_salzano
+    requires:
+      stats:
+        heat: 6
+    hide_if_failed: true
+
+  - text: |-
+      Open the door. (Salzano)
+    next: act2/squeeze_salzano
+    requires:
+      flags:
+        - records_room
+    hide_if_failed: true
+
+  - text: |-
+      Open the door. (Brennan on the kerb)
+    next: act2/squeeze_brennan
+    requires:
+      flags:
+        - cops_warned_off
+    hide_if_failed: true
+
+  - text: |-
+      Open the door. (Mort, white-faced)
+    next: act2/squeeze_mort
+    requires:
+      flags:
+        - mort_owes_one
+    hide_if_failed: true
+
+  - text: |-
+      Open the door. (Mort, white-faced)
+    next: act2/squeeze_mort
+    requires:
+      flags:
+        - mort_called_back
+    hide_if_failed: true
+
+  - text: |-
+      Open the door.
+    next: act2/squeeze_brennan

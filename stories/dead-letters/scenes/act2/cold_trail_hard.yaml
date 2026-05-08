@@ -1,0 +1,13 @@
+id: act2/cold_trail_hard
+
+# Exit D entry — hard and hot. cops_warned_off + mort_owes_one. Routes through stairwell_warning.
+text:
+  - |-
+    A week passed the way the bad ones do. Brennan had warned me off twice already and Mort owed me a favour I had not yet decided how to spend. The slip with ALDWICK on it was under the desk lamp where I'd left it.
+  - |-
+    The city was already watching. Halfway up the stairs that morning, I found out it had sent somebody to make sure I knew.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/stairwell_warning

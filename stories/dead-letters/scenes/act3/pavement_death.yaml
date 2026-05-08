@@ -1,0 +1,13 @@
+id: act3/pavement_death
+
+text:
+  - |-
+    The blotter at the Eighteenth Precinct, Tuesday morning, recorded the death of one Frank Cady, licensed private investigator, at a vacant warehouse on the river. Accidental discharge of a firearm in the deceased's possession. No further action contemplated. No witnesses. Body removed at six.
+  - |-
+    The licence was filed in the bottom drawer of a desk on the fourth floor of City Hall by a clerk who did not know the name and would not be asked.
+  - |-
+    The case file was closed by Friday.
+  - journal: |-
+      You walked into a room you weren't getting out of.
+
+choices: []

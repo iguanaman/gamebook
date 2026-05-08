@@ -1,0 +1,182 @@
+id: act2/package_post_office
+
+text:
+  - |-
+    Six in the evening. The post office on Tenth, the one open until seven, the one with the brass scales worn smooth and a tin ceiling that hummed when the trolleys went by.
+  - |-
+    Hettie Voorhees behind the counter. Spectacles on a beaded chain. The rubber thumb-stall on her right hand she sometimes remembered to take off and sometimes did not.
+  - |-
+    The parcel was already wrapped — brown paper, twine, the handcopy or two photographs or two torn pages folded inside it depending on what the week had given me. Already addressed, in my own hand, in pencil so I could change my mind.
+  - |-
+    Across the street a man was reading a paper he was not turning. He had been there a quarter of an hour. He was not pretending well.
+  - female_elder_american_relatable_likeable: |-
+      Help you, dear?
+
+choices:
+  # Mail (plain) — four hidden variants, one per address source. Only one shows.
+  - text: |-
+      Hand over the parcel. Pay for the postage. Walk out the back way.
+    next: act2/package_mailed
+    requires:
+      flags_unset: [left_package]
+      flags: [dora_address_known]
+    effects:
+      flags:
+        left_package: true
+    hide_if_failed: true
+  - text: |-
+      Hand over the parcel. Pay for the postage. Walk out the back way.
+    next: act2/package_mailed
+    requires:
+      flags_unset: [left_package, dora_address_known]
+      flags: [mort_owes_one]
+    effects:
+      flags:
+        left_package: true
+    hide_if_failed: true
+  - text: |-
+      Hand over the parcel. Pay for the postage. Walk out the back way.
+    next: act2/package_mailed
+    requires:
+      flags_unset: [left_package, dora_address_known, mort_owes_one]
+      flags: [marta_warned]
+    effects:
+      flags:
+        left_package: true
+    hide_if_failed: true
+  - text: |-
+      Hand over the parcel. Pay for the postage. Walk out the back way.
+    next: act2/package_mailed
+    requires:
+      flags_unset: [left_package, dora_address_known, mort_owes_one, marta_warned]
+      flags: [mort_writes_anyway]
+    effects:
+      flags:
+        left_package: true
+    hide_if_failed: true
+
+  # Insured — four hidden variants
+  - text: |-
+      Hand it over. Insure it. Make it harder for them to lose.
+    next: act2/package_mailed_insured
+    requires:
+      flags_unset: [left_package]
+      flags: [dora_address_known]
+    effects:
+      flags:
+        left_package: true
+        package_insured: true
+      stats:
+        evidence: 1
+    hide_if_failed: true
+  - text: |-
+      Hand it over. Insure it. Make it harder for them to lose.
+    next: act2/package_mailed_insured
+    requires:
+      flags_unset: [left_package, dora_address_known]
+      flags: [mort_owes_one]
+    effects:
+      flags:
+        left_package: true
+        package_insured: true
+      stats:
+        evidence: 1
+    hide_if_failed: true
+  - text: |-
+      Hand it over. Insure it. Make it harder for them to lose.
+    next: act2/package_mailed_insured
+    requires:
+      flags_unset: [left_package, dora_address_known, mort_owes_one]
+      flags: [marta_warned]
+    effects:
+      flags:
+        left_package: true
+        package_insured: true
+      stats:
+        evidence: 1
+    hide_if_failed: true
+  - text: |-
+      Hand it over. Insure it. Make it harder for them to lose.
+    next: act2/package_mailed_insured
+    requires:
+      flags_unset: [left_package, dora_address_known, mort_owes_one, marta_warned]
+      flags: [mort_writes_anyway]
+    effects:
+      flags:
+        left_package: true
+        package_insured: true
+      stats:
+        evidence: 1
+    hide_if_failed: true
+
+  # Witness — four hidden variants
+  - text: |-
+      Hand it over. Tell Hettie you'll be back tomorrow to confirm it left the city.
+    next: act2/package_mailed_witness
+    requires:
+      flags_unset: [left_package]
+      flags: [dora_address_known]
+    effects:
+      flags:
+        left_package: true
+        package_witnessed: true
+    hide_if_failed: true
+  - text: |-
+      Hand it over. Tell Hettie you'll be back tomorrow to confirm it left the city.
+    next: act2/package_mailed_witness
+    requires:
+      flags_unset: [left_package, dora_address_known]
+      flags: [mort_owes_one]
+    effects:
+      flags:
+        left_package: true
+        package_witnessed: true
+    hide_if_failed: true
+  - text: |-
+      Hand it over. Tell Hettie you'll be back tomorrow to confirm it left the city.
+    next: act2/package_mailed_witness
+    requires:
+      flags_unset: [left_package, dora_address_known, mort_owes_one]
+      flags: [marta_warned]
+    effects:
+      flags:
+        left_package: true
+        package_witnessed: true
+    hide_if_failed: true
+  - text: |-
+      Hand it over. Tell Hettie you'll be back tomorrow to confirm it left the city.
+    next: act2/package_mailed_witness
+    requires:
+      flags_unset: [left_package, dora_address_known, mort_owes_one, marta_warned]
+      flags: [mort_writes_anyway]
+    effects:
+      flags:
+        left_package: true
+        package_witnessed: true
+    hide_if_failed: true
+
+  # No address path — only when none of the four flags is set
+  - text: |-
+      Stand at the counter with no address to put on it.
+    next: act2/package_no_address
+    requires:
+      flags_unset: [left_package, dora_address_known, mort_owes_one, marta_warned, mort_writes_anyway]
+    hide_if_failed: true
+
+  # Walk out without mailing — re-attemptable once
+  - text: |-
+      Walk out without mailing it. The man across the street is too close.
+    next: act2/package_aborted
+    requires:
+      flags_unset: [left_package]
+    effects:
+      flags:
+        package_aborted_once: true
+
+  # Hard refusal — locks Martyr
+  - text: |-
+      Walk out without mailing it. You'll never mail it. The Martyr ending is locked.
+    next: act2/office_hub
+    effects:
+      flags:
+        left_package_refused: true

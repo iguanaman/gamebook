@@ -1,0 +1,23 @@
+id: act2/bath_locker_dead_end
+
+text:
+  - |-
+    Tile the colour of weak tea. A man in a wet undershirt walked past me with a towel over his shoulder and did not look at me twice, which was kinder than most of what I had walked past that week.
+  - |-
+    The bank of lockers was at the back, behind the linen counter, behind a curtain on a wooden rod. The attendant was reading a racing form and did not look up. I tried the key in three doors before one gave.
+  - |-
+    Inside: a clean shirt, folded. A tin of shoe polish, half-used. A paperback with the spine creased at page sixty-one. *Murder on the Orient Express*.
+  - |-
+    No notebook. No envelope. No ledger.
+  - |-
+    I stood there longer than I needed to. I picked up the paperback and held it and put it back. I closed the door. I gave the attendant a nod he did not return and I went out into the street.
+  - |-
+    Ray had kept a clean shirt at the bath house. That was all this was. He had walked in here on a Tuesday at lunch and changed into a clean shirt and walked out and gone to wherever he had gone, three weeks before he died, and the locker had kept the shirt for him until I came to take it.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/office_hub
+    effects:
+      flags:
+        bath_locker_checked: true

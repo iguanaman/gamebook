@@ -1,0 +1,12 @@
+id: act2/records_room_exit
+
+text:
+  - |-
+    The streetcar at last. A bench at the back. The window threw back a man with a torn hand and a coat lumped wrong over what was inside it. The man in the window had stolen something he was not supposed to have known existed.
+  - |-
+    The wires sang above the car. The conductor came down the aisle and did not ask for a fare from a man who looked the way I looked. He had seen worse on this run, on this hour. He was not paid to see anything.
+
+choices:
+  - text: |-
+      Back to the office.
+    next: act2/office_hub

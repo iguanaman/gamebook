@@ -1,0 +1,110 @@
+id: act3/morning_room
+
+text:
+  - |-
+    Light came in the colour of a poached egg gone cold. Whatever room I had ended in, the window faced east, and east had decided to be honest about itself this morning.
+  - if: {flags: [quint_helped]}
+    text: |-
+      Quint's apartment. The clean shirt over the chair where he had laid it. A coffee pot on the gas ring he had set going before he went out — he had a shift that started at seven and he had not told me that last night, just left, the way a man leaves who does not want to make a thing of leaving.
+  - if: {flags: [mort_basement_used]}
+    text: |-
+      Mort's basement. Newsprint smell and damp stone smell, in that order. Mort was at the bottom of the stair where I had last seen him, in the same chair, with a different cigarette and a fresh pencil and the pen-and-ink thumb on him like always. He had not slept. He had not pretended to.
+  - if: {flags_unset: [quint_helped, mort_basement_used]}
+    text: |-
+      The Marisol. The same ceiling I had finished the night looking at. The radiator had given up around four. The room was cold the way a room is cold when nobody is paying anybody to make it warm.
+  - |-
+    The radio was talking. Low. Somebody in the building had the dial on a news station and the floor between us was not enough floor to keep it down. I let it talk. Then it stopped being weather and started being me.
+  - male_midlife_american_dark_tough: |-
+      *—wanted in connection with a body recovered from the river overnight. Investigators have named the person of interest as Frank Cady, a private investigator with offices on Sutter. Cady is described as armed and—*
+  - |-
+    Brennan. Reading wire copy on a police-cooperation segment. The voice that had stood in Mrs. Pell's hallway the night Vera died was the voice telling the city, this morning, that I had killed somebody who did not exist.
+  - male_midlife_american_dark_tough: |-
+      *—a second person, Dora Reyes, of the* Tribune-Ledger*, is sought for questioning. Anyone with information is asked to contact—*
+  - |-
+    They had named Dora. On the radio, before the *Examiner* hit the noon street. They were running her ahead of the package, ahead of whatever she did or did not have on her desk, so that anything she printed today read like a woman trying to clear her own name.
+  - if: {flags: [left_package]}
+    text: |-
+      The package was somewhere. On her desk by the morning mail. Or intercepted at the *Tribune-Ledger* loading bay by a man in a suit too good for the building. Or in a sack at the post office still, and Hettie Voorhees pretending she had not seen the addressee. I had no way to know from this room which.
+  - if: {flags: [mort_owes_one], flags_unset: [mort_burned]}
+    text: |-
+      The phone in the next room rang twice and stopped, the way Mort rang it when it was him. A pause. Then twice again.
+  - if: {flags: [mort_owes_one], flags_unset: [mort_burned]}
+    text:
+      - male_elder_american_wise_approachable: |-
+          Kid. They're running it at noon. The *Examiner*. Page one. I saw the slug come down the wire. The wire copy was not written by anybody on the *Examiner* desk — I know what the *Examiner* copy looks like. This was handed in. I do not know by who. I have a guess.
+      - male_elder_american_wise_approachable: |-
+          You have until lunch to make a different paper print a different story. After that the city has decided.
+  - if: {flags: [mort_burned]}
+    text: |-
+      The phone did not ring. Mort was where I had left him last night, downstairs, and a man whose basement is being used as a hideout does not call the man hiding in it.
+  - |-
+    I stood in the middle of the room with my coat in one hand and the radio talking and the morning still mostly the wrong colour, and I worked out what I had left to play.
+
+choices:
+  - text: |-
+      Go to Dora directly. Hand it to her in person.
+    next: act3/dora_newsroom
+    requires:
+      flags:
+        - left_package
+    failed_text: |-
+      *(You don't have a way to her. Not now.)*
+    effects:
+      flags:
+        path_dora: true
+        mort_burned: true
+
+  - text: |-
+      Go to Dora directly. Mort can put you in the room.
+    next: act3/dora_newsroom
+    requires:
+      flags:
+        - mort_owes_one
+      flags_unset:
+        - mort_burned
+        - left_package
+    failed_text: |-
+      *(You don't have a way to her. Not now.)*
+    effects:
+      flags:
+        path_dora: true
+        mort_burned: true
+
+  - text: |-
+      Go to Aldwick once more. See Marta.
+    next: act3/aldwick_farewell
+    requires:
+      flags:
+        - marta_talked
+    failed_text: |-
+      *(Aldwick won't open for you. You didn't earn the visit.)*
+    effects:
+      flags:
+        path_aldwick: true
+        said_goodbye_aldwick: true
+
+  - text: |-
+      Hole up. Wait for nightfall. Climax at the office.
+    next: act3/office_dusk_arrive
+    effects:
+      flags:
+        path_office: true
+
+  - text: |-
+      Hole up. Eat whatever Quint left. Wait for nightfall.
+    next: act3/office_dusk_arrive
+    requires:
+      flags:
+        - quint_helped
+    hide_if_failed: true
+    effects:
+      flags:
+        path_office: true
+
+  - text: |-
+      Hole up. Burn the photographs you don't need. Travel light to the office.
+    next: act3/office_dusk_arrive
+    effects:
+      flags:
+        path_office: true
+        frank_burned_paper: true

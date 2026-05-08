@@ -1,0 +1,59 @@
+id: act2/squeeze_salzano
+
+text:
+  - |-
+    He took his hat off the way a guest takes his hat off. He set it on the corner of the desk where the retainer envelope lived in the drawer underneath. He sat down in the visitor's chair without being asked.
+  - |-
+    Two men at the door. The same two as the corridor, or two who looked enough like them to make the difference irrelevant. Neither moved. Neither would.
+  - male_midlife_british_dark_seductive_deep: |-
+      Mr. Cady. Forgive the hour. I'll be brief, and then I'll go.
+  - |-
+    The white scar through his upper lip caught the lamp when he spoke. Clean fingernails on the arms of the chair. A coat folded over one knee.
+  - male_midlife_british_dark_seductive_deep: |-
+      I have come with the same offer I made you in the corridor at the City Engineer's. A job. A flat. A train tomorrow morning, or tonight if you prefer the sleeper. The salary is modest. The climate is kind.
+  - male_midlife_british_dark_seductive_deep: |-
+      Or — and I say this without prejudice, the way a man reads from a column of figures — a hotel room a long way from here. A door that opens to a maid in the morning. A note that names a woman you have not met.
+  - male_midlife_british_dark_seductive_deep: |-
+      Either, Mr. Cady, is fine.
+  - |-
+    He folded his hands the way a priest folds his at a graveside. He had not raised his voice. He had not needed to.
+
+choices:
+  - text: |-
+      Play it straight — back off cosmetically. Apologise.
+    next: act2/squeeze_back_off
+    effects:
+      stats:
+        heat: -2
+      flags:
+        cops_warned_off: true
+
+  - text: |-
+      Feign compliance. Keep digging quietly.
+    next: act2/squeeze_feign
+    effects:
+      stats:
+        rep: -1
+
+  - text: |-
+      Push back hard. Tell him to leave.
+    next: act2/squeeze_push_back
+    requires:
+      stats:
+        rep: 4
+    failed_text: |-
+      *(He's brought enough men this time. Pushing back gets you killed.)*
+    effects:
+      stats:
+        heat: 1
+      flags:
+        pushed_back: true
+
+  - text: |-
+      Pull the gun out of the desk drawer.
+    next: act2/squeeze_lethal
+    requires:
+      stats:
+        heat: 8
+        rep: 0
+    hide_if_failed: true

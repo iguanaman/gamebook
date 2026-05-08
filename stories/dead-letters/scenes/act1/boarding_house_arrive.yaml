@@ -1,0 +1,41 @@
+id: act1/boarding_house_arrive
+
+text:
+  - |-
+    Two squad cars at the kerb and an unmarked behind them. A uniformed officer on the stoop with his thumbs in his belt the way men stand when they have been told to stand and stop thinking. The painted door was open. The hall light was on.
+  - |-
+    Brennan was in shirtsleeves at the foot of the stairs. Tie loosened, collar dark with sweat at the band, a swollen knuckle on his right hand resting on the newel post like he was leaning on a witness. He saw me on the stoop before I saw him.
+  - male_midlife_american_dark_tough: |-
+      Off the stoop, Cady.
+  - |-
+    Mrs. Pell was at the bottom of the stairs in her apron with both hands pressed to her mouth. The hall smelled of soap and lavender water and, under that, the colder smell that comes off a bath gone the wrong way.
+  - |-
+    Upstairs a uniform was talking to another uniform in the hush voice cops use when they are pretending to be calm. The stairwell was empty between them and me. So was Brennan's patience.
+
+choices:
+  - text: |-
+      Push past Brennan. You want to see the room before he gets to write what was in it.
+    next: act1/vera_room_dead
+    effects:
+      stats:
+        heat: 1
+
+  - text: |-
+      Stand on the stoop. Wait until Brennan comes out to you. Let him do the talking he was going to do anyway.
+    next: act1/brennan_doorstep
+
+  - text: |-
+      Find Mrs. Pell. Get her into the kitchen. Get the version she'll only tell you.
+    next: act1/pell_aside
+    requires:
+      stats:
+        rep: 4
+    failed_text: |-
+      *(She's surrounded by uniforms and she doesn't know you well enough yet. Not tonight.)*
+
+  - text: |-
+      Slip around the side. Kitchen door, servant stair, take what you can before Brennan turns his head.
+    next: act1/vera_room_dead_sneak
+    effects:
+      stats:
+        heat: 2

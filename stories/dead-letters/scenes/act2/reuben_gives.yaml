@@ -1,0 +1,19 @@
+id: act2/reuben_gives
+
+text:
+  - |-
+    Reuben slid the notice across the table. He kept his hand on it for a second longer than the gesture asked for.
+  - male_adult_african-american_uneducated: |-
+      Bring it back when you're done.
+  - |-
+    I folded it into my coat the way I would have folded a thing that was not mine.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/marta_kitchen
+    effects:
+      flags:
+        condemnation_notice_taken: true
+      stats:
+        evidence: 1

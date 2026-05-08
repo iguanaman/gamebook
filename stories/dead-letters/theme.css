@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Oswald:wght@300;400&display=swap');
+
+#story-root {
+  /* ── Core palette — classic noir film, silver nitrate on black ── */
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --text: #d8d8d8;
+  --text-muted: #888888;
+  --border: #2e2e2e;
+  --hover-bg: rgba(220, 220, 220, 0.06);
+  --accent: #e8e8e8;
+  --accent-hover: #ffffff;
+  --btn-secondary-bg: #1c1c1c;
+  --btn-secondary-hover: #262626;
+  --radius: 2px;
+
+  /* ── Typography — period-authentic noir ── */
+  /* Playfair Display: editorial serif with high contrast — reads like 1940s newspaper body */
+  /* Special Elite: typewriter-adjacent, worn — for UI elements */
+  /* Oswald: condensed sans — labels, HUD keys */
+  --font-body: 'Playfair Display', Georgia, serif;
+  --font-ui: 'Special Elite', 'Courier New', monospace;
+  --font-heading: 'Oswald', 'Special Elite', sans-serif;
+
+  /* ── Frame — brushed silver on black ── */
+  --border-outer: #4a4a4a;
+  --border-inner: #2a2a2a;
+  --frame-inset: 10px;
+
+  /* ── Divider — thin silver rule, like a column rule in a broadsheet ── */
+  --divider-color: #3a3a3a;
+  --divider-style: 1px solid var(--divider-color);
+
+  /* ── Drop cap — bright silver, slightly larger to feel like an editorial pull ── */
+  --drop-cap-color: #f0f0f0;
+  --drop-cap-size: 3.8em;
+
+  /* ── Act title ── */
+  --act-title-size: 1.75rem;
+  --act-rule-color: #4a4a4a;
+  --act-rule-style: 1px solid var(--act-rule-color);
+
+  /* ── Animations — slightly slower, heavier, like turning a damp page ── */
+  --anim-block-duration: 450ms;
+  --anim-choice-duration: 380ms;
+  --anim-act-title-duration: 800ms;
+  --anim-choice-fade-fast: 300ms;
+  --anim-choice-linger-ms: 1400ms;
+  --anim-choice-fade-slow: 600ms;
+}
+
+/* ── Static film grain ──────────────────────────────────────────────────── */
+#story-root::before,
+.story-card[data-story="dead-letters"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.09  0 0 0 0 0.09  0 0 0 0 0.09  0 0 0 1.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}

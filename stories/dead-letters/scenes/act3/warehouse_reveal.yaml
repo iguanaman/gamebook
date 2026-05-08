@@ -1,0 +1,32 @@
+id: act3/warehouse_reveal
+
+text:
+  - |-
+    Walt stepped back from me. Two clean steps. He kept his hands where I could see them. That part of the kindness was real. I was going to remember it and I was going to hate that I remembered it.
+  - |-
+    Salzano walked out from behind the second car. He took his time. The second man stayed in the shadow on Salzano's left, gun low, not pointed at anything yet.
+  - male_midlife_british_dark_seductive_deep: |-
+      Mr. Cady.
+  - |-
+    Quiet. Polite. The voice a man uses when violence is already in the price.
+  - male_midlife_american_rich_smooth_rugged: |-
+      I'm sorry, Frank.
+  - |-
+    Three words, the wrong cadence for him. Short where he was usually long. He stepped to the side and let the doorway light fall on Salzano's face instead of his.
+
+choices:
+  - text: |-
+      Fight.
+    next: act3/warehouse_fight
+
+  - text: |-
+      Talk past him. Address Salzano directly.
+    next: act3/warehouse_talk
+
+  - text: |-
+      Run.
+    next: act3/warehouse_run
+
+  - text: |-
+      Stand still. Make Salzano speak first.
+    next: act3/warehouse_talk

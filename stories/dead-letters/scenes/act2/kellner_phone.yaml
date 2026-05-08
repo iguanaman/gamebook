@@ -1,0 +1,45 @@
+id: act2/kellner_phone
+
+text:
+  - |-
+    Half past nine. The lamp on. The phone had been ringing for ten seconds before I picked it up because I had wanted to know who would let it ring that long.
+  - male_midlife_american_rich_smooth_rugged: |-
+      Cady. It's Walt. You sound tired.
+  - |-
+    Ten years since the last time he had said my name without a desk between us. The warmth in it was the same warmth that had walked me out of the building in 'thirty-nine, and I had not heard it since, and I had not realised until now that I had been listening for it.
+  - male_midlife_american_rich_smooth_rugged: |-
+      Henning Street. The diner. Where we used to take the three a.m. shift. Tomorrow night, late. Two coffees on me. I hear you've been busy. I'd like to hear from you what kind of busy.
+  - |-
+    He had heard. From whom was the part I would have paid to know and was not going to.
+
+choices:
+  - text: |-
+      Agree. Tomorrow night. Take the meet.
+    next: act2/kellner_diner
+    effects:
+      flags:
+        kellner_called: true
+
+  - text: |-
+      Agree. But tonight. Test his patience.
+    next: act2/kellner_diner
+    effects:
+      flags:
+        kellner_called: true
+        kellner_tested: true
+
+  - text: |-
+      Decline politely. Suggest the office.
+    next: act2/kellner_office
+    effects:
+      flags:
+        kellner_called: true
+        kellner_on_my_turf: true
+
+  - text: |-
+      Decline. Don't suggest anything.
+    next: act2/office_hub
+    effects:
+      flags:
+        kellner_called: true
+        kellner_avoided: true

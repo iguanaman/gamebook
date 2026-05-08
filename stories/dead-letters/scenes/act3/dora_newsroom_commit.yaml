@@ -1,0 +1,31 @@
+id: act3/dora_newsroom_commit
+
+text:
+  - if: {flags: [dora_has_full]}
+    text: |-
+      She took the book from me with both hands. Set it on the desk, flat, and laid the photographs in a row across the top of it the way a coroner lays out tools. Read the first page of the ledger without speaking. Turned to the second.
+  - if: {flags: [dora_has_partial]}
+    text: |-
+      She took the photographs. Spread them across the desk. Looked at the third one for longer than the others. Did not comment.
+  - if: {flags: [dora_has_testimony]}
+    text: |-
+      She wrote. Pencil moving. Stopped me twice to spell a name. Stopped me once to ask whether Voss had said *one would prefer* or *one would have preferred*, and wrote the answer down in the margin underlined.
+  - if: {flags: [dora_has_silence]}
+    text: |-
+      She waited a full minute. Then another. Then she picked the pencil up and tapped it once on the desk and put it back down and looked at me the way you look at somebody you have decided not to be angry with yet.
+  - female_adult_american_crisp_direct_clear: |-
+      All right. Here is what we do. You are not going home. You are not going to your office until I tell you. There is a printer on Howard I can use if mine gets leaned on, and there is a printer in Oakland I can use if Howard gets leaned on. If I have to file out of Oakland it goes Tuesday instead of Monday, and you live until Tuesday or you don't.
+  - female_adult_american_crisp_direct_clear: |-
+      Eighteen hours. I need eighteen hours. After that the city does not get to take it back.
+  - |-
+    She told me where to go to ground. She did not write it down. She said it once and watched me hear it and did not say it again.
+  - |-
+    Whatever package Salzano's men had been driving toward all morning, they were now driving toward a desk that had already given the contents to the woman who would print them. The bridge was made. The cargo had crossed.
+
+choices:
+  - text: |-
+      Continue.
+    next: act3/office_dusk_arrive
+    effects:
+      flags:
+        reached_dora: true

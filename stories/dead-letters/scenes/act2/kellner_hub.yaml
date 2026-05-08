@@ -1,0 +1,71 @@
+id: act2/kellner_hub
+
+text:
+  - if: visited
+    text: |-
+      The coffee in front of him had not gone down. The coffee in front of me had. He waited the way men wait who have been paid to wait.
+    else: |-
+      He sat the way he had always sat — one elbow on the back of the booth, the other hand flat on the table, the pen capped now and laid parallel to the saucer. A man arranging his furniture before he opened the door for company.
+  - if: {flags: [kellner_brisk]}
+    text: |-
+      He had read the cold and adjusted. The smile thinner now. The warmth still there, just rationed.
+  - if: {flags: [kellner_on_my_turf]}
+    text: |-
+      My chair. My desk. My bottle on the blotter between us, two glasses, neither of them touched yet.
+  - |-
+    There was a topic in him for every door in my week. He would let me pick which door to open. The pen would tap once on the table when I had picked the wrong one and he would not know that I had learned to watch the pen.
+
+choices:
+  - text: |-
+      Talk about Ray Doss.
+    next: act2/kellner_topic_doss
+    requires:
+      flags_unset: [asked_kellner_doss]
+    hide_if_failed: true
+
+  - text: |-
+      Talk about Aldwick.
+    next: act2/kellner_topic_aldwick
+    requires:
+      flags:
+        - aldwick_visited_act2
+      flags_unset: [asked_kellner_aldwick]
+    hide_if_failed: true
+
+  - text: |-
+      Talk about the force. The year you left.
+    next: act2/kellner_topic_past
+    requires:
+      stats:
+        rep: 6
+      flags_unset: [asked_kellner_past]
+    failed_text: |-
+      *(Not yet. He doesn't trust you with that yet.)*
+
+  - text: |-
+      Tell him about the ledger.
+    next: act2/kellner_topic_ledger
+    requires:
+      flags:
+        - found_ledger
+      flags_unset: [asked_kellner_ledger]
+    failed_text: |-
+      *(You don't have it. Don't bluff him.)*
+
+  - text: |-
+      Ask if he can give you a name.
+    next: act2/kellner_topic_name
+    requires:
+      flags_unset: [asked_kellner_name]
+    hide_if_failed: true
+
+  - text: |-
+      Take the graceful exit. "You don't have to tell me any of this."
+    next: act2/kellner_diner_exit
+
+  - text: |-
+      Walk out without a goodbye.
+    next: act2/kellner_diner_exit
+    effects:
+      flags:
+        kellner_walked_out: true

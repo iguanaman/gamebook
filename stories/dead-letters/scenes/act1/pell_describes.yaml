@@ -1,0 +1,31 @@
+id: act1/pell_describes
+
+text:
+  - female_elder_american_relatable_likeable: |-
+      Tall. English in his vowels — the polite kind, not the stage kind. A small scar through the upper lip. I noticed it because he touched it. Twice. Like a man checking a tie.
+  - |-
+    She says it the way she'd describe a parcel left on the porch. Then her hand goes to the keys again and stays there.
+  - |-
+    The eavesdropper. The one who paid for your drink without looking up. He has been here. He has stood on this rug.
+
+choices:
+  - text: |-
+      Thank her warmly. Tell her she did right to mention it.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true
+
+  - text: |-
+      Nod once. Take the stairs.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true
+
+  - text: |-
+      Don't thank her. The clock just got louder. Move.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true

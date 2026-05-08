@@ -1,0 +1,21 @@
+id: act3/act_3_bury_it_late
+
+text:
+  - |-
+    The Lincoln took me away from the river without ever quite making me feel I was the one driving it. Walt had stood at the door of the warehouse and watched me back the car around on the gravel and did not raise his hand. I did not raise mine.
+  - |-
+    The book had not been in the car because the book had not been anywhere I could put my hand on it. He had taken the absence at face value, which was the only kindness left in the room and one he had meant.
+  - if: {flags: [accepted_offer_bury]}
+    text: |-
+      A card came to the office on Tuesday. A security firm on Lexington with an address printed on it and a number written by hand. *Position open at your convenience, Mr. Cady. Discreet. We do not require references.* Walt's hand. I never took the position. The card stayed in the desk drawer until I closed the office, and it went into the drawer of a different desk somewhere outside Sacramento where it stays.
+  - |-
+    A train ticket. Sacramento. Cash. The clerk did not look up. I caught the six fifteen and slept in the seat with my coat over me and woke up where the air smelled of grass instead of oil.
+  - |-
+    A year later. A diner counter. The waitress called me Mr. Cady because I had told her my name once. The paper folded beside the coffee. Halston Thorne's name on a board in New York. The same suit, the same tan, the signet ring.
+  - |-
+    Vera Doss's photograph in my wallet. I took it out and put it on the formica beside the cup and looked at it and put it back. I drank the coffee. I ordered another coffee.
+
+journal: |-
+  You walked. He let you. A year later you read about Halston Thorne's promotion at a diner counter and ordered another coffee.
+
+choices: []

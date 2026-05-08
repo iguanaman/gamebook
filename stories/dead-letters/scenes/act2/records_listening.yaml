@@ -1,0 +1,21 @@
+id: act2/records_listening
+
+text:
+  - |-
+    I put my ear to the wall of the office two doors short of the records room. The plaster was cold. The voice on the other side was not.
+  - male_midlife_british_dark_seductive_deep: |-
+      The Aldwick parcels. Fourteen, sixteen, twenty-two. The Carmody lot by the end of the month. No, the surveys are signed. They have been signed since March.
+  - |-
+    He read three names I knew from the *Examiner* column Mort would not write again. He read two dates that matched the rezoning notices Marta had pasted into her exercise book in pencil. He did not raise his voice once.
+  - |-
+    The receiver hit the cradle once, gently. A chair leg scraped. Footsteps that did not hurry, going the other way down the corridor.
+
+choices:
+  - text: |-
+      Continue to the records room.
+    next: act2/records_inside
+    effects:
+      stats:
+        evidence: 1
+      flags:
+        salzano_named: true

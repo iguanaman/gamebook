@@ -1,0 +1,31 @@
+id: act1/pell_afraid
+
+text:
+  - |-
+    Mrs. Pell looks at the stairwell behind her, then back at you. Drops her voice to the side of her mouth.
+  - female_elder_american_relatable_likeable: |-
+      She hasn't slept since Sunday. I hear her. The chair scrapes at three in the morning. She doesn't eat what I bring up. Don't tell her I said so, Mr. Cady. Please.
+  - |-
+    She is not a woman who asks please often. You can hear it in her mouth, how unfamiliar the word is.
+
+choices:
+  - text: |-
+      Promise quietly. Go up.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true
+
+  - text: |-
+      Tell her she's a kind woman. Then go up.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true
+
+  - text: |-
+      Don't promise anything. Take the stairs while the saying is still fresh.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true

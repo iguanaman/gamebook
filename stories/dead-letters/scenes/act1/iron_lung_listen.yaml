@@ -1,0 +1,17 @@
+id: act1/iron_lung_listen
+
+text:
+  - |-
+    I drank the drink. I ordered another. I gave up on Lou and on Ray and on the man at the end of the bar, and I let the room talk past me the way rooms do when you stop reaching for them.
+  - |-
+    A name came up twice, at two different tables, in the kind of voice men use when they are saying a thing out loud they are not sure they should say at all. *Aldwick.* Once from the booth behind me — the speaker stopped mid-sentence when his friend kicked him under the table. Once from the corner — softer, regretful, said the way a man says the name of a town he used to live in.
+  - |-
+    I paid up and left. The drink hadn't told me anything Ray hadn't already told me, but the room had given me the name twice without being asked, and you take what the city gives you.
+
+choices:
+  - text: |-
+      Out into the wet pavement. Aldwick. The name is yours now, however you came by it.
+    next: act1/iron_lung_exit
+    effects:
+      flags:
+        aldwick_visited: true

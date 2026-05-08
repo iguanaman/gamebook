@@ -1,0 +1,40 @@
+id: act2/marta_reuben
+
+text:
+  - female_midlife_african-american_casual_opinionated: |-
+      Reuben. Show the man your paper.
+  - |-
+    Reuben came to the table. He took the condemnation notice out of his back pocket and unfolded it the way a man unfolds something he has unfolded too many times. The creases were soft.
+  - |-
+    The date on the order was six weeks before Ray's last filed survey of Aldwick's east side. The order predated the survey it cited. A document had been written before the document that justified it.
+  - male_adult_african-american_uneducated: |-
+      The city.
+  - |-
+    He said it the way another man would have said *the weather*. As a thing that arrives.
+
+choices:
+  - text: |-
+      Note the dates. Ask Reuben if you can keep the notice.
+    next:
+      - scene: act2/reuben_keeps
+        weight: 2
+      - scene: act2/reuben_gives
+        weight: 3
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Note the dates. Don't take the paper. Reuben needs it for the hearing.
+    next: act2/marta_kitchen
+    effects:
+      stats:
+        evidence: 1
+        rep: 1
+
+  - text: |-
+      Ask Reuben directly: was he visited by a man with a scar.
+    next: act2/marta_kitchen
+    effects:
+      stats:
+        evidence: 1

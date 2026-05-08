@@ -1,0 +1,44 @@
+id: act2/aldwick_walk
+
+text:
+  - |-
+    I walked the block before I opened my mouth. Counted boards. Eleven where there had been two in spring. A door that had been painted blue last year was now plywood and a hand-lettered notice telling whoever lived there to vacate before the end of the month.
+  - |-
+    The surveyor's stake stood in a vacant lot like a thing that had grown up out of the ground. I crouched and read the date stamped on the metal flag. Three weeks before Ray died. The order it justified had been filed six weeks before that.
+  - if: {stats: {heat: 4}}
+    text: |-
+      A brown sedan was parked at the corner. Same model, same dent in the rear quarter as the one that had been outside Vera's boarding house the night before she stopped answering her door. The driver was reading a paper that had not turned a page since I came around the corner.
+  - |-
+    The block had told me what it could without being asked. The hall waited.
+
+choices:
+  - text: |-
+      Pocket the stake's date as a number you'll remember. Go to the church hall.
+    next: act2/church_hall_meeting
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Knock on the first boarded door. See who opens.
+    next:
+      - scene: act2/boarded_door_old_woman
+        weight: 3
+      - scene: act2/boarded_door_nobody
+        weight: 2
+
+  - text: |-
+      Cross the street and look at the brown sedan plate.
+    next: act2/sedan_plate
+    requires:
+      stats:
+        heat: 4
+    hide_if_failed: true
+    effects:
+      stats:
+        heat: 1
+        evidence: 1
+
+  - text: |-
+      Go straight to the church hall. The walk has told you enough.
+    next: act2/church_hall_meeting

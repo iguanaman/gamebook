@@ -1,0 +1,27 @@
+id: act2/squeeze_mort_dora
+
+text:
+  - |-
+    He took a matchbook out of his coat. Brown cover, *Henning's Diner* on the front. He turned it over and wrote on the inside flap with the desk pen, the inked thumb pressing the matchbook flat against the desk.
+  - male_elder_american_wise_approachable: |-
+      Tenth and Garfield. The smaller paper. *Tribune-Ledger*. Reyes, Dora — D-O-R-A. She works late on Wednesdays. Don't lose this. Don't bring it to her in person. Mail it.
+  - |-
+    He looked at the matchbook in my hand the way a man looks at a thing he has just handed to a friend who is going somewhere he himself is not going.
+  - male_elder_american_wise_approachable: |-
+      I have seen this play before, kid. I have seen it twice. It runs better when the man with the package mails the package and goes home and locks the door.
+  - |-
+    He left without finishing the drink I had poured him.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/kellner_diner
+    requires:
+      flags:
+        - kellner_called
+      flags_unset: [kellner_met]
+    hide_if_failed: true
+
+  - text: |-
+      Continue.
+    next: act2/kellner_phone

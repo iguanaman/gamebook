@@ -1,0 +1,38 @@
+id: act2/kellner_topic_ledger
+
+text:
+  - male_midlife_american_rich_smooth_rugged: |-
+      A man like Doss. Quiet, careful, lined up his rows of numbers for a living. A man like that — would he keep a record? Off the books, I mean. A second set, the way some of them do. For his own peace of mind.
+  - |-
+    The pen had not moved. The coffee had not moved. He was asking the way an old friend asks how the dog is, except I did not have a dog and he knew it.
+  - |-
+    The temptation was the warmth. The warmth was the temptation. He was offering me the chance to set it down on the table between us, and a part of me — the part that had spent the last week alone with it — wanted to.
+
+choices:
+  - text: |-
+      Tell him. The whole shape of it. Where you found it. What's in it.
+    next: act2/kellner_hub
+    effects:
+      stats:
+        rep: 1
+      flags:
+        asked_kellner_ledger: true
+        trusted_kellner: true
+
+  - text: |-
+      Tell him you've heard rumours but you haven't seen it yourself.
+    next: act2/kellner_hub
+    effects:
+      flags:
+        asked_kellner_ledger: true
+        kellner_lied_to: true
+
+  - text: |-
+      Tell him you have it and you're not telling him where.
+    next: act2/kellner_hub
+    effects:
+      stats:
+        heat: 1
+      flags:
+        asked_kellner_ledger: true
+        kellner_knows_i_have_it: true

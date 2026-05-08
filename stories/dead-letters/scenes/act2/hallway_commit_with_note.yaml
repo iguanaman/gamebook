@@ -1,0 +1,43 @@
+id: act2/hallway_commit_with_note
+
+text:
+  - |-
+    Mort's stair landing smelled of cigarette and the kind of newsprint ink that does not come off a thumb. He opened the door before I knocked. He had been waiting for it the way men wait for a thing they have not been told is coming but know is coming anyway.
+  - |-
+    The parcel went into his hand. The address Mort had given me was on the matchbook in my coat pocket and I did not need to read it for him. He read it himself, once, the way a man reads the name on a tag tied to a thing he is going to carry for somebody else.
+  - male_elder_american_wise_approachable: |-
+      Dora. By sunrise. Kid, I'll have it on her desk before her coffee.
+  - |-
+    He did not ask what was in it. He did not ask where I was going. He had decided both of those things by the way I was standing in his doorway at midnight with a parcel and a coat that had not been off all day.
+  - |-
+    I turned to go. He stopped me at the door. He shook my hand the way men shake hands who know they are saying goodbye and have agreed without saying so to pretend that they are not.
+  - male_elder_american_wise_approachable: |-
+      Cady. If you walk back through that door tomorrow, you owe me a drink and a column. If you don't, I'll write the column anyway.
+  - |-
+    I went down the stairs. The street outside Mort's building was empty in the same rehearsed way the street outside my office had been empty.
+
+choices:
+  - text: |-
+      Pier 14. The warehouse with the green door.
+    next: act2/act_2_to_act_3
+    effects:
+      flags:
+        left_package: true
+        package_late_filed: true
+
+  - text: |-
+      Pier 14. The long way. Through the rail yard.
+    next: act2/act_2_to_act_3
+    effects:
+      flags:
+        left_package: true
+        package_late_filed: true
+        frank_took_long_way: true
+
+  - text: |-
+      Pier 14. Don't think about Mort's hand on the door behind you.
+    next: act2/act_2_to_act_3
+    effects:
+      flags:
+        left_package: true
+        package_late_filed: true

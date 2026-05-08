@@ -1,0 +1,52 @@
+id: act1/vera_visit_intro
+
+text:
+  - |-
+    The boarding house is on Pell Street, three blocks from a streetcar that runs late. Painted door, painted shutters, the paint kept up by someone who thinks well of the place.
+  - |-
+    Mrs. Pell answers on the second knock. Apron, key chain at her hip, a smile she has pinned on the way other women pin on a hat.
+  - female_elder_american_relatable_likeable: |-
+      Mr. Cady. Vera said you might come back. She's upstairs. I'll let her know.
+  - |-
+    She doesn't move from the doorway. Her hand finds the keys at her hip and stops on one of them without looking.
+  - female_elder_american_relatable_likeable: |-
+      A man came yesterday. Asking after her. He didn't leave a name and I didn't ask twice. I thought you should know that before you went up.
+
+choices:
+  - text: |-
+      Ask Mrs. Pell to describe him.
+    next: act1/pell_describes
+    requires:
+      flags_unset: [asked_pell_visitor]
+    effects:
+      flags:
+        asked_pell_visitor: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Thank her. Go up to Vera.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true
+
+  - text: |-
+      Ask if Vera has seemed afraid.
+    next: act1/pell_afraid
+    requires:
+      flags_unset: [asked_pell_afraid]
+    effects:
+      flags:
+        asked_pell_afraid: true
+      stats:
+        rep: 1
+
+  - text: |-
+      Push past her. You don't have time to be polite.
+    next: act1/vera_room
+    effects:
+      flags:
+        visited_vera_again: true
+      stats:
+        rep: -1

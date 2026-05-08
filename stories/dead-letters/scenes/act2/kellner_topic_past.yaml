@@ -1,0 +1,43 @@
+id: act2/kellner_topic_past
+
+text:
+  - male_midlife_american_rich_smooth_rugged: |-
+      Captain Reilly. You remember Reilly. Built like a barrel and twice as wet inside. He's down in Sarasota now, runs a charter boat for tourists, sends a card every Christmas signed *with regards from your old commanding pain in the ass.*
+  - |-
+    He laughed. I laughed because the laugh was the price of admission. He drank coffee. He let it sit a beat. Then —
+  - male_midlife_american_rich_smooth_rugged: |-
+      Reilly's the one who took the heat off you. Year you left. After we cleared you out. He was good for that.
+  - |-
+    *After we cleared you out.* He had said it the way a man says *after we got the boat in.* Plural and small and so easy to walk past that walking past it was the only thing a careful man would do.
+  - |-
+    I had not walked past it. He was watching to see whether I had walked past it. The pen on the saucer did not move and that was how I knew he was watching.
+
+journal: |-
+  Walt Kellner spoke of the year I left the force in the plural. *After we cleared you out.* He was the one who put me out. He has been smiling at me for ten years.
+
+choices:
+  - text: |-
+      Don't react. Pour him another. Let the moment pass.
+    next: act2/kellner_hub
+    effects:
+      flags:
+        asked_kellner_past: true
+        frank_past_revealed: true
+        kellner_revealed_himself: true
+
+  - text: |-
+      Look him in the face. Make him say the rest.
+    next: act2/kellner_hub
+    effects:
+      flags:
+        asked_kellner_past: true
+        frank_past_revealed: true
+        kellner_knows_i_know: true
+
+  - text: |-
+      Stand up. Walk to the counter. Come back and change the subject.
+    next: act2/kellner_hub
+    effects:
+      flags:
+        asked_kellner_past: true
+        frank_past_revealed: true

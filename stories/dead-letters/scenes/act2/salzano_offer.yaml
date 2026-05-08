@@ -1,0 +1,56 @@
+id: act2/salzano_offer
+
+text:
+  - |-
+    He kept his hands in his coat pockets. He kept his voice where it had been. The second man on the half-landing did not move at all.
+  - male_midlife_british_dark_seductive_deep: |-
+      Mr. Cady. Hand me the file. Walk out by way of the front door. There is a job at a small shipping office in San Diego that comes with a flat above it. The salary is modest. The climate is kind. We will have your things sent.
+  - |-
+    The first time the conspiracy had spoken to me by name. He used my name the way a man uses a stranger's name and a friend's name in the same breath, and the difference between was the part that did the work.
+  - male_midlife_british_dark_seductive_deep: |-
+      Take the train tomorrow. Take it tonight. Either is fine.
+
+choices:
+  - text: |-
+      Hand him the file. Walk out the front door. Take the train.
+    next: act2/act_2_bury_it_early
+
+  - text: |-
+      Hand him the file. Walk out. Don't take the train.
+    next: act2/records_room_exit
+    effects:
+      stats:
+        heat: 2
+        evidence: -2
+      flags:
+        cops_warned_off: true
+        pushed_back: false
+
+  - text: |-
+      Refuse. Throw the pages over his shoulder down the stairwell.
+    next:
+      - scene: act2/records_alley_escape
+        weight: 2
+      - scene: act2/records_stairwell_death
+        weight: 2
+    requires:
+      stats:
+        rep: 4
+    failed_text: |-
+      *(Not a man whose standing throws paper at Salzano.)*
+    effects:
+      stats:
+        heat: 2
+      flags:
+        pushed_back: true
+
+  - text: |-
+      Refuse politely. Talk.
+    next:
+      - scene: act2/records_alley_escape
+        weight: 1
+      - scene: act2/records_stairwell_death
+        weight: 3
+    effects:
+      stats:
+        heat: 2

@@ -1,0 +1,40 @@
+id: act2/stairwell_warning
+
+text:
+  - |-
+    He was waiting on the second-floor landing the way men wait when they have been told to wait and have decided to enjoy it. Hat tipped back. Toothpick in the corner of his mouth. A jacket cut for a man whose shoulders did not actually go that wide.
+  - |-
+    Detective Costa. I had seen him at the boarding house behind Brennan, talking past Brennan to the uniforms the way men talk who want to be lieutenant by Christmas. He had been waiting on my landing an hour, by the look of the spent toothpicks at his feet.
+  - male_midlife_american_loud_confident_cocky: |-
+      Frankie. There he is. I was about to give up on you, pal.
+  - |-
+    He came off the wall like he'd been resting against it for theatre, not because he needed to. He let the smile hang.
+  - male_midlife_american_loud_confident_cocky: |-
+      Listen. Doss case is closed. Closed means closed, you read me? My lieutenant is being polite about it, that's why he sent me and not himself. We're past polite next time, alright Frankie?
+  - |-
+    Across the hall, the door of 2B was open three inches. The widow who lived there did not turn her radio off when men were on the stairs. She was hearing every word. Costa knew it. So did I.
+
+choices:
+  - text: |-
+      Take it. Nod. Pass him on the stair.
+    next: act2/office_cold_open
+    effects:
+      stats:
+        heat: 1
+
+  - text: |-
+      Stop on the landing. Make him say it twice.
+    next: act2/office_cold_open
+    effects:
+      stats:
+        heat: 1
+        rep: 1
+
+  - text: |-
+      "Whose errand are you running, Costa?"
+    next: act2/office_cold_open
+    effects:
+      stats:
+        heat: 2
+      flags:
+        pushed_back: true

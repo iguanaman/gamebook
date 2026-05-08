@@ -1,0 +1,40 @@
+id: act3/ending_expose
+
+text:
+  - |-
+    Monday morning. The newsboy on the corner of my block was twelve years old and his voice had not finished changing. He hawked the late edition the way he hawked every late edition, with the same single syllable he had used for ball scores and dock fires, and the syllable on Monday was Halston Thorne's name.
+  - |-
+    The *Tribune-Ledger* ran it across four columns above the fold. The Mayor's brother. The Aldwick parcels. The federal calendar. The falsified surveys. The night Ray Doss died and the man who had made the phone call.
+  - if: {flags: [kellner_admitted]}
+    text: |-
+      Walt Kellner's name was in the third paragraph beside mine. Dora had written it the way she wrote everything — short, plain, the verb doing the work. *Lieutenant Walter Kellner of the Organized Crime Unit confirmed the call to this paper's source.* Dora had taken the partial confession at the river and made it stand up in print.
+  - if: {flags: [quint_briefed]}
+    text: |-
+      Officer Daniel Quint, of the Eighteenth Precinct, was named on the witness list. The line read that he had come forward of his own motion. Quint would be off the force inside six months. He had known that when he opened the door of the patrol car beside me on the riverbank and would have done it anyway.
+  - if: {flags: [mort_holds_card]}
+    text: |-
+      Mort Halloran was on the witness list too. He had kept the card in the desk drawer for me the way he had said he would. The byline on the column under Dora's was his — they had given him the sidebar. One more page-one byline before they retired him to obituaries. He got it.
+  - if: {flags: [marta_briefed]}
+    text: |-
+      Marta Gaines was named as a source by name with her permission. A year later her brother Reuben was alive on a porch in a part of Aldwick the highway had not yet reached. The highway would still come. The half-mile north Marta had wanted it turned was not granted. But Reuben was alive a year later, which is the part Marta had asked for and the part the city had not been able to take from her in the end.
+  - if: {flags: [frank_lied_to_marta]}
+    text: |-
+      I had told Marta the highway would turn. It did not turn. She did not write to ask why. She had known when I said it that I was lying, and she had let me say it anyway, because lying was the kindest thing the man at her kitchen table had been able to do for her that night.
+  - if: {flags: [phoned_dora]}
+    text: |-
+      The call had gone through at midnight. Dora had picked up on the second ring. She had not asked me twice if I was sure.
+  - |-
+    The Mayor cancelled the eleven o'clock press conference. Halston Thorne was arrested at his home in Riverdale before his lawyer arrived. He was photographed walking down the steps of his own house with his hands at his sides. The photograph ran in the afternoon papers under the same name the morning papers had not yet learned how to print.
+  - |-
+    My licence was gone by lunchtime. A clerk on the fourth floor of City Hall pulled it from the file and wrote *revoked* on the cover sheet in pencil and put it back. I do not know the clerk's name and the clerk does not know mine.
+  - |-
+    There was a shot somewhere in the next month that may or may not have been at me. The narrator does not commit. The bullet went into the brick of a building I was walking past. I kept walking. Whoever fired it did not fire a second time.
+  - |-
+    The city changed, slowly. It was not the change anyone in Aldwick had asked for. It was the change the city was willing to make, which was less, and later, and accompanied by the kind of editorial in the *Examiner* that explains why the change is a tribute to the city's better self rather than the consequence of one private detective and one journalist who had decided on a Sunday night that Monday was going to be a different morning than Sunday had been.
+  - |-
+    Vera Doss's photograph stayed in my wallet. I did not put it on a desk because there was no desk to put it on. I carried it.
+
+journal: |-
+  The story ran Monday morning. Halston Thorne was named. The Mayor cancelled the press conference. Your licence was gone by lunchtime. The city changed, slowly.
+
+choices: []

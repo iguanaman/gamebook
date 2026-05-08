@@ -1,0 +1,17 @@
+id: act1/iron_lung_he_leaves
+
+text:
+  - |-
+    He finished the beer he hadn't been drinking. Or rather — he picked it up, set it down, paid for it, and walked out of the room without ever looking at it directly.
+  - |-
+    He didn't look at me on the way past either. The booth, when he was gone, was suddenly very small. I sat in it a while longer than I needed to, the way a man sits in a chair after a near miss in traffic.
+  - |-
+    Lou came out from behind the bar to wipe a table he'd already wiped. He didn't look at me either. We had each, in our own way, decided not to have seen anything.
+
+choices:
+  - text: |-
+      Get up and go to Lou. The description is yours now; let him fill in the rest.
+    next: act1/iron_lung_lou
+    effects:
+      stats:
+        evidence: 1

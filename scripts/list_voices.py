@@ -1,7 +1,7 @@
 import os
 import yaml
 
-voices_dir = os.path.join(os.path.dirname(__file__), "tts_voices")
+voices_dir = os.path.join(os.path.dirname(__file__), "..", "tts_voices")
 result = {}
 
 GENDERS = {"male", "female"}

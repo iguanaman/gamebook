@@ -1,0 +1,57 @@
+id: act2/engineer_after_hours_decision
+
+text:
+  - |-
+    Half past nine. The City Engineer's building sat on its block the way a courthouse sits on its block — heavier than the streetscape called for, with windows that looked at you instead of out.
+  - |-
+    The janitor's window on the ground floor was lit, yellow through pebbled glass. Voss's office on the third floor was dark. The front door was locked at six. The side door had a bell pull and behind the bell pull there was a man with a folded racing form and a ring of keys at his belt.
+  - |-
+    Three ways in. One walk away.
+
+choices:
+  - text: |-
+      Pay the janitor. Ten dollars and a friendly face.
+    next: act2/records_janitor
+    requires:
+      stats:
+        rep: 4
+    failed_text: |-
+      *(He doesn't know your name well enough yet.)*
+    effects:
+      stats:
+        heat: 1
+      flags:
+        evidence_path_janitor: true
+
+  - text: |-
+      Use Mort's press badge.
+    next: act2/records_press_badge
+    requires:
+      flags:
+        - mort_owes_one
+      flags_unset: [press_badge_used]
+    effects:
+      flags:
+        mort_owes_one: false
+        press_badge_used: true
+        evidence_path_press: true
+
+  - text: |-
+      Break in through the alley window.
+    next: act2/records_break_in
+    requires:
+      flags_unset: [records_room]
+    effects:
+      stats:
+        heat: 2
+      flags:
+        records_room: true
+        evidence_path_break_in: true
+    hide_if_failed: true
+
+  - text: |-
+      Walk away. The records will keep.
+    next: act2/office_hub
+    effects:
+      flags:
+        voss_after_hours_visited: true

@@ -1,0 +1,23 @@
+id: act2/records_voss_note
+
+text:
+  - |-
+    A loose page on Voss's blotter, three lines in his own hand. The careful loops of a man who had learned penmanship at a school that still cared what penmanship looked like.
+  - |-
+    The first two lines were accounting. Numbers in two columns. A date.
+  - |-
+    The third line was a name and a phone number. *Walt Kellner, BR-7-4412.* The exchange was not one I knew. The number was not in any directory I had read. The name had been my partner's name for ten years.
+  - |-
+    I did not take the page. I memorised the number. I memorised the date. I put the page back the half-inch out of true I had found it.
+  - |-
+    Through the third-floor window, across the street, a man with a tan in a suit too good for the building was getting into the back of a long black car. He did not look up.
+
+choices:
+  - text: |-
+      Continue to the corridor.
+    next: act2/records_corridor_exit
+    effects:
+      stats:
+        evidence: 1
+      flags:
+        kellner_named_by_voss: true

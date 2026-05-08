@@ -1,0 +1,11 @@
+id: act2/cold_trail_lean
+
+# Exit A entry — lean and clean. Drops straight into the cold open.
+text:
+  - |-
+    A week passed the way the bad ones do. Three meals I didn't taste. The slip with ALDWICK on it stayed where I'd left it under the desk lamp, and the city walked around the office like it didn't owe me anything.
+
+choices:
+  - text: |-
+      Climb the stairs to the office.
+    next: act2/office_cold_open

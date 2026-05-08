@@ -1,0 +1,23 @@
+id: act1/boarding_house_summons
+
+text:
+  - |-
+    The phone on the desk rings the way phones ring when the news is already bad. Twice. Three times. Long enough to know that whoever is on the other end has decided not to give up.
+  - |-
+    I picked it up on the fourth.
+  - female_elder_american_relatable_likeable: |-
+      Mr. Cady — Mr. Cady, please, you have to come, the police are here, the police are upstairs, oh — please, Mr. Cady, please come.
+  - |-
+    Mrs. Pell. Run-on, no breath in it, the words tumbling out the way she opens her front door when the bell goes. There was water in her voice and something underneath the water I didn't want to name yet.
+  - |-
+    I didn't ask her what had happened. I already knew. I told her I was on my way and I hung up before she could say it out loud and make it real for both of us.
+  - |-
+    The streetcar took fourteen minutes I will remember the rest of my life. Dusk was coming down on Pell Street the colour of a bruise.
+
+choices:
+  - text: |-
+      Go.
+    next: act1/boarding_house_arrive
+    effects:
+      flags:
+        vera_dead: true

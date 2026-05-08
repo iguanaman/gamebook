@@ -1,0 +1,102 @@
+id: act1/office_hub
+
+text:
+  - |-
+    Back to the office. The radiator coughed and gave up. The retainer envelope sat on the desk where I'd put it, fatter than it had any right to be.
+  - |-
+    A photograph of Ray Doss with that bad haircut. A boarding house number on a slip. A list of places a man stops being at when he stops coming home.
+  - if: visited
+    text: |-
+      The bottle was a finger lower than I remembered leaving it. The rain had not stopped. Neither had I.
+  - if: {flags: [visited_vera_again]}
+    text: |-
+      Across the street, a brown sedan I had not seen before. It had been there both times I'd looked out the window since I'd come back from Vera's. Nobody got out.
+  - |-
+    Three threads, and the day was not getting longer.
+
+choices:
+  - text: |-
+      Take the streetcar to the City Engineer's Office. See where Ray Doss kept his desk.
+    next: act1/engineers_office_lobby
+    requires:
+      flags_unset: [visited_engineer]
+    effects:
+      flags:
+        visited_engineer: true
+
+  - text: |-
+      Go down to the Iron Lung. Ray's neighbourhood bar.
+    next: act1/iron_lung_door
+    requires:
+      flags_unset: [visited_iron_lung]
+    effects:
+      flags:
+        visited_iron_lung: true
+
+  - text: |-
+      Call on Vera at the boarding house.
+    next: act1/vera_visit_intro
+    requires:
+      flags_unset: [visited_vera_again]
+      flags:
+        - visited_engineer
+    effects:
+      flags:
+        visited_vera_again: true
+    failed_text: |-
+      *(Too soon. You haven't earned a second visit.)*
+
+  - text: |-
+      Call on Vera at the boarding house.
+    next: act1/vera_visit_intro
+    requires:
+      flags_unset: [visited_vera_again, visited_engineer]
+      flags:
+        - visited_iron_lung
+    effects:
+      flags:
+        visited_vera_again: true
+    hide_if_failed: true
+
+  - text: |-
+      Mort Halloran is at the door, pint in his coat pocket, knock you'd know in a blackout. Pour him a drink.
+    next: act1/mort_hub
+    requires:
+      flags_unset: [mort_handled]
+
+  - text: |-
+      Brush Mort off without opening the door.
+    next: act1/mort_brushed
+    requires:
+      flags_unset: [mort_handled]
+    effects:
+      flags:
+        mort_handled: true
+        mort_owes_one: false
+
+  - text: |-
+      Sit with what you have. Open the bottle.
+    next: act1/boarding_house_summons
+    requires:
+      flags:
+        - visited_engineer
+        - visited_iron_lung
+    hide_if_failed: true
+
+  - text: |-
+      Sit with what you have. Open the bottle.
+    next: act1/boarding_house_summons
+    requires:
+      flags:
+        - visited_engineer
+        - visited_vera_again
+    hide_if_failed: true
+
+  - text: |-
+      Sit with what you have. Open the bottle.
+    next: act1/boarding_house_summons
+    requires:
+      flags:
+        - visited_iron_lung
+        - visited_vera_again
+    hide_if_failed: true

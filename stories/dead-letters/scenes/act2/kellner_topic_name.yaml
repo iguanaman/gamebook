@@ -1,0 +1,49 @@
+id: act2/kellner_topic_name
+
+text:
+  - male_midlife_american_rich_smooth_rugged: |-
+      A name. All right. I'll give you a name. You didn't get it from me and you don't write it down where anybody could find it.
+  - |-
+    He waited until I had nodded. He waited a beat past that, the way a man hands over a thing he might want back.
+  - male_midlife_american_rich_smooth_rugged: |-
+      Halston Thorne. The Mayor's brother. Wears a tan in March. Lives in a building you and I will never see the inside of. That's the name. Now you have it.
+  - |-
+    He was watching my eyes the way a doctor watches a pupil for a reflex. He was looking for surprise. The whole conversation, the whole hour, the whole ten years had been engineered to make me sit at this table and let him watch my eyes for surprise.
+
+choices:
+  - text: |-
+      Take the name. Don't react.
+    next: act2/kellner_hub
+    effects:
+      stats:
+        evidence: 1
+      flags:
+        asked_kellner_name: true
+        thorne_named: true
+
+  - text: |-
+      Tell him you already had it.
+    next: act2/kellner_hub
+    requires:
+      stats:
+        evidence: 5
+    failed_text: |-
+      *(You don't have enough to bluff him with this.)*
+    effects:
+      stats:
+        evidence: 1
+      flags:
+        asked_kellner_name: true
+        thorne_named: true
+        kellner_knows_i_know: true
+
+  - text: |-
+      Ask him whether the name should scare you.
+    next: act2/kellner_hub
+    effects:
+      stats:
+        evidence: 1
+        rep: -1
+      flags:
+        asked_kellner_name: true
+        thorne_named: true

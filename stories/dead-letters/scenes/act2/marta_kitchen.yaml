@@ -1,0 +1,67 @@
+id: act2/marta_kitchen
+
+text:
+  - |-
+    Marta's kitchen. Coffee on the stove that had been on too long. The exercise book open on the table — pencil columns, names of evicted neighbours, dates ruled in pencil with the kind of straight line a person rules when they have ruled a great many lines.
+  - |-
+    Reuben at the back door, paper folded in his hands, pretending to read it. He did not turn pages either.
+  - female_midlife_african-american_casual_opinionated: |-
+      Coffee, Mr. Cady. It's not good. It's hot.
+  - |-
+    She poured. Sat. Closed the book and rested her hand on it the way a person rests a hand on a dog that bites strangers.
+
+choices:
+  - text: |-
+      Tell her about Ray's notebook — what you suspect he kept.
+    next: act2/marta_full_account
+    requires:
+      stats:
+        rep: 5
+      flags_unset: [aldwick_lied_cop]
+    failed_text: |-
+      *(She doesn't trust you that much. Not yet.)*
+
+  - text: |-
+      Ask about the back porch on Lemoine — was Ray there the night he died?
+    next: act2/marta_partial
+    requires:
+      stats:
+        rep: 3
+    failed_text: |-
+      *(She's not ready to put that street in your mouth.)*
+
+  - text: |-
+      Show her the key. Ask if she knows the depot.
+    next: act2/marta_key_thread
+    requires:
+      flags:
+        - ray_key_kept
+      stats:
+        rep: 4
+    failed_text: |-
+      *(She looks at the key, then at you, and says nothing.)*
+
+  - text: |-
+      Ask about Reuben — what was on his condemnation notice.
+    next: act2/marta_reuben
+    effects:
+      stats:
+        evidence: 1
+
+  - text: |-
+      Apologise for the lie at the meeting and ask her to start him over.
+    next: act2/marta_apology
+    requires:
+      flags:
+        - aldwick_lied_cop
+      flags_unset: [aldwick_apologised]
+    effects:
+      flags:
+        aldwick_apologised: true
+      stats:
+        rep: 1
+    hide_if_failed: true
+
+  - text: |-
+      Thank her for the coffee. Leave.
+    next: act2/aldwick_exit

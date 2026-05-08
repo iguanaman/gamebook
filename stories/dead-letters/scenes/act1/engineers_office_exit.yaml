@@ -1,0 +1,12 @@
+id: act1/engineers_office_exit
+
+text:
+  - |-
+    Marble steps. The slip in my pocket. The portrait in its dirty frame somewhere above me, watching nothing.
+  - |-
+    Across the street, a brown sedan sat at the kerb with its engine off. I didn't look at it. There would be time to look at it later. There would be more time than I wanted.
+
+choices:
+  - text: |-
+      Back to the office.
+    next: act1/office_hub

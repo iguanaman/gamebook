@@ -1,0 +1,38 @@
+id: act1/mort_topic_ray
+
+text:
+  - male_elder_american_wise_approachable: |-
+      Doss. Surveyor. Quiet fellow. [chuckle] You know a contractor lost the Aldwick paving job last spring? Came in lowest by a country mile. Lost it anyway.
+  - |-
+    He swirled his glass and watched the light through it.
+  - male_elder_american_wise_approachable: |-
+      Won by a fellow whose brother runs a bank. Funny old town, kid. Funny old paperwork.
+  - |-
+    He grinned at me like a man who had just dropped a coin in a jar to see if I noticed it land.
+
+choices:
+  - text: |-
+      Catch the name in the joke. Press for it.
+    next: act1/mort_hub
+    effects:
+      flags:
+        asked_mort_ray: true
+      stats:
+        evidence: 1
+        rep: 1
+
+  - text: |-
+      Laugh. Let him think you missed it.
+    next: act1/mort_hub
+    effects:
+      flags:
+        asked_mort_ray: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Tell him you're not here to chase ghosts.
+    next: act1/mort_hub
+    effects:
+      flags:
+        asked_mort_ray: true

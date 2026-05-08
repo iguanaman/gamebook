@@ -1,0 +1,39 @@
+id: act1/tice_spills
+
+text:
+  - |-
+    I held him there with a hand on his shoulder that was not pushing. He looked at the corridor and back at me and the words came out the way a man pours water with a shaking hand — too fast, then nothing, then too fast again.
+  - male_young_american_weak: |-
+      His last report. Ray's. There was — there was a corner lot. East side of Aldwick. Ray put a survey on it. Sir, the lot — the lot doesn't exist. There's no — there's a vacant. It's a vacant. There's nothing there.
+  - |-
+    He said it like the lot itself was the thing he was confessing to. I repeated the name back to him, *Aldwick*, and he nodded once, hard, and looked at his hands.
+  - |-
+    Then he was gone — down the corridor first, the wristwatch sliding back up, the ink-stained cuff tucking itself in as he walked. He didn't look at me again.
+
+choices:
+  - text: |-
+      Watch him go. Memorise his back. Owe him one.
+    next: act1/engineers_office_exit
+    effects:
+      flags:
+        met_tice: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      File the lot detail. Pocket it the way you pocketed the slip.
+    next: act1/engineers_office_exit
+    effects:
+      flags:
+        met_tice: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Stand a moment in the stairwell and let the kid get clear before you move.
+    next: act1/engineers_office_exit
+    effects:
+      flags:
+        met_tice: true
+      stats:
+        evidence: 1

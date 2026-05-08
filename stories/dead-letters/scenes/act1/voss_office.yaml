@@ -1,0 +1,41 @@
+id: act1/voss_office
+
+text:
+  - |-
+    Cyril Voss had half-moon spectacles and a small enamel pin on his lapel from a charity dinner he had no doubt hosted. He polished the lenses with a folded handkerchief while he waited for me to sit. He kept polishing them after I had.
+  - male_adult_british_clear_posh_heartfelt: |-
+      Mr. Cady. Tea? One does the honours oneself in this office, I'm afraid. The boy is on an errand.
+  - |-
+    He poured. He set the cup down two inches from my hand, which is the distance a man puts a thing when he wants you to reach for it. I didn't reach.
+  - male_adult_british_clear_posh_heartfelt: |-
+      Mr. Doss is on personal leave. The file, of course, is in transit. One does what one can.
+  - |-
+    *One*, instead of *I*. He'd said it twice already. I had four ways into him from here, and any of them might land — or land me on the wrong side of a phone call.
+
+choices:
+  - text: |-
+      Friendly bluff. Ask about the department. Build him a corner he can talk in without thinking.
+    next: act1/voss_soft
+
+  - text: |-
+      Polite directness. Ask about Ray's last week, and watch his hands while he answers.
+    next: act1/voss_soft
+
+  - text: |-
+      Pressure him. Say *Aldwick* to his face and see what colour it turns him.
+    next: act1/voss_hard
+    requires:
+      flags:
+        - aldwick_visited
+    hide_if_failed: true
+
+  - text: |-
+      Pressure him. Press on the missing files. Make him say *in transit* a third time and watch what it costs him.
+    next: act1/voss_hard
+
+  - text: |-
+      Make a show of leaving. Stop in the outer corridor with the door not quite shut behind you. Listen.
+    next: act1/voss_eavesdrop
+    effects:
+      stats:
+        heat: 1

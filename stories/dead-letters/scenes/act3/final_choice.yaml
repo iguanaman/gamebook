@@ -1,0 +1,106 @@
+id: act3/final_choice
+
+text:
+  - if: {flags: [path_dora]}
+    text: |-
+      Dora's backroom. The lamp throwing yellow on the desk and on the side of her face. The presses two floors below kept up their argument with the building. She had a fresh sheet rolled into the typewriter. She had not yet typed a word on it. She was waiting on me.
+  - if: {flags: [path_aldwick]}
+    text: |-
+      Marta's kitchen. The lamp on the table between us. Reuben somewhere within hearing or somewhere not — the door to the next room a foot ajar, the porch beyond that. Marta had set a cup of coffee in front of me twenty minutes ago and I had not touched it. She was waiting on me too. She was better at waiting than Dora was. She had practised longer.
+  - if: {flags: [path_office]}
+    text: |-
+      My office. The lamp. The desk. Whatever I had carried with me from the morning room laid out on the blotter. No witness in the room except the chair Vera had sat in and the photograph of her in my wallet. The phone on the corner of the desk, quiet, the receiver in its cradle.
+  - |-
+    There were two things I could do tonight, and the room I was sitting in did not change which two they were.
+  - |-
+    I could publish — hand it to Dora, or have her come to where I was, or pick up the phone and put her on the line — and the *Tribune-Ledger* would run Halston Thorne's name on a Monday-morning corner of every newsstand in this city, and what came after would come after.
+  - |-
+    Or I could walk. Burn the book in the sink. Take a train to Sacramento. Read the Mayor's brother's promotion in a diner-counter paper a year from now and order another coffee. The conspiracy would keep doing what conspiracies do. I would keep doing what I did, somewhere else, more quietly.
+  - if: {flags: [found_ledger]}
+    text: |-
+      I had the book. I had what was in it. I had what could make Halston Thorne's name a public thing on a Monday morning, if I gave it the chance.
+  - if: {flags_unset: [found_ledger]}
+    text: |-
+      I did not have the book. I had what I remembered. I had photographs that were not enough. I had Frank Cady's word, which was the word of a private detective the morning papers were calling a person of interest.
+  - if: {flags: [ledger_dropped]}
+    text: |-
+      The book was in the gravel at the river warehouse where I had dropped it running. It was on its way to Salzano or to a fire and either way it was not on this desk.
+  - if: {flags: [left_package], stats: {heat: 6}}
+    text: |-
+      The package was out there. Mort had put it in the post or Dora had it on the corner of her desk. Whatever I decided in this room, the package had already decided something for itself.
+  - |-
+    The narrator's voice — my voice — got short. One sentence per beat. The way it gets when there is no more to say than what is about to happen.
+
+choices:
+  - text: |-
+      Publish. Hand her the book.
+    next: act3/ending_expose
+    requires:
+      flags:
+        - found_ledger
+      flags_unset:
+        - ledger_dropped
+      stats:
+        evidence: 6
+    failed_text: |-
+      *(You don't have enough to make it stick.)*
+    effects:
+      flags:
+        published: true
+
+  - text: |-
+      Publish anyway. Use what you have. Photographs and testimony.
+    next: act3/ending_expose
+    requires:
+      stats:
+        evidence: 6
+    failed_text: |-
+      *(Not enough.)*
+    effects:
+      flags:
+        published: true
+
+  - text: |-
+      Walk away. Burn the book in the sink.
+    next: act3/ending_bury_late_with_evidence
+    requires:
+      flags:
+        - found_ledger
+    effects:
+      flags:
+        bury_it_late: true
+        burned_ledger: true
+
+  - text: |-
+      Walk away. You don't have the book anyway. Take the train.
+    next: act3/ending_bury_late_without_evidence
+    effects:
+      flags:
+        bury_it_late: true
+
+  - text: |-
+      Sit at the desk. Let them come to you.
+    next: act3/martyr_trigger
+    requires:
+      flags:
+        - left_package
+      stats:
+        heat: 6
+      flags_unset:
+        - reached_dora
+    hide_if_failed: true
+    effects:
+      flags:
+        chose_martyr: true
+
+  - text: |-
+      Pick up the phone. Call Dora and tell her what you decided.
+    next: act3/final_choice_phone
+    requires:
+      flags_unset:
+        - reached_dora
+    failed_text: |-
+      *(You already saw her. There's no time to say it twice.)*
+    effects:
+      flags:
+        phoned_dora: true

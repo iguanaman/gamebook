@@ -1,0 +1,30 @@
+id: act2/reuben_porch
+
+text:
+  - |-
+    Reuben on his porch. The door behind him standing open the way a door stands open when nobody is coming back through it soon.
+  - |-
+    The exercise book was not on the kitchen table. I could see that from the street. The table was bare. The coffee pot was on the stove and the stove was cold.
+  - |-
+    He did not stand when I came up the path. He did not say where Marta was.
+
+choices:
+  - text: |-
+      Push past him into the kitchen.
+    next: act2/aldwick_revisit_squeeze
+    effects:
+      stats:
+        heat: 1
+        rep: -1
+
+  - text: |-
+      Stand on the porch. Wait until he speaks.
+    next:
+      - scene: act2/reuben_speaks
+        weight: 2
+      - scene: act2/reuben_silent
+        weight: 3
+
+  - text: |-
+      Walk away. Give him the courtesy.
+    next: act2/aldwick_exit

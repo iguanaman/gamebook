@@ -1,0 +1,16 @@
+id: act2/neighbour_comes
+
+text:
+  - |-
+    She came. Walked beside me, half a step behind, the shawl pulled tight, and she told it to Marta in Marta's kitchen with the back door closed.
+  - |-
+    Marta wrote it in the exercise book. The pencil moved without hurry. When the neighbour was done Marta closed the book and put a hand on her arm and did not say anything for a long second.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/aldwick_exit
+    effects:
+      stats:
+        evidence: 1
+        rep: 1

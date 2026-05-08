@@ -1,0 +1,39 @@
+id: act1/mort_topic_aldwick
+
+text:
+  - |-
+    I said the name flat. Aldwick.
+  - |-
+    For the first time tonight Mort went quiet. Not the theatrical kind, where he was about to land a punchline. The other kind.
+  - male_elder_american_wise_approachable: |-
+      Aldwick. [sigh] Now that's a name I haven't heard out loud in a while.
+  - |-
+    He didn't tell me anything else. He didn't need to. The silence had weight, and he wanted me to feel it pick up the room.
+
+choices:
+  - text: |-
+      Hold his eye until he looks away first.
+    next: act1/mort_hub
+    effects:
+      flags:
+        asked_mort_aldwick: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Let the silence ride. Top up his glass without saying anything.
+    next: act1/mort_hub
+    effects:
+      flags:
+        asked_mort_aldwick: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Move past it. Don't show him you noticed.
+    next: act1/mort_hub
+    effects:
+      flags:
+        asked_mort_aldwick: true
+      stats:
+        evidence: 1

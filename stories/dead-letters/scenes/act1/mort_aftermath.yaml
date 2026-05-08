@@ -1,0 +1,31 @@
+id: act1/mort_aftermath
+
+text:
+  - |-
+    Mort was already in the back booth at Sully's when I came in. The flask was on the table where the ashtray should have been and the ashtray was on the bench beside him because he had decided the flask had earned the better seat.
+  - male_elder_american_wise_approachable: |-
+      Sit, kid. Take the bench. I ordered you the soup. You're going to need something in your stomach that isn't this.
+  - |-
+    He poured into both our coffees without asking. The waitress went past and pretended not to see it. She had been pretending things at this counter since before I had a press card to lose.
+  - male_elder_american_wise_approachable: |-
+      Nobody at the *Examiner* is writing this one up, Frank. I asked. I asked the night editor and I asked the city desk and I even asked the kid who runs copy because he doesn't know enough yet to lie. They've all got the same line. Slipped in the bath. Tragic. Page eight, three column inches, no photograph. The photograph would be too much, you understand.
+  - male_elder_american_wise_approachable: |-
+      I'll keep my ear to the ground. I'll buy a round in the right places. I can't run it myself, kid. Not from where I'm sitting. Not yet.
+
+choices:
+  - text: |-
+      Thank him. Drink the soup. Go home through the back streets.
+    next: act1/office_alone
+    effects:
+      stats:
+        evidence: 1
+        rep: 1
+
+  - text: |-
+      Ask him about Aldwick again. Louder this time. Let the diner hear it. Let whoever's in the diner hear it.
+    next: act1/office_alone
+    effects:
+      stats:
+        evidence: 1
+        heat: 1
+        rep: 1

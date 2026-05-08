@@ -1,0 +1,20 @@
+id: act1/iron_lung_tail
+
+text:
+  - |-
+    Two blocks. He never once looked over his shoulder, which is how I knew he didn't have to. He turned a corner and a streetcar came between us at exactly the right moment, and when it had gone he was gone with it.
+  - |-
+    I walked home the long way and used the alley stair and stood on my own landing a long time before I put the key in the lock.
+  - |-
+    Somebody had been at the door before me. The brass plate around the keyhole had a fresh scratch in it the size of a thumbnail. The door itself was shut. Whoever had touched it had wanted me to know they had.
+
+choices:
+  - text: |-
+      Back to the office. Pour a drink. Sit with it.
+    next: act1/iron_lung_exit
+    effects:
+      flags:
+        cops_warned_off: true
+      stats:
+        heat: 1
+        evidence: 1

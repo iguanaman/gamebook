@@ -1,0 +1,14 @@
+id: act1/iron_lung_lou_paid
+
+text:
+  - |-
+    The five sat between us a moment longer than I wanted. Lou took it without looking at it. Folded it into his apron pocket the way a man folds a thing he intends to forget by morning.
+  - male_adult_american_witty_casual: |-
+      Tall. English. Scar on the lip. Bought him three, he drank one. That what you came for, buddy?
+  - |-
+    He didn't pour me a second. He didn't say anything else either. He had given me exactly what I'd paid for, and somehow less than that.
+
+choices:
+  - text: |-
+      Drink what's in front of you. Leave when the glass is empty.
+    next: act1/iron_lung_exit

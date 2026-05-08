@@ -1,0 +1,56 @@
+id: act3/aldwick_farewell
+
+text:
+  - |-
+    The kitchen on Aldwick's east end. The same kitchen. The condemnation notice still on the table — folded and re-folded enough times now that the creases were furred. A pot on the stove with something in it that had been on a low flame long enough to be most of the smell of the room.
+  - |-
+    Marta let me in without a word. Pointed at the chair I had sat in twice before. Put a cup down in front of me without asking, then a saucer under the cup as if she had remembered there was a guest in the room and not just somebody in trouble.
+  - female_midlife_african-american_casual_opinionated: |-
+      The radio said your name at six-thirty. I knew it was a lie because I was washing a cup when they said it and I did not break the cup. That is how I know.
+  - if: {flags: [reuben_porch]}
+    text: |-
+      Reuben was on the porch. Door standing open. He had heard me come up the walk and had not turned around. The condemnation notice was in his back pocket where it had been the first time and the second time, and he had taken it out and put it back enough times that the corner was rounded.
+  - if: {flags_unset: [reuben_porch]}
+    text: |-
+      Reuben was in the next room. I could hear the chair he was in creak when he shifted his weight. He was listening. He did not come in. Marta did not call him.
+  - female_midlife_african-american_casual_opinionated: |-
+      Pastor Briggs went to a town in Missouri called Caruthersville. He has a sister there. He left on the Tuesday after you came the second time. He did not say goodbye to me. He left a note for the choir director and a key on my counter and got on a bus.
+  - female_midlife_african-american_casual_opinionated: |-
+      That is the rest of the truth about him. You did not earn the rest before today and I am giving it to you today because today is what today is.
+  - |-
+    She did not say what today was. The radio in her kitchen was not on. She had turned it off after six-thirty and not turned it back on. She had decided what today was and she did not need a man on a wireless to confirm it.
+  - female_midlife_african-american_casual_opinionated: |-
+      Eat or don't eat. Talk or don't talk. I am not going to ask you why you came.
+
+choices:
+  - text: |-
+      Apologise for what your visit cost them.
+    next: act3/office_dusk_arrive
+    effects:
+      flags:
+        said_goodbye_aldwick: true
+      stats:
+        rep: 1
+
+  - text: |-
+      Promise her the highway will turn. Even though it won't.
+    next: act3/office_dusk_arrive
+    effects:
+      flags:
+        said_goodbye_aldwick: true
+        frank_lied_to_marta: true
+
+  - text: |-
+      Tell her what you're about to do tonight.
+    next: act3/office_dusk_arrive
+    effects:
+      flags:
+        said_goodbye_aldwick: true
+        marta_briefed: true
+
+  - text: |-
+      Sit at her table without saying anything for a minute. Leave.
+    next: act3/office_dusk_arrive
+    effects:
+      flags:
+        said_goodbye_aldwick: true

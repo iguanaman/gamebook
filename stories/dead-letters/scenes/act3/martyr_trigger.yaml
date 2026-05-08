@@ -1,0 +1,25 @@
+id: act3/martyr_trigger
+
+text:
+  - if: {flags: [chose_martyr]}
+    text: |-
+      I sat down at the desk and put my hands flat on the blotter and waited. The lamp threw the same yellow it had thrown an hour ago. The phone was in its cradle. The book, if I had it, was in front of me. The package, the one I had put in Mort's hand and Mort had put in the post, was already on its way to a desk in a building I had not yet been brave enough to walk into in person, and would not now.
+  - if: {flags_unset: [chose_martyr]}
+    text: |-
+      The first car pulled up outside before I had finished the sentence I had been writing in my head. The second car came in behind it. Two doors closed in the street. Then a third. Then the building's outer door, the one I had locked behind me, came open without ceremony — Salzano's men did not bother with ceremony.
+  - if: {flags: [path_dora]}
+    text: |-
+      Dora looked at me across the desk. She had heard the cars too. She did not get up. She put her hand on the page she had been writing and slid it under the blotter and looked at me like a woman who had decided, in that two seconds, what her column on Monday was going to begin with.
+  - if: {flags: [path_aldwick]}
+    text: |-
+      Marta heard the cars before I did. Stood. Crossed the kitchen to the back of the room where Reuben was. Put her hand on the doorframe and stayed there. Did not look at me. Did the only thing left for her to do, which was to keep her brother out of the part of the room the men who were coming through the front were going to fill.
+  - if: {flags: [path_office]}
+    text: |-
+      Nobody to look at across a room. The lamp. The desk. The chair Vera had sat in three weeks ago and the photograph of her in my wallet. The narrator's voice — my voice — kept up the sentence it had been making, which was that I had thought when I hung out the shingle that this was honest work and that what came of it would be worth the —
+  - |-
+    The narrator's voice cut off.
+
+choices:
+  - text: |-
+      Continue.
+    next: act3/ending_martyr

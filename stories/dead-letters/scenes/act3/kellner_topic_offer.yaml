@@ -1,0 +1,36 @@
+id: act3/kellner_topic_offer
+
+text:
+  - male_midlife_american_rich_smooth_rugged: |-
+      Here is what I came here to say, Frank. You leave the book. You walk away tonight. No more questions. The licence stays clean. I know a man at a security firm downtown — three days a week, decent money, your name on the door if you want it.
+  - |-
+    He spoke the way he spoke when he meant the words. Long sentence. Honest cadence. Eyes on mine. He had been a good cop once and he had not forgotten how to sound like one.
+  - if: {flags_unset: [found_ledger]}
+    text: |-
+      The absence of the book on the seat of my car was the thing he had been weighing all night. He thought I had not found it. He thought the offer cost him nothing.
+  - else: |-
+      The book was where I had left it. He thought it was somewhere else. Or he wanted me to think he thought so. The fountain pen went back into his pocket and stayed there.
+
+choices:
+  - text: |-
+      Take the offer. Leave the book and walk.
+    next: act3/warehouse_offer_taken
+    effects:
+      flags:
+        heard_offer: true
+        accepted_offer: true
+
+  - text: |-
+      Refuse the offer. Quietly.
+    next: act3/kellner_talk_hub
+    effects:
+      flags:
+        heard_offer: true
+
+  - text: |-
+      Refuse the offer. Out loud, where the men in the cars can hear it.
+    next: act3/warehouse_reveal
+    effects:
+      flags:
+        heard_offer: true
+        kellner_offended: true

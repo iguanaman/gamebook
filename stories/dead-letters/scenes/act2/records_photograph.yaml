@@ -1,0 +1,25 @@
+id: act2/records_photograph
+
+text:
+  - |-
+    Mort's Leica was a small heavy thing in my coat pocket and a smaller heavier thing on the desk. I set the matched-signature pages out flat under the green shade. I framed the first one. I clicked the shutter.
+  - |-
+    The shutter was louder than I had wanted. In a building with carpet it would have been nothing. In a corridor smelling of wax it was a small cough at the end of a long sermon.
+  - |-
+    I counted to forty between frames. I did not reach forty.
+
+choices:
+  - text: |-
+      Finish the roll. Run.
+    next:
+      - scene: act2/records_clean_exit
+        weight: 2
+      - scene: act2/records_corridor_intercept
+        weight: 3
+    effects:
+      stats:
+        evidence: 2
+
+  - text: |-
+      Stop at twelve. Pocket the camera. Walk.
+    next: act2/records_corridor_exit

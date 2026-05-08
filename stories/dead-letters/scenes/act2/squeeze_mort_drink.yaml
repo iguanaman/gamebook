@@ -1,0 +1,25 @@
+id: act2/squeeze_mort_drink
+
+text:
+  - |-
+    I poured two. He took the second one and the third and the fourth. The bottle had been three-quarters full at midnight and was a quarter full at one.
+  - |-
+    We talked about the war. The first one. We talked about a woman he had courted in '21 whose father had owned a pharmacy in Queens. We talked about a horse that had finished out of the money at Belmont in 1934 and which Mort still believed had been pulled.
+  - |-
+    We did not talk about the case. The case was on the desk between us, in the brick on the floor and the card not yet under the door, and we left it there.
+  - |-
+    He went home at one in the morning. I did not remember, the next day, what we had said. Only that very little of it had been the thing that had brought him here, and that he had needed to say the things we did say to a man who would let him say them.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/kellner_diner
+    requires:
+      flags:
+        - kellner_called
+      flags_unset: [kellner_met]
+    hide_if_failed: true
+
+  - text: |-
+      Continue.
+    next: act2/kellner_phone

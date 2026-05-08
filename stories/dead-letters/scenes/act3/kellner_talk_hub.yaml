@@ -1,0 +1,37 @@
+id: act3/kellner_talk_hub
+
+text:
+  - |-
+    Rain on the wire cage of the doorway light. Walt's hands stayed where I could see them. The fountain pen was clipped where it always was. The two cars behind him were dark and quiet, and the men in them were not yet men.
+  - if: {flags: [kellner_admitted, confronted_kellner_past, heard_offer]}
+    text: |-
+      He had said all of it. Everything he had been carrying. He stood in the rain with his hands visible and waited for me to say the next thing or to walk past him into what came after.
+  - else: |-
+      He waited. He had time. He thought he had time.
+
+choices:
+  - text: |-
+      Ray. Ask him about the night Ray died.
+    next: act3/kellner_topic_ray
+    requires:
+      flags_unset: [kellner_admitted]
+
+  - text: |-
+      The past — what you did in '39.
+    next: act3/kellner_topic_past
+    requires:
+      flags:
+        - frank_past_revealed
+      flags_unset: [confronted_kellner_past]
+    failed_text: |-
+      *(You don't know enough to ask. Not yet.)*
+
+  - text: |-
+      The offer. What he wants from you tonight.
+    next: act3/kellner_topic_offer
+    requires:
+      flags_unset: [heard_offer]
+
+  - text: |-
+      Step away from him.
+    next: act3/warehouse_reveal

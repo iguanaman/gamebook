@@ -1,0 +1,34 @@
+id: act3/warehouse_offer_taken
+
+text:
+  - if: {flags_unset: [found_ledger]}
+    text: |-
+      Walt nodded once. Slow. He took the hat off the doorway nail and walked me back to my car the way you walk a friend out of a house at the end of a long evening. He looked in the back seat. He looked in the trunk. He took the absence of the book at face value because the absence was the truth.
+  - if: {flags_unset: [found_ledger]}
+    text: |-
+      He stood in the rain at the door of the Lincoln. He did not say goodbye. He did not say it was over. He let me drive away from the river without ever telling me that the offer had been the line.
+  - else: |-
+      Walt nodded once. Slow. He stepped to the side. He did not look at me when he stepped. The fountain pen stayed in his pocket where his hand had gone.
+  - if: {flags: [found_ledger]}
+    text: |-
+      Salzano walked out from behind the second car. Quiet. The way a man walks who has practiced quiet. He came around the front of the Lincoln and stopped six feet from me with his hands in the pockets of a coat too good for the weather.
+  - if: {flags: [found_ledger]}
+    text: |-
+      The offer had been a feint. I had said yes to it. He had been waiting for that.
+
+choices:
+  - text: |-
+      Continue.
+    next: act3/act_3_bury_it_late
+    requires:
+      flags_unset: [found_ledger]
+    effects:
+      flags:
+        accepted_offer_bury: true
+
+  - text: |-
+      Continue.
+    next: act3/pavement_check
+    requires:
+      flags:
+        - found_ledger

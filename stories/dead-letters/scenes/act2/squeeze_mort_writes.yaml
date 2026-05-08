@@ -1,0 +1,23 @@
+id: act2/squeeze_mort_writes
+
+text:
+  - |-
+    He almost smiled. The colour came back into his face the way colour comes back into the face of a man who has just been told the verdict is the one he wanted.
+  - male_elder_american_wise_approachable: |-
+      Then I write it. You back the byline, kid, I write it. They can spike a column. They can't spike me. Yet.
+  - |-
+    He left the office at half past eleven. He went home to the typewriter on the kitchen table, the one his wife had bought him in '38. I did not know whether the column would run. I would not know until somebody handed me a paper or somebody handed me Mort's hat.
+
+choices:
+  - text: |-
+      Continue.
+    next: act2/kellner_diner
+    requires:
+      flags:
+        - kellner_called
+      flags_unset: [kellner_met]
+    hide_if_failed: true
+
+  - text: |-
+      Continue.
+    next: act2/kellner_phone

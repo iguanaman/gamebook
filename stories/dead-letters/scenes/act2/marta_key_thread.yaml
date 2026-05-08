@@ -1,0 +1,38 @@
+id: act2/marta_key_thread
+
+text:
+  - |-
+    I put the key on the table between us. Brass. Worn at the bow. The number stamped into it just legible if you knew which side to read.
+  - |-
+    Marta did not pick it up. She looked at it the way you look at a photograph of a person you used to know.
+  - female_midlife_african-american_casual_opinionated: |-
+      Ray had a depot box at the rail station. East-side wall, third row up. Number forty-one.
+
+choices:
+  - text: |-
+      Thank her. Note the number.
+    next: act2/aldwick_exit
+    effects:
+      flags:
+        key_number_known: true
+      stats:
+        evidence: 1
+
+  - text: |-
+      Ask why she knows it.
+    next: act2/aldwick_exit
+    effects:
+      flags:
+        key_number_known: true
+      stats:
+        evidence: 1
+        rep: 1
+
+  - text: |-
+      Tell her you'll bring back what's in it. Or what's left of it.
+    next: act2/aldwick_exit
+    effects:
+      flags:
+        key_number_known: true
+      stats:
+        evidence: 1
