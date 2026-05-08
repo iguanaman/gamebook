@@ -1318,7 +1318,7 @@ async function loadScene(storyId, sceneId) {
 
 async function navigateTo(sceneId) {
   cancelPlayback();
-  if (state.scene && !state.visited.includes(state.scene)) {
+  if (state.scene && state.scene !== sceneId && !state.visited.includes(state.scene)) {
     state.visited.push(state.scene);
   }
   state.scene = sceneId;
