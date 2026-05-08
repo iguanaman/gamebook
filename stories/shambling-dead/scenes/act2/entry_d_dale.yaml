@@ -1,0 +1,34 @@
+text:
+  - |-
+    Dale is favouring the leg. He is not making a thing of it. He never makes a thing of it.
+  - if: {flags: [dale_bitten]}
+    text: |-
+      Sweat at his temple, in this air. The wedding band is still on his finger but his thumb has stopped finding it. His mouth is open a fraction wider than it needs to be for the breathing.
+    else: |-
+      He's just hurt. Walking on it because there's nothing else to do.
+  - male_midlife_american_dark_tough: |-
+      Up here. Left at the lights, then we cut south behind the laundromat. I know this stretch.
+  - |-
+    A shape on a balcony two storeys up — an outline against the curtain, not moving. You both clock it. Neither of you names it.
+
+choices:
+  - text: |-
+      Let him lead. Trust the read.
+    next: act2/route_resolve
+  - text: |-
+      Stop. Make him show you the leg now.
+    next: act2/route_resolve
+    requires:
+      flags_unset: [saw_dale_leg]
+    hide_if_failed: true
+    effects:
+      flags:
+        saw_dale_leg: true
+      stats:
+        bond: -1
+  - text: |-
+      Take his weight without asking.
+    next: act2/route_resolve
+    effects:
+      stats:
+        bond: 1

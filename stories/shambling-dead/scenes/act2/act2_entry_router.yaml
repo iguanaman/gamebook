@@ -1,0 +1,47 @@
+text:
+  - |-
+    The cul-de-sac is behind you. Ahead, the city is louder than its loudest single throat — a chord, distributed, the way a crowd is distributed across a stadium.
+  - |-
+    You take the next step.
+
+choices:
+  - text: |-
+      Walk into the city.
+    next: act2/entry_a_solo_cold
+    requires:
+      flags: [abandoned_wounded]
+      flags_unset: [neighbour_alive, teen_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act2/entry_b_solo_mercy
+    requires:
+      flags_unset: [neighbour_alive, teen_alive, abandoned_wounded]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act2/entry_c_caleb
+    requires:
+      flags: [teen_alive]
+      flags_unset: [neighbour_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act2/entry_d_dale
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act2/entry_e_clean
+    requires:
+      flags: [neighbour_alive, teen_alive]
+      flags_unset: [dale_bitten]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act2/entry_f_poisoned
+    requires:
+      flags: [neighbour_alive, teen_alive, dale_bitten]
+    hide_if_failed: true

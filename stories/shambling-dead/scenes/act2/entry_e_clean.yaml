@@ -1,0 +1,24 @@
+text:
+  - |-
+    Three of you on the arterial. Dale ahead, naming streets. Caleb tucked between. You at the back. The shape of a small group that decided who watches what without saying it.
+  - |-
+    For a length of road you could measure in steps, the chord of the city is something the three of you are walking through together, and that is different than walking through it alone.
+  - |-
+    A door slams open in an empty hallway across the street — the wind, or not the wind. Caleb's head turns. Dale's doesn't. You don't say anything either. None of you wants to be the one who names it.
+
+choices:
+  - text: |-
+      Stay between them. Move.
+    next: act2/route_resolve
+  - text: |-
+      Set the pace. Make them keep up.
+    next: act2/route_resolve
+    effects:
+      stats:
+        bond: -1
+  - text: |-
+      Check both of them. Names. Eyes.
+    next: act2/route_resolve
+    effects:
+      stats:
+        bond: 1

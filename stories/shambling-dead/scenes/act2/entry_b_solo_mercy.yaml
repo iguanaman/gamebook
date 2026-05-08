@@ -1,0 +1,12 @@
+text:
+  - |-
+    You walked. You finished what you started, and you walked.
+  - |-
+    Two streets over a pack is working on a delivery van — the metallic give of a rear door, the wet sound of them at it. You give it a block and turn off the line of sight before you slow your breathing.
+  - |-
+    You can carry the weight of what you did. You're carrying it now, and your feet are still moving. That is the whole of the deal.
+
+choices:
+  - text: |-
+      Keep moving.
+    next: act2/route_resolve
