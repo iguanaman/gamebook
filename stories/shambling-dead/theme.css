@@ -69,10 +69,3 @@
 #story-root .scene-opener::first-letter {
   font-family: var(--font-body);
 }
-
-#story-root .choice-num {
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.5) 100%),
-    var(--accent);
-  color: var(--text);
-}
