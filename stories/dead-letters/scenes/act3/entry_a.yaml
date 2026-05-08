@@ -1,0 +1,10 @@
+id: act3/entry_a
+
+text:
+  - |-
+    Cold and quiet. The book on the seat beside me. Nobody on the stairs as I went down. Nobody at the curb. The car started on the second turn the way it always does.
+
+choices:
+  - text: |-
+      Drive.
+    next: act3/drive_out_open

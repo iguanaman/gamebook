@@ -1,0 +1,36 @@
+id: act3/lose_tail
+
+text:
+  - |-
+    Three turns in two blocks. A streetcar on Banner I had not taken since the war and could not have said why I knew its schedule. The sedan stayed with me through the first turn and the second.
+  - |-
+    The third turn was the one. The third turn was the one I had been doing it all for.
+
+choices:
+  - text: |-
+      Push the engine. Cut through the alley behind the brewery. (Rep 5)
+    next:
+      - scene: act3/lose_tail_clean
+        weight: 3
+      - scene: act3/lose_tail_fail
+        weight: 1
+    requires:
+      stats:
+        rep: 5
+    failed_text: |-
+      *(The alley is a young man's gambit. The reputation that opens it isn't yours tonight.)*
+
+  - text: |-
+      Drive sensibly. Lose them in traffic.
+    next:
+      - scene: act3/lose_tail_clean
+        weight: 2
+      - scene: act3/lose_tail_fail
+        weight: 2
+
+  - text: |-
+      Stop driving. Walk the rest.
+    next: act3/lose_tail_clean
+    effects:
+      stats:
+        heat: -1

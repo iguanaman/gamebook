@@ -1,0 +1,12 @@
+id: act3/entry_d
+
+text:
+  - |-
+    Hot and hunted. The book on the seat. A sedan picked me up in the rearview two blocks from the office, four-door, two men in it, headlamps a hand's breadth too low for the model.
+  - |-
+    They had been waiting on the corner. They had not bothered to hide it.
+
+choices:
+  - text: |-
+      Drive.
+    next: act3/drive_out_open

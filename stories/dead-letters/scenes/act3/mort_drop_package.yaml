@@ -1,0 +1,38 @@
+id: act3/mort_drop_package
+
+text:
+  - |-
+    Mort answered the door in shirtsleeves and a tie loose at the collar. No surprise on him. He had known the bell would ring tonight; he had known whose hand would be on it.
+  - |-
+    He took the envelope. He did not ask what was in it. He sat down at his hall table and wrote an address on the front of it with the same desk pen and the same inked thumb he had been writing with for thirty years.
+  - male_elder_american_wise_approachable: |-
+      Dora Reyes. Tribune-Ledger. She'll know it's from a friend.
+  - male_elder_american_wise_approachable: |-
+      Go, kid. Go on.
+
+choices:
+  - text: |-
+      Hand him the envelope. Leave without saying it.
+    next: act3/drive_river_arrive
+    effects:
+      flags:
+        left_package: true
+        package_via_mort: true
+
+  - text: |-
+      Hand him the envelope. Tell him what's in it.
+    next: act3/drive_river_arrive
+    effects:
+      flags:
+        left_package: true
+        package_via_mort: true
+        mort_knows: true
+
+  - text: |-
+      Hand him the envelope. Ask him to wait two days before mailing it.
+    next: act3/drive_river_arrive
+    effects:
+      flags:
+        left_package: true
+        package_via_mort: true
+        package_delayed: true

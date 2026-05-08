@@ -1,0 +1,64 @@
+id: act3/drive_out_open
+
+text:
+  - |-
+    Rain on the windscreen. The wipers two beats slower than my pulse and not catching up. A cigarette I had lit at the kerb burning down between two fingers I was not paying attention to.
+  - |-
+    On the seat beside me, where the book was, or where the book wasn't.
+  - |-
+    I had hung out a shingle in 'forty after the force was through with me because I had thought private work was the same work without the captain. I had thought a man could keep his hands clean by doing the small things — the missing husband, the cheating wife, the kid who hadn't come home — and let the city do whatever the city was going to do without him in the room.
+  - |-
+    I had thought a lot of things in 'forty.
+  - if: {flags: [frank_past_revealed]}
+    text: |-
+      I knew now what I had not known then. The captain had not pushed me out for the case I had refused to bury. Walt had pushed me out for it, and the captain had signed his name to it. Walt had sat across a desk from me on a Tuesday in 'thirty-nine and asked me how my mother was doing, and on the Wednesday he had put the report I would not write on a man who would write anything.
+  - if: {flags: [frank_past_revealed]}
+    text: |-
+      And tonight, knowing it, I was driving to a warehouse on the river to meet him.
+  - if: {flags: [cops_warned_off]}
+    text: |-
+      The sedan was two blocks behind me before I cleared the office. Headlamps a hand's breadth too low for a Buick. They were not pretending tonight.
+  - if: {flags: [mort_owes_one]}
+    text: |-
+      The phone in my office had rung twice as I was locking the door. Mort, I knew it before I picked it up. I had not picked it up. There was a payphone on the corner of Ninth I could turn into if I wanted to be a man who took the call.
+
+choices:
+  - text: |-
+      Drive straight to the river. Get this over with.
+    next: act3/drive_river_arrive
+
+  - text: |-
+      Drive the long way. Make him wait.
+    next: act3/drive_river_arrive
+
+  - text: |-
+      Pull into the payphone on Ninth. Take Mort's call.
+    next: act3/mort_phone_call
+    requires:
+      flags: [mort_owes_one]
+      flags_unset: [mort_phoned_act3]
+    effects:
+      flags:
+        mort_phoned_act3: true
+    failed_text: |-
+      *(Nobody's calling. The phone is dead.)*
+
+  - text: |-
+      Stop at Mort's apartment. Drop the package.
+    next: act3/mort_drop_package
+    requires:
+      flags: [mort_owes_one]
+      flags_unset: [left_package]
+    hide_if_failed: true
+
+  - text: |-
+      Try to lose the tail.
+    next: act3/lose_tail
+    requires:
+      stats:
+        heat: 6
+    hide_if_failed: true
+
+  - text: |-
+      Pull over. Sit with it. One cigarette.
+    next: act3/drive_river_arrive

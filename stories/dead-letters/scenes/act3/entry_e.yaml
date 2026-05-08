@@ -1,0 +1,12 @@
+id: act3/entry_e
+
+text:
+  - |-
+    No book. No shield. The seat beside me where the book should have been was the seat beside me, and the rain on the windscreen did not care which.
+  - |-
+    I had what I had. The car started on the second turn.
+
+choices:
+  - text: |-
+      Drive.
+    next: act3/drive_out_open

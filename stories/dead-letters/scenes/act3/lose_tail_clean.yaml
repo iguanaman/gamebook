@@ -1,0 +1,12 @@
+id: act3/lose_tail_clean
+
+text:
+  - |-
+    I parked four blocks short of the river and walked the last stretch on foot. Coat collar up. Hat low. The rain was the kind that hides a man without making him a story.
+  - |-
+    Nobody behind me. The street was the street.
+
+choices:
+  - text: |-
+      Continue on foot.
+    next: act3/drive_river_arrive

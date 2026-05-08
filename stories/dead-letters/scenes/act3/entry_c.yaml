@@ -1,0 +1,12 @@
+id: act3/entry_c
+
+text:
+  - |-
+    The book on the seat beside me. A copy of half of it in a manila envelope at a post office on Linden, addressed to a woman I had never spoken to who would speak for me whether I came home tonight or not.
+  - |-
+    The car started. The wipers found their rhythm. The rest of the city did not know yet what kind of night it was.
+
+choices:
+  - text: |-
+      Drive.
+    next: act3/drive_out_open
