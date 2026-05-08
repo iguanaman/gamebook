@@ -4,6 +4,18 @@
 
 ---
 
+## Atmosphere Rule (load-bearing)
+
+**Tension ramps over Act 1, then never lets up.** The very opening (Beats 1–2) is uncanny rather than lethal — wrong-feeling morning, distant sounds, glimpses. From Beat 3 onward the dead are confirmed and proximate; from Act 2 onward they are constant. By Act 3 every scene presses.
+
+**Once the dead are confirmed, they are always present.** Every scene from mid-Act-1 onward — hubs, conversations, rests — keeps the zombies audible, visible, or tactile: banging on a door/wall, scraping on stairs below, shadows at frosted glass, moans through vents, a pack working out how to climb. Conversations are clipped, whispered, interrupted by sounds. Rest is never restful. There is no clean safe room. If a beat reads as "we caught our breath," it ends with a fresh proximity cue.
+
+## Humans as Threat (load-bearing)
+
+**Half the lethal threats are alive.** Pressure makes survivors do awful things; the player will face people who lie, rob, betray, or kill — and will be offered chances to do those things themselves. Wren is the prototype liar with readable tells; the hostile-survivors group in late Act 2 is openly predatory; further human-threat encounters seed Act 3 (Stage-3 author may add more in scene breakdowns). Every human betrayal has tells in narration and conversation hubs — death-by-trusting-the-wrong-person is the consequence of misreading a person, not arbitrary. Reading people is as load-bearing as reading the dead, and the two skills sometimes pull opposite ways: paranoia keeps you alive, openness gets you the warm endings.
+
+---
+
 ## Acts
 
 - **Act 1 — The Street.** Day one of the outbreak. The player wakes up, decides what to grab, and gets out of their immediate neighbourhood. Establishes the slow-zombie grammar (sound draws them, bites = death, the dead are *quantity* not speed) and sets up the first companion choices: **Dale** (wounded neighbour, possibly bitten), **Caleb** (terrified teen across the street). Ends when the player reaches the edge of the residential district and has to choose a route into the city proper.
