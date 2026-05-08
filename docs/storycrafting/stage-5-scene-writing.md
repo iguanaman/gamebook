@@ -162,6 +162,32 @@ text:
 
 **Use sparingly.** Every conditional branch is writing that must be worth the reader's time. If you write an `else`, both branches need to earn their place.
 
+**`else:` must be a sibling key of `if:` on the same block — never a separate block.** A standalone `- else:` block at the same list level as the `if` is malformed; the engine and audio generator both choke on it. If the `if` and `else` text are different paragraphs, either put both as the same block's `text:`/`else:` or split into multiple flat `if` blocks with mutually-exclusive conditions (use `flags_unset` for negation).
+
+```yaml
+# BAD — orphan else block
+- if: {flags: [found_it]}
+  text: |-
+    You name it.
+- else: |-
+    You don't.
+
+# GOOD — else as a key of the if block
+- if: {flags: [found_it]}
+  text: |-
+    You name it.
+  else: |-
+    You don't.
+
+# GOOD — flat blocks with mutually-exclusive conditions
+- if: {flags: [found_it]}
+  text: |-
+    You name it.
+- if: {flags_unset: [found_it]}
+  text: |-
+    You don't.
+```
+
 **Don't gate critical information.** If a conditional block is the only way a player learns something load-bearing, they may miss it entirely. Conditional blocks are for texture, not for plot gates — use choices with `requires` for that.
 
 ---
