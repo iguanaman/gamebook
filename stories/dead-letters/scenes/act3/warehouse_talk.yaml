@@ -6,7 +6,7 @@ text:
   - if: {flags: [found_ledger]}
     text: |-
       I named Halston Thorne. The name landed in the rain between us. Salzano did not flinch. Walt did. A small movement at the line of his jaw. Enough.
-  - else: |-
+    else: |-
       I named the man who paid him. I did not know the name yet. Salzano knew I did not know. The not-knowing was a tell I could not afford and I gave it to him anyway because I had nothing else to put on the table.
   - |-
     Salzano listened. The whole way through. He listened the way a lawyer listens to opposing counsel — for the hole in the argument, for the place to put the knife.

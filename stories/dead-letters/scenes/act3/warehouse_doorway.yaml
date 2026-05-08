@@ -13,7 +13,7 @@ text:
   - if: {flags: [trusted_kellner]}
     text: |-
       He smiled. Apologetic. The way you smile at a man you have already weighed.
-  - else: |-
+    else: |-
       He did not name the book. He did not need to. He looked at my coat where the book would be if I had brought it, and he looked at my face, and he waited for me to tell him.
   - |-
     The conversation he had staged was the one I wanted three nights ago. Quieter than I had earned. Almost an apology. Almost.

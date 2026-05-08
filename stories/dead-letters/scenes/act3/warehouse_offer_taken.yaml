@@ -7,7 +7,7 @@ text:
   - if: {flags_unset: [found_ledger]}
     text: |-
       He stood in the rain at the door of the Lincoln. He did not say goodbye. He did not say it was over. He let me drive away from the river without ever telling me that the offer had been the line.
-  - else: |-
+    else: |-
       Walt nodded once. Slow. He stepped to the side. He did not look at me when he stepped. The fountain pen stayed in his pocket where his hand had gone.
   - if: {flags: [found_ledger]}
     text: |-

@@ -13,12 +13,12 @@ text:
   - if: {flags: [pushed_back]}
     text: |-
       Headlights, not from the road behind me. From the road *above* the bank, slowing. A patrol car. White on black, slowing the way a patrol car slows when the man inside has been looking for one particular thing on his shift and has just found it.
-  - else:
-    - if: {flags: [mort_owes_one]}
-      text: |-
-        Headlights from the road above, slowing. A patrol car. White on black. He was looking for me — not the way Salzano's men were looking. Different posture in the way the wheel was held.
-    - else: |-
-        The patrol car that went past the top of the slope did not slow. Patrol cars don't stop for men like me tonight.
+  - if: {flags: [mort_owes_one], flags_unset: [pushed_back]}
+    text: |-
+      Headlights from the road above, slowing. A patrol car. White on black. He was looking for me — not the way Salzano's men were looking. Different posture in the way the wheel was held.
+  - if: {flags_unset: [pushed_back, mort_owes_one]}
+    text: |-
+      The patrol car that went past the top of the slope did not slow. Patrol cars don't stop for men like me tonight.
 
 choices:
   - text: |-
