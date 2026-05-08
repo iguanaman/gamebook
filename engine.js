@@ -775,7 +775,8 @@ function initState(storyId, startingStats) {
 }
 
 function saveState() {
-  localStorage.setItem(stateKey(currentStoryId), JSON.stringify({ ...state, act: currentAct, actFolder: currentActFolder }));
+  const musicPos = (musicAudio && isFinite(musicAudio.currentTime)) ? musicAudio.currentTime : null;
+  localStorage.setItem(stateKey(currentStoryId), JSON.stringify({ ...state, act: currentAct, actFolder: currentActFolder, musicPos }));
 }
 
 function loadState(storyId) {
@@ -885,7 +886,7 @@ let musicAudio = null;
 let musicMuted = false;
 let selectorMusicPlaying = false;
 
-function startMusic(storyId, isNew, targetVolume = 1) {
+function startMusic(storyId, isNew, targetVolume = 1, savedPos = null) {
   stopMusic();
   const audio = new Audio(`stories/${storyId}/audio/music.opus`);
   audio.loop = true;
@@ -894,8 +895,12 @@ function startMusic(storyId, isNew, targetVolume = 1) {
 
   if (!isNew) {
     audio.addEventListener('loadedmetadata', () => {
-      const maxStart = audio.duration * 0.75;
-      audio.currentTime = Math.random() * maxStart;
+      if (savedPos != null && isFinite(savedPos) && savedPos < audio.duration) {
+        audio.currentTime = savedPos;
+      } else {
+        const maxStart = audio.duration * 0.75;
+        audio.currentTime = Math.random() * maxStart;
+      }
       audio.play().catch(() => {});
       if (!musicMuted) fadeInMusic(audio, 3000, targetVolume);
     }, { once: true });
@@ -1270,7 +1275,7 @@ async function startStory(storyId, { withCrossfade = false } = {}) {
       await navigateTo(startScene);
     }, { isStoryTitle: true });
   } else {
-    startMusic(storyId, false, meta.volume_music ?? 1);
+    startMusic(storyId, false, meta.volume_music ?? 1, saved.musicPos ?? null);
     renderShell(meta);
     if (withCrossfade) await crossfadeTo('story');
     else setActiveMode('story');
