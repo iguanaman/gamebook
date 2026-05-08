@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;600&display=swap');
 
 #story-root {
   --bg: #0a0a0b;
@@ -13,7 +13,7 @@
   --btn-secondary-hover: #232220;
   --radius: 1px;
 
-  --font-body: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-body: 'Crimson Pro', 'EB Garamond', Georgia, serif;
   --font-ui: 'Oswald', 'Roboto Condensed', sans-serif;
   --font-heading: 'Special Elite', 'Courier New', monospace;
   --card-desc-size: 0.85rem;
@@ -61,4 +61,9 @@
     );
   mix-blend-mode: multiply;
   opacity: 0.6;
+}
+
+
+#story-root .scene-opener::first-letter {
+  font-family: var(--font-body);
 }
