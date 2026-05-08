@@ -1,9 +1,0 @@
-id: act2/beat6_approach
-text:
-- Two men are on the steps outside Frank's building when he gets back. They're not
-  waiting for someone else. They know what door to watch.
-- No badges. Not uniform. The kind of men who've spent long enough in plainclothes
-  that the plainclothes look like a uniform anyway.
-choices:
-- text: Go up — you're going to your own office
-  next: act2/beat6_confrontation
