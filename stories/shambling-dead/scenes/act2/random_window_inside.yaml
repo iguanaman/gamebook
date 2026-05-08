@@ -1,0 +1,12 @@
+text:
+  - |-
+    The door is not locked. It is not anything. It opens.
+  - |-
+    The chair leg is a curtain rod, propped against a sill, knocking when the wind comes up. The voice was a man on the floor whose mouth is open at an angle that has nothing to do with breathing. He has been here a few days. The flies are on the schedule.
+  - |-
+    You leave a roll of tape on his chest because you do not know what else to leave. You take nothing. You will eat a meal less for it. That is the trade.
+
+choices:
+  - text: |-
+      Out. Keep moving.
+    next: act2/checkpoint_approach

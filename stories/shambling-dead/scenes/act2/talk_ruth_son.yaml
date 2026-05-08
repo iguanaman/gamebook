@@ -1,0 +1,15 @@
+text:
+  - female_elder_american_relatable_likeable: |-
+      Daniel. He's in Oregon, or he was on Tuesday. He's an engineer with a wife I have met twice and a dog whose name I always have to ask for. He called on the Tuesday and the line was bad and he said *Mom, are you safe* and I said *yes I am* because that was true on Tuesday.
+  - female_elder_american_relatable_likeable: |-
+      I haven't heard from him since. The phones, you know. I don't know what's happening in Oregon. I don't know if there's an Oregon, the way I'd recognise it. I think about that and then I make tea, because the alternative is to sit and think about that.
+  - |-
+    She does not cry. She has done this part already, somewhere, and what's left is the steady. She picks at a loose thread on her cuff and watches it.
+
+choices:
+  - text: |-
+      Back.
+    next: act2/talk_ruth_hub
+    effects:
+      flags:
+        asked_ruth_son: true

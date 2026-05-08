@@ -1,0 +1,19 @@
+text:
+  - if: {flags: [refused_after_looking]}
+    text: |-
+      You walked the alley. You looked at the rung. You knew the way in. You walk back out of the alley anyway.
+  - if: {flags: [refused_under_resourced]}
+    text: |-
+      You stand at the foot of the fire escape and you do the maths and the maths is not in your favour. You walk away from a child you cannot reach.
+  - if: {flags_unset: [refused_after_looking, refused_under_resourced]}
+    text: |-
+      You walk past the front of the building without slowing. You do not look up. The crying carries — you cannot make it not carry — but you can keep moving.
+  - |-
+    For one block, the crying. For two blocks, the crying. At the third block it stops, and you do not turn around to find out why.
+  - |-
+    You will not be told what colour her plaits were. You will not be told whether her shoes were on the wrong feet. You will carry the not-knowing instead.
+
+choices:
+  - text: |-
+      Walk on. Don't look up.
+    next: act2/hostile_funnel

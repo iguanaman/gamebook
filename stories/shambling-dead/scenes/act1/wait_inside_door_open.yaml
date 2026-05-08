@@ -1,0 +1,18 @@
+text:
+  - |-
+    You put your hand on the bolt. It is cold the way metal is always cold and you notice it the way you notice a thing you are about to lose.
+  - |-
+    Through the door you can hear them. Not one of them. Not three. Enough that the sound is layered now, throats that have stopped being throats, breathing that is no longer for breathing's sake. The porch boards creak under a weight that is not a weight one body would make.
+  - |-
+    Behind you, the radio is still going. The same calm woman. She has been telling you, the whole time, what was coming.
+  - narrator_female_warm_reflective: |-
+      No rescue is being mounted at this time.
+  - |-
+    You should have left when she first said it. You waited. You knew what she meant and you waited anyway.
+  - |-
+    You slide the bolt back.
+
+choices:
+  - text: |-
+      Out the door. Run.
+    next: act1/death_d1a_stairs

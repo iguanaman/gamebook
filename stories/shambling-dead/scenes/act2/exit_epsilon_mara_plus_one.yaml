@@ -1,0 +1,21 @@
+text:
+  - |-
+    Three of you on the river road. The bag is split. The weight is split. Mara has the strap in one hand and the back of a jacket in the other and the jacket is not always yours.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is on the side Mara is not on. He has the lanyard and the bag and the half-step that says he is the one watching the back. He has not picked the thumb in an hour. He has been a brother for an hour and it is the first hour of him being one.
+  - if: {flags: [elder_alive]}
+    text: |-
+      Ruth has Mara's free hand in hers. The cardigan is tied at her waist now and Mara has the knot of it in her fingers when she is not holding the bag. Ruth says small things to her at small intervals. None of them are a son's name and all of them are her voice.
+  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
+    text: |-
+      Wren walks the outside line. The bag across her body. Mara on the inside, your shoulder closer than hers. Wren has not asked Mara her name and Mara has not asked Wren hers. They both know. The not-asking is the trust.
+  - |-
+    The river is loud. The chord of the city is at your back and it is not coming with you. The three of you take the next step at the same time without meaning to.
+  - |-
+    Downstream — the marina.
+
+choices:
+  - text: |-
+      Walk.
+    next: act3/act3_entry_router

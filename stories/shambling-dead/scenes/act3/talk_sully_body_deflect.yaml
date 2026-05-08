@@ -1,0 +1,21 @@
+text:
+  - |-
+    His shoulders go up half an inch. He looks at the back window and then makes himself stop looking at it.
+  - male_adult_american_casual_relaxed_light: |-
+      Ask Vance.
+  - |-
+    He picks the clipboard up and puts it down again two inches over, the way a man does when he needs his hands to do anything other than be still.
+  - male_adult_american_casual_relaxed_light: |-
+      I wasn't on the dock that day.
+  - |-
+    He was. You can hear that he was, in the *that day* — he has dated it without being asked. He looks at the radio.
+  - male_adult_american_casual_relaxed_light: |-
+      Ask Vance.
+
+choices:
+  - text: |-
+      Back to the conversation.
+    next: act3/talk_sully_office
+    effects:
+      flags:
+        sully_seam: true

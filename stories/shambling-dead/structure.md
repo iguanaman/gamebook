@@ -1,4 +1,4 @@
-# The Long Walk Out — Structure
+# The Shambling Dead — Structure
 
 > Locked Stage 0 deferrals: final-act exit point = **river crossing at the eastern marina** (chosen for the bottleneck/sacrifice geometry it gives the finale — boats are limited, choice is forced). Child = **pre-named NPC, "Mara," ~7yo, encountered mid-Act-2**. Humanity is folded into `bond` (single stat carries both attachment-to-Mara and residual-self).
 

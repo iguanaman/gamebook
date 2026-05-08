@@ -1,0 +1,14 @@
+text:
+  - |-
+    You pick a line and you run it. The pistol does what a pistol does in a brick throat — too loud, too close, the muzzle-flash burning your night-eye blind for the next two seconds.
+  - |-
+    A hand finds your sleeve. You break it off with the butt of the gun. Something in your ribs gives that you will feel later. You keep moving.
+  - |-
+    A manhole, a ladder, a square of grey afternoon light at the top of it. You come up out of the city's gut into a courtyard you did not pick.
+  - |-
+    The chord is back. It does not feel like relief. It feels like the room you walked out of had been quieter than this one.
+
+choices:
+  - text: |-
+      Up the ladder. Out.
+    next: act2/apartments_courtyard

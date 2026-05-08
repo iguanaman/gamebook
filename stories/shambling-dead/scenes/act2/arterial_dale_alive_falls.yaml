@@ -1,0 +1,21 @@
+text:
+  - |-
+    The half-step becomes a step, and the step becomes a yard, and the yard is the yard you do not turn around for. He is calling something behind you. He is not calling your name. He has not called your name today and he is not going to start.
+  - |-
+    The road is a road. The river is at the end of it. The chord does not need to be fast. It only needs to keep up with the slowest, and you have left the slowest behind.
+  - |-
+    *Don't turn around.*
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb turns around. You do not turn around. He turns back. He does not look at you for the next block.
+
+choices:
+  - text: |-
+      Don't turn around.
+    next: act2/arterial_run_resolve
+    effects:
+      stats:
+        bond: -1
+      flags:
+        neighbour_alive: false
+        abandoned_wounded: true

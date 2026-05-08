@@ -1,4 +1,4 @@
-# The Long Walk Out — Act 2 Scenes
+# The Shambling Dead — Act 2 Scenes
 
 > Convergent framings (cautious / blunt / sly etc.) are marked explicitly so Stage 5 writes them as genuinely distinct postures, not three rephrasings.
 >

@@ -1,0 +1,18 @@
+text:
+  - |-
+    She does not look up. Her pole is across her shoulders.
+  - female_midlife_african-american_casual_opinionated: |-
+      Lewis. He came in with his kid on Tuesday. His kid was nine.
+  - |-
+    She lets that sit a beat. Then she gives the body a small push with the end of the pole, the way she has been giving it small pushes for three days, and the body answers the way bodies in water answer.
+  - female_midlife_african-american_casual_opinionated: |-
+      Vance asks how I know his name, you tell her you guessed.
+  - |-
+    She has a notebook in her breast pocket. She has not taken it out in front of you. You can see the corner of it.
+  - |-
+    The far-jetty group is most of the way down the parked jet ski now. You can see the slow geometry of them.
+
+choices:
+  - text: |-
+      Walk back to the apron.
+    next: act3/marina_hub

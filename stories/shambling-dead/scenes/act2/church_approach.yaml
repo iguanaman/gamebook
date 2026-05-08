@@ -1,0 +1,34 @@
+text:
+  - |-
+    Two streets on, the road bends and the church is at the bend. Brick and a steeple gone green, weeds in the gravel walk. The double doors are barred from the inside — you can see the wood of the bar through the gap where the doors don't quite meet.
+  - |-
+    Around the side, low and constant, a scratching. Not a person knocking. A nail finding the same patch of wood and finding it again. Whatever it is has been at it for a while.
+  - if: {flags_unset: [tried_side_door]}
+    text: |-
+      A voice carries through the front door. Older, female, careful. *Who's there.* Not a question, exactly. The way someone tests a lock.
+  - if: {flags: [tried_side_door]}
+    text: |-
+      You come back round to the front. The voice is still there, behind the bar, waiting on you. *I asked who's there.*
+
+choices:
+  - text: |-
+      Knock. Soft. Tell her your name.
+    next: act2/church_door
+  - text: |-
+      Knock. Firm. Tell her you need shelter.
+    next: act2/church_door
+  - text: |-
+      Try the side door instead.
+    next: act2/church_side_door
+    requires:
+      flags_unset: [tried_side_door]
+    effects:
+      flags:
+        tried_side_door: true
+    hide_if_failed: true
+  - text: |-
+      Walk on. Don't engage.
+    next: act2/mara_approach
+    effects:
+      flags:
+        passed_church: true

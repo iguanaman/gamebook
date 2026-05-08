@@ -1,0 +1,41 @@
+text:
+  - |-
+    A small panel slides aside in the door, eye-level. Reading glasses on a chain. Pale eyes behind them, taking you in carefully — the bag, the hands, whoever you have with you, in that order.
+  - female_elder_american_relatable_likeable: |-
+      All right, sweetheart. I see you. I'm Ruth. The bar on this door isn't coming off for free, so you'll forgive the small examination.
+  - female_elder_american_relatable_likeable: |-
+      I've got the front held and I've got the side door not held. There's a difference between the two. If you can spend half an hour on the side door with me, you've got my floor for the night and a hot thing in a cup. If you can't, I won't keep you.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Her gaze settles on Caleb a beat longer than the rest of you. Her face does something her voice does not.
+  - if: {flags: [glimpsed_husband]}
+    text: |-
+      Behind her, somewhere off the nave, the humming has started again. Two bars. Stop. Two bars. You know what is on the other side of the side door now and she does not know that you know.
+
+choices:
+  - text: |-
+      Trust her. Help with the barricade.
+    next: act2/church_inside_help
+    effects:
+      flags:
+        church_inside: true
+  - text: |-
+      Help. (Quietly: the larder is in plain view through the inner door.)
+    next: act2/church_inside_loot_setup
+    effects:
+      flags:
+        church_inside: true
+        loot_intent: true
+  - text: |-
+      Refuse politely. Ask if there's a clinic nearby — anything she can spare.
+    next: act2/church_pass_by
+    effects:
+      flags:
+        passed_church: true
+        ruth_key: true
+  - text: |-
+      Refuse. Walk on.
+    next: act2/mara_approach
+    effects:
+      flags:
+        passed_church: true

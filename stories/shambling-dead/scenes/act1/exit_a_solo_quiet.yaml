@@ -1,0 +1,17 @@
+text:
+  - |-
+    You walk alone. The road is wide and the road is empty in the way a road is empty when something has cleared it.
+  - |-
+    Behind you, against a wall you do not look back at, a man is sitting with a pistol in his lap that you put there. You did not stay. You did not finish it. You set him down out of the sun and you walked.
+  - |-
+    The chord of the city is bigger than the thing in your chest. It will be bigger than him too, when it gets to him. You knew that when you set him down.
+  - |-
+    *Don't think about the wall. Don't think about the pistol. Walk.*
+
+journal: |-
+  You left him alive against a wall. You walked. The road took you in.
+
+choices:
+  - text: |-
+      Into the city.
+    next: act2/act2_entry_router

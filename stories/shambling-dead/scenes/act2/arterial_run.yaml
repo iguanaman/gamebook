@@ -1,0 +1,34 @@
+text:
+  - |-
+    The arterial opens out of the side street like a chest unbuttoning. Six lanes of road east. Cars at angles, a bus on its side, a fuel truck across the centre line that no one will ever move. At the far end of it, lower than you expect — the river. Wide. Grey. Loud in the way open water is loud, and *louder* in the way a thing the dead want to find is loud.
+  - |-
+    Behind you, the chord rolls into the arterial after you. The nearer throat in it has caught up and it is not nearer any more — it is *here*, at the end of the side street, two of them out from the wall and more behind them.
+  - if: {flags: [neighbour_alive, dale_bitten]}
+    text: |-
+      Dale stops.
+    else: |-
+      The party goes. There is no other thing left to do and no negotiating with the road.
+  - if: {flags: [neighbour_alive, dale_bitten]}
+    text: |-
+      He has been keeping up since the rooftop and he is not going to keep up across this. He puts a hand on the bus. He turns his head and looks at you the way a man looks at a thing he was always going to have to say.
+
+choices:
+  - text: |-
+      Run. The party. Together.
+    next: act2/arterial_dale_holds
+    requires:
+      flags: [neighbour_alive, dale_bitten]
+    hide_if_failed: true
+  - text: |-
+      Run. The party. Together.
+    next: act2/arterial_dale_alive
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [dale_bitten]
+    hide_if_failed: true
+  - text: |-
+      Run.
+    next: act2/arterial_run_resolve
+    requires:
+      flags_unset: [neighbour_alive]
+    hide_if_failed: true

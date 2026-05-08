@@ -1,0 +1,189 @@
+text:
+  - if: {flags: [boathouse_coop]}
+    text: |-
+      You reach the seawall. Tomás is at the bow with the rope. Iris is at the stern with the pry-bar. The kayak is on the water — yellow plastic, dirty, the right size for one and a half people if you do not mind getting wet.
+  - if: {flags: [boathouse_loud]}
+    text: |-
+      You reach the seawall. Iris is at the rope. Tomás is not here. The kayak is on the water — yellow plastic, dirty, the right size for one and a half people. The boathouse roof is not the shape it was an hour ago.
+  - if: {flags: [kayak_solo]}
+    text: |-
+      The kayak is at the water where you set it down. There is no one to row with you. The far bank is forty yards away.
+  - if: {flags: [boathouse_coop]}
+    male_elder_american_wise_approachable: |-
+      One trip is one. Two trips is the kid. Three trips is everyone, and three trips is in the water with the dead by the third.
+  - if: {flags: [boathouse_loud]}
+    female_adult_american_crisp_direct_clear: |-
+      One trip. Or two if you have to. Three is too many. Tomás would have said three. He would have been wrong.
+  - |-
+    The math is the math. You can read it as well as anyone.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara is at your side. She has not let go of the strap. The water is moving the way it moves when something is in it.
+  - |-
+    The dead at the seawall edge are dropping into the water — one at a time, like coats off a hook. They are slow. They do not stop being there.
+
+choices:
+  - text: |-
+      Solo. One trip. I cross alone.
+    next: act3/kayak_solo_resolve
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+      flags:
+        kayak_solo_taken: true
+  - text: |-
+      Mara first. Then me. Two trips.
+    next: act3/kayak_mara_resolve
+    requires:
+      flags: [child_rescued, child_alive]
+      stats:
+        health: 3
+    failed_text: |-
+      *(You will not make the swim back. Not at this health.)*
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+      flags:
+        kayak_with_mara: true
+  - text: |-
+      Mara, then the adult, then me. Three trips.
+    next: act3/kayak_three_resolve
+    requires:
+      flags: [child_rescued, child_alive, teen_alive, boathouse_coop]
+      stats:
+        health: 4
+        supplies: 3
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -2
+        supplies: -2
+      flags:
+        kayak_three: true
+  - text: |-
+      Mara, then the adult, then me. Three trips.
+    next: act3/kayak_three_resolve
+    requires:
+      flags: [child_rescued, child_alive, elder_alive, boathouse_coop]
+      stats:
+        health: 4
+        supplies: 3
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -2
+        supplies: -2
+      flags:
+        kayak_three: true
+  - text: |-
+      Mara, then the adult, then me. Three trips.
+    next: act3/kayak_three_resolve
+    requires:
+      flags: [child_rescued, child_alive, stranger_alive, boathouse_coop]
+      stats:
+        health: 4
+        supplies: 3
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -2
+        supplies: -2
+      flags:
+        kayak_three: true
+  - text: |-
+      Caleb first. Then me. No Mara.
+    next: act3/kayak_adult_resolve
+    requires:
+      flags: [teen_alive, child_rescued, child_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+        bond: -2
+      flags:
+        kayak_with_adult: true
+        child_alive: false
+  - text: |-
+      Caleb first. Then me.
+    next: act3/kayak_adult_resolve
+    requires:
+      flags: [teen_alive]
+      flags_unset: [child_rescued]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+      flags:
+        kayak_with_adult: true
+  - text: |-
+      Ruth first. Then me. No Mara.
+    next: act3/kayak_adult_resolve
+    requires:
+      flags: [elder_alive, child_rescued, child_alive]
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+        bond: -2
+      flags:
+        kayak_with_adult: true
+        child_alive: false
+  - text: |-
+      Ruth first. Then me.
+    next: act3/kayak_adult_resolve
+    requires:
+      flags: [elder_alive]
+      flags_unset: [teen_alive, child_rescued]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+      flags:
+        kayak_with_adult: true
+  - text: |-
+      Wren first. Then me. No Mara.
+    next: act3/kayak_adult_resolve
+    requires:
+      flags: [stranger_alive, child_rescued, child_alive]
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+        bond: -2
+      flags:
+        kayak_with_adult: true
+        child_alive: false
+  - text: |-
+      Wren first. Then me.
+    next: act3/kayak_adult_resolve
+    requires:
+      flags: [stranger_alive]
+      flags_unset: [teen_alive, elder_alive, child_rescued]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+      flags:
+        kayak_with_adult: true
+  - text: |-
+      Swim. No kayak. Just me.
+    next: act3/swim_attempt
+    requires:
+      stats:
+        health: 3
+        supplies: 1
+      flags_unset: [bitten]
+    failed_text: |-
+      *(Your body knows the answer.)*

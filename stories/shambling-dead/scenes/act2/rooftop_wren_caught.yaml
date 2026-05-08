@@ -1,0 +1,24 @@
+text:
+  - |-
+    You do not sleep. You sit against the parapet on the side opposite hers and you keep your eyes on her hands. She knows. You can tell she knows the second she knows — her shoulders settle, the joke goes out of the line of her body, and the bag comes off her shoulder for the first time in two days and rests on the concrete between her feet.
+  - |-
+    Hours pass. The fires below shift. The radio in the next block keeps looping Hollis's spoof. She does not try anything. She does not ask anything. Around three in the morning she stands up.
+  - female_adult_american_droll_wry_dry: |-
+      Yeah. Okay. [sigh] Yeah.
+  - |-
+    She says it without looking at you. She picks up the bag — the bag, which she still has not set down on a thing that is not concrete or her own ribs — and she goes to the stairwell door.
+  - female_adult_american_droll_wry_dry: |-
+      Truck's east. I won't tell you where. You'd've figured it out and I am — I'm not — anyway.
+  - |-
+    She pulls the stairwell door open. The dead two floors down hear it and the hum becomes a voice. She closes it behind her and takes her chances with them. You don't hear her again.
+  - |-
+    She does not take anything that was not hers. The pack at your hip is heavy the same as it was. That is the cost of doing it this way. You bought your supplies with the watch you cannot give back.
+
+choices:
+  - text: |-
+      Watch her go. Wait for dawn.
+    next: act2/rooftop_bond_beat
+    effects:
+      flags:
+        stranger_alive: false
+        wren_left_quiet: true

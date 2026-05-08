@@ -1,0 +1,17 @@
+text:
+  - |-
+    You lift the handset. You don't know why. The dial tone is the loop now — they have replaced the dial tone with her voice, or the line has given up pretending it has anywhere else to go.
+  - narrator_female_warm_reflective: |-
+      This is an emergency broadcast. Do not approach the infected. Shelter in place. No rescue is being mounted at this time.
+  - |-
+    The third sentence is new. You wait for it again, because the first time you tell yourself you must have misheard, and the second time she says it the same way she said the rest. Calm. Professional. *No rescue is being mounted at this time.*
+  - |-
+    You set the handset down very carefully, as if quiet might mean something now.
+
+choices:
+  - text: |-
+      Put it down. Get back to the kitchen.
+    next: act1/grab_kit_kitchen
+    effects:
+      flags:
+        heard_no_rescue: true

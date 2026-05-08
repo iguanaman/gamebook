@@ -1,0 +1,130 @@
+text:
+  - |-
+    The river takes the boat. Or it takes the kayak. Or it does not take you. Whichever way the math came out, the marina is behind you now, the way a bad year is behind a person — present in the body, gone from the frame.
+  - |-
+    The light has thinned. The chord at the receding shore is still the chord. There is one breath left to take before the run names what it was.
+
+choices:
+  # D-Marina-collaborator (death short-circuit)
+  - text: |-
+      Look at the river.
+    next: act3/death_d_marina_collaborator
+    requires:
+      flags: [accepted_vance_offer]
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E6 — Hold the Dock (sacrifice)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e6_hold_dock
+    requires:
+      flags: [chose_hold_dock, child_alive, child_rescued]
+      flags_unset: [bitten_dock_hold]
+      stats:
+        bond: 4
+        supplies: 4
+        health: 2
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E6 — Hold the Dock (bitten variant)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e6_hold_dock_bitten
+    requires:
+      flags: [chose_hold_dock, bitten_dock_hold]
+      stats:
+        bond: 4
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E5 — Three of Us (Mara + one adult)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e5_three_of_us
+    requires:
+      flags: [child_alive, child_rescued, shared_supplies]
+      flags_unset: [killed_survivor, abandoned_wounded]
+      stats:
+        bond: 5
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E3 — Mara, and Quiet (no adult)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e3_mara_quiet
+    requires:
+      flags: [child_alive, child_rescued]
+      flags_unset: [teen_alive, elder_alive, stranger_alive]
+      stats:
+        bond: 4
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E4 — Two of Us (one adult, no Mara)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e4_two_of_us
+    requires:
+      flags_unset: [child_alive]
+      flags: [chose_cruiser]
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E4 — Two of Us (kayak variant)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e4_two_of_us
+    requires:
+      flags_unset: [child_alive]
+      flags: [chose_kayak]
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E7 — Stay Behind
+  - text: |-
+      Look at the river.
+    next: act3/ending_e7_stay_behind
+    requires:
+      flags: [chose_stay_behind]
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E2 — Empty Boat (broken solo)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e2_empty_boat
+    requires:
+      flags_unset: [teen_alive, elder_alive, stranger_alive, child_alive, abandoned_wounded, killed_survivor]
+      stats:
+        bond: 0
+    hide_if_failed: true
+    effects:
+      flags:
+        act3_complete: true
+
+  # E1 — Cold Walk (fallback)
+  - text: |-
+      Look at the river.
+    next: act3/ending_e1_cold_walk
+    effects:
+      flags:
+        act3_complete: true

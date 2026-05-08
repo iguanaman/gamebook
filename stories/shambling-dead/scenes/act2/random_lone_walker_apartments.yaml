@@ -1,0 +1,27 @@
+text:
+  - |-
+    A man at the alley's far end. Mid-thirties, canvas duffel slung crosswise, the strap reinforced with bicycle tubing. Three days of beard. He flinches at a sound from a fire-exit door that you did not hear.
+  - if: {flags: [acknowledged_wren, met_wren]}
+    text: |-
+      Wren stops at your shoulder. She is reading him before you are. Her chin tips a fraction — *clean*, the gesture says. *Not a problem.* You file the read.
+  - |-
+    He has not seen you yet. He is walking toward whatever is past the turn at the end.
+
+choices:
+  - text: |-
+      Whistle low. Warn.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        bond: 1
+      flags:
+        warned_walker: true
+  - text: |-
+      Approach. Offer to trade.
+    next: act2/random_walker_trade_apartments
+  - text: |-
+      Walk on.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        bond: -1

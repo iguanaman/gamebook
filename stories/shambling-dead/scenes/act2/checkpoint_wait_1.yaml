@@ -1,0 +1,15 @@
+text:
+  - |-
+    You hold. The megaphone runs the loop again. He is looking at you longer than the loop allows for. Long enough that the second soldier has noticed he is looking.
+  - male_young_american_forthright: |-
+      Show your hands. Do not approach the wire. We are not authorised to admit.
+  - |-
+    The radio at the second soldier's hip stutters. Same three words, half a beat off.
+
+choices:
+  - text: |-
+      Stay still. Wait.
+    next: act2/checkpoint_wait_2
+  - text: |-
+      Lower hands. Step forward an inch.
+    next: act2/death_d2_checkpoint

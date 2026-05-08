@@ -1,0 +1,15 @@
+text:
+  - |-
+    You stop. You hold a breath the brick around you wants you to keep holding. The moan comes again — and this time you hear it for what it is.
+  - |-
+    Behind. Ahead. Above you, through a service grating you have not seen yet. The water is amplifying every direction. There is not one of them in here. There is a pack, and the pack is *spread*.
+  - |-
+    The route was the trap. The sound is saying so. You are still close enough to the mouth to walk back out.
+
+choices:
+  - text: |-
+      Back to the surface. Now.
+    next: act2/corridor_sewer_back_cheap
+    effects:
+      stats:
+        supplies: -1

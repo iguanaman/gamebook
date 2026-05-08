@@ -1,0 +1,21 @@
+text:
+  - |-
+    You push the kayak off without you. You tell them to row it from the far bank. You tell them not to come back.
+  - if: {flags: [teen_alive]}
+    male_young_american_weak: |-
+      I will. I will. I — yeah.
+  - if: {flags: [elder_alive], flags_unset: [teen_alive]}
+    female_elder_american_relatable_likeable: |-
+      Sweetheart.
+  - if: {flags: [stranger_alive], flags_unset: [teen_alive, elder_alive]}
+    female_adult_american_droll_wry_dry: |-
+      Okay. Okay. Okay.
+  - |-
+    The yellow plastic gets smaller. Mara is on the far bank with her hand at her mouth. The adult is rowing. You are on the marina edge with the seawall behind you and a length of pipe at your foot.
+  - |-
+    The dead are at the riprap. Then they are at your back.
+
+choices:
+  - text: |-
+      Watch the kayak go. Pick up the pipe.
+    next: act3/endings_router

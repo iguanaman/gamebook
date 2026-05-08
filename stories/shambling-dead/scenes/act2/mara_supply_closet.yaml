@@ -1,0 +1,46 @@
+journal: |-
+  You found a child alone on the fourth floor of an office building. Her name will come later. She has been there two days.
+
+text:
+  - |-
+    The fourth floor is corridors and corner offices. The crying, when you reach the floor, comes from a door at the end marked SUPPLIES in stencilled letters. The door is shut. There is a chair against it from the inside.
+  - |-
+    You knock once, very softly. The crying stops.
+  - |-
+    A small voice through the door, the kind a child uses when she has decided to be brave for a stranger.
+  - female_young_american_sweet_youthful_clear: |-
+      Are you a person?
+  - |-
+    You say yes. The chair scrapes. The door opens an inch. An eye. Two uneven plaits. A jacket too big for her. She looks at your face for a long time before she lets you in.
+  - |-
+    Inside the closet: shelves of paper towels and printer toner and a child who has been here two days. Her shoes are on the wrong feet. There is a juice box on the floor that she finished some time ago and has been holding the empty of.
+  - |-
+    Somewhere down the corridor outside, footsteps. Slow. Not coming this way. Not going anywhere else either.
+
+choices:
+  - text: |-
+      Kneel. Tell her your name. Quiet voice.
+    next: act2/talk_mara_hub
+    effects:
+      stats:
+        bond: 2
+      flags:
+        child_rescued: true
+        child_alive: true
+  - text: |-
+      Lift her. Move now. Talk on the way.
+    next: act2/mara_descent
+    effects:
+      stats:
+        bond: 1
+      flags:
+        child_rescued: true
+        child_alive: true
+  - text: |-
+      Quiet. Hand on her mouth. Out.
+    next: act2/mara_descent
+    effects:
+      flags:
+        child_rescued: true
+        child_alive: true
+        mara_handled_rough: true

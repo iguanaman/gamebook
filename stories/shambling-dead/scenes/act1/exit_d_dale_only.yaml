@@ -1,0 +1,18 @@
+text:
+  - |-
+    Dale is on your left and a little behind, the way a man walks when he is favouring a leg without admitting the leg. He names the next street before you ask. Old neighbour habit. Twenty years on this side of town.
+  - if: {flags: [dale_bitten]}
+    text: |-
+      The hand he is using to balance against the wall is hot. He is not turning the wedding band. He has not turned it since the porch. You have noticed and he has noticed you noticing and neither of you has said it.
+    else: |-
+      He is hurt and he is slow and he is keeping up. That is what the morning has cost him so far. The morning is not done.
+  - |-
+    The cul-de-sac fades behind the bend. The arterial opens. The chord of the city is bigger than anything that came out of your street, and Dale's voice when he names the next street is quieter than it was a minute ago.
+
+journal: |-
+  Dale is with you. Just Dale. He is keeping up. He won't say what it costs him.
+
+choices:
+  - text: |-
+      Into the city.
+    next: act2/act2_entry_router

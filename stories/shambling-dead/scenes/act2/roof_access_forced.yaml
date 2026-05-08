@@ -1,0 +1,47 @@
+text:
+  - |-
+    The service door at the back of the top landing opens onto a steel stair that opens onto the roof and you take it three at a time. The stairs you came up are no longer an option behind you. Something is on them. Several somethings.
+  - |-
+    The roof is gravel and tar and one rusted satellite dish. A waist-high parapet on all four sides. The city in panorama for the first time in two days — fires in the middle distance, abandoned cars on the arterial, and at the far edge of everything a flat grey line that is the river. You did not know you could see it from here.
+  - if: {flags: [met_wren], flags_unset: [refused_wren, wren_resolved]}
+    text: |-
+      Wren is on the parapet. Bag across her body. She has taken the long way up and arrived ahead of you.
+  - if: {flags: [met_wren], flags_unset: [refused_wren, wren_resolved]}
+    text: |-
+      female_adult_american_droll_wry_dry: |-
+        I followed you. I'm not going to pretend I didn't. Is now a bad time.
+  - if: {flags_unset: [met_wren]}
+    text: |-
+      You are alone up here. The wind takes the worst of the hum off the stairs and for a half-second the only loud thing is your own breathing.
+
+choices:
+  - text: |-
+      Catch your breath. Look at the city. Talk to her.
+    next: act2/talk_wren_hub
+    requires:
+      flags: [met_wren]
+      flags_unset: [refused_wren]
+    effects:
+      flags:
+        seen_river: true
+    hide_if_failed: true
+  - text: |-
+      Catch your breath. Find the fire-escape down. Move.
+    next: act2/church_approach
+    requires:
+      flags_unset: [met_wren]
+    effects:
+      flags:
+        seen_river: true
+        apartments_left: true
+    hide_if_failed: true
+  - text: |-
+      Catch your breath. Find the fire-escape down. Move.
+    next: act2/church_approach
+    requires:
+      flags: [refused_wren]
+    effects:
+      flags:
+        seen_river: true
+        apartments_left: true
+    hide_if_failed: true

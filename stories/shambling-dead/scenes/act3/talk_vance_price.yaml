@@ -1,0 +1,48 @@
+text:
+  - if: {flags: [dock_crew_logged]}
+    text: |-
+      She turns the logbook around to face you. The page is yours. The first column is your headcount, in Sully's hand. The second is your supply-load. The third column is in her hand.
+  - if: {flags_unset: [dock_crew_logged]}
+    text: |-
+      She looks at you for the count. The bag, the way you stand, the way the people behind you stand. She does the math without writing it.
+  - female_adult_american_sultry_villainous: |-
+      Three supplies for the cabin. And one of yours.
+  - if: {flags: [child_rescued, child_alive, neighbour_alive], flags_unset: [teen_alive, elder_alive, stranger_alive]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Not the kid. The man.
+  - if: {flags: [child_rescued, child_alive, teen_alive], flags_unset: [elder_alive, stranger_alive]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Not the kid. The boy.
+  - if: {flags: [child_rescued, child_alive, elder_alive], flags_unset: [teen_alive, stranger_alive]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Not the kid. The grandmother.
+  - if: {flags: [child_rescued, child_alive, stranger_alive], flags_unset: [teen_alive, elder_alive]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Not the kid. The one with the bag.
+  - if: {flags: [child_rescued, child_alive, teen_alive, elder_alive]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Not the kid. You pick which of the other two.
+  - if: {flags: [child_rescued, child_alive, teen_alive, stranger_alive]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Not the kid. You pick which of the other two.
+  - if: {flags: [child_rescued, child_alive, elder_alive, stranger_alive]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Not the kid. You pick which of the other two.
+  - if: {flags_unset: [child_rescued]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        You pick which.
+  - |-
+    She says it like she is reading off a receipt. She does not soften the noun. She does not call them by name. She is sparing herself the part where she has to remember it after.
+
+choices:
+  - text: |-
+      Back to the conversation.
+    next: act3/talk_vance

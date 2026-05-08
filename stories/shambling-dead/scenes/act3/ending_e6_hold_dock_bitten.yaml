@@ -1,0 +1,32 @@
+journal: |-
+  You held the dock. The bite was already counting. They went anyway.
+
+text:
+  - |-
+    The line goes off the bollard. The engine pushes. The cruiser pulls.
+  - |-
+    The bite-arm is doing what the bite-arm does. The cold of it is its own clock. You have minutes, not hours. That was not a thing you found out at the dock. That was a thing you found out earlier and brought with you anyway.
+  - |-
+    Vance did not argue. The math worked for her: a man holding the dock for free is a man not asking for a seat. She did not say goodbye. She turned the wheel.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara is at the rail. The shoes are still on the wrong feet.
+  - if: {stats: {bond: 5}, flags: [child_rescued, child_alive]}
+    text: |-
+      female_young_american_sweet_youthful_clear: |-
+        I see you.
+  - if: {stats: {bond: 5}, flags: [child_rescued, child_alive]}
+    text: |-
+      She says your name across the water. The word arrives thin and arrives anyway.
+  - if: {flags: [tomas_witnessed]}
+    text: |-
+      The man at the seawall — Tomás — knew. He saw it before you said it. He nodded the way he nods at things he has known for a while.
+  - if: {flags: [asked_hayes]}
+    text: |-
+      Hayes did not get on the kayak. You asked him. He stayed at the seawall the way he said he would. The two of you have a thing in common now and neither of you said it out loud.
+  - |-
+    The pipe is in your hands. The dead reach the bollard. The bite-arm is the cold the rest of you will catch up to in a moment.
+  - |-
+    You do this on your own clock, not theirs.
+
+choices: []

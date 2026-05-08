@@ -1,0 +1,30 @@
+journal: |-
+  You said yes a second time.
+
+text:
+  - |-
+    She gave you the high-vis vest. She gave you the clipboard. She showed you the column for headcount and the column for supply-load. She showed you the dry-erase marker.
+  - |-
+    The cruiser left the dock with Vance and Marrow on it. You stayed because you said yes. Sully stayed because he said yes a long time ago.
+  - if: {flags: [killed_survivor]}
+    text: |-
+      The first time you said yes was at Hollis's camp. You did not feel it then either. You feel it now.
+  - if: {flags_unset: [killed_survivor]}
+    text: |-
+      You had not said yes before. You had refused, all the way down. This is the first capitulation. It is not the cleanest one a person can have.
+  - |-
+    The next morning, the gate is at your back. The arterial is at your front. A figure walks up the service road. They are alone. The bag is across their body.
+  - |-
+    You raise the clipboard.
+  - |-
+    "Who. How many. What's in the bag."
+  - |-
+    They say their name. The name is not yours. The face is not yours. The bag is theirs.
+  - |-
+    You write the number. You point at the gate. The gate opens.
+  - |-
+    The chord is at the back stretch. Sully is dead by the third day. By the fourth, you stop turning the dry-erase marker between asking and writing.
+  - |-
+    You become the woman with the clipboard. Then you become the body on the floating dock. The math holds.
+
+choices: []

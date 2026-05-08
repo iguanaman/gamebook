@@ -1,0 +1,41 @@
+journal: |-
+  Three of you. East. You did not lose any of them.
+
+text:
+  - |-
+    The boat is on the river. The marina is behind. The chord at the receding shore is still the chord.
+  - |-
+    Mara is asleep against the adult companion. The small chest moves the way a child's chest moves. You are keeping watch because that is the role that fell to you and it is the role you wanted.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb has her under his arm. The hood is down. The thumb is not in his mouth. He has not picked the scab in two hours.
+  - if: {flags: [elder_alive]}
+    text: |-
+      Ruth has her under her arm. The cardigan is the only blanket on the boat. She is humming, very low, a tune you have not heard since you were small.
+  - if: {flags: [stranger_alive, probed_wren]}
+    text: |-
+      Wren has her under her arm. The bag is between Wren and Mara, on the deck. The dryness has dropped. It is not coming back.
+  - if: {stats: {bond: 5}}
+    text: |-
+      Mara stirs. Her eyes do not open. She says your name. The word is small and it is yours and she has not used it before.
+  - if: {stats: {supplies: 5}}
+    text: |-
+      You did not leave the bag light. There is food on the boat. Three of you, with food. You can hear yourself thinking the words and you let yourself think them.
+  - if: {flags: [pip_and_mara_brief]}
+    text: |-
+      Pip is on the far bank with Tomás, waving. She made the trip too. The geometry held.
+  - if: {flags: [told_mara_made_it]}
+    text: |-
+      We made it. You said it on the dock. You can say it now and mean it.
+  - if: {flags: [killed_survivor]}
+    text: |-
+      The man you killed at the camp is in your hands when you look at them. He will be there for a while. He is not on the boat.
+  - if: {flags_unset: [neighbour_alive]}
+    text: |-
+      Dale is not here. He is on a lawn.
+  - |-
+    The river is the only sound. The chord at the receding shore is still the chord — there is no quiet, anywhere — but the boat is moving and the three of you are on it.
+  - |-
+    You keep watch.
+
+choices: []

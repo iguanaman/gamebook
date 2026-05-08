@@ -1,0 +1,14 @@
+text:
+  - |-
+    You got something. You also got cut.
+  - |-
+    The first one in the back room came forward faster than its body should have allowed. You had a hand on a shelf when its hand was on your forearm, and the bite did not land — the sleeve took it — but the teeth went through the cloth into skin and left a torn flap and a thin red line that is not a bite, you tell yourself, *not a bite*, the teeth were on the sleeve. You tell yourself that twice while you are reaching for what is on the counter.
+  - |-
+    Bandages. Some pills. A handful of small bottles you grab without reading. You leave the rest. The second one is in the doorway by the time you are at the front shelf and you are out before the third clears the back.
+  - |-
+    The cut is bleeding through the sleeve when you hit the street.
+
+choices:
+  - text: |-
+      Out. Don't stop.
+    next: act2/arterial_run

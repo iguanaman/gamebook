@@ -1,0 +1,24 @@
+text:
+  - if: {flags: [caleb_route_marked_drain]}
+    text: |-
+      Caleb said it on the cul-de-sac. *I don't like the dark.* You said something. You do not remember now what you said. He nodded and did not press it.
+  - |-
+    The pipe is wide enough to walk in upright. Brick on the lower courses, concrete above. The water at your boots is shin-deep and moving the wrong way for a storm drain — slowly, against the slope.
+  - |-
+    The chord of the city does not reach down here. That is the part that is wrong. You can hear your own footsteps echo off something further in than you have walked.
+  - |-
+    A moan. Far. Then closer. Then far again. Then somewhere you cannot place.
+
+choices:
+  - text: |-
+      Push deeper. The pipes converge ahead.
+    next: act2/corridor_sewer_2
+  - text: |-
+      Back to the surface. This was a mistake.
+    next: act2/corridor_sewer_back
+    effects:
+      stats:
+        supplies: -1
+  - text: |-
+      Hold. Listen for the pattern.
+    next: act2/corridor_sewer_listen

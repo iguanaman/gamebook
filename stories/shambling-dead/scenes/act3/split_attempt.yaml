@@ -1,0 +1,27 @@
+text:
+  - |-
+    You make the call. Two places at once. Yourself in the middle.
+  - |-
+    The middle of the apron is the place the dead have been heading for since the breach. You have known that. You have been telling yourself not to know it.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara goes one way. You go another. Her hand was in yours and then it was not.
+  - if: {flags: [teen_alive], flags_unset: [child_rescued]}
+    text: |-
+      Caleb goes one way. You go another. He says something you do not catch.
+  - if: {flags: [elder_alive], flags_unset: [child_rescued, teen_alive]}
+    text: |-
+      Ruth goes one way. You go another. She does not say anything. She has decided she is not going to.
+  - if: {flags: [stranger_alive], flags_unset: [child_rescued, teen_alive, elder_alive]}
+    text: |-
+      Wren goes one way. You go another. The bag is across her body still. You have decided she will keep it.
+  - |-
+    Forty feet of apron between the cruiser and the seawall. Three of them on the apron between you and either route. They are slow. They are slow enough that you should not have been here.
+
+choices:
+  - text: |-
+      Run for the cruiser. Tell them to take the kayak.
+    next: act3/death_d_split
+  - text: |-
+      Run for the kayak. Tell them to take the cruiser.
+    next: act3/death_d_split

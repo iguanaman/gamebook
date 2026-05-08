@@ -1,0 +1,25 @@
+text:
+  - |-
+    He runs with you as long as he can run. Three blocks. Four. The leg is a leg right up to the corner, and then the corner is where the leg becomes the choice.
+  - |-
+    He stops at the parapet of an overpass that gives onto the river road. He is breathing the way a man breathes who has decided that the next breath is going to be a working one. He is not bitten. He is just done.
+  - male_midlife_american_dark_tough: |-
+      Go on. Get on. I'll hold the corner. I always wanted a job at a corner.
+  - |-
+    He turns the wedding band one last time and he closes the hand around it. He is looking at the road, not at you.
+  - if: {flags: [teen_alive]}
+    text: |-
+      He looks at Caleb once and the look is a small instruction that Caleb will not understand for a year.
+  - |-
+    The chord is at the corner. He has the fence-pole. He is not going to need it long.
+
+choices:
+  - text: |-
+      Hold his eye. Go.
+    next: act2/arterial_run_resolve
+    effects:
+      stats:
+        bond: 1
+      flags:
+        neighbour_alive: false
+        dale_held_arterial: true

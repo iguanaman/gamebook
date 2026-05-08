@@ -1,0 +1,177 @@
+text:
+  - |-
+    The arterial spills onto the river road. North and east. Downstream is the marina. The chord of the city is at your back, working through the streets you came down. The wind is off the water and it is colder than the streets were.
+  - |-
+    You take the next step.
+
+choices:
+  # ε — Mara + one adult, bond and supplies earned, no betrayal posture
+  - text: |-
+      The river road.
+    next: act2/exit_epsilon_mara_plus_one
+    requires:
+      flags: [child_rescued, teen_alive, shared_supplies]
+      flags_unset: [elder_alive, stranger_alive, killed_survivor, abandoned_wounded]
+      stats:
+        bond: 4
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_epsilon_mara_plus_one
+    requires:
+      flags: [child_rescued, elder_alive, shared_supplies]
+      flags_unset: [teen_alive, stranger_alive, killed_survivor, abandoned_wounded]
+      stats:
+        bond: 4
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_epsilon_mara_plus_one
+    requires:
+      flags: [child_rescued, stranger_alive, shared_supplies]
+      flags_unset: [teen_alive, elder_alive, betrayed_by_wren, killed_survivor, abandoned_wounded]
+      stats:
+        bond: 4
+    hide_if_failed: true
+
+  # δ — exactly one adult alive, no child rescued
+  - text: |-
+      The river road.
+    next: act2/exit_delta_one_adult
+    requires:
+      flags: [teen_alive]
+      flags_unset: [child_rescued, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_delta_one_adult
+    requires:
+      flags: [elder_alive]
+      flags_unset: [child_rescued, teen_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_delta_one_adult
+    requires:
+      flags: [stranger_alive]
+      flags_unset: [child_rescued, teen_alive, elder_alive, betrayed_by_wren]
+    hide_if_failed: true
+
+  # γ — child rescued, no adult companion alive (Wren-betrayed counts as no Wren)
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued]
+      flags_unset: [teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued, stranger_alive, betrayed_by_wren]
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+
+  # γ fallback — Mara + adult but warmth thresholds unmet (route to Mara-led tonality)
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued, teen_alive, killed_survivor]
+      flags_unset: [elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued, teen_alive, abandoned_wounded]
+      flags_unset: [elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued, elder_alive, killed_survivor]
+      flags_unset: [teen_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued, elder_alive, abandoned_wounded]
+      flags_unset: [teen_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued, stranger_alive, killed_survivor]
+      flags_unset: [teen_alive, elder_alive, betrayed_by_wren]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_gamma_mara_solo
+    requires:
+      flags: [child_rescued, stranger_alive, abandoned_wounded]
+      flags_unset: [teen_alive, elder_alive, betrayed_by_wren]
+    hide_if_failed: true
+
+  # α — cold solo (no adult, no child, abandoned/killed/looted)
+  - text: |-
+      The river road.
+    next: act2/exit_alpha_cold_solo
+    requires:
+      flags: [abandoned_wounded]
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_alpha_cold_solo
+    requires:
+      flags: [killed_survivor]
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive, abandoned_wounded]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_alpha_cold_solo
+    requires:
+      flags: [looted_church]
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive, abandoned_wounded, killed_survivor]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_alpha_cold_solo
+    requires:
+      flags: [stranger_alive, betrayed_by_wren, abandoned_wounded]
+      flags_unset: [child_rescued, teen_alive, elder_alive]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_alpha_cold_solo
+    requires:
+      flags: [stranger_alive, betrayed_by_wren, killed_survivor]
+      flags_unset: [child_rescued, teen_alive, elder_alive, abandoned_wounded]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_alpha_cold_solo
+    requires:
+      flags: [stranger_alive, betrayed_by_wren, looted_church]
+      flags_unset: [child_rescued, teen_alive, elder_alive, abandoned_wounded, killed_survivor]
+    hide_if_failed: true
+
+  # β — broken solo (no adult, no child, no cold-posture flags)
+  - text: |-
+      The river road.
+    next: act2/exit_beta_broken_solo
+    requires:
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive, abandoned_wounded, killed_survivor, looted_church]
+    hide_if_failed: true
+  - text: |-
+      The river road.
+    next: act2/exit_beta_broken_solo
+    requires:
+      flags: [stranger_alive, betrayed_by_wren]
+      flags_unset: [child_rescued, teen_alive, elder_alive, abandoned_wounded, killed_survivor, looted_church]
+    hide_if_failed: true

@@ -1,0 +1,10 @@
+text:
+  - |-
+    A laundry room. A man on the floor between two driers, mouth open at the wrong angle. The slippered feet were his — one foot still twitching, catching the brick that propped the door.
+  - |-
+    You leave the door as you found it. You take nothing. You will eat a meal less for it. That is the trade.
+
+choices:
+  - text: |-
+      Out. Move.
+    next: act2/apartments_courtyard

@@ -1,0 +1,20 @@
+text:
+  - |-
+    You turn. You walk to the gate. The gate is open the way Sully left it.
+  - |-
+    Vance does not call after you. Vance does not waste breath. Marrow watches you go without the pole. Sully does not look up from the clipboard.
+  - |-
+    The arterial is behind the gate. The chord is behind the gate. The cul-de-sac chord is the loudest of them and you are walking towards it.
+  - |-
+    The marina does not exist any more. The river does not exist any more. The arterial is the only thing left.
+
+choices:
+  - text: |-
+      Through the gate. Don't look back.
+    next: act3/endings_router
+  - text: |-
+      Through the gate. One look back. Then walk.
+    next: act3/endings_router
+    effects:
+      flags:
+        e7_almost: true

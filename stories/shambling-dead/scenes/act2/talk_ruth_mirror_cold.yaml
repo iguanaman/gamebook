@@ -1,0 +1,15 @@
+text:
+  - female_elder_american_relatable_likeable: |-
+      I'll tell you honest. I've watched a lot of people walk past this door these three days. Some of them I waved through and some of them I did not open the panel for. You I opened it for. And I'm sitting here trying to work out if I read you right.
+  - female_elder_american_relatable_likeable: |-
+      I'm not going to ask you what you've done, sweetheart. You know what you've done. I'm just going to say — there's still a person in there. I can see them. Don't lose them on the road east. The road east is a long road and it eats people.
+  - |-
+    She does not say it unkindly. That is the part that lands.
+
+choices:
+  - text: |-
+      Back.
+    next: act2/talk_ruth_hub
+    effects:
+      flags:
+        asked_ruth_mirror: true

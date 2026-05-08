@@ -1,0 +1,12 @@
+text:
+  - |-
+    The back room had three of them in it. Pharmacist's coat on one. The shots are loud enough that the chord behind you in the city tilts a quarter-degree closer. You do not have time to count what you took. You have time to reach across the counter, sweep what is there into the bag, and put your shoulder under the door on the way out.
+  - |-
+    Bandages. A bottle of antibiotics. A box of small things you will identify later. Some rounds for the gun that fit it well enough.
+  - |-
+    The dead at the back fence have heard the shots. So has the chord. The arterial is a hundred yards. You go.
+
+choices:
+  - text: |-
+      Out the back. Toward the arterial.
+    next: act2/arterial_run

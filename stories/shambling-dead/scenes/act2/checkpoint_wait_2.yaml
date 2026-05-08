@@ -1,0 +1,15 @@
+text:
+  - |-
+    His left hand has come off the megaphone and onto the side gate. Not lifting it. Just resting on the bolt. The second soldier's eyes have gone to that hand.
+  - male_young_american_forthright: |-
+      Show your hands. Do not approach the —
+  - |-
+    The loop fails. He starts it again. Wrong word first.
+
+choices:
+  - text: |-
+      Stay still. Wait.
+    next: act2/checkpoint_wait_3
+  - text: |-
+      Speak now. Quiet. "I have a child." Or "I have a wounded man."
+    next: act2/checkpoint_wait_3

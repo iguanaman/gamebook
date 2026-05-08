@@ -1,0 +1,26 @@
+text:
+  - if: {flags_unset: [asked_mara_name, asked_mara_mother]}
+    text: |-
+      You kneel in the closet doorway. She sits on the floor with her back against the bottom shelf, juice-box still in her hand. The big jacket pools around her. She watches your face the way a child watches an adult she has decided to trust on no evidence.
+  - if: visited
+    text: |-
+      The closet is the same closet. She is in the same place. The juice-box is still in her hand. A minute has passed and a minute has not.
+  - |-
+    In the corridor, footsteps again. Slower this time. Or further away. She hears them too. She does not look at the door.
+
+choices:
+  - text: |-
+      Your name?
+    next: act2/talk_mara_name
+    requires:
+      flags_unset: [asked_mara_name]
+    hide_if_failed: true
+  - text: |-
+      Your mother.
+    next: act2/talk_mara_mother
+    requires:
+      flags_unset: [asked_mara_mother]
+    hide_if_failed: true
+  - text: |-
+      Hold her hand. Down the fire escape.
+    next: act2/mara_descent

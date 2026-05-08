@@ -1,4 +1,4 @@
-# The Long Walk Out — Act 3: The River
+# The Shambling Dead — Act 3: The River
 
 ## Journal Entry
 The road ran out at the water. The dead were already there.

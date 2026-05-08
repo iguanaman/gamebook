@@ -1,0 +1,20 @@
+text:
+  - |-
+    You go through the gate. Sully says something at your back; you do not stop for it. The truck is where you left it — short of the kerb, two blocks down, parked on the verge.
+  - |-
+    The engine catches on the second turn. You bring it round in a tight circle that the verge does not appreciate. The marina's back stretch is on your left now and the breach in the chain-link is the thirty-foot gap in the middle of it.
+  - |-
+    You drive the truck into the gap. Not through. Into. The front bumper takes the lower frame of the chain-link and the chassis takes the post and the truck stops with the front wheels in the breach and the back wheels on the apron side.
+  - |-
+    You are out of the cab before the dead reach the wedge. The first one is at the bonnet by the time your feet hit the concrete. The metal of the truck stress-pops under their weight — a long thin sound, like a tooth coming loose.
+  - |-
+    Sully is staring at you from the apron. Marrow is on the floating dock. She has stopped pushing the body. She is looking at the truck.
+  - female_midlife_african-american_casual_opinionated: |-
+      Five minutes. You bought us five minutes.
+  - |-
+    The five minutes is also her. She is not saying so. She is saying the other thing.
+
+choices:
+  - text: |-
+      Run before the dead reach the cab.
+    next: act3/climax_setup

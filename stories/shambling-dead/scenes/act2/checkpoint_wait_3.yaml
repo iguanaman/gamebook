@@ -1,0 +1,22 @@
+text:
+  - |-
+    He throws the bolt. The side gate moves six inches. He shoves a duffel through the gap with the toe of his boot — does not bend, does not look down, does not let the second soldier see the gesture for what it is.
+  - if: {flags: [learned_listen]}
+    text: |-
+      He looks at you the way a man looks at someone who waited him out instead of walking him over. The look costs him something. He pays it.
+  - male_young_american_forthright: |-
+      Take this. Go east. Do not come back through here.
+  - |-
+    Ten words. The first ten he has said today that were not on a list.
+  - |-
+    Behind him, the gunfire that was drawing the dead has stopped. Whatever it was holding is now finding new sound.
+
+choices:
+  - text: |-
+      Take the bag. Thank him with your eyes only.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        supplies: 2
+      flags:
+        checkpoint_supplies_taken: true

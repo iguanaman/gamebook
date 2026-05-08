@@ -1,0 +1,19 @@
+text:
+  - male_midlife_american_loud_confident_cocky: |-
+      [chuckle] You want the tour? I'll give you the tour. We've got eleven on the perimeter rotation. Three on a six-hour. Two at the fire, always. One on the gate. One walking the back fence — back fence is the soft side, neighbour, you'd never know it from the road, but it is. We rotate that watch every two hours because two hours is what a person can hold the back fence for before they start lying about what they saw. You learn that.
+  - |-
+    Eleven. He said eleven.
+  - |-
+    Reece — at his shoulder, the quiet one — winces. Just the corners of the mouth. A breath. He looks down at the dirt for the count of one and back up, and his face is exactly what it was. But you saw it.
+  - |-
+    Hollis is still talking.
+  - male_midlife_american_loud_confident_cocky: |-
+      [chuckle] You'd be surprised what holds, neighbour. I would have been surprised, two weeks ago. Now nothing surprises me.
+
+choices:
+  - text: |-
+      Back.
+    next: act2/talk_hollis_camp
+    effects:
+      flags:
+        asked_hollis_camp: true

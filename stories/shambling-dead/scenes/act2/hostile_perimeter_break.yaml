@@ -1,0 +1,21 @@
+text:
+  - |-
+    The wire has teeth in it now. Fresh ones. Not the old wear of the body the lieutenant pulled off — *new* tear, a new hand on the spike, a new dead one finding the breach the same time you did.
+  - |-
+    You go through. You go through and you keep going. The dead the camp had been holding off the road are no longer being held off the road. Whatever Hollis's perimeter was for, it isn't for now.
+  - if: {flags: [killed_survivor]}
+    text: |-
+      Hollis is dead in the firelight. Reece is gone — perimeter, east, somewhere into the rest of his life. The lieutenant is in the pit.
+  - if: {flags: [companion_sacrificed]}
+    text: |-
+      Behind you, in the firelight, somebody you came in with is buying you these seconds. You do not look back. Looking back would not help them. The arterial is east.
+  - if: {flags: [fled_hostile]}
+    text: |-
+      The lieutenant is at the wire when you go through. He could have stopped you. He didn't. He watched.
+  - |-
+    Two blocks east, the parking structure rises against the smoke. High walls. A stairwell. Somewhere to put your back against until morning.
+
+choices:
+  - text: |-
+      Through the dead. East.
+    next: act2/rooftop_approach

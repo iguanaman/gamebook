@@ -1,0 +1,48 @@
+text:
+  - |-
+    The landing. You stand at the top of the stairs in the clothes you slept in. The radio is still going in the bedroom. The kitchen handset is ringing in time with it now, like the house has a heartbeat and it's wrong.
+  - |-
+    A street away — close enough that you hear it inside the house — a car alarm is dying down to a single repeating note. Something in the cul-de-sac moans, low. You don't think about it. You think about the rooms below you.
+  - if: {stats: {home_loud_count: 1}}
+    text: |-
+      A scream cuts off, two houses down. Someone shouted a child's name a second before it. Nobody answers the name.
+  - if: {stats: {home_loud_count: 2}}
+    text: |-
+      Glass breaks two doors down. The side fence is moving — something pressing on it from outside, slow and steady, working the slats.
+  - if: {stats: {home_loud_count: 3}}
+    text: |-
+      A wet hand slaps against the kitchen window downstairs. Then again. There's a shape on the porch through the frosted glass beside the front door. You don't have many more rooms in you.
+  - |-
+    Three rooms. Pick. Then the door.
+
+choices:
+  - text: |-
+      Bedroom. Bedside drawer.
+    next: act1/grab_kit_bedroom
+    requires:
+      flags_unset: [room_bedroom]
+    effects:
+      flags:
+        room_bedroom: true
+    hide_if_failed: true
+  - text: |-
+      Kitchen. Counters and the cans cupboard.
+    next: act1/grab_kit_kitchen
+    requires:
+      flags_unset: [room_kitchen]
+    effects:
+      flags:
+        room_kitchen: true
+    hide_if_failed: true
+  - text: |-
+      Hall closet. Coat. Keys.
+    next: act1/grab_kit_closet
+    requires:
+      flags_unset: [room_closet]
+    effects:
+      flags:
+        room_closet: true
+    hide_if_failed: true
+  - text: |-
+      Enough. Get to the front door.
+    next: act1/front_door_porch

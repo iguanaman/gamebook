@@ -1,0 +1,16 @@
+journal: |-
+  You took only what Ruth could spare, and left a mark where the tin had been.
+text:
+  - |-
+    You take three tins from the back of the shelf — the ones she's clearly been eating last — and one bottle. You set a length of pew-pencil across the gap on the shelf so the missing space is named. So she'll know, and know you wanted her to know.
+  - |-
+    She comes back through the low door drying her hands on a tea towel. She sees the bag, sees the gap, sees the pencil. Stops. Reads it.
+  - female_elder_american_relatable_likeable: |-
+      [sigh] Well. That's a fairer accounting than I've seen in a week. Sit down, sweetheart. Supper's not going to be much, but you've earned a chair at it.
+  - |-
+    She does not speak about what is behind the low door. You do not ask. She pours from a pot that is somehow still warm.
+
+choices:
+  - text: |-
+      Sit with her. Talk.
+    next: act2/talk_ruth_hub

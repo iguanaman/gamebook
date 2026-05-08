@@ -1,0 +1,48 @@
+text:
+  - if: {flags_unset: [visited]}
+    text: |-
+      Sully sets the clipboard down on the desk between you. He looks at it the way a man looks at a quiz he didn't study for.
+  - if: {flags_unset: [visited]}
+    text: |-
+      male_adult_american_casual_relaxed_light: |-
+        Three things she'd want me to ask. I'm asking them.
+  - if: visited
+    text: |-
+      He has not picked the clipboard back up. The radio is louder in here than at the gate. He is starting to hear it.
+  - if: {flags: [vance_priced, vance_body_asked, vance_after_asked]}
+    text: |-
+      He has answered all three the way he can answer them. The third question went past him.
+    else: |-
+      Through the back window, on the floating dock, Vance and Marrow are talking. They are not looking at the office. The way they are not-looking is its own conversation.
+
+choices:
+  - text: |-
+      What's the price.
+    next: act3/talk_sully_price
+    requires:
+      flags_unset: [vance_priced]
+    hide_if_failed: true
+    effects:
+      flags:
+        vance_priced: true
+  - text: |-
+      The body on the dock.
+    next: act3/talk_sully_body_deflect
+    requires:
+      flags_unset: [vance_body_asked]
+    hide_if_failed: true
+    effects:
+      flags:
+        vance_body_asked: true
+  - text: |-
+      What happens after.
+    next: act3/talk_sully_after
+    requires:
+      flags_unset: [vance_after_asked]
+    hide_if_failed: true
+    effects:
+      flags:
+        vance_after_asked: true
+  - text: |-
+      That's enough for now.
+    next: act3/marina_hub

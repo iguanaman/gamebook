@@ -1,0 +1,17 @@
+journal: |-
+  You bolted the door and waited. The radio told you nobody was coming. You listened to her say it three times before you believed her, and by then they were on the stairs.
+text:
+  - if: {flags: [wait_self_inflicted]}
+    text: |-
+      You don't wait for them to reach the bottom step. You sit down on the kitchen floor with your back against the cupboard your mother bought you and you put the barrel where you were taught not to put anything, and the last thing you hear is the calm woman on the radio above you, telling you what you already knew.
+    else: |-
+      The door comes off the hinges before you are ready for it to. The thing on the staircase reaches the bottom at the same moment, and the geometry is suddenly very simple — there is nowhere in this room that is not within a hand's reach of one of them.
+  - if: {flags_unset: [wait_self_inflicted]}
+    text: |-
+      The first one to take you is somebody you used to wave at. He has lost most of what made him a him, but the shape of his jaw is still familiar, and that is the detail you will not get to forget. His teeth find your forearm where you raised it. The second one is on your back before the first has finished. You go down on the hall rug your wife — your husband — your mother chose, and the carpet smells of dust and copper, and somewhere above you all of this the radio is still telling you in that calm warm professional voice that no rescue is being mounted at this time.
+  - |-
+    She told you. The first time and the second time and the third. You waited.
+  - |-
+    *— end —*
+
+choices: []

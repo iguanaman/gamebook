@@ -1,0 +1,40 @@
+text:
+  - |-
+    The ground-floor flat is the smallest of them. A short hallway, a kitchen-diner, a closed bedroom door at the back. The smell from behind the bedroom door is the smell of a thing that was a person two days ago and is something else now. Nobody is going in there.
+  - |-
+    On the table: two bowls. Cereal in milk that has separated. The chairs are pushed back the way chairs get pushed back when people stand up to look out a window. The cereal box is still upright. The spoon is on the floor.
+  - |-
+    The fridge has a drawing on it. Crayon on lined paper. Two stick figures and a sun. Underneath, in the careful hand of someone learning their letters: *me and mum*.
+
+choices:
+  - text: |-
+      Search the cupboards. Pocket what fits.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        supplies: 1
+        apartments_visits: 1
+      flags:
+        saw_drawing: true
+  - text: |-
+      Look at the drawing. Take it down. Leave the cupboards.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        bond: 1
+        apartments_visits: 1
+      flags:
+        saw_drawing: true
+        took_drawing: true
+  - text: |-
+      Both. Quick. Cupboards then drawing.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        supplies: 1
+        bond: 1
+        apartments_visits: 1
+      flags:
+        saw_drawing: true
+        took_drawing: true
+        apt1_loud: true

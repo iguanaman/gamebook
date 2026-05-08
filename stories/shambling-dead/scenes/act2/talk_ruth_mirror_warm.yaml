@@ -1,0 +1,15 @@
+text:
+  - female_elder_american_relatable_likeable: |-
+      You're a good one. I can tell. I've been watching whoever you've got with you and how they stand around you, and that tells me more than your face does. You're tired and you're scared and you're still here, sweetheart, and you've still got room for somebody else's bad day. That's not a small thing. Don't let anyone tell you it is.
+  - |-
+    Something in your chest goes loose for half a breath. You did not know how much you needed someone to say that out loud.
+
+choices:
+  - text: |-
+      Back.
+    next: act2/talk_ruth_hub
+    effects:
+      flags:
+        asked_ruth_mirror: true
+      stats:
+        bond: 1

@@ -1,0 +1,49 @@
+text:
+  - |-
+    The cul-de-sac is behind you. The road bends, and the houses you knew the shape of without looking at them go behind the bend with the road.
+  - |-
+    Ahead, the city. The chord of it carries differently than a single throat carries — a thicker sound, layered, made of more mouths than you can count and not coming from any one direction. The screams have stopped being separate. The dead are the city now.
+  - |-
+    You take the next step.
+
+choices:
+  - text: |-
+      Walk into the city.
+    next: act1/exit_b_solo_hard_mercy
+    requires:
+      flags_unset: [neighbour_alive, teen_alive, abandoned_wounded]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act1/exit_a_solo_quiet
+    requires:
+      flags: [abandoned_wounded]
+      flags_unset: [neighbour_alive, teen_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act1/exit_c_caleb_only
+    requires:
+      flags: [teen_alive]
+      flags_unset: [neighbour_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act1/exit_d_dale_only
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act1/exit_e_both_clean
+    requires:
+      flags: [neighbour_alive, teen_alive]
+      flags_unset: [dale_bitten]
+    hide_if_failed: true
+  - text: |-
+      Walk into the city.
+    next: act1/exit_f_both_poisoned
+    requires:
+      flags: [neighbour_alive, teen_alive, dale_bitten]
+    hide_if_failed: true

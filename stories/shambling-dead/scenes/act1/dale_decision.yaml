@@ -1,0 +1,99 @@
+text:
+  - |-
+    The side of the sedan is hot from a sun that has not had any business warming anything today. You crouch. Dale goes down with you in two stages, the second one heavier than the first, and the hand on your shoulder for balance is the hand he has been holding the leg with.
+  - |-
+    Down the road, the cul-de-sac horde is still coming. Half a block back. Slow. Constant. Not getting tired and not going to.
+  - |-
+    Across the road in the gas-station forecourt, the single shambler is still oriented at the pumps. It has not heard you yet. A gunshot here is a beacon — for it, and for everything else within four blocks of you.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb has crouched at the rear wheel. He is not looking at Dale. He is not looking at you. He is watching the corner of the road where the horde is, the way you watch a kettle.
+  - if: {flags: [dale_bitten, saw_dale_leg]}
+    text: |-
+      You know. You saw the leg on the porch and you know what is in him. The fever is in his hand on your shoulder. He knows that you know. He is not going to say it.
+  - if: {flags: [dale_bitten], flags_unset: [saw_dale_leg]}
+    text: |-
+      Something is wrong with him in a way that is more than tired. His skin under your hand is wet. Not sweat-wet. The other kind. You have not let yourself look closely at his leg and you are not going to make yourself look now.
+  - if: {flags_unset: [dale_bitten]}
+    text: |-
+      He is hurt and he is slow and he is a man who has run out of the last of whatever he had to spend on this morning. He is not feverish. He is just done.
+  - male_midlife_american_dark_tough: |-
+      [breath] All right. [pause] All right. You — you stop a second. Look at me.
+  - male_midlife_american_dark_tough: |-
+      I lived on this street twenty years. I was going to die on it. That's not — that's not the worst thing that ever happened to a man.
+  - |-
+    He is looking at you the way a man looks at someone he is asking to do something for him. Not asking with words yet. Just looking.
+
+choices:
+  - text: |-
+      Keep him moving. Take more of his weight.
+    next: act1/act1_exit_router
+    requires:
+      flags: [dale_bitten]
+    effects:
+      stats:
+        bond: 1
+    hide_if_failed: true
+  - text: |-
+      Keep him moving. Take more of his weight.
+    next: act1/act1_exit_router
+    requires:
+      flags_unset: [dale_bitten]
+    hide_if_failed: true
+  - text: |-
+      He stays. Sit him against the wall. Pistol in his lap.
+    next: act1/act1_exit_router
+    requires:
+      flags: [has_pistol]
+    effects:
+      flags:
+        neighbour_alive: false
+        abandoned_wounded: true
+        has_pistol: false
+      stats:
+        bond: -2
+    failed_text: |-
+      *(You don't have a pistol to leave him.)*
+  - text: |-
+      Walk away. Don't look back.
+    next: act1/act1_exit_router
+    effects:
+      flags:
+        neighbour_alive: false
+        abandoned_wounded: true
+      stats:
+        bond: -2
+  - text: |-
+      End it. Clean. Behind the ear.
+    next: act1/dale_mercy_kill
+    requires:
+      flags: [has_pistol]
+      flags_unset: [dale_bitten]
+    effects:
+      flags:
+        neighbour_alive: false
+      stats:
+        bond: -1
+    failed_text: |-
+      *(You don't have a pistol.)*
+  - text: |-
+      End it. Clean. Behind the ear.
+    next: act1/dale_mercy_kill
+    requires:
+      flags: [has_pistol, dale_bitten]
+    effects:
+      flags:
+        neighbour_alive: false
+    failed_text: |-
+      *(You don't have a pistol.)*
+  - text: |-
+      Hand him the pistol. Let him do it himself.
+    next: act1/dale_self_mercy
+    requires:
+      flags: [has_pistol, dale_helped]
+    effects:
+      flags:
+        neighbour_alive: false
+        has_pistol: false
+    failed_text: |-
+      *(You don't have a pistol.)*

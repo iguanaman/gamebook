@@ -1,4 +1,4 @@
-# The Long Walk Out — Act 2: The City
+# The Shambling Dead — Act 2: The City
 
 ## Journal Entry
 The neighbourhood is behind you. The city wasn't quieter — it was just further from the screaming you knew.

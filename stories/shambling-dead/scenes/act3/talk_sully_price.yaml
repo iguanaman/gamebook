@@ -1,0 +1,16 @@
+text:
+  - |-
+    He pulls the clipboard towards him. He does not write — he reads. The page is mostly blank, but the column heads are filled in in a hand that is not his.
+  - male_adult_american_casual_relaxed_light: |-
+      Three of yours. And one of you.
+  - |-
+    He says it the way you say a thing somebody told you to memorise. The pause after *one of you* is where his sentence stops being his.
+  - male_adult_american_casual_relaxed_light: |-
+      Vance picks which one. She'll tell you when you stand on the dock.
+  - |-
+    He looks at the clipboard like it should have the answer. The answer is not on the clipboard. The answer is in Vance's pocket.
+
+choices:
+  - text: |-
+      Back to the conversation.
+    next: act3/talk_sully_office

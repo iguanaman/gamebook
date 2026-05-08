@@ -1,0 +1,33 @@
+text:
+  - |-
+    Your bedside drawer is the kind of drawer that pretends to be tidy. Bills you haven't opened. A watch you don't wear. Under the watch — heavy, flat, real — the pistol your father left you the year he died.
+  - |-
+    You haven't touched it in two years. There's one round in the chamber. There is no spare clip in the drawer or anywhere else in this house, and you know that because you looked, the week after the funeral, and you looked again.
+  - narrator_female_warm_reflective: |-
+      Do not approach the infected. Shelter in place.
+  - |-
+    The radio is still talking to no-one in the corner of the room. The thing on the lawn — you realise you are calling it that now, *the thing* — has not made a sound you can hear from here. That is somehow worse than if it had.
+
+choices:
+  - text: |-
+      Take the pistol. Pocket the round in the chamber.
+    next: act1/grab_kit_landing
+    effects:
+      flags:
+        has_pistol: true
+      stats:
+        home_loud_count: 1
+  - text: |-
+      Take it. Don't think about whose it was.
+    next: act1/grab_kit_landing
+    effects:
+      flags:
+        has_pistol: true
+      stats:
+        home_loud_count: 1
+  - text: |-
+      Leave it. You don't know how to use it.
+    next: act1/grab_kit_landing
+    effects:
+      stats:
+        home_loud_count: 1

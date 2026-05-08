@@ -1,0 +1,23 @@
+text:
+  - |-
+    You stay on the porch. Cup a hand to your mouth.
+  - |-
+    "Dale — can you walk? Get up. *Get up.*"
+  - |-
+    Your voice goes farther than you wanted it to. Two houses down, glass breaks — not from the shout, but the shout makes you hear it. Three more shapes step out into the road from a driveway you can't see into, heads turning toward your porch on the same beat.
+  - male_midlife_american_dark_tough: |-
+      [groan] Yeah. Yeah, I can. Give me a second.
+  - |-
+    He gets his good leg under him. Drags the other behind. By the time he reaches your bottom step he is panting like a man who ran a mile, and his eyes are doing something that you don't want to think too hard about.
+  - male_midlife_american_dark_tough: |-
+      Thanks. Sorry. Thanks.
+  - |-
+    He won't say what he's sorry for.
+
+choices:
+  - text: |-
+      Get him to the kerb. Move.
+    next: act1/neighbourhood_hub
+    effects:
+      stats:
+        home_loud_count: 1

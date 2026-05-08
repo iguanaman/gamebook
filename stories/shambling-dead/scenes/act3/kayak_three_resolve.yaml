@@ -1,0 +1,36 @@
+text:
+  - |-
+    First trip: Mara. The yellow plastic, the foot well, the far bank. She sits where you put her and stays where you tell her.
+  - |-
+    Second trip: the adult. The water is moving differently now — there are dead in it at the marina edge, dropping off the seawall one at a time. The kayak goes through them. You row.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is in the foot well this time, his thumb against his mouth, not picking. He is looking at you. You are looking at the water.
+  - if: {flags: [elder_alive], flags_unset: [teen_alive]}
+    text: |-
+      Ruth is in the foot well this time, her hands folded the way they fold in a church.
+  - if: {flags: [stranger_alive], flags_unset: [teen_alive, elder_alive]}
+    text: |-
+      Wren is in the foot well this time, the bag in her lap, the strap across her chest the way she has worn it since the apartments.
+  - |-
+    Far bank. Mara's hand on the kayak's bow. The adult's hand on Mara. You are at the kayak still. The third trip is yours.
+  - |-
+    The marina behind you is a sound only. The seawall is gone. The dead are in the channel. The yellow plastic is yours to row.
+
+choices:
+  - text: |-
+      All three trips. Push.
+    next: act3/kayak_three_push_resolve
+  - text: |-
+      Stay back on the third trip. Tell them to row from the far bank without you.
+    next: act3/kayak_three_stay_resolve
+    requires:
+      flags: [boathouse_coop]
+      stats:
+        bond: 4
+    hide_if_failed: true
+    effects:
+      flags:
+        chose_hold_dock: true
+        held_the_dock_offered: true
+        kayak_e6_variant: true

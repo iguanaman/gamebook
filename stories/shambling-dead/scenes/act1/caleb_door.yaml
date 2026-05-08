@@ -1,0 +1,47 @@
+text:
+  - |-
+    The Pearsons' door is solid old wood with a deadbolt that hasn't been turned in years and is turned now. You can hear that without trying.
+  - |-
+    Inside, deeper than the door, something is finding the bottom step. Not fast. Methodical. The kind of slow that means it has all day.
+  - |-
+    Above you, behind the upstairs glass, Caleb is breathing on the pane. You can see the cloud of it. He hasn't said anything yet.
+  - male_young_american_weak: |-
+      Who — who is that. Don't — don't try the handle. Please don't try the handle.
+
+choices:
+  - text: |-
+      Soft voice. Tell him your name. Tell him you're a neighbour from across the road.
+    next: act1/caleb_gentle
+    requires:
+      flags_unset: [caleb_approach]
+    effects:
+      flags:
+        caleb_approach: true
+        caleb_gentle_route: true
+  - text: |-
+      Firm. "Open the door, Caleb. Now."
+    next: act1/caleb_firm
+    requires:
+      flags_unset: [caleb_approach]
+    effects:
+      flags:
+        caleb_approach: true
+        caleb_firm_route: true
+  - text: |-
+      Lie. "I'm a paramedic. Open the door, son."
+    next: act1/caleb_lie
+    requires:
+      flags_unset: [caleb_approach]
+    effects:
+      flags:
+        caleb_approach: true
+        caleb_lie_route: true
+        caleb_was_lied_to: true
+  - text: |-
+      Leave. He won't open.
+    next: act1/route_choice_arterial
+    effects:
+      flags:
+        caleb_seen: true
+      stats:
+        bond: -1

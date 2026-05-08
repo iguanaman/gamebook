@@ -1,0 +1,27 @@
+journal: |-
+  Wren told you the truth on the rooftop. There is a truck.
+text:
+  - |-
+    You sit on the concrete next to her. You do not look at the bag. You do not name the bag. You name the thing the bag has been doing — that she has not put it down once in two days, that she takes the watch she was not asked for, that the joke about being walked into the city is one joke she has, and she has used it three times now.
+  - |-
+    She listens. Her hand goes to the strap and then comes off it. She sets the bag down between her boots like a person putting a tool down at the end of a shift.
+  - female_adult_american_droll_wry_dry: |-
+      [sigh] Okay. Yeah. Okay.
+  - |-
+    She tells you. About her brother. About the truck at the eastern edge. About the plan, which was — *was* — to walk you to the fence and walk away from you there.
+  - female_adult_american_droll_wry_dry: |-
+      I'm not going to do that. I don't think I was going to do it before tonight either. But I might have. So.
+  - |-
+    She opens the bag. The fob is on top. Stylised pine tree. Two keys on a split ring. She holds them out flat on her palm the way you would hand a thing back to its owner.
+
+choices:
+  - text: |-
+      Take the keys. The two of you on watch the rest of the night.
+    next: act2/rooftop_bond_beat
+    effects:
+      stats:
+        bond: 1
+      flags:
+        has_keys: true
+        wren_truthed: true
+        wren_peaceful: true

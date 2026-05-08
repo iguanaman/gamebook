@@ -1,0 +1,54 @@
+text:
+  - |-
+    The front of the dead has eased — not stopped, eased, the way a wave eases before the next one. Marrow is breathing through her teeth. Sully has a length of pipe and an expression he has not had this week.
+  - |-
+    Vance is here. You did not see her cross the apron.
+  - female_adult_american_sultry_villainous: |-
+      That was useful.
+  - |-
+    She is reading you the way she read Sully on the first day of the job. The clipboard is at her hip; she has not opened it. Her hand is near the keys at her belt.
+  - if: {flags: [held_breach_smart]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Smart, too. Smart is rare.
+  - if: {flags: [respected_marrow]}
+    text: |-
+      Marrow is at Vance's shoulder. She does not look at Vance. She looks at you, once, and her face does the thing a face does when it has just decided something.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara is at the office wall still. She has not moved her hand since the fence went.
+  - if: {flags: [held_breach, dock_crew_logged]}
+    text: |-
+      Vance opens the clipboard. She does not say anything. The act of opening is the sentence.
+  - if: {flags: [held_breach], flags_unset: [dock_crew_logged]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Friend. We should talk about what comes next.
+
+choices:
+  - text: |-
+      Hear her out.
+    next: act3/vance_offer
+    requires:
+      flags: [held_breach]
+      flags_unset: [dock_crew_logged]
+    hide_if_failed: true
+    effects:
+      flags:
+        vance_offered: true
+  - text: |-
+      Walk past her. Find your own people.
+    next: act3/climax_setup
+    effects:
+      stats:
+        bond: 1
+      flags:
+        refused_vance_offer: true
+  - text: |-
+      Tell her plainly: no.
+    next: act3/climax_setup
+    effects:
+      stats:
+        bond: 1
+      flags:
+        refused_vance_offer: true

@@ -1,0 +1,44 @@
+text:
+  - |-
+    Inside. She bars the front behind you. Then she stops, hand to her ear, and turns toward a low door off the nave.
+  - female_elder_american_relatable_likeable: |-
+      Two minutes, sweetheart. He needs his water. Make yourself at home — there's tea on, of all the absurd things.
+  - |-
+    She is gone through the low door before you decide whether to answer. The door does not quite shut behind her.
+  - |-
+    The kitchen is straight through the inner archway. You can see the larder from where you stand — a tall pine cupboard, both doors open, two shelves of tinned food, sealed water, a jar of something pickled. Half a city's worth of careful, in one cupboard, with no one watching it.
+  - if: {flags: [glimpsed_husband]}
+    text: |-
+      Through the low door she went through, the humming has started again. Two bars. Stop. The shape you saw through the side-door gap is in there with her. She is talking to it the way she talked to you.
+
+choices:
+  - text: |-
+      Take the larder. Quietly. Out the front before she comes back.
+    next: act2/church_loot_done
+    effects:
+      flags:
+        looted_church: true
+        abandoned_wounded: true
+      stats:
+        supplies: 2
+        bond: -2
+  - text: |-
+      Take only what she'd let you. Leave a marker on the shelf so she sees what's gone.
+    next: act2/church_inside_help_lite
+    effects:
+      flags:
+        church_inside: true
+        elder_alive: true
+      stats:
+        supplies: 1
+  - text: |-
+      Don't take it. Help with the barricade after all.
+    next: act2/church_inside_help
+  - text: |-
+      Back out the front. Pretend you forgot something.
+    next: act2/mara_approach
+    effects:
+      flags:
+        passed_church: true
+      stats:
+        bond: -1

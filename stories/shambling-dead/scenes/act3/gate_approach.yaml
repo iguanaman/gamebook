@@ -1,0 +1,69 @@
+text:
+  - |-
+    Service road. Chain-link on the right, the marina behind it. Two of them at the gate booth — one with a clipboard and a high-vis vest cut down at the hem, one further back with a long pole. The one with the clipboard has already seen you. He is not surprised.
+  - |-
+    Past the gate, fifty feet on, a body on the floating dock. One small shoe missing. The other shoe is on the wrong foot.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      You move yourself between Mara and the line of sight to the dock. It is the kind of thing you do without thinking now.
+  - |-
+    A radio in the booth, thin and looping. The cadence is the cadence of the broadcast in your bedroom on day one. The frequency is wrong. They are listening for someone they do not want to find them.
+  - male_adult_american_casual_relaxed_light: |-
+      Hey. Friend. Three questions. Who, how many, what's in the bag.
+  - |-
+    He says it the way a man says it for the fortieth time this week. The pleasantness has become bureaucratic.
+  - |-
+    Behind him, the woman with the pole walks off without finishing the conversation he is not having. The fence has rattled once at the back stretch. She goes to it. She does not come back cleanly.
+  - if: {flags: [bitten]}
+    text: |-
+      The sleeve is over the bite. The sleeve has been over it for an hour. He is going to see it inside two beats.
+
+choices:
+  - text: |-
+      Walk up plain. Answer the questions. Show the bag.
+    next: act3/gate_cooperate
+    effects:
+      flags:
+        met_dock_crew: true
+        dock_crew_logged: true
+  - text: |-
+      Walk up thin. Undersell. Hide what you can.
+    next: act3/gate_lie_low
+    requires:
+      flags: [stranger_alive]
+      flags_unset: [betrayed_by_wren]
+    hide_if_failed: true
+    effects:
+      flags:
+        met_dock_crew: true
+        dock_crew_suspicious: true
+  - text: |-
+      Walk up thin. Stash a tin behind a wheel arch first. Undersell.
+    next: act3/gate_lie_low
+    requires:
+      flags_unset: [stranger_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -1
+      flags:
+        met_dock_crew: true
+        dock_crew_suspicious: true
+  - text: |-
+      Walk up thin. Stash a tin behind a wheel arch first. Undersell.
+    next: act3/gate_lie_low
+    requires:
+      flags: [stranger_alive, betrayed_by_wren]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -1
+      flags:
+        met_dock_crew: true
+        dock_crew_suspicious: true
+  - text: |-
+      Turn back. Find a way around the fence.
+    next: act3/gate_refuse
+    effects:
+      flags:
+        gate_refused: true

@@ -1,0 +1,23 @@
+text:
+  - if: {flags: [marrow_named_body]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Marrow told you, did she.
+  - if: {flags: [marrow_named_body]}
+    text: |-
+      She writes a small thing on her own clipboard. Not for you. For later.
+  - if: {flags_unset: [marrow_named_body]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        He came in Tuesday. He asked the wrong question on the dock. I gave him an answer.
+  - |-
+    She does not flinch. She does not look at the window. She does not soften it. She is not sparing herself this part — and that is the difference between her and Hollis. Hollis covered. She does not bother.
+  - female_adult_american_sultry_villainous: |-
+      He tried to take the keys. The kid was on the dock with him. She's not on the dock now.
+  - |-
+    The third sentence she says like a fact. The way she says it is the second tell. The first was that she did not look at the back window when she said the second sentence. The girl is not on the dock and is not anywhere on the apron. You did not see a child the size of the missing shoe at the gate either.
+
+choices:
+  - text: |-
+      Back to the conversation.
+    next: act3/talk_vance

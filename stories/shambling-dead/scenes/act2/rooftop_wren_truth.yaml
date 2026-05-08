@@ -1,0 +1,46 @@
+journal: |-
+  Wren told you the truth on the rooftop. There is a truck.
+text:
+  - |-
+    She comes over before you have settled. She does not lean on the parapet this time. She crouches on her heels with the canvas bag between her feet, both hands on the strap, and she is not doing the small thing she does with her mouth before she answers a question. The dryness has gone out of her.
+  - female_adult_american_droll_wry_dry: |-
+      Okay. [sigh] Okay. Before you have to ask me again.
+  - |-
+    She opens the bag the way somebody opens a thing they have been carrying that has gotten heavy. Inside, on the top: a fob and two keys on a split ring. The fob has a stylised pine tree on it and the kind of plastic wear a thumb gives a thing it has been turning over for a week.
+  - female_adult_american_droll_wry_dry: |-
+      Truck. East edge of the city. My brother left it for me before — he didn't make it. I was going to use you to get there. I'd walk you to the fence and walk away.
+  - female_adult_american_droll_wry_dry: |-
+      I'm not doing that.
+  - |-
+    Below the parapet, in the stairwell, the dead are still working on the fire door. The sound is small and patient and not stopping.
+  - female_adult_american_droll_wry_dry: |-
+      Take them. They open it. I'll show you where.
+
+choices:
+  - text: |-
+      Take the keys. Thank her plainly.
+    next: act2/rooftop_bond_beat
+    effects:
+      stats:
+        bond: 1
+      flags:
+        has_keys: true
+        wren_truthed: true
+  - text: |-
+      Take the keys. Ask why now.
+    next: act2/rooftop_bond_beat
+    effects:
+      stats:
+        bond: 1
+      flags:
+        has_keys: true
+        wren_truthed: true
+        wren_named_brother: true
+  - text: |-
+      Refuse the keys. The truck is hers.
+    next: act2/rooftop_bond_beat
+    effects:
+      stats:
+        bond: 1
+      flags:
+        wren_offered_keys: true

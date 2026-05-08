@@ -1,0 +1,26 @@
+text:
+  - |-
+    You cross. The road feels wider than it ever has. You reach the Pearsons' porch in seven steps and none of them feel quick enough.
+  - |-
+    The door is closed. The mat says WELCOME in faded blue letters. Inside, deeper than the door, something is moving on a hard floor — slow, dragging, not a foot lifting and falling but a foot *finding* the floor and going on.
+  - |-
+    Caleb is one storey up, behind the glass. He hasn't moved. His hand is still pressed flat against the window. He has seen you the whole way across the road.
+
+choices:
+  - text: |-
+      Knock. Quietly. Knuckles only.
+    next: act1/caleb_door
+  - text: |-
+      Knock and call his name.
+    next: act1/caleb_door
+    effects:
+      stats:
+        home_loud_count: 1
+  - text: |-
+      Wave at the upstairs window. Walk on.
+    next: act1/neighbourhood_hub
+    effects:
+      flags:
+        caleb_seen: true
+      stats:
+        hub_visits: 1

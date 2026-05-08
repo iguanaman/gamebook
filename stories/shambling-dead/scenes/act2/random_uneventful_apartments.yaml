@@ -1,0 +1,10 @@
+text:
+  - |-
+    The alley is just an alley. Cardboard, a smell. A stroller folded against a dumpster — clean, recent, no child near it.
+  - |-
+    The turn at the end opens onto the courtyard. You take it without speeding up.
+
+choices:
+  - text: |-
+      Out the alley. Courtyard ahead.
+    next: act2/apartments_courtyard

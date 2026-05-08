@@ -1,0 +1,15 @@
+text:
+  - |-
+    The side door is a slab of varnished oak with a strip of light at the bottom where the frame has warped. The scratching is louder here. It is not a nail. It is a hand. A hand that has been doing this long enough that the wood is splintered the way wood splinters when it is being worked from one side, slowly, by something that does not get tired.
+  - |-
+    Through the strip of light, a shape. Standing. Not moving the way a person stands. Closer to the door than you'd thought.
+  - |-
+    Inside, somewhere past the shape, a woman is humming. Two bars of something old. Then she stops, like she's listening for the same thing you are. Then she starts again.
+
+choices:
+  - text: |-
+      Back to the front. Knock properly.
+    next: act2/church_door
+    effects:
+      flags:
+        glimpsed_husband: true

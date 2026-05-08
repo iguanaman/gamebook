@@ -1,0 +1,16 @@
+text:
+  - |-
+    A fire-exit door at hip height up the alley wall, propped a finger's-width with a brick. Behind it — a sound. Slippered feet. A voice that says one syllable. Then quiet. Then the slippered feet again.
+  - |-
+    A person, hurt and calling. Or a curtain on a body's foot. The brick says somebody chose to leave the door open.
+
+choices:
+  - text: |-
+      Investigate.
+    next: act2/random_window_inside_apartments
+    effects:
+      stats:
+        supplies: -1
+  - text: |-
+      Walk on.
+    next: act2/apartments_courtyard

@@ -1,0 +1,34 @@
+text:
+  - |-
+    The party puts bags down. Everyone except her. She leans on the parapet with her hip the way she did at the apartments, the canvas strap across her chest, the bag against her ribs. The bag does not slide off her shoulder when she leans, because she does not let it. You filed that in the apartments. You file it again here.
+  - female_adult_american_droll_wry_dry: |-
+      [chuckle] I'll take first watch. You look like a man who walked the city today. Or a woman. Or both. Sleep.
+  - |-
+    She has done that joke before. The same setup, the same beat between, the same punch. Two days now. She does it the same way every time, and the careful part of you is the part that is counting.
+  - if: {flags: [child_rescued]}
+    text: |-
+      Mara is already asleep against your hip. She does not know what watches are. She thinks somebody is staying up to keep the dark out, which is correct.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is rolled in his hoodie against the parapet. Picking at his thumb. He has not noticed the bag-on-the-shoulder thing. He has noticed something — he keeps looking at her, then at you, then at the floor. He doesn't know what he has noticed.
+  - |-
+    Below the parapet, the stairwell hum. The dead two floors down, working on the door. They are not what is going to take from you tonight.
+
+choices:
+  - text: |-
+      Sit with her. Talk her down. Use what you know.
+    next: act2/rooftop_wren_peaceful
+    requires:
+      stats:
+        bond: 2
+    failed_text: |-
+      *(You don't know her well enough to risk it. The thing you'd say isn't a thing she'd hear from you.)*
+  - text: |-
+      Sleep. Trust her on watch.
+    next: act2/rooftop_wren_betrayed
+  - text: |-
+      Don't sleep. Watch her.
+    next: act2/rooftop_wren_caught
+  - text: |-
+      Confront her now. Make her show the bag.
+    next: act2/rooftop_wren_confront

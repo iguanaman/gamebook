@@ -1,0 +1,20 @@
+text:
+  - |-
+    You speak. Slow, calm, no movement. The words land — his eyes flick up — but the loop interrupts him before he can take it in.
+  - male_young_american_forthright: |-
+      Show your hands. Do not approach the wire. We are not authorised to admit.
+  - |-
+    His hands are shaking worse than they were when you started. Not the second soldier's. His.
+  - |-
+    He buys you a smaller window than he could have. The side gate cracks. A water bottle and a bandage roll on the asphalt at your feet. He does not look at you again.
+
+choices:
+  - text: |-
+      Hold position. Repeat slowly. Take what he gave.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        supplies: 1
+      flags:
+        met_checkpoint: true
+        checkpoint_spoke: true

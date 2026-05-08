@@ -1,0 +1,57 @@
+text:
+  - |-
+    Time is doing something it shouldn't. You haven't been in here long. You have been in here a long time.
+  - |-
+    The door jamb has started to splinter. Wood doesn't go all at once — it goes the way bread goes, fibre by fibre, and you can hear each fibre give. There is a hand on the kitchen window now. You can see the print of it through the steam your breathing is putting on the glass from the wrong side. The print is wrong. It is missing fingers in places fingers should be.
+  - |-
+    Upstairs, glass cracks. Not breaks. Cracks. The sound a windscreen makes before it gives.
+  - if: {flags: [tried_911]}
+    text: |-
+      The handset is back on the cradle. You don't pick it up. You know what it will say.
+  - if: {flags: [barricaded]}
+    text: |-
+      The bookcase shifts a quarter-inch toward you. The thing on the porch is leaning on it now, the way a tired man leans on a wall.
+  - if: {flags: [looked_window]}
+    text: |-
+      You saw what was in the road. There were too many of them to count and you tried to count them anyway.
+  - narrator_female_warm_reflective: |-
+      No rescue is being mounted at this time.
+  - |-
+    She says it again. The kitchen says it. Your own house is saying it to you.
+
+choices:
+  - text: |-
+      Try 911 again. Maybe something has changed.
+    next: act1/wait_inside_loop3
+    requires:
+      flags_unset: [tried_911]
+    effects:
+      flags:
+        tried_911: true
+  - text: |-
+      Pick up the landline.
+    next: act1/wait_inside_loop3
+    requires:
+      flags_unset: [tried_landline]
+    effects:
+      flags:
+        tried_landline: true
+  - text: |-
+      More furniture. The kitchen table this time.
+    next: act1/wait_inside_loop3
+    requires:
+      flags_unset: [barricaded_more]
+    effects:
+      flags:
+        barricaded_more: true
+  - text: |-
+      Up the stairs. Look out the window again.
+    next: act1/wait_inside_loop3
+    requires:
+      flags_unset: [looked_window_again]
+    effects:
+      flags:
+        looked_window_again: true
+  - text: |-
+      Open the door now. While you still can.
+    next: act1/wait_inside_door_open

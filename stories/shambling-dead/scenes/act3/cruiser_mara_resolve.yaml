@@ -1,0 +1,44 @@
+text:
+  - |-
+    Sully writes the number. Vance reads it once and looks at Mara without softening anything in her face. Marrow steps off the gangplank.
+  - if: {flags: [companion_sacrificed]}
+    text: |-
+      The companion you brought to the marina is on the floating dock. Vance has them. Marrow is loading the last tin into the cabin and not looking. You have decided who is on the boat and who is not, and the dock has the answer at the bollard.
+  - female_adult_american_sultry_villainous: |-
+      Get on the boat.
+  - if: {flags: [teen_alive]}
+    male_young_american_weak: |-
+      Go. I'm — go.
+  - if: {flags: [elder_alive]}
+    female_elder_american_relatable_likeable: |-
+      You take her to the cove, sweetheart. You take her.
+  - if: {flags: [stranger_alive]}
+    female_adult_american_droll_wry_dry: |-
+      It was always going to be one of us. I picked.
+  - if: {flags_unset: [teen_alive, elder_alive, stranger_alive]}
+    text: |-
+      Mara walks the gangplank in front of you. Her shoes are still on the wrong feet. She does not look back at the dock. She has decided not to.
+    else: |-
+      You walk Mara up the gangplank. She takes one step on the deck and then she stops. She does not turn around. The not-turning is the thing she has chosen instead of crying.
+  - |-
+    The line goes off the bollard. The engine pushes. The cruiser pulls away from the dock with the smell of fuel and of the river and of the dock-side body that is in the water now still moving in it.
+
+choices:
+  - text: |-
+      Hold Mara's hand. Don't look back at the dock.
+    next: act3/endings_router
+  - text: |-
+      Look back. Once. Name the companion.
+    next: act3/endings_router
+    requires:
+      flags: [companion_sacrificed]
+    hide_if_failed: true
+    effects:
+      flags:
+        looked_back_at_companion: true
+  - text: |-
+      Tell Mara plainly: we made it. Try to mean it.
+    next: act3/endings_router
+    effects:
+      flags:
+        told_mara_made_it: true

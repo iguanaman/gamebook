@@ -1,0 +1,37 @@
+text:
+  - if: {flags: [mara_helped_dale]}
+    text: |-
+      Dale laces his hands and bends and you step into them. He takes your weight without a sound. His leg, his thigh, the cloth darker than the rest — he does not say anything about any of it. You catch the rung. He lets you go.
+  - if: {flags: [mara_helped_caleb]}
+    text: |-
+      Caleb stands under the rung with both hands cupped and his head turned away. You step. He braces. He says *go* once, very quiet, and you go.
+  - if: {flags: [mara_helped_wren]}
+    text: |-
+      Wren has a coil of paracord out of her bag before you ask. She loops it, throws — second try — and the loop catches on the rung's bracket. You haul yourself up hand over hand while she leans against the wall and watches the alley mouth.
+  - if: {flags: [mara_helped_ruth]}
+    text: |-
+      Ruth stands at the alley mouth with her shoulder against the brick and her eyes on the corner. She is a poor wall. She is the wall you have. You climb.
+  - if: {flags: [mara_climb_solo]}
+    text: |-
+      You break the third-floor window with the pistol-butt first, because the shot afterward will pass through a hole that already exists and the noise will be one noise instead of two. Then you fire once into the window — the figure inside that had been watching the glass goes down. Then you climb. Hand on the rung. Hand on the rail. Up.
+  - |-
+    First floor: a man behind a reception desk who does not stand up, only turns his face toward the window. Second floor: open-plan, cubicle dividers knocked flat in three rows, two figures in the far corner who are too far away to matter yet. Third floor: a corridor of office doors, half of them closed.
+  - |-
+    Every floor has its dead. The fire-escape windows are the gift the architecture gave you — you do not have to walk past most of them. You only have to *hear* them.
+  - |-
+    The fourth floor is what the crying came from.
+
+choices:
+  - text: |-
+      To the fourth floor. Find the closet.
+    next: act2/mara_supply_closet
+  - text: |-
+      Stop on three. The desk drawer — supplies.
+    next: act2/mara_floor_three_desk
+    requires:
+      flags_unset: [mara_floor_three_done]
+    effects:
+      stats:
+        supplies: 1
+      flags:
+        mara_floor_three_done: true

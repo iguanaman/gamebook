@@ -1,0 +1,25 @@
+text:
+  - |-
+    You go in off the seawall. The water takes you in the way water takes a thing that does not weigh more than the water does. You go in past your shoulders. Your shoes are heavy. Your bag is across your back.
+  - |-
+    The first stroke. The second. The far bank is forty yards. The dock-side body is in the same water — somewhere upstream, a plop-and-drag that does not belong to a living thing.
+  - if: {flags: [bitten]}
+    text: |-
+      The bite-arm is not your arm. It is colder than the water and it is hotter than the water and it is doing neither of the things an arm does in a swim. You knew this when you started.
+
+choices:
+  - text: |-
+      Into the water.
+    next: act3/death_d_swim_bitten
+    requires:
+      flags: [bitten]
+    hide_if_failed: true
+  - text: |-
+      Into the water.
+    next: act3/endings_router
+    requires:
+      flags_unset: [bitten]
+    hide_if_failed: true
+    effects:
+      flags:
+        swim_solo: true

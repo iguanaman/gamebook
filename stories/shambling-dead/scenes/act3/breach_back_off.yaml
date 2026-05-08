@@ -1,0 +1,48 @@
+text:
+  - |-
+    You step backwards into the office. The cinder-block is cold against the spine of your hand. The breach is forty feet away on the other side of the wall. The wall is what you are listening to.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara's hand is flat against the wall an inch below yours. She has not taken it down since the fence went. She is feeling it. She is hearing it through her palm.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is at the desk. He is looking at you the way he looked at his father on the lawn. He has not said anything. The not-saying is the sentence.
+  - if: {flags: [elder_alive]}
+    text: |-
+      Ruth is sitting on a folding chair with her hands folded in her lap. She is not looking at you. She is not making a point of not looking at you.
+  - if: {flags: [stranger_alive]}
+    text: |-
+      Wren is at the door. Her hand is on the frame. The bag on the long strap is between her body and yours.
+  - if: {flags: [gate_refused]}
+    text: |-
+      Sully is at the radio. He looks at you once, looks back at the radio, does not say anything.
+    else: |-
+      Vance is not in the office. The clipboard is on the desk. The page is open to your line.
+  - |-
+    The breach moans through the wall. Marrow is shouting something at Sully that ends in the same word it started in. The shouting goes on for two breaths. Then it eases. Then it eases more.
+
+choices:
+  - text: |-
+      Wait at the office until the shouting stops.
+    next: act3/climax_setup
+    requires:
+      flags: [dock_crew_suspicious]
+    hide_if_failed: true
+    effects:
+      flags:
+        dock_crew_marked: true
+  - text: |-
+      Wait at the office until the shouting stops.
+    next: act3/climax_setup
+    requires:
+      flags_unset: [dock_crew_suspicious]
+    hide_if_failed: true
+    effects:
+      flags:
+        dock_crew_suspicious: true
+  - text: |-
+      Watch from the office window. Read what the crew is doing.
+    next: act3/climax_setup
+    effects:
+      flags:
+        read_office: true

@@ -1,0 +1,61 @@
+text:
+  - |-
+    The cinder-block office has one window facing the apron and one facing the back fence. A shotgun on a peg behind the desk. A child's drawing on the wall — a boat with too many people on it, signed in a careful seven-year-old hand: *for Daddy, from Hannah.* A logbook open on the desk.
+  - if: {flags: [dock_crew_logged]}
+    text: |-
+      The logbook page is yours. Headcount in one column. Supply-load in another. A third column you cannot read upside down.
+  - if: {flags: [dock_crew_logged], flags_unset: [gate_refused]}
+    text: |-
+      Vance is at the desk. She is reading the page Sully wrote about you. She does not look up when you come in.
+  - if: {flags: [gate_refused]}
+    text: |-
+      Sully is at the desk. The clipboard is in front of him, mostly empty. Vance is not in the room. You can see her through the back window, on the floating dock, talking to Marrow in single sentences.
+  - if: {flags: [dock_crew_logged], flags_unset: [gate_refused]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Sit if you'd like. Stand if you'd like. I'm reading.
+  - |-
+    The radio loop is louder in here. The frequency is not the one Apt 3 played, and it is not the one Hollis played. It is the wrong one of both — which is to say, a chosen one.
+
+choices:
+  - text: |-
+      Sit when she gestures. Listen first.
+    next: act3/talk_vance
+    requires:
+      flags: [dock_crew_logged]
+      flags_unset: [gate_refused]
+    hide_if_failed: true
+    effects:
+      flags:
+        met_vance: true
+  - text: |-
+      Stay standing. Read the room before you read her.
+    next: act3/talk_vance
+    requires:
+      flags: [dock_crew_logged]
+      flags_unset: [gate_refused]
+    hide_if_failed: true
+    effects:
+      flags:
+        met_vance: true
+        read_office: true
+  - text: |-
+      Open with the body on the dock.
+    next: act3/talk_vance
+    requires:
+      flags: [dock_crew_logged]
+      flags_unset: [gate_refused]
+    hide_if_failed: true
+    effects:
+      flags:
+        met_vance: true
+        opened_with_body: true
+  - text: |-
+      Sit. Wait for Sully to start the questions.
+    next: act3/talk_sully_office
+    requires:
+      flags: [gate_refused]
+    hide_if_failed: true
+    effects:
+      flags:
+        met_sully_office: true

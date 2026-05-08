@@ -1,0 +1,19 @@
+text:
+  - if: {flags: [told_mara_truth_dark]}
+    text: |-
+      She does not cry. She does the smaller thing children do — a half-step closer, a hand on the back of yours, the strap of the bag adjusted as if the bag is the part of her she can fix. She nods once. She has been waiting for someone to tell her.
+  - if: {flags: [lied_to_mara]}
+    text: |-
+      She nods. The nod is too small. Her hand on the strap of the bag is too tight. She knows. She has known since the supply closet. She has been waiting to see if you would do this.
+  - if: {flags_unset: [told_mara_truth_dark, lied_to_mara]}
+    text: |-
+      She does not say anything. The not-saying is its own answer.
+  - female_young_american_sweet_youthful_clear: |-
+      Okay.
+  - |-
+    Above you the joist gives. A length of shingle goes sideways and the wet-mouth sound is right above your head now. You are not staying in this boathouse another minute.
+
+choices:
+  - text: |-
+      Pick her up. To the kayak.
+    next: act3/boathouse_gamma_resolve

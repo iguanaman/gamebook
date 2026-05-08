@@ -1,0 +1,59 @@
+text:
+  - male_young_american_weak: |-
+      My mom was in the kitchen. Dad was — Dad was in the basement. I saw both. I — I'm not gonna —
+  - |-
+    He stops. He does the thing he does where he says "I mean —" twice and doesn't follow through. The thumb is bleeding a little more now.
+  - if: {flags: [caleb_was_lied_to]}
+    text: |-
+      He looks at you the way he has been looking at you since the cul-de-sac. Like he believed something you said and is still believing it.
+  - if: {flags: [caleb_was_lied_to]}
+    text: |-
+      *(You told him you were a paramedic at the door. He was sixteen and his father was on the basement floor. He believed you.)*
+  - male_young_american_weak: |-
+      You said — at our door, you said you were — like, a, like a paramedic? I keep thinking about it. I keep thinking maybe my dad —
+  - male_young_american_weak: |-
+      Sorry. I, um.
+
+choices:
+  - text: |-
+      Admit it. "I'm not a paramedic. I lied at your door. I'm sorry."
+    next: act2/talk_caleb_hub
+    requires:
+      flags: [caleb_was_lied_to]
+    hide_if_failed: true
+    effects:
+      stats:
+        bond: 2
+      flags:
+        asked_caleb_parents: true
+        confessed_lie: true
+        caleb_was_lied_to: false
+  - text: |-
+      Don't say anything about the door. Sit with him.
+    next: act2/talk_caleb_hub
+    requires:
+      flags: [caleb_was_lied_to]
+    hide_if_failed: true
+    effects:
+      stats:
+        bond: 1
+      flags:
+        asked_caleb_parents: true
+        caleb_distrust: true
+  - text: |-
+      Sit with him. Listen.
+    next: act2/talk_caleb_hub
+    requires:
+      flags_unset: [caleb_was_lied_to]
+    hide_if_failed: true
+    effects:
+      stats:
+        bond: 1
+      flags:
+        asked_caleb_parents: true
+  - text: |-
+      Change the subject. Talk about something else.
+    next: act2/talk_caleb_hub
+    effects:
+      flags:
+        asked_caleb_parents: true

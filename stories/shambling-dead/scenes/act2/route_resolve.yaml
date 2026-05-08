@@ -1,0 +1,32 @@
+text:
+  - |-
+    A choice you already made, two streets back, is now under your shoes. The city does not care which way you said.
+  - if: {flags: [route_underpass]}
+    text: |-
+      The arterial bends west and the underpass yawns ahead — open ground, sandbag silhouettes a quarter-mile down, distant gunfire pulling something heavy east through the side roads.
+  - if: {flags: [route_apartments]}
+    text: |-
+      Three blocks of low-rise apartments lean over you. Doors hang. Curtains move in rooms that should be still. Somewhere a dog has been barking long enough that it has stopped sounding like a dog.
+  - if: {flags: [route_sewer]}
+    text: |-
+      A storm-drain mouth at the foot of the embankment, water sound coming up from it that does not match the rain. The chord of the city does not reach down here. That is the part that is wrong.
+
+choices:
+  - text: |-
+      Down the chosen way.
+    next: act2/corridor_underpass_1
+    requires:
+      flags: [route_underpass]
+    hide_if_failed: true
+  - text: |-
+      Down the chosen way.
+    next: act2/corridor_apartments_1
+    requires:
+      flags: [route_apartments]
+    hide_if_failed: true
+  - text: |-
+      Down the chosen way.
+    next: act2/corridor_sewer_1
+    requires:
+      flags: [route_sewer]
+    hide_if_failed: true

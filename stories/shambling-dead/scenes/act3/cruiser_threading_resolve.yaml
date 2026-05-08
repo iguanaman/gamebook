@@ -1,0 +1,40 @@
+text:
+  - |-
+    She does the math twice. The clipboard is open at your line. She marks four supplies, one adult, one child, and then she counts heads on the dock and looks at you.
+  - female_adult_american_sultry_villainous: |-
+      Three on the boat. The math is three.
+  - |-
+    She is not telling you. She is showing you.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is at your shoulder. He is looking at the gangplank and at you and at Mara in that order. He is not picking the thumb. He is waiting.
+  - if: {flags: [elder_alive], flags_unset: [teen_alive]}
+    text: |-
+      Ruth has not let go of Mara's hand. She is looking at the gangplank. She is breathing the way a person breathes when they have decided.
+  - if: {flags: [stranger_alive], flags_unset: [teen_alive, elder_alive]}
+    text: |-
+      Wren has the bag off her shoulder. She is reading you. The bag is at her feet.
+  - |-
+    Mara is holding the strap of your bag still. The boat fits three. The number on the dock is four. You are the four.
+  - female_adult_american_sultry_villainous: |-
+      You can step on. I'll count again. I will not count it differently.
+
+choices:
+  - text: |-
+      Step onto the gangplank. Make her count again.
+    next: act3/cruiser_threading_force_resolve
+  - text: |-
+      Step back. Tell Mara: go. Tell the adult: keep her.
+    next: act3/endings_router
+    effects:
+      flags:
+        chose_hold_dock: true
+        held_the_dock_offered: true
+  - text: |-
+      Step back. Tell them what you'd want them to remember.
+    next: act3/endings_router
+    effects:
+      flags:
+        chose_hold_dock: true
+        held_the_dock_offered: true
+        dock_named_them: true

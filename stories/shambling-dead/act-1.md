@@ -1,4 +1,4 @@
-# The Long Walk Out — Act 1: The Street
+# The Shambling Dead — Act 1: The Street
 
 ## Journal Entry
 You woke up to screaming on the lawn. The world ended before breakfast.

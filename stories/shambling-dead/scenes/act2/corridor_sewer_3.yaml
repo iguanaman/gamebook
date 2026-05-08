@@ -1,0 +1,35 @@
+text:
+  - |-
+    Past the junction the pipe narrows to a throat. Two more bodies in the water, then six, then more shapes than the light on your shoulder will count. The pack the listening would have told you about. The pack the route hid behind the first one.
+  - if: {flags: [sewer_loud]}
+    text: |-
+      The shot has brought the throat alive ahead of time. They are already moving toward you when you come round the bend.
+  - |-
+    The pipe converges. There is no widening past this. Whatever you do here you do in this width.
+
+choices:
+  - text: |-
+      Pistol up. Pick a line. Run it.
+    next: act2/corridor_sewer_survive
+    requires:
+      flags: [has_pistol]
+      stats:
+        health: 3
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+      flags:
+        sewer_survivor: true
+  - text: |-
+      Push through. Hope speed beats them.
+    next: act2/death_d3_sewer_overrun
+    requires:
+      flags: [has_pistol]
+    hide_if_failed: true
+  - text: |-
+      Crawl it. Use what you have.
+    next: act2/death_d3_sewer_crawl
+    requires:
+      flags_unset: [has_pistol]
+    hide_if_failed: true

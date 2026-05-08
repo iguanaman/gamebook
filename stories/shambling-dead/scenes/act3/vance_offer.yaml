@@ -1,0 +1,43 @@
+text:
+  - |-
+    She walks you ten feet from the breach. Not for privacy — for hearing.
+  - female_adult_american_sultry_villainous: |-
+      I have room on the cruiser for one more whose hands work. Yours work. Sully's work, but Sully is twenty-six and frightened of me.
+  - |-
+    She is honest about it. The honesty is not a tell. The steadiness is.
+  - female_adult_american_sultry_villainous: |-
+      You stand at the gate. You ask three questions. You write down the answers. The cruiser leaves at dusk and there is a cove. After the cove there is more cove.
+  - |-
+    She is not asking you to hurt anyone. She is asking you to stand at a gate and ask three questions of someone who looks the way you looked an hour ago.
+  - if: {flags: [killed_survivor]}
+    text: |-
+      You have stood somewhere like this before. A man named Hollis was charming about it. She is not charming. The geometry is the same.
+  - if: {flags_unset: [killed_survivor]}
+    text: |-
+      You have seen this gate before. From the other side of it, in a tent with a man named Hollis. You said no there.
+  - female_adult_american_sultry_villainous: |-
+      The math works. I'm not asking it to be anything else.
+
+choices:
+  - text: |-
+      Yes.
+    next: act3/climax_setup
+    effects:
+      flags:
+        accepted_vance_offer: true
+  - text: |-
+      No. And don't ask twice.
+    next: act3/climax_setup
+    effects:
+      stats:
+        bond: 1
+      flags:
+        refused_vance_offer: true
+  - text: |-
+      No. But stay civil.
+    next: act3/climax_setup
+    effects:
+      stats:
+        bond: 1
+      flags:
+        refused_vance_offer: true

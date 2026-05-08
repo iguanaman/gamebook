@@ -1,0 +1,21 @@
+text:
+  - female_adult_american_sultry_villainous: |-
+      A cove. Forty miles down. My people are there.
+  - |-
+    She names the cove. The name does not mean anything to you. The radio loop in the corner of the room is calling that name on a five-minute repeat.
+  - female_adult_american_sultry_villainous: |-
+      You'll find the dock. You'll find a tent line. You'll figure out the rest.
+  - |-
+    She does not say *we will receive you*. She does not say *my people will look after you*. She is not offering passage. She is offering to point a boat at a place and let the place sort the rest.
+  - if: {flags: [read_office]}
+    text: |-
+      The single key on her lanyard is the cruiser's. You read it when you came in. The carabiner of keys on her hip is everything else.
+  - female_adult_american_sultry_villainous: |-
+      You take the cruiser, you'll get there before dark.
+  - |-
+    She says *you*, not *we*. She is not on this boat. She is on a different one, later, with her own people, and what she is selling you is not the trip — it is the address she is sending you to.
+
+choices:
+  - text: |-
+      Back to the conversation.
+    next: act3/talk_vance

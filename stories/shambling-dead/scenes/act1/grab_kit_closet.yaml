@@ -1,0 +1,26 @@
+text:
+  - |-
+    The hall closet smells of dust and old wax. A heavy work coat on the hook — yours, but you barely wear it anymore. House keys in the bowl on the shelf, where they have been every day for as long as you have lived here.
+  - |-
+    The closet shares a wall with the side fence. Something is moving against it on the other side. Not knocking. *Leaning*. Patient weight.
+  - |-
+    You can hear yourself breathing. You make yourself stop.
+
+choices:
+  - text: |-
+      Coat on. Keys in the inside pocket.
+    next: act1/grab_kit_landing
+    effects:
+      flags:
+        has_keys_house: true
+      stats:
+        home_loud_count: 1
+  - text: |-
+      Just the keys. The coat will slow you.
+    next: act1/grab_kit_landing
+    effects:
+      flags:
+        has_keys_house: true
+  - text: |-
+      Leave it all. Move.
+    next: act1/grab_kit_landing

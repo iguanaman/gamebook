@@ -1,0 +1,60 @@
+text:
+  - if: {flags_unset: [visited]}
+    text: |-
+      She closes the logbook with one finger. The pencil stays in her hair.
+  - if: {flags_unset: [visited]}
+    text: |-
+      female_adult_american_sultry_villainous: |-
+        Three things I'd ask. Pick the order.
+  - if: visited
+    text: |-
+      She is still at the desk. She has not opened the logbook again since you sat down.
+  - if: {flags: [vance_priced, vance_body_asked, vance_after_asked]}
+    text: |-
+      You have asked her every question you came here to ask. She is waiting for you to leave her office or stop asking.
+    else: |-
+      Outside, in the back stretch, the fence rattles. One of her people walks past the office door and does not look in.
+
+choices:
+  - text: |-
+      What's the price.
+    next: act3/talk_vance_price
+    requires:
+      flags_unset: [vance_priced]
+    hide_if_failed: true
+    effects:
+      flags:
+        vance_priced: true
+  - text: |-
+      The body on the dock.
+    next: act3/talk_vance_body
+    requires:
+      flags_unset: [vance_body_asked]
+    hide_if_failed: true
+    effects:
+      flags:
+        vance_body_asked: true
+  - text: |-
+      What happens after.
+    next: act3/talk_vance_after
+    requires:
+      flags_unset: [vance_after_asked]
+    hide_if_failed: true
+    effects:
+      flags:
+        vance_after_asked: true
+  - text: |-
+      You've heard her. Walk out.
+    next: act3/marina_hub
+    requires:
+      flags: [vance_priced, vance_body_asked, vance_after_asked]
+    hide_if_failed: true
+    effects:
+      flags:
+        read_vance: true
+  - text: |-
+      That's enough for now.
+    next: act3/marina_hub
+    requires:
+      flags_unset: [read_vance]
+    hide_if_failed: true

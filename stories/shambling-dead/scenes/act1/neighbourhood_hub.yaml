@@ -1,0 +1,72 @@
+text:
+  - |-
+    The kerb. The cul-de-sac you have lived on for four years and never really looked at, and now you are looking at it.
+  - |-
+    Your front door is open behind you. The radio is still going somewhere inside, faint, a calm woman's voice repeating two sentences that no longer sound like English.
+  - if: {flags: [dale_helped]}
+    text: |-
+      Dale is propped against your kerb-side recycling bin, breathing through his nose. He has not let go of the front of his trouser leg since you got him here. He is trying to look like a man waiting for a bus.
+  - |-
+    At the mouth of the cul-de-sac, one of them is standing still in the middle of the road. Just standing. Head down, swaying a little. The way an old horse stands.
+  - if: {stats: {hub_visits: 1}}
+    text: |-
+      Two more have lurched into view between the Carters' house and the place on the corner that's been for sale all year. The moaning is layered now. More than one throat.
+  - if: {stats: {hub_visits: 2}}
+    text: |-
+      A crowd of them is rounding the corner. Not running — they don't run — but they are *coming*, and there are enough of them that the sound is no longer a sound, it's weather. The road out is no longer a walk.
+  - |-
+    The Pearson house is across the road. Caleb's at the upstairs window, hand flat against the glass.
+  - |-
+    There is an abandoned car at your kerb, driver's door hanging open. Whoever was in it is not in it now.
+
+choices:
+  - text: |-
+      Search the abandoned car at the kerb.
+    next: act1/hub_car
+    requires:
+      flags_unset: [hub_car_done]
+    effects:
+      flags:
+        hub_car_done: true
+    hide_if_failed: true
+  - text: |-
+      Cross to the Pearson house. Caleb is in the upstairs window.
+    next: act1/hub_pearson_house
+    requires:
+      flags_unset: [hub_pearson_done]
+    effects:
+      flags:
+        hub_pearson_done: true
+    hide_if_failed: true
+  - text: |-
+      Back into your own house. One more pass.
+    next: act1/hub_own_home
+    requires:
+      flags_unset: [hub_own_home_done, route_wait]
+    effects:
+      flags:
+        hub_own_home_done: true
+    hide_if_failed: true
+  - text: |-
+      Check on Dale. He's struggling.
+    next: act1/hub_quick_look_dale
+    requires:
+      flags: [dale_helped]
+      flags_unset: [hub_dale_check_done]
+    effects:
+      flags:
+        hub_dale_check_done: true
+    hide_if_failed: true
+  - text: |-
+      Go back inside and lock up. You can wait this out.
+    next: act1/wait_inside_loop1
+    requires:
+      stats:
+        hub_visits: 2
+    effects:
+      flags:
+        route_wait: true
+    hide_if_failed: true
+  - text: |-
+      Head out. Edge of the cul-de-sac.
+    next: act1/route_choice_arterial

@@ -1,0 +1,28 @@
+text:
+  - |-
+    Dale is on the leg, but the leg is not bitten and never was. He is hurt. He has been hurt since the cul-de-sac and he is not going to be less hurt in the next mile.
+  - |-
+    The bus. The fuel truck. The road past it. He is keeping pace because he is making himself keep pace, and you can see the cost on his face without looking at it directly.
+  - if: {stats: {bond: 2}}
+    text: |-
+      He is not asking you to wait. He is saying — without saying — that he will run as long as he can run, and that if he stops he will stop where he can be useful.
+    else: |-
+      He is not saying anything. He is one half-step behind your shoulder and the half-step is widening and you can hear him picking which breath he is going to spend on which yard.
+  - |-
+    The two at the end of the street are now six. The chord rolls in behind them.
+
+choices:
+  - text: |-
+      Run together.
+    next: act2/arterial_dale_alive_carry
+    requires:
+      stats:
+        bond: 2
+    hide_if_failed: true
+  - text: |-
+      Run.
+    next: act2/arterial_dale_alive_falls
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [dale_bitten]
+    hide_if_failed: true

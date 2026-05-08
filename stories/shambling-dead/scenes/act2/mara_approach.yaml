@@ -1,0 +1,32 @@
+text:
+  - |-
+    Two blocks south of the church the street smells before you see it — sweet under the heat, the smell that means *bodies that have been bodies for a while*. Four storeys of glass and grey panel. Office building. The kind of place that had a coffee machine on every floor.
+  - |-
+    Three bodies near the entrance, one of them moving the way bodies move now, slow and waist-deep in the door it half-finished pushing through. A revolving door wedged open by what is left of someone's coat. Inside the lobby, past the desk, the dark moves.
+  - if: {flags: [heard_marina]}
+    text: |-
+      The radio in Apt 3 named this building. *Compromised.* You heard the voice say it.
+  - if: {flags: [church_inside]}
+    text: |-
+      Ruth's broadcast named this building too. The same word. *Compromised.*
+  - |-
+    And from somewhere up — third floor, fourth, you can't pin it — a child crying. Not screaming. Crying. Steady, the way a child cries when the adult has been gone a long time and the crying has become the company.
+
+choices:
+  - text: |-
+      Front door. Push through the lobby.
+    next: act2/death_d4_mara_front
+  - text: |-
+      Walk the perimeter first. Look hard at the building.
+    next: act2/mara_perimeter
+    effects:
+      flags:
+        mara_perimeter_walked: true
+  - text: |-
+      Refuse. Walk past.
+    next: act2/mara_refused
+    effects:
+      stats:
+        bond: -1
+      flags:
+        refused_mara: true

@@ -1,0 +1,35 @@
+journal: |-
+  I made it out. There is no other way to say it. I made it out and there is nobody on the boat with me and the chord at the shore is still the chord.
+
+text:
+  - |-
+    The narrator does not say this part. The narrator stopped, somewhere back on the apron, when the math came out.
+  - |-
+    I am on the cruiser. Or the kayak. Whichever it was. The far bank is closer than it was an hour ago and the marina is smaller than it was an hour ago and there is no one in the seat beside me.
+  - if: {flags: [neighbour_alive]}
+    text: |-
+      Dale is not here.
+  - if: {flags_unset: [neighbour_alive]}
+    text: |-
+      Dale is somewhere on a lawn. The lawn is two days behind me.
+  - if: {flags_unset: [teen_alive]}
+    text: |-
+      Caleb is somewhere with his thumb still in his mouth.
+  - if: {flags_unset: [elder_alive]}
+    text: |-
+      Ruth is somewhere with the cardigan she would not change.
+  - if: {flags_unset: [stranger_alive]}
+    text: |-
+      Wren is somewhere with her bag still across her body.
+  - if: {flags_unset: [child_alive, child_rescued]}
+    text: |-
+      The child is somewhere I will not say out loud.
+  - if: {flags: [passed_second_child]}
+    text: |-
+      The other one was Pip. I did not say her name. She did not call after me.
+  - |-
+    The light is going. The chord at the shore is still the chord. The river opens and the river opens and the river opens.
+  - |-
+    I do not know what I am.
+
+choices: []

@@ -1,0 +1,21 @@
+text:
+  - |-
+    Hands open. He has done this before — not rehearsed, just rusty.
+  - male_adult_african-american_uneducated: |-
+      Painkillers. Anything. I got water. Fresh.
+  - |-
+    His eyes go to a wall a block back where the water must be. He does not point. The trade is done in under a minute. He says thank you twice and means both.
+  - male_adult_african-american_uneducated: |-
+      Thank you. Thank you.
+  - |-
+    He is gone before you have finished tucking the bottle away.
+
+choices:
+  - text: |-
+      Trade. Move on.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        bond: 1
+      flags:
+        traded_walker: true

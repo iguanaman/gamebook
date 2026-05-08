@@ -1,0 +1,22 @@
+text:
+  - |-
+    You wake before the alarm. The light is wrong — too grey for the hour, too still.
+  - |-
+    The clock-radio is on. You don't remember leaving it on. It isn't music. It isn't the morning show. It's the same calm woman, looping.
+  - narrator_female_warm_reflective: |-
+      This is an emergency broadcast. Do not approach the infected. Shelter in place.
+  - |-
+    Somewhere outside, a car alarm has been going long enough that you stopped hearing it. Your phone is buzzing on the nightstand. The landline downstairs is ringing too. Neither one is going to be picked up.
+  - |-
+    Then the scream. Short. Cut off. After it, a sound you can't name — wet, low, patient. Not a scream.
+
+choices:
+  - text: |-
+      Lie still. Listen first.
+    next: act1/wake_window
+  - text: |-
+      Sit up. Something is wrong.
+    next: act1/wake_window
+  - text: |-
+      Reach for the phone. Call someone. Anyone.
+    next: act1/wake_window

@@ -1,0 +1,14 @@
+text:
+  - |-
+    You take the kayak off the rack. You drag it past the foot well. You do not look down.
+  - |-
+    She does not call after you. That is the cost of it. She watches you take the kayak through the door and she does not call after you and she does not cry, because she has been in this boathouse for two days and she has learned what crying does and does not do.
+  - |-
+    Above you a shingle goes. The boathouse roof has a man-sized hole in it for the second it takes you to reach the door. You do not look up either.
+  - |-
+    The river is on the other side. The kayak is in your hands. A girl named Pip is in a boathouse you are walking out of.
+
+choices:
+  - text: |-
+      Out the back. To the water.
+    next: act3/climax_setup

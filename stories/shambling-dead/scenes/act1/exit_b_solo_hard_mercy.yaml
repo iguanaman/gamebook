@@ -1,0 +1,15 @@
+text:
+  - |-
+    You walk alone. The pistol is lighter in your coat than it was an hour ago, by exactly the weight of one round.
+  - |-
+    The cul-de-sac fades behind you a step at a time. You did the thing that needed doing and you did not make anyone else do it. That is the shape of the morning you are carrying now.
+  - |-
+    Ahead the road opens onto an arterial, and the arterial opens onto a city that is making a sound you do not have a word for yet. You will learn the word. The road is going to teach you.
+
+journal: |-
+  You walked alone. You did what needed doing. The road took you in.
+
+choices:
+  - text: |-
+      Into the city.
+    next: act2/act2_entry_router

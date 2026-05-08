@@ -1,0 +1,30 @@
+text:
+  - |-
+    Vance does not argue. The math works for her — a bitten man holding the dock for free is a column on the clipboard she has been wishing she could write in for two days.
+  - |-
+    Marrow looks at you once. The look is not pity. The look is the closest a face like Marrow's gets to a thank-you.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara is on the gangplank. She has seen the arm. She has not asked. She is not going to ask, now.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is on the gangplank. He is doing the thing with the thumb still. He is not stopping.
+  - if: {flags: [elder_alive], flags_unset: [teen_alive]}
+    text: |-
+      Ruth is on the gangplank. Her hand is on Mara's shoulder if Mara is here, and on the rail if not. She is not crying. The not-crying is the thing she is doing for you.
+  - if: {flags: [stranger_alive], flags_unset: [teen_alive, elder_alive]}
+    text: |-
+      Wren is on the gangplank. The bag is across her body. She nods, once. The nod is a confession, and a thank-you, and a goodbye, and she does not say any of those words out loud.
+  - if: {flags: [read_tomas]}
+    text: |-
+      At the seawall, Tomás is loading his own onto the kayak still. He sees you on the dock. He sees the arm. He sees the cruiser leaving. He understands the shape of what you are doing. He does not look away.
+  - |-
+    The line goes off the bollard. The engine pushes. The cruiser pulls. The dead at the back of the apron are at the office door now. The bite is on its own clock and the clock and the dead are racing each other for you.
+
+choices:
+  - text: |-
+      Wave them off. Then face the apron.
+    next: act3/endings_router
+    effects:
+      flags:
+        tomas_witnessed: true

@@ -1,0 +1,58 @@
+text:
+  - |-
+    You stand. The talking stops because you stood. Hollis lets the silence be what it is. He has waited people out before.
+  - |-
+    Reece is at his shoulder, eyes on your hands. The lieutenant has come in from the gate and is standing easy by the second tent, hand near the knife on his right hip. Three of them. The fire between you and Hollis. The wire at your back.
+  - |-
+    Whatever is going to happen happens in the next twenty seconds.
+
+choices:
+  - text: |-
+      Fight. Pistol up. Drop Hollis first.
+    next: act2/hostile_fight
+    requires:
+      flags: [has_pistol]
+      stats:
+        health: 3
+    failed_text: |-
+      *(Not enough hand on the gun. Not enough breath in your chest.)*
+    effects:
+      stats:
+        health: -1
+        supplies: -1
+      flags:
+        killed_survivor: true
+  - text: |-
+      Fight anyway. Bare hands and what's left of you.
+    next: act2/death_d5_hostile_fight
+    requires:
+      flags_unset: [has_pistol]
+    hide_if_failed: true
+  - text: |-
+      Flee. Walk out of the firelight.
+    next: act2/hostile_flee
+    effects:
+      stats:
+        supplies: -1
+      flags:
+        fled_hostile: true
+  - text: |-
+      Yield. Sit down. Hand over the bag.
+    next: act2/hostile_yield
+    effects:
+      flags:
+        yielded_hostile: true
+  - text: |-
+      Yield, but reach for the rescue.
+    next: act2/hostile_yield_rescue
+    requires:
+      stats:
+        bond: 3
+    hide_if_failed: true
+    effects:
+      stats:
+        bond: 1
+        supplies: -2
+      flags:
+        yielded_hostile: true
+        companion_sacrificed: true

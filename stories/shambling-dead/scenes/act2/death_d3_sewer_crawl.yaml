@@ -1,0 +1,14 @@
+text:
+  - |-
+    You go in low. A knife is a knife. A pipe is a pipe. The first three you handle are the last three you handle.
+  - |-
+    The pack is not in front of you. The pack is *around* you. The water is amplifying every direction the way the listening would have told you. The route was the trap.
+  - if: {flags: [caleb_route_marked_drain]}
+    text: |-
+      Caleb said it on the cul-de-sac. *I don't like the dark.* He was the one telling you the truth, and you put him into it anyway, or you left him at it. Either way the dark is what gets you.
+    else: |-
+      The route looked empty. The route always looked empty. That is what the route was for.
+  - |-
+    The water keeps moving the wrong way for a storm drain.
+
+choices: []

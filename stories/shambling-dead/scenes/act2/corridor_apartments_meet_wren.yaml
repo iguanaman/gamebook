@@ -1,0 +1,23 @@
+text:
+  - |-
+    She comes down the fire escape the way someone comes down stairs they have used before. Bag on her shoulder by the time she reaches the asphalt. The flat hand has become a held one.
+  - female_adult_american_droll_wry_dry: |-
+      Hi. I'd say "fancy meeting you here," but I think we've all retired the line.
+  - |-
+    Setup, punch. Two beats. Smooth. The smile lands a fraction before the joke does.
+  - female_adult_american_droll_wry_dry: |-
+      I'm heading to the courtyard down the way. Not asking to walk with you. Just letting you know that's where I'm going, in case the two of us walking the same direction in silence got weird.
+
+choices:
+  - text: |-
+      Tell her to keep her distance for now.
+    next: act2/corridor_apartments_random
+  - text: |-
+      Walk with her. Talk while you move.
+    next: act2/corridor_apartments_random
+    effects:
+      stats:
+        bond: 1
+  - text: |-
+      Don't answer. Walk.
+    next: act2/corridor_apartments_random

@@ -1,0 +1,257 @@
+text:
+  - |-
+    She opens the clipboard. The dry-erase marker is in her hand. She does not write yet.
+  - female_adult_american_sultry_villainous: |-
+      The cruiser fits four adults. Or three adults and a child. Or two adults and the distance to where the cove ends. Pick a row.
+  - |-
+    She is reading off lines. The lines were drawn before you got here. Marrow is on the gunwale; she has stopped pretending to load. She is listening with the side of her face.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara is holding the strap of your bag. She has not let go of it since the breach. She is looking at the clipboard the way a child looks at a thing she is not supposed to read.
+  - if: {flags: [teen_alive, elder_alive]}
+    text: |-
+      You are at least two adults plus the kid. The math is short.
+  - if: {flags: [teen_alive, stranger_alive], flags_unset: [elder_alive]}
+    text: |-
+      You are two adults plus the kid. The math is one short.
+  - if: {flags: [elder_alive, stranger_alive], flags_unset: [teen_alive]}
+    text: |-
+      You are two adults plus the kid. The math is one short.
+  - female_adult_american_sultry_villainous: |-
+      Three supplies for one seat. Four for the threading if you can do it. I do not negotiate the supplies. I count.
+  - |-
+    The dead at the bollard are coming in a slow line. Sully's pipe is across the gangplank. He has not had to use it yet today.
+
+choices:
+  - text: |-
+      Solo. Just me.
+    next: act3/cruiser_solo_resolve
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_solo: true
+  - text: |-
+      Mara on the cruiser. I'm with her.
+    next: act3/cruiser_mara_resolve
+    requires:
+      flags: [child_rescued, child_alive]
+      flags_unset: [teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_with_mara: true
+  - text: |-
+      Mara on the cruiser. I'm with her. Caleb stays.
+    next: act3/cruiser_mara_resolve
+    requires:
+      flags: [child_rescued, child_alive, teen_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_with_mara: true
+        companion_sacrificed: true
+        teen_alive: false
+  - text: |-
+      Mara on the cruiser. I'm with her. Ruth stays.
+    next: act3/cruiser_mara_resolve
+    requires:
+      flags: [child_rescued, child_alive, elder_alive]
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_with_mara: true
+        companion_sacrificed: true
+        elder_alive: false
+  - text: |-
+      Mara on the cruiser. I'm with her. Wren stays.
+    next: act3/cruiser_mara_resolve
+    requires:
+      flags: [child_rescued, child_alive, stranger_alive]
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_with_mara: true
+        companion_sacrificed: true
+        stranger_alive: false
+  - text: |-
+      Caleb on the cruiser. Not Mara.
+    next: act3/cruiser_adult_resolve
+    requires:
+      flags: [teen_alive, child_rescued, child_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+        bond: -2
+      flags:
+        cruiser_with_adult: true
+        child_alive: false
+  - text: |-
+      Caleb on the cruiser.
+    next: act3/cruiser_adult_resolve
+    requires:
+      flags: [teen_alive]
+      flags_unset: [child_rescued]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_with_adult: true
+  - text: |-
+      Ruth on the cruiser. Not Mara.
+    next: act3/cruiser_adult_resolve
+    requires:
+      flags: [elder_alive, child_rescued, child_alive]
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+        bond: -2
+      flags:
+        cruiser_with_adult: true
+        child_alive: false
+  - text: |-
+      Ruth on the cruiser.
+    next: act3/cruiser_adult_resolve
+    requires:
+      flags: [elder_alive]
+      flags_unset: [teen_alive, child_rescued]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_with_adult: true
+  - text: |-
+      Wren on the cruiser. Not Mara.
+    next: act3/cruiser_adult_resolve
+    requires:
+      flags: [stranger_alive, child_rescued, child_alive]
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+        bond: -2
+      flags:
+        cruiser_with_adult: true
+        child_alive: false
+  - text: |-
+      Wren on the cruiser.
+    next: act3/cruiser_adult_resolve
+    requires:
+      flags: [stranger_alive]
+      flags_unset: [teen_alive, elder_alive, child_rescued]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -3
+      flags:
+        cruiser_with_adult: true
+  - text: |-
+      All three. Mara plus Caleb. Take the threading.
+    next: act3/cruiser_threading_resolve
+    requires:
+      flags: [child_rescued, child_alive, teen_alive, has_keys]
+      stats:
+        bond: 4
+        supplies: 4
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -4
+      flags:
+        cruiser_threading: true
+        player_off_cruiser: true
+  - text: |-
+      All three. Mara plus Caleb. Take the threading.
+    next: act3/cruiser_threading_resolve
+    requires:
+      flags: [child_rescued, child_alive, teen_alive, refused_vance_offer]
+      stats:
+        bond: 4
+        supplies: 4
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -4
+      flags:
+        cruiser_threading: true
+        player_off_cruiser: true
+  - text: |-
+      All three. Mara plus Ruth. Take the threading.
+    next: act3/cruiser_threading_resolve
+    requires:
+      flags: [child_rescued, child_alive, elder_alive, has_keys]
+      stats:
+        bond: 4
+        supplies: 4
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -4
+      flags:
+        cruiser_threading: true
+        player_off_cruiser: true
+  - text: |-
+      All three. Mara plus Ruth. Take the threading.
+    next: act3/cruiser_threading_resolve
+    requires:
+      flags: [child_rescued, child_alive, elder_alive, refused_vance_offer]
+      stats:
+        bond: 4
+        supplies: 4
+      flags_unset: [teen_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -4
+      flags:
+        cruiser_threading: true
+        player_off_cruiser: true
+  - text: |-
+      All three. Mara plus Wren. Take the threading.
+    next: act3/cruiser_threading_resolve
+    requires:
+      flags: [child_rescued, child_alive, stranger_alive, has_keys]
+      stats:
+        bond: 4
+        supplies: 4
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -4
+      flags:
+        cruiser_threading: true
+        player_off_cruiser: true
+  - text: |-
+      All three. Mara plus Wren. Take the threading.
+    next: act3/cruiser_threading_resolve
+    requires:
+      flags: [child_rescued, child_alive, stranger_alive, refused_vance_offer]
+      stats:
+        bond: 4
+        supplies: 4
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -4
+      flags:
+        cruiser_threading: true
+        player_off_cruiser: true

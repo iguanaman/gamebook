@@ -1,0 +1,58 @@
+text:
+  - |-
+    The first-floor flat is open. The lock has been worked already, by somebody patient. The bathroom is at the end of a short corridor.
+  - |-
+    Tile floor. Wet footprints leading from the bath to the door and out, drying at the edges. Whoever made them is not large and is not here. Recent enough that the prints have not flattened.
+  - |-
+    The cabinet above the sink is open. Bandages, a tube of antiseptic, a half-strip of painkillers, a brown-glass bottle of something prescription that you cannot read upside down in the gloom.
+  - if: {flags: [neighbour_alive], flags_unset: [dale_bitten, dale_bandaged]}
+    text: |-
+      Dale leans on the doorframe and looks at the cabinet the way a man looks at a thing he was about to ask for.
+  - if: {flags: [neighbour_alive, dale_bitten]}
+    text: |-
+      Dale stays in the corridor. He does not come into the bathroom. He keeps his weight on his good leg and his eyes off the cabinet.
+
+choices:
+  - text: |-
+      Pocket the supplies.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        supplies: 1
+        apartments_visits: 1
+  - text: |-
+      Bandage Dale. Use the cabinet on him here.
+    next: act2/apartments_courtyard
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [dale_bitten, dale_bandaged]
+    effects:
+      stats:
+        health: 1
+        bond: 1
+        apartments_visits: 1
+      flags:
+        dale_bandaged: true
+    hide_if_failed: true
+  - text: |-
+      Both. Bandage Dale and pocket the rest.
+    next: act2/apartments_courtyard
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [dale_bitten, dale_bandaged]
+    effects:
+      stats:
+        health: 1
+        supplies: 1
+        bond: 1
+        apartments_visits: 1
+      flags:
+        dale_bandaged: true
+        apt2_loud: true
+    hide_if_failed: true
+  - text: |-
+      Skip it. Back to the stairwell.
+    next: act2/apartments_courtyard
+    effects:
+      stats:
+        apartments_visits: 1

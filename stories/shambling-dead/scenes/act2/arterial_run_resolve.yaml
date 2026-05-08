@@ -1,0 +1,32 @@
+text:
+  - |-
+    The arterial ends at the river road. The road bends north. The water opens out east.
+  - |-
+    For the first time in two days the air at your face has crossed something other than concrete. It smells like silt and the diesel of a boat that ran an hour ago and the cold below the cold of the wind. The river is not a destination yet. The river is a fact. It is wider than you remembered and it is loud.
+  - if: {flags: [child_rescued]}
+    text: |-
+      Mara has not let go of the bag strap. She has the bag strap in one hand and the back of your jacket in the other. She is looking at the water the way a small person looks at a thing she has only seen on a screen.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is breathing through his mouth. The lanyard is still around his neck. He has not picked the thumb in an hour.
+  - if: {flags: [elder_alive]}
+    text: |-
+      Ruth has the cardigan tied at the waist now. Her hands are steady. She finishes the sentence she was saying about the road, and the sentence is — *we made it to the water* — and she does not say it twice.
+  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
+    text: |-
+      Wren is at your shoulder. The bag is still across her body. She is not looking at the city.
+  - if: {flags: [dale_held_arterial]}
+    text: |-
+      Behind you, somewhere on the corner, the fence-pole is doing its work. You do not look back. He asked you not to.
+  - |-
+    The chord is still there. It will be at this road by nightfall. The river is to the east, and the marina is downstream, and the dock at the eastern edge is somewhere a boat will or will not still be tied to.
+  - |-
+    The city ends here.
+
+choices:
+  - text: |-
+      Out. Onto the road. The river is loud now.
+    next: act2/act2_exit_router
+    effects:
+      flags:
+        act2_complete: true

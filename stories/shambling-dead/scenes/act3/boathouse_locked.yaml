@@ -1,0 +1,26 @@
+text:
+  - |-
+    The boathouse door is locked from inside. Not propped — locked. A length of chain through the inside hasp, a padlock you can see through the gap. Whoever is in there is not coming out for you.
+  - |-
+    Above you the joist creaks. A shingle is gone from the roof. Something is up there working out the next one.
+  - |-
+    The kayak is on the rack along the back wall — you can see the red of it through the gap above the door. The seawall is to your right. The gate is the way you came.
+
+choices:
+  - text: |-
+      Break it. Loud.
+    next: act3/boathouse_loud
+    effects:
+      flags:
+        boathouse_loud: true
+  - text: |-
+      Pry the side panel. Quiet but slow.
+    next: act3/boathouse_quiet_attempt
+  - text: |-
+      Walk past. The kayak isn't worth it.
+    next: act3/climax_setup
+    effects:
+      stats:
+        bond: -1
+      flags:
+        refused_kayak: true

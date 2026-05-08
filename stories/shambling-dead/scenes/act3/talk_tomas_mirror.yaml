@@ -1,0 +1,38 @@
+text:
+  - |-
+    He looks at you. He takes the glasses off again, and this time he does not put them back on.
+  - if: {stats: {bond: 4}}
+    text: |-
+      male_elder_american_wise_approachable: |-
+        You've been carrying. I can see it. If it were me — I'd ask you what you'd do, and I'd believe what you said.
+  - if: {stats: {bond: 1}, flags_unset: [pushed_tomas]}
+    text: |-
+      male_elder_american_wise_approachable: |-
+        If it were me. Standing where you are. With what you have. What would you do.
+  - if: {flags: [pushed_tomas]}
+    text: |-
+      male_elder_american_wise_approachable: |-
+        You're standing because you don't want me reading you. I'm reading you anyway. If it were me — what would you do.
+  - if: {stats: {bond: 0}}
+    text: |-
+      male_elder_american_wise_approachable: |-
+        If it were you. With what you've already done. What would you do.
+  - |-
+    Iris is not watching him. She is watching you.
+
+choices:
+  - text: |-
+      Tell him plainly. Name the worst of it.
+    next: act3/talk_tomas
+    effects:
+      flags:
+        tomas_witnessed: true
+  - text: |-
+      Tell him a half-truth. Watch which half he believes.
+    next: act3/talk_tomas
+  - text: |-
+      Don't answer. Wait him out.
+    next: act3/talk_tomas
+    effects:
+      stats:
+        bond: -1

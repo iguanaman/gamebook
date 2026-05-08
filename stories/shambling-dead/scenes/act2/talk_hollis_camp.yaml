@@ -1,0 +1,34 @@
+text:
+  - |-
+    Hollis is talking. Hollis has been talking. The shape of him in the firelight is the shape of a man who has not been listened-into for a long time, and who has decided, in compensation, to fill the room himself.
+  - male_midlife_american_loud_confident_cocky: |-
+      You know the thing nobody says? The thing nobody says is that this is the *easy* part. Two weeks in, the dead are a problem you can solve. Wire, fire, a pot, three good people. The problem after that is *people*, neighbour. And here you are. People.
+  - |-
+    At the wire, the lieutenant breaks off mid-conversation — not your conversation, his, the one he is having with the fence — and pulls a shambler off the spikes by the wrist. Practised motion. He does not look at Hollis when he does it. He does not look at you. Hollis does not pause.
+  - |-
+    You have a feeling like a hand on the back of your neck.
+
+choices:
+  - text: |-
+      Tell me about your camp.
+    next: act2/talk_hollis_camp_topic
+    requires:
+      flags_unset: [asked_hollis_camp]
+  - text: |-
+      What's on the radio?
+    next: act2/talk_hollis_radio
+    requires:
+      flags_unset: [asked_hollis_radio]
+  - text: |-
+      Why are you asking about the kid?
+    next: act2/talk_hollis_mara
+    requires:
+      flags: [child_rescued]
+      flags_unset: [asked_hollis_mara]
+    hide_if_failed: true
+  - text: |-
+      Stand up. Eyes on Hollis. Make a choice.
+    next: act2/hostile_resolution
+    effects:
+      flags:
+        talked_hollis_done: true

@@ -1,0 +1,44 @@
+text:
+  - |-
+    Caleb is between two bollards on the concrete. The hood of his sweatshirt is up. The thumb is bleeding a little — the scab from yesterday's anxious worrying.
+  - if: visited
+    text: |-
+      He is still where you left him. He has been waiting for you to come back over.
+  - male_young_american_weak: |-
+      Hey. I — yeah. Sit down. I, um.
+
+choices:
+  - text: |-
+      School.
+    next: act2/talk_caleb_school
+    requires:
+      flags_unset: [asked_caleb_school]
+    hide_if_failed: true
+  - text: |-
+      Your parents.
+    next: act2/talk_caleb_parents
+    requires:
+      flags_unset: [asked_caleb_parents]
+    hide_if_failed: true
+  - text: |-
+      Why didn't you run?
+    next: act2/talk_caleb_run
+    requires:
+      flags_unset: [asked_caleb_run]
+    hide_if_failed: true
+  - text: |-
+      Time to move. The arterial is east.
+    next: act2/talk_dale_brief
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [talked_dale_brief_done]
+    hide_if_failed: true
+    effects:
+      flags:
+        talked_caleb_done: true
+  - text: |-
+      Time to move. The arterial is east.
+    next: act2/arterial_dawn
+    effects:
+      flags:
+        talked_caleb_done: true

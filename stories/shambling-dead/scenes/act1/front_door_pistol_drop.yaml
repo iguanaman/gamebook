@@ -1,0 +1,33 @@
+text:
+  - |-
+    You bring the pistol up. Two-handed, the way you saw your father hold it when he taught you, the only time he tried to teach you. The lawn-thing's head is cocked, half-turned. You aim where the spine becomes the skull.
+  - |-
+    The shot is louder than you remember a gunshot being. Your ears go to wool. The lawn-thing goes down sideways, away from the body it was kneeling over, and does not get up.
+  - |-
+    Dale is flat to the grass with his arms over his head. He looks up at you slow, like he's checking which of you got hit.
+  - male_midlife_american_dark_tough: |-
+      Christ. *Christ.* Warn a man.
+  - |-
+    The shapes at the mouth of the cul-de-sac are no longer ambling. Two more have stepped out from between houses to join them. A new sound starts up from somewhere behind the row — layered, multiple throats, the moan you heard once becoming the moan you are going to be hearing for the rest of your life.
+  - |-
+    Dale on the lawn. The road-out narrowing every second.
+
+choices:
+  - text: |-
+      Down the steps. Get under his arm. Help him up.
+    next: act1/dale_helped_porch
+    effects:
+      flags:
+        dale_helped: true
+  - text: |-
+      Shout for him to walk himself. You're not carrying anyone.
+    next: act1/dale_shouted_porch
+    effects:
+      flags:
+        dale_helped: true
+  - text: |-
+      Back inside. Bolt the door. The shot was a mistake.
+    next: act1/wait_inside_loop1
+    effects:
+      flags:
+        route_wait: true

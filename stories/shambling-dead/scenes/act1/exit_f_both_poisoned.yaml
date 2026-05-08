@@ -1,0 +1,20 @@
+text:
+  - |-
+    Three of you. Dale on the left, breathing through his mouth, naming the streets a beat slower than he named them an hour ago. Caleb tucked between. You at the back.
+  - |-
+    Caleb is not watching the road. Caleb is watching Dale.
+  - if: {flags: [saw_dale_leg]}
+    text: |-
+      You know what is in him. You have seen the leg. The boy is now seeing the same thing you saw, in slower motion, in the way Dale is putting weight on it and the way Dale is not turning the wedding band. There is a shared knowing forming between you and the boy that neither of you has put into words.
+    else: |-
+      Something is wrong with Dale in a way you have not let yourself look at. The boy is looking at it. The boy is younger than you and the boy is looking at it. That is information you are choosing, for now, not to use.
+  - |-
+    The cul-de-sac is behind the bend. The arterial opens. The chord of the city has a *new* throat in it, closer than the rest, freshly-dead. Caleb hears it first. He looks at Dale when he hears it.
+
+journal: |-
+  Dale and Caleb are both with you. Something is wrong with Dale. The boy has noticed.
+
+choices:
+  - text: |-
+      Into the city.
+    next: act2/act2_entry_router

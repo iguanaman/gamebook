@@ -1,0 +1,21 @@
+text:
+  - female_young_american_sweet_youthful_clear: |-
+      My name's Mara.
+  - |-
+    She says it like a fact. Like she has been waiting for someone to ask, and she has been waiting two days, and the answer was always going to be the same.
+  - female_young_american_sweet_youthful_clear: |-
+      What's yours?
+  - |-
+    You tell her. She repeats it back, the way small children do when they are afraid the adult will change their mind. She nods to confirm.
+  - female_young_american_sweet_youthful_clear: |-
+      Okay.
+
+choices:
+  - text: |-
+      Tell her your name. Back.
+    next: act2/talk_mara_hub
+    effects:
+      stats:
+        bond: 1
+      flags:
+        asked_mara_name: true

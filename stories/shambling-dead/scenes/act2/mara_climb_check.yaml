@@ -1,0 +1,92 @@
+text:
+  - |-
+    The rung is nine feet up. The wall under it is brick to waist height and then panel — nothing to set a foot on. You will be off the ground for the first reach, and the first reach is the one that matters.
+  - |-
+    The crying continues. The lobby groan, around the corner, is louder than it was two minutes ago. Something inside has heard you, or has heard the crying, or has heard nothing at all and is just moving the way it moves.
+
+choices:
+  - text: |-
+      Take the climb. Boost off Dale's hands.
+    next: act2/mara_climb_inside
+    requires:
+      flags: [neighbour_alive]
+      flags_unset: [dale_bitten]
+      stats:
+        health: 3
+    effects:
+      stats:
+        health: -1
+      flags:
+        mara_companion_helped: true
+        mara_helped_dale: true
+    failed_text: |-
+      *(Dale isn't here, or isn't standing.)*
+  - text: |-
+      Take the climb. Caleb spots you.
+    next: act2/mara_climb_inside
+    requires:
+      flags: [teen_alive]
+      stats:
+        health: 3
+    effects:
+      stats:
+        health: -1
+      flags:
+        mara_companion_helped: true
+        mara_helped_caleb: true
+    failed_text: |-
+      *(Caleb isn't with you.)*
+  - text: |-
+      Take the climb. Wren throws you the rope.
+    next: act2/mara_climb_inside
+    requires:
+      flags: [stranger_alive]
+      stats:
+        health: 3
+    effects:
+      stats:
+        health: -1
+      flags:
+        mara_companion_helped: true
+        mara_helped_wren: true
+    failed_text: |-
+      *(Wren isn't with you.)*
+  - text: |-
+      Take the climb. Ruth holds the alley below.
+    next: act2/mara_climb_inside
+    requires:
+      flags: [elder_alive]
+      stats:
+        health: 3
+    effects:
+      stats:
+        health: -1
+      flags:
+        mara_companion_helped: true
+        mara_helped_ruth: true
+    failed_text: |-
+      *(Ruth isn't with you.)*
+  - text: |-
+      Take the climb solo. One shot through the third-floor window first.
+    next: act2/mara_climb_inside
+    requires:
+      flags: [has_pistol]
+      flags_unset: [neighbour_alive, teen_alive, elder_alive, stranger_alive]
+      stats:
+        health: 3
+    effects:
+      stats:
+        health: -1
+      flags:
+        mara_climb_solo: true
+    failed_text: |-
+      *(Solo without the pistol, or not strong enough — this isn't the climb for you.)*
+  - text: |-
+      You can't make this climb. Back to the street.
+    next: act2/mara_refused
+    effects:
+      stats:
+        bond: -1
+      flags:
+        refused_mara: true
+        refused_under_resourced: true

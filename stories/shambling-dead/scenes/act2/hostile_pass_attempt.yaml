@@ -1,0 +1,33 @@
+text:
+  - |-
+    You smile back the way he smiled at you and you keep your feet moving. Half a wave. Half an apology. Sorry, friend, somewhere to be.
+  - male_midlife_american_loud_confident_cocky: |-
+      [chuckle] Suit yourself, neighbour. Road east is the only road there is. You'll come back through.
+  - |-
+    He doesn't follow you to the wire. He doesn't have to. The heavy one with the comfortable eyes, the one who watched your bag — he peels off the perimeter as you pass, and falls in at distance behind you, walking like a man who has nowhere to be and all afternoon to get there.
+  - |-
+    Inside the tents, the radio crackles. A voice you have heard before — the same loop from the apartment at the top of the stairs, the marina coordinates in the same calm rhythm. Different numbers. They are spoofing it.
+  - |-
+    The lieutenant tails you for half a block. Close enough that you can hear his boots in your gravel. Far enough that he doesn't have to commit.
+
+choices:
+  - text: |-
+      Keep walking. Don't look back.
+    next: act2/hostile_passed
+    effects:
+      stats:
+        supplies: -1
+        bond: -1
+      flags:
+        fled_hostile: true
+  - text: |-
+      Turn around. End it now while they're spread out.
+    next: act2/hostile_camp
+    requires:
+      flags: [has_pistol]
+    failed_text: |-
+      *(You don't have what it would take.)*
+    effects:
+      flags:
+        entered_hostile_camp: true
+        pre_emptive_fight: true

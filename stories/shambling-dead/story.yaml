@@ -1,11 +1,10 @@
 id: shambling-dead
 genre: Horror
-prefix: Shambling Dead
-title: The Long Walk Out
+title: The Shambling Dead
 narrator: narrator_male_last-of-us_joel
 description: You wake to screaming in your street. The dead are slow. They are also everywhere.
 cover: images/cover.jpg
-start: start
+start: act1/wake_bedroom
 journal: |-
   You woke up in your own bed to screaming on the lawn. Your neighbour was eating another neighbour. Phones half-work. The radio is just emergency tones now. Whatever this is, nobody is coming. You have to leave the city. Alone, or with whoever you can keep alive.
 volume_music: 0.25

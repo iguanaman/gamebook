@@ -1,0 +1,91 @@
+text:
+  - |-
+    No. Not the clipboard. Not the man with the smile.
+  - |-
+    You step off the line before he has finished the second question. Eyes down, shoulder turned, back the way you came until the side street is between you and the booth. He does not call out. He writes something down anyway.
+  - |-
+    The seawall runs east of the marina along the waterline. A drainage easement, a rust-eaten fence, the river on the other side. You can be on the apron in twenty minutes if the easement holds. If it does not hold, you will be in the water with the body that is not staying still.
+  - |-
+    The chord at your back is closer than it was at the gate. The far-jetty group across the marina is audible in the open. Between the two of them, the seawall is a thin grey line you have to walk anyway.
+
+choices:
+  - text: |-
+      Take the seawall slow. Don't get spotted.
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 2
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -1
+  - text: |-
+      Take the seawall slow. Don't get spotted. (Exhausted.)
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 1
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -1
+        health: -1
+  - text: |-
+      Take the seawall slow. Don't get spotted. (Exhausted, empty bag.)
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 0
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+  - text: |-
+      Take the seawall fast. Get this over with.
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 2
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -1
+        health: -1
+  - text: |-
+      Take the seawall fast. Get this over with. (Already running on fumes.)
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 1
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -1
+        health: -1
+  - text: |-
+      Take the seawall fast. Get this over with. (Already running on fumes.)
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 0
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+  - text: |-
+      Hug the wall. Stop and listen for them every twenty feet.
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 1
+    hide_if_failed: true
+    effects:
+      stats:
+        supplies: -1
+  - text: |-
+      Hug the wall. Stop and listen for them every twenty feet.
+    next: act3/marina_hub_via_seawall
+    requires:
+      stats:
+        supplies: 0
+    hide_if_failed: true

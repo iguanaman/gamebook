@@ -1,0 +1,14 @@
+text:
+  - |-
+    The third-floor corridor has a reception desk halfway down it, the kind a temp would have sat at. The drawer under the till is unlocked. Inside: a half-pack of granola bars, a strip of paracetamol, a small bottle of water that has not been opened.
+  - |-
+    You take it all, fast, into the bag.
+  - |-
+    A creak in the corridor behind you. Floor settling, probably. You do not turn around to check. You do not stop to find out.
+  - |-
+    The crying, on the floor above, has gone quiet.
+
+choices:
+  - text: |-
+      Up. Don't stop again.
+    next: act2/mara_supply_closet

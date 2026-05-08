@@ -1,0 +1,24 @@
+journal: |-
+  You tried to do both. The apron is wide.
+
+text:
+  - |-
+    You sent them one way. You ran the other. The apron is wider than the two routes meeting in the middle. The dead are in the middle.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara is on the dock. Mara is screaming. Mara is being held back by someone — Vance, maybe, or one of yours. The screaming is the last thing you hear that is a word.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb saw. He is on the gangplank. He is picking the thumb again.
+  - if: {flags: [elder_alive]}
+    text: |-
+      Ruth saw. She did not look away.
+  - if: {flags: [stranger_alive]}
+    text: |-
+      Wren saw. The dryness was gone before she saw — the bag was open in her lap.
+  - |-
+    The dead are slow. You were faster than the dead. You were not faster than two places at once.
+  - |-
+    They go without you. The chord is the last sound you choose to hear.
+
+choices: []

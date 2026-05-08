@@ -1,0 +1,24 @@
+text:
+  - |-
+    He gets fifty yards. The leg holds for fifty yards and then it does not, and you have his arm across your shoulder by then, and he is breathing in a way you have heard once in your life and you knew on the lawn what it was.
+  - |-
+    He goes between two cars. He goes down on a knee. He turns his face away from you on purpose, the last thing he does on purpose, and the breath stops being his breath and starts being the other thing.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is at your shoulder and you put a hand against his chest without looking at him.
+  - |-
+    The fence-pole is in your hand from the last block. You do not remember picking it up. You put it where it has to go, fast, the way Dale would have. You do not look. The looking is not yours to do.
+  - if: {flags: [teen_alive]}
+    text: |-
+      *Don't look at Caleb.*
+  - |-
+    The chord behind you has not stopped. The road keeps going.
+
+choices:
+  - text: |-
+      Do it. Don't look at Caleb.
+    next: act2/arterial_run_resolve
+    effects:
+      flags:
+        neighbour_alive: false
+        dale_bitten: false

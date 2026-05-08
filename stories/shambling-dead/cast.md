@@ -1,4 +1,4 @@
-# The Long Walk Out — Cast
+# The Shambling Dead — Cast
 
 ## Emergency Broadcast Voice (off-page, Act 1)
 **Voice:** `narrator_female_warm_reflective` — pre-recorded female voice on a loop, calm-professional, tape-degraded. Distinct from the principal narrator (`narrator_male_last-of-us_joel`) so the player registers it as an *artefact* rather than the story's voice. No clash with Ruth or Wren in Act 1 — neither is on-page yet.

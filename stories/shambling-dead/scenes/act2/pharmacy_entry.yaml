@@ -1,0 +1,74 @@
+text:
+  - |-
+    Inside the pharmacy the air is older than it should be. The shelves at the front have been picked already — chips, nothing useful, a child's vitamin bottle on the floor that someone stepped on. The middle aisles still have things on them. Painkillers. A box of bandages, mostly intact. A row of small bottles you would have to read the labels on if you had time to read.
+  - |-
+    The back office door is closed. Not locked. The door moves a quarter-inch on its own and stops, then moves again. Whatever is behind it has heard you come in. It is working out the geometry of a door it has stood on the wrong side of for two days.
+  - |-
+    There is more than one of them in there. You can hear that. You can also hear which side of the door the better supplies are on.
+  - if: {flags_unset: [has_pistol]}
+    text: |-
+      You do not have a gun. You have your hands and whatever is in the bag.
+  - if: {stats: {health: 3}}
+    text: |-
+      You have not been cut today. You have a body that will still do what you tell it.
+    else: |-
+      Your body has been worked over. The stairs at Mara's building, the alley wire, the camp. The body is asking you not to.
+  - |-
+    The flee option is the obvious one. The shelves at the front are not nothing. The dead behind the door are not in the room with you yet.
+
+choices:
+  - text: |-
+      Push to the back. Pistol up. Health holds.
+    next: act2/pharmacy_success
+    requires:
+      flags: [has_pistol]
+      stats:
+        health: 3
+    failed_text: |-
+      *(Either the gun or the body — you don't have both.)*
+    effects:
+      stats:
+        health: 1
+        supplies: 0
+      flags:
+        looted_pharmacy: true
+  - text: |-
+      Push to the back. Anyway.
+    next: act2/pharmacy_partial
+    requires:
+      flags: [has_pistol]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: 1
+      flags:
+        looted_pharmacy: true
+  - text: |-
+      Push to the back. Anyway.
+    next: act2/pharmacy_partial
+    requires:
+      stats:
+        health: 3
+      flags_unset: [has_pistol]
+    hide_if_failed: true
+    effects:
+      stats:
+        health: -1
+        supplies: 1
+      flags:
+        looted_pharmacy: true
+  - text: |-
+      Push to the back. Without a gun and thin.
+    next: act2/death_d6_pharmacy
+    requires:
+      flags_unset: [has_pistol]
+      stats:
+        health: 2
+    hide_if_failed: true
+  - text: |-
+      Flee. Take what's on the front shelves only.
+    next: act2/arterial_run
+    effects:
+      flags:
+        looted_pharmacy: true

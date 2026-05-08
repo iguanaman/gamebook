@@ -1,0 +1,15 @@
+text:
+  - |-
+    Caleb is half a step behind you and he has not said a word since the corner. The school lanyard is still around his neck. He has not taken it off and you have not asked him to.
+  - |-
+    The cul-de-sac fades behind the bend. The arterial opens. The chord of the city is a thicker sound than anything you heard from the porch this morning, and the boy hears it before you do — you can tell by the way his footsteps shorten.
+  - |-
+    You slow your pace to match his. You do not look back at him. Looking would make him have to be brave about it.
+
+journal: |-
+  Caleb is with you. The boy in the lanyard. He has not spoken since the corner.
+
+choices:
+  - text: |-
+      Into the city.
+    next: act2/act2_entry_router

@@ -1,0 +1,16 @@
+text:
+  - |-
+    You push off. The water is the colour of stone. The first stroke takes you a yard out and the second takes you the same.
+  - if: {flags: [boathouse_coop]}
+    text: |-
+      Tomás is at the seawall, loading his own onto the next round. Iris is keeping watch at the riprap. Neither of them waves. Not waving is the courtesy.
+  - |-
+    The marina recedes. The chord recedes. The river opens around you — open in a way you have not heard a thing be open since the start of the week. The open is the proximity cue. There is nothing between you and the dead but water.
+
+choices:
+  - text: |-
+      Pull onto the far bank. Look back once.
+    next: act3/endings_router
+    effects:
+      flags:
+        swim_solo: true

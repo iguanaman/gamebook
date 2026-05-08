@@ -1,0 +1,71 @@
+text:
+  - |-
+    Tomás is at the water side of the boathouse with the kayak already half in the river. Iris is at the door with the pry-bar. Hayes is sitting on a coil of rope, the thermos in his good hand, the bandaged arm across his lap.
+  - male_elder_american_wise_approachable: |-
+      You came.
+  - |-
+    He says it the way a man says a thing he was hoping for and not counting on. He nods at the kayak.
+  - male_elder_american_wise_approachable: |-
+      Buy-in is one. Whatever you can spare. We're not robbing you.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara is at your hip. Iris looks at her once and does the thing she does.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      female_adult_american_crisp_direct_clear: |-
+        Your shoes are on the wrong feet.
+  - if: {flags: [child_rescued, child_alive]}
+    text: |-
+      Mara looks down. She does not change them.
+  - |-
+    Hayes shifts on the rope. He has not spoken before. He clears his throat and what comes out is the voice of a man you have not heard yet.
+  - male_midlife_british_tough_calloused: |-
+      I'm not getting in that boat. I want her to.
+  - |-
+    He gestures at Iris with his good hand. Iris does not look at him. The careful player has been reading bandaged-arm tells across the run; the careful player reads what he is doing here.
+  - |-
+    Above you the joist creaks. Something on the roof is working out a shingle.
+
+choices:
+  - text: |-
+      Pay the supplies. Take the kayak.
+    next: act3/boathouse_delta_epsilon_resolve
+    requires:
+      stats:
+        supplies: 1
+    effects:
+      stats:
+        supplies: -1
+        bond: 1
+      flags:
+        boathouse_coop: true
+  - text: |-
+      Pay. Ask Hayes if he's coming.
+    next: act3/boathouse_delta_epsilon_resolve
+    requires:
+      stats:
+        supplies: 1
+    effects:
+      stats:
+        supplies: -1
+        bond: 2
+      flags:
+        boathouse_coop: true
+        asked_hayes: true
+  - text: |-
+      Refuse the buy-in. Take the kayak by force.
+    next: act3/boathouse_loud
+    effects:
+      stats:
+        bond: -2
+      flags:
+        boathouse_loud: true
+        pushed_tomas_aside: true
+  - text: |-
+      Refuse and walk back. Take Vance's price instead.
+    next: act3/climax_setup
+    effects:
+      stats:
+        bond: -1
+      flags:
+        refused_kayak: true

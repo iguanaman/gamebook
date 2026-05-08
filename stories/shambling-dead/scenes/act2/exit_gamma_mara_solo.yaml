@@ -1,0 +1,12 @@
+text:
+  - |-
+    Mara has the strap of the bag in one hand and the back of your jacket in the other. She has not let go of either since the arterial. She walks the way a small person walks who is doing the maths of every step in her head and trying not to show you the maths.
+  - |-
+    The river is loud and she does not flinch at it. She flinches at smaller things — a window further off, a bird that is already a corpse on the asphalt. She looks at the corpse-bird twice. She does not ask. She does not ask anything.
+  - |-
+    Downstream — the marina. You will get her to the water. You have decided.
+
+choices:
+  - text: |-
+      Walk.
+    next: act3/act3_entry_router

@@ -1,0 +1,19 @@
+text:
+  - |-
+    You tell him you're a paramedic. You say it clean — no stumble, no taste of it in your mouth — because you've already decided.
+  - male_young_american_weak: |-
+      Oh. Oh — okay. Okay, I — yeah, hold on, hold on —
+  - |-
+    The deadbolt is back before you finish the next breath. The door comes open and Caleb is in the gap, school lanyard still around his neck, eyes wet, a backpack already on one shoulder like he packed it three hours ago and has been sitting next to it since.
+  - |-
+    Behind him, on the second step from the bottom, the thing that used to be his father has stopped moving the way it was moving. It has heard the door. It is turning its head the wrong way to find the sound.
+  - male_young_american_weak: |-
+      Help him. Please. Help him.
+
+choices:
+  - text: |-
+      Get him out. Don't elaborate.
+    next: act1/caleb_door_resolve
+    effects:
+      flags:
+        teen_alive: true

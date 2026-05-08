@@ -1,0 +1,38 @@
+text:
+  - if: {flags_unset: [pre_emptive_fight]}
+    text: |-
+      Inside, the camp is the warmest place you have stood in two days. A pit fire, low. Three plastic crates set as benches. A pot on a grate, something with onion in it. A second tent with the flap tied open, a radio chattering quietly inside.
+  - if: {flags: [pre_emptive_fight]}
+    text: |-
+      You came back. You came back at them while they were spread out. They are not spread out now. They have closed up around the fire faster than you walked the twenty steps in — Hollis at the pit, the lieutenant at your right, the heavy one at the gate behind you.
+  - |-
+    Hollis gestures at the pot like a host who has been hosting all his life.
+  - male_midlife_american_loud_confident_cocky: |-
+      Sit. Eat. Listen. We do that here. We sit, and we eat, and we listen to whoever just came in, because that's the only news that's been any good in two weeks. Tell us about your road, neighbour.
+  - |-
+    The lieutenant doesn't sit. He stands at Hollis's shoulder and he watches your hands.
+  - if: {flags: [read_camp]}
+    text: |-
+      You already saw the boots. You already saw the road. The fire is still warm.
+
+choices:
+  - text: |-
+      Sit. Eat. Listen.
+    next: act2/talk_hollis_camp
+    effects:
+      flags:
+        sat_at_fire: true
+  - text: |-
+      Stand. Decline the food. Stay near the entrance.
+    next: act2/talk_hollis_camp
+    effects:
+      stats:
+        bond: 1
+      flags:
+        wary_at_fire: true
+  - text: |-
+      Leave. Now. Without the conversation.
+    next: act2/hostile_pass_attempt
+    effects:
+      flags:
+        bailed_late: true

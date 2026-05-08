@@ -1,0 +1,14 @@
+text:
+  - |-
+    Out fast. Boots squelching on the embankment, the mouth of the pipe behind you breathing the wrong cold up your back. You did not waste an hour. You wasted a few minutes and a meal's worth of water you sweat through climbing.
+  - |-
+    The arterial is two blocks west. The road has not made the choice for you yet.
+
+choices:
+  - text: |-
+      Surface.
+    next:
+      - scene: act2/corridor_apartments_1
+        weight: 1
+      - scene: act2/corridor_underpass_1
+        weight: 1

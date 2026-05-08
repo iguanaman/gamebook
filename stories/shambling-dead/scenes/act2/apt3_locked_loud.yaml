@@ -1,0 +1,19 @@
+text:
+  - |-
+    The frame goes on the second hit. The sound is the sound of a door breaking in a stairwell, which is to say it is the sound the building has been waiting for.
+  - |-
+    Inside: a single room, curtain half-drawn. A man on the floor by the window — older, dressed, two days dead from the look of him, no bite you can see. A canvas bag at his hip, half-packed. A radio on the windowsill, plugged into a battery, the dial pegged to a frequency that is not the emergency loop.
+  - |-
+    A woman's voice, taped, clear: *Survivors. Eastern marina. River crossing held. Forty-one degrees, one-eight north — eighty-seven degrees, four-three west. Repeat.* The line cycles.
+  - |-
+    Below you the stairwell is no longer humming. It is *climbing*. Two floors down a door bangs open. Then another. The shaft has emptied into the stairs and the stairs are coming up.
+
+choices:
+  - text: |-
+      Pocket the radio frequency. Service door. Up. Out.
+    next: act2/roof_access_forced
+    effects:
+      stats:
+        supplies: 1
+      flags:
+        heard_marina: true

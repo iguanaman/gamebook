@@ -1,0 +1,19 @@
+text:
+  - |-
+    You stand. You walk to her. You name the bag. You name the strap she has not let go of in two days. You name the joke she has used three times now and the watch she did not have to ask for. You name everything you have been filing.
+  - |-
+    Her face does something. The dryness goes out of it for one half-second and then comes back, and the second half is the answer.
+  - female_adult_american_droll_wry_dry: |-
+      [sigh] Okay. Show me how this goes.
+
+choices:
+  - text: |-
+      Press her gently. The two days you have. Use what you read.
+    next: act2/rooftop_wren_peaceful
+    requires:
+      stats:
+        bond: 2
+    hide_if_failed: true
+  - text: |-
+      Press her hard. Make her show the bag.
+    next: act2/rooftop_wren_half_betrayal

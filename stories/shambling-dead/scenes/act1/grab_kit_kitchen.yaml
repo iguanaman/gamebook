@@ -1,0 +1,32 @@
+text:
+  - |-
+    The kitchen is cold tile and a window onto the side fence. The kettle is still warm from yesterday. A single bowl in the sink. You weren't planning to be in here this morning.
+  - |-
+    The kitchen handset is ringing on its cradle. Not a call coming in — the line itself, the same loop you've been hearing through the wall, the woman saying her two sentences as if she has all the time in the world.
+  - narrator_female_warm_reflective: |-
+      This is an emergency broadcast. Do not approach the infected. Shelter in place.
+  - |-
+    Through the window, a movement on the side fence — slow, regular. Something working the slats with the patience of something that has nowhere else to be.
+
+choices:
+  - text: |-
+      Sweep the counter. Bottles, the cans cupboard, painkillers in the drawer.
+    next: act1/grab_kit_landing
+    effects:
+      stats:
+        supplies: 1
+        home_loud_count: 1
+  - text: |-
+      Just the painkillers and the water. Move.
+    next: act1/grab_kit_landing
+    effects:
+      stats:
+        home_loud_count: 1
+  - text: |-
+      Pick up the kitchen handset.
+    next: act1/grab_kit_kitchen_phone
+    requires:
+      flags_unset: [picked_up_phone]
+    effects:
+      flags:
+        picked_up_phone: true

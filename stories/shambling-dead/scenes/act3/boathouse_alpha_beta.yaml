@@ -1,0 +1,52 @@
+text:
+  - |-
+    The door is propped — a length of two-by-four, wedged at an angle that says someone is inside who wants to be left alone. You push past it.
+  - |-
+    The boathouse smells of damp rope and outboard fuel. The kayak is on a rack along the back wall — a long red sea-kayak, the kind a person could put on a roof rack and not think about for a year. Tomás named this. Tomás was right.
+  - |-
+    Something on the roof is working a shingle. You hear it through the rafters — the wet-mouth sound, the slow scratch, a foot-and-a-half above your head.
+  - if: {flags: [listened_for_living]}
+    text: |-
+      Underneath all of it: a breath that is not the roof. A small one. From the foot well of the kayak.
+    else: |-
+      You see her before you hear her. The foot well of the kayak — a child has folded herself into it, knees up, hood up, eyes on you like a cat's eyes in a torch beam. She is six, maybe seven. Bare feet, blue-cold.
+  - if: {flags: [said_their_names]}
+    text: |-
+      She looks up at you the way Mara looked up at you in the supply closet. The way every child you have left or kept has looked up at you in this run.
+  - female_young_american_youthful_sweet: |-
+      Are you going to leave me here.
+  - |-
+    Not a question. The way she says it is not a question. It is a sentence she has been keeping in her mouth for two days.
+
+choices:
+  - text: |-
+      Pick her up. Tell her your name.
+    next: act3/boathouse_alpha_beta_resolve
+    effects:
+      stats:
+        bond: 2
+      flags:
+        child_rescued: true
+        child_alive: true
+        pip_rescued: true
+        found_second_child: true
+  - text: |-
+      Crouch. Eye level. Let her decide if she comes.
+    next: act3/boathouse_alpha_beta_resolve
+    effects:
+      stats:
+        bond: 2
+      flags:
+        child_rescued: true
+        child_alive: true
+        pip_rescued: true
+        pip_chose_you: true
+        found_second_child: true
+  - text: |-
+      Walk past her. You can't carry another.
+    next: act3/boathouse_alpha_beta_pass
+    effects:
+      stats:
+        bond: -2
+      flags:
+        passed_second_child: true

@@ -1,0 +1,19 @@
+text:
+  - male_young_american_weak: |-
+      I was at the window. I was, um, I was waiting for Eli. He lived on the cul-de-sac too. We were gonna — we were gonna ride bikes to the gas station. I had my shoes on for like an hour.
+  - male_young_american_weak: |-
+      He didn't come. And then I — I saw your neighbour. The man on the lawn. And I just kept waiting. I don't know why. I had my shoes on.
+  - |-
+    He looks at his own shoes. They are skate shoes. Filthy now. They were probably white once.
+  - male_young_american_weak: |-
+      I kept thinking — if I left the window, that's when Eli would come.
+
+choices:
+  - text: |-
+      Back.
+    next: act2/talk_caleb_hub
+    effects:
+      stats:
+        bond: 1
+      flags:
+        asked_caleb_run: true
