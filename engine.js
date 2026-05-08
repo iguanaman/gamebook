@@ -1293,7 +1293,8 @@ function waitForTapToContinue() {
   return new Promise(resolve => {
     const overlay = document.createElement('div');
     overlay.className = 'tap-to-continue';
-    overlay.textContent = 'Tap to continue…';
+    const isTouch = matchMedia('(hover: none)').matches;
+    overlay.textContent = isTouch ? 'Tap to continue…' : 'Click to continue…';
     storyRoot.appendChild(overlay);
     function done() {
       overlay.removeEventListener('click', done);
