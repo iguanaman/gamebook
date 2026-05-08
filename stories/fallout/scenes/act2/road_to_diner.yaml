@@ -1,21 +1,23 @@
 id: act2/road_to_diner
 text:
-- |-
-  The road is not a road in the way the briefings used the word. It is a stripe of cracked tarmac that something — wind, weather, the absence of anyone to repair it — has been chewing on for a very long time. Weeds in the cracks. A wrecked sedan on its roof, no glass, no plates. The dust, which started as a thin film on your boots, is now a steady grey shawl on every west-facing surface of you.
-- |-
-  Ahead, the column of smoke from the half-collapsed building has not moved. It is the only landmark. The map you do not have would put it at half a day's walk on a good day. This is not, by any of the metrics you possess, a good day.
+- The road is not a road in the way the briefings used the word. It is a stripe of
+  cracked tarmac that something — wind, weather, the absence of anyone to repair it
+  — has been chewing on for a very long time. Weeds in the cracks. A wrecked sedan
+  on its roof, no glass, no plates. The dust, which started as a thin film on your
+  boots, is now a steady grey shawl on every west-facing surface of you.
+- Ahead, the column of smoke from the half-collapsed building has not moved. It is
+  the only landmark. The map you do not have would put it at half a day's walk on
+  a good day. This is not, by any of the metrics you possess, a good day.
 - if:
     flags:
     - radiation_sick
     flags_unset:
     - reyes_treated_you
-  text: |-
-    There is a metallic taste at the back of your throat that comes and goes with the wind. You make yourself not think about it. You make yourself walk.
-- |-
-  Anything could be on this road. The road's long. You start.
+  text: There is a metallic taste at the back of your throat that comes and goes with
+    the wind. You make yourself not think about it. You make yourself walk.
+- Anything could be on this road. The road's long. You start.
 choices:
-- text: |-
-    Press on toward the smoke on the horizon.
+- text: Press on toward the smoke on the horizon.
   next:
   - scene: act2/road_uneventful
     weight: 4
@@ -32,8 +34,7 @@ choices:
     - blackmailed_cole
     flags_unset:
     - killed_cole
-- text: |-
-    Press on toward the smoke on the horizon.
+- text: Press on toward the smoke on the horizon.
   next:
   - scene: act2/road_uneventful
     weight: 4
@@ -46,8 +47,7 @@ choices:
   requires:
     flags_unset:
     - blackmailed_cole
-- text: |-
-    Press on toward the smoke on the horizon.
+- text: Press on toward the smoke on the horizon.
   next:
   - scene: act2/road_uneventful
     weight: 4

@@ -1,16 +1,13 @@
 id: act2/surface_threshold
 text:
-- |-
-  The ramp.
+- The ramp.
 choices:
-- text: |-
-    Walk up the ramp.
+- text: Walk up the ramp.
   next: act2/open_with_mob
   requires:
     flags:
     - led_evacuation
-- text: |-
-    Walk up the ramp.
+- text: Walk up the ramp.
   next: act2/open_with_doc
   requires:
     flags:
@@ -18,8 +15,7 @@ choices:
     flags_unset:
     - led_evacuation
     - recruited_yuna
-- text: |-
-    Walk up the ramp.
+- text: Walk up the ramp.
   next: act2/open_with_yuna
   requires:
     flags:
@@ -27,8 +23,7 @@ choices:
     flags_unset:
     - led_evacuation
     - recruited_doc
-- text: |-
-    Walk up the ramp.
+- text: Walk up the ramp.
   next: act2/open_alone_haunted
   requires:
     flags:
@@ -38,8 +33,7 @@ choices:
     - led_evacuation
     - recruited_doc
     - recruited_yuna
-- text: |-
-    Walk up the ramp.
+- text: Walk up the ramp.
   next: act2/open_alone_clean
   requires:
     flags_unset:

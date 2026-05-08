@@ -1,20 +1,22 @@
 id: act2/diner_roof
 text:
-- |-
-  The ladder up the back wall is bolted in and rusty and holds. The roof is flat and gritty and warmer than the air, the way a flat surface is when it has been in the sun all day. The view is the first time you have seen the wasteland from above.
-- |-
-  *East.* A column of smoke, not the diner's — bigger, oilier, somebody's camp. A long way off but not as far as you would like.
-- |-
-  *South.* A point of orange light at the limit of your vision. A watch fire, steady, somebody who *wants* to be seen.
-- |-
-  *Behind you.* The road you came in on, and at the far end of it, a smudge in the dirt where the door of Vault 34 sits in its hill. From up here, you can see how small it is.
-- |-
-  You stand a long minute, hand on the parapet, taking inventory.
-- |-
-  And then — only if you look properly, only if you let your eyes follow what isn't moving — there is a *fourth* thing. A line in the dust to the *north*, faint, picking up where a low ridge breaks the sightline. A track. Not a road. Something has been walking that line back and forth long enough to wear it.
+- The ladder up the back wall is bolted in and rusty and holds. The roof is flat and
+  gritty and warmer than the air, the way a flat surface is when it has been in the
+  sun all day. The view is the first time you have seen the wasteland from above.
+- '*East.* A column of smoke, not the diner''s — bigger, oilier, somebody''s camp.
+  A long way off but not as far as you would like.'
+- '*South.* A point of orange light at the limit of your vision. A watch fire, steady,
+  somebody who *wants* to be seen.'
+- '*Behind you.* The road you came in on, and at the far end of it, a smudge in the
+  dirt where the door of Vault 34 sits in its hill. From up here, you can see how
+  small it is.'
+- You stand a long minute, hand on the parapet, taking inventory.
+- And then — only if you look properly, only if you let your eyes follow what isn't
+  moving — there is a *fourth* thing. A line in the dust to the *north*, faint, picking
+  up where a low ridge breaks the sightline. A track. Not a road. Something has been
+  walking that line back and forth long enough to wear it.
 choices:
-- text: |-
-    Sweep the horizon properly. Note the track. Where it goes. Who walks it.
+- text: Sweep the horizon properly. Note the track. Where it goes. Who walks it.
   next: act2/diner_hub
   requires:
     stats:
@@ -23,10 +25,9 @@ choices:
     flags:
       searched_roof: true
       surface_cache_visible: true
-  failed_text: |-
-    *(Perception 5 — the line is there, but your eyes don't fix on it long enough to follow.)*
-- text: |-
-    Climb back down. The smoke and the watch fire are enough for one afternoon.
+  failed_text: '*(Perception 5 — the line is there, but your eyes don''t fix on it
+    long enough to follow.)*'
+- text: Climb back down. The smoke and the watch fire are enough for one afternoon.
   next: act2/diner_hub
   effects:
     flags:

@@ -1,18 +1,20 @@
 id: act2/scavenge_lucky
-journal: |-
-  Found a service pistol in a glove box, two hundred years old and oiled like somebody loved it. Three rounds in the magazine. The wasteland is now, fractionally, a different shape.
+journal: Found a service pistol in a glove box, two hundred years old and oiled like
+  somebody loved it. Three rounds in the magazine. The wasteland is now, fractionally,
+  a different shape.
 text:
-- |-
-  Third wreck, a state-trooper sedan on its roof, you find him.
-- |-
-  Not the body — the body is long gone, dragged off or walked off or eaten off. But the duty belt is still in the glove box, wrapped in oilcloth. Somebody packed this away on purpose. Somebody who thought they were coming back.
-- |-
-  Inside the oilcloth: a service pistol, blued steel, the wood grip cracked but not split. Three rounds in the magazine. A cleaning rag soft with old oil. The slide moves like it was racked yesterday.
-- |-
-  You weigh it in your hand. It is not a thing that gives you a feeling. It is a thing that adjusts the feelings you already had.
+- Third wreck, a state-trooper sedan on its roof, you find him.
+- Not the body — the body is long gone, dragged off or walked off or eaten off. But
+  the duty belt is still in the glove box, wrapped in oilcloth. Somebody packed this
+  away on purpose. Somebody who thought they were coming back.
+- 'Inside the oilcloth: a service pistol, blued steel, the wood grip cracked but not
+  split. Three rounds in the magazine. A cleaning rag soft with old oil. The slide
+  moves like it was racked yesterday.'
+- You weigh it in your hand. It is not a thing that gives you a feeling. It is a thing
+  that adjusts the feelings you already had.
 choices:
-- text: |-
-    Pocket it. Walk back to the diner. Don't think about how few three rounds is.
+- text: Pocket it. Walk back to the diner. Don't think about how few three rounds
+    is.
   next: act2/diner_hub
   effects:
     flags:

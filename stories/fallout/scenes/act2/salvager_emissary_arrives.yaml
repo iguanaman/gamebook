@@ -1,59 +1,72 @@
 id: act2/salvager_emissary_arrives
-journal: |-
-  A woman in a clean coat walked up to the diner with a canteen and a name. Hatch. Salvager liaison. The wasteland has more than one register and you have just heard the polite one.
+journal: A woman in a clean coat walked up to the diner with a canteen and a name.
+  Hatch. Salvager liaison. The wasteland has more than one register and you have just
+  heard the polite one.
 text:
-- |-
-  You walk south, into the wind, toward the watch fire. You don't get there.
-- |-
-  Halfway, near a stand of dead palms whose trunks the wind has ground down to grey bone, somebody waves at you. Not a tactical wave. A wave you'd give a neighbour from across a courtyard. *Hi! Yes, you. Hi.*
-- |-
-  She walks toward you with both hands open and visible. A clean patched coat — actually patched, with thread, by somebody who cared about the patch matching the coat. A scarf wound up against the dust, pulled down off her face the moment she's close enough to talk. South African, you think, although the word has not meant anything for two hundred years. A small leather notebook in a side pocket. A canteen on her hip.
-- female_adult_south-african_bossy_tough: |-
-    Hatch. Salvager outpost down the road — the watch fire is mine. You're vault, hey? The new vault. We've been waiting for a vault.
-- |-
-  She says it the way somebody might say *we've been waiting for the rain.* Not pleased, not sentimental — just an event whose moment has arrived.
-- female_adult_south-african_bossy_tough: |-
-    I'm here to introduce myself before anybody else does. The east does not introduce itself politely. We do. So.
-- |-
-  She unhooks the canteen from her hip and holds it out at arm's length, level. A small ceremony.
-- female_adult_south-african_bossy_tough: |-
-    Clean water. Two days' worth. From me to you. No conditions, no loan, no paperwork. The next conversation can wait until you've slept on this one.
+- You walk south, into the wind, toward the watch fire. You don't get there.
+- Halfway, near a stand of dead palms whose trunks the wind has ground down to grey
+  bone, somebody waves at you. Not a tactical wave. A wave you'd give a neighbour
+  from across a courtyard. *Hi! Yes, you. Hi.*
+- She walks toward you with both hands open and visible. A clean patched coat — actually
+  patched, with thread, by somebody who cared about the patch matching the coat. A
+  scarf wound up against the dust, pulled down off her face the moment she's close
+  enough to talk. South African, you think, although the word has not meant anything
+  for two hundred years. A small leather notebook in a side pocket. A canteen on her
+  hip.
+- female_adult_south-african_bossy_tough: Hatch. Salvager outpost down the road —
+    the watch fire is mine. You're vault, hey? The new vault. We've been waiting for
+    a vault.
+- She says it the way somebody might say *we've been waiting for the rain.* Not pleased,
+  not sentimental — just an event whose moment has arrived.
+- female_adult_south-african_bossy_tough: I'm here to introduce myself before anybody
+    else does. The east does not introduce itself politely. We do. So.
+- She unhooks the canteen from her hip and holds it out at arm's length, level. A
+  small ceremony.
+- female_adult_south-african_bossy_tough: Clean water. Two days' worth. From me to
+    you. No conditions, no loan, no paperwork. The next conversation can wait until
+    you've slept on this one.
 - if:
     flags:
     - recruited_doc
-  text: |-
-    Reyes is half a step behind you. Hatch's eyes go to her — to the canvas bag, then to the row of pens in the coat pocket, then to Reyes's face — and something happens in Hatch's posture that is not quite recognition and is not quite respect. *Doctor,* she says. Not a question. Reyes, who has not introduced herself, nods once. The two of them have, in three seconds, located each other on a map you do not have.
+  text: Reyes is half a step behind you. Hatch's eyes go to her — to the canvas bag,
+    then to the row of pens in the coat pocket, then to Reyes's face — and something
+    happens in Hatch's posture that is not quite recognition and is not quite respect.
+    *Doctor,* she says. Not a question. Reyes, who has not introduced herself, nods
+    once. The two of them have, in three seconds, located each other on a map you
+    do not have.
 - if:
     flags:
     - recruited_yuna
-  text: |-
-    Yuna is squinting at Hatch's coat. Specifically at the seam of one patch. *That's parachute silk,* she says, mostly to herself. Hatch hears it and the corner of her mouth moves without committing to anything. *It is,* she says. *Good eye.*
+  text: Yuna is squinting at Hatch's coat. Specifically at the seam of one patch.
+    *That's parachute silk,* she says, mostly to herself. Hatch hears it and the corner
+    of her mouth moves without committing to anything. *It is,* she says. *Good eye.*
 - if:
     flags:
     - led_evacuation
-  text: |-
-    Hatch counts the residents at the diner windows without appearing to. Her gaze tracks across, pauses, comes back. *That many,* she says. Not pleased; not displeased. Just the number entering her notebook somewhere behind her eyes.
-- |-
-  The canteen is still held out. She is not going to lower it until you do something about it.
+  text: Hatch counts the residents at the diner windows without appearing to. Her
+    gaze tracks across, pauses, comes back. *That many,* she says. Not pleased; not
+    displeased. Just the number entering her notebook somewhere behind her eyes.
+- The canteen is still held out. She is not going to lower it until you do something
+  about it.
 choices:
-- text: |-
-    Take the canteen. Thank her. Let the conversation start the way she wants it to.
+- text: Take the canteen. Thank her. Let the conversation start the way she wants
+    it to.
   next: act2/diner_hub
   effects:
     flags:
       met_hatch: true
       salvager_contact: true
       hatch_gift: true
-- text: |-
-    Wave her off. The water's hers. You don't take from people you haven't measured yet.
+- text: Wave her off. The water's hers. You don't take from people you haven't measured
+    yet.
   next: act2/diner_hub
   effects:
     flags:
       met_hatch: true
       salvager_contact: true
       refused_hatch_gift: true
-- text: |-
-    Step back. Let Reyes speak first. The two of them have already started a conversation; let it finish.
+- text: Step back. Let Reyes speak first. The two of them have already started a conversation;
+    let it finish.
   next: act2/diner_hub
   requires:
     flags:

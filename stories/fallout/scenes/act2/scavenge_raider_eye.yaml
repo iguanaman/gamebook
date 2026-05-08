@@ -1,22 +1,25 @@
 id: act2/scavenge_raider_eye
-journal: |-
-  A raider scout watched you scavenging from a ridge and made no effort to hide it. They know where the diner is. They will come.
+journal: A raider scout watched you scavenging from a ridge and made no effort to
+  hide it. They know where the diner is. They will come.
 text:
-- |-
-  You are knee-deep in a sedan's wheel well, sorting a fistful of bolts that are not as good as you hoped, when the back of your neck does the thing the back of your neck does.
-- |-
-  You straighten up slowly. You do not look around.
-- |-
-  On the ridge, a hundred metres south-east, somebody is sitting on a chunk of broken concrete with a long-glass to one eye. Road-leathers. The same brand on the back of the hand that you'd see, later, on three other hands. He is not hidden. He has not tried to be hidden. He has the long-glass to his eye and the eye behind it is on you, and when you look up at him he does not move. He wants you to see. The seeing is the message.
-- |-
-  After a moment, he lowers the glass. He does not stand. He does not signal. He simply waits to be sure you have understood.
-- |-
-  You have understood.
-- |-
-  You walk back to the diner the long way round, although the long way round is not a way that fools anybody.
+- You are knee-deep in a sedan's wheel well, sorting a fistful of bolts that are not
+  as good as you hoped, when the back of your neck does the thing the back of your
+  neck does.
+- You straighten up slowly. You do not look around.
+- On the ridge, a hundred metres south-east, somebody is sitting on a chunk of broken
+  concrete with a long-glass to one eye. Road-leathers. The same brand on the back
+  of the hand that you'd see, later, on three other hands. He is not hidden. He has
+  not tried to be hidden. He has the long-glass to his eye and the eye behind it is
+  on you, and when you look up at him he does not move. He wants you to see. The seeing
+  is the message.
+- After a moment, he lowers the glass. He does not stand. He does not signal. He simply
+  waits to be sure you have understood.
+- You have understood.
+- You walk back to the diner the long way round, although the long way round is not
+  a way that fools anybody.
 choices:
-- text: |-
-    Head back. The smoke is on the horizon and the smoke now knows where the diner is.
+- text: Head back. The smoke is on the horizon and the smoke now knows where the diner
+    is.
   next: act2/diner_hub
   effects:
     flags:

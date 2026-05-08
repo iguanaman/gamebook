@@ -1,23 +1,27 @@
 id: act2/road_dust_storm
 text:
-- |-
-  The wind changes first.
-- |-
-  Not the direction — the *body* of it. A minute ago it was a wind. Now it is a thing with weight, pressing against the side of your face hard enough that you have to lean into it to keep walking. The grey shawl on your west-facing side becomes a grey *coat*, then a grey *armour*, and then the air in front of you is not air any more. It is a wall of brown moving sideways.
-- |-
-  You can see, briefly, the shape of it advancing across the flats — a curtain about a hundred feet high, ragged at the top, eating the road as it comes. Somewhere on the other side of it is the smoke and the building. On this side of it is you, and a wrecked semi-trailer about forty paces back, lying on its side like a tired animal.
+- The wind changes first.
+- Not the direction — the *body* of it. A minute ago it was a wind. Now it is a thing
+  with weight, pressing against the side of your face hard enough that you have to
+  lean into it to keep walking. The grey shawl on your west-facing side becomes a
+  grey *coat*, then a grey *armour*, and then the air in front of you is not air any
+  more. It is a wall of brown moving sideways.
+- You can see, briefly, the shape of it advancing across the flats — a curtain about
+  a hundred feet high, ragged at the top, eating the road as it comes. Somewhere on
+  the other side of it is the smoke and the building. On this side of it is you, and
+  a wrecked semi-trailer about forty paces back, lying on its side like a tired animal.
 - if:
     flags:
     - radiation_sick
     flags_unset:
     - reyes_treated_you
-  text: |-
-    The metallic taste in your mouth gets *sharper*. Your chest, when you draw the next breath, gives back less than it took. You think — without permission, without intending the thought — *if I run into that, my lungs will not come out the other side.*
-- |-
-  The curtain is forty seconds away. Maybe thirty.
+  text: The metallic taste in your mouth gets *sharper*. Your chest, when you draw
+    the next breath, gives back less than it took. You think — without permission,
+    without intending the thought — *if I run into that, my lungs will not come out
+    the other side.*
+- The curtain is forty seconds away. Maybe thirty.
 choices:
-- text: |-
-    Push through the wall of dust. Head down. Don't stop.
+- text: Push through the wall of dust. Head down. Don't stop.
   next: act2/diner_arrival
   requires:
     stats:
@@ -27,10 +31,8 @@ choices:
   effects:
     flags:
       pushed_storm: true
-  failed_text: |-
-    *(Your eyes will not track the line of the road in that.)*
-- text: |-
-    Push through the wall of dust. Head down. Don't stop.
+  failed_text: '*(Your eyes will not track the line of the road in that.)*'
+- text: Push through the wall of dust. Head down. Don't stop.
   next: act2/diner_arrival
   requires:
     stats:
@@ -40,16 +42,13 @@ choices:
   effects:
     flags:
       pushed_storm: true
-  failed_text: |-
-    *(Your eyes will not track the line of the road in that.)*
-- text: |-
-    Force yourself into it anyway. The smoke is on the other side.
+  failed_text: '*(Your eyes will not track the line of the road in that.)*'
+- text: Force yourself into it anyway. The smoke is on the other side.
   next: act2/road_dust_storm_death
   requires:
     flags:
     - radiation_sick
     flags_unset:
     - reyes_treated_you
-- text: |-
-    Run for the wreck. Get behind it. Wait it out.
+- text: Run for the wreck. Get behind it. Wait it out.
   next: act2/diner_arrival_night

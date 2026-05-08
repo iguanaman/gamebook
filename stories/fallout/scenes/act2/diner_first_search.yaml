@@ -1,16 +1,21 @@
 id: act2/diner_first_search
 text:
-- |-
-  You work the dining room the way a security officer works a room — clockwise from the door, eyes low, hands open. The floor is mostly broken glass in the shapes of the windows that used to be where they used to be. The booths have all been slept in by something. One of the napkin dispensers is, miraculously, still half full of napkins, and the napkins are the colour of strong tea.
-- |-
-  Behind the counter, in a tin under the till, you find half a pack of jerky in a wax-paper wrap. You sniff it. It says *yes*. You eat a piece. It says *no*. You wrap the rest back up and put it in the bag for somebody else's emergency.
-- |-
-  The wall behind the counter is, you notice now, perforated. Not weather. Bullet-holes. Rough clusters at chest height in three places, and one tight low cluster that someone took from the floor — somebody who had gone down and was still firing when they did.
-- |-
-  The pattern is telling you something.
+- You work the dining room the way a security officer works a room — clockwise from
+  the door, eyes low, hands open. The floor is mostly broken glass in the shapes of
+  the windows that used to be where they used to be. The booths have all been slept
+  in by something. One of the napkin dispensers is, miraculously, still half full
+  of napkins, and the napkins are the colour of strong tea.
+- Behind the counter, in a tin under the till, you find half a pack of jerky in a
+  wax-paper wrap. You sniff it. It says *yes*. You eat a piece. It says *no*. You
+  wrap the rest back up and put it in the bag for somebody else's emergency.
+- The wall behind the counter is, you notice now, perforated. Not weather. Bullet-holes.
+  Rough clusters at chest height in three places, and one tight low cluster that someone
+  took from the floor — somebody who had gone down and was still firing when they
+  did.
+- The pattern is telling you something.
 choices:
-- text: |-
-    Read the holes. Where the shooters stood. How long it lasted. Who was last to fall.
+- text: Read the holes. Where the shooters stood. How long it lasted. Who was last
+    to fall.
   next: act2/diner_hub
   requires:
     stats:
@@ -19,10 +24,9 @@ choices:
     flags:
       searched_dining: true
       read_diner_history: true
-  failed_text: |-
-    *(Perception 5 — there's a story in the holes, but it's not one you can read.)*
-- text: |-
-    Take the jerky and head back to the others.
+  failed_text: '*(Perception 5 — there''s a story in the holes, but it''s not one
+    you can read.)*'
+- text: Take the jerky and head back to the others.
   next: act2/diner_hub
   effects:
     flags:

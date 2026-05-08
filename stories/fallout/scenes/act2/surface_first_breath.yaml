@@ -1,31 +1,41 @@
 id: act2/surface_first_breath
-journal: |-
-  You took your first breath of unfiltered air at the top of the ramp. The sky was bigger than you had been told. The sun, when you found it, was not the colour you had been promised. You walked.
+journal: You took your first breath of unfiltered air at the top of the ramp. The
+  sky was bigger than you had been told. The sun, when you found it, was not the colour
+  you had been promised. You walked.
 text:
-- |-
-  At the top of the ramp the world opens.
-- |-
-  Not opens, exactly. *Continues*. Continues the way nothing has ever continued in your life. The vault, you understand at last, was a *room* — a very large room with eighty-seven years of furniture in it, but a room. This is not a room. This is the absence of any room you will ever see again.
-- |-
-  Forward and a little east, the ground falls away into a shallow valley of cracked tarmac and flat-roofed pre-war shapes you eventually parse as buildings — a town, maybe, a town that used to be — and beyond the town, the brown-grey ghost of a larger settlement on the horizon. *Bakersfield*, you think, because that is the name you have been told. The name fits the silhouette badly, the way a label fits a corpse.
-- |-
-  Above all of it is a sun.
-- |-
-  Not the yellow disc the picture books promised. A red one, a low and tired one, sitting in a sky that has more dust in it than the picture books budgeted for. The light it throws is the colour of weak tea. You can look at it without squinting. You understand, somewhere underneath understanding, that this is not how a sun is supposed to behave.
+- At the top of the ramp the world opens.
+- Not opens, exactly. *Continues*. Continues the way nothing has ever continued in
+  your life. The vault, you understand at last, was a *room* — a very large room with
+  eighty-seven years of furniture in it, but a room. This is not a room. This is the
+  absence of any room you will ever see again.
+- Forward and a little east, the ground falls away into a shallow valley of cracked
+  tarmac and flat-roofed pre-war shapes you eventually parse as buildings — a town,
+  maybe, a town that used to be — and beyond the town, the brown-grey ghost of a larger
+  settlement on the horizon. *Bakersfield*, you think, because that is the name you
+  have been told. The name fits the silhouette badly, the way a label fits a corpse.
+- Above all of it is a sun.
+- Not the yellow disc the picture books promised. A red one, a low and tired one,
+  sitting in a sky that has more dust in it than the picture books budgeted for. The
+  light it throws is the colour of weak tea. You can look at it without squinting.
+  You understand, somewhere underneath understanding, that this is not how a sun is
+  supposed to behave.
 - if:
     flags:
     - radiation_sick
     flags_unset:
     - reyes_treated_you
-  text: |-
-    The first proper breath of unfiltered air goes into you and stops halfway. Your throat closes around it briefly — not a cough, not yet, just a small involuntary objection from a body that has already absorbed more than it was designed to absorb. The metallic taste in your mouth gets a little stronger. You swallow it down and breathe again, more carefully this time. The second breath goes in.
-- |-
-  The wind on your face is steady and warm and smells, very faintly, of something you do not have a word for. You will, in time, learn the word. The word is *outside*.
-- |-
-  In the middle distance, between you and the dead town, a thin column of smoke rises from what must be a building. A roadside something. Half collapsed. Catching the low sun on what is left of its roof.
-- |-
-  It is the only sign of a fire in any direction. You start walking toward it because there is nothing else to walk toward.
+  text: The first proper breath of unfiltered air goes into you and stops halfway.
+    Your throat closes around it briefly — not a cough, not yet, just a small involuntary
+    objection from a body that has already absorbed more than it was designed to absorb.
+    The metallic taste in your mouth gets a little stronger. You swallow it down and
+    breathe again, more carefully this time. The second breath goes in.
+- The wind on your face is steady and warm and smells, very faintly, of something
+  you do not have a word for. You will, in time, learn the word. The word is *outside*.
+- In the middle distance, between you and the dead town, a thin column of smoke rises
+  from what must be a building. A roadside something. Half collapsed. Catching the
+  low sun on what is left of its roof.
+- It is the only sign of a fire in any direction. You start walking toward it because
+  there is nothing else to walk toward.
 choices:
-- text: |-
-    Walk toward the ruins.
+- text: Walk toward the ruins.
   next: act2/road_to_diner

@@ -1,70 +1,73 @@
 id: act2/diner_settle
 text:
-- |-
-  You find a booth, or a corner, or a square of floor that is yours for as long as anything is going to be yours, and you put yourself in it.
+- You find a booth, or a corner, or a square of floor that is yours for as long as
+  anything is going to be yours, and you put yourself in it.
 - if:
     flags_unset:
     - recruited_doc
     - recruited_yuna
     - led_evacuation
-  text: |-
-    There is no watch. There is only you. You sit with your back to the wall and your eyes on the door, and at some point the eyes lose. Sleep is not sleep so much as a long careful blink that takes the rest of the night with it.
-- if:
-    flags:
-    - recruited_doc
-    flags_unset:
-    - recruited_yuna
-    - led_evacuation
-  text: |-
-    Reyes has the first watch. She sits with the canvas bag on her lap and the pre-war ballpoint between two fingers, and she does not look at you sleeping. She looks at the door.
-- if:
-    flags:
-    - recruited_yuna
-    flags_unset:
-    - recruited_doc
-    - led_evacuation
-  text: |-
-    Yuna has the first watch. She sits cross-legged on the counter with the multitool open in her hand and the goggles down over her eyes against the cold, and she does not look at you sleeping. She looks at the road.
+  text: There is no watch. There is only you. You sit with your back to the wall and
+    your eyes on the door, and at some point the eyes lose. Sleep is not sleep so
+    much as a long careful blink that takes the rest of the night with it.
 - if:
     flags:
     - recruited_doc
+    flags_unset:
+    - recruited_yuna
+    - led_evacuation
+  text: Reyes has the first watch. She sits with the canvas bag on her lap and the
+    pre-war ballpoint between two fingers, and she does not look at you sleeping.
+    She looks at the door.
+- if:
+    flags:
+    - recruited_yuna
+    flags_unset:
+    - recruited_doc
+    - led_evacuation
+  text: Yuna has the first watch. She sits cross-legged on the counter with the multitool
+    open in her hand and the goggles down over her eyes against the cold, and she
+    does not look at you sleeping. She looks at the road.
+- if:
+    flags:
+    - recruited_doc
     - recruited_yuna
     flags_unset:
     - led_evacuation
-  text: |-
-    They have the watch between them. You sleep first. You did not vote on this. The vote happened around you and went against you and you do not, in the end, mind.
+  text: They have the watch between them. You sleep first. You did not vote on this.
+    The vote happened around you and went against you and you do not, in the end,
+    mind.
 - if:
     flags:
     - led_evacuation
     - diner_organised
-  text: |-
-    The watches you set are working. There is a body at each window and a body on the door, and the residents who are not on watch are sleeping in the hard, fast way of people who have forgotten they are allowed to.
+  text: The watches you set are working. There is a body at each window and a body
+    on the door, and the residents who are not on watch are sleeping in the hard,
+    fast way of people who have forgotten they are allowed to.
 - if:
     flags:
     - led_evacuation
     - morale_cracking
-  text: |-
-    There is no watch — there is an argument in two corners of the room that wants to be a watch and won't agree on its shape. You close your eyes anyway. Sleep is worth more than the argument is.
+  text: There is no watch — there is an argument in two corners of the room that wants
+    to be a watch and won't agree on its shape. You close your eyes anyway. Sleep
+    is worth more than the argument is.
 - if:
     flags:
     - led_evacuation
     flags_unset:
     - diner_organised
     - morale_cracking
-  text: |-
-    The residents have sorted themselves into the corners they have decided to sleep in. Somebody is on watch. You are not entirely sure who. You sleep anyway.
-- |-
-  Time, on the surface, is the thing that happens between sleeps.
+  text: The residents have sorted themselves into the corners they have decided to
+    sleep in. Somebody is on watch. You are not entirely sure who. You sleep anyway.
+- Time, on the surface, is the thing that happens between sleeps.
 choices:
-- text: |-
-    Lie down. Let the morning come.
+- text: Lie down. Let the morning come.
   next: act2/first_contact_router
   requires:
     flags_unset:
     - first_contact_made
   hide_if_failed: true
-- text: |-
-    Lie down. Another night the world has not killed you in.
+- text: Lie down. Another night the world has not killed you in.
   next: act2/diner_hub
   requires:
     flags:

@@ -1,16 +1,18 @@
 id: act2/diner_back_room
 text:
-- |-
-  The kitchen door is wedged at an angle that means you have to turn sideways to go through it. On the other side is what used to be a kitchen — a long stainless prep counter, a fryer with the basket still in it, a pass-through window with a metal order-spike still bristling with paper that has gone the colour of the napkins.
-- |-
-  At the back, against the wall, is a chest freezer. White, dented, the rubber seal grey with age. The lid is shut. The handle is the kind that locks down. It looks shut for a reason.
-- |-
-  You put a hand on it. It is cold. *Cold.* Not refrigerated cold — root-cellar cold, the cold of a thick-walled box that has held its temperature against eighty-seven summers because it was very, very well made.
-- |-
-  Whatever is in it has been in it a long time.
+- The kitchen door is wedged at an angle that means you have to turn sideways to go
+  through it. On the other side is what used to be a kitchen — a long stainless prep
+  counter, a fryer with the basket still in it, a pass-through window with a metal
+  order-spike still bristling with paper that has gone the colour of the napkins.
+- At the back, against the wall, is a chest freezer. White, dented, the rubber seal
+  grey with age. The lid is shut. The handle is the kind that locks down. It looks
+  shut for a reason.
+- You put a hand on it. It is cold. *Cold.* Not refrigerated cold — root-cellar cold,
+  the cold of a thick-walled box that has held its temperature against eighty-seven
+  summers because it was very, very well made.
+- Whatever is in it has been in it a long time.
 choices:
-- text: |-
-    Wrench the freezer open. Hands on the handle. Lean.
+- text: Wrench the freezer open. Hands on the handle. Lean.
   next: act2/diner_hub
   requires:
     stats:
@@ -19,10 +21,9 @@ choices:
     flags:
       searched_back: true
       has_coffee: true
-  failed_text: |-
-    *(Strength 5 — the rubber seal has bonded with itself. You cut your hand on the handle and step back.)*
-- text: |-
-    Leave it. Whatever's in there has been in there a long time. Let it stay.
+  failed_text: '*(Strength 5 — the rubber seal has bonded with itself. You cut your
+    hand on the handle and step back.)*'
+- text: Leave it. Whatever's in there has been in there a long time. Let it stay.
   next: act2/diner_hub
   effects:
     flags:

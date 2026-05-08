@@ -1,16 +1,19 @@
 id: act2/talk_down_returner
 text:
-- |-
-  He is at the door again. He has been at the door three times since you came in. The first two he turned around. This time, his hand is on the handle and his shoulder is set, and the column behind him has stopped pretending not to watch.
-- |-
-  He is mid-forties. Vault blues with the elbows worn shiny. His name, you remember now, is on the maintenance roster — Ellis, Ellis, something like Ellis — and his wife is not in the column and was never going to be in the column because she was on the sub-three shift the morning the door opened, and you do not know how to tell him what that means without saying it out loud.
-- |-
-  *I'm just going back to look,* he says. He is not looking at you. *I'm just going to look. I won't go in. I'll look and I'll come back.*
-- |-
-  He will not come back. He will get to the door of the vault and he will stand there until something on this side or the other side resolves the problem of him.
+- He is at the door again. He has been at the door three times since you came in.
+  The first two he turned around. This time, his hand is on the handle and his shoulder
+  is set, and the column behind him has stopped pretending not to watch.
+- He is mid-forties. Vault blues with the elbows worn shiny. His name, you remember
+  now, is on the maintenance roster — Ellis, Ellis, something like Ellis — and his
+  wife is not in the column and was never going to be in the column because she was
+  on the sub-three shift the morning the door opened, and you do not know how to tell
+  him what that means without saying it out loud.
+- '*I''m just going back to look,* he says. He is not looking at you. *I''m just going
+  to look. I won''t go in. I''ll look and I''ll come back.*'
+- He will not come back. He will get to the door of the vault and he will stand there
+  until something on this side or the other side resolves the problem of him.
 choices:
-- text: |-
-    Tell him what's behind that door. The whole of it. Don't soften it.
+- text: Tell him what's behind that door. The whole of it. Don't soften it.
   next: act2/diner_hub
   requires:
     stats:
@@ -19,10 +22,9 @@ choices:
     flags:
       talk_down_attempted: true
       kept_morale: true
-  failed_text: |-
-    *(Charisma 6 — the words are right. The words don't reach him. He is already three sentences ahead of you, and the sentences are about his wife.)*
-- text: |-
-    Step aside. The door is the door. He has chosen.
+  failed_text: '*(Charisma 6 — the words are right. The words don''t reach him. He
+    is already three sentences ahead of you, and the sentences are about his wife.)*'
+- text: Step aside. The door is the door. He has chosen.
   next: act2/diner_hub
   effects:
     flags:

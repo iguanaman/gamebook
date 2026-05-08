@@ -1,12 +1,15 @@
 id: act2/scavenge_uneventful
 text:
-- |-
-  Three hours of metal. A glove box that has nothing in it but rat shit. A trunk that has nothing in it because the trunk is missing its bottom. A door panel with a wiring loom you could, in another life, have done something with, and which you do not, in this life, take.
-- |-
-  You walk back. The diner is where you left it. The sun is where it was going to be. Nothing about you has changed, except that you now know one more set of wrecks is empty, and that knowing-things-are-empty is, on the surface, a kind of small win.
+- Three hours of metal. A glove box that has nothing in it but rat shit. A trunk that
+  has nothing in it because the trunk is missing its bottom. A door panel with a wiring
+  loom you could, in another life, have done something with, and which you do not,
+  in this life, take.
+- You walk back. The diner is where you left it. The sun is where it was going to
+  be. Nothing about you has changed, except that you now know one more set of wrecks
+  is empty, and that knowing-things-are-empty is, on the surface, a kind of small
+  win.
 choices:
-- text: |-
-    Head back inside.
+- text: Head back inside.
   next: act2/diner_hub
   effects:
     flags:

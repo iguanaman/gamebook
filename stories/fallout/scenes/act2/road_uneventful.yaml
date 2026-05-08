@@ -1,29 +1,31 @@
 id: act2/road_uneventful
 text:
-- |-
-  Hours.
-- |-
-  The kind of hours that do not mark themselves with anything you can point to afterwards. Your shadow shortens, lengthens, swings around the wrong way because the sun is in the wrong part of the sky. A blister opens on the back of your right heel and then, an hour later, opens further, and then stops being interesting. Your tongue feels like it has been wrapped in dry cloth.
-- |-
-  Nothing is on the road. Nothing is off the road. Nothing watches you that you can see.
+- Hours.
+- The kind of hours that do not mark themselves with anything you can point to afterwards.
+  Your shadow shortens, lengthens, swings around the wrong way because the sun is
+  in the wrong part of the sky. A blister opens on the back of your right heel and
+  then, an hour later, opens further, and then stops being interesting. Your tongue
+  feels like it has been wrapped in dry cloth.
+- Nothing is on the road. Nothing is off the road. Nothing watches you that you can
+  see.
 - if:
     flags:
     - recruited_doc
-  text: |-
-    Reyes walks behind you. She does not talk. Once, when you stop to rest a knee, she crouches and presses the back of her hand against the tarmac the way a person checks a forehead for fever, and stands up again, and they walk on.
+  text: Reyes walks behind you. She does not talk. Once, when you stop to rest a knee,
+    she crouches and presses the back of her hand against the tarmac the way a person
+    checks a forehead for fever, and stands up again, and they walk on.
 - if:
     flags:
     - recruited_yuna
-  text: |-
-    Yuna walks ahead of you. She picks up a bottle cap, looks at it, drops it. She picks up another and pockets it. You do not ask why.
+  text: Yuna walks ahead of you. She picks up a bottle cap, looks at it, drops it.
+    She picks up another and pockets it. You do not ask why.
 - if:
     flags:
     - led_evacuation
-  text: |-
-    Behind you the column has flattened into a thin line. Somebody is helping somebody else. Somebody is carrying a child who has stopped crying. The maintenance worker has lost his ladder hinge bolt somewhere and has stopped looking for it.
-- |-
-  The smoke gets closer the way smoke does — never closer, until suddenly it is.
+  text: Behind you the column has flattened into a thin line. Somebody is helping
+    somebody else. Somebody is carrying a child who has stopped crying. The maintenance
+    worker has lost his ladder hinge bolt somewhere and has stopped looking for it.
+- The smoke gets closer the way smoke does — never closer, until suddenly it is.
 choices:
-- text: |-
-    Continue.
+- text: Continue.
   next: act2/diner_arrival

@@ -1,16 +1,19 @@
 id: act2/open_with_doc
 text:
-- |-
-  Reyes goes down on one knee about four paces past the door. Not a fall — a deliberate lowering, the way a person lowers themselves when they have decided their legs are about to make the decision for them. The canvas bag goes down beside her. The pre-war ballpoint goes between her teeth. She puts one hand flat on the concrete and looks at it for a long second, the way she looks at a chart that is telling her something she already knew.
-- |-
-  Then she coughs. Once. Dry, professional, into the inside of her elbow. She straightens her face before she takes the elbow away.
-- female_adult_american_cool: |-
-    [cough] We need to find water. Today, ideally.
-- |-
-  She is not looking at you when she says it. She is looking at the dust on her own boots, which she is, you realise, seeing dust on her own boots for the first time in her adult life.
-- female_adult_american_cool: |-
-    Help me up, Officer. I'd rather not start the new world on my knees.
+- Reyes goes down on one knee about four paces past the door. Not a fall — a deliberate
+  lowering, the way a person lowers themselves when they have decided their legs are
+  about to make the decision for them. The canvas bag goes down beside her. The pre-war
+  ballpoint goes between her teeth. She puts one hand flat on the concrete and looks
+  at it for a long second, the way she looks at a chart that is telling her something
+  she already knew.
+- Then she coughs. Once. Dry, professional, into the inside of her elbow. She straightens
+  her face before she takes the elbow away.
+- female_adult_american_cool: '[cough] We need to find water. Today, ideally.'
+- She is not looking at you when she says it. She is looking at the dust on her own
+  boots, which she is, you realise, seeing dust on her own boots for the first time
+  in her adult life.
+- female_adult_american_cool: Help me up, Officer. I'd rather not start the new world
+    on my knees.
 choices:
-- text: |-
-    Help her up. Start walking.
+- text: Help her up. Start walking.
   next: act2/surface_first_breath

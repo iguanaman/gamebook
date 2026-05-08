@@ -1,68 +1,78 @@
 id: act2/first_contact_router
 text:
-- |-
-  Morning, on the surface, is announced first by the cold and only second by the light. You come up out of sleep with the cold of the floor in your hip and the grey of the diner ceiling above you, and for a long second you don't remember which roof this is.
+- Morning, on the surface, is announced first by the cold and only second by the light.
+  You come up out of sleep with the cold of the floor in your hip and the grey of
+  the diner ceiling above you, and for a long second you don't remember which roof
+  this is.
 - if:
     flags_unset:
     - recruited_doc
     - recruited_yuna
     - led_evacuation
-  text: |-
-    Then you do, and you sit up, and there is nobody to say good morning to. The wind is doing it for them. The wind, and the ticking of the diner's metal as the sun starts to take it.
+  text: Then you do, and you sit up, and there is nobody to say good morning to. The
+    wind is doing it for them. The wind, and the ticking of the diner's metal as the
+    sun starts to take it.
 - if:
     flags:
     - recruited_doc
     flags_unset:
     - recruited_yuna
     - led_evacuation
-  text: |-
-    Reyes is already up. She is standing at the front window with the canvas bag over her shoulder, looking out, and she has not slept, and the line of her jaw says she is not going to admit this. She turns when you sit up and she nods once, like a doctor who has been waiting for her patient to wake.
+  text: Reyes is already up. She is standing at the front window with the canvas bag
+    over her shoulder, looking out, and she has not slept, and the line of her jaw
+    says she is not going to admit this. She turns when you sit up and she nods once,
+    like a doctor who has been waiting for her patient to wake.
 - if:
     flags:
     - recruited_yuna
     flags_unset:
     - recruited_doc
     - led_evacuation
-  text: |-
-    Yuna is on the roof. You can hear her up there, doing something to the mast or to herself, talking under her breath. The ladder pings as she shifts her weight on it. *Smoke's still east,* she calls down, without looking. *Watch fire's still south. Tracks north — those are still tracks.*
+  text: Yuna is on the roof. You can hear her up there, doing something to the mast
+    or to herself, talking under her breath. The ladder pings as she shifts her weight
+    on it. *Smoke's still east,* she calls down, without looking. *Watch fire's still
+    south. Tracks north — those are still tracks.*
 - if:
     flags:
     - recruited_doc
     - recruited_yuna
     flags_unset:
     - led_evacuation
-  text: |-
-    Reyes is at the window. Yuna is on the roof. The two of them have, between them, an inventory of the horizon already taken. Yuna calls down what she sees and Reyes confirms it without turning, the way two people work who have been working together longer than they have known each other.
+  text: Reyes is at the window. Yuna is on the roof. The two of them have, between
+    them, an inventory of the horizon already taken. Yuna calls down what she sees
+    and Reyes confirms it without turning, the way two people work who have been working
+    together longer than they have known each other.
 - if:
     flags:
     - led_evacuation
-  text: |-
-    The diner is awake before you are. People at the windows, people at the door, people in a knot around the counter dividing yesterday's water. Somebody made coffee from something that is not coffee. Somebody is crying, in the back. Day two of the column is already happening; you are catching up to it.
-- |-
-  Smoke to the east. Watch fire to the south. The wind from the north pushes a thin, persistent grit against the shutters.
-- |-
-  Day two. The horizon is choosing whether to come to you, and you are choosing whether to go to it.
+  text: The diner is awake before you are. People at the windows, people at the door,
+    people in a knot around the counter dividing yesterday's water. Somebody made
+    coffee from something that is not coffee. Somebody is crying, in the back. Day
+    two of the column is already happening; you are catching up to it.
+- Smoke to the east. Watch fire to the south. The wind from the north pushes a thin,
+  persistent grit against the shutters.
+- Day two. The horizon is choosing whether to come to you, and you are choosing whether
+  to go to it.
 choices:
-- text: |-
-    Walk south. Toward the watch fire. Toward whoever sat that fire and let it be seen.
+- text: Walk south. Toward the watch fire. Toward whoever sat that fire and let it
+    be seen.
   next: act2/salvager_emissary_arrives
   effects:
     flags:
       first_contact_made: true
-- text: |-
-    Walk east. Toward the smoke. Toward whoever lit it and is not bothering to hide it.
+- text: Walk east. Toward the smoke. Toward whoever lit it and is not bothering to
+    hide it.
   next: act2/raider_scouts_arrive
   effects:
     flags:
       first_contact_made: true
-- text: |-
-    Stay near the diner. Walk the wrecks on the road. See what the surface left lying around.
+- text: Stay near the diner. Walk the wrecks on the road. See what the surface left
+    lying around.
   next: act2/solo_scavenge_run
   effects:
     flags:
       first_contact_made: true
-- text: |-
-    Walk north. Toward the tracks. Toward whatever the tracks were going to.
+- text: Walk north. Toward the tracks. Toward whatever the tracks were going to.
   next: act2/cache_recovery
   requires:
     flags:

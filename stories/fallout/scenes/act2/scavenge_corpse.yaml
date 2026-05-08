@@ -1,18 +1,25 @@
 id: act2/scavenge_corpse
 text:
-- |-
-  Behind a wreck a hundred metres off the road, you find him. A man in a patched coat — the patches stitched, the seams cared for, the buttons mismatched but matched by *somebody*. A Salvager, although you don't yet have the word.
-- |-
-  He died sitting up against the rear axle. The wound is in his side, sealed badly, and the badness of the seal is what killed him. He has been dead a week, maybe two. The coat is intact. The notebook in his coat pocket is half-burned along one edge — somebody tried to burn it, and the wind put the fire out before the fire put the notebook out.
-- |-
-  The legible half is a letter. Folded twice, addressed to nobody, written in a left-handed slant that goes harder and shorter as the wound went on. *Tell Hatch the line east is compromised. The Iron Sons have a man in our walls. I do not know which man. If you are reading this you are too late for me but you are not too late for the line. Burn this after.* The signature is a shape, not a name. Dust has gone into the ink and made it grey.
-- |-
-  You fold the letter back into the coat pocket. You sit a moment. The wind moves his sleeve and for a second it looks like he is still trying to write.
-- |-
-  You walk back.
+- Behind a wreck a hundred metres off the road, you find him. A man in a patched coat
+  — the patches stitched, the seams cared for, the buttons mismatched but matched
+  by *somebody*. A Salvager, although you don't yet have the word.
+- He died sitting up against the rear axle. The wound is in his side, sealed badly,
+  and the badness of the seal is what killed him. He has been dead a week, maybe two.
+  The coat is intact. The notebook in his coat pocket is half-burned along one edge
+  — somebody tried to burn it, and the wind put the fire out before the fire put the
+  notebook out.
+- The legible half is a letter. Folded twice, addressed to nobody, written in a left-handed
+  slant that goes harder and shorter as the wound went on. *Tell Hatch the line east
+  is compromised. The Iron Sons have a man in our walls. I do not know which man.
+  If you are reading this you are too late for me but you are not too late for the
+  line. Burn this after.* The signature is a shape, not a name. Dust has gone into
+  the ink and made it grey.
+- You fold the letter back into the coat pocket. You sit a moment. The wind moves
+  his sleeve and for a second it looks like he is still trying to write.
+- You walk back.
 choices:
-- text: |-
-    Head back to the diner. Carry the name *Hatch* with you. Carry the rest of it too.
+- text: Head back to the diner. Carry the name *Hatch* with you. Carry the rest of
+    it too.
   next: act2/diner_hub
   effects:
     flags:

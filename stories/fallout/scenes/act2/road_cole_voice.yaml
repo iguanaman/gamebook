@@ -1,29 +1,32 @@
 id: act2/road_cole_voice
 text:
-- |-
-  The wind drops, briefly, in the way the wind sometimes does — a held breath, a window of nothing — and into that window comes a sound that should not be on this road.
-- |-
-  A *voice*. Tinny. Far. The pinched little hiss of an old radio speaker working at the edge of its envelope. It is coming from the south, somewhere off the road, somewhere over a low rise where the heat is shimmering above what might be a parked vehicle.
-- |-
-  You stop. You turn your head. You hold still, because the wind is going to come back in a second and you will not get to hear this twice.
-- male_midlife_american_deep_malevolent_ancient_slow: |-
-    — and to those of you who walked out, the door is not closed. It was *never* closed. A door is a courtesy, not an instruction. Come back. We can still —
-- |-
-  The wind comes back. The voice goes under it.
-- |-
-  You stand on the road for a long second, breathing carefully, and the part of you that is in charge of recognising voices is doing a job you did not ask for. You know that voice. You watched that voice take a long slow breath through its nose and nod at a green-shaded lamp. That voice should be sealed in a room under twelve feet of cog-cut steel.
-- |-
-  That voice is not.
-- |-
-  Whoever has the radio, has it close. Whoever the voice is talking *to*, is closer than you would like.
+- The wind drops, briefly, in the way the wind sometimes does — a held breath, a window
+  of nothing — and into that window comes a sound that should not be on this road.
+- A *voice*. Tinny. Far. The pinched little hiss of an old radio speaker working at
+  the edge of its envelope. It is coming from the south, somewhere off the road, somewhere
+  over a low rise where the heat is shimmering above what might be a parked vehicle.
+- You stop. You turn your head. You hold still, because the wind is going to come
+  back in a second and you will not get to hear this twice.
+- male_midlife_american_deep_malevolent_ancient_slow: — and to those of you who walked
+    out, the door is not closed. It was *never* closed. A door is a courtesy, not
+    an instruction. Come back. We can still —
+- The wind comes back. The voice goes under it.
+- You stand on the road for a long second, breathing carefully, and the part of you
+  that is in charge of recognising voices is doing a job you did not ask for. You
+  know that voice. You watched that voice take a long slow breath through its nose
+  and nod at a green-shaded lamp. That voice should be sealed in a room under twelve
+  feet of cog-cut steel.
+- That voice is not.
+- Whoever has the radio, has it close. Whoever the voice is talking *to*, is closer
+  than you would like.
 - if:
     flags:
     - recruited_doc
-  text: |-
-    Reyes has heard it too. She does not look at you. She is looking at the rise. She says, very quietly, *the overseer*, and then she does not say anything else, because she does not need to.
+  text: Reyes has heard it too. She does not look at you. She is looking at the rise.
+    She says, very quietly, *the overseer*, and then she does not say anything else,
+    because she does not need to.
 choices:
-- text: |-
-    Press on. Don't go looking for the speaker.
+- text: Press on. Don't go looking for the speaker.
   next: act2/diner_arrival
   effects:
     flags:

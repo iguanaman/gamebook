@@ -1,14 +1,18 @@
 id: act2/open_alone_clean
 text:
-- |-
-  The door clangs shut behind you. The clang is not loud — it is mechanical, contained, the sound of a thing finishing the one job it was built for. The seal hisses. The hiss runs out. After the hiss there is no sound at all.
-- |-
-  No sound. Not the absence of voices — the absence of the *hum*. Eighty-seven years of vault, and the vault was a hum, and you did not know it was a hum until it stopped. There is no air handler. There is no overhead fluorescent. There is no pump cycling somewhere two levels down. There is your own breathing, which sounds wrong in your ears, and there is a soft regular tick from the cooling steel of the door behind you, and there is, very faint, a sort of distant *hush* that you eventually understand is the wind moving across the open mouth of a concrete pipe somewhere out of sight.
-- |-
-  You turn around once on the ramp. There is nobody behind you. There was never going to be anybody behind you. You knew that going in.
-- |-
-  You face forward again.
+- The door clangs shut behind you. The clang is not loud — it is mechanical, contained,
+  the sound of a thing finishing the one job it was built for. The seal hisses. The
+  hiss runs out. After the hiss there is no sound at all.
+- No sound. Not the absence of voices — the absence of the *hum*. Eighty-seven years
+  of vault, and the vault was a hum, and you did not know it was a hum until it stopped.
+  There is no air handler. There is no overhead fluorescent. There is no pump cycling
+  somewhere two levels down. There is your own breathing, which sounds wrong in your
+  ears, and there is a soft regular tick from the cooling steel of the door behind
+  you, and there is, very faint, a sort of distant *hush* that you eventually understand
+  is the wind moving across the open mouth of a concrete pipe somewhere out of sight.
+- You turn around once on the ramp. There is nobody behind you. There was never going
+  to be anybody behind you. You knew that going in.
+- You face forward again.
 choices:
-- text: |-
-    Take the first step.
+- text: Take the first step.
   next: act2/surface_first_breath

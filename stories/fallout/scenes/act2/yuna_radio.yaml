@@ -1,18 +1,24 @@
 id: act2/yuna_radio
 text:
-- |-
-  The mast on the roof of the diner is older than the diner — pre-war, you think, repurposed once, repurposed again, the kind of antenna a roadside place would have used to pick up the weather and the music and whatever it was permitted to pick up at the end. Somebody, after, has spliced a length of copper braid into the down-lead and run it through a hole knocked in the kitchen ceiling.
-- |-
-  Yuna is on the roof before you are. Goggles down. Multitool out. Coolant burns on the back of her hand catching the late sun.
-- female_young_american_lisp: |-
-    [chuckle] Look at this. Look at this. Whoever did this knew what they were doing and then forgot halfway through and just *yanked* the braid into shape with a pair of pliers. It is held together by spite. I love it.
-- |-
-  She is grinning. You have seen her smile, in the eight months you have known her. You have not seen her grin. The mast is leaning at about ten degrees off vertical and the braid she wants to splice into is at the top of it, and the bracket at the base is cracked.
-- female_young_american_lisp: |-
-    Hold the bottom for me. Just — hold it. Brace your weight against it. If it goes I want you between me and the parapet, not me between you and the parapet. Don't get heroic. Just hold.
+- The mast on the roof of the diner is older than the diner — pre-war, you think,
+  repurposed once, repurposed again, the kind of antenna a roadside place would have
+  used to pick up the weather and the music and whatever it was permitted to pick
+  up at the end. Somebody, after, has spliced a length of copper braid into the down-lead
+  and run it through a hole knocked in the kitchen ceiling.
+- Yuna is on the roof before you are. Goggles down. Multitool out. Coolant burns on
+  the back of her hand catching the late sun.
+- female_young_american_lisp: '[chuckle] Look at this. Look at this. Whoever did this
+    knew what they were doing and then forgot halfway through and just *yanked* the
+    braid into shape with a pair of pliers. It is held together by spite. I love it.'
+- She is grinning. You have seen her smile, in the eight months you have known her.
+  You have not seen her grin. The mast is leaning at about ten degrees off vertical
+  and the braid she wants to splice into is at the top of it, and the bracket at the
+  base is cracked.
+- female_young_american_lisp: Hold the bottom for me. Just — hold it. Brace your weight
+    against it. If it goes I want you between me and the parapet, not me between you
+    and the parapet. Don't get heroic. Just hold.
 choices:
-- text: |-
-    Brace the mast. Take her weight at the base. Hold while she works.
+- text: Brace the mast. Take her weight at the base. Hold while she works.
   next: act2/diner_hub
   requires:
     stats:
@@ -21,10 +27,10 @@ choices:
     flags:
       yuna_radio_attempted: true
       radio_working: true
-  failed_text: |-
-    *(Strength 5 — the bracket twists in your hands. The mast goes over before she can finish the splice. She lands on her feet, swearing in a register you have never heard her use.)*
-- text: |-
-    Stand back. Let her work it solo. She knows the equipment. You don't.
+  failed_text: '*(Strength 5 — the bracket twists in your hands. The mast goes over
+    before she can finish the splice. She lands on her feet, swearing in a register
+    you have never heard her use.)*'
+- text: Stand back. Let her work it solo. She knows the equipment. You don't.
   next: act2/diner_hub
   effects:
     flags:

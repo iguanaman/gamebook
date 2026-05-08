@@ -1,16 +1,20 @@
 id: act2/road_corpse_pile
 text:
-- |-
-  You smell it before you see it.
-- |-
-  At a bend where the road dips into a culvert, somebody has stacked five — six, seven — bodies into the shape that bodies make when they are not being buried. They have been there long enough for the smell to have stopped being the worst part of them and started being merely the introduction to the worst part of them. Crows lift off the pile as you come around the bend, then settle back when they decide you are not worth the trouble.
-- |-
-  Above the pile, jammed into the dirt of the embankment, a length of rebar has been driven in like a flag-pole, and from the top of it hangs a *thing* — a strip of leather, or canvas, painted in two colours. Red and black. A clenched fist over an iron bar.
-- |-
-  This is not the work of weather. Somebody put a sign here. Somebody wanted somebody else to read it.
+- You smell it before you see it.
+- At a bend where the road dips into a culvert, somebody has stacked five — six, seven
+  — bodies into the shape that bodies make when they are not being buried. They have
+  been there long enough for the smell to have stopped being the worst part of them
+  and started being merely the introduction to the worst part of them. Crows lift
+  off the pile as you come around the bend, then settle back when they decide you
+  are not worth the trouble.
+- Above the pile, jammed into the dirt of the embankment, a length of rebar has been
+  driven in like a flag-pole, and from the top of it hangs a *thing* — a strip of
+  leather, or canvas, painted in two colours. Red and black. A clenched fist over
+  an iron bar.
+- This is not the work of weather. Somebody put a sign here. Somebody wanted somebody
+  else to read it.
 choices:
-- text: |-
-    Read the signs. Who left them. Where they went.
+- text: Read the signs. Who left them. Where they went.
   next: act2/diner_arrival
   requires:
     stats:
@@ -18,8 +22,6 @@ choices:
   effects:
     flags:
       read_raider_sign: true
-  failed_text: |-
-    *(You can tell it's a message. You can't tell what it says.)*
-- text: |-
-    Skirt the pile. Don't look. Keep walking.
+  failed_text: '*(You can tell it''s a message. You can''t tell what it says.)*'
+- text: Skirt the pile. Don't look. Keep walking.
   next: act2/diner_arrival

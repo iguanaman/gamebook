@@ -1,21 +1,21 @@
 id: act2/solo_scavenge_run
 text:
-- |-
-  You decide that the horizon can wait. The horizon has been there for two hundred years; it will be there tomorrow. The wrecks on the road have been picked over by everyone who came this way before you, but everyone who came this way before you is dead, and a thing is not picked clean until you have looked at it yourself.
-- |-
-  You strap the bag tight, you tell whoever needs telling that you'll be back before the sun gets to where it's getting, and you walk out among the metal.
+- You decide that the horizon can wait. The horizon has been there for two hundred
+  years; it will be there tomorrow. The wrecks on the road have been picked over by
+  everyone who came this way before you, but everyone who came this way before you
+  is dead, and a thing is not picked clean until you have looked at it yourself.
+- You strap the bag tight, you tell whoever needs telling that you'll be back before
+  the sun gets to where it's getting, and you walk out among the metal.
 - if:
     flags:
     - radiation_sick
     flags_unset:
     - reyes_treated_you
-  text: |-
-    The metallic taste comes back as soon as you step off the porch. You make yourself not think about it.
-- |-
-  The wrecks are picked over. You might find something. You might find somebody.
+  text: The metallic taste comes back as soon as you step off the porch. You make
+    yourself not think about it.
+- The wrecks are picked over. You might find something. You might find somebody.
 choices:
-- text: |-
-    Walk the wrecks. See what the surface left lying around.
+- text: Walk the wrecks. See what the surface left lying around.
   next:
   - scene: act2/scavenge_uneventful
     weight: 3
