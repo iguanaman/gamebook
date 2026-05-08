@@ -1,0 +1,38 @@
+text:
+  - |-
+    Three streets back, a motorbike alarm has been going for an hour. It is slowing now. The dead are working it out — closing the gap, leaning their weight into the metal until something gives.
+  - if: {flags: [neighbour_alive]}
+    text: |-
+      Dale is dead. He went on the lawn, the way he was always going to. You did not run.
+  - if: {flags_unset: [neighbour_alive]}
+    text: |-
+      Dale is dead. The lawn took him. You did what he asked.
+  - |-
+    Caleb is dead. The lanyard is in your pocket because he asked you to take it. You took it.
+  - if: {flags: [elder_alive]}
+    text: |-
+      Ruth is dead. She was steady at the end. She finished the sentence she was on.
+  - if: {flags_unset: [elder_alive]}
+    text: |-
+      Ruth is dead. The church did not hold for her, in the end. You were not in the side room.
+  - |-
+    The list is shorter than it was at dawn. The list was not yours to keep short.
+  - |-
+    The river is loud. The gate is fifty feet on. You take the next step.
+
+choices:
+  - text: |-
+      Keep moving. They wouldn't want you to stop.
+    next: act3/gate_approach
+  - text: |-
+      Say their names out loud. Once each.
+    next: act3/gate_approach
+    effects:
+      flags:
+        said_their_names: true
+  - text: |-
+      Promise the next person you meet that you'll do better.
+    next: act3/gate_approach
+    effects:
+      stats:
+        bond: 1

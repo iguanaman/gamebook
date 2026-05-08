@@ -1,0 +1,150 @@
+text:
+  - |-
+    The arterial ends at a chain-link gate. Beyond it: a concrete apron, three pontoons, the river running grey and open. The dead are still behind you — the chord that has been at your back since the cul-de-sac has caught up by attrition and is closer than it has been all day. Across the marina, on the far concrete jetty, a smaller group works its slow way down a parked-up jet ski.
+  - |-
+    The river is loud. The river is the first open sound you have heard since the lawn.
+
+choices:
+  # ε — Mara plus one adult
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_epsilon_warm
+    requires:
+      flags: [child_rescued, teen_alive]
+      flags_unset: [elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_epsilon_warm
+    requires:
+      flags: [child_rescued, elder_alive]
+      flags_unset: [teen_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_epsilon_warm
+    requires:
+      flags: [child_rescued, stranger_alive]
+      flags_unset: [teen_alive, elder_alive, betrayed_by_wren]
+    hide_if_failed: true
+
+  # δ — one adult, no Mara
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_delta_adult
+    requires:
+      flags: [teen_alive]
+      flags_unset: [child_rescued, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_delta_adult
+    requires:
+      flags: [elder_alive]
+      flags_unset: [child_rescued, teen_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_delta_adult
+    requires:
+      flags: [stranger_alive]
+      flags_unset: [child_rescued, teen_alive, elder_alive, betrayed_by_wren]
+    hide_if_failed: true
+
+  # γ — Mara, alone with her
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_gamma_mara
+    requires:
+      flags: [child_rescued]
+      flags_unset: [teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_gamma_mara
+    requires:
+      flags: [child_rescued, stranger_alive, betrayed_by_wren]
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+
+  # γ fallbacks — Mara plus warm-flag-failed adult (route to Mara-led tonality)
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_gamma_mara
+    requires:
+      flags: [child_rescued, teen_alive]
+      flags_unset: [elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_gamma_mara
+    requires:
+      flags: [child_rescued, elder_alive]
+      flags_unset: [teen_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_gamma_mara
+    requires:
+      flags: [child_rescued, stranger_alive]
+      flags_unset: [teen_alive, elder_alive]
+    hide_if_failed: true
+
+  # α — cold solo
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_alpha_cold
+    requires:
+      flags: [abandoned_wounded]
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_alpha_cold
+    requires:
+      flags: [killed_survivor]
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_alpha_cold
+    requires:
+      flags: [looted_church]
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_alpha_cold
+    requires:
+      flags: [stranger_alive, betrayed_by_wren, abandoned_wounded]
+      flags_unset: [child_rescued, teen_alive, elder_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_alpha_cold
+    requires:
+      flags: [stranger_alive, betrayed_by_wren, killed_survivor]
+      flags_unset: [child_rescued, teen_alive, elder_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_alpha_cold
+    requires:
+      flags: [stranger_alive, betrayed_by_wren, looted_church]
+      flags_unset: [child_rescued, teen_alive, elder_alive]
+    hide_if_failed: true
+
+  # β — broken solo (fallback)
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_beta_broken
+    requires:
+      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive]
+    hide_if_failed: true
+  - text: |-
+      Walk to the gate.
+    next: act3/entry_beta_broken
+    requires:
+      flags: [stranger_alive, betrayed_by_wren]
+      flags_unset: [child_rescued, teen_alive, elder_alive]
+    hide_if_failed: true

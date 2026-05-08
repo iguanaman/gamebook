@@ -1,0 +1,27 @@
+text:
+  - |-
+    The river smells wrong before it sounds wrong. Brackish, and under that something that is not the river.
+  - |-
+    A hand on the chain-link, fifty feet on. The wedding band on it is not Dale's because Dale's hand is not there. You know the band anyway.
+  - |-
+    A lanyard tangled in a bicycle wheel against the seawall. Not Caleb's. The plastic clip looks like Caleb's. It is not.
+  - |-
+    A cardigan cuff stained dark on a body in the gutter, twenty steps before the gate. Not Ruth's. The stain is not coffee on this one either.
+  - |-
+    You did not bring them. You are not bringing them.
+  - |-
+    The gate guards have already seen you.
+
+choices:
+  - text: |-
+      Keep walking. Eyes down.
+    next: act3/gate_approach
+  - text: |-
+      Look up. Count the gate guards. Count the boats.
+    next: act3/gate_approach
+  - text: |-
+      Stop. Listen for one thing that isn't them.
+    next: act3/gate_approach
+    effects:
+      flags:
+        listened_for_living: true
