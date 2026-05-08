@@ -1,39 +1,33 @@
 id: act2/kellner_topic_aldwick
-
 text:
-  - male_midlife_american_rich_smooth_rugged: |-
-      Aldwick. Yeah. The parcel files there are not clean. I'm telling you that the way I'd tell you the bridge over Henning Creek is not safe for a truck. Information.
-  - |-
-    He drank coffee. He set the cup down without sound.
-  - male_midlife_american_rich_smooth_rugged: |-
-      And the men who want it clean — Cady, those are not men you play with. *They* are not men you play with. I'm not going to use a name. I'm not going to use *I*. I'm telling you to walk around the bridge.
-  - |-
-    He had said *they* three times in eight seconds and he had not said *I* once. He was a man who had read the same training manual I had read.
-
+- male_midlife_american_rich_smooth_rugged: Aldwick. Yeah. The parcel files there
+    are not clean. I'm telling you that the way I'd tell you the bridge over Henning
+    Creek is not safe for a truck. Information.
+- He drank coffee. He set the cup down without sound.
+- male_midlife_american_rich_smooth_rugged: And the men who want it clean — Cady,
+    those are not men you play with. *They* are not men you play with. I'm not going
+    to use a name. I'm not going to use *I*. I'm telling you to walk around the bridge.
+- He had said *they* three times in eight seconds and he had not said *I* once. He
+  was a man who had read the same training manual I had read.
 choices:
-  - text: |-
-      Press: who is "they"?
-    next: act2/kellner_hub
-    effects:
-      stats:
-        evidence: 1
-        rep: -1
-      flags:
-        asked_kellner_aldwick: true
-
-  - text: |-
-      Press: are *you* one of "them"?
-    next: act2/kellner_hub
-    effects:
-      stats:
-        evidence: 1
-      flags:
-        asked_kellner_aldwick: true
-        kellner_pressed_us: true
-
-  - text: |-
-      Don't press. Take the warning at face value.
-    next: act2/kellner_hub
-    effects:
-      flags:
-        asked_kellner_aldwick: true
+- text: 'Press: who is "they"?'
+  next: act2/kellner_hub
+  effects:
+    stats:
+      evidence: 1
+      rep: -1
+    flags:
+      asked_kellner_aldwick: true
+- text: 'Press: are *you* one of "them"?'
+  next: act2/kellner_hub
+  effects:
+    stats:
+      evidence: 1
+    flags:
+      asked_kellner_aldwick: true
+      kellner_pressed_us: true
+- text: Don't press. Take the warning at face value.
+  next: act2/kellner_hub
+  effects:
+    flags:
+      asked_kellner_aldwick: true

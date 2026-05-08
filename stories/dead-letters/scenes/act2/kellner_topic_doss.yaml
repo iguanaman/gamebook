@@ -1,38 +1,33 @@
 id: act2/kellner_topic_doss
-
 text:
-  - male_midlife_american_rich_smooth_rugged: |-
-      Doss. Doss. Help me out. The drowning. Read about it in the Examiner, didn't I. Some young fella on the East River. What did he do for the city — accountant?
-  - |-
-    The pen tapped the table once on the word *surveyor* before I had said it. He had pulled the word out and set it down a half-second early, the way a man checks the depth of a stream by throwing a stone in and listening for the splash.
-  - male_midlife_american_rich_smooth_rugged: |-
-      Surveyor. That's right. Surveyor. Tragedy. His wife — she all right? You looked in on her?
-
+- male_midlife_american_rich_smooth_rugged: Doss. Doss. Help me out. The drowning.
+    Read about it in the Examiner, didn't I. Some young fella on the East River. What
+    did he do for the city — accountant?
+- The pen tapped the table once on the word *surveyor* before I had said it. He had
+  pulled the word out and set it down a half-second early, the way a man checks the
+  depth of a stream by throwing a stone in and listening for the splash.
+- male_midlife_american_rich_smooth_rugged: Surveyor. That's right. Surveyor. Tragedy.
+    His wife — she all right? You looked in on her?
 choices:
-  - text: |-
-      Note the flicker. Don't show you noticed. Press another topic.
-    next: act2/kellner_hub
-    effects:
-      stats:
-        evidence: 1
-      flags:
-        asked_kellner_doss: true
-
-  - text: |-
-      Call him on the flicker. Politely.
-    next: act2/kellner_hub
-    effects:
-      stats:
-        evidence: 1
-        rep: -1
-      flags:
-        asked_kellner_doss: true
-
-  - text: |-
-      Laugh. Pretend you didn't see it.
-    next: act2/kellner_hub
-    effects:
-      stats:
-        evidence: 1
-      flags:
-        asked_kellner_doss: true
+- text: Note the flicker. Don't show you noticed. Press another topic.
+  next: act2/kellner_hub
+  effects:
+    stats:
+      evidence: 1
+    flags:
+      asked_kellner_doss: true
+- text: Call him on the flicker. Politely.
+  next: act2/kellner_hub
+  effects:
+    stats:
+      evidence: 1
+      rep: -1
+    flags:
+      asked_kellner_doss: true
+- text: Laugh. Pretend you didn't see it.
+  next: act2/kellner_hub
+  effects:
+    stats:
+      evidence: 1
+    flags:
+      asked_kellner_doss: true

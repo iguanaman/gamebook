@@ -1,39 +1,34 @@
 id: act3/warehouse_escape
-
 text:
-  - |-
-    I made the side door. I made the alley. I made the dark behind the warehouse where the gravel gave way to wet stones and the river ran black at the bottom of a slope of nothing.
-  - |-
-    Burned. The graze along the meat of my left arm was a wet line under the coat sleeve. Two ribs that would tell me about themselves in the morning. The hand I had put on the doorframe to clear it was already swelling at the third knuckle.
-  - if: {flags: [found_ledger]}
-    text: |-
-      The book was still under my coat. I checked. I checked twice. It was there.
-  - |-
-    Behind me, the doorway light. Ahead of me, three blocks of darkness and the sound of two car doors not yet closing.
-  - journal: |-
-      You went to a warehouse on the river to meet a man you used to trust, and what came back across the water was not a friendship.
-
+- I made the side door. I made the alley. I made the dark behind the warehouse where
+  the gravel gave way to wet stones and the river ran black at the bottom of a slope
+  of nothing.
+- Burned. The graze along the meat of my left arm was a wet line under the coat sleeve.
+  Two ribs that would tell me about themselves in the morning. The hand I had put
+  on the doorframe to clear it was already swelling at the third knuckle.
+- if:
+    flags:
+    - found_ledger
+  text: The book was still under my coat. I checked. I checked twice. It was there.
+- Behind me, the doorway light. Ahead of me, three blocks of darkness and the sound
+  of two car doors not yet closing.
+- journal: You went to a warehouse on the river to meet a man you used to trust, and
+    what came back across the water was not a friendship.
 choices:
-  - text: |-
-      Run for the river bank. Three blocks of darkness.
-    next: act3/river_bank_run
-
-  - text: |-
-      Cut through the rail yard. Hide and let them pass.
-    next: act3/river_bank_run
-    effects:
-      stats:
-        heat: -1
-
-  - text: |-
-      Double back to your car if it's still there.
-    next:
-      - scene: act3/river_bank_run
-        weight: 3
-      - scene: act3/pavement_death
-        weight: 1
-    requires:
-      stats:
-        heat: 7
-    failed_text: |-
-      *(The car is too close to where they're still looking. Don't.)*
+- text: Run for the river bank. Three blocks of darkness.
+  next: act3/river_bank_run
+- text: Cut through the rail yard. Hide and let them pass.
+  next: act3/river_bank_run
+  effects:
+    stats:
+      heat: -1
+- text: Double back to your car if it's still there.
+  next:
+  - scene: act3/river_bank_run
+    weight: 3
+  - scene: act3/pavement_death
+    weight: 1
+  requires:
+    stats:
+      heat: 7
+  failed_text: '*(The car is too close to where they''re still looking. Don''t.)*'

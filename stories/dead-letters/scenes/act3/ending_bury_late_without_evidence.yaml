@@ -1,24 +1,36 @@
 id: act3/ending_bury_late_without_evidence
-
 text:
-  - |-
-    The drawer was empty when I closed it. There had been nothing in it to burn. I had carried the absence of a book through three nights and the absence had been the size of a book the whole way and the drawer at four in the morning was the size of an empty drawer and I closed it and turned the key in the lock for the sake of turning the key in the lock.
-  - |-
-    A train ticket to Sacramento at the counter at Union Station. Cash, not the cheque. The clerk did not look up. I caught the six fifteen and slept in the seat with my coat over me and woke up at a station I did not know the name of in a part of the state where the air smelled of grass instead of oil.
-  - |-
-    A year later. A diner counter in a town outside Sacramento. The waitress called me Mr. Cady because I had told her my name once and she had remembered it.
-  - |-
-    The paper folded on the counter beside the coffee. *Halston Thorne, of the Riverdale Thornes, named yesterday to the board of the Pacific Federal Bank in New York.* Three column inches. A photograph of him on the steps of a building. The same suit. The same tan. The signet ring on the little finger of the left hand.
-  - if: {flags: [said_goodbye_aldwick]}
-    text: |-
-      A letter at the Sacramento PO box from Marta Gaines. Three lines. *The highway came through. Reuben took the offer for the porch. He is in Detroit now with our cousin. I am writing because I said I would.* No return address.
-  - if: {flags: [kellner_admitted]}
-    text: |-
-      Walt Kellner had retired at full pension six months ago, the small notice on page nine had said, with thanks from the department for thirty years of distinguished service. He had said a thing to me in a doorway on a riverbank and the department had let him take his pension and go.
-  - |-
-    Vera Doss's photograph in my wallet. I took it out of the wallet at the counter and put it on the formica beside the coffee cup. The waitress did not ask. I drank the coffee. I put the photograph back. I ordered another coffee.
-
-journal: |-
-  You didn't have it. You walked. A year later you read about Halston Thorne's promotion at a diner counter and ordered another coffee.
-
+- The drawer was empty when I closed it. There had been nothing in it to burn. I had
+  carried the absence of a book through three nights and the absence had been the
+  size of a book the whole way and the drawer at four in the morning was the size
+  of an empty drawer and I closed it and turned the key in the lock for the sake of
+  turning the key in the lock.
+- A train ticket to Sacramento at the counter at Union Station. Cash, not the cheque.
+  The clerk did not look up. I caught the six fifteen and slept in the seat with my
+  coat over me and woke up at a station I did not know the name of in a part of the
+  state where the air smelled of grass instead of oil.
+- A year later. A diner counter in a town outside Sacramento. The waitress called
+  me Mr. Cady because I had told her my name once and she had remembered it.
+- The paper folded on the counter beside the coffee. *Halston Thorne, of the Riverdale
+  Thornes, named yesterday to the board of the Pacific Federal Bank in New York.*
+  Three column inches. A photograph of him on the steps of a building. The same suit.
+  The same tan. The signet ring on the little finger of the left hand.
+- if:
+    flags:
+    - said_goodbye_aldwick
+  text: A letter at the Sacramento PO box from Marta Gaines. Three lines. *The highway
+    came through. Reuben took the offer for the porch. He is in Detroit now with our
+    cousin. I am writing because I said I would.* No return address.
+- if:
+    flags:
+    - kellner_admitted
+  text: Walt Kellner had retired at full pension six months ago, the small notice
+    on page nine had said, with thanks from the department for thirty years of distinguished
+    service. He had said a thing to me in a doorway on a riverbank and the department
+    had let him take his pension and go.
+- Vera Doss's photograph in my wallet. I took it out of the wallet at the counter
+  and put it on the formica beside the coffee cup. The waitress did not ask. I drank
+  the coffee. I put the photograph back. I ordered another coffee.
+journal: You didn't have it. You walked. A year later you read about Halston Thorne's
+  promotion at a diner counter and ordered another coffee.
 choices: []

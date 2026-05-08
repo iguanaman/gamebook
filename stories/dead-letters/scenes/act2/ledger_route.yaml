@@ -1,38 +1,34 @@
 id: act2/ledger_route
-
 text:
-  - |-
-    Office desk. The slip of paper in my hand. The route Marta had drawn, or the locker number she had given me, or both — folded into a shape small enough to lose if a coat came off in the wrong room.
-  - |-
-    No client to call. No partner to bring. The case had narrowed to a back room or a brass door, and either way I went alone.
-  - |-
-    I sat with the paper a long minute. Outside, the city did what it did on a Tuesday afternoon, which was nothing visible and everything underneath.
-
+- Office desk. The slip of paper in my hand. The route Marta had drawn, or the locker
+  number she had given me, or both — folded into a shape small enough to lose if a
+  coat came off in the wrong room.
+- No client to call. No partner to bring. The case had narrowed to a back room or
+  a brass door, and either way I went alone.
+- I sat with the paper a long minute. Outside, the city did what it did on a Tuesday
+  afternoon, which was nothing visible and everything underneath.
 choices:
-  - text: |-
-      Take the streetcar to Lemoine. The back room of the garage.
-    next: act2/garage_back_room
-    requires:
-      flags:
-        - marta_talked
-      flags_unset: [found_ledger]
-    hide_if_failed: true
-
-  - text: |-
-      Take the cab to the rail station. Locker forty-one.
-    next: act2/rail_locker_open
-    requires:
-      flags:
-        - key_number_known
-        - ray_key_kept
-      flags_unset: [found_ledger]
-    hide_if_failed: true
-
-  - text: |-
-      Wait until tomorrow. Sleep on it.
-    next: act2/office_hub
-    effects:
-      flags:
-        ledger_delayed: true
-      stats:
-        heat: 1
+- text: Take the streetcar to Lemoine. The back room of the garage.
+  next: act2/garage_back_room
+  requires:
+    flags:
+    - marta_talked
+    flags_unset:
+    - found_ledger
+  hide_if_failed: true
+- text: Take the cab to the rail station. Locker forty-one.
+  next: act2/rail_locker_open
+  requires:
+    flags:
+    - key_number_known
+    - ray_key_kept
+    flags_unset:
+    - found_ledger
+  hide_if_failed: true
+- text: Wait until tomorrow. Sleep on it.
+  next: act2/office_hub
+  effects:
+    flags:
+      ledger_delayed: true
+    stats:
+      heat: 1

@@ -1,39 +1,34 @@
 id: act1/iron_lung_lou_open
-
 text:
-  - |-
-    Lou wiped a glass that didn't need wiping. He spoke into it more than to me.
-  - male_adult_american_witty_casual: |-
-      Tall guy. English in the mouth, you know how they sound. Scar on the lip, top one, like somebody'd opened a can with it. Bought Ray three drinks. Ray drank one.
-  - |-
-    He set the glass down. Looked at it. Picked up another one.
-  - male_adult_american_witty_casual: |-
-      Ray was scared, buddy. Not drunk-scared. Quiet-scared.
-
+- Lou wiped a glass that didn't need wiping. He spoke into it more than to me.
+- male_adult_american_witty_casual: Tall guy. English in the mouth, you know how they
+    sound. Scar on the lip, top one, like somebody'd opened a can with it. Bought
+    Ray three drinks. Ray drank one.
+- He set the glass down. Looked at it. Picked up another one.
+- male_adult_american_witty_casual: Ray was scared, buddy. Not drunk-scared. Quiet-scared.
 choices:
-  - text: |-
-      Ask about the man at the end of the bar today. The one with the drink he isn't drinking.
-    next: act1/iron_lung_lou_eavesdrop
-    requires:
-      flags_unset: [asked_lou_eavesdrop]
-    effects:
-      flags:
-        asked_lou_eavesdrop: true
-      stats:
-        evidence: 1
-
-  - text: |-
-      Ask if Ray came in any other night that week. Build the shape of his last seven days.
-    next: act1/iron_lung_lou_other_nights
-    requires:
-      flags_unset: [asked_lou_other_nights]
-    effects:
-      flags:
-        asked_lou_other_nights: true
-
-  - text: |-
-      Thank him. Leave a tip he'll remember the next time you walk in.
-    next: act1/iron_lung_exit
-    effects:
-      stats:
-        rep: 1
+- text: Ask about the man at the end of the bar today. The one with the drink he isn't
+    drinking.
+  next: act1/iron_lung_lou_eavesdrop
+  requires:
+    flags_unset:
+    - asked_lou_eavesdrop
+  effects:
+    flags:
+      asked_lou_eavesdrop: true
+    stats:
+      evidence: 1
+- text: Ask if Ray came in any other night that week. Build the shape of his last
+    seven days.
+  next: act1/iron_lung_lou_other_nights
+  requires:
+    flags_unset:
+    - asked_lou_other_nights
+  effects:
+    flags:
+      asked_lou_other_nights: true
+- text: Thank him. Leave a tip he'll remember the next time you walk in.
+  next: act1/iron_lung_exit
+  effects:
+    stats:
+      rep: 1

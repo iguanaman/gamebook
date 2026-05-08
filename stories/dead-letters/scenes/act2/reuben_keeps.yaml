@@ -1,14 +1,8 @@
 id: act2/reuben_keeps
-
 text:
-  - |-
-    Reuben folded the notice back into his pocket. The creases went home easy.
-  - male_adult_african-american_uneducated: |-
-      I need it Friday.
-  - |-
-    He sat back down at the back door. The paper stayed folded.
-
+- Reuben folded the notice back into his pocket. The creases went home easy.
+- male_adult_african-american_uneducated: I need it Friday.
+- He sat back down at the back door. The paper stayed folded.
 choices:
-  - text: |-
-      Continue.
-    next: act2/marta_kitchen
+- text: Continue.
+  next: act2/marta_kitchen

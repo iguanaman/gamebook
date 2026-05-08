@@ -1,33 +1,27 @@
 id: act1/tice_bolts
-
 text:
-  - |-
-    I pressed and he paled. He looked at the corridor and the corridor looked back, and whatever he was about to say went down inside him and stayed there.
-  - male_young_american_weak: |-
-      I — I have to — sir, I —
-  - |-
-    He pulled his elbow out of my hand and walked away the way a man walks away when he is not letting himself run. The watch slid up. The cuff was untucked and he didn't notice.
-  - |-
-    I stood in the stairwell with the slip in my pocket and the feeling that I had just spent something that didn't belong to me, and that I had spent it on nothing.
-
+- I pressed and he paled. He looked at the corridor and the corridor looked back,
+  and whatever he was about to say went down inside him and stayed there.
+- male_young_american_weak: I — I have to — sir, I —
+- He pulled his elbow out of my hand and walked away the way a man walks away when
+  he is not letting himself run. The watch slid up. The cuff was untucked and he didn't
+  notice.
+- I stood in the stairwell with the slip in my pocket and the feeling that I had just
+  spent something that didn't belong to me, and that I had spent it on nothing.
 choices:
-  - text: |-
-      Watch the corridor he disappeared down. Don't follow.
-    next: act1/engineers_office_exit
-    effects:
-      stats:
-        rep: -1
-
-  - text: |-
-      Tell yourself it was the slip you needed. Tell yourself again on the way out.
-    next: act1/engineers_office_exit
-    effects:
-      stats:
-        rep: -1
-
-  - text: |-
-      Hope, quietly, that he gets to the desk before anybody asks him whose elbow he was just at the bottom of.
-    next: act1/engineers_office_exit
-    effects:
-      stats:
-        rep: -1
+- text: Watch the corridor he disappeared down. Don't follow.
+  next: act1/engineers_office_exit
+  effects:
+    stats:
+      rep: -1
+- text: Tell yourself it was the slip you needed. Tell yourself again on the way out.
+  next: act1/engineers_office_exit
+  effects:
+    stats:
+      rep: -1
+- text: Hope, quietly, that he gets to the desk before anybody asks him whose elbow
+    he was just at the bottom of.
+  next: act1/engineers_office_exit
+  effects:
+    stats:
+      rep: -1

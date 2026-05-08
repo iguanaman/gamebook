@@ -1,37 +1,33 @@
 id: act1/iron_lung_eavesdropper
-
 text:
-  - |-
-    I took the stool next to him and ordered neat. He didn't turn his head. He didn't have to — the mirror behind the bottles was doing the work for him, and we both knew it.
-  - |-
-    Lou poured. The man at my elbow set a folded bill on the bar that covered both drinks and a tip Lou would not get from him on any other day. Then he leaned a quarter-inch toward me, the way a man leans in to share a confidence with somebody he'd rather not.
-  - |-
-    He said two words. He said them quietly enough that only I would hear them.
-  - |-
-    *Mr. Cady.*
-  - |-
-    He stood, brushed something invisible from his sleeve, and walked out the way men walk out of rooms they own — slowly, to give the room time to notice.
-
+- I took the stool next to him and ordered neat. He didn't turn his head. He didn't
+  have to — the mirror behind the bottles was doing the work for him, and we both
+  knew it.
+- Lou poured. The man at my elbow set a folded bill on the bar that covered both drinks
+  and a tip Lou would not get from him on any other day. Then he leaned a quarter-inch
+  toward me, the way a man leans in to share a confidence with somebody he'd rather
+  not.
+- He said two words. He said them quietly enough that only I would hear them.
+- '*Mr. Cady.*'
+- He stood, brushed something invisible from his sleeve, and walked out the way men
+  walk out of rooms they own — slowly, to give the room time to notice.
 choices:
-  - text: |-
-      Get up. Follow him.
-    next: act1/iron_lung_tail
-    effects:
-      stats:
-        heat: 2
-
-  - text: |-
-      Let him go. Stay on the stool. Watch the door he just walked through and put a face to the description before it fades.
-    next: act1/iron_lung_lou
-    effects:
-      stats:
-        heat: 1
-        evidence: 1
-
-  - text: |-
-      Pay your own tab on top of his. Leave a note under the glass — three words: *tell your boss no.*
-    next: act1/iron_lung_lou
-    effects:
-      stats:
-        heat: 2
-        rep: 1
+- text: Get up. Follow him.
+  next: act1/iron_lung_tail
+  effects:
+    stats:
+      heat: 2
+- text: Let him go. Stay on the stool. Watch the door he just walked through and put
+    a face to the description before it fades.
+  next: act1/iron_lung_lou
+  effects:
+    stats:
+      heat: 1
+      evidence: 1
+- text: 'Pay your own tab on top of his. Leave a note under the glass — three words:
+    *tell your boss no.*'
+  next: act1/iron_lung_lou
+  effects:
+    stats:
+      heat: 2
+      rep: 1

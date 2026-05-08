@@ -1,34 +1,32 @@
 id: act1/voss_hard
-
 text:
-  - |-
-    I closed the soft hand and opened the hard one. I asked him where the file actually was. I asked him who had moved it. I asked him whether *in transit* was a place a man could visit, in this city, with a badge.
-  - |-
-    He set the spectacles down on the desk. He folded the handkerchief twice and laid it across the lenses like a sheet over a face.
-  - male_adult_british_clear_posh_heartfelt: |-
-      Mr. Cady. One has been very patient. One is going to ask you to leave, now, and one is going to ask only the once.
-  - |-
-    The transatlantic English had thickened by half. He was still polite. Polite the way a knife is polite when it is being sharpened on a stone.
-  - |-
-    I went. He watched me to the door, and his hand was already moving toward the telephone before I had got it open all the way. I could hear the receiver come up before I'd reached the corridor.
-
+- I closed the soft hand and opened the hard one. I asked him where the file actually
+  was. I asked him who had moved it. I asked him whether *in transit* was a place
+  a man could visit, in this city, with a badge.
+- He set the spectacles down on the desk. He folded the handkerchief twice and laid
+  it across the lenses like a sheet over a face.
+- male_adult_british_clear_posh_heartfelt: Mr. Cady. One has been very patient. One
+    is going to ask you to leave, now, and one is going to ask only the once.
+- The transatlantic English had thickened by half. He was still polite. Polite the
+  way a knife is polite when it is being sharpened on a stone.
+- I went. He watched me to the door, and his hand was already moving toward the telephone
+  before I had got it open all the way. I could hear the receiver come up before I'd
+  reached the corridor.
 choices:
-  - text: |-
-      Walk out clean. Don't look back. Whatever just happened just happened.
-    next: act1/engineers_corridor
-    effects:
-      flags:
-        cops_warned_off: true
-      stats:
-        heat: 2
-        evidence: 1
-
-  - text: |-
-      Stop at the door. Apologise on the way through. Try to walk back the heat — knowing the call is happening anyway.
-    next: act1/engineers_corridor
-    effects:
-      flags:
-        cops_warned_off: true
-      stats:
-        heat: 1
-        evidence: 1
+- text: Walk out clean. Don't look back. Whatever just happened just happened.
+  next: act1/engineers_corridor
+  effects:
+    flags:
+      cops_warned_off: true
+    stats:
+      heat: 2
+      evidence: 1
+- text: Stop at the door. Apologise on the way through. Try to walk back the heat
+    — knowing the call is happening anyway.
+  next: act1/engineers_corridor
+  effects:
+    flags:
+      cops_warned_off: true
+    stats:
+      heat: 1
+      evidence: 1

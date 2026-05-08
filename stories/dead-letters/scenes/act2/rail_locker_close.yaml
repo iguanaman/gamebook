@@ -1,19 +1,19 @@
 id: act2/rail_locker_close
-
 text:
-  - |-
-    The wall of brass at Union was longer than I remembered. Three rows. Numbers in faint white paint, half of them worn off. The attendant at the cage was filing his nails and watching the women going past with suitcases. He did not look at me.
-  - |-
-    I walked the wall slow and tried the key against the first plate. The shoulder fit. The teeth almost. It was the right gauge — same family as the cut the Pole had named — but a depot wall does not let a key turn just because it fits the gauge. Each door wanted its own number.
-  - |-
-    Without a number I had a corridor of doors and an attendant who would start to wonder, soon, why a man in a coat that old was reading numbers on lockers. I took the south stair before the wondering started.
-  - |-
-    The cache was in there somewhere. I had been close enough to feel it through brass.
-
+- The wall of brass at Union was longer than I remembered. Three rows. Numbers in
+  faint white paint, half of them worn off. The attendant at the cage was filing his
+  nails and watching the women going past with suitcases. He did not look at me.
+- I walked the wall slow and tried the key against the first plate. The shoulder fit.
+  The teeth almost. It was the right gauge — same family as the cut the Pole had named
+  — but a depot wall does not let a key turn just because it fits the gauge. Each
+  door wanted its own number.
+- Without a number I had a corridor of doors and an attendant who would start to wonder,
+  soon, why a man in a coat that old was reading numbers on lockers. I took the south
+  stair before the wondering started.
+- The cache was in there somewhere. I had been close enough to feel it through brass.
 choices:
-  - text: |-
-      Continue.
-    next: act2/office_hub
-    effects:
-      flags:
-        rail_locker_known: true
+- text: Continue.
+  next: act2/office_hub
+  effects:
+    flags:
+      rail_locker_known: true

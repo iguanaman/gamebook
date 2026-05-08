@@ -1,12 +1,11 @@
 id: act2/records_corridor_exit
-
 text:
-  - |-
-    Down the corridor. The back stair. The side door past the janitor's stool. The racing form was still open on the stool. The janitor was still leaning over it.
-  - |-
-    He did not look up as I went past. The folded form had a column of names with pencil marks against the third, fifth, and seventh. I went out into the alley and the side door clicked behind me with the soft confidence of a lock that had been good when it was new.
-
+- Down the corridor. The back stair. The side door past the janitor's stool. The racing
+  form was still open on the stool. The janitor was still leaning over it.
+- He did not look up as I went past. The folded form had a column of names with pencil
+  marks against the third, fifth, and seventh. I went out into the alley and the side
+  door clicked behind me with the soft confidence of a lock that had been good when
+  it was new.
 choices:
-  - text: |-
-      Continue.
-    next: act2/records_room_exit
+- text: Continue.
+  next: act2/records_room_exit

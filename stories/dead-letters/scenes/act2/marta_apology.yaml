@@ -1,21 +1,16 @@
 id: act2/marta_apology
-
 text:
-  - |-
-    I said it plain. That I had lied at the meeting. Why I had. To whom.
-  - |-
-    Marta listened. Did not interrupt. When I was done she set the pencil down and looked at me the way a person looks at a man who has just handed them a bill.
-  - female_midlife_african-american_casual_opinionated: |-
-      What do you want me to do with that, Mr. Cady.
-  - |-
-    I told her *nothing*. She nodded once. She picked the pencil back up.
-
+- I said it plain. That I had lied at the meeting. Why I had. To whom.
+- Marta listened. Did not interrupt. When I was done she set the pencil down and looked
+  at me the way a person looks at a man who has just handed them a bill.
+- female_midlife_african-american_casual_opinionated: What do you want me to do with
+    that, Mr. Cady.
+- I told her *nothing*. She nodded once. She picked the pencil back up.
 choices:
-  - text: |-
-      Continue.
-    next: act2/marta_kitchen
-    effects:
-      flags:
-        aldwick_apologised: true
-      stats:
-        rep: 1
+- text: Continue.
+  next: act2/marta_kitchen
+  effects:
+    flags:
+      aldwick_apologised: true
+    stats:
+      rep: 1

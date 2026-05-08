@@ -1,22 +1,16 @@
 id: act1/iron_lung_lou_other_nights
-
 text:
-  - male_adult_american_witty_casual: |-
-      Tuesday. Wednesday. Quiet, mostly.
-  - |-
-    He set down the glass he'd been wiping. Picked up another. Same glass, in another life.
-  - male_adult_american_witty_casual: |-
-      Ray didn't drink to get drunk that week, buddy. He drank to wait.
-
+- male_adult_american_witty_casual: Tuesday. Wednesday. Quiet, mostly.
+- He set down the glass he'd been wiping. Picked up another. Same glass, in another
+  life.
+- male_adult_american_witty_casual: Ray didn't drink to get drunk that week, buddy.
+    He drank to wait.
 choices:
-  - text: |-
-      Wait for what, you don't ask. You let the silence do the rest.
-    next: act1/iron_lung_lou_open
-
-  - text: |-
-      Repeat the line back to him under your breath. *To wait.* Lou will hear you. Lou will let it sit.
-    next: act1/iron_lung_lou_open
-
-  - text: |-
-      Look at the empty stool two down from yours. Imagine Ray on it. Don't say anything.
-    next: act1/iron_lung_lou_open
+- text: Wait for what, you don't ask. You let the silence do the rest.
+  next: act1/iron_lung_lou_open
+- text: Repeat the line back to him under your breath. *To wait.* Lou will hear you.
+    Lou will let it sit.
+  next: act1/iron_lung_lou_open
+- text: Look at the empty stool two down from yours. Imagine Ray on it. Don't say
+    anything.
+  next: act1/iron_lung_lou_open

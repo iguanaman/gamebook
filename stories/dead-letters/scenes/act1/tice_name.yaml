@@ -1,24 +1,17 @@
 id: act1/tice_name
-
 text:
-  - |-
-    His name was Edmund. Edmund Tice. He said it the way a kid says his name to a teacher he's afraid of, the *T* and the *ice* both wanting to come out first.
-  - male_young_american_weak: |-
-      Tice. Edmund. Sir.
-  - |-
-    He wouldn't be at this desk in a year. I knew the type. The type that does the right thing once on a Tuesday and then spends the next ten years trying to remember whether they did it loud enough to be remembered for.
-  - |-
-    I told him: if anyone asks, you didn't see me. He nodded too fast. The watch slid down to his wrist and stayed there.
-
+- His name was Edmund. Edmund Tice. He said it the way a kid says his name to a teacher
+  he's afraid of, the *T* and the *ice* both wanting to come out first.
+- male_young_american_weak: Tice. Edmund. Sir.
+- He wouldn't be at this desk in a year. I knew the type. The type that does the right
+  thing once on a Tuesday and then spends the next ten years trying to remember whether
+  they did it loud enough to be remembered for.
+- 'I told him: if anyone asks, you didn''t see me. He nodded too fast. The watch slid
+  down to his wrist and stayed there.'
 choices:
-  - text: |-
-      Mean it. Hold his eye until he believes you.
-    next: act1/engineers_office_exit
-
-  - text: |-
-      Soften it. Tell him it'll be all right. Whether or not it will.
-    next: act1/engineers_office_exit
-
-  - text: |-
-      Leave it at the warning. Don't make him a promise neither of you can keep.
-    next: act1/engineers_office_exit
+- text: Mean it. Hold his eye until he believes you.
+  next: act1/engineers_office_exit
+- text: Soften it. Tell him it'll be all right. Whether or not it will.
+  next: act1/engineers_office_exit
+- text: Leave it at the warning. Don't make him a promise neither of you can keep.
+  next: act1/engineers_office_exit

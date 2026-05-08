@@ -1,12 +1,8 @@
 id: act2/boarded_door_nobody
-
 text:
-  - |-
-    The board was over the door for a reason. I stood on the stoop a beat too long. The wind shifted and brought the plaster dust with it.
-  - |-
-    Nobody was home. Nobody had been home for a while.
-
+- The board was over the door for a reason. I stood on the stoop a beat too long.
+  The wind shifted and brought the plaster dust with it.
+- Nobody was home. Nobody had been home for a while.
 choices:
-  - text: |-
-      Continue.
-    next: act2/church_hall_meeting
+- text: Continue.
+  next: act2/church_hall_meeting

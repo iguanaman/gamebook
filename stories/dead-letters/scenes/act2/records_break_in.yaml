@@ -1,17 +1,15 @@
 id: act2/records_break_in
-
 text:
-  - |-
-    The alley smelled of wet brick and something a cat had left for posterity. The window on the ground floor of the engineer's building had a half-inch of give in the lower sash. I worked it up an inch at a time with the heel of my hand.
-  - |-
-    A wire of pain went through my lower back as I came over the sill. Knee on the frame, weight on the wrong foot, drop onto a desk that had not been under that window the last time I had been in this room. The blotter slid. A pen rolled and did not fall.
-  - |-
-    Twenty feet to the corridor. Nobody had heard the sash. Nobody who was meant to.
-
+- The alley smelled of wet brick and something a cat had left for posterity. The window
+  on the ground floor of the engineer's building had a half-inch of give in the lower
+  sash. I worked it up an inch at a time with the heel of my hand.
+- A wire of pain went through my lower back as I came over the sill. Knee on the frame,
+  weight on the wrong foot, drop onto a desk that had not been under that window the
+  last time I had been in this room. The blotter slid. A pen rolled and did not fall.
+- Twenty feet to the corridor. Nobody had heard the sash. Nobody who was meant to.
 choices:
-  - text: |-
-      Continue to the records corridor.
-    next: act2/records_corridor
-    effects:
-      flags:
-        voss_after_hours_visited: true
+- text: Continue to the records corridor.
+  next: act2/records_corridor
+  effects:
+    flags:
+      voss_after_hours_visited: true

@@ -1,17 +1,13 @@
 id: act2/boarded_door_old_woman
-
 text:
-  - |-
-    The door opened two inches on a chain. An older woman, hair pinned, the smell of a kitchen behind her. She would not give me her name. She would not take mine.
-  - |-
-    She told me the surveyor came on a Tuesday and the man with the scar came on a Thursday and she had nothing else to say.
-  - |-
-    The door closed before my mouth opened for the next question.
-
+- The door opened two inches on a chain. An older woman, hair pinned, the smell of
+  a kitchen behind her. She would not give me her name. She would not take mine.
+- She told me the surveyor came on a Tuesday and the man with the scar came on a Thursday
+  and she had nothing else to say.
+- The door closed before my mouth opened for the next question.
 choices:
-  - text: |-
-      Continue.
-    next: act2/church_hall_meeting
-    effects:
-      stats:
-        evidence: 1
+- text: Continue.
+  next: act2/church_hall_meeting
+  effects:
+    stats:
+      evidence: 1

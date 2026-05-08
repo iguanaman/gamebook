@@ -1,40 +1,37 @@
 id: act1/vera_room_warn
-
 text:
-  - |-
-    You tell her plainly. The man at the bar with the scar on his lip. The phone call from Voss's office to a name you didn't recognise. The brown sedan you didn't see on the way in but see now, parked under her window.
-  - |-
-    She does not cry. She listens with her hands flat on the table and the wedding band still turning, and when you are done she nods once like a woman who has been told to expect a parcel.
-  - female_adult_american_gentle_tender_sweet: |-
-      Thank you for telling me. Most men wouldn't have. Ray didn't.
-  - |-
-    She takes the key out of her pocket with both hands and gives it to you the same way.
-  - female_adult_american_gentle_tender_sweet: |-
-      Leave by the front. The woman in the sedan should see you go. If she sees you, she goes after you, and not — and not whatever else.
-  - |-
-    She does not finish the sentence. She does not need to.
-
+- You tell her plainly. The man at the bar with the scar on his lip. The phone call
+  from Voss's office to a name you didn't recognise. The brown sedan you didn't see
+  on the way in but see now, parked under her window.
+- She does not cry. She listens with her hands flat on the table and the wedding band
+  still turning, and when you are done she nods once like a woman who has been told
+  to expect a parcel.
+- female_adult_american_gentle_tender_sweet: Thank you for telling me. Most men wouldn't
+    have. Ray didn't.
+- She takes the key out of her pocket with both hands and gives it to you the same
+  way.
+- female_adult_american_gentle_tender_sweet: Leave by the front. The woman in the
+    sedan should see you go. If she sees you, she goes after you, and not — and not
+    whatever else.
+- She does not finish the sentence. She does not need to.
 choices:
-  - text: |-
-      Take the key. Leave by the front, slow, where they can see you.
-    next: act1/vera_visit_exit
-    effects:
-      flags:
-        ray_key_kept: true
-        vera_warned: true
-        vera_trusted_frank: true
-      stats:
-        evidence: 1
-        rep: 1
-
-  - text: |-
-      Take the key. Leave by the back. Break her plan.
-    next: act1/vera_visit_exit
-    effects:
-      flags:
-        ray_key_kept: true
-        vera_warned: true
-        vera_trusted_frank: true
-      stats:
-        evidence: 1
-        rep: -1
+- text: Take the key. Leave by the front, slow, where they can see you.
+  next: act1/vera_visit_exit
+  effects:
+    flags:
+      ray_key_kept: true
+      vera_warned: true
+      vera_trusted_frank: true
+    stats:
+      evidence: 1
+      rep: 1
+- text: Take the key. Leave by the back. Break her plan.
+  next: act1/vera_visit_exit
+  effects:
+    flags:
+      ray_key_kept: true
+      vera_warned: true
+      vera_trusted_frank: true
+    stats:
+      evidence: 1
+      rep: -1

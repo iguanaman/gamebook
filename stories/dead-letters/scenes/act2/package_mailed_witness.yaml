@@ -1,21 +1,20 @@
 id: act2/package_mailed_witness
-
 text:
-  - |-
-    She stamped it. She dropped it into the bag. I told her I would be back tomorrow, late afternoon, to confirm the bag had gone east and not into a drawer.
-  - |-
-    She looked at me over the spectacles for the first time since I had walked in. The chain on the spectacles caught the lamplight.
-  - female_elder_american_relatable_likeable: |-
-      I'll be here, dear, until six. After that the night clerk takes the counter.
-  - |-
-    She did not say whether she would tell the night clerk I was coming. She did not say whether anyone else had been in this evening to ask after parcels going east. She did not say what she had not said.
-  - |-
-    Outside, when I checked the street, the man with the paper was gone. The bench was empty. The streetlight buzzed over an empty bench in a way that was not a comfort.
+- She stamped it. She dropped it into the bag. I told her I would be back tomorrow,
+  late afternoon, to confirm the bag had gone east and not into a drawer.
+- She looked at me over the spectacles for the first time since I had walked in. The
+  chain on the spectacles caught the lamplight.
+- female_elder_american_relatable_likeable: I'll be here, dear, until six. After that
+    the night clerk takes the counter.
+- She did not say whether she would tell the night clerk I was coming. She did not
+  say whether anyone else had been in this evening to ask after parcels going east.
+  She did not say what she had not said.
+- Outside, when I checked the street, the man with the paper was gone. The bench was
+  empty. The streetlight buzzed over an empty bench in a way that was not a comfort.
+journal: 'You mailed the package and told Hettie you''d be back. Whether she''ll be
+  there to tell you anything is a thing you will find out tomorrow, or never.
 
-journal: |
-  You mailed the package and told Hettie you'd be back. Whether she'll be there to tell you anything is a thing you will find out tomorrow, or never.
-
+  '
 choices:
-  - text: |-
-      Continue.
-    next: act2/hallway_call
+- text: Continue.
+  next: act2/hallway_call

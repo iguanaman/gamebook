@@ -1,22 +1,24 @@
 id: act1/pell_aside
-
 text:
-  - |-
-    Mrs. Pell saw me coming and was already moving toward the kitchen before I'd finished the look. She closed the swing door behind us. The kitchen smelled of cold tea and a meal she had been making when the world had stopped.
-  - female_elder_american_relatable_likeable: |-
-      Mr. Cady. Listen. Listen to me. The man with the scar — the one I told you about — he came back this afternoon. Before. Before the police. He came in at the side door, I let him in because he said he had a delivery for Mrs. Doss, and I — oh, Mr. Cady, I let him *in*.
-  - |-
-    Her hands were shaking on the kitchen rail. The keys at her hip had stopped clinking because she had clamped her hand around them.
-  - female_elder_american_relatable_likeable: |-
-      He went up the stairs. He came down the stairs. He left the way he came. And then twenty minutes — *twenty minutes*, Mr. Cady — and the police were on my door. Twenty minutes is not how long it takes to find a body. Twenty minutes is how long it takes to be told there is one.
-  - |-
-    She did not ask me to do anything with what she had told me. She said it the way a person tells a priest. She wanted it out of her mouth.
-
+- Mrs. Pell saw me coming and was already moving toward the kitchen before I'd finished
+  the look. She closed the swing door behind us. The kitchen smelled of cold tea and
+  a meal she had been making when the world had stopped.
+- female_elder_american_relatable_likeable: Mr. Cady. Listen. Listen to me. The man
+    with the scar — the one I told you about — he came back this afternoon. Before.
+    Before the police. He came in at the side door, I let him in because he said he
+    had a delivery for Mrs. Doss, and I — oh, Mr. Cady, I let him *in*.
+- Her hands were shaking on the kitchen rail. The keys at her hip had stopped clinking
+  because she had clamped her hand around them.
+- female_elder_american_relatable_likeable: He went up the stairs. He came down the
+    stairs. He left the way he came. And then twenty minutes — *twenty minutes*, Mr.
+    Cady — and the police were on my door. Twenty minutes is not how long it takes
+    to find a body. Twenty minutes is how long it takes to be told there is one.
+- She did not ask me to do anything with what she had told me. She said it the way
+  a person tells a priest. She wanted it out of her mouth.
 choices:
-  - text: |-
-      Continue.
-    next: act1/brennan_throws_out
-    effects:
-      stats:
-        evidence: 2
-        rep: 1
+- text: Continue.
+  next: act1/brennan_throws_out
+  effects:
+    stats:
+      evidence: 2
+      rep: 1

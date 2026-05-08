@@ -1,78 +1,80 @@
 id: act3/river_bank_run
-
 text:
-  - |-
-    The bank under the warehouse pier was wet stone and tar, slick where the river had been at it and rotten where the rain had. I went along it the way a man goes who does not want to be heard — slow, low, hand against the wall when the wall was there.
-  - |-
-    Above on the road, two engines turning over and not going anywhere. A third up the slope farther on, idling at the corner where the rail spur met the river road. They were quartering. They knew I was on foot.
-  - if: {flags: [found_ledger]}
-    text: |-
-      The book was still inside my coat against my ribs. Every step pressed it into the cracked one. Pain is a way of knowing the thing is still there.
-  - |-
-    Three blocks of darkness between me and the streetcar line on Broad. I needed ground. Not a destination — ground. A door to put behind me before the morning papers were on the corner with my name in the lede.
-  - if: {flags: [pushed_back]}
-    text: |-
-      Headlights, not from the road behind me. From the road *above* the bank, slowing. A patrol car. White on black, slowing the way a patrol car slows when the man inside has been looking for one particular thing on his shift and has just found it.
-  - if: {flags: [mort_owes_one], flags_unset: [pushed_back]}
-    text: |-
-      Headlights from the road above, slowing. A patrol car. White on black. He was looking for me — not the way Salzano's men were looking. Different posture in the way the wheel was held.
-  - if: {flags_unset: [pushed_back, mort_owes_one]}
-    text: |-
-      The patrol car that went past the top of the slope did not slow. Patrol cars don't stop for men like me tonight.
-
+- The bank under the warehouse pier was wet stone and tar, slick where the river had
+  been at it and rotten where the rain had. I went along it the way a man goes who
+  does not want to be heard — slow, low, hand against the wall when the wall was there.
+- Above on the road, two engines turning over and not going anywhere. A third up the
+  slope farther on, idling at the corner where the rail spur met the river road. They
+  were quartering. They knew I was on foot.
+- if:
+    flags:
+    - found_ledger
+  text: The book was still inside my coat against my ribs. Every step pressed it into
+    the cracked one. Pain is a way of knowing the thing is still there.
+- Three blocks of darkness between me and the streetcar line on Broad. I needed ground.
+  Not a destination — ground. A door to put behind me before the morning papers were
+  on the corner with my name in the lede.
+- if:
+    flags:
+    - pushed_back
+  text: Headlights, not from the road behind me. From the road *above* the bank, slowing.
+    A patrol car. White on black, slowing the way a patrol car slows when the man
+    inside has been looking for one particular thing on his shift and has just found
+    it.
+- if:
+    flags:
+    - mort_owes_one
+    flags_unset:
+    - pushed_back
+  text: Headlights from the road above, slowing. A patrol car. White on black. He
+    was looking for me — not the way Salzano's men were looking. Different posture
+    in the way the wheel was held.
+- if:
+    flags_unset:
+    - pushed_back
+    - mort_owes_one
+  text: The patrol car that went past the top of the slope did not slow. Patrol cars
+    don't stop for men like me tonight.
 choices:
-  - text: |-
-      A patrol car pulls alongside. Take the ride.
-    next: act3/quint_patrol_car
-    requires:
-      flags:
-        - pushed_back
-      stats:
-        rep: 3
-    failed_text: |-
-      *(Patrol cars don't stop for men like you tonight.)*
-
-  - text: |-
-      A patrol car pulls alongside. Take the ride.
-    next: act3/quint_patrol_car
-    requires:
-      flags:
-        - mort_owes_one
-      stats:
-        rep: 3
-      flags_unset:
-        - pushed_back
-    failed_text: |-
-      *(Patrol cars don't stop for men like you tonight.)*
-
-  - text: |-
-      Go to ground at Mort's basement.
-    next: act3/mort_basement
-    requires:
-      flags:
-        - mort_owes_one
-      flags_unset:
-        - mort_basement_used
-        - package_via_mort
-    failed_text: |-
-      *(Mort's already in this. Don't put him in deeper.)*
-
-  - text: |-
-      South-side flophouse. No NPC cost.
-    next: act3/flophouse_room
-
-  - text: |-
-      Sit on the bank ten minutes. Let the heat fall off.
-    next:
-      - scene: act3/flophouse_room
-        weight: 2
-      - scene: act3/river_bank_run_caught
-        weight: 1
-    requires:
-      stats:
-        heat: 7
-    effects:
-      stats:
-        heat: -1
-    failed_text: |-
-      *(You're not hot enough to need to gamble. Keep moving.)*
+- text: A patrol car pulls alongside. Take the ride.
+  next: act3/quint_patrol_car
+  requires:
+    flags:
+    - pushed_back
+    stats:
+      rep: 3
+  failed_text: '*(Patrol cars don''t stop for men like you tonight.)*'
+- text: A patrol car pulls alongside. Take the ride.
+  next: act3/quint_patrol_car
+  requires:
+    flags:
+    - mort_owes_one
+    stats:
+      rep: 3
+    flags_unset:
+    - pushed_back
+  failed_text: '*(Patrol cars don''t stop for men like you tonight.)*'
+- text: Go to ground at Mort's basement.
+  next: act3/mort_basement
+  requires:
+    flags:
+    - mort_owes_one
+    flags_unset:
+    - mort_basement_used
+    - package_via_mort
+  failed_text: '*(Mort''s already in this. Don''t put him in deeper.)*'
+- text: South-side flophouse. No NPC cost.
+  next: act3/flophouse_room
+- text: Sit on the bank ten minutes. Let the heat fall off.
+  next:
+  - scene: act3/flophouse_room
+    weight: 2
+  - scene: act3/river_bank_run_caught
+    weight: 1
+  requires:
+    stats:
+      heat: 7
+  effects:
+    stats:
+      heat: -1
+  failed_text: '*(You''re not hot enough to need to gamble. Keep moving.)*'

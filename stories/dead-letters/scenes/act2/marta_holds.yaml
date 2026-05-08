@@ -1,15 +1,12 @@
 id: act2/marta_holds
-
 text:
-  - female_midlife_african-american_casual_opinionated: |-
-      That's what I have for you today, Mr. Cady.
-  - |-
-    She closed the exercise book. Poured a second coffee I did not ask for and would not drink. She did not pour one for herself.
-
+- female_midlife_african-american_casual_opinionated: That's what I have for you today,
+    Mr. Cady.
+- She closed the exercise book. Poured a second coffee I did not ask for and would
+  not drink. She did not pour one for herself.
 choices:
-  - text: |-
-      Continue.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        marta_partial_account: true
+- text: Continue.
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      marta_partial_account: true

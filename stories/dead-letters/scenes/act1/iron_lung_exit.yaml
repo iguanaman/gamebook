@@ -1,12 +1,9 @@
 id: act1/iron_lung_exit
-
 text:
-  - |-
-    Wet pavement under a streetlamp that buzzed when the wind moved it. I lit a cigarette and didn't smoke it. The match went out before I got to the tobacco and I didn't strike a second one.
-  - |-
-    Whatever I'd come for, I had it now, or I never would.
-
+- Wet pavement under a streetlamp that buzzed when the wind moved it. I lit a cigarette
+  and didn't smoke it. The match went out before I got to the tobacco and I didn't
+  strike a second one.
+- Whatever I'd come for, I had it now, or I never would.
 choices:
-  - text: |-
-      Back to the office.
-    next: act1/office_hub
+- text: Back to the office.
+  next: act1/office_hub

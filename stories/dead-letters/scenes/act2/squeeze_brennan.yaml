@@ -1,50 +1,44 @@
 id: act2/squeeze_brennan
-
 text:
-  - |-
-    The unmarked car came up the kerb the way unmarked cars come up kerbs in this city, which is to say it came up half of mine. The passenger door opened from the inside.
-  - male_midlife_american_dark_tough: |-
-      In, Cady. Now.
-  - |-
-    Brennan at the wheel. Sweat collar. The knuckle on his right hand on the gearshift swollen the way it had been at the boarding house. He drove south to the harbour and stopped where the road ran out, where the warehouses started, where a man could shout and not be heard by anyone who would write it down.
-  - |-
-    He did not get out. He did not turn the engine off.
-  - male_midlife_american_dark_tough: |-
-      Listen good. The Doss case is closed. Closed means closed. You read me.
-  - male_midlife_american_dark_tough: |-
-      I am not asking. I am telling you the second time I tell you it will be from a hospital bed, yours.
-  - |-
-    The harbour at night smelled of fuel and fish. The water past the rail was the colour of a man's coat. He waited for me to answer the way a man waits for a confession he has already written.
-
+- The unmarked car came up the kerb the way unmarked cars come up kerbs in this city,
+  which is to say it came up half of mine. The passenger door opened from the inside.
+- male_midlife_american_dark_tough: In, Cady. Now.
+- Brennan at the wheel. Sweat collar. The knuckle on his right hand on the gearshift
+  swollen the way it had been at the boarding house. He drove south to the harbour
+  and stopped where the road ran out, where the warehouses started, where a man could
+  shout and not be heard by anyone who would write it down.
+- He did not get out. He did not turn the engine off.
+- male_midlife_american_dark_tough: Listen good. The Doss case is closed. Closed means
+    closed. You read me.
+- male_midlife_american_dark_tough: I am not asking. I am telling you the second time
+    I tell you it will be from a hospital bed, yours.
+- The harbour at night smelled of fuel and fish. The water past the rail was the colour
+  of a man's coat. He waited for me to answer the way a man waits for a confession
+  he has already written.
 choices:
-  - text: |-
-      Take it. "Closed. Yes, sergeant."
-    next: act2/squeeze_back_off
-    effects:
-      stats:
-        heat: -2
-      flags:
-        cops_warned_off: true
-
-  - text: |-
-      Tell him you've heard from Salzano. Watch his face.
-    next: act2/squeeze_feign
-    effects:
-      stats:
-        evidence: 1
-        rep: -1
-
-  - text: |-
-      Push back hard. "Whose case is closed, sergeant. Yours? Or his?"
-    next: act2/squeeze_push_back
-    requires:
-      stats:
-        rep: 4
-    failed_text: |-
-      *(He's already got a hand on the door. Push him now and you don't get out of this car.)*
-    effects:
-      stats:
-        heat: 1
-        evidence: 1
-      flags:
-        pushed_back: true
+- text: Take it. "Closed. Yes, sergeant."
+  next: act2/squeeze_back_off
+  effects:
+    stats:
+      heat: -2
+    flags:
+      cops_warned_off: true
+- text: Tell him you've heard from Salzano. Watch his face.
+  next: act2/squeeze_feign
+  effects:
+    stats:
+      evidence: 1
+      rep: -1
+- text: Push back hard. "Whose case is closed, sergeant. Yours? Or his?"
+  next: act2/squeeze_push_back
+  requires:
+    stats:
+      rep: 4
+  failed_text: '*(He''s already got a hand on the door. Push him now and you don''t
+    get out of this car.)*'
+  effects:
+    stats:
+      heat: 1
+      evidence: 1
+    flags:
+      pushed_back: true

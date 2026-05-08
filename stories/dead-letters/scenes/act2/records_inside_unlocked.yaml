@@ -1,28 +1,22 @@
 id: act2/records_inside_unlocked
-
 text:
-  - |-
-    The door was already open. Not flung — eased, the way a man eases a door behind him when he means to come back.
-  - |-
-    Two cabinet drawers were out of true the way drawers sit when someone has been in them an hour ago and meant to push them back square and had been in too much hurry to do it. The green shade on the reading lamp was warm.
-  - |-
-    My hand went to my coat pocket where the gun wasn't. It had not been there for nine years. I noticed every time.
-
+- The door was already open. Not flung — eased, the way a man eases a door behind
+  him when he means to come back.
+- Two cabinet drawers were out of true the way drawers sit when someone has been in
+  them an hour ago and meant to push them back square and had been in too much hurry
+  to do it. The green shade on the reading lamp was warm.
+- My hand went to my coat pocket where the gun wasn't. It had not been there for nine
+  years. I noticed every time.
 choices:
-  - text: |-
-      Take what's still there. Faster than planned.
-    next: act2/records_take_signatures
-    effects:
-      stats:
-        heat: 1
-
-  - text: |-
-      Don't take anything. Just look. Memorise.
-    next: act2/records_voss_note
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      Back out. The room is a trap.
-    next: act2/records_corridor_exit
+- text: Take what's still there. Faster than planned.
+  next: act2/records_take_signatures
+  effects:
+    stats:
+      heat: 1
+- text: Don't take anything. Just look. Memorise.
+  next: act2/records_voss_note
+  effects:
+    stats:
+      evidence: 1
+- text: Back out. The room is a trap.
+  next: act2/records_corridor_exit

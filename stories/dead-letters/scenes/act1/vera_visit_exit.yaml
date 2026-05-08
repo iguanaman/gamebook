@@ -1,16 +1,13 @@
 id: act1/vera_visit_exit
-
 text:
-  - |-
-    The boarding house door closes behind you. Mrs. Pell does not watch you go.
-  - |-
-    On the stoop, you light a cigarette you don't want and use the match flame to look at the street without looking at the street.
-  - |-
-    The brown sedan across the road pulls away from the kerb the moment your foot leaves the bottom step. Two figures inside. One smoking. Neither of them turns to look at you, which is how you know.
-  - |-
-    You file the make of the car. You file the angle of the wing mirror. You file the colour of the smoke.
-
+- The boarding house door closes behind you. Mrs. Pell does not watch you go.
+- On the stoop, you light a cigarette you don't want and use the match flame to look
+  at the street without looking at the street.
+- The brown sedan across the road pulls away from the kerb the moment your foot leaves
+  the bottom step. Two figures inside. One smoking. Neither of them turns to look
+  at you, which is how you know.
+- You file the make of the car. You file the angle of the wing mirror. You file the
+  colour of the smoke.
 choices:
-  - text: |-
-      Back to the office.
-    next: act1/office_hub
+- text: Back to the office.
+  next: act1/office_hub

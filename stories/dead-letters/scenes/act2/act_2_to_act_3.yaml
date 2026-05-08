@@ -1,70 +1,79 @@
 id: act2/act_2_to_act_3
-
 text:
-  - |-
-    The walk to the river took the time it had been going to take. I narrated it to myself the way a man narrates the last twenty minutes of a thing he has been working on for a year, because narrating it is what you do when there is nothing else left to do with the hands.
-  - if: {flags: [found_ledger]}
-    text: |-
-      The book in my coat pocket. Or its photograph. Or two pages folded into the lining where a man searching the coat would have to know to look.
-    else: |-
-      No book in the coat pocket. No photographs. The shape of a thing I knew and could not prove, carried in a head that the warehouse on Pier 14 was about to find out the size of.
-  - if: {flags: [left_package]}
-    text: |-
-      The parcel was on Mort's desk by now. Or in Hettie's mailsack on its way to the central depot. Either way it was no longer mine. Dora Reyes would have it Monday. The thought sat in the chest the way a thing sits when it has been put down and cannot be picked up again.
-  - if: {flags: [trusted_kellner]}
-    text: |-
-      I had told him about the book. At the diner. Across two coffees and a slice of pie I had not eaten. He had nodded the way he had nodded across desks for ten years and I had not understood then what the nod was for.
-  - if: {stats: {heat: 6}}
-    text: |-
-      The brown sedan had been at the corner of my block when I left the office and it was at the corner of the rail yard when I came out the other side. The driver was not pretending to read a paper anymore.
-  - |-
-    The warehouse with the green door was three streets ahead. The river behind it. A wind off the water that smelled of oil and rope and the particular cold of a thing that does not warm up in summer.
-  - |-
-    Walt Kellner was already inside.
-
+- The walk to the river took the time it had been going to take. I narrated it to
+  myself the way a man narrates the last twenty minutes of a thing he has been working
+  on for a year, because narrating it is what you do when there is nothing else left
+  to do with the hands.
+- if:
+    flags:
+    - found_ledger
+  text: The book in my coat pocket. Or its photograph. Or two pages folded into the
+    lining where a man searching the coat would have to know to look.
+  else: No book in the coat pocket. No photographs. The shape of a thing I knew and
+    could not prove, carried in a head that the warehouse on Pier 14 was about to
+    find out the size of.
+- if:
+    flags:
+    - left_package
+  text: The parcel was on Mort's desk by now. Or in Hettie's mailsack on its way to
+    the central depot. Either way it was no longer mine. Dora Reyes would have it
+    Monday. The thought sat in the chest the way a thing sits when it has been put
+    down and cannot be picked up again.
+- if:
+    flags:
+    - trusted_kellner
+  text: I had told him about the book. At the diner. Across two coffees and a slice
+    of pie I had not eaten. He had nodded the way he had nodded across desks for ten
+    years and I had not understood then what the nod was for.
+- if:
+    stats:
+      heat: 6
+  text: The brown sedan had been at the corner of my block when I left the office
+    and it was at the corner of the rail yard when I came out the other side. The
+    driver was not pretending to read a paper anymore.
+- The warehouse with the green door was three streets ahead. The river behind it.
+  A wind off the water that smelled of oil and rope and the particular cold of a thing
+  that does not warm up in summer.
+- Walt Kellner was already inside.
 choices:
-  - text: |-
-      Through the green door.
-    next: act3/entry_e
-    requires:
-      flags_unset: [found_ledger]
-    hide_if_failed: true
-
-  - text: |-
-      Through the green door.
-    next: act3/entry_d
-    requires:
-      flags:
-        - found_ledger
-      stats:
-        heat: 6
-    hide_if_failed: true
-
-  - text: |-
-      Through the green door.
-    next: act3/entry_c
-    requires:
-      flags:
-        - found_ledger
-        - left_package
-      flags_unset: [trusted_kellner]
-    hide_if_failed: true
-
-  - text: |-
-      Through the green door.
-    next: act3/entry_b
-    requires:
-      flags:
-        - found_ledger
-        - trusted_kellner
-      flags_unset: [left_package]
-    hide_if_failed: true
-
-  - text: |-
-      Through the green door.
-    next: act3/entry_a
-    requires:
-      flags:
-        - found_ledger
-      flags_unset: [trusted_kellner, left_package]
-    hide_if_failed: true
+- text: Through the green door.
+  next: act3/entry_e
+  requires:
+    flags_unset:
+    - found_ledger
+  hide_if_failed: true
+- text: Through the green door.
+  next: act3/entry_d
+  requires:
+    flags:
+    - found_ledger
+    stats:
+      heat: 6
+  hide_if_failed: true
+- text: Through the green door.
+  next: act3/entry_c
+  requires:
+    flags:
+    - found_ledger
+    - left_package
+    flags_unset:
+    - trusted_kellner
+  hide_if_failed: true
+- text: Through the green door.
+  next: act3/entry_b
+  requires:
+    flags:
+    - found_ledger
+    - trusted_kellner
+    flags_unset:
+    - left_package
+  hide_if_failed: true
+- text: Through the green door.
+  next: act3/entry_a
+  requires:
+    flags:
+    - found_ledger
+    flags_unset:
+    - trusted_kellner
+    - left_package
+  hide_if_failed: true

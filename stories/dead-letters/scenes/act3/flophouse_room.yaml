@@ -1,27 +1,24 @@
 id: act3/flophouse_room
-
 text:
-  - |-
-    The Marisol on the south side. Above the Filipino restaurant on Larkin where I had slept twice before, the last time eight years ago, the time before that on a night I do not remember the front end of.
-  - |-
-    The man at the desk did not look at me. Did not ask for a name. Took the two dollars and pushed a key across the counter without taking his hand off the racing form. The key was for room four. Room four was up the back stair.
-  - |-
-    Radiator clanked. Sheets had been on the bed long enough to have a smell that was nobody's in particular. A window onto a fire escape that had not been used in what its rust said was longer than I had been alive.
-  - |-
-    No NPC to vouch for me. No clean shirt. The heat I had brought in was the heat I would still have in the morning. Nothing here was working in my favour. Nothing here would talk.
-
+- The Marisol on the south side. Above the Filipino restaurant on Larkin where I had
+  slept twice before, the last time eight years ago, the time before that on a night
+  I do not remember the front end of.
+- The man at the desk did not look at me. Did not ask for a name. Took the two dollars
+  and pushed a key across the counter without taking his hand off the racing form.
+  The key was for room four. Room four was up the back stair.
+- Radiator clanked. Sheets had been on the bed long enough to have a smell that was
+  nobody's in particular. A window onto a fire escape that had not been used in what
+  its rust said was longer than I had been alive.
+- No NPC to vouch for me. No clean shirt. The heat I had brought in was the heat I
+  would still have in the morning. Nothing here was working in my favour. Nothing
+  here would talk.
 choices:
-  - text: |-
-      Lie down. Don't take the coat off.
-    next: act3/morning_room
-
-  - text: |-
-      Lie down. Smoke the last cigarette. Watch the ceiling.
-    next: act3/morning_room
-
-  - text: |-
-      Sit by the window the whole night. Don't sleep.
-    next: act3/morning_room
-    effects:
-      stats:
-        heat: 1
+- text: Lie down. Don't take the coat off.
+  next: act3/morning_room
+- text: Lie down. Smoke the last cigarette. Watch the ceiling.
+  next: act3/morning_room
+- text: Sit by the window the whole night. Don't sleep.
+  next: act3/morning_room
+  effects:
+    stats:
+      heat: 1

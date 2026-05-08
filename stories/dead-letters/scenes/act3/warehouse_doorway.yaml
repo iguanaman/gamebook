@@ -1,42 +1,41 @@
 id: act3/warehouse_doorway
-
 text:
-  - |-
-    Walt stepped out of the doorway into the rain to meet me halfway. Coat open, hands at his sides, the hat still in his left hand. He touched my elbow the way an older brother touches the elbow of the brother he has not seen in a year.
-  - male_midlife_american_rich_smooth_rugged: |-
-      Frank. You came.
-  - |-
-    Tired. Warm. A little sad. The voice he used when he had something to say and meant most of it.
-  - if: {flags: [trusted_kellner]}
-    text: |-
-      He named the book. He named the photographs. He named the drawer in my office where the photographs were not, and the drawer where they were. He had been listening, three nights ago at the diner, the way a friend listens — with both ears and a notebook he did not need to write in.
-  - if: {flags: [trusted_kellner]}
-    text: |-
-      He smiled. Apologetic. The way you smile at a man you have already weighed.
-    else: |-
-      He did not name the book. He did not need to. He looked at my coat where the book would be if I had brought it, and he looked at my face, and he waited for me to tell him.
-  - |-
-    The conversation he had staged was the one I wanted three nights ago. Quieter than I had earned. Almost an apology. Almost.
-
+- Walt stepped out of the doorway into the rain to meet me halfway. Coat open, hands
+  at his sides, the hat still in his left hand. He touched my elbow the way an older
+  brother touches the elbow of the brother he has not seen in a year.
+- male_midlife_american_rich_smooth_rugged: Frank. You came.
+- Tired. Warm. A little sad. The voice he used when he had something to say and meant
+  most of it.
+- if:
+    flags:
+    - trusted_kellner
+  text: He named the book. He named the photographs. He named the drawer in my office
+    where the photographs were not, and the drawer where they were. He had been listening,
+    three nights ago at the diner, the way a friend listens — with both ears and a
+    notebook he did not need to write in.
+- if:
+    flags:
+    - trusted_kellner
+  text: He smiled. Apologetic. The way you smile at a man you have already weighed.
+  else: He did not name the book. He did not need to. He looked at my coat where the
+    book would be if I had brought it, and he looked at my face, and he waited for
+    me to tell him.
+- The conversation he had staged was the one I wanted three nights ago. Quieter than
+  I had earned. Almost an apology. Almost.
 choices:
-  - text: |-
-      Talk.
-    next: act3/kellner_talk_hub
-
-  - text: |-
-      Cut him off — tell him you know it was him in '39.
-    next: act3/kellner_talk_hub
-    requires:
-      flags:
-        - frank_past_revealed
-    hide_if_failed: true
-    effects:
-      flags:
-        confronted_kellner_past: true
-
-  - text: |-
-      Don't talk. Walk past him into the warehouse.
-    next: act3/warehouse_reveal
-    effects:
-      flags:
-        kellner_offended: true
+- text: Talk.
+  next: act3/kellner_talk_hub
+- text: Cut him off — tell him you know it was him in '39.
+  next: act3/kellner_talk_hub
+  requires:
+    flags:
+    - frank_past_revealed
+  hide_if_failed: true
+  effects:
+    flags:
+      confronted_kellner_past: true
+- text: Don't talk. Walk past him into the warehouse.
+  next: act3/warehouse_reveal
+  effects:
+    flags:
+      kellner_offended: true

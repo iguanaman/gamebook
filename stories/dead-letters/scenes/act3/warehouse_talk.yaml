@@ -1,46 +1,49 @@
 id: act3/warehouse_talk
-
 text:
-  - |-
-    I did not move. I let Salzano cover the six feet between us in his own time. I named the thing back at him. I named the parcels in Aldwick. I named the rezoning. I named the surveys Ray had photographed and where the photographs were and were not.
-  - if: {flags: [found_ledger]}
-    text: |-
-      I named Halston Thorne. The name landed in the rain between us. Salzano did not flinch. Walt did. A small movement at the line of his jaw. Enough.
-    else: |-
-      I named the man who paid him. I did not know the name yet. Salzano knew I did not know. The not-knowing was a tell I could not afford and I gave it to him anyway because I had nothing else to put on the table.
-  - |-
-    Salzano listened. The whole way through. He listened the way a lawyer listens to opposing counsel — for the hole in the argument, for the place to put the knife.
-  - if: {flags: [confronted_kellner_past]}
-    text: |-
-      Walt stood very still. The fountain pen stayed in his pocket. He did not look at Salzano. He did not look at me. He looked at the rain on the gravel and he listened to me say a year out loud that he had been carrying for fifteen years.
-
+- I did not move. I let Salzano cover the six feet between us in his own time. I named
+  the thing back at him. I named the parcels in Aldwick. I named the rezoning. I named
+  the surveys Ray had photographed and where the photographs were and were not.
+- if:
+    flags:
+    - found_ledger
+  text: I named Halston Thorne. The name landed in the rain between us. Salzano did
+    not flinch. Walt did. A small movement at the line of his jaw. Enough.
+  else: I named the man who paid him. I did not know the name yet. Salzano knew I
+    did not know. The not-knowing was a tell I could not afford and I gave it to him
+    anyway because I had nothing else to put on the table.
+- Salzano listened. The whole way through. He listened the way a lawyer listens to
+  opposing counsel — for the hole in the argument, for the place to put the knife.
+- if:
+    flags:
+    - confronted_kellner_past
+  text: Walt stood very still. The fountain pen stayed in his pocket. He did not look
+    at Salzano. He did not look at me. He looked at the rain on the gravel and he
+    listened to me say a year out loud that he had been carrying for fifteen years.
 choices:
-  - text: |-
-      Continue.
-    next: act3/warehouse_escape
-    requires:
-      flags:
-        - confronted_kellner_past
-    hide_if_failed: true
-    effects:
-      flags:
-        talked_past_salzano: true
-
-  - text: |-
-      Continue.
-    next: act3/warehouse_escape
-    requires:
-      flags:
-        - frank_past_revealed
-      flags_unset: [confronted_kellner_past]
-    hide_if_failed: true
-    effects:
-      flags:
-        talked_past_salzano: true
-
-  - text: |-
-      Continue.
-    next: act3/warehouse_fight
-    requires:
-      flags_unset: [confronted_kellner_past, frank_past_revealed]
-    hide_if_failed: true
+- text: Continue.
+  next: act3/warehouse_escape
+  requires:
+    flags:
+    - confronted_kellner_past
+  hide_if_failed: true
+  effects:
+    flags:
+      talked_past_salzano: true
+- text: Continue.
+  next: act3/warehouse_escape
+  requires:
+    flags:
+    - frank_past_revealed
+    flags_unset:
+    - confronted_kellner_past
+  hide_if_failed: true
+  effects:
+    flags:
+      talked_past_salzano: true
+- text: Continue.
+  next: act3/warehouse_fight
+  requires:
+    flags_unset:
+    - confronted_kellner_past
+    - frank_past_revealed
+  hide_if_failed: true

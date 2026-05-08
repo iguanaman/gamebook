@@ -1,41 +1,33 @@
 id: act2/cold_trail_pick
-
-journal: |-
-  A week after the funeral. You had a key (or didn't), a slip with ALDWICK on it, and three doors to walk through. The *Examiner* had buried Vera in two paragraphs on page eleven. The city had moved on. Nobody was investigating but you.
-
+journal: A week after the funeral. You had a key (or didn't), a slip with ALDWICK
+  on it, and three doors to walk through. The *Examiner* had buried Vera in two paragraphs
+  on page eleven. The city had moved on. Nobody was investigating but you.
 text:
-  - |-
-    Three doors. I sat with that.
-  - |-
-    The key — locksmiths, depot lockers, the sub-basement of a public bath, the wall of brass at the rail station. A week of legwork to narrow it to a number Vera had never written down for me.
-  - |-
-    The slip — Aldwick. A neighbourhood I had driven through once on the way somewhere else and noticed nothing about. Tice had been afraid to say the word and had written it instead. That was a fact in itself.
-  - |-
-    The paper trail — Voss's office after dark. Cabinets I had no business in. Records that had been quiet for a reason and would stop being quiet the moment I touched them.
-  - |-
-    Pick one. The others would still be there in the morning. Most of them.
-
+- Three doors. I sat with that.
+- The key — locksmiths, depot lockers, the sub-basement of a public bath, the wall
+  of brass at the rail station. A week of legwork to narrow it to a number Vera had
+  never written down for me.
+- The slip — Aldwick. A neighbourhood I had driven through once on the way somewhere
+  else and noticed nothing about. Tice had been afraid to say the word and had written
+  it instead. That was a fact in itself.
+- The paper trail — Voss's office after dark. Cabinets I had no business in. Records
+  that had been quiet for a reason and would stop being quiet the moment I touched
+  them.
+- Pick one. The others would still be there in the morning. Most of them.
 choices:
-  - text: |-
-      Chase the key first. Locksmiths and lockers.
-    next: act2/key_legwork
-    requires:
-      flags:
-        - ray_key_kept
-    failed_text: |-
-      *(Vera never gave you the key. Whoever has it now isn't going to ask you what door it opens.)*
-
-  - text: |-
-      Take the streetcar to Aldwick. Stand in the street with the slip.
-    next: act2/aldwick_arrival
-
-  - text: |-
-      Go back to the Engineer's Office — this time after dark.
-    next: act2/engineer_after_hours_decision
-
-  - text: |-
-      Sit at the desk and write down everything you have. Then pick.
-    next: act2/office_hub
-    effects:
-      flags:
-        frank_wrote_it_down: true
+- text: Chase the key first. Locksmiths and lockers.
+  next: act2/key_legwork
+  requires:
+    flags:
+    - ray_key_kept
+  failed_text: '*(Vera never gave you the key. Whoever has it now isn''t going to
+    ask you what door it opens.)*'
+- text: Take the streetcar to Aldwick. Stand in the street with the slip.
+  next: act2/aldwick_arrival
+- text: Go back to the Engineer's Office — this time after dark.
+  next: act2/engineer_after_hours_decision
+- text: Sit at the desk and write down everything you have. Then pick.
+  next: act2/office_hub
+  effects:
+    flags:
+      frank_wrote_it_down: true

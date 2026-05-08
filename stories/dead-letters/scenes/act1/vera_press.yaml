@@ -1,41 +1,33 @@
 id: act1/vera_press
-
 text:
-  - |-
-    I let the silence get long. Then I asked the question under the question.
-  - |-
-    What was Ray afraid of.
-  - |-
-    She flinched. Small, but a flinch. The wedding band stopped turning.
-  - female_adult_american_gentle_tender_sweet: |-
-      He was — scared of his own desk drawer, this last week. He'd come home and not open the mail. He'd sit at the table and not eat. I asked him. He said it was nothing. He said it twice.
-  - |-
-    Scared. Not missing. There's a difference, and she'd just told it to me.
-  - |-
-    She looked at the photograph on the desk and then looked away from it like it had done something to her.
-
+- I let the silence get long. Then I asked the question under the question.
+- What was Ray afraid of.
+- She flinched. Small, but a flinch. The wedding band stopped turning.
+- female_adult_american_gentle_tender_sweet: He was — scared of his own desk drawer,
+    this last week. He'd come home and not open the mail. He'd sit at the table and
+    not eat. I asked him. He said it was nothing. He said it twice.
+- Scared. Not missing. There's a difference, and she'd just told it to me.
+- She looked at the photograph on the desk and then looked away from it like it had
+  done something to her.
 choices:
-  - text: |-
-      Apologise. Ease off. The push got you what you needed; don't make her pay for it twice.
-    next: act1/vera_take_case
-    effects:
-      flags:
-        met_vera: true
-      stats:
-        rep: 1
-        evidence: 1
-
-  - text: |-
-      Hold the line. She's hiding things, and better she knows you saw it.
-    next: act1/vera_take_case
-    effects:
-      flags:
-        met_vera: true
-        vera_guarded: true
-      stats:
-        rep: -1
-        evidence: 1
-
-  - text: |-
-      Refuse the case. She's lying to you, and you don't take liars, even frightened ones.
-    next: act1/bury_it_early_setup
+- text: Apologise. Ease off. The push got you what you needed; don't make her pay
+    for it twice.
+  next: act1/vera_take_case
+  effects:
+    flags:
+      met_vera: true
+    stats:
+      rep: 1
+      evidence: 1
+- text: Hold the line. She's hiding things, and better she knows you saw it.
+  next: act1/vera_take_case
+  effects:
+    flags:
+      met_vera: true
+      vera_guarded: true
+    stats:
+      rep: -1
+      evidence: 1
+- text: Refuse the case. She's lying to you, and you don't take liars, even frightened
+    ones.
+  next: act1/bury_it_early_setup

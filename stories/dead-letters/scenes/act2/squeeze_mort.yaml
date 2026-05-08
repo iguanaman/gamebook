@@ -1,51 +1,46 @@
 id: act2/squeeze_mort
-
 text:
-  - |-
-    He had no flask. That was the first thing.
-  - |-
-    The second was the colour of him. Mort had been the same colour for thirty years — a cigarette tan that lived behind his ears. He was paler than a man should be at the door of an office at this hour.
-  - male_elder_american_wise_approachable: |-
-      Kid. They spiked the column.
-  - male_elder_american_wise_approachable: |-
-      Editor pulled it. A friend on the night desk pulled me aside in the stair and told me a third party had told him that the next column I file is the last one I file, anywhere, and the *Examiner* won't print my obit.
-  - |-
-    He came in without being asked, sat in the visitor's chair, and did not take his hat off.
-  - male_elder_american_wise_approachable: |-
-      I have been at this paper since the war. The first one. They sent me a Western Union telegram once when my mother died. They were going to send me one tomorrow whether she had or not.
-  - |-
-    He looked at the brick on the floor and did not ask. He looked at the drawer with the bottle in it and did not ask for that either. He looked at me like a man waiting for a verdict.
-
+- He had no flask. That was the first thing.
+- The second was the colour of him. Mort had been the same colour for thirty years
+  — a cigarette tan that lived behind his ears. He was paler than a man should be
+  at the door of an office at this hour.
+- male_elder_american_wise_approachable: Kid. They spiked the column.
+- male_elder_american_wise_approachable: Editor pulled it. A friend on the night desk
+    pulled me aside in the stair and told me a third party had told him that the next
+    column I file is the last one I file, anywhere, and the *Examiner* won't print
+    my obit.
+- He came in without being asked, sat in the visitor's chair, and did not take his
+  hat off.
+- male_elder_american_wise_approachable: I have been at this paper since the war.
+    The first one. They sent me a Western Union telegram once when my mother died.
+    They were going to send me one tomorrow whether she had or not.
+- He looked at the brick on the floor and did not ask. He looked at the drawer with
+  the bottle in it and did not ask for that either. He looked at me like a man waiting
+  for a verdict.
 choices:
-  - text: |-
-      Tell him to write it anyway. Tell him you'll back the byline.
-    next: act2/squeeze_mort_writes
-    effects:
-      stats:
-        heat: 2
-      flags:
-        mort_writes_anyway: true
-
-  - text: |-
-      Tell him to drop it. The story is yours to carry.
-    next: act2/squeeze_mort_drops
-    effects:
-      stats:
-        rep: 1
-        evidence: 1
-      flags:
-        mort_owes_one: false
-
-  - text: |-
-      Ask him for Dora Reyes's address. Now, while he's here.
-    next: act2/squeeze_mort_dora
-    requires:
-      flags_unset: [dora_address_known]
-    effects:
-      flags:
-        dora_address_known: true
-        mort_owes_one: false
-
-  - text: |-
-      Pour him a drink. Listen. Decide tomorrow.
-    next: act2/squeeze_mort_drink
+- text: Tell him to write it anyway. Tell him you'll back the byline.
+  next: act2/squeeze_mort_writes
+  effects:
+    stats:
+      heat: 2
+    flags:
+      mort_writes_anyway: true
+- text: Tell him to drop it. The story is yours to carry.
+  next: act2/squeeze_mort_drops
+  effects:
+    stats:
+      rep: 1
+      evidence: 1
+    flags:
+      mort_owes_one: false
+- text: Ask him for Dora Reyes's address. Now, while he's here.
+  next: act2/squeeze_mort_dora
+  requires:
+    flags_unset:
+    - dora_address_known
+  effects:
+    flags:
+      dora_address_known: true
+      mort_owes_one: false
+- text: Pour him a drink. Listen. Decide tomorrow.
+  next: act2/squeeze_mort_drink

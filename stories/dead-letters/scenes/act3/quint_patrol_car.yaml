@@ -1,46 +1,43 @@
 id: act3/quint_patrol_car
-
 text:
-  - |-
-    The patrol car coasted to a stop on the gravel above me. The window came down by hand, slow. Young face under the hat brim. A wedding band still bright. A paperback in the door pocket — the spine creased twice, no further.
-  - male_young_american_forthright: |-
-      Mr. Cady. I've been waiting.
-  - |-
-    He did not say *get in*. He said the sentence the way a man says a thing he has rehearsed in front of a mirror and decided to mean.
-  - |-
-    I got in.
-  - |-
-    He drove me through streets I knew and streets I did not. Across the river on the low bridge, then north through a part of town a uniform out of his precinct had no business knowing. He drove the way he talked — direct, no flourish, both hands on the wheel.
-  - male_young_american_forthright: |-
-      You said *the man Brennan is*. A minute ago. You said *the man Brennan is* and you meant something specific by it. I want to make sure I heard you the same way you said it.
-  - |-
-    He was repeating my last sentence back to me before answering. Working out whether what he had heard was true. A careful man. Not a frightened one. There is a difference.
-  - |-
-    A one-bedroom over a shoe-repair on a street I had not been on in eight years. He let me in with his own key. Lent me a clean shirt — a half-size too large at the shoulders, the way his uniform was too large at his.
-  - male_young_american_forthright: |-
-      Brennan is the part of the force I did not take the oath for. I have been watching him six months. I do not have anybody to give what I have to. I think tonight I have you.
-
+- The patrol car coasted to a stop on the gravel above me. The window came down by
+  hand, slow. Young face under the hat brim. A wedding band still bright. A paperback
+  in the door pocket — the spine creased twice, no further.
+- male_young_american_forthright: Mr. Cady. I've been waiting.
+- He did not say *get in*. He said the sentence the way a man says a thing he has
+  rehearsed in front of a mirror and decided to mean.
+- I got in.
+- He drove me through streets I knew and streets I did not. Across the river on the
+  low bridge, then north through a part of town a uniform out of his precinct had
+  no business knowing. He drove the way he talked — direct, no flourish, both hands
+  on the wheel.
+- male_young_american_forthright: You said *the man Brennan is*. A minute ago. You
+    said *the man Brennan is* and you meant something specific by it. I want to make
+    sure I heard you the same way you said it.
+- He was repeating my last sentence back to me before answering. Working out whether
+  what he had heard was true. A careful man. Not a frightened one. There is a difference.
+- A one-bedroom over a shoe-repair on a street I had not been on in eight years. He
+  let me in with his own key. Lent me a clean shirt — a half-size too large at the
+  shoulders, the way his uniform was too large at his.
+- male_young_american_forthright: Brennan is the part of the force I did not take
+    the oath for. I have been watching him six months. I do not have anybody to give
+    what I have to. I think tonight I have you.
 choices:
-  - text: |-
-      Take the bed. Sleep two hours.
-    next: act3/morning_room
-    effects:
-      flags:
-        quint_helped: true
-      stats:
-        heat: -1
-
-  - text: |-
-      Take the floor. Stay up. Watch the window.
-    next: act3/morning_room
-    effects:
-      flags:
-        quint_helped: true
-
-  - text: |-
-      Tell him what you know. All of it. Make him a witness.
-    next: act3/morning_room
-    effects:
-      flags:
-        quint_helped: true
-        quint_briefed: true
+- text: Take the bed. Sleep two hours.
+  next: act3/morning_room
+  effects:
+    flags:
+      quint_helped: true
+    stats:
+      heat: -1
+- text: Take the floor. Stay up. Watch the window.
+  next: act3/morning_room
+  effects:
+    flags:
+      quint_helped: true
+- text: Tell him what you know. All of it. Make him a witness.
+  next: act3/morning_room
+  effects:
+    flags:
+      quint_helped: true
+      quint_briefed: true

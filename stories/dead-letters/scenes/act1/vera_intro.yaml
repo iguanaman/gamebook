@@ -1,44 +1,41 @@
 id: act1/vera_intro
-
 text:
-  - |-
-    She was younger than the coat she wore. Black wool, good once, kept good. There was a small dark stain on the cuff she hadn't noticed and would notice tonight, alone.
-  - |-
-    She set a photograph on the desk like she was putting down a weight. A man in his thirties, a good jaw, a worse haircut. Then an envelope beside it, fat enough that I knew before she opened it she'd counted it twice.
-  - female_adult_american_gentle_tender_sweet: |-
-      Mr. Cady. My husband didn't come home Friday.
-  - |-
-    She gave me the version of the story she had practised in the cab on the way over. Ray Doss. City surveyor. Working late on something. Wouldn't say what. Hadn't been right for a week.
-  - |-
-    She kept her hands in her lap. She kept turning her wedding band on her finger, and she kept not saying a word that started with D.
-  - female_adult_american_gentle_tender_sweet: |-
-      If — if anything's happened to him, I need to know. I need to know what to do.
-  - |-
-    She wasn't grieving. I know grief. She was scared, and she was holding back, and the thing she was holding back was the thing that mattered.
-
+- She was younger than the coat she wore. Black wool, good once, kept good. There
+  was a small dark stain on the cuff she hadn't noticed and would notice tonight,
+  alone.
+- She set a photograph on the desk like she was putting down a weight. A man in his
+  thirties, a good jaw, a worse haircut. Then an envelope beside it, fat enough that
+  I knew before she opened it she'd counted it twice.
+- female_adult_american_gentle_tender_sweet: Mr. Cady. My husband didn't come home
+    Friday.
+- She gave me the version of the story she had practised in the cab on the way over.
+  Ray Doss. City surveyor. Working late on something. Wouldn't say what. Hadn't been
+  right for a week.
+- She kept her hands in her lap. She kept turning her wedding band on her finger,
+  and she kept not saying a word that started with D.
+- female_adult_american_gentle_tender_sweet: If — if anything's happened to him, I
+    need to know. I need to know what to do.
+- She wasn't grieving. I know grief. She was scared, and she was holding back, and
+  the thing she was holding back was the thing that mattered.
 choices:
-  - text: |-
-      Take the case. The questions can wait until you're alone with the photograph.
-    next: act1/vera_take_case
-    effects:
-      flags:
-        met_vera: true
-      stats:
-        rep: 1
-
-  - text: |-
-      Take the case — but tell her plainly you'll go where it goes, even if it's somewhere she doesn't want.
-    next: act1/vera_take_case
-    effects:
-      flags:
-        met_vera: true
-      stats:
-        rep: 1
-
-  - text: |-
-      Press her. Now. Whatever she's not telling you, she brought it up the stairs with her.
-    next: act1/vera_press
-
-  - text: |-
-      Slide the envelope back. You don't take a case from a woman who's lying to you, even kindly.
-    next: act1/bury_it_early_setup
+- text: Take the case. The questions can wait until you're alone with the photograph.
+  next: act1/vera_take_case
+  effects:
+    flags:
+      met_vera: true
+    stats:
+      rep: 1
+- text: Take the case — but tell her plainly you'll go where it goes, even if it's
+    somewhere she doesn't want.
+  next: act1/vera_take_case
+  effects:
+    flags:
+      met_vera: true
+    stats:
+      rep: 1
+- text: Press her. Now. Whatever she's not telling you, she brought it up the stairs
+    with her.
+  next: act1/vera_press
+- text: Slide the envelope back. You don't take a case from a woman who's lying to
+    you, even kindly.
+  next: act1/bury_it_early_setup

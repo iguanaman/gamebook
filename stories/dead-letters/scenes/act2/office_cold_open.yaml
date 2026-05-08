@@ -1,29 +1,30 @@
 id: act2/office_cold_open
-
 text:
-  - |-
-    A week after the funeral. Vera's chair was empty in the way an empty chair is and the way an empty chair gets, after enough days, when nobody comes to sit in it.
-  - |-
-    The retainer envelope was in the top drawer. I had not counted the bills again. I knew what was in there. I knew what wasn't.
-  - if: {flags: [ray_key_kept]}
-    text: |-
-      The key was in my coat pocket. I had been finding it there at every streetcar stop for a week. I took it out and put it on the blotter and looked at it and put it back in the pocket like a man who could not yet decide whether it was a tool or a verdict.
-    else: |-
-      No key. Vera had not given it to me, in the end, and the man who had it now was the man in the good suit Mrs. Pell had been paid not to mention. I had the slip and that was all.
-  - |-
-    The slip with ALDWICK on it was under the desk lamp where I had put it the night Tice had given it to me on a stairwell. Folded once. Pencil. The clerk's hand was the kind that had been told its whole life to write smaller.
-  - |-
-    The *Examiner* was on the desk where I had thrown it the morning it ran. Page eleven. Two paragraphs. The word *drowning*, twice, and the words *no foul play suspected*, and Vera Doss's name spelled correctly, which is the kind of thing the city gets right when it has decided not to get the bigger thing right.
-
+- A week after the funeral. Vera's chair was empty in the way an empty chair is and
+  the way an empty chair gets, after enough days, when nobody comes to sit in it.
+- The retainer envelope was in the top drawer. I had not counted the bills again.
+  I knew what was in there. I knew what wasn't.
+- if:
+    flags:
+    - ray_key_kept
+  text: The key was in my coat pocket. I had been finding it there at every streetcar
+    stop for a week. I took it out and put it on the blotter and looked at it and
+    put it back in the pocket like a man who could not yet decide whether it was a
+    tool or a verdict.
+  else: No key. Vera had not given it to me, in the end, and the man who had it now
+    was the man in the good suit Mrs. Pell had been paid not to mention. I had the
+    slip and that was all.
+- The slip with ALDWICK on it was under the desk lamp where I had put it the night
+  Tice had given it to me on a stairwell. Folded once. Pencil. The clerk's hand was
+  the kind that had been told its whole life to write smaller.
+- The *Examiner* was on the desk where I had thrown it the morning it ran. Page eleven.
+  Two paragraphs. The word *drowning*, twice, and the words *no foul play suspected*,
+  and Vera Doss's name spelled correctly, which is the kind of thing the city gets
+  right when it has decided not to get the bigger thing right.
 choices:
-  - text: |-
-      Read the *Examiner* paragraph again. Put it down. Decide where to start.
-    next: act2/cold_trail_pick
-
-  - text: |-
-      Pour one. Read it again. Decide tomorrow.
-    next: act2/cold_trail_pick
-
-  - text: |-
-      Burn the clipping. Get up.
-    next: act2/cold_trail_pick
+- text: Read the *Examiner* paragraph again. Put it down. Decide where to start.
+  next: act2/cold_trail_pick
+- text: Pour one. Read it again. Decide tomorrow.
+  next: act2/cold_trail_pick
+- text: Burn the clipping. Get up.
+  next: act2/cold_trail_pick

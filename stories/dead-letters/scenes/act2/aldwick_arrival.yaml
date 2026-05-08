@@ -1,47 +1,44 @@
 id: act2/aldwick_arrival
-
 text:
-  - |-
-    The streetcar set me down at Lemoine and a wind that smelled of plaster dust. I came down the step and the smell did not move on; it lived here now.
-  - |-
-    Three windows boarded on the corner building that had been a grocery in March. A surveyor's stake driven into the vacant lot where a house had stood last spring — the metal flag bent over and the date stamped on it the kind of date a man remembers if he is paid to.
-  - |-
-    Halfway down the block, the door of a church hall stood propped open with a brick. A lectern visible inside. Voices. The shape of a meeting in progress.
-  - if: {flags: [aldwick_revisit_done]}
-    text: |-
-      The block had been eaten further since the last visit. Two more boards. A lot that had been a lot was now a hole. I knew which porch I was looking for now, and I knew the man who would be sitting on it.
-
+- The streetcar set me down at Lemoine and a wind that smelled of plaster dust. I
+  came down the step and the smell did not move on; it lived here now.
+- Three windows boarded on the corner building that had been a grocery in March. A
+  surveyor's stake driven into the vacant lot where a house had stood last spring
+  — the metal flag bent over and the date stamped on it the kind of date a man remembers
+  if he is paid to.
+- Halfway down the block, the door of a church hall stood propped open with a brick.
+  A lectern visible inside. Voices. The shape of a meeting in progress.
+- if:
+    flags:
+    - aldwick_revisit_done
+  text: The block had been eaten further since the last visit. Two more boards. A
+    lot that had been a lot was now a hole. I knew which porch I was looking for now,
+    and I knew the man who would be sitting on it.
 choices:
-  - text: |-
-      Go to the church hall. The lectern means a meeting.
-    next: act2/church_hall_meeting
-    requires:
-      flags_unset: [aldwick_visited_act2]
-    effects:
-      flags:
-        aldwick_visited_act2: true
-        aldwick_visited: true
-
-  - text: |-
-      Walk the block first. Read it before you speak.
-    next: act2/aldwick_walk
-    effects:
-      flags:
-        aldwick_visited_act2: true
-        aldwick_visited: true
-
-  - text: |-
-      Find the man on the porch with the folded paper in his pocket.
-    next: act2/reuben_porch
-    requires:
-      flags:
-        - marta_talked
-    hide_if_failed: true
-
-  - text: |-
-      Stop at Lemoine and Tenth — the back porch where Ray was last seen.
-    next: act2/lemoine_porch
-    requires:
-      flags:
-        - marta_talked
-    hide_if_failed: true
+- text: Go to the church hall. The lectern means a meeting.
+  next: act2/church_hall_meeting
+  requires:
+    flags_unset:
+    - aldwick_visited_act2
+  effects:
+    flags:
+      aldwick_visited_act2: true
+      aldwick_visited: true
+- text: Walk the block first. Read it before you speak.
+  next: act2/aldwick_walk
+  effects:
+    flags:
+      aldwick_visited_act2: true
+      aldwick_visited: true
+- text: Find the man on the porch with the folded paper in his pocket.
+  next: act2/reuben_porch
+  requires:
+    flags:
+    - marta_talked
+  hide_if_failed: true
+- text: Stop at Lemoine and Tenth — the back porch where Ray was last seen.
+  next: act2/lemoine_porch
+  requires:
+    flags:
+    - marta_talked
+  hide_if_failed: true

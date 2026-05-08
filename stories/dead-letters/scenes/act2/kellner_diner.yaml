@@ -1,34 +1,30 @@
 id: act2/kellner_diner
-
 text:
-  - |-
-    The diner on Henning had not changed. Same green vinyl on the booths, same fly-blown menu under the glass at the counter, same coffee that smelled the same in 'thirty-nine and tasted the same now.
-  - |-
-    Kellner was in the corner booth with his hat on the seat beside him. Two coffees on the table. Steam off both. The waitress walked past three times before she poured — twice for the regulars, once for us, and the third time was the one she used to read the room.
-  - male_midlife_american_rich_smooth_rugged: |-
-      Cady. Sit. I ordered for you. Black, no sugar, the way you used to take it before you got soft.
-  - |-
-    He was smiling. The smile reached his eyes the way a good lie reaches the back of the room.
-
+- The diner on Henning had not changed. Same green vinyl on the booths, same fly-blown
+  menu under the glass at the counter, same coffee that smelled the same in 'thirty-nine
+  and tasted the same now.
+- Kellner was in the corner booth with his hat on the seat beside him. Two coffees
+  on the table. Steam off both. The waitress walked past three times before she poured
+  — twice for the regulars, once for us, and the third time was the one she used to
+  read the room.
+- male_midlife_american_rich_smooth_rugged: Cady. Sit. I ordered for you. Black, no
+    sugar, the way you used to take it before you got soft.
+- He was smiling. The smile reached his eyes the way a good lie reaches the back of
+  the room.
 choices:
-  - text: |-
-      Sit. Take the coffee. Let him lead.
-    next: act2/kellner_hub
-    effects:
-      flags:
-        kellner_met: true
-
-  - text: |-
-      Sit. Order eggs you won't eat. Make him watch you not eat them.
-    next: act2/kellner_hub
-    effects:
-      flags:
-        kellner_met: true
-
-  - text: |-
-      Sit. Don't take the coffee. Tell him to talk.
-    next: act2/kellner_hub
-    effects:
-      flags:
-        kellner_met: true
-        kellner_brisk: true
+- text: Sit. Take the coffee. Let him lead.
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_met: true
+- text: Sit. Order eggs you won't eat. Make him watch you not eat them.
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_met: true
+- text: Sit. Don't take the coffee. Tell him to talk.
+  next: act2/kellner_hub
+  effects:
+    flags:
+      kellner_met: true
+      kellner_brisk: true

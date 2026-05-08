@@ -1,41 +1,40 @@
 id: act3/mort_basement
-
 text:
-  - |-
-    The alley door at the back of Mort's building. Two raps and the door went in before the second knock landed all the way. Mort in shirtsleeves, suspenders down. He did not say my name. He did not ask what was on my coat.
-  - male_elder_american_wise_approachable: |-
-      Down. Watch the third step from the bottom, kid, the nail's been working out for a year.
-  - |-
-    The basement smelled of newsprint and damp stone. A cot under a bare bulb. A blanket folded square on the cot — the same wool he had thrown me on his couch in October when I had nowhere else to be. A flask on the cot's pillow. The same flask. He had not even unscrewed the cap before he came up the stair to let me in.
-  - male_elder_american_wise_approachable: |-
-      Sit. Drink. Don't talk to me about it. I know enough. I will know more in the morning when I read the paper, kid, and I will not be reading it from across town. I will be reading it from the bottom of this stair.
-  - |-
-    He sat on the bottom step with his pen and a cigarette and his back against the rail. The press path was now a man on a stair. He was in this. Adjacent was a word for last week.
-
+- The alley door at the back of Mort's building. Two raps and the door went in before
+  the second knock landed all the way. Mort in shirtsleeves, suspenders down. He did
+  not say my name. He did not ask what was on my coat.
+- male_elder_american_wise_approachable: Down. Watch the third step from the bottom,
+    kid, the nail's been working out for a year.
+- The basement smelled of newsprint and damp stone. A cot under a bare bulb. A blanket
+  folded square on the cot — the same wool he had thrown me on his couch in October
+  when I had nowhere else to be. A flask on the cot's pillow. The same flask. He had
+  not even unscrewed the cap before he came up the stair to let me in.
+- male_elder_american_wise_approachable: Sit. Drink. Don't talk to me about it. I
+    know enough. I will know more in the morning when I read the paper, kid, and I
+    will not be reading it from across town. I will be reading it from the bottom
+    of this stair.
+- He sat on the bottom step with his pen and a cigarette and his back against the
+  rail. The press path was now a man on a stair. He was in this. Adjacent was a word
+  for last week.
 choices:
-  - text: |-
-      Sleep on the cot. Let him keep watch.
-    next: act3/morning_room
-    effects:
-      flags:
-        mort_basement_used: true
-        mort_burned: true
-      stats:
-        heat: -1
-
-  - text: |-
-      Stay up with him. Talk through what comes next.
-    next: act3/morning_room
-    effects:
-      flags:
-        mort_basement_used: true
-        mort_burned: true
-        mort_knows_full: true
-
-  - text: |-
-      Sleep an hour. Wake him. Switch.
-    next: act3/morning_room
-    effects:
-      flags:
-        mort_basement_used: true
-        mort_burned: true
+- text: Sleep on the cot. Let him keep watch.
+  next: act3/morning_room
+  effects:
+    flags:
+      mort_basement_used: true
+      mort_burned: true
+    stats:
+      heat: -1
+- text: Stay up with him. Talk through what comes next.
+  next: act3/morning_room
+  effects:
+    flags:
+      mort_basement_used: true
+      mort_burned: true
+      mort_knows_full: true
+- text: Sleep an hour. Wake him. Switch.
+  next: act3/morning_room
+  effects:
+    flags:
+      mort_basement_used: true
+      mort_burned: true

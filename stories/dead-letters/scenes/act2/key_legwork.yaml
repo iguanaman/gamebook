@@ -1,39 +1,35 @@
 id: act2/key_legwork
-
 text:
-  - |-
-    Three locksmiths in an afternoon. The first one was a kid who did not look up from a spread of pin tumblers and told me, without taking the cigarette out of his mouth, that he could not help me. The second one looked at it for a full minute and asked if I was a cop. I said no. He said good, and he could not help me anyway.
-  - |-
-    The third was an older Pole on Halsted, glasses pushed up onto a forehead that had been working with iron and brass for forty years. He took the key off my palm with the tips of his fingers like he was lifting something off a hot stove. He turned it over. He breathed on it. He set it down.
-  - |-
-    "Depot box," he said. "Public baths or the rail station. Not a house key. House keys do not have the shoulder you are looking at, here. You see this? This is so the attendant can re-cut it without taking it apart."
-  - |-
-    He pushed it back across the counter. He did not ask whose it was.
-  - |-
-    "If you find which depot," he said, "do not tell me. I have a brother."
-
+- Three locksmiths in an afternoon. The first one was a kid who did not look up from
+  a spread of pin tumblers and told me, without taking the cigarette out of his mouth,
+  that he could not help me. The second one looked at it for a full minute and asked
+  if I was a cop. I said no. He said good, and he could not help me anyway.
+- The third was an older Pole on Halsted, glasses pushed up onto a forehead that had
+  been working with iron and brass for forty years. He took the key off my palm with
+  the tips of his fingers like he was lifting something off a hot stove. He turned
+  it over. He breathed on it. He set it down.
+- '"Depot box," he said. "Public baths or the rail station. Not a house key. House
+  keys do not have the shoulder you are looking at, here. You see this? This is so
+  the attendant can re-cut it without taking it apart."'
+- He pushed it back across the counter. He did not ask whose it was.
+- '"If you find which depot," he said, "do not tell me. I have a brother."'
 choices:
-  - text: |-
-      Check the public baths first.
-    next: act2/bath_locker_dead_end
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      Check the rail station first.
-    next:
-      - scene: act2/rail_locker_close
-        weight: 2
-      - scene: act2/rail_locker_tail
-        weight: 1
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      File the lead. Take it to Aldwick — Marta might know which depot.
-    next: act2/office_hub
-    effects:
-      flags:
-        key_narrowed: true
+- text: Check the public baths first.
+  next: act2/bath_locker_dead_end
+  effects:
+    stats:
+      evidence: 1
+- text: Check the rail station first.
+  next:
+  - scene: act2/rail_locker_close
+    weight: 2
+  - scene: act2/rail_locker_tail
+    weight: 1
+  effects:
+    stats:
+      evidence: 1
+- text: File the lead. Take it to Aldwick — Marta might know which depot.
+  next: act2/office_hub
+  effects:
+    flags:
+      key_narrowed: true

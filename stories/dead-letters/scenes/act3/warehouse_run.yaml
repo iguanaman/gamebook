@@ -1,20 +1,15 @@
 id: act3/warehouse_run
-
 text:
-  - |-
-    The side door was twenty feet from where I stood. Three running steps to the corner of the Lincoln, three more to the rain in the alley behind the warehouse, and Salzano's second man between me and the dark.
-  - |-
-    I went.
-
+- The side door was twenty feet from where I stood. Three running steps to the corner
+  of the Lincoln, three more to the rain in the alley behind the warehouse, and Salzano's
+  second man between me and the dark.
+- I went.
 choices:
-  - text: |-
-      Through the alley. Hard.
-    next: act3/pavement_death
-    requires:
-      stats:
-        heat: 8
-    hide_if_failed: true
-
-  - text: |-
-      Through the alley.
-    next: act3/warehouse_escape
+- text: Through the alley. Hard.
+  next: act3/pavement_death
+  requires:
+    stats:
+      heat: 8
+  hide_if_failed: true
+- text: Through the alley.
+  next: act3/warehouse_escape

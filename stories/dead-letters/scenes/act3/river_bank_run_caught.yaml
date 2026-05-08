@@ -1,27 +1,24 @@
 id: act3/river_bank_run_caught
-
 text:
-  - |-
-    He came up out of the dark between two pilings the way a man comes up who has been standing very still and waiting. Salzano's second man. The silent one. The one who had stood in the doorway of the warehouse without speaking and had been told, at some point in the last twenty minutes, to walk the bank.
-  - |-
-    No word. No threat. He did not need to. He had a length of pipe in his right hand and an expression on his face that said he was a man being paid for the morning either way.
-  - |-
-    I went at him. There was no other thing to do.
-
+- He came up out of the dark between two pilings the way a man comes up who has been
+  standing very still and waiting. Salzano's second man. The silent one. The one who
+  had stood in the doorway of the warehouse without speaking and had been told, at
+  some point in the last twenty minutes, to walk the bank.
+- No word. No threat. He did not need to. He had a length of pipe in his right hand
+  and an expression on his face that said he was a man being paid for the morning
+  either way.
+- I went at him. There was no other thing to do.
 choices:
-  - text: |-
-      Continue.
-    next: act3/flophouse_room
-    requires:
-      stats:
-        rep: 4
-    effects:
-      stats:
-        heat: 1
-      flags:
-        wound_graze: true
-    hide_if_failed: true
-
-  - text: |-
-      Continue.
-    next: act3/pavement_death
+- text: Continue.
+  next: act3/flophouse_room
+  requires:
+    stats:
+      rep: 4
+  effects:
+    stats:
+      heat: 1
+    flags:
+      wound_graze: true
+  hide_if_failed: true
+- text: Continue.
+  next: act3/pavement_death

@@ -1,31 +1,32 @@
 id: act2/squeeze_mort_drops
-
 text:
-  - |-
-    He almost looked relieved. A man does, when somebody he respects releases him from a thing he was not going to be allowed to finish.
-  - male_elder_american_wise_approachable: |-
-      Alright, kid. Alright. Then I'll give you what I've got. Three smaller papers, three editors who'd run a story like this if Dora put it in front of them. Names in my notebook. I'll have them on your desk tomorrow.
-  - |-
-    He shook my hand at the door the way men shake hands when they are not sure they will see one another again. He left the building at five minutes past midnight.
-  - |-
-    The following Tuesday his name was not on the *Examiner* masthead. The Wednesday paper carried a paragraph in the obituary section's small-print foot — *Halloran, M., transferred to the Cleveland desk effective immediately* — the sort of paragraph the *Examiner* ran when a man had been swallowed and the paper wanted to say so without saying it. I read it twice and then put the paper down.
-
+- He almost looked relieved. A man does, when somebody he respects releases him from
+  a thing he was not going to be allowed to finish.
+- male_elder_american_wise_approachable: Alright, kid. Alright. Then I'll give you
+    what I've got. Three smaller papers, three editors who'd run a story like this
+    if Dora put it in front of them. Names in my notebook. I'll have them on your
+    desk tomorrow.
+- He shook my hand at the door the way men shake hands when they are not sure they
+  will see one another again. He left the building at five minutes past midnight.
+- The following Tuesday his name was not on the *Examiner* masthead. The Wednesday
+  paper carried a paragraph in the obituary section's small-print foot — *Halloran,
+  M., transferred to the Cleveland desk effective immediately* — the sort of paragraph
+  the *Examiner* ran when a man had been swallowed and the paper wanted to say so
+  without saying it. I read it twice and then put the paper down.
 choices:
-  - text: |-
-      Continue.
-    next: act2/kellner_diner
-    requires:
-      flags:
-        - kellner_called
-      flags_unset: [kellner_met]
-    hide_if_failed: true
-    effects:
-      flags:
-        mort_transferred: true
-
-  - text: |-
-      Continue.
-    next: act2/kellner_phone
-    effects:
-      flags:
-        mort_transferred: true
+- text: Continue.
+  next: act2/kellner_diner
+  requires:
+    flags:
+    - kellner_called
+    flags_unset:
+    - kellner_met
+  hide_if_failed: true
+  effects:
+    flags:
+      mort_transferred: true
+- text: Continue.
+  next: act2/kellner_phone
+  effects:
+    flags:
+      mort_transferred: true

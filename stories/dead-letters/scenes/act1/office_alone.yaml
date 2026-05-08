@@ -1,24 +1,25 @@
 id: act1/office_alone
-
 text:
-  - |-
-    Three nights after the funeral I didn't go to. The lamp on the desk. The bottle out of the drawer for the first time since Mort sat in the chair across from me and laughed at one of his own jokes. The chair was empty now and the joke wasn't funny.
-  - |-
-    The retainer envelope was where Vera had laid it on a wet Tuesday. I had not opened it. I had not banked it. The smell of her coat was long gone but the envelope still sat the way she had set it down — square to the edge of the desk, like a woman who had practised the motion in front of a mirror.
-  - |-
-    Beside it: the slip of carbon with ALDWICK on it in a clerk's hand who would spend the rest of his life pretending he hadn't written it. The key, if she had given it to me. The empty frame, if I had taken it. Whatever I had. Whatever I didn't.
-  - |-
-    The city wanted me to put the envelope in a drawer and pretend Tuesday hadn't happened. The city wanted that the way the city wants the trains to run — as a matter of administration, not malice. The city was very patient about wanting things.
-
+- Three nights after the funeral I didn't go to. The lamp on the desk. The bottle
+  out of the drawer for the first time since Mort sat in the chair across from me
+  and laughed at one of his own jokes. The chair was empty now and the joke wasn't
+  funny.
+- The retainer envelope was where Vera had laid it on a wet Tuesday. I had not opened
+  it. I had not banked it. The smell of her coat was long gone but the envelope still
+  sat the way she had set it down — square to the edge of the desk, like a woman who
+  had practised the motion in front of a mirror.
+- 'Beside it: the slip of carbon with ALDWICK on it in a clerk''s hand who would spend
+  the rest of his life pretending he hadn''t written it. The key, if she had given
+  it to me. The empty frame, if I had taken it. Whatever I had. Whatever I didn''t.'
+- The city wanted me to put the envelope in a drawer and pretend Tuesday hadn't happened.
+  The city wanted that the way the city wants the trains to run — as a matter of administration,
+  not malice. The city was very patient about wanting things.
 choices:
-  - text: |-
-      Sit with it. Pour one and let it cool. Make the decision tonight.
-    next: act1/crossroads
-
-  - text: |-
-      Sit with it. Don't pour. Make the decision sober and live with it sober.
-    next: act1/crossroads
-
-  - text: |-
-      Sit with it. Lay the pieces out on the desk in the order they came. Make the decision the way you'd write the report — only this time, with you as the man in the chair.
-    next: act1/crossroads
+- text: Sit with it. Pour one and let it cool. Make the decision tonight.
+  next: act1/crossroads
+- text: Sit with it. Don't pour. Make the decision sober and live with it sober.
+  next: act1/crossroads
+- text: Sit with it. Lay the pieces out on the desk in the order they came. Make the
+    decision the way you'd write the report — only this time, with you as the man
+    in the chair.
+  next: act1/crossroads

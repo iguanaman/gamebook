@@ -1,39 +1,32 @@
 id: act2/church_hall_meeting
-
 text:
-  - |-
-    A meeting in progress. Chairs in a half-circle. A coffee urn on a folding table at the back. Twenty residents of three different ages who all looked up when my shadow fell in the doorway.
-  - |-
-    A woman at the lectern with a school exercise book open in front of her. Plain dress. A pencil tucked behind one ear. Marta Gaines — I knew the name from a column Mort had run six months ago and never followed up.
-  - |-
-    A man at the back wall in a clerical collar slightly crooked. A folding chair beside him he had not yet sat in. He saw me before Marta did and his face did not change.
-  - |-
-    The room was waiting on me to be one of three things and waiting on Marta to tell them which.
-
+- A meeting in progress. Chairs in a half-circle. A coffee urn on a folding table
+  at the back. Twenty residents of three different ages who all looked up when my
+  shadow fell in the doorway.
+- A woman at the lectern with a school exercise book open in front of her. Plain dress.
+  A pencil tucked behind one ear. Marta Gaines — I knew the name from a column Mort
+  had run six months ago and never followed up.
+- A man at the back wall in a clerical collar slightly crooked. A folding chair beside
+  him he had not yet sat in. He saw me before Marta did and his face did not change.
+- The room was waiting on me to be one of three things and waiting on Marta to tell
+  them which.
 choices:
-  - text: |-
-      Introduce yourself plainly: Frank Cady, private detective, asking after a city surveyor named Doss.
-    next: act2/marta_intro_honest
-
-  - text: |-
-      Lead with Vera — say her name; you were hired by his wife.
-    next: act2/marta_intro_vera
-    requires:
-      flags:
-        - vera_trusted_frank
-    failed_text: |-
-      *(You don't have the standing to use her name here.)*
-
-  - text: |-
-      Pretend to be a cop. They're more likely to talk to a badge.
-    next: act2/marta_intro_cop
-    effects:
-      flags:
-        aldwick_lied_cop: true
-
-  - text: |-
-      Stand at the back. Listen. Speak after the meeting.
-    next: act2/marta_intro_listen
-    effects:
-      stats:
-        rep: 1
+- text: 'Introduce yourself plainly: Frank Cady, private detective, asking after a
+    city surveyor named Doss.'
+  next: act2/marta_intro_honest
+- text: Lead with Vera — say her name; you were hired by his wife.
+  next: act2/marta_intro_vera
+  requires:
+    flags:
+    - vera_trusted_frank
+  failed_text: '*(You don''t have the standing to use her name here.)*'
+- text: Pretend to be a cop. They're more likely to talk to a badge.
+  next: act2/marta_intro_cop
+  effects:
+    flags:
+      aldwick_lied_cop: true
+- text: Stand at the back. Listen. Speak after the meeting.
+  next: act2/marta_intro_listen
+  effects:
+    stats:
+      rep: 1

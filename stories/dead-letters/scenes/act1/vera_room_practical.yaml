@@ -1,39 +1,34 @@
 id: act1/vera_room_practical
-
 text:
-  - |-
-    You don't answer her question. You ask one of your own — Ray's habits, his hiding places, the corners of his life he didn't bring through the front door.
-  - |-
-    She watches you not answer. The hand stays in the pocket. After a moment, she gives you what you asked for instead of what she wanted.
-  - female_adult_american_gentle_tender_sweet: |-
-      There's a locker. The public baths on Halsted. He kept things there he didn't bring home. Work clothes, mostly. Sometimes papers. He never told me what.
-  - |-
-    She does not give you a key. The hand stays in the pocket and the key stays with it. You changed the subject and she heard you change it and the door between the two of you closed without either of you touching it.
-
+- You don't answer her question. You ask one of your own — Ray's habits, his hiding
+  places, the corners of his life he didn't bring through the front door.
+- She watches you not answer. The hand stays in the pocket. After a moment, she gives
+  you what you asked for instead of what she wanted.
+- female_adult_american_gentle_tender_sweet: There's a locker. The public baths on
+    Halsted. He kept things there he didn't bring home. Work clothes, mostly. Sometimes
+    papers. He never told me what.
+- She does not give you a key. The hand stays in the pocket and the key stays with
+  it. You changed the subject and she heard you change it and the door between the
+  two of you closed without either of you touching it.
 choices:
-  - text: |-
-      Thank her for the address. Get up to leave.
-    next: act1/vera_visit_exit
-    effects:
-      flags:
-        red_herring_locker: true
-      stats:
-        evidence: 1
-
-  - text: |-
-      Write the locker number down where she can see you write it. Make it businesslike.
-    next: act1/vera_visit_exit
-    effects:
-      flags:
-        red_herring_locker: true
-      stats:
-        evidence: 1
-
-  - text: |-
-      Don't write anything. Just nod and stand.
-    next: act1/vera_visit_exit
-    effects:
-      flags:
-        red_herring_locker: true
-      stats:
-        evidence: 1
+- text: Thank her for the address. Get up to leave.
+  next: act1/vera_visit_exit
+  effects:
+    flags:
+      red_herring_locker: true
+    stats:
+      evidence: 1
+- text: Write the locker number down where she can see you write it. Make it businesslike.
+  next: act1/vera_visit_exit
+  effects:
+    flags:
+      red_herring_locker: true
+    stats:
+      evidence: 1
+- text: Don't write anything. Just nod and stand.
+  next: act1/vera_visit_exit
+  effects:
+    flags:
+      red_herring_locker: true
+    stats:
+      evidence: 1

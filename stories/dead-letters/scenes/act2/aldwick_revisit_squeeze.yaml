@@ -1,32 +1,26 @@
 id: act2/aldwick_revisit_squeeze
-
 text:
-  - |-
-    I came past Reuben into Marta's kitchen. The exercise book was gone. The condemnation notice was on the table, folded, the creases gone soft from too many openings.
-  - |-
-    Reuben stood in the doorway behind me. He did not move me out and he did not invite me to stay. There was nothing in the room I could take that did not cost him more than it cost me.
-
+- I came past Reuben into Marta's kitchen. The exercise book was gone. The condemnation
+  notice was on the table, folded, the creases gone soft from too many openings.
+- Reuben stood in the doorway behind me. He did not move me out and he did not invite
+  me to stay. There was nothing in the room I could take that did not cost him more
+  than it cost me.
 choices:
-  - text: |-
-      Apologise. Walk out the way you came.
-    next: act2/aldwick_exit
-    effects:
-      stats:
-        rep: -1
-
-  - text: |-
-      Take the condemnation notice. Reuben can ask for it back.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        condemnation_notice_taken: true
-      stats:
-        evidence: 1
-        rep: -2
-
-  - text: |-
-      Leave the notice. Leave the kitchen. Don't come back.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        aldwick_burned: true
+- text: Apologise. Walk out the way you came.
+  next: act2/aldwick_exit
+  effects:
+    stats:
+      rep: -1
+- text: Take the condemnation notice. Reuben can ask for it back.
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      condemnation_notice_taken: true
+    stats:
+      evidence: 1
+      rep: -2
+- text: Leave the notice. Leave the kitchen. Don't come back.
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      aldwick_burned: true

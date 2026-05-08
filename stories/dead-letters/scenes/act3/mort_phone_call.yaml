@@ -1,31 +1,23 @@
 id: act3/mort_phone_call
-
 text:
-  - |-
-    The booth on Ninth. Glass scratched up by people who had needed to leave a name somewhere. The receiver still warm from the last man who had used it.
-  - |-
-    Mort picked up before the second ring.
-  - male_elder_american_wise_approachable: |-
-      Kid. You don't have to keep that meet.
-  - |-
-    He was not joking. Mort was always joking. The not-joking was the thing.
-  - male_elder_american_wise_approachable: |-
-      There's a couch in my back room. Smells like a press but it's a couch. I have never offered it to anyone, kid, and I am offering it to you. You hear me?
-  - |-
-    He had worked it out. Who Walt was, what tonight was. He was not going to say it on a line that ran through six exchanges and a switchboard and a girl with her ear pressed to a panel.
-
+- The booth on Ninth. Glass scratched up by people who had needed to leave a name
+  somewhere. The receiver still warm from the last man who had used it.
+- Mort picked up before the second ring.
+- male_elder_american_wise_approachable: Kid. You don't have to keep that meet.
+- He was not joking. Mort was always joking. The not-joking was the thing.
+- male_elder_american_wise_approachable: There's a couch in my back room. Smells like
+    a press but it's a couch. I have never offered it to anyone, kid, and I am offering
+    it to you. You hear me?
+- He had worked it out. Who Walt was, what tonight was. He was not going to say it
+  on a line that ran through six exchanges and a switchboard and a girl with her ear
+  pressed to a panel.
 choices:
-  - text: |-
-      Tell him you're keeping the meet anyway.
-    next: act3/drive_river_arrive
-
-  - text: |-
-      Thank him. Hang up. Drive on.
-    next: act3/drive_river_arrive
-
-  - text: |-
-      Ask him to write a name on a card and put it in his desk in case.
-    next: act3/drive_river_arrive
-    effects:
-      flags:
-        mort_holds_card: true
+- text: Tell him you're keeping the meet anyway.
+  next: act3/drive_river_arrive
+- text: Thank him. Hang up. Drive on.
+  next: act3/drive_river_arrive
+- text: Ask him to write a name on a card and put it in his desk in case.
+  next: act3/drive_river_arrive
+  effects:
+    flags:
+      mort_holds_card: true

@@ -1,33 +1,31 @@
 id: act1/iron_lung_door
-
 text:
-  - |-
-    The Iron Lung sat under a tailor's shop on a side street nobody walked unless they lived on it. Half-full at four in the afternoon. Spilled stout and old radiator steam, in roughly that order.
-  - |-
-    Lou Mancuso had the towel over his shoulder and the look of a man who had been pouring the same drinks for the same faces since before the war. He didn't glance up when I came in. He had already glanced up when I was still on the stair.
-  - |-
-    A man at the end of the bar was watching the door. Mid-thirties. A glass in front of him he hadn't touched. He didn't watch me come in — he watched the doorway behind me, in case somebody else was coming through it.
-
+- The Iron Lung sat under a tailor's shop on a side street nobody walked unless they
+  lived on it. Half-full at four in the afternoon. Spilled stout and old radiator
+  steam, in roughly that order.
+- Lou Mancuso had the towel over his shoulder and the look of a man who had been pouring
+  the same drinks for the same faces since before the war. He didn't glance up when
+  I came in. He had already glanced up when I was still on the stair.
+- A man at the end of the bar was watching the door. Mid-thirties. A glass in front
+  of him he hadn't touched. He didn't watch me come in — he watched the doorway behind
+  me, in case somebody else was coming through it.
 choices:
-  - text: |-
-      Take the stool nearest Lou. Make this a conversation between two men.
-    next: act1/iron_lung_lou
-    effects:
-      flags:
-        visited_iron_lung: true
-
-  - text: |-
-      Slide into the booth in the corner. From there you can see the man at the end of the bar without having to look at him.
-    next: act1/iron_lung_watch
-    effects:
-      flags:
-        visited_iron_lung: true
-
-  - text: |-
-      Walk the length of the bar. Order neat at the end, right next to the man with the untouched drink.
-    next: act1/iron_lung_eavesdropper
-    effects:
-      flags:
-        visited_iron_lung: true
-      stats:
-        heat: 1
+- text: Take the stool nearest Lou. Make this a conversation between two men.
+  next: act1/iron_lung_lou
+  effects:
+    flags:
+      visited_iron_lung: true
+- text: Slide into the booth in the corner. From there you can see the man at the
+    end of the bar without having to look at him.
+  next: act1/iron_lung_watch
+  effects:
+    flags:
+      visited_iron_lung: true
+- text: Walk the length of the bar. Order neat at the end, right next to the man with
+    the untouched drink.
+  next: act1/iron_lung_eavesdropper
+  effects:
+    flags:
+      visited_iron_lung: true
+    stats:
+      heat: 1

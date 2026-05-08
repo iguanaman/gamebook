@@ -1,32 +1,30 @@
 id: act1/iron_lung_watch
-
 text:
-  - |-
-    The booth gave me an angle on him without asking him to give me anything back. Mid-thirties. The cut of the jacket was money the bar didn't see often. He took the beer Lou pulled him and set it down full and never picked it up again.
-  - |-
-    English in the vowels when he said his thanks — clipped, polished, no idiom in it. A small white scar through the upper lip that he touched once, lightly, with the side of his thumb. He was amused by something. I wasn't in on the joke.
-  - |-
-    He hadn't looked at me yet. He hadn't looked at the door in three minutes either. He was waiting for me to make the next move and he was prepared to wait longer than I was.
-
+- The booth gave me an angle on him without asking him to give me anything back. Mid-thirties.
+  The cut of the jacket was money the bar didn't see often. He took the beer Lou pulled
+  him and set it down full and never picked it up again.
+- English in the vowels when he said his thanks — clipped, polished, no idiom in it.
+  A small white scar through the upper lip that he touched once, lightly, with the
+  side of his thumb. He was amused by something. I wasn't in on the joke.
+- He hadn't looked at me yet. He hadn't looked at the door in three minutes either.
+  He was waiting for me to make the next move and he was prepared to wait longer than
+  I was.
 choices:
-  - text: |-
-      Get up casually. Pay your tab. Tail him out the door when he leaves — and bet he leaves soon.
-    next: act1/iron_lung_tail
-    effects:
-      stats:
-        heat: 1
-
-  - text: |-
-      Hold the booth. Wait him out. Let his patience break before yours does.
-    next:
-      - scene: act1/iron_lung_he_leaves
-        weight: 2
-      - scene: act1/iron_lung_he_stays
-        weight: 1
-
-  - text: |-
-      Cross to the bar. Start a conversation with Lou about Ray loud enough that the man at the end of it has to listen.
-    next: act1/iron_lung_lou
-    effects:
-      stats:
-        heat: 1
+- text: Get up casually. Pay your tab. Tail him out the door when he leaves — and
+    bet he leaves soon.
+  next: act1/iron_lung_tail
+  effects:
+    stats:
+      heat: 1
+- text: Hold the booth. Wait him out. Let his patience break before yours does.
+  next:
+  - scene: act1/iron_lung_he_leaves
+    weight: 2
+  - scene: act1/iron_lung_he_stays
+    weight: 1
+- text: Cross to the bar. Start a conversation with Lou about Ray loud enough that
+    the man at the end of it has to listen.
+  next: act1/iron_lung_lou
+  effects:
+    stats:
+      heat: 1

@@ -1,35 +1,31 @@
 id: act1/brennan_doorstep
-
 text:
-  - |-
-    I stood on the stoop and let the uniform at the door pretend I wasn't there. It took Brennan four minutes to come down. He came down slower than he needed to. He wanted me to count them.
-  - male_midlife_american_dark_tough: |-
-      Mrs. Doss slipped in the bath. Hit her head. Coroner is a formality. The case is closed before it opened. You can write that in your little notebook and go home.
-  - |-
-    He delivered it the way a man reads a wire he didn't write. The cadence wasn't his. Even the words weren't quite — *coroner is a formality* is an attorney's phrase, not a homicide sergeant's.
-  - male_midlife_american_dark_tough: |-
-      You hearing me, Cady.
-  - |-
-    I was hearing him. I was hearing the script underneath him.
-
+- I stood on the stoop and let the uniform at the door pretend I wasn't there. It
+  took Brennan four minutes to come down. He came down slower than he needed to. He
+  wanted me to count them.
+- male_midlife_american_dark_tough: Mrs. Doss slipped in the bath. Hit her head. Coroner
+    is a formality. The case is closed before it opened. You can write that in your
+    little notebook and go home.
+- He delivered it the way a man reads a wire he didn't write. The cadence wasn't his.
+  Even the words weren't quite — *coroner is a formality* is an attorney's phrase,
+  not a homicide sergeant's.
+- male_midlife_american_dark_tough: You hearing me, Cady.
+- I was hearing him. I was hearing the script underneath him.
 choices:
-  - text: |-
-      Push back gently. Ask when the call came in. Ask it like you're filling in a form.
-    next: act1/brennan_throws_out
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      Push back hard. Tell him it sounds rehearsed. Tell him whose script it is.
-    next: act1/brennan_throws_out
-    effects:
-      stats:
-        heat: 2
-        evidence: 1
-      flags:
-        cops_warned_off: true
-
-  - text: |-
-      Don't push at all. Nod. Take the line. Let him file you as a man who took the line.
-    next: act1/brennan_throws_out
+- text: Push back gently. Ask when the call came in. Ask it like you're filling in
+    a form.
+  next: act1/brennan_throws_out
+  effects:
+    stats:
+      evidence: 1
+- text: Push back hard. Tell him it sounds rehearsed. Tell him whose script it is.
+  next: act1/brennan_throws_out
+  effects:
+    stats:
+      heat: 2
+      evidence: 1
+    flags:
+      cops_warned_off: true
+- text: Don't push at all. Nod. Take the line. Let him file you as a man who took
+    the line.
+  next: act1/brennan_throws_out

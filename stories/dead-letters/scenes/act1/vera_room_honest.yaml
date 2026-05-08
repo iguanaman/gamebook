@@ -1,36 +1,34 @@
 id: act1/vera_room_honest
-
 text:
-  - |-
-    You tell her you don't know. You tell her the parts you do know don't add up to alive and don't add up to the other thing either. You tell her you are sorry there isn't a kinder answer.
-  - |-
-    She takes that for what it is. Her hand comes out of the pocket. There is a key in it — flat, brass, no fob, no number. She sets it on the table between you.
-  - female_adult_american_gentle_tender_sweet: |-
-      He gave me this on Friday morning. He didn't say what it opened. He said if anything happened I should give it to a man who told me the truth.
-  - |-
-    She does not say *the truth about what.* She does not have to.
-  - if: {flags: [vera_guarded]}
-    text: |-
-      She watches your hand on the key longer than she needs to. The press in your office is between you and the way she looks at you now.
-
+- You tell her you don't know. You tell her the parts you do know don't add up to
+  alive and don't add up to the other thing either. You tell her you are sorry there
+  isn't a kinder answer.
+- She takes that for what it is. Her hand comes out of the pocket. There is a key
+  in it — flat, brass, no fob, no number. She sets it on the table between you.
+- female_adult_american_gentle_tender_sweet: He gave me this on Friday morning. He
+    didn't say what it opened. He said if anything happened I should give it to a
+    man who told me the truth.
+- She does not say *the truth about what.* She does not have to.
+- if:
+    flags:
+    - vera_guarded
+  text: She watches your hand on the key longer than she needs to. The press in your
+    office is between you and the way she looks at you now.
 choices:
-  - text: |-
-      Take the key. Promise to bring it back.
-    next: act1/vera_visit_exit
-    effects:
-      flags:
-        ray_key_kept: true
-        vera_trusted_frank: true
-      stats:
-        evidence: 1
-        rep: 1
-
-  - text: |-
-      Take the key. Don't promise anything you can't keep.
-    next: act1/vera_visit_exit
-    effects:
-      flags:
-        ray_key_kept: true
-        vera_trusted_frank: true
-      stats:
-        evidence: 1
+- text: Take the key. Promise to bring it back.
+  next: act1/vera_visit_exit
+  effects:
+    flags:
+      ray_key_kept: true
+      vera_trusted_frank: true
+    stats:
+      evidence: 1
+      rep: 1
+- text: Take the key. Don't promise anything you can't keep.
+  next: act1/vera_visit_exit
+  effects:
+    flags:
+      ray_key_kept: true
+      vera_trusted_frank: true
+    stats:
+      evidence: 1

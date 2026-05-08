@@ -1,46 +1,46 @@
 id: act2/hallway_call
-
 text:
-  - |-
-    The lamp on. The notebook on the desk where I had put it down two hours before and not picked up since. Or its photograph. Or the two torn pages I had carried out of a back room in Aldwick wrapped in newsprint. Or none of it — a desk with a desk lamp and a man behind it who knew the shape of a thing he could not prove.
-  - |-
-    The phone rang. I let it ring twice. I had been letting things ring twice all week to find out who would let it ring three times.
-  - male_midlife_american_rich_smooth_rugged: |-
-      Cady. It's Walt.
-  - |-
-    The same warmth. The same warmth he had used on the phone in Beat 7 and at the diner counter and ten years ago in a hallway I had walked out of without understanding why I was walking out of it.
-  - male_midlife_american_rich_smooth_rugged: |-
-      I hear you have the book. I'd like to talk about that. Pier 14. The warehouse with the green door. One in the morning. Alone, Cady. I mean alone. This is the conversation we should have had a week ago.
-  - |-
-    The line clicked off before I could agree or disagree. He had not asked. He had told me where I was going to be at one in the morning, and the part where I agreed was a courtesy he was extending because we had once been friends.
-  - |-
-    The clock on the wall said quarter past eleven. The gun in the drawer said what it always said.
-
+- The lamp on. The notebook on the desk where I had put it down two hours before and
+  not picked up since. Or its photograph. Or the two torn pages I had carried out
+  of a back room in Aldwick wrapped in newsprint. Or none of it — a desk with a desk
+  lamp and a man behind it who knew the shape of a thing he could not prove.
+- The phone rang. I let it ring twice. I had been letting things ring twice all week
+  to find out who would let it ring three times.
+- male_midlife_american_rich_smooth_rugged: Cady. It's Walt.
+- The same warmth. The same warmth he had used on the phone in Beat 7 and at the diner
+  counter and ten years ago in a hallway I had walked out of without understanding
+  why I was walking out of it.
+- male_midlife_american_rich_smooth_rugged: I hear you have the book. I'd like to
+    talk about that. Pier 14. The warehouse with the green door. One in the morning.
+    Alone, Cady. I mean alone. This is the conversation we should have had a week
+    ago.
+- The line clicked off before I could agree or disagree. He had not asked. He had
+  told me where I was going to be at one in the morning, and the part where I agreed
+  was a courtesy he was extending because we had once been friends.
+- The clock on the wall said quarter past eleven. The gun in the drawer said what
+  it always said.
 choices:
-  - text: |-
-      Agree to it in your head. Hang up the receiver. Take the gun out of the drawer.
-    next: act2/hallway_commit
-
-  - text: |-
-      Agree to it in your head. Walk to Mort's first. Leave the parcel where someone will find it if you don't come back.
-    next: act2/hallway_commit_with_note
-    requires:
-      flags:
-        - mort_owes_one
-      flags_unset: [left_package, left_package_refused]
-    failed_text: |-
-      *(Mort's not a hand you have to play; or the package is already mailed; or there's nothing left to write.)*
-
-  - text: |-
-      Agree to it in your head. Take the long way to Pier 14. Through the alley. Past the rail yard. Where they cannot see you coming.
-    next: act2/hallway_commit
-    effects:
-      flags:
-        frank_took_long_way: true
-
-  - text: |-
-      Tell him no. Hang up. Put the lamp out. Walk away from all of it.
-    next: act2/act_2_bury_it_late
-    effects:
-      flags:
-        bury_it_late: true
+- text: Agree to it in your head. Hang up the receiver. Take the gun out of the drawer.
+  next: act2/hallway_commit
+- text: Agree to it in your head. Walk to Mort's first. Leave the parcel where someone
+    will find it if you don't come back.
+  next: act2/hallway_commit_with_note
+  requires:
+    flags:
+    - mort_owes_one
+    flags_unset:
+    - left_package
+    - left_package_refused
+  failed_text: '*(Mort''s not a hand you have to play; or the package is already mailed;
+    or there''s nothing left to write.)*'
+- text: Agree to it in your head. Take the long way to Pier 14. Through the alley.
+    Past the rail yard. Where they cannot see you coming.
+  next: act2/hallway_commit
+  effects:
+    flags:
+      frank_took_long_way: true
+- text: Tell him no. Hang up. Put the lamp out. Walk away from all of it.
+  next: act2/act_2_bury_it_late
+  effects:
+    flags:
+      bury_it_late: true

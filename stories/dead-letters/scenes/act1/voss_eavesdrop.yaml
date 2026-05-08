@@ -1,24 +1,22 @@
 id: act1/voss_eavesdrop
-
 text:
-  - |-
-    I shook his hand at the threshold and made a show of pulling the door shut behind me, except I didn't. The latch caught on the strike-plate the way a latch catches when somebody who has done this before lets it. I stood with my back to the wall and my hat in my hand and I listened.
-  - |-
-    The receiver came up. The dial spun three times — short numbers, a city exchange. Then his voice, not for me.
-  - male_adult_british_clear_posh_heartfelt: |-
-      It's Cady. Yes. Now.
-  - |-
-    Two words and my name. He hadn't asked who he was speaking to. He hadn't introduced himself. He had a number that picked up, and the man on the other end already knew who *Cady* was.
-  - |-
-    I was three steps down the corridor before the call ended.
-
+- I shook his hand at the threshold and made a show of pulling the door shut behind
+  me, except I didn't. The latch caught on the strike-plate the way a latch catches
+  when somebody who has done this before lets it. I stood with my back to the wall
+  and my hat in my hand and I listened.
+- The receiver came up. The dial spun three times — short numbers, a city exchange.
+  Then his voice, not for me.
+- male_adult_british_clear_posh_heartfelt: It's Cady. Yes. Now.
+- Two words and my name. He hadn't asked who he was speaking to. He hadn't introduced
+  himself. He had a number that picked up, and the man on the other end already knew
+  who *Cady* was.
+- I was three steps down the corridor before the call ended.
 choices:
-  - text: |-
-      Continue.
-    next: act1/engineers_corridor
-    effects:
-      flags:
-        cops_warned_off: true
-      stats:
-        heat: 1
-        evidence: 2
+- text: Continue.
+  next: act1/engineers_corridor
+  effects:
+    flags:
+      cops_warned_off: true
+    stats:
+      heat: 1
+      evidence: 2

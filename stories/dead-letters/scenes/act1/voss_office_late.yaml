@@ -1,54 +1,50 @@
 id: act1/voss_office_late
-
 text:
-  - |-
-    The walk past the desk had got me to the wrong elevator and a clerk who took me back down to the lobby with a smile so thin I could read through it. By the time I made it back up I had been logged, timed, and mentioned. The secretary in front of Voss's office was a frostier model than the one in the lobby. She did not offer me the green bench. She offered me a wooden chair against a radiator that was not turned on.
-  - |-
-    Forty more minutes. When she finally walked me in, Voss was already polishing his spectacles, and he did not stand.
-  - male_adult_british_clear_posh_heartfelt: |-
-      Mr. Cady. I gather you preferred the scenic route. Tea, all the same?
-  - |-
-    He poured. He set the cup down two inches from my hand. He did not apologise for the wait. *One does what one can*, he said again, the way a man says it when he has already said it once today to somebody else.
-  - |-
-    I had started on the back foot. I would have to play the rest of the conversation from there.
-
+- The walk past the desk had got me to the wrong elevator and a clerk who took me
+  back down to the lobby with a smile so thin I could read through it. By the time
+  I made it back up I had been logged, timed, and mentioned. The secretary in front
+  of Voss's office was a frostier model than the one in the lobby. She did not offer
+  me the green bench. She offered me a wooden chair against a radiator that was not
+  turned on.
+- Forty more minutes. When she finally walked me in, Voss was already polishing his
+  spectacles, and he did not stand.
+- male_adult_british_clear_posh_heartfelt: Mr. Cady. I gather you preferred the scenic
+    route. Tea, all the same?
+- He poured. He set the cup down two inches from my hand. He did not apologise for
+  the wait. *One does what one can*, he said again, the way a man says it when he
+  has already said it once today to somebody else.
+- I had started on the back foot. I would have to play the rest of the conversation
+  from there.
 choices:
-  - text: |-
-      Friendly bluff. Take the bad start and warm the room anyway.
-    next: act1/voss_soft
-    effects:
-      stats:
-        rep: -1
-
-  - text: |-
-      Polite directness. Ask about Ray's last week. Take the cold seat and the cold tea both.
-    next: act1/voss_soft
-    effects:
-      stats:
-        rep: -1
-
-  - text: |-
-      Pressure him. Say *Aldwick* to his face and watch what it does to him.
-    next: act1/voss_hard
-    requires:
-      flags:
-        - aldwick_visited
-    hide_if_failed: true
-    effects:
-      stats:
-        rep: -1
-
-  - text: |-
-      Pressure him. Press on the missing files. Make him say *in transit* once more.
-    next: act1/voss_hard
-    effects:
-      stats:
-        rep: -1
-
-  - text: |-
-      Make a show of leaving. Stop in the corridor with the door not quite shut. Listen.
-    next: act1/voss_eavesdrop
-    effects:
-      stats:
-        heat: 1
-        rep: -1
+- text: Friendly bluff. Take the bad start and warm the room anyway.
+  next: act1/voss_soft
+  effects:
+    stats:
+      rep: -1
+- text: Polite directness. Ask about Ray's last week. Take the cold seat and the cold
+    tea both.
+  next: act1/voss_soft
+  effects:
+    stats:
+      rep: -1
+- text: Pressure him. Say *Aldwick* to his face and watch what it does to him.
+  next: act1/voss_hard
+  requires:
+    flags:
+    - aldwick_visited
+  hide_if_failed: true
+  effects:
+    stats:
+      rep: -1
+- text: Pressure him. Press on the missing files. Make him say *in transit* once more.
+  next: act1/voss_hard
+  effects:
+    stats:
+      rep: -1
+- text: Make a show of leaving. Stop in the corridor with the door not quite shut.
+    Listen.
+  next: act1/voss_eavesdrop
+  effects:
+    stats:
+      heat: 1
+      rep: -1

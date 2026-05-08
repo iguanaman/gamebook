@@ -1,10 +1,7 @@
 id: act2/neighbour_refuses
-
 text:
-  - |-
-    She closed the door before my mouth opened for the next sentence. The bolt went home behind it.
-
+- She closed the door before my mouth opened for the next sentence. The bolt went
+  home behind it.
 choices:
-  - text: |-
-      Continue.
-    next: act2/aldwick_exit
+- text: Continue.
+  next: act2/aldwick_exit

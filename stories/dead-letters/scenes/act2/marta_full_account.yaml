@@ -1,44 +1,40 @@
 id: act2/marta_full_account
-
 text:
-  - |-
-    Marta opened the exercise book. Read dates. Read three of them and waited for me to write them down.
-  - female_midlife_african-american_casual_opinionated: |-
-      Ray came to me in February. He said *if anything happens to me, watch the back room of the garage on Lemoine. Side door. The man who has the key keeps it on a nail behind the till at the diner across the street.* He said it twice. He said it the second time slower.
-  - |-
-    She did not read the address. She wrote it on a torn corner of the exercise book and slid it across the table.
-  - female_midlife_african-american_casual_opinionated: |-
-      He gave it to me because he did not have anyone else to give it to. I am giving it to you because the alternative is that he died for nothing.
-  - |-
-    Reuben at the back door turned a page he had not read.
-
+- Marta opened the exercise book. Read dates. Read three of them and waited for me
+  to write them down.
+- female_midlife_african-american_casual_opinionated: Ray came to me in February.
+    He said *if anything happens to me, watch the back room of the garage on Lemoine.
+    Side door. The man who has the key keeps it on a nail behind the till at the diner
+    across the street.* He said it twice. He said it the second time slower.
+- She did not read the address. She wrote it on a torn corner of the exercise book
+  and slid it across the table.
+- female_midlife_african-american_casual_opinionated: He gave it to me because he
+    did not have anyone else to give it to. I am giving it to you because the alternative
+    is that he died for nothing.
+- Reuben at the back door turned a page he had not read.
 choices:
-  - text: |-
-      Take it down. Promise her you won't burn the address into the wrong notebook.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        marta_talked: true
-      stats:
-        evidence: 2
-        rep: 1
-
-  - text: |-
-      Take it down. Don't promise anything you can't keep.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        marta_talked: true
-      stats:
-        evidence: 2
-
-  - text: |-
-      Tell her: if I don't come back, this address goes to a journalist named Reyes.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        marta_talked: true
-        marta_warned: true
-      stats:
-        evidence: 2
-        rep: 1
+- text: Take it down. Promise her you won't burn the address into the wrong notebook.
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      marta_talked: true
+    stats:
+      evidence: 2
+      rep: 1
+- text: Take it down. Don't promise anything you can't keep.
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      marta_talked: true
+    stats:
+      evidence: 2
+- text: 'Tell her: if I don''t come back, this address goes to a journalist named
+    Reyes.'
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      marta_talked: true
+      marta_warned: true
+    stats:
+      evidence: 2
+      rep: 1

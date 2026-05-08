@@ -1,37 +1,28 @@
 id: act1/vera_room
-
 text:
-  - |-
-    Vera is at the table by the window with her back to the door. The wedding band turning on her finger, slow, a thing her hands do without her.
-  - |-
-    She has lost weight in four days. The good coat is on the bed instead of on the hook.
-  - female_adult_american_gentle_tender_sweet: |-
-      Mr. Cady. You came. I'm sorry — I was going to telephone. I keep meaning to and then I don't.
-  - |-
-    She doesn't look at you. She looks at the street. Below the window, a brown sedan is parked across from the boarding house. You did not see it on the way in.
-  - female_adult_american_gentle_tender_sweet: |-
-      Do you think he's still alive? You don't have to answer kindly. Please. I would rather you didn't.
-  - |-
-    Her hand on the table closes around something in her pocket and doesn't bring it out.
-
+- Vera is at the table by the window with her back to the door. The wedding band turning
+  on her finger, slow, a thing her hands do without her.
+- She has lost weight in four days. The good coat is on the bed instead of on the
+  hook.
+- female_adult_american_gentle_tender_sweet: Mr. Cady. You came. I'm sorry — I was
+    going to telephone. I keep meaning to and then I don't.
+- She doesn't look at you. She looks at the street. Below the window, a brown sedan
+  is parked across from the boarding house. You did not see it on the way in.
+- female_adult_american_gentle_tender_sweet: Do you think he's still alive? You don't
+    have to answer kindly. Please. I would rather you didn't.
+- Her hand on the table closes around something in her pocket and doesn't bring it
+  out.
 choices:
-  - text: |-
-      Tell her honestly: you don't know if Ray is alive.
-    next: act1/vera_room_honest
-
-  - text: |-
-      Tell her kindly: you'll bring him home.
-    next: act1/vera_room_kind_lie
-
-  - text: |-
-      Change the subject. Ask about Ray's habits. Where he hid things.
-    next: act1/vera_room_practical
-
-  - text: |-
-      Tell her what you saw. The eavesdropper. The phone call from Voss's office.
-    next: act1/vera_room_warn
-    requires:
-      stats:
-        evidence: 2
-    failed_text: |-
-      *(You don't have enough yet to tell her what's circling. Not without sounding like you're guessing.)*
+- text: 'Tell her honestly: you don''t know if Ray is alive.'
+  next: act1/vera_room_honest
+- text: 'Tell her kindly: you''ll bring him home.'
+  next: act1/vera_room_kind_lie
+- text: Change the subject. Ask about Ray's habits. Where he hid things.
+  next: act1/vera_room_practical
+- text: Tell her what you saw. The eavesdropper. The phone call from Voss's office.
+  next: act1/vera_room_warn
+  requires:
+    stats:
+      evidence: 2
+  failed_text: '*(You don''t have enough yet to tell her what''s circling. Not without
+    sounding like you''re guessing.)*'

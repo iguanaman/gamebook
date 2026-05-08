@@ -1,23 +1,24 @@
 id: act2/package_mailed_insured
-
 text:
-  - |-
-    Hettie laid a carbon form on the counter and copied the addresses twice in a hand that had not changed since the war before the last one. She stamped the carbon and tore it along the perforation.
-  - female_elder_american_relatable_likeable: |-
-      Insurance is twenty cents up to fifty dollars' value, dear. You want to declare the value?
-  - |-
-    I told her ten dollars. She wrote *$10* in the box for declared value and did not ask me what was in the parcel. She had not asked anyone what was in a parcel since 1934 and she was not going to start with me.
-  - female_elder_american_relatable_likeable: |-
-      Receipt's yours. Don't lose it. If it doesn't get there, dear, this is the proof it left.
-  - |-
-    She slid the carbon across. A number on it in faint blue ink. *0317-44-A.* I folded it once and put it in the inside pocket of my coat behind the photograph of Vera Doss I had not yet taken out.
-  - |-
-    The parcel went into the canvas bag. The man across the street was still there. He had finished his paper. He had started it again.
+- Hettie laid a carbon form on the counter and copied the addresses twice in a hand
+  that had not changed since the war before the last one. She stamped the carbon and
+  tore it along the perforation.
+- female_elder_american_relatable_likeable: Insurance is twenty cents up to fifty
+    dollars' value, dear. You want to declare the value?
+- I told her ten dollars. She wrote *$10* in the box for declared value and did not
+  ask me what was in the parcel. She had not asked anyone what was in a parcel since
+  1934 and she was not going to start with me.
+- female_elder_american_relatable_likeable: Receipt's yours. Don't lose it. If it
+    doesn't get there, dear, this is the proof it left.
+- She slid the carbon across. A number on it in faint blue ink. *0317-44-A.* I folded
+  it once and put it in the inside pocket of my coat behind the photograph of Vera
+  Doss I had not yet taken out.
+- The parcel went into the canvas bag. The man across the street was still there.
+  He had finished his paper. He had started it again.
+journal: 'You mailed the package and insured it. The carbon receipt is in your inside
+  coat pocket — proof, if anyone needs proof, that it left.
 
-journal: |
-  You mailed the package and insured it. The carbon receipt is in your inside coat pocket — proof, if anyone needs proof, that it left.
-
+  '
 choices:
-  - text: |-
-      Continue.
-    next: act2/hallway_call
+- text: Continue.
+  next: act2/hallway_call

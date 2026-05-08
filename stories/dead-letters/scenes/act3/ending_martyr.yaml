@@ -1,31 +1,53 @@
 id: act3/ending_martyr
-
 text:
-  - if: {flags: [chose_martyr]}
-    text: |-
-      He had already done the thing. That was the line he had been writing in his head when the door came open. He had already done the thing.
-  - |-
-    [The narrator's voice is silent from this point. The voice that follows is Dora Reyes's, reading the lede of her column in the Monday edition of the *Tribune-Ledger*.]
-  - female_adult_american_crisp_direct_clear: |-
-      Halston Thorne, of the Riverdale Thornes, brother to the Mayor of this city, was named yesterday in connection with a years-long scheme to rezone and clear the Aldwick neighbourhood for a federal highway corridor that would have enriched a small group of investors of which Mr. Thorne, this paper has confirmed, was the principal.
-  - female_adult_american_crisp_direct_clear: |-
-      The scheme was known to the office of the City Engineer, where surveyor Raymond Doss discovered the falsified boundary documents and was killed in March of this year for what he had found. Mr. Doss's widow, Vera Doss, was killed three weeks later. Both deaths were ruled accidental at the time.
-  - female_adult_american_crisp_direct_clear: |-
-      The evidence on which this paper relies was assembled by a private detective named Frank Cady, of this city, who was killed Sunday night at his place of business by men in the employ of one Anthony Salzano, a real-estate fixer with documented ties to Mr. Thorne's office.
-  - if: {flags: [kellner_admitted]}
-    female_adult_american_crisp_direct_clear: |-
-      Lieutenant Walter Kellner of the city's Organized Crime Unit, this paper has further confirmed, made the telephone call on the night of March the eleventh that brought Mr. Doss to the pier where he was killed. Lieutenant Kellner is the subject of a separate inquiry.
-  - if: {flags: [marta_briefed]}
-    female_adult_american_crisp_direct_clear: |-
-      Marta Gaines, a resident of Aldwick and the lead organiser of the neighbourhood's response to the rezoning, is named in this paper's reporting as the principal source for the on-the-ground accounting. Mrs. Gaines's brother, Reuben Gaines, was the test case for the condemnation procedure and remains, at this writing, in the house the city has spent eighteen months attempting to take from him.
-  - female_adult_american_crisp_direct_clear: |-
-      Mr. Cady's name appears in the third paragraph of this column because the third paragraph is where it would have wanted to be. He did not write for this paper. He did not file copy. He did the kind of work this paper relies on without the byline that would have got him killed slightly earlier than he was. He is survived by no immediate family. The notice will run on page eleven Tuesday.
-  - female_adult_american_crisp_direct_clear: |-
-      The arrest of Mr. Thorne is expected before the close of business today. The Mayor's office has cancelled the eleven o'clock press conference. This column will be updated as the city allows.
-  - |-
-    [Dora Reyes, *Tribune-Ledger*, Monday edition, page one above the fold.]
-
-journal: |-
-  Frank Cady did not survive Sunday night. The story ran Monday morning. Dora Reyes wrote his name into the third paragraph because the third paragraph was where it would have wanted to be.
-
+- if:
+    flags:
+    - chose_martyr
+  text: He had already done the thing. That was the line he had been writing in his
+    head when the door came open. He had already done the thing.
+- '[The narrator''s voice is silent from this point. The voice that follows is Dora
+  Reyes''s, reading the lede of her column in the Monday edition of the *Tribune-Ledger*.]'
+- female_adult_american_crisp_direct_clear: Halston Thorne, of the Riverdale Thornes,
+    brother to the Mayor of this city, was named yesterday in connection with a years-long
+    scheme to rezone and clear the Aldwick neighbourhood for a federal highway corridor
+    that would have enriched a small group of investors of which Mr. Thorne, this
+    paper has confirmed, was the principal.
+- female_adult_american_crisp_direct_clear: The scheme was known to the office of
+    the City Engineer, where surveyor Raymond Doss discovered the falsified boundary
+    documents and was killed in March of this year for what he had found. Mr. Doss's
+    widow, Vera Doss, was killed three weeks later. Both deaths were ruled accidental
+    at the time.
+- female_adult_american_crisp_direct_clear: The evidence on which this paper relies
+    was assembled by a private detective named Frank Cady, of this city, who was killed
+    Sunday night at his place of business by men in the employ of one Anthony Salzano,
+    a real-estate fixer with documented ties to Mr. Thorne's office.
+- if:
+    flags:
+    - kellner_admitted
+  female_adult_american_crisp_direct_clear: Lieutenant Walter Kellner of the city's
+    Organized Crime Unit, this paper has further confirmed, made the telephone call
+    on the night of March the eleventh that brought Mr. Doss to the pier where he
+    was killed. Lieutenant Kellner is the subject of a separate inquiry.
+- if:
+    flags:
+    - marta_briefed
+  female_adult_american_crisp_direct_clear: Marta Gaines, a resident of Aldwick and
+    the lead organiser of the neighbourhood's response to the rezoning, is named in
+    this paper's reporting as the principal source for the on-the-ground accounting.
+    Mrs. Gaines's brother, Reuben Gaines, was the test case for the condemnation procedure
+    and remains, at this writing, in the house the city has spent eighteen months
+    attempting to take from him.
+- female_adult_american_crisp_direct_clear: Mr. Cady's name appears in the third paragraph
+    of this column because the third paragraph is where it would have wanted to be.
+    He did not write for this paper. He did not file copy. He did the kind of work
+    this paper relies on without the byline that would have got him killed slightly
+    earlier than he was. He is survived by no immediate family. The notice will run
+    on page eleven Tuesday.
+- female_adult_american_crisp_direct_clear: The arrest of Mr. Thorne is expected before
+    the close of business today. The Mayor's office has cancelled the eleven o'clock
+    press conference. This column will be updated as the city allows.
+- '[Dora Reyes, *Tribune-Ledger*, Monday edition, page one above the fold.]'
+journal: Frank Cady did not survive Sunday night. The story ran Monday morning. Dora
+  Reyes wrote his name into the third paragraph because the third paragraph was where
+  it would have wanted to be.
 choices: []

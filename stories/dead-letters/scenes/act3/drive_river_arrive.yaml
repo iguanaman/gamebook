@@ -1,32 +1,25 @@
 id: act3/drive_river_arrive
-
 text:
-  - |-
-    The gravel apron above the warehouse. Two cars already there. A black Chrysler I did not know and a Lincoln I did. Lights on in the doorway, one bulb in a wire cage, rain through the cone of it.
-  - |-
-    Walt in the doorway. Alone. Hat off, in his left hand. Coat open. Hands visible.
-  - |-
-    The conversation I had wanted to have at a diner counter on Henning three nights ago, on his terms, on his ground, at one in the morning in the rain.
-
+- The gravel apron above the warehouse. Two cars already there. A black Chrysler I
+  did not know and a Lincoln I did. Lights on in the doorway, one bulb in a wire cage,
+  rain through the cone of it.
+- Walt in the doorway. Alone. Hat off, in his left hand. Coat open. Hands visible.
+- The conversation I had wanted to have at a diner counter on Henning three nights
+  ago, on his terms, on his ground, at one in the morning in the rain.
 choices:
-  - text: |-
-      Walk up to the doorway. Hands visible.
-    next: act3/warehouse_doorway
-    effects:
-      flags:
-        confronted_kellner: true
-
-  - text: |-
-      Walk up. Hand in coat pocket on the revolver you don't usually carry.
-    next: act3/warehouse_doorway
-    effects:
-      flags:
-        confronted_kellner: true
-        frank_armed: true
-
-  - text: |-
-      Walk up smoking. Make him watch you finish the cigarette before you talk.
-    next: act3/warehouse_doorway
-    effects:
-      flags:
-        confronted_kellner: true
+- text: Walk up to the doorway. Hands visible.
+  next: act3/warehouse_doorway
+  effects:
+    flags:
+      confronted_kellner: true
+- text: Walk up. Hand in coat pocket on the revolver you don't usually carry.
+  next: act3/warehouse_doorway
+  effects:
+    flags:
+      confronted_kellner: true
+      frank_armed: true
+- text: Walk up smoking. Make him watch you finish the cigarette before you talk.
+  next: act3/warehouse_doorway
+  effects:
+    flags:
+      confronted_kellner: true

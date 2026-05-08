@@ -1,38 +1,32 @@
 id: act3/kellner_topic_ray
-
 text:
-  - male_midlife_american_rich_smooth_rugged: |-
-      Ray. All right.
-  - |-
-    He talked the way he used to talk in the squad room when he was telling a story he wanted me to take all the way to the end before I asked the question. A pier. A meeting at a pier. A man Ray had not expected to see there. A phone call Walt had made the hour before — he could name the number now, he said, that he could not name then.
-  - male_midlife_american_rich_smooth_rugged: |-
-      Twenty past nine. That was the time of the call.
-  - |-
-    He looked at his watch when he said it. He saw me see him do it. Neither of us said anything about it. It sat between us in the rain like a third man.
-  - |-
-    He did not name Salzano. He did not have to.
-
+- male_midlife_american_rich_smooth_rugged: Ray. All right.
+- He talked the way he used to talk in the squad room when he was telling a story
+  he wanted me to take all the way to the end before I asked the question. A pier.
+  A meeting at a pier. A man Ray had not expected to see there. A phone call Walt
+  had made the hour before — he could name the number now, he said, that he could
+  not name then.
+- male_midlife_american_rich_smooth_rugged: Twenty past nine. That was the time of
+    the call.
+- He looked at his watch when he said it. He saw me see him do it. Neither of us said
+  anything about it. It sat between us in the rain like a third man.
+- He did not name Salzano. He did not have to.
 choices:
-  - text: |-
-      Press him on the call he made.
-    next: act3/kellner_talk_hub
-    effects:
-      flags:
-        kellner_admitted: true
-      stats:
-        evidence: 1
-
-  - text: |-
-      Let him land it. Don't push.
-    next: act3/kellner_talk_hub
-    effects:
-      flags:
-        kellner_admitted: true
-
-  - text: |-
-      Tell him you already knew.
-    next: act3/kellner_talk_hub
-    effects:
-      flags:
-        kellner_admitted: true
-        kellner_offended: true
+- text: Press him on the call he made.
+  next: act3/kellner_talk_hub
+  effects:
+    flags:
+      kellner_admitted: true
+    stats:
+      evidence: 1
+- text: Let him land it. Don't push.
+  next: act3/kellner_talk_hub
+  effects:
+    flags:
+      kellner_admitted: true
+- text: Tell him you already knew.
+  next: act3/kellner_talk_hub
+  effects:
+    flags:
+      kellner_admitted: true
+      kellner_offended: true

@@ -1,18 +1,20 @@
 id: act2/ledger_inspect_photo
-
 text:
-  - |-
-    The men's washroom at the rail station, or the back room with the door bolted from the inside — wherever I was, the camera came out of the inside pocket and the notebook went on the porcelain rim, or the workbench, with the lamp pulled close.
-  - |-
-    Twelve pages. Each page held flat with the pad of the left thumb while the right hand worked the shutter. Click. Wind. Click. Wind. The frame counter ticked through to the end of the roll.
-  - |-
-    My hand was steady. I had surprised myself. I had thought, when I started, that it would not be.
-  - |-
-    I put the book back where it had lain. Folded the oilcloth the way it had been folded, or set the soft cover flat on the brass shelf the way it had sat. I locked the door. I left the key on top of the locker for Marta to retrieve later if she chose, or hung it on the nail behind the till at the diner, the way the man with two missing fingers had told me without telling me.
-  - |-
-    The film was in my pocket. The case was still in the building. Both versions existed now.
-
+- The men's washroom at the rail station, or the back room with the door bolted from
+  the inside — wherever I was, the camera came out of the inside pocket and the notebook
+  went on the porcelain rim, or the workbench, with the lamp pulled close.
+- Twelve pages. Each page held flat with the pad of the left thumb while the right
+  hand worked the shutter. Click. Wind. Click. Wind. The frame counter ticked through
+  to the end of the roll.
+- My hand was steady. I had surprised myself. I had thought, when I started, that
+  it would not be.
+- I put the book back where it had lain. Folded the oilcloth the way it had been folded,
+  or set the soft cover flat on the brass shelf the way it had sat. I locked the door.
+  I left the key on top of the locker for Marta to retrieve later if she chose, or
+  hung it on the nail behind the till at the diner, the way the man with two missing
+  fingers had told me without telling me.
+- The film was in my pocket. The case was still in the building. Both versions existed
+  now.
 choices:
-  - text: |-
-      Continue.
-    next: act2/ledger_carry_back
+- text: Continue.
+  next: act2/ledger_carry_back

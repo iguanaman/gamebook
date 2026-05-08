@@ -1,21 +1,17 @@
 id: act2/reuben_speaks
-
 text:
-  - male_adult_african-american_uneducated: |-
-      Detroit. My sister has a cousin. A week, maybe.
-  - |-
-    He said it half to me and half to the porch rail. He did not say why. He did not need to.
-  - male_adult_african-american_uneducated: |-
-      She'll come back when she can come back.
-  - |-
-    The relief and the wound landed in the same breath. Marta was alive. Marta was alive and gone, and that was a sentence I had put into the world by walking onto her block.
-
+- male_adult_african-american_uneducated: Detroit. My sister has a cousin. A week,
+    maybe.
+- He said it half to me and half to the porch rail. He did not say why. He did not
+  need to.
+- male_adult_african-american_uneducated: She'll come back when she can come back.
+- The relief and the wound landed in the same breath. Marta was alive. Marta was alive
+  and gone, and that was a sentence I had put into the world by walking onto her block.
 choices:
-  - text: |-
-      Continue.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        marta_safe: true
-      stats:
-        evidence: 1
+- text: Continue.
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      marta_safe: true
+    stats:
+      evidence: 1

@@ -1,35 +1,28 @@
 id: act2/records_corridor_intercept
-
 text:
-  - |-
-    He was in the corridor before I had finished closing the records room door. He had not hurried. He did not need to.
-  - |-
-    A small white scar through the upper lip. Fingernails kept shorter than fashion. A coat cut to a length that did not advertise what was under it.
-  - male_midlife_british_dark_seductive_deep: |-
-      Mr. Cady.
-  - |-
-    Behind him a second man stood on the half-landing of the stairwell with his hands at his sides the way men stand who have done this before. The records room door was open behind me. The corridor narrowed to a length I could measure in heartbeats.
-
+- He was in the corridor before I had finished closing the records room door. He had
+  not hurried. He did not need to.
+- A small white scar through the upper lip. Fingernails kept shorter than fashion.
+  A coat cut to a length that did not advertise what was under it.
+- male_midlife_british_dark_seductive_deep: Mr. Cady.
+- Behind him a second man stood on the half-landing of the stairwell with his hands
+  at his sides the way men stand who have done this before. The records room door
+  was open behind me. The corridor narrowed to a length I could measure in heartbeats.
 choices:
-  - text: |-
-      Drop what you're carrying. Hands visible. Talk your way out.
-    next: act2/salzano_offer
-
-  - text: |-
-      Run for the alley window.
-    next:
-      - scene: act2/records_alley_escape
-        weight: 2
-      - scene: act2/records_stairwell_death
-        weight: 1
-    effects:
-      stats:
-        heat: 2
-
-  - text: |-
-      Run the front stair anyway.
-    next: act2/records_stairwell_death
-    requires:
-      stats:
-        heat: 6
-    hide_if_failed: true
+- text: Drop what you're carrying. Hands visible. Talk your way out.
+  next: act2/salzano_offer
+- text: Run for the alley window.
+  next:
+  - scene: act2/records_alley_escape
+    weight: 2
+  - scene: act2/records_stairwell_death
+    weight: 1
+  effects:
+    stats:
+      heat: 2
+- text: Run the front stair anyway.
+  next: act2/records_stairwell_death
+  requires:
+    stats:
+      heat: 6
+  hide_if_failed: true

@@ -1,18 +1,21 @@
 id: act2/kellner_diner_exit
-
 text:
-  - |-
-    The kerb outside. Streetlight buzzing the way it had buzzed for twenty years. Through the diner window I could see Kellner in the booth, paying for both coffees, sliding a folded bill across the formica because he had always tipped in folded bills.
-  - |-
-    The pen was back in his jacket pocket. The hat was back on his head. The door closed behind me and the bell above it rang once, late, the way a thing rings when nobody is listening for it.
-  - if: {flags: [kellner_walked_out]}
-    text: |-
-      He had not turned to watch me leave. He had not needed to. He had registered the rudeness somewhere it would keep until he wanted it.
-  - if: {flags: [trusted_kellner]}
-    text: |-
-      I had told him. I could feel the telling sitting in the air behind me, walking me to the corner, waiting at the streetlight to cross.
-
+- The kerb outside. Streetlight buzzing the way it had buzzed for twenty years. Through
+  the diner window I could see Kellner in the booth, paying for both coffees, sliding
+  a folded bill across the formica because he had always tipped in folded bills.
+- The pen was back in his jacket pocket. The hat was back on his head. The door closed
+  behind me and the bell above it rang once, late, the way a thing rings when nobody
+  is listening for it.
+- if:
+    flags:
+    - kellner_walked_out
+  text: He had not turned to watch me leave. He had not needed to. He had registered
+    the rudeness somewhere it would keep until he wanted it.
+- if:
+    flags:
+    - trusted_kellner
+  text: I had told him. I could feel the telling sitting in the air behind me, walking
+    me to the corner, waiting at the streetlight to cross.
 choices:
-  - text: |-
-      Back to the office.
-    next: act2/office_hub
+- text: Back to the office.
+  next: act2/office_hub

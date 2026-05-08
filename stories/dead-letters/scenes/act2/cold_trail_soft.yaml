@@ -1,13 +1,10 @@
 id: act2/cold_trail_soft
-
-# Exit E entry — soft and sentimental. Vera trusted Frank. Key in pocket, little else.
 text:
-  - |-
-    A week passed the way the bad ones do. Vera had trusted me, in the end, the way you trust a man because you have run out of other men. The key was in my coat pocket. I had not stopped finding it there at every traffic light.
-  - |-
-    The slip with ALDWICK on it was under the desk lamp. The city walked around the office like it didn't owe me anything. I climbed the stairs.
-
+- A week passed the way the bad ones do. Vera had trusted me, in the end, the way
+  you trust a man because you have run out of other men. The key was in my coat pocket.
+  I had not stopped finding it there at every traffic light.
+- The slip with ALDWICK on it was under the desk lamp. The city walked around the
+  office like it didn't owe me anything. I climbed the stairs.
 choices:
-  - text: |-
-      Climb the stairs to the office.
-    next: act2/office_cold_open
+- text: Climb the stairs to the office.
+  next: act2/office_cold_open

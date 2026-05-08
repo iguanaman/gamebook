@@ -1,67 +1,58 @@
 id: act1/act_1_to_act_2
-
 text:
-  - |-
-    I broke the seal on the envelope. The bills smelled of the kitchen drawer she'd kept them in. I counted them once and then I didn't count them again.
-  - |-
-    What I had: the slip with ALDWICK on it. A name a clerk on a stairwell had been brave enough to write down and not brave enough to say out loud. A neighbourhood I had never set foot in and a husband I had never met and a client three nights in the ground.
-  - |-
-    What I'd brought back from the rest of it — the key, the frame, the friends, the men who knew my face now — I would carry into the morning the way a man carries a bag he packed in a hurry. Some of it would matter. Some of it I'd find out later I should have left.
-  - |-
-    The streetcar to Aldwick ran east at six. I had until then to sleep, and I wouldn't.
+- I broke the seal on the envelope. The bills smelled of the kitchen drawer she'd
+  kept them in. I counted them once and then I didn't count them again.
+- 'What I had: the slip with ALDWICK on it. A name a clerk on a stairwell had been
+  brave enough to write down and not brave enough to say out loud. A neighbourhood
+  I had never set foot in and a husband I had never met and a client three nights
+  in the ground.'
+- What I'd brought back from the rest of it — the key, the frame, the friends, the
+  men who knew my face now — I would carry into the morning the way a man carries
+  a bag he packed in a hurry. Some of it would matter. Some of it I'd find out later
+  I should have left.
+- The streetcar to Aldwick ran east at six. I had until then to sleep, and I wouldn't.
+journal: 'Three nights after the funeral, you opened the retainer envelope. Whatever
+  Vera Doss died for, you''d find it or you wouldn''t. The streetcar ran east at six.
 
-journal: |
-  Three nights after the funeral, you opened the retainer envelope. Whatever Vera Doss died for, you'd find it or you wouldn't. The streetcar ran east at six.
-
+  '
 choices:
-  # Exit E — Soft and sentimental (priority over A when soft path taken)
-  # Note: low-evidence ceiling from breakdown is enforced narratively — the
-  # vera_trusted_frank flag is only set on the kind/honest paths that don't
-  # accumulate the harder evidence beats. Routing on the flag alone matches
-  # the engine's available gating (requires.stats does minimums only).
-  - text: |-
-      Continue to Act 2.
-    next: act2/cold_trail_soft
-    requires:
-      flags:
-        - vera_trusted_frank
-      flags_unset: [cops_warned_off, mort_owes_one]
-    hide_if_failed: true
-
-  # Exit D — Hard and hot
-  - text: |-
-      Continue to Act 2.
-    next: act2/cold_trail_hard
-    requires:
-      flags:
-        - cops_warned_off
-        - mort_owes_one
-    hide_if_failed: true
-
-  # Exit B — On the radar
-  - text: |-
-      Continue to Act 2.
-    next: act2/cold_trail_radar
-    requires:
-      flags:
-        - cops_warned_off
-      flags_unset: [mort_owes_one]
-    hide_if_failed: true
-
-  # Exit C — With a friend in print
-  - text: |-
-      Continue to Act 2.
-    next: act2/cold_trail_press
-    requires:
-      flags:
-        - mort_owes_one
-      flags_unset: [cops_warned_off]
-    hide_if_failed: true
-
-  # Exit A — Lean and clean (fallback when no other exit conditions match)
-  - text: |-
-      Continue to Act 2.
-    next: act2/cold_trail_lean
-    requires:
-      flags_unset: [cops_warned_off, mort_owes_one, vera_trusted_frank]
-    hide_if_failed: true
+- text: Continue to Act 2.
+  next: act2/cold_trail_soft
+  requires:
+    flags:
+    - vera_trusted_frank
+    flags_unset:
+    - cops_warned_off
+    - mort_owes_one
+  hide_if_failed: true
+- text: Continue to Act 2.
+  next: act2/cold_trail_hard
+  requires:
+    flags:
+    - cops_warned_off
+    - mort_owes_one
+  hide_if_failed: true
+- text: Continue to Act 2.
+  next: act2/cold_trail_radar
+  requires:
+    flags:
+    - cops_warned_off
+    flags_unset:
+    - mort_owes_one
+  hide_if_failed: true
+- text: Continue to Act 2.
+  next: act2/cold_trail_press
+  requires:
+    flags:
+    - mort_owes_one
+    flags_unset:
+    - cops_warned_off
+  hide_if_failed: true
+- text: Continue to Act 2.
+  next: act2/cold_trail_lean
+  requires:
+    flags_unset:
+    - cops_warned_off
+    - mort_owes_one
+    - vera_trusted_frank
+  hide_if_failed: true

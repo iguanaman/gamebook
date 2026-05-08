@@ -1,15 +1,12 @@
 id: act2/sedan_plate
-
 text:
-  - |-
-    I crossed casual. Hands in coat pockets, the way a man crosses to read a sign on a window. The driver was asleep, or pretending to be. His paper had not turned.
-  - |-
-    The plate was municipal. The last three digits were four-seven-two. I had the number and I had the certainty I should not have crossed the street.
-
+- I crossed casual. Hands in coat pockets, the way a man crosses to read a sign on
+  a window. The driver was asleep, or pretending to be. His paper had not turned.
+- The plate was municipal. The last three digits were four-seven-two. I had the number
+  and I had the certainty I should not have crossed the street.
 choices:
-  - text: |-
-      Continue.
-    next: act2/church_hall_meeting
-    effects:
-      flags:
-        sedan_plate_known: true
+- text: Continue.
+  next: act2/church_hall_meeting
+  effects:
+    flags:
+      sedan_plate_known: true

@@ -1,40 +1,37 @@
 id: act2/ledger_carry_back
-
 text:
-  - |-
-    Office. Midnight. The lamp pulled down low, the green shade throwing a circle on the desk the size of a dinner plate.
-  - if: {flags: [ledger_left_in_place]}
-    text: |-
-      The photographs lay in the circle of light, twelve frames not yet developed, the roll of film coiled inside the camera against my hip.
-    else: |-
-      The notebook lay in the circle of light, soft leather, hand-sized, pages I had not finished reading on the streetcar.
-  - if: {flags: [ledger_partial]}
-    text: |-
-      Two torn pages on top of the photographs, or in place of them. Walt Kellner's name in pencil, twice underlined, on the leaf I had taken out of the rest.
-  - |-
-    The retainer envelope was still in the drawer where Vera had put it the day she walked in here. Top right. Unopened. Counted twice the morning of the funeral and not since.
-  - |-
-    Vera's chair was empty. It had been empty a long time. The empty was different at midnight than it was at noon. At midnight it had a weight.
-  - |-
-    Whatever else this case was, it was now provable.
-
+- Office. Midnight. The lamp pulled down low, the green shade throwing a circle on
+  the desk the size of a dinner plate.
+- if:
+    flags:
+    - ledger_left_in_place
+  text: The photographs lay in the circle of light, twelve frames not yet developed,
+    the roll of film coiled inside the camera against my hip.
+  else: The notebook lay in the circle of light, soft leather, hand-sized, pages I
+    had not finished reading on the streetcar.
+- if:
+    flags:
+    - ledger_partial
+  text: Two torn pages on top of the photographs, or in place of them. Walt Kellner's
+    name in pencil, twice underlined, on the leaf I had taken out of the rest.
+- The retainer envelope was still in the drawer where Vera had put it the day she
+  walked in here. Top right. Unopened. Counted twice the morning of the funeral and
+  not since.
+- Vera's chair was empty. It had been empty a long time. The empty was different at
+  midnight than it was at noon. At midnight it had a weight.
+- Whatever else this case was, it was now provable.
 choices:
-  - text: |-
-      Lock it in the office safe. Sleep.
-    next: act2/office_hub
-
-  - text: |-
-      Take it home. Sleep with it under the mattress.
-    next: act2/office_hub
-    effects:
-      flags:
-        ledger_at_home: true
-
-  - text: |-
-      Make a copy by hand. Tonight. Tomorrow's too late.
-    next: act2/office_hub
-    effects:
-      flags:
-        ledger_handcopied: true
-      stats:
-        evidence: 1
+- text: Lock it in the office safe. Sleep.
+  next: act2/office_hub
+- text: Take it home. Sleep with it under the mattress.
+  next: act2/office_hub
+  effects:
+    flags:
+      ledger_at_home: true
+- text: Make a copy by hand. Tonight. Tomorrow's too late.
+  next: act2/office_hub
+  effects:
+    flags:
+      ledger_handcopied: true
+    stats:
+      evidence: 1

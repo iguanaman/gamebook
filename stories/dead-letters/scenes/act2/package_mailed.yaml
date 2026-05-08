@@ -1,25 +1,25 @@
 id: act2/package_mailed
-
 text:
-  - |-
-    Hettie set the parcel on the brass scale. The needle slid and settled. She read the weight off it the way a woman reads a number she has read for forty years.
-  - female_elder_american_relatable_likeable: |-
-      Twelve and a half. That'll be ninety cents, dear.
-  - |-
-    I gave her a dollar. She gave me a dime. She stamped the parcel twice, the *Air Mail* stamp first and the cancellation second, and dropped it into the canvas bag at her feet with eight other parcels going east.
-  - |-
-    She did not look up at the man across the street. I could not tell whether she had not seen him or had seen him for an hour and was a woman who had made her decision an hour ago.
-  - female_elder_american_relatable_likeable: |-
-      Anything else, dear?
-  - |-
-    I told her no. I went out the back way, past the sorting room where two men were tying off a sack, and into the alley that ran behind the post office to Eleventh. I did not look at the front of the building when I came out the other end.
-  - |-
-    The parcel was in the bag. The bag was going east. Whatever happened next was happening to a thing I had already done.
+- Hettie set the parcel on the brass scale. The needle slid and settled. She read
+  the weight off it the way a woman reads a number she has read for forty years.
+- female_elder_american_relatable_likeable: Twelve and a half. That'll be ninety cents,
+    dear.
+- I gave her a dollar. She gave me a dime. She stamped the parcel twice, the *Air
+  Mail* stamp first and the cancellation second, and dropped it into the canvas bag
+  at her feet with eight other parcels going east.
+- She did not look up at the man across the street. I could not tell whether she had
+  not seen him or had seen him for an hour and was a woman who had made her decision
+  an hour ago.
+- female_elder_american_relatable_likeable: Anything else, dear?
+- I told her no. I went out the back way, past the sorting room where two men were
+  tying off a sack, and into the alley that ran behind the post office to Eleventh.
+  I did not look at the front of the building when I came out the other end.
+- The parcel was in the bag. The bag was going east. Whatever happened next was happening
+  to a thing I had already done.
+journal: 'You mailed the package. Dora Reyes will have it Monday — if Hettie has not
+  already made the call she was paid to make.
 
-journal: |
-  You mailed the package. Dora Reyes will have it Monday — if Hettie has not already made the call she was paid to make.
-
+  '
 choices:
-  - text: |-
-      Continue.
-    next: act2/hallway_call
+- text: Continue.
+  next: act2/hallway_call

@@ -1,86 +1,90 @@
 id: act2/office_hub
-
 text:
-  - |-
-    The office. Spoke at the centre of the wheel. The wheel turning whether I cranked it or not.
-  - |-
-    The drawer was where it had been: top right, retainer envelope inside, bills not yet counted again. I had taken to opening it once a morning the way other men cross themselves.
-  - if: {stats: {heat: 4}}
-    text: |-
-      The brick was still on the floor. I had not moved it. Glass had been swept up two days ago and the brick had been left where it landed, on the rug by the radiator, because moving it would have meant deciding what to do with it.
-  - if: {flags: [cops_warned_off]}
-    text: |-
-      A folded card had come under the door overnight. No name on it. A typewriter had hit the words *DROP IT* hard enough to dent the cardstock. Brennan would not have used a card. Whoever had used a card had wanted me to wonder which of them sent it.
-  - if: {flags: [aldwick_visited_act2]}
-    text: |-
-      The brown sedan was at the corner of the block again. Same plate as last week — the three I had read, the three I had not. The driver was reading a paper that did not change pages.
-  - if: {flags: [voss_after_hours_visited]}
-    text: |-
-      A car I had not seen before was idling on the far side of the street, engine running too long for a man waiting on a friend.
-  - |-
-    The threads ran in parallel and I could not pull all three clean. Aldwick. The records room. Kellner, somewhere on the other end of a phone he had not yet dialled. Or had.
-
+- The office. Spoke at the centre of the wheel. The wheel turning whether I cranked
+  it or not.
+- 'The drawer was where it had been: top right, retainer envelope inside, bills not
+  yet counted again. I had taken to opening it once a morning the way other men cross
+  themselves.'
+- if:
+    stats:
+      heat: 4
+  text: The brick was still on the floor. I had not moved it. Glass had been swept
+    up two days ago and the brick had been left where it landed, on the rug by the
+    radiator, because moving it would have meant deciding what to do with it.
+- if:
+    flags:
+    - cops_warned_off
+  text: A folded card had come under the door overnight. No name on it. A typewriter
+    had hit the words *DROP IT* hard enough to dent the cardstock. Brennan would not
+    have used a card. Whoever had used a card had wanted me to wonder which of them
+    sent it.
+- if:
+    flags:
+    - aldwick_visited_act2
+  text: The brown sedan was at the corner of the block again. Same plate as last week
+    — the three I had read, the three I had not. The driver was reading a paper that
+    did not change pages.
+- if:
+    flags:
+    - voss_after_hours_visited
+  text: A car I had not seen before was idling on the far side of the street, engine
+    running too long for a man waiting on a friend.
+- The threads ran in parallel and I could not pull all three clean. Aldwick. The records
+  room. Kellner, somewhere on the other end of a phone he had not yet dialled. Or
+  had.
 choices:
-  - text: |-
-      Take the streetcar to Aldwick.
-    next: act2/aldwick_arrival
-    requires:
-      flags_unset: [aldwick_visited_act2]
-    effects:
-      flags:
-        aldwick_visited_act2: true
-
-  - text: |-
-      Return to Aldwick.
-    next: act2/aldwick_arrival
-    requires:
-      flags:
-        - aldwick_visited_act2
-      flags_unset: [aldwick_revisit_done]
-    effects:
-      flags:
-        aldwick_revisit_done: true
-    hide_if_failed: true
-
-  - text: |-
-      Walk to the City Engineer's after dark.
-    next: act2/engineer_after_hours_decision
-    requires:
-      flags_unset: [voss_after_hours_visited]
-
-  - text: |-
-      Mort is at the door.
-    next: act2/squeeze_mort
-    requires:
-      flags:
-        - mort_owes_one
-      flags_unset: [mort_called_back]
-    failed_text: |-
-      *(You haven't given him a reason to come.)*
-
-  - text: |-
-      The phone is ringing — Kellner.
-    next: act2/kellner_phone
-    requires:
-      flags_unset: [kellner_called]
-    effects:
-      flags:
-        kellner_called: true
-    hide_if_failed: true
-
-  - text: |-
-      Kellner left a card. Meet him at the diner.
-    next: act2/kellner_diner
-    requires:
-      flags:
-        - kellner_called
-      flags_unset: [kellner_met]
-    hide_if_failed: true
-
-  - text: |-
-      Sit with what you have. Pour one.
-    next: act2/squeeze_open
-    requires:
-      stats:
-        heat: 6
-    hide_if_failed: true
+- text: Take the streetcar to Aldwick.
+  next: act2/aldwick_arrival
+  requires:
+    flags_unset:
+    - aldwick_visited_act2
+  effects:
+    flags:
+      aldwick_visited_act2: true
+- text: Return to Aldwick.
+  next: act2/aldwick_arrival
+  requires:
+    flags:
+    - aldwick_visited_act2
+    flags_unset:
+    - aldwick_revisit_done
+  effects:
+    flags:
+      aldwick_revisit_done: true
+  hide_if_failed: true
+- text: Walk to the City Engineer's after dark.
+  next: act2/engineer_after_hours_decision
+  requires:
+    flags_unset:
+    - voss_after_hours_visited
+- text: Mort is at the door.
+  next: act2/squeeze_mort
+  requires:
+    flags:
+    - mort_owes_one
+    flags_unset:
+    - mort_called_back
+  failed_text: '*(You haven''t given him a reason to come.)*'
+- text: The phone is ringing — Kellner.
+  next: act2/kellner_phone
+  requires:
+    flags_unset:
+    - kellner_called
+  effects:
+    flags:
+      kellner_called: true
+  hide_if_failed: true
+- text: Kellner left a card. Meet him at the diner.
+  next: act2/kellner_diner
+  requires:
+    flags:
+    - kellner_called
+    flags_unset:
+    - kellner_met
+  hide_if_failed: true
+- text: Sit with what you have. Pour one.
+  next: act2/squeeze_open
+  requires:
+    stats:
+      heat: 6
+  hide_if_failed: true

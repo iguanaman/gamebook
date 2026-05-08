@@ -1,46 +1,38 @@
 id: act1/engineers_corridor
-
 text:
-  - |-
-    The stairwell smelled of floor wax and cigarette ash from the radiator pan. I was halfway down the second flight when a hand caught my elbow — light, too light, the way a man touches you when he is hoping you will let him.
-  - |-
-    He was twenty-three, twenty-four. Ink stain on the cuff he kept tucking. A wristwatch a size too big sliding around on his forearm.
-  - male_young_american_weak: |-
-      Sir. Mr. — Mr. Cady. I shouldn't — Ray was. Ray was —
-  - |-
-    He looked past me to the corridor he'd just come out of. He looked past me again. Then he pressed a torn corner of carbon paper into my palm and closed my fingers over it for me.
-  - male_young_american_weak: |-
-      He was working on. On a corner. You should — yeah.
-  - |-
-    The carbon had a single word on it in a rushed pencil, all caps. ALDWICK.
-
+- The stairwell smelled of floor wax and cigarette ash from the radiator pan. I was
+  halfway down the second flight when a hand caught my elbow — light, too light, the
+  way a man touches you when he is hoping you will let him.
+- He was twenty-three, twenty-four. Ink stain on the cuff he kept tucking. A wristwatch
+  a size too big sliding around on his forearm.
+- male_young_american_weak: Sir. Mr. — Mr. Cady. I shouldn't — Ray was. Ray was —
+- He looked past me to the corridor he'd just come out of. He looked past me again.
+  Then he pressed a torn corner of carbon paper into my palm and closed my fingers
+  over it for me.
+- male_young_american_weak: He was working on. On a corner. You should — yeah.
+- The carbon had a single word on it in a rushed pencil, all caps. ALDWICK.
 choices:
-  - text: |-
-      Pocket the slip. Ask his name. Tell him you owe him one.
-    next: act1/tice_name
-    effects:
-      flags:
-        aldwick_visited: true
-        met_tice: true
-      stats:
-        evidence: 1
-
-  - text: |-
-      Pocket the slip. Don't ask. Better for him if you never knew.
-    next: act1/engineers_office_exit
-    effects:
-      flags:
-        aldwick_visited: true
-      stats:
-        evidence: 1
-
-  - text: |-
-      Press him. Full sentences this time. Make him give you what's behind the slip.
-    next:
-      - scene: act1/tice_spills
-        weight: 2
-      - scene: act1/tice_bolts
-        weight: 3
-    effects:
-      flags:
-        aldwick_visited: true
+- text: Pocket the slip. Ask his name. Tell him you owe him one.
+  next: act1/tice_name
+  effects:
+    flags:
+      aldwick_visited: true
+      met_tice: true
+    stats:
+      evidence: 1
+- text: Pocket the slip. Don't ask. Better for him if you never knew.
+  next: act1/engineers_office_exit
+  effects:
+    flags:
+      aldwick_visited: true
+    stats:
+      evidence: 1
+- text: Press him. Full sentences this time. Make him give you what's behind the slip.
+  next:
+  - scene: act1/tice_spills
+    weight: 2
+  - scene: act1/tice_bolts
+    weight: 3
+  effects:
+    flags:
+      aldwick_visited: true

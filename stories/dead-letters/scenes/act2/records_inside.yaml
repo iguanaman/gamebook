@@ -1,69 +1,66 @@
 id: act2/records_inside
-
 text:
-  - |-
-    The records room. Cabinets along three walls, a green-shaded reading lamp on the corner desk, a brass desk lamp pulled out of true the way a man pulls a lamp who reads against deadlines. The smell was old paper and the man who handled it — pipe tobacco a year stale, ink, a faint wool of someone else's coat.
-  - |-
-    Aldwick parcels, third cabinet, second drawer down. I had it open before I had decided I was going to. A locked drawer at the bottom of the cabinet I would not get into in the time I had. Fifteen minutes if Salzano stayed where he had been. Less if he didn't.
-  - |-
-    On the corner desk a loose page in a hand I knew — Voss's, careful, mildly transatlantic in the way the loops sat. Three lines. I would not read them yet.
-
+- The records room. Cabinets along three walls, a green-shaded reading lamp on the
+  corner desk, a brass desk lamp pulled out of true the way a man pulls a lamp who
+  reads against deadlines. The smell was old paper and the man who handled it — pipe
+  tobacco a year stale, ink, a faint wool of someone else's coat.
+- Aldwick parcels, third cabinet, second drawer down. I had it open before I had decided
+  I was going to. A locked drawer at the bottom of the cabinet I would not get into
+  in the time I had. Fifteen minutes if Salzano stayed where he had been. Less if
+  he didn't.
+- On the corner desk a loose page in a hand I knew — Voss's, careful, mildly transatlantic
+  in the way the loops sat. Three lines. I would not read them yet.
 choices:
-  - text: |-
-      Take the matched-signature pages — the falsified ones.
-    next: act2/records_take_signatures
-    requires:
-      flags_unset: [records_room]
-    effects:
-      stats:
-        evidence: 2
-      flags:
-        records_room: true
-
-  - text: |-
-      Take the boundary maps — the real survey vs the filed one.
-    next: act2/records_take_maps
-    requires:
-      flags_unset: [records_room]
-    effects:
-      stats:
-        evidence: 2
-      flags:
-        records_room: true
-
-  - text: |-
-      Take both. Risk the time.
-    next:
-      - scene: act2/records_clean_exit
-        weight: 2
-      - scene: act2/records_corridor_intercept
-        weight: 3
-    requires:
-      flags_unset: [records_room]
-    effects:
-      stats:
-        evidence: 3
-        heat: 2
-      flags:
-        records_room: true
-
-  - text: |-
-      Photograph the pages with the desk lamp. Leave the originals.
-    next: act2/records_photograph
-    requires:
-      flags_unset: [records_room]
-    effects:
-      stats:
-        evidence: 1
-        heat: 1
-      flags:
-        records_room: true
-
-  - text: |-
-      Read Voss's note in his handwriting on the desk — don't take it.
-    next: act2/records_voss_note
-    effects:
-      stats:
-        evidence: 1
-      flags:
-        kellner_named_by_voss: true
+- text: Take the matched-signature pages — the falsified ones.
+  next: act2/records_take_signatures
+  requires:
+    flags_unset:
+    - records_room
+  effects:
+    stats:
+      evidence: 2
+    flags:
+      records_room: true
+- text: Take the boundary maps — the real survey vs the filed one.
+  next: act2/records_take_maps
+  requires:
+    flags_unset:
+    - records_room
+  effects:
+    stats:
+      evidence: 2
+    flags:
+      records_room: true
+- text: Take both. Risk the time.
+  next:
+  - scene: act2/records_clean_exit
+    weight: 2
+  - scene: act2/records_corridor_intercept
+    weight: 3
+  requires:
+    flags_unset:
+    - records_room
+  effects:
+    stats:
+      evidence: 3
+      heat: 2
+    flags:
+      records_room: true
+- text: Photograph the pages with the desk lamp. Leave the originals.
+  next: act2/records_photograph
+  requires:
+    flags_unset:
+    - records_room
+  effects:
+    stats:
+      evidence: 1
+      heat: 1
+    flags:
+      records_room: true
+- text: Read Voss's note in his handwriting on the desk — don't take it.
+  next: act2/records_voss_note
+  effects:
+    stats:
+      evidence: 1
+    flags:
+      kellner_named_by_voss: true

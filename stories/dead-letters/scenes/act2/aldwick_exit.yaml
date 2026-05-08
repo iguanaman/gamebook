@@ -1,12 +1,11 @@
 id: act2/aldwick_exit
-
 text:
-  - |-
-    The streetcar back. The lights of Aldwick going dark behind me as the line crossed the bridge — fewer of them than there had been on the way in, or it felt that way; the difference between the count and the feel was the part I would not be able to put into a report.
-  - |-
-    I had, or I had not, the address of the cache. Either way the city was waiting at the other end of the bridge with the same face.
-
+- The streetcar back. The lights of Aldwick going dark behind me as the line crossed
+  the bridge — fewer of them than there had been on the way in, or it felt that way;
+  the difference between the count and the feel was the part I would not be able to
+  put into a report.
+- I had, or I had not, the address of the cache. Either way the city was waiting at
+  the other end of the bridge with the same face.
 choices:
-  - text: |-
-      Back to the office.
-    next: act2/office_hub
+- text: Back to the office.
+  next: act2/office_hub

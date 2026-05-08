@@ -1,14 +1,9 @@
 id: act1/mort_brushed
-
 text:
-  - |-
-    I didn't get up. I didn't call out. I let the knock land on the wood twice and then a third, slower time, like he was leaving a forwarding address.
-  - |-
-    Footsteps down the stair. A cough on the landing. The street door, opening, closing.
-  - |-
-    Mort Halloran was the kind of man who only knocked once. He didn't come back.
-
+- I didn't get up. I didn't call out. I let the knock land on the wood twice and then
+  a third, slower time, like he was leaving a forwarding address.
+- Footsteps down the stair. A cough on the landing. The street door, opening, closing.
+- Mort Halloran was the kind of man who only knocked once. He didn't come back.
 choices:
-  - text: |-
-      Get back to it.
-    next: act1/office_hub
+- text: Get back to it.
+  next: act1/office_hub

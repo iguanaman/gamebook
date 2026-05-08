@@ -1,12 +1,10 @@
 id: act2/records_clean_exit
-
 text:
-  - |-
-    I came out of the alley with the file under my coat and the maps under my arm. The streetcar was three blocks away and the cigarette I wanted was not going to be lit because the match would have shaken the wrong way.
-  - |-
-    I made the kerb before I laughed once, badly, at nothing. A woman walking a dog crossed the street to avoid me. The dog did not.
-
+- I came out of the alley with the file under my coat and the maps under my arm. The
+  streetcar was three blocks away and the cigarette I wanted was not going to be lit
+  because the match would have shaken the wrong way.
+- I made the kerb before I laughed once, badly, at nothing. A woman walking a dog
+  crossed the street to avoid me. The dog did not.
 choices:
-  - text: |-
-      Continue.
-    next: act2/records_room_exit
+- text: Continue.
+  next: act2/records_room_exit

@@ -1,41 +1,33 @@
 id: act2/marta_partial
-
 text:
-  - female_midlife_african-american_casual_opinionated: |-
-      The back porch on Lemoine. Number eighteen. He was there the night of the eleventh, late. Past midnight. He was not alone.
-  - |-
-    She gave me the porch and the night and stopped. Did not give me what he was carrying. Did not give me who he met. The book stayed closed under her hand.
-  - |-
-    I could feel the rest of it on the other side of the cover. So could she.
-
+- female_midlife_african-american_casual_opinionated: The back porch on Lemoine. Number
+    eighteen. He was there the night of the eleventh, late. Past midnight. He was
+    not alone.
+- She gave me the porch and the night and stopped. Did not give me what he was carrying.
+  Did not give me who he met. The book stayed closed under her hand.
+- I could feel the rest of it on the other side of the cover. So could she.
 choices:
-  - text: |-
-      Press her once more — kindly.
-    next:
-      - scene: act2/marta_full_account
-        weight: 1
-      - scene: act2/marta_holds
-        weight: 3
-
-  - text: |-
-      Take what she gave you. Leave.
-    next: act2/aldwick_exit
-    effects:
-      flags:
-        marta_partial_account: true
-      stats:
-        evidence: 1
-
-  - text: |-
-      Tell her what you saw at the boarding house. Earn the rest.
-    next: act2/aldwick_exit
-    requires:
-      flags:
-        - vera_warned
-    failed_text: |-
-      *(You don't have anything traded yet that's worth what she's holding.)*
-    effects:
-      flags:
-        marta_talked: true
-      stats:
-        evidence: 2
+- text: Press her once more — kindly.
+  next:
+  - scene: act2/marta_full_account
+    weight: 1
+  - scene: act2/marta_holds
+    weight: 3
+- text: Take what she gave you. Leave.
+  next: act2/aldwick_exit
+  effects:
+    flags:
+      marta_partial_account: true
+    stats:
+      evidence: 1
+- text: Tell her what you saw at the boarding house. Earn the rest.
+  next: act2/aldwick_exit
+  requires:
+    flags:
+    - vera_warned
+  failed_text: '*(You don''t have anything traded yet that''s worth what she''s holding.)*'
+  effects:
+    flags:
+      marta_talked: true
+    stats:
+      evidence: 2

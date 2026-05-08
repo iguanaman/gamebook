@@ -1,31 +1,27 @@
 id: act2/marta_intro_listen
-
 text:
-  - |-
-    I took a chair at the back. The pastor nodded at the empty seat beside him without looking, the way a man nods at a chair he has been saving without admitting to.
-  - |-
-    The meeting was about a condemnation order. A man named Reuben Gaines — Marta's brother, by the way she said it. He sat in the front row and did not speak. Marta spoke for him.
-  - female_midlife_african-american_casual_opinionated: |-
-      They served Reuben on a Tuesday. The bulldozer was at the corner of the lot Friday. They did not give him the seven days. They did not give him the three. They gave him *until Friday*, and Friday was the day they came.
-  - |-
-    The room did not gasp. The room had heard it before. I watched the room watch Marta and I understood why the meeting was a meeting and not a complaint.
-
+- I took a chair at the back. The pastor nodded at the empty seat beside him without
+  looking, the way a man nods at a chair he has been saving without admitting to.
+- The meeting was about a condemnation order. A man named Reuben Gaines — Marta's
+  brother, by the way she said it. He sat in the front row and did not speak. Marta
+  spoke for him.
+- female_midlife_african-american_casual_opinionated: They served Reuben on a Tuesday.
+    The bulldozer was at the corner of the lot Friday. They did not give him the seven
+    days. They did not give him the three. They gave him *until Friday*, and Friday
+    was the day they came.
+- The room did not gasp. The room had heard it before. I watched the room watch Marta
+  and I understood why the meeting was a meeting and not a complaint.
 choices:
-  - text: |-
-      Stay through to the end. Approach Marta after.
-    next: act2/marta_kitchen
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      Stand and offer help — say what you do, what you've found.
-    next: act2/marta_kitchen
-    effects:
-      stats:
-        rep: 1
-        heat: 1
-
-  - text: |-
-      Slip out before it ends. Catch Marta on the steps.
-    next: act2/marta_kitchen
+- text: Stay through to the end. Approach Marta after.
+  next: act2/marta_kitchen
+  effects:
+    stats:
+      evidence: 1
+- text: Stand and offer help — say what you do, what you've found.
+  next: act2/marta_kitchen
+  effects:
+    stats:
+      rep: 1
+      heat: 1
+- text: Slip out before it ends. Catch Marta on the steps.
+  next: act2/marta_kitchen

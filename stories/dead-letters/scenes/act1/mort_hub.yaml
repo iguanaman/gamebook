@@ -1,71 +1,63 @@
 id: act1/mort_hub
-
 text:
-  - |-
-    Mort Halloran filled the doorway the way he filled a room — sideways, apologetic, already telling a story. Brown suit dusted with ash. A pint of something brown in his coat pocket and another already opened in his hand.
-  - male_elder_american_wise_approachable: |-
-      Cady. Kid. You look like a man who's been sold a story and bought it.
-  - |-
-    He set the open bottle on my desk like he was paying rent. Sat without being asked. Lit a cigarette off the last one and put the last one out in my coffee.
-  - if: visited
-    text: |-
-      He was still there. He was always going to be still there until I made him leave.
-  - male_elder_american_wise_approachable: |-
-      All right. Tell me which way the hook's set. Or don't, and I'll guess.
-
+- Mort Halloran filled the doorway the way he filled a room — sideways, apologetic,
+  already telling a story. Brown suit dusted with ash. A pint of something brown in
+  his coat pocket and another already opened in his hand.
+- male_elder_american_wise_approachable: Cady. Kid. You look like a man who's been
+    sold a story and bought it.
+- He set the open bottle on my desk like he was paying rent. Sat without being asked.
+  Lit a cigarette off the last one and put the last one out in my coffee.
+- if: visited
+  text: He was still there. He was always going to be still there until I made him
+    leave.
+- male_elder_american_wise_approachable: All right. Tell me which way the hook's set.
+    Or don't, and I'll guess.
 choices:
-  - text: |-
-      Ask about Ray Doss.
-    next: act1/mort_topic_ray
-    requires:
-      flags_unset: [asked_mort_ray]
-
-  - text: |-
-      Ask about Aldwick.
-    next: act1/mort_topic_aldwick
-    requires:
-      flags_unset: [asked_mort_aldwick]
-      flags:
-        - aldwick_visited
-    failed_text: |-
-      *(You don't have that name yet to drop on him.)*
-
-  - text: |-
-      Let him needle you about the bottle in the drawer.
-    next: act1/mort_topic_drinking
-    requires:
-      flags_unset: [asked_mort_drinking]
-
-  - text: |-
-      Pour him another and send him home a friend.
-    next: act1/office_hub
-    requires:
-      flags_unset: [mort_owes_one]
-      flags:
-        - asked_mort_ray
-    effects:
-      flags:
-        mort_owes_one: true
-        mort_handled: true
-    failed_text: |-
-      *(Too soon. He hasn't told you anything yet.)*
-
-  - text: |-
-      Pour him another and send him home a friend.
-    next: act1/office_hub
-    requires:
-      flags_unset: [mort_owes_one, asked_mort_ray]
-      flags:
-        - asked_mort_aldwick
-    effects:
-      flags:
-        mort_owes_one: true
-        mort_handled: true
-    hide_if_failed: true
-
-  - text: |-
-      Show him the door. You've heard enough.
-    next: act1/office_hub
-    effects:
-      flags:
-        mort_handled: true
+- text: Ask about Ray Doss.
+  next: act1/mort_topic_ray
+  requires:
+    flags_unset:
+    - asked_mort_ray
+- text: Ask about Aldwick.
+  next: act1/mort_topic_aldwick
+  requires:
+    flags_unset:
+    - asked_mort_aldwick
+    flags:
+    - aldwick_visited
+  failed_text: '*(You don''t have that name yet to drop on him.)*'
+- text: Let him needle you about the bottle in the drawer.
+  next: act1/mort_topic_drinking
+  requires:
+    flags_unset:
+    - asked_mort_drinking
+- text: Pour him another and send him home a friend.
+  next: act1/office_hub
+  requires:
+    flags_unset:
+    - mort_owes_one
+    flags:
+    - asked_mort_ray
+  effects:
+    flags:
+      mort_owes_one: true
+      mort_handled: true
+  failed_text: '*(Too soon. He hasn''t told you anything yet.)*'
+- text: Pour him another and send him home a friend.
+  next: act1/office_hub
+  requires:
+    flags_unset:
+    - mort_owes_one
+    - asked_mort_ray
+    flags:
+    - asked_mort_aldwick
+  effects:
+    flags:
+      mort_owes_one: true
+      mort_handled: true
+  hide_if_failed: true
+- text: Show him the door. You've heard enough.
+  next: act1/office_hub
+  effects:
+    flags:
+      mort_handled: true

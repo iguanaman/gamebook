@@ -1,15 +1,16 @@
 id: act3/warehouse_fight
-
 text:
-  - |-
-    Close quarters. The wire-cage light on the doorway. Salzano's hand came out of the coat pocket with what he had been keeping there. The second man moved to the door behind me. Walt did not draw on me. That part of the kindness was also real.
-  - if: {flags: [frank_armed]}
-    text: |-
-      The revolver in my coat pocket was an idea more than a thing. I got my hand on it. I did not get it out clean.
-  - |-
-    It was over before it could be a fight. The shape of the thing was not a fight. It was a shape Salzano had practiced. The shape was: which of the three of us walks out.
-
+- Close quarters. The wire-cage light on the doorway. Salzano's hand came out of the
+  coat pocket with what he had been keeping there. The second man moved to the door
+  behind me. Walt did not draw on me. That part of the kindness was also real.
+- if:
+    flags:
+    - frank_armed
+  text: The revolver in my coat pocket was an idea more than a thing. I got my hand
+    on it. I did not get it out clean.
+- 'It was over before it could be a fight. The shape of the thing was not a fight.
+  It was a shape Salzano had practiced. The shape was: which of the three of us walks
+  out.'
 choices:
-  - text: |-
-      Continue.
-    next: act3/warehouse_escape
+- text: Continue.
+  next: act3/warehouse_escape

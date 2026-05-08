@@ -1,37 +1,29 @@
 id: act1/mort_topic_drinking
-
 text:
-  - male_elder_american_wise_approachable: |-
-      That bottle in the drawer. You think I can't hear it from the stair? [chuckle] Cady, kid, you keep it like a man hides cigarettes from his wife. Only you ain't got a wife.
-  - |-
-    He smiled the smile he used when he was finding out something for free.
-  - male_elder_american_wise_approachable: |-
-      You keep an eye on it, that's all I'm saying. The bottle waits. The work doesn't.
-  - |-
-    The needle was friendly. The needle was also a needle.
-
+- male_elder_american_wise_approachable: That bottle in the drawer. You think I can't
+    hear it from the stair? [chuckle] Cady, kid, you keep it like a man hides cigarettes
+    from his wife. Only you ain't got a wife.
+- He smiled the smile he used when he was finding out something for free.
+- male_elder_american_wise_approachable: You keep an eye on it, that's all I'm saying.
+    The bottle waits. The work doesn't.
+- The needle was friendly. The needle was also a needle.
 choices:
-  - text: |-
-      Take the joke. Pour him another.
-    next: act1/mort_hub
-    effects:
-      flags:
-        asked_mort_drinking: true
-      stats:
-        rep: 1
-
-  - text: |-
-      Tell him to drop it. Politely.
-    next: act1/mort_hub
-    effects:
-      flags:
-        asked_mort_drinking: true
-
-  - text: |-
-      Tell him to drop it. Not politely.
-    next: act1/mort_hub
-    effects:
-      flags:
-        asked_mort_drinking: true
-      stats:
-        rep: -1
+- text: Take the joke. Pour him another.
+  next: act1/mort_hub
+  effects:
+    flags:
+      asked_mort_drinking: true
+    stats:
+      rep: 1
+- text: Tell him to drop it. Politely.
+  next: act1/mort_hub
+  effects:
+    flags:
+      asked_mort_drinking: true
+- text: Tell him to drop it. Not politely.
+  next: act1/mort_hub
+  effects:
+    flags:
+      asked_mort_drinking: true
+    stats:
+      rep: -1

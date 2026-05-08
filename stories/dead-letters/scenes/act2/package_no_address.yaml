@@ -1,20 +1,20 @@
 id: act2/package_no_address
-
 text:
-  - |-
-    I stood at the counter longer than a man stands at a counter for a reason. Hettie waited with the patience of someone who had been waited on her whole working life and knew what it was worth.
-  - |-
-    The address line on the parcel was blank. I had written nothing in the pencil space because I had nothing to write. *Tribune-Ledger* I knew. The street I did not. The woman's name I had heard once and not from anyone who would have given me the rest of it.
-  - female_elder_american_relatable_likeable: |-
-      Take your time, dear. The bag goes at six-fifteen. There's a later one, but it's slower.
-  - |-
-    The man across the street turned a page he had not been reading. The trolley went past and the tin ceiling hummed.
-  - |-
-    I asked her for the parcel back. She handed it to me without comment, the way she handed back parcels.
-  - female_elder_american_relatable_likeable: |-
-      We'll be open tomorrow, dear. Eight to seven.
-
+- I stood at the counter longer than a man stands at a counter for a reason. Hettie
+  waited with the patience of someone who had been waited on her whole working life
+  and knew what it was worth.
+- The address line on the parcel was blank. I had written nothing in the pencil space
+  because I had nothing to write. *Tribune-Ledger* I knew. The street I did not. The
+  woman's name I had heard once and not from anyone who would have given me the rest
+  of it.
+- female_elder_american_relatable_likeable: Take your time, dear. The bag goes at
+    six-fifteen. There's a later one, but it's slower.
+- The man across the street turned a page he had not been reading. The trolley went
+  past and the tin ceiling hummed.
+- I asked her for the parcel back. She handed it to me without comment, the way she
+  handed back parcels.
+- female_elder_american_relatable_likeable: We'll be open tomorrow, dear. Eight to
+    seven.
 choices:
-  - text: |-
-      Walk out. Put it in the office safe. Decide tomorrow.
-    next: act2/office_hub
+- text: Walk out. Put it in the office safe. Decide tomorrow.
+  next: act2/office_hub

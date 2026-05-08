@@ -1,23 +1,23 @@
 id: act2/squeeze_feign
-
 text:
-  - |-
-    I smiled. I lied. I lied with the smile and with the shoulders and with the small surrender in the chest that men recognise when they see it because they have practised it themselves.
-  - |-
-    The visitor read the lie and let me have it. Either he believed it or he wanted me to believe he had believed it. In a city where everyone is an actor, the difference is academic.
-  - |-
-    By the time the smile had finished settling, somebody on the other side of the city was being told that Frank Cady had caved. Somebody who had told me a thing they should not have told me was already deciding whether they had been wrong about me. The lie cost me a source. I would not know which one until I needed them.
-
+- I smiled. I lied. I lied with the smile and with the shoulders and with the small
+  surrender in the chest that men recognise when they see it because they have practised
+  it themselves.
+- The visitor read the lie and let me have it. Either he believed it or he wanted
+  me to believe he had believed it. In a city where everyone is an actor, the difference
+  is academic.
+- By the time the smile had finished settling, somebody on the other side of the city
+  was being told that Frank Cady had caved. Somebody who had told me a thing they
+  should not have told me was already deciding whether they had been wrong about me.
+  The lie cost me a source. I would not know which one until I needed them.
 choices:
-  - text: |-
-      Continue.
-    next: act2/kellner_diner
-    requires:
-      flags:
-        - kellner_called
-      flags_unset: [kellner_met]
-    hide_if_failed: true
-
-  - text: |-
-      Continue.
-    next: act2/kellner_phone
+- text: Continue.
+  next: act2/kellner_diner
+  requires:
+    flags:
+    - kellner_called
+    flags_unset:
+    - kellner_met
+  hide_if_failed: true
+- text: Continue.
+  next: act2/kellner_phone

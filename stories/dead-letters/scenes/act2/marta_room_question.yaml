@@ -1,18 +1,15 @@
 id: act2/marta_room_question
-
 text:
-  - |-
-    I asked the room when they had last seen a man in a suit too good for the building.
-  - |-
-    A woman three rows back raised her hand. The pastor coughed once and her hand came down. Somebody behind me said *Tuesday* and somebody behind him said *hush*.
-  - |-
-    Marta watched me do it. I watched her re-evaluate me in real time — the small recalibration of a person deciding whether the man in front of her was useful or a liability. The pencil tapped the lectern once.
-
+- I asked the room when they had last seen a man in a suit too good for the building.
+- A woman three rows back raised her hand. The pastor coughed once and her hand came
+  down. Somebody behind me said *Tuesday* and somebody behind him said *hush*.
+- Marta watched me do it. I watched her re-evaluate me in real time — the small recalibration
+  of a person deciding whether the man in front of her was useful or a liability.
+  The pencil tapped the lectern once.
 choices:
-  - text: |-
-      Continue.
-    next: act2/marta_kitchen
-    effects:
-      stats:
-        evidence: 1
-        rep: -1
+- text: Continue.
+  next: act2/marta_kitchen
+  effects:
+    stats:
+      evidence: 1
+      rep: -1

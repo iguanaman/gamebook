@@ -1,19 +1,17 @@
 id: act2/records_alley_escape
-
 text:
-  - |-
-    I took the corridor in five strides and the back stair in three. The sash at the alley window came up under my forearm and tore my hand on the latch in a clean line that would not stop bleeding for an hour.
-  - |-
-    I held the file against my ribs and went out the window the way I had come in, faster, badly. The drop was further than I remembered. The cobbles were wet.
-  - |-
-    I lost Salzano at the corner of Court and Ninth, where the streetcar barn took the sound out of the air. I lost some skin with him. I kept the file.
-
+- I took the corridor in five strides and the back stair in three. The sash at the
+  alley window came up under my forearm and tore my hand on the latch in a clean line
+  that would not stop bleeding for an hour.
+- I held the file against my ribs and went out the window the way I had come in, faster,
+  badly. The drop was further than I remembered. The cobbles were wet.
+- I lost Salzano at the corner of Court and Ninth, where the streetcar barn took the
+  sound out of the air. I lost some skin with him. I kept the file.
 choices:
-  - text: |-
-      Continue.
-    next: act2/records_room_exit
-    effects:
-      stats:
-        heat: 2
-      flags:
-        cops_warned_off: true
+- text: Continue.
+  next: act2/records_room_exit
+  effects:
+    stats:
+      heat: 2
+    flags:
+      cops_warned_off: true

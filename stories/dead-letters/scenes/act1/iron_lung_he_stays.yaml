@@ -1,26 +1,21 @@
 id: act1/iron_lung_he_stays
-
 text:
-  - |-
-    He stayed past closing. Lou shooed two drunks out and turned the lock and stood looking at me from behind the bar with an expression that said: *buddy, I would like to go home.*
-  - |-
-    The man at the end didn't move. He had the look of a thing left to settle.
-
+- 'He stayed past closing. Lou shooed two drunks out and turned the lock and stood
+  looking at me from behind the bar with an expression that said: *buddy, I would
+  like to go home.*'
+- The man at the end didn't move. He had the look of a thing left to settle.
 choices:
-  - text: |-
-      Get up to leave. Watch his shoulders in the mirror as you do.
-    next: act1/iron_lung_tail
-    effects:
-      stats:
-        heat: 2
-
-  - text: |-
-      Stay until he goes. Lou is going to hate you for it. You can live with that.
-    next:
-      - scene: act1/iron_lung_he_leaves
-        weight: 3
-      - scene: act1/iron_lung_tail
-        weight: 1
-    effects:
-      stats:
-        rep: -1
+- text: Get up to leave. Watch his shoulders in the mirror as you do.
+  next: act1/iron_lung_tail
+  effects:
+    stats:
+      heat: 2
+- text: Stay until he goes. Lou is going to hate you for it. You can live with that.
+  next:
+  - scene: act1/iron_lung_he_leaves
+    weight: 3
+  - scene: act1/iron_lung_tail
+    weight: 1
+  effects:
+    stats:
+      rep: -1

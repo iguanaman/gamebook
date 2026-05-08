@@ -1,23 +1,21 @@
 id: act2/squeeze_back_off
-
 text:
-  - |-
-    The visitor left the way the visitor had come. The door closed. The lamp did not flicker; the building was steadier than I was.
-  - |-
-    I sat in the chair the visitor had sat in. The brick on the floor had not moved. Tomorrow there would be a card under the door — no name on it, the kind of card a typewriter dents — and the warning would have a tier on it now. *DROP IT* and then a second word the typewriter had hit harder.
-  - |-
-    The case was not closed in my head. It was closed on every desk in the city that mattered, and I was the only one left at this one.
-
+- The visitor left the way the visitor had come. The door closed. The lamp did not
+  flicker; the building was steadier than I was.
+- I sat in the chair the visitor had sat in. The brick on the floor had not moved.
+  Tomorrow there would be a card under the door — no name on it, the kind of card
+  a typewriter dents — and the warning would have a tier on it now. *DROP IT* and
+  then a second word the typewriter had hit harder.
+- The case was not closed in my head. It was closed on every desk in the city that
+  mattered, and I was the only one left at this one.
 choices:
-  - text: |-
-      Continue.
-    next: act2/kellner_diner
-    requires:
-      flags:
-        - kellner_called
-      flags_unset: [kellner_met]
-    hide_if_failed: true
-
-  - text: |-
-      Continue.
-    next: act2/kellner_phone
+- text: Continue.
+  next: act2/kellner_diner
+  requires:
+    flags:
+    - kellner_called
+    flags_unset:
+    - kellner_met
+  hide_if_failed: true
+- text: Continue.
+  next: act2/kellner_phone

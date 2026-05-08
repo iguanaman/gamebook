@@ -1,23 +1,22 @@
 id: act2/squeeze_push_back
-
 text:
-  - |-
-    I told him to leave. I told him in the register a man uses when he has decided that the next minute is more important than the next month.
-  - |-
-    Salzano would have nodded, polite, the way a banker nods when a loan officer turns him down, and gone. Brennan would have smiled thin and put the car in gear without looking at me. Mort would have taken the news that I was harder than he had thought and gone home white-faced to a typewriter he was not going to touch.
-  - |-
-    Whichever one it had been, the thing on my back was now visible from the street. It would be visible from the street tomorrow, and the day after, until somebody read it and acted on what they read.
-
+- I told him to leave. I told him in the register a man uses when he has decided that
+  the next minute is more important than the next month.
+- Salzano would have nodded, polite, the way a banker nods when a loan officer turns
+  him down, and gone. Brennan would have smiled thin and put the car in gear without
+  looking at me. Mort would have taken the news that I was harder than he had thought
+  and gone home white-faced to a typewriter he was not going to touch.
+- Whichever one it had been, the thing on my back was now visible from the street.
+  It would be visible from the street tomorrow, and the day after, until somebody
+  read it and acted on what they read.
 choices:
-  - text: |-
-      Continue.
-    next: act2/kellner_diner
-    requires:
-      flags:
-        - kellner_called
-      flags_unset: [kellner_met]
-    hide_if_failed: true
-
-  - text: |-
-      Continue.
-    next: act2/kellner_phone
+- text: Continue.
+  next: act2/kellner_diner
+  requires:
+    flags:
+    - kellner_called
+    flags_unset:
+    - kellner_met
+  hide_if_failed: true
+- text: Continue.
+  next: act2/kellner_phone

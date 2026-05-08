@@ -1,12 +1,10 @@
 id: act3/entry_b
-
 text:
-  - |-
-    The book on the seat beside me. The phone call still on the wall of the office I had left fifteen minutes ago. Walt knows what I have and where I keep what I have not.
-  - |-
-    He used my first name on the phone. He used to do that when we were going to the same place.
-
+- The book on the seat beside me. The phone call still on the wall of the office I
+  had left fifteen minutes ago. Walt knows what I have and where I keep what I have
+  not.
+- He used my first name on the phone. He used to do that when we were going to the
+  same place.
 choices:
-  - text: |-
-      Drive.
-    next: act3/drive_out_open
+- text: Drive.
+  next: act3/drive_out_open

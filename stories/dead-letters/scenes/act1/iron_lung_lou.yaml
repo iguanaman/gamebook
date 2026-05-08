@@ -1,43 +1,32 @@
 id: act1/iron_lung_lou
-
 text:
-  - |-
-    Lou poured before I asked. Rye, neat, the glass already at hand like he'd been holding it for me since I came down the stair.
-  - male_adult_american_witty_casual: |-
-      Buddy. Long time.
-  - |-
-    It hadn't been. He knew that. So did I. The fiction was the courtesy.
-  - |-
-    I said Ray's name. Lou didn't blink. He nudged the glass another half-inch toward my hand with one knuckle.
-  - male_adult_american_witty_casual: |-
-      Ray. Yeah. Thursday.
-  - |-
-    Half a sentence. He was waiting to see what I'd do with it before he gave me the rest.
-
+- Lou poured before I asked. Rye, neat, the glass already at hand like he'd been holding
+  it for me since I came down the stair.
+- male_adult_american_witty_casual: Buddy. Long time.
+- It hadn't been. He knew that. So did I. The fiction was the courtesy.
+- I said Ray's name. Lou didn't blink. He nudged the glass another half-inch toward
+  my hand with one knuckle.
+- male_adult_american_witty_casual: Ray. Yeah. Thursday.
+- Half a sentence. He was waiting to see what I'd do with it before he gave me the
+  rest.
 choices:
-  - text: |-
-      Buy a round for the room. Lean working-class. Earn the back half of the sentence.
-    next: act1/iron_lung_lou_open
-    effects:
-      stats:
-        rep: 1
-        evidence: 1
-
-  - text: |-
-      Press him quietly. Just the two of you, voice down, no theatre.
-    next: act1/iron_lung_lou_open
-    effects:
-      stats:
-        evidence: 1
-
-  - text: |-
-      Slide a five across the bar. Make it a transaction so neither of you has to pretend it isn't one.
-    next: act1/iron_lung_lou_paid
-    effects:
-      stats:
-        evidence: 1
-        rep: -1
-
-  - text: |-
-      Give up on him. Drink the drink. Listen to the room instead.
-    next: act1/iron_lung_listen
+- text: Buy a round for the room. Lean working-class. Earn the back half of the sentence.
+  next: act1/iron_lung_lou_open
+  effects:
+    stats:
+      rep: 1
+      evidence: 1
+- text: Press him quietly. Just the two of you, voice down, no theatre.
+  next: act1/iron_lung_lou_open
+  effects:
+    stats:
+      evidence: 1
+- text: Slide a five across the bar. Make it a transaction so neither of you has to
+    pretend it isn't one.
+  next: act1/iron_lung_lou_paid
+  effects:
+    stats:
+      evidence: 1
+      rep: -1
+- text: Give up on him. Drink the drink. Listen to the room instead.
+  next: act1/iron_lung_listen

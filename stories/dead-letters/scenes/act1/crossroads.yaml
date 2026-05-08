@@ -1,40 +1,41 @@
 id: act1/crossroads
-
 text:
-  - |-
-    The desk was where I always put it when I had a decision to make. Lamp pulled close. Bottle uncapped or not, it didn't matter; the bottle was a prop in this scene either way.
-  - |-
-    Vera Doss had walked up my stairs on a Tuesday and asked me to find her husband. By Friday she was a wet shape under a sheet on a tile floor and a sergeant named Brennan was telling me on a stoop the case was closed.
-  - |-
-    The retainer envelope was on the desk. Sealed. The bills inside still folded the way she'd folded them in a kitchen drawer at the boarding house. Not a lot of money. Enough to buy a streetcar fare and a few days of asking the wrong people the right questions.
-  - |-
-    Beside it: whatever I had. The slip with ALDWICK on it. The key, or the place on the desk where the key wasn't. The empty frame, or the absence of the empty frame. The shape of a woman who had asked me to come, and the shape of the men who had decided she wouldn't.
-  - |-
-    There was a drawer in the desk. The drawer was deep. The drawer would take the envelope and close over it the way a river closes over a stone. The city would forget Vera Doss the way the city wanted to. The city wanted that very much.
-  - |-
-    Or I could open the envelope. I could spend her money asking after a husband she would never see again, in a neighbourhood I had never been to, on behalf of a client who was already past caring whether I succeeded.
-  - |-
-    The decision was mine. I had been pretending it wasn't all evening. The bottle hadn't helped. The lamp wasn't going to help either.
-
+- The desk was where I always put it when I had a decision to make. Lamp pulled close.
+  Bottle uncapped or not, it didn't matter; the bottle was a prop in this scene either
+  way.
+- Vera Doss had walked up my stairs on a Tuesday and asked me to find her husband.
+  By Friday she was a wet shape under a sheet on a tile floor and a sergeant named
+  Brennan was telling me on a stoop the case was closed.
+- The retainer envelope was on the desk. Sealed. The bills inside still folded the
+  way she'd folded them in a kitchen drawer at the boarding house. Not a lot of money.
+  Enough to buy a streetcar fare and a few days of asking the wrong people the right
+  questions.
+- 'Beside it: whatever I had. The slip with ALDWICK on it. The key, or the place on
+  the desk where the key wasn''t. The empty frame, or the absence of the empty frame.
+  The shape of a woman who had asked me to come, and the shape of the men who had
+  decided she wouldn''t.'
+- There was a drawer in the desk. The drawer was deep. The drawer would take the envelope
+  and close over it the way a river closes over a stone. The city would forget Vera
+  Doss the way the city wanted to. The city wanted that very much.
+- Or I could open the envelope. I could spend her money asking after a husband she
+  would never see again, in a neighbourhood I had never been to, on behalf of a client
+  who was already past caring whether I succeeded.
+- The decision was mine. I had been pretending it wasn't all evening. The bottle hadn't
+  helped. The lamp wasn't going to help either.
 choices:
-  - text: |-
-      Put the envelope in the drawer. Forget Vera Doss the way the city wants you to.
-    next: act1/act_1_bury_it_early
-    effects:
-      flags:
-        bury_it_early: true
-
-  - text: |-
-      Open the envelope. Spend the retainer on a streetcar to Aldwick in the morning.
-    next: act1/act_1_to_act_2
-
-  - text: |-
-      Open the envelope. But take the long way — write it all down first, every detail, in case you don't come back.
-    next: act1/act_1_to_act_2
-    effects:
-      flags:
-        frank_wrote_it_down: true
-
-  - text: |-
-      Open the envelope. Pour a drink. Decide tomorrow what tomorrow looks like.
-    next: act1/act_1_to_act_2
+- text: Put the envelope in the drawer. Forget Vera Doss the way the city wants you
+    to.
+  next: act1/act_1_bury_it_early
+  effects:
+    flags:
+      bury_it_early: true
+- text: Open the envelope. Spend the retainer on a streetcar to Aldwick in the morning.
+  next: act1/act_1_to_act_2
+- text: Open the envelope. But take the long way — write it all down first, every
+    detail, in case you don't come back.
+  next: act1/act_1_to_act_2
+  effects:
+    flags:
+      frank_wrote_it_down: true
+- text: Open the envelope. Pour a drink. Decide tomorrow what tomorrow looks like.
+  next: act1/act_1_to_act_2

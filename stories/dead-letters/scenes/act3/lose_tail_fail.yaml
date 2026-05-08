@@ -1,15 +1,13 @@
 id: act3/lose_tail_fail
-
 text:
-  - |-
-    Two cars in the rearview where there had been one. The second sedan must have been waiting on Carr. They had not been pretending to lose me; they had been counting how long it took me to notice.
-  - |-
-    I parked where Walt had told me to park. I did not look up at either of them as I cut the engine.
-
+- Two cars in the rearview where there had been one. The second sedan must have been
+  waiting on Carr. They had not been pretending to lose me; they had been counting
+  how long it took me to notice.
+- I parked where Walt had told me to park. I did not look up at either of them as
+  I cut the engine.
 choices:
-  - text: |-
-      Continue.
-    next: act3/drive_river_arrive
-    effects:
-      stats:
-        heat: 1
+- text: Continue.
+  next: act3/drive_river_arrive
+  effects:
+    stats:
+      heat: 1

@@ -1,20 +1,18 @@
 id: act2/package_aborted
-
 text:
-  - |-
-    I pocketed the parcel. The brown paper crinkled against the lining of my coat the way a thing crinkles when it is being put back where it should not have come from.
-  - female_elder_american_relatable_likeable: |-
-      Changed your mind, dear?
-  - |-
-    I told her something that was not quite a lie and not quite anything else. She nodded the way a woman nods who has heard better lies than mine in her time at this counter.
-  - |-
-    Out on the street the man with the paper watched me come down the post office steps with the parcel still under my arm. He did not pretend not to watch. He had stopped pretending the minute I came out without having mailed it.
-  - |-
-    I walked the long way back to the office. The parcel went into the desk drawer. The drawer locked. The lock was the kind of lock that buys you ten seconds against a man who has decided to come through the door.
-  - |-
-    I could try again. Once. The post office opened at eight in the morning and Hettie was on the counter until six.
-
+- I pocketed the parcel. The brown paper crinkled against the lining of my coat the
+  way a thing crinkles when it is being put back where it should not have come from.
+- female_elder_american_relatable_likeable: Changed your mind, dear?
+- I told her something that was not quite a lie and not quite anything else. She nodded
+  the way a woman nods who has heard better lies than mine in her time at this counter.
+- Out on the street the man with the paper watched me come down the post office steps
+  with the parcel still under my arm. He did not pretend not to watch. He had stopped
+  pretending the minute I came out without having mailed it.
+- I walked the long way back to the office. The parcel went into the desk drawer.
+  The drawer locked. The lock was the kind of lock that buys you ten seconds against
+  a man who has decided to come through the door.
+- I could try again. Once. The post office opened at eight in the morning and Hettie
+  was on the counter until six.
 choices:
-  - text: |-
-      Back to the office. Try again tomorrow.
-    next: act2/office_hub
+- text: Back to the office. Try again tomorrow.
+  next: act2/office_hub

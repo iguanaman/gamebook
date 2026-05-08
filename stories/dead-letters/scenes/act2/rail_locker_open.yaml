@@ -1,40 +1,35 @@
 id: act2/rail_locker_open
-
 text:
-  - |-
-    The rail station at four. The wall of brass doors at the far end of the concourse, under a clock that lost two minutes a day and had lost them all morning.
-  - |-
-    Locker forty-one. Third row, fifth from the left. The brass plate scuffed where a hundred thumbs had pushed past it to forty-two.
-  - |-
-    The key turned the way a key turns when nobody has tried to force it — clean, half a quarter, the bolt sliding back into the door. The door opened on a hinge that had been oiled within the year.
-  - |-
-    Inside: a soft leather-bound notebook the size of a hand, on top of a folded brown envelope. Nothing else. No money, no second key, no note.
-  - |-
-    I lifted the cover with one finger. Names. Account numbers. *The mayor's brother.* Halston Thorne, written out twice in the first three pages. Dates running down the right margin in a hand that had been careful and was tiring at the bottom of every page.
-  - |-
-    Ray Doss had been keeping books on the people keeping books on Aldwick.
-
+- The rail station at four. The wall of brass doors at the far end of the concourse,
+  under a clock that lost two minutes a day and had lost them all morning.
+- Locker forty-one. Third row, fifth from the left. The brass plate scuffed where
+  a hundred thumbs had pushed past it to forty-two.
+- The key turned the way a key turns when nobody has tried to force it — clean, half
+  a quarter, the bolt sliding back into the door. The door opened on a hinge that
+  had been oiled within the year.
+- 'Inside: a soft leather-bound notebook the size of a hand, on top of a folded brown
+  envelope. Nothing else. No money, no second key, no note.'
+- I lifted the cover with one finger. Names. Account numbers. *The mayor's brother.*
+  Halston Thorne, written out twice in the first three pages. Dates running down the
+  right margin in a hand that had been careful and was tiring at the bottom of every
+  page.
+- Ray Doss had been keeping books on the people keeping books on Aldwick.
 choices:
-  - text: |-
-      Take it. Pocket the key.
-    next: act2/ledger_inspect_take
-    effects:
-      flags:
-        found_ledger: true
-      stats:
-        evidence: 3
-        heat: 1
-
-  - text: |-
-      Photograph the pages on a bench in the men's washroom. Put it back.
-    next: act2/ledger_inspect_photo
-    effects:
-      flags:
-        found_ledger: true
-        ledger_left_in_place: true
-      stats:
-        evidence: 2
-
-  - text: |-
-      Read it once before deciding what to do.
-    next: act2/ledger_read_then_decide
+- text: Take it. Pocket the key.
+  next: act2/ledger_inspect_take
+  effects:
+    flags:
+      found_ledger: true
+    stats:
+      evidence: 3
+      heat: 1
+- text: Photograph the pages on a bench in the men's washroom. Put it back.
+  next: act2/ledger_inspect_photo
+  effects:
+    flags:
+      found_ledger: true
+      ledger_left_in_place: true
+    stats:
+      evidence: 2
+- text: Read it once before deciding what to do.
+  next: act2/ledger_read_then_decide
