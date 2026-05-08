@@ -1006,14 +1006,14 @@ body.journal-open #fullscreen-btn {
 .journal-backdrop { display: none; }
 
 .tap-to-continue {
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 9999;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  color: var(--text, #fff);
+  font-family: var(--font-body);
+  color: var(--text);
   font-size: 1.25rem;
   letter-spacing: 0.05em;
   cursor: pointer;

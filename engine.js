@@ -1294,7 +1294,7 @@ function waitForTapToContinue() {
     const overlay = document.createElement('div');
     overlay.className = 'tap-to-continue';
     overlay.textContent = 'Tap to continue…';
-    document.body.appendChild(overlay);
+    storyRoot.appendChild(overlay);
     function done() {
       overlay.removeEventListener('click', done);
       overlay.remove();
