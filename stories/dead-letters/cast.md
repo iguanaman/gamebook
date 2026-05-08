@@ -1,7 +1,7 @@
 # Dead Letters — Cast
 
 ## Vera Doss (the client)
-**Voice:** `female_adult_american_gentle_tender_sweet` — a tender, careful register fits a frightened young widow holding back what she knows; the sweetness reads as the shell over her fear, not as innocence.
+**Voice:** `female_midlife_american_sexy_sultry_sensual` — a tender, careful register fits a frightened young widow holding back what she knows; the sweetness reads as the shell over her fear, not as innocence.
 **Body:** thin gold wedding band she keeps turning on her finger; a small dark stain on the cuff of her good coat she hasn't noticed.
 **Voice on the page:** Short sentences. Polite to a fault — calls Frank "Mr. Cady" until the second meeting. Avoids the word *dead*; says "if he doesn't come back" and "if anything's happened." Apologises for taking up time. When she's most afraid she gets quieter, not louder.
 **Contradiction:** Asks Frank to find her husband, then flinches every time Frank gets close to finding him. She wants Ray back and she wants Frank to fail; she can't say which more.
