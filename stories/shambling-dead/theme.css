@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;600&display=swap');
+
+#story-root {
+  --bg: #0a0a0b;
+  --surface: #131314;
+  --text: #d8d6cf;
+  --text-muted: #7a7872;
+  --border: #2a2826;
+  --hover-bg: #1c1b1a;
+  --accent: #8a1a1a;
+  --accent-hover: #a82424;
+  --btn-secondary-bg: #18181a;
+  --btn-secondary-hover: #232220;
+  --radius: 1px;
+
+  --font-body: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-ui: 'Oswald', 'Roboto Condensed', sans-serif;
+  --font-heading: 'Special Elite', 'Courier New', monospace;
+  --card-title-size: calc(var(--card-title-base) * 1.1);
+  --card-desc-size: 0.85rem;
+
+  --border-outer: #1a1817;
+  --border-inner: #050505;
+
+  --divider-color: #2a2826;
+  --divider-style: 1px solid var(--divider-color);
+
+  --drop-cap-color: #8a1a1a;
+  --drop-cap-size: 3.5em;
+
+  --act-title-size: 1.9rem;
+  --act-rule-color: #3a1010;
+  --act-rule-style: 1px solid var(--act-rule-color);
+
+  --anim-block-duration: 380ms;
+  --anim-choice-duration: 320ms;
+  --anim-act-title-duration: 700ms;
+  --anim-choice-fade-fast: 250ms;
+  --anim-choice-linger-ms: 1400ms;
+  --anim-choice-fade-slow: 600ms;
+}
+
+/* Subtle grain + cold desaturation overlay — bleached, lifeless air */
+#story-root::before,
+.story-card[data-story="shambling-dead"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(255,255,255,0.025) 0%, transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,0.04) 0px,
+      rgba(0,0,0,0.04) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  mix-blend-mode: multiply;
+  opacity: 0.6;
+}

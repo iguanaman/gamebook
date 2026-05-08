@@ -1,0 +1,42 @@
+id: shambling-dead
+genre: Horror
+prefix: Shambling Dead
+title: The Long Walk Out
+narrator: narrator_male_last-of-us_joel
+description: You wake to screaming in your street. The dead are slow. They are also everywhere.
+cover: images/cover.jpg
+start: start
+journal: |-
+  You woke up in your own bed to screaming on the lawn. Your neighbour was eating another neighbour. Phones half-work. The radio is just emergency tones now. Whatever this is, nobody is coming. You have to leave the city. Alone, or with whoever you can keep alive.
+volume_music: 0.25
+
+stats:
+  health: 5
+  bond: 0
+  supplies: 3
+
+flags:
+  neighbour_alive:
+    label: Dale (neighbour)
+    visible: true
+  teen_alive:
+    label: Caleb (teen)
+    visible: true
+  elder_alive:
+    label: Ruth (elder)
+    visible: true
+  stranger_alive:
+    label: Wren (stranger)
+    visible: true
+  child_rescued:
+    label: Mara (child)
+    visible: true
+  has_pistol:
+    label: Pistol
+    visible: true
+  has_keys:
+    label: Truck Keys
+    visible: true
+  bitten:
+    label: Bitten
+    visible: true
