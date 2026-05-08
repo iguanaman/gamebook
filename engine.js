@@ -1666,6 +1666,10 @@ function typeBlocks(blocks, onDone, sceneId) {
 }
 
 function renderChoices(scene) {
+  if (state && state.scene && !state.visited.includes(state.scene)) {
+    state.visited.push(state.scene);
+    saveState();
+  }
   const el = storyApp.querySelector('#choices-footer');
   if (!el) return;
 
