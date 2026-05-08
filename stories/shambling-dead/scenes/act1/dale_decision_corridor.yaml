@@ -1,0 +1,28 @@
+text:
+  - |-
+    You walk. You get a block. Maybe a block and a half.
+  - |-
+    Dale is taking more of his weight on you each step. He is not asking you to slow down. He is also not keeping up.
+  - if: {flags: [dale_bitten]}
+    text: |-
+      His skin under your hand is wet. Not sweat-wet. The other kind. He is hot the way a child is hot at three in the morning.
+  - if: {flags: [dale_bitten], flags_unset: [saw_dale_leg]}
+    text: |-
+      You had not noticed how heavy he was getting. You notice now.
+  - if: {flags_unset: [dale_bitten]}
+    text: |-
+      He is grey in a way that has nothing to do with the light. The leg is dragging. He is trying to make it not drag and he is failing.
+  - |-
+    There is a stalled sedan twenty paces off the kerb, driver's door open, no driver. The cul-de-sac horde is half a block back, slow but constant — the same speed they have been since you left the street, which means they have not lost you and will not.
+  - |-
+    Across the road, in the gas-station forecourt, a single shambler is oriented at the pumps. Oblivious. For now.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb has stopped. He is looking at Dale the way a boy looks at a wound he is about to be asked to look at.
+  - male_midlife_american_dark_tough: |-
+      [sigh] All right. All right, that's — that's enough, kid.
+
+choices:
+  - text: |-
+      Stop. Against the side of the stalled car. Now.
+    next: act1/dale_decision

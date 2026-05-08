@@ -1,0 +1,72 @@
+text:
+  - |-
+    You crouch with him behind the rear quarter of a stalled pickup. The metal is warm. The horde is audible the whole time, half a block back and not getting tired.
+  - |-
+    Dale's breathing is too fast for a man sitting still. He sees you noticing and slows it on purpose.
+  - male_midlife_american_dark_tough: |-
+      Ask. While there's time.
+  - if: {flags: [teen_alive]}
+    text: |-
+      Caleb is two paces off, eyes on the road behind. He will not look at either of you. He is listening to every word.
+  - |-
+    Something passes on the other side of the truck. A footfall, then the soft drag of a foot that does not lift all the way. Dale stops mid-breath and waits for it to be gone.
+
+choices:
+  - text: |-
+      His wife.
+    next: act1/talk_dale_wife
+    requires:
+      flags_unset: [talked_dale_wife]
+  - text: |-
+      What he saw on the lawn.
+    next: act1/talk_dale_lawn
+    requires:
+      flags_unset: [talked_dale_lawn]
+  - text: |-
+      The leg. Show me.
+    next: act1/talk_dale_leg
+    requires:
+      flags: [saw_dale_leg]
+      flags_unset: [talked_dale_leg]
+    hide_if_failed: true
+  - text: |-
+      Enough talking. Back to the corner.
+    next: act1/route_choice_arterial
+    requires:
+      flags: [talked_dale_wife]
+    effects:
+      flags:
+        talked_dale_done: true
+    hide_if_failed: true
+  - text: |-
+      Enough talking. Back to the corner.
+    next: act1/route_choice_arterial
+    requires:
+      flags: [talked_dale_lawn]
+      flags_unset: [talked_dale_wife]
+    effects:
+      flags:
+        talked_dale_done: true
+    hide_if_failed: true
+  - text: |-
+      Enough talking. Back to the corner.
+    next: act1/route_choice_arterial
+    requires:
+      flags: [talked_dale_leg]
+      flags_unset: [talked_dale_wife, talked_dale_lawn]
+    effects:
+      flags:
+        talked_dale_done: true
+    hide_if_failed: true
+  - text: |-
+      Enough talking. Back to the corner.
+    next: act1/route_choice_arterial
+    requires:
+      flags_unset: [talked_dale_wife, talked_dale_lawn, talked_dale_leg]
+    effects:
+      flags:
+        talked_dale_done: true
+      stats:
+        bond: -1
+    failed_text: |-
+      *(He watches you not asking. That's its own answer.)*

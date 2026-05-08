@@ -1,0 +1,19 @@
+text:
+  - |-
+    Dale wets his lower lip. Doesn't look at the road behind.
+  - male_midlife_american_dark_tough: |-
+      Tom from up the road. The one who put his Christmas lights up in October every year. He was on Marie. On *top* of her. Eating. I'd known him sixteen years.
+  - |-
+    He breathes out through his nose. Looks at his own knee.
+  - male_midlife_american_dark_tough: |-
+      He came at me when I shouted. I went over the fence. Scraped the leg coming down the other side. That's all. [pause] That's all.
+  - |-
+    *Scraped*. The word again.
+
+choices:
+  - text: |-
+      Back.
+    next: act1/talk_dale_hub
+    effects:
+      flags:
+        talked_dale_lawn: true

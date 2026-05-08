@@ -1,0 +1,19 @@
+text:
+  - |-
+    He turns the wedding band on his finger once, the way he has been turning it since the porch. Looks past you, not at you.
+  - male_midlife_american_dark_tough: |-
+      She didn't make it out the kitchen.
+  - |-
+    He says it the way a man reads the weather. Then he says nothing for a count of four, and you do not fill it. The horde is the only sound.
+  - male_midlife_american_dark_tough: |-
+      [sigh] Anyway.
+
+choices:
+  - text: |-
+      Don't fill the silence. Back.
+    next: act1/talk_dale_hub
+    effects:
+      flags:
+        talked_dale_wife: true
+      stats:
+        bond: 1

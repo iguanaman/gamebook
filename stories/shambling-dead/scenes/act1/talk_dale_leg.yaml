@@ -1,0 +1,21 @@
+text:
+  - |-
+    He sees you looking. Sees you knowing where you're looking.
+  - male_midlife_american_dark_tough: |-
+      Told you. Fence. Coming over. [pause] Caught it on the wire.
+  - |-
+    He says it without meeting your eye, which is how you know. He has been a man who meets eyes for twenty years and he is choosing not to now.
+  - male_midlife_american_dark_tough: |-
+      I'm fine. I am.
+  - |-
+    The denial is the diagnosis. He is bitten. He knows. He is choosing the lie because the lie is what he has left.
+
+choices:
+  - text: |-
+      Back.
+    next: act1/talk_dale_hub
+    effects:
+      flags:
+        talked_dale_leg: true
+        dale_lied: true
+        dale_bitten: true
