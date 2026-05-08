@@ -69,3 +69,7 @@
 #story-root .scene-opener::first-letter {
   font-family: var(--font-body);
 }
+
+#story-root .choice-num {
+  color: var(--accent);
+}
