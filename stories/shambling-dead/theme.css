@@ -36,6 +36,8 @@
   --anim-choice-fade-fast: 250ms;
   --anim-choice-linger-ms: 1400ms;
   --anim-choice-fade-slow: 600ms;
+
+  font-family: var(--font-body);
 }
 
 .story-card[data-story="shambling-dead"] .story-title {
