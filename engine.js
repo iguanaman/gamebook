@@ -1275,15 +1275,33 @@ async function startStory(storyId, { withCrossfade = false } = {}) {
       await navigateTo(startScene);
     }, { isStoryTitle: true });
   } else {
-    startMusic(storyId, false, meta.volume_music ?? 1, saved.musicPos ?? null);
     renderShell(meta);
     if (withCrossfade) await crossfadeTo('story');
     else setActiveMode('story');
     document.body.style.visibility = '';
+
+    if (!withCrossfade) await waitForTapToContinue();
+
+    startMusic(storyId, false, meta.volume_music ?? 1, saved.musicPos ?? null);
     await navigateTo(startScene);
     scrollNarrativeToBottom();
     requestAnimationFrame(() => document.body.classList.remove('boot-no-fade'));
   }
+}
+
+function waitForTapToContinue() {
+  return new Promise(resolve => {
+    const overlay = document.createElement('div');
+    overlay.className = 'tap-to-continue';
+    overlay.textContent = 'Tap to continue…';
+    document.body.appendChild(overlay);
+    function done() {
+      overlay.removeEventListener('click', done);
+      overlay.remove();
+      resolve();
+    }
+    overlay.addEventListener('click', done);
+  });
 }
 
 function renderShell(meta) {

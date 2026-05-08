@@ -1004,3 +1004,18 @@ body.journal-open #fullscreen-btn {
 .journal-music-toggle.music-muted .music-icon-off { display: inline; }
 
 .journal-backdrop { display: none; }
+
+.tap-to-continue {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text, #fff);
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
