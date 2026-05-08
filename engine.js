@@ -766,20 +766,6 @@ let storyMeta = null;
 let state = null;
 
 function stateKey(storyId) { return `gamebook.state.${storyId}`; }
-function resumeKey(storyId) { return `gamebook.resume.${storyId}`; }
-
-function saveResume(sceneId, blockIndex) {
-  localStorage.setItem(resumeKey(currentStoryId), JSON.stringify({ scene: sceneId, blockIndex }));
-}
-
-function clearResume() {
-  localStorage.removeItem(resumeKey(currentStoryId));
-}
-
-function loadResume(storyId) {
-  const raw = localStorage.getItem(resumeKey(storyId));
-  return raw ? JSON.parse(raw) : null;
-}
 
 function initState(storyId, startingStats) {
   currentStoryId = storyId;
@@ -1397,41 +1383,31 @@ async function navigateTo(sceneId) {
     const blockHashes = blocks.map(b => b.hash);
 
     if (alreadyVisited) {
-      const resume = loadResume(currentStoryId);
-      const resumeIndex = (resume && resume.scene === sceneId) ? resume.blockIndex : null;
+      const seenHashes = new Set(state.blockHashes[sceneId] ?? []);
+      const newIndices = new Set();
+      blocks.forEach((b, i) => { if (!seenHashes.has(b.hash)) newIndices.add(i); });
 
-      if (resumeIndex !== null) {
-        blocks.slice(0, resumeIndex).forEach(b => showBlockInstant(b));
-        state.blockHashes[sceneId] = blockHashes;
-        saveState();
-        typeBlocks(blocks.slice(resumeIndex), () => renderChoices(scene), sceneId, resumeIndex);
+      if (newIndices.size === 0) {
+        blocks.forEach(b => showBlockInstant(b));
+        renderChoices(scene);
       } else {
-        const seenHashes = new Set(state.blockHashes[sceneId] ?? []);
-        const newIndices = new Set();
-        blocks.forEach((b, i) => { if (!seenHashes.has(b.hash)) newIndices.add(i); });
-
-        if (newIndices.size === 0) {
-          blocks.forEach(b => showBlockInstant(b));
-          renderChoices(scene);
-        } else {
-          let i = 0;
-          function step() {
-            if (i >= blocks.length) {
-              state.blockHashes[sceneId] = [...new Set([...seenHashes, ...blockHashes])];
-              saveState();
-              renderChoices(scene);
-              return;
-            }
-            const block = blocks[i++];
-            if (!newIndices.has(i - 1)) {
-              showBlockInstant(block);
-              step();
-            } else {
-              playBlocks(sceneId, [block], (b) => showBlockReveal(b), step);
-            }
+        let i = 0;
+        function step() {
+          if (i >= blocks.length) {
+            state.blockHashes[sceneId] = [...new Set([...seenHashes, ...blockHashes])];
+            saveState();
+            renderChoices(scene);
+            return;
           }
-          step();
+          const block = blocks[i++];
+          if (!newIndices.has(i - 1)) {
+            showBlockInstant(block);
+            step();
+          } else {
+            playBlocks(sceneId, [block], (b) => showBlockReveal(b), step);
+          }
         }
+        step();
       }
     } else {
       state.blockHashes[sceneId] = blockHashes;
@@ -1626,7 +1602,7 @@ function typeBlock(block, skip, onDone, session) {
   return finish;
 }
 
-function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
+function typeBlocks(blocks, onDone, sceneId) {
   const session = playbackSession;
   let index = 0;
   let done = false;
@@ -1670,7 +1646,6 @@ function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
     if (done || cancelled()) { finish(); return; }
     if (index >= blockCount) { finish(); return; }
     const block = blocks[index++];
-    if (sceneId) saveResume(sceneId, indexOffset + index - 1);
     skip.finished = false;
     const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); }, session);
     if (sceneId) {
@@ -1686,7 +1661,6 @@ function typeBlocks(blocks, onDone, sceneId, indexOffset = 0) {
 }
 
 function renderChoices(scene) {
-  clearResume();
   const el = storyApp.querySelector('#choices-footer');
   if (!el) return;
 
