@@ -46,7 +46,7 @@ Single `style.css` defines defaults. Stories can override via `stories/{id}/them
 | Divider | `--divider-color`, `--divider-style` | yes |
 | Drop cap | `--drop-cap-color`, `--drop-cap-size` | yes |
 | Act title | `--act-title-size`, `--act-rule-color`, `--act-rule-style` | yes |
-| Animations | `--anim-block-duration`, `--anim-choice-duration`, `--anim-act-title-duration`, `--anim-choice-fade-fast`, `--anim-choice-linger-ms`, `--anim-choice-fade-slow` | yes |
+| Animations | `--anim-block-duration`, `--anim-choice-duration`, `--anim-act-title-duration`, `--anim-choice-fade-fast`, `--anim-choice-linger-ms`, `--anim-choice-fade-slow` | **no — shared** |
 | Misc | `--radius` | yes |
 
 ## Frame is shared

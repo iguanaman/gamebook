@@ -31,11 +31,6 @@
   --act-title-size: 2.2rem;
   --act-rule-color: #0d9ab8;
   --act-rule-style: 2px solid var(--act-rule-color);
-
-  --anim-block-duration: 250ms;
-  --anim-choice-duration: 200ms;
-  --anim-act-title-duration: 450ms;
-  --anim-choice-fade-duration: 180ms;
 }
 
 /* ── Neon grid overlay ──────────────────────────────────────────────────── */

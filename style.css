@@ -668,9 +668,9 @@ body.journal-open #fullscreen-btn {
   --anim-block-duration: 350ms;
   --anim-choice-duration: 300ms;
   --anim-act-title-duration: 600ms;
-  --anim-choice-fade-fast: 250ms;
-  --anim-choice-linger-ms: 400ms;
-  --anim-choice-fade-slow: 500ms;
+  --anim-choice-fade-fast: 500ms;
+  --anim-choice-linger-ms: 500ms;
+  --anim-choice-fade-slow: 350ms;
   --choice-pad-y: clamp(6px, calc(6px + (100vw - 360px) * 2 / 360), 8px);
   --choice-pad-x: 12px;
 }

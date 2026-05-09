@@ -43,12 +43,4 @@
   --act-title-size: 1.9rem;
   --act-rule-color: #8a7e6a;
   --act-rule-style: 1px solid var(--act-rule-color);
-
-  /* ── Animations — slightly slower; the house has its own pace ───────────── */
-  --anim-block-duration: 450ms;
-  --anim-choice-duration: 380ms;
-  --anim-act-title-duration: 800ms;
-  --anim-choice-fade-fast: 280ms;
-  --anim-choice-linger-ms: 1400ms;
-  --anim-choice-fade-slow: 600ms;
 }

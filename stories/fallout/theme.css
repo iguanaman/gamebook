@@ -39,11 +39,6 @@
   --act-title-size: 1.8rem;
   --act-rule-color: #3a2e14;
   --act-rule-style: 1px solid var(--act-rule-color);
-
-  --anim-block-duration: 300ms;
-  --anim-choice-duration: 250ms;
-  --anim-act-title-duration: 500ms;
-  --anim-choice-fade-duration: 200ms;
 }
 
 /* ── CRT scanlines ──────────────────────────────────────────────────────── */

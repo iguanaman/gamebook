@@ -30,13 +30,6 @@
   --act-rule-color: #3a1010;
   --act-rule-style: 1px solid var(--act-rule-color);
 
-  --anim-block-duration: 380ms;
-  --anim-choice-duration: 320ms;
-  --anim-act-title-duration: 700ms;
-  --anim-choice-fade-fast: 250ms;
-  --anim-choice-linger-ms: 1400ms;
-  --anim-choice-fade-slow: 600ms;
-
   font-family: var(--font-body);
 }
 

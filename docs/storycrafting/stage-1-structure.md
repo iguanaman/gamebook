@@ -115,14 +115,6 @@ Base variables (from `style.css`):
 --act-title-size        /* font size of act heading (default: 2rem) */
 --act-rule-color        /* colour of decorative rules around act title */
 --act-rule-style        /* full border shorthand for act rules */
-
-/* Animations — override to slow down or speed up */
---anim-block-duration       /* text block fade+slide in (default: 350ms) */
---anim-choice-duration      /* choice list slide up (default: 300ms) */
---anim-act-title-duration   /* act title fade+scale (default: 600ms) */
---anim-choice-fade-fast    /* unchosen choice fade (default: 250ms) */
---anim-choice-linger-ms    /* chosen choice linger before fade (default: 1200ms) */
---anim-choice-fade-slow    /* chosen choice fade (default: 500ms) */
 ```
 
 Add a Google Fonts `@import` at the top if needed. Keep fonts readable at 16px — atmosphere is secondary to legibility.

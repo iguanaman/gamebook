@@ -39,14 +39,6 @@
   --act-title-size: 1.75rem;
   --act-rule-color: #4a4a4a;
   --act-rule-style: 1px solid var(--act-rule-color);
-
-  /* ── Animations — slightly slower, heavier, like turning a damp page ── */
-  --anim-block-duration: 450ms;
-  --anim-choice-duration: 380ms;
-  --anim-act-title-duration: 800ms;
-  --anim-choice-fade-fast: 300ms;
-  --anim-choice-linger-ms: 1400ms;
-  --anim-choice-fade-slow: 600ms;
 }
 
 /* ── Static film grain ──────────────────────────────────────────────────── */

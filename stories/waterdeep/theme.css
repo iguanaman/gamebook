@@ -53,14 +53,6 @@
   --act-title-size: 2.1rem;
   --act-rule-color: #b89a64;
   --act-rule-style: 1px solid var(--act-rule-color);
-
-  /* ── Animations (slightly slower than default — atmospheric, not snappy) */
-  --anim-block-duration: 420ms;
-  --anim-choice-duration: 350ms;
-  --anim-act-title-duration: 700ms;
-  --anim-choice-fade-fast: 280ms;
-  --anim-choice-linger-ms: 500ms;
-  --anim-choice-fade-slow: 600ms;
 }
 
 /* ── Parchment texture ───────────────────────────────────────────────────
