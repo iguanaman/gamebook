@@ -1289,7 +1289,8 @@ async function startStory(storyId, { withCrossfade = false } = {}) {
     else setActiveMode('story');
     document.body.style.visibility = '';
 
-    if (!withCrossfade) await waitForTapToContinue();
+    const sceneAlreadyDone = state.visited.includes(state.scene);
+    if (!withCrossfade && !sceneAlreadyDone) await waitForTapToContinue();
 
     startMusic(storyId, false, meta.volume_music ?? 1, saved.musicPos ?? null);
     await navigateTo(startScene);
