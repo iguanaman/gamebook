@@ -1885,11 +1885,6 @@ function renderChoices(scene) {
       const lingerMs = parseFloat(root.getPropertyValue('--anim-choice-linger-ms')) || 1200;
       const slowMs = parseFloat(root.getPropertyValue('--anim-choice-fade-slow')) || 500;
 
-      if (divider) {
-        divider.style.transition = `opacity ${fastMs}ms ease`;
-        divider.style.opacity = '0';
-      }
-
       allBtns.forEach(btn => {
         if (btn === chosenBtn) return;
         btn.style.transition = `opacity ${fastMs}ms ease`;
@@ -1897,6 +1892,10 @@ function renderChoices(scene) {
       });
 
       setTimeout(() => {
+        if (divider) {
+          divider.style.transition = `opacity ${slowMs}ms ease`;
+          divider.style.opacity = '0';
+        }
         chosenBtn.style.opacity = '0';
         setTimeout(() => {
           handleChoice(choice);
