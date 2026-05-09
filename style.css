@@ -710,6 +710,13 @@ body.journal-open #fullscreen-btn {
   scrollbar-width: thin;
 }
 #story-root .narrative.at-bottom { scrollbar-color: transparent transparent; }
+#story-root .narrative.narrative-locked {
+  scrollbar-color: transparent transparent;
+  scrollbar-width: none;
+  touch-action: none;
+}
+#story-root .narrative.narrative-locked::-webkit-scrollbar { width: 0; height: 0; }
+#story-root .narrative.narrative-locked::-webkit-scrollbar-thumb { background: transparent; }
 #story-root .narrative p { margin: 0 0 1em; }
 
 @media (max-width: 600px) { #story-root .narrative { line-height: 1.6; } }

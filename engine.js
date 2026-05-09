@@ -1524,12 +1524,36 @@ function scrollNarrativeToBottomSmooth() {
   if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
 }
 
+const NEW_BLOCK_SCROLL_PX_PER_SEC = 50;
+const NEW_BLOCK_SCROLL_MIN_MS = 200;
+const NEW_BLOCK_SCROLL_MAX_MS = 4000;
+
+function scrollNarrativeToBottomTween() {
+  const el = storyApp.querySelector('#narrative');
+  if (!el) return;
+  const start = el.scrollTop;
+  const target = el.scrollHeight - el.clientHeight;
+  const distance = target - start;
+  if (distance <= 0) return;
+  const rawMs = (distance / NEW_BLOCK_SCROLL_PX_PER_SEC) * 1000;
+  const durationMs = Math.max(NEW_BLOCK_SCROLL_MIN_MS, Math.min(NEW_BLOCK_SCROLL_MAX_MS, rawMs));
+  const t0 = performance.now();
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  function step(now) {
+    const t = Math.min(1, (now - t0) / durationMs);
+    const liveTarget = el.scrollHeight - el.clientHeight;
+    el.scrollTop = start + (liveTarget - start) * ease(t);
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
 function appendBlockPara(block) {
   const el = storyApp.querySelector('#narrative');
   if (!el) return null;
   const p = buildBlockPara(block);
   el.appendChild(p);
-  scrollNarrativeToBottom();
+  scrollNarrativeToBottomTween();
   return p;
 }
 
@@ -1547,7 +1571,7 @@ function showBlockReveal(block) {
 
 const TYPING_MS_PER_CHAR = 64;
 
-function typeBlock(block, skip, onDone, session) {
+function typeBlock(block, skip, onDone, session, scrollLeadMs) {
   const para = appendBlockPara(block);
   if (!para) { onDone(); return () => {}; }
 
@@ -1557,7 +1581,6 @@ function typeBlock(block, skip, onDone, session) {
   para.style.minHeight = reservedHeight + 'px';
   para.innerHTML = '';
   para.classList.add('block-typing');
-  scrollNarrativeToBottomSmooth();
 
   let pos = 0;
   let finished = false;
@@ -1622,7 +1645,13 @@ function typeBlock(block, skip, onDone, session) {
     requestAnimationFrame(tick);
   }
 
-  tick();
+  const lead = scrollLeadMs || 0;
+  if (lead > 0) {
+    startTime = performance.now() + lead;
+    setTimeout(() => { if (!finished) tick(); }, lead);
+  } else {
+    tick();
+  }
   return finish;
 }
 
@@ -1658,26 +1687,80 @@ function typeBlocks(blocks, onDone, sceneId) {
   document.addEventListener('keydown', onKeySkip);
   showSkipHint();
 
+  const narrativeEl = storyApp.querySelector('#narrative');
+  const blockScroll = (e) => { e.preventDefault(); };
+  const blockScrollKeys = (e) => {
+    if (['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(e.key)) {
+      if (e.target === narrativeEl || narrativeEl?.contains(e.target)) e.preventDefault();
+    }
+  };
+  if (narrativeEl) {
+    narrativeEl.classList.add('narrative-locked');
+    narrativeEl.addEventListener('wheel', blockScroll, { passive: false });
+    narrativeEl.addEventListener('touchmove', blockScroll, { passive: false });
+    document.addEventListener('keydown', blockScrollKeys);
+  }
+  function unlockScroll() {
+    if (!narrativeEl) return;
+    narrativeEl.classList.remove('narrative-locked');
+    narrativeEl.removeEventListener('wheel', blockScroll);
+    narrativeEl.removeEventListener('touchmove', blockScroll);
+    document.removeEventListener('keydown', blockScrollKeys);
+  }
+
   function finish() {
     if (done) return;
     done = true;
     hideSkipHint();
     removeClickSkip();
+    unlockScroll();
     if (!cancelled()) onDone();
   }
+
+  let preloadedAudio = null;
+  let preloadedFor = -1;
+
+  function preloadNext() {
+    if (!sceneId) return;
+    const nextIdx = index;
+    if (nextIdx >= blockCount) return;
+    if (preloadedFor === nextIdx) return;
+    const nextBlock = blocks[nextIdx];
+    const a = new Audio();
+    a.preload = 'auto';
+    a.src = blockAudioUrl(sceneId, nextBlock.rawIndex, nextBlock.branch);
+    preloadedAudio = a;
+    preloadedFor = nextIdx;
+  }
+
+  const SCROLL_LEAD_MS = 600;
 
   function next() {
     if (done || cancelled()) { finish(); return; }
     if (index >= blockCount) { finish(); return; }
     const block = blocks[index++];
     skip.finished = false;
-    const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); }, session);
+    const isFirst = index === 1;
+    const lead = isFirst ? 0 : SCROLL_LEAD_MS;
+    const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); }, session, lead);
     if (sceneId) {
       stopAudio();
-      const audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
+      let audio;
+      if (preloadedFor === index - 1 && preloadedAudio) {
+        audio = preloadedAudio;
+        preloadedAudio = null;
+        preloadedFor = -1;
+      } else {
+        audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
+      }
       currentAudio = audio;
       audio.addEventListener('ended', () => { if (!done && !cancelled() && audio === currentAudio) { finishTyping(); next(); } }, { once: true });
-      audio.play().catch(() => { if (!done && !cancelled() && audio === currentAudio) { currentAudio = null; } });
+      const startPlay = () => {
+        if (cancelled() || audio !== currentAudio) return;
+        audio.play().catch(() => { if (!done && !cancelled() && audio === currentAudio) { currentAudio = null; } });
+      };
+      if (lead > 0) setTimeout(startPlay, lead); else startPlay();
+      preloadNext();
     }
   }
 
