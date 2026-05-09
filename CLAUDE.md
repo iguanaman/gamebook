@@ -1,6 +1,8 @@
 ## Communication Style
 
-The user is a developer who cares about code quality but doesn't know this specific codebase and doesn't want to think about it. Discuss features and behaviour in plain terms — technical concepts are fine, but don't reference specific files, functions, or code structure unless the user asks.  Keep to a high-level.
+The user is a developer who cares about code quality but doesn't know this specific codebase and doesn't want to think about it. Discuss features and behaviour in plain terms — technical concepts are fine, but don't reference specific files, functions, or code structure unless the user asks. Keep to a high-level.
+
+When describing how something works, talk about user-visible behaviour and modes ("reveal mode — block fades in all at once", "typing mode — types out character by character"), not implementation names. Don't say "the `typeBlock` function reserves min-height" — say "the typing path makes space appear instantly". Name code things only when the user needs to act on them.
 
 ## Detailed docs
 
