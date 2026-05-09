@@ -1611,8 +1611,8 @@ function wrapCharsForTyping(root) {
   return charSpans;
 }
 
-function typeBlock(block, skip, onDone, session, scrollLeadMs) {
-  const para = appendBlockPara(block);
+function typeBlock(block, skip, onDone, session, scrollLeadMs, instantScroll) {
+  const para = appendBlockPara(block, instantScroll ? { instantScroll: true } : undefined);
   if (!para) { onDone(); return () => {}; }
 
   para.classList.add('block-typing');
@@ -1699,6 +1699,7 @@ function typeBlocks(blocks, onDone, sceneId) {
     localStorage.setItem('gamebook.hint_skip_used', '1');
     hideSkipHint();
     skip.active = true;
+    skip.justSkipped = true;
     stopAudio();
     if (skip.finished) next();
   }
@@ -1775,8 +1776,10 @@ function typeBlocks(blocks, onDone, sceneId) {
     const block = blocks[index++];
     skip.finished = false;
     const isFirst = index === 1;
-    const lead = isFirst ? 0 : SCROLL_LEAD_MS;
-    const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); }, session, lead);
+    const skipping = skip.justSkipped;
+    skip.justSkipped = false;
+    const lead = (isFirst || skipping) ? 0 : SCROLL_LEAD_MS;
+    const finishTyping = typeBlock(block, skip, () => { if (!done && !cancelled() && (!sceneId || !currentAudio)) next(); }, session, lead, skipping);
     if (sceneId) {
       stopAudio();
       let audio;
@@ -1789,11 +1792,15 @@ function typeBlocks(blocks, onDone, sceneId) {
       }
       currentAudio = audio;
       audio.addEventListener('ended', () => {
-        if (audio === currentAudio) currentAudio = null;
-        if (!done && !cancelled()) { finishTyping(); next(); }
+        const wasCurrent = audio === currentAudio;
+        if (wasCurrent) currentAudio = null;
+        if (done || cancelled()) return;
+        if (skip.finished) next();
+        else finishTyping();
       }, { once: true });
       const startPlay = () => {
         if (cancelled() || audio !== currentAudio) return;
+        if (isGamePaused()) return;
         audio.play().catch(() => { if (!done && !cancelled() && audio === currentAudio) { currentAudio = null; } });
       };
       if (lead > 0) setTimeout(startPlay, lead); else startPlay();
