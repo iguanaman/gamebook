@@ -1165,16 +1165,21 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
   }
 
   function onKeySkip(e) {
-    if (e.key === ' ') { e.preventDefault(); onSkip(); }
+    if (e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.target instanceof HTMLElement) e.target.blur();
+      onSkip();
+    }
   }
 
   function removeClickSkip() {
     gameWrap?.removeEventListener('dblclick', onSkip);
-    document.removeEventListener('keydown', onKeySkip);
+    document.removeEventListener('keydown', onKeySkip, true);
   }
 
   gameWrap?.addEventListener('dblclick', onSkip);
-  document.addEventListener('keydown', onKeySkip);
+  document.addEventListener('keydown', onKeySkip, true);
   showSkipHint();
 
   function finish() {
@@ -1548,17 +1553,18 @@ function scrollNarrativeToBottomTween() {
   requestAnimationFrame(step);
 }
 
-function appendBlockPara(block) {
+function appendBlockPara(block, opts) {
   const el = storyApp.querySelector('#narrative');
   if (!el) return null;
   const p = buildBlockPara(block);
   el.appendChild(p);
-  scrollNarrativeToBottomTween();
+  if (opts && opts.instantScroll) scrollNarrativeToBottom();
+  else scrollNarrativeToBottomTween();
   return p;
 }
 
 function showBlockInstant(block) {
-  const p = appendBlockPara(block);
+  const p = appendBlockPara(block, { instantScroll: true });
   if (p) p.classList.add('block-visible');
   return p;
 }
@@ -1675,16 +1681,21 @@ function typeBlocks(blocks, onDone, sceneId) {
   }
 
   function onKeySkip(e) {
-    if (e.key === ' ') { e.preventDefault(); onSkip(); }
+    if (e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.target instanceof HTMLElement) e.target.blur();
+      onSkip();
+    }
   }
 
   function removeClickSkip() {
     gameWrap?.removeEventListener('dblclick', onSkip);
-    document.removeEventListener('keydown', onKeySkip);
+    document.removeEventListener('keydown', onKeySkip, true);
   }
 
   gameWrap?.addEventListener('dblclick', onSkip);
-  document.addEventListener('keydown', onKeySkip);
+  document.addEventListener('keydown', onKeySkip, true);
   showSkipHint();
 
   const narrativeEl = storyApp.querySelector('#narrative');
