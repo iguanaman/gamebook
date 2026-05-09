@@ -752,6 +752,13 @@ body.journal-open #fullscreen-btn {
   transform: translateY(0);
 }
 
+#story-root #narrative p.block-typing .typing-char {
+  visibility: hidden;
+}
+#story-root #narrative p.block-typing .typing-char.typed {
+  visibility: visible;
+}
+
 #story-root .scene-opener::first-letter {
   font-family: var(--font-heading);
   font-weight: 600;

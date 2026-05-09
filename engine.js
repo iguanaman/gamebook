@@ -1198,7 +1198,11 @@ function playBlocks(sceneId, blocks, onBlockStart, onDone) {
     const block = blocks[i];
     onBlockStart(block);
     currentAudio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
-    currentAudio.addEventListener('ended', () => { if (!done && !cancelled()) playNext(); }, { once: true });
+    currentAudio.addEventListener('ended', () => {
+      const ended = currentAudio;
+      if (ended) currentAudio = null;
+      if (!done && !cancelled()) playNext();
+    }, { once: true });
     currentAudio.play().catch(() => {
       if (done || cancelled()) { finish(); return; }
       for (let j = i; j < blockCount; j++) onBlockStart(blocks[j]);
@@ -1577,16 +1581,44 @@ function showBlockReveal(block) {
 
 const TYPING_MS_PER_CHAR = 64;
 
+function wrapCharsForTyping(root) {
+  const charSpans = [];
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+  const textNodes = [];
+  let n;
+  while ((n = walker.nextNode())) textNodes.push(n);
+  for (const textNode of textNodes) {
+    const text = textNode.nodeValue;
+    if (!text) continue;
+    const frag = document.createDocumentFragment();
+    for (const ch of text) {
+      if (ch === ' ' || ch === '\n' || ch === '\t') {
+        // Whitespace stays as a real text node so wrapping breaks normally.
+        frag.appendChild(document.createTextNode(ch));
+        // Track a sentinel so timing advances over spaces too.
+        charSpans.push(null);
+      } else {
+        const span = document.createElement('span');
+        span.className = 'typing-char';
+        span.textContent = ch;
+        frag.appendChild(span);
+        charSpans.push(span);
+      }
+    }
+    textNode.parentNode.replaceChild(frag, textNode);
+  }
+  return charSpans;
+}
+
 function typeBlock(block, skip, onDone, session, scrollLeadMs) {
   const para = appendBlockPara(block);
   if (!para) { onDone(); return () => {}; }
 
-  const fullHtml = para.innerHTML;
-  para.dataset.fullHtml = fullHtml;
-  const reservedHeight = para.offsetHeight;
-  para.style.minHeight = reservedHeight + 'px';
-  para.innerHTML = '';
   para.classList.add('block-typing');
+  // Layout is computed once with full text in place; per-char visibility toggle
+  // reveals letters without reflowing, so words never break mid-typing.
+  const charSpans = wrapCharsForTyping(para);
+  para.classList.add('block-visible');
 
   let pos = 0;
   let finished = false;
@@ -1597,10 +1629,8 @@ function typeBlock(block, skip, onDone, session, scrollLeadMs) {
     document.removeEventListener('visibilitychange', handleVisibility);
     document.removeEventListener('gamebook-visibility', handleVisibility);
     skip.finished = true;
-    para.innerHTML = fullHtml;
-    para.style.minHeight = '';
+    for (const s of charSpans) { if (s) s.classList.add('typed'); }
     para.classList.remove('block-typing');
-    para.classList.add('block-visible');
     scrollNarrativeToBottom();
     onDone();
   }
@@ -1631,23 +1661,15 @@ function typeBlock(block, skip, onDone, session, scrollLeadMs) {
     }
     if (isGamePaused()) return;
     if (skip.active) { skip.active = false; finish(); return; }
-    if (pos >= fullHtml.length) { finish(); return; }
-
-    if (fullHtml[pos] === '<') {
-      const end = fullHtml.indexOf('>', pos);
-      if (end !== -1) { pos = end + 1; tick(); return; }
-    }
-    if (fullHtml[pos] === '&') {
-      const end = fullHtml.indexOf(';', pos);
-      if (end !== -1) { pos = end + 1; charsShown++; para.innerHTML = fullHtml.slice(0, pos); requestAnimationFrame(tick); return; }
-    }
+    if (pos >= charSpans.length) { finish(); return; }
 
     const targetChars = Math.floor((performance.now() - startTime) / TYPING_MS_PER_CHAR);
     if (charsShown >= targetChars) { requestAnimationFrame(tick); return; }
 
+    const span = charSpans[pos];
+    if (span) span.classList.add('typed');
     pos++;
     charsShown++;
-    para.innerHTML = fullHtml.slice(0, pos);
     requestAnimationFrame(tick);
   }
 
@@ -1765,7 +1787,10 @@ function typeBlocks(blocks, onDone, sceneId) {
         audio = new Audio(blockAudioUrl(sceneId, block.rawIndex, block.branch));
       }
       currentAudio = audio;
-      audio.addEventListener('ended', () => { if (!done && !cancelled() && audio === currentAudio) { finishTyping(); next(); } }, { once: true });
+      audio.addEventListener('ended', () => {
+        if (audio === currentAudio) currentAudio = null;
+        if (!done && !cancelled()) { finishTyping(); next(); }
+      }, { once: true });
       const startPlay = () => {
         if (cancelled() || audio !== currentAudio) return;
         audio.play().catch(() => { if (!done && !cancelled() && audio === currentAudio) { currentAudio = null; } });
