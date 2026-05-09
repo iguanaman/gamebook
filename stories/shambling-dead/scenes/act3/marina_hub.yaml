@@ -1,66 +1,92 @@
 text:
-  - if: visited
-    text: |-
-      You come back out onto the apron. The chord at the back fence is steadier than it was. Marrow is still on the floating dock with her pole. The body in the water is still the body in the water.
-    else: |-
-      The apron is concrete worn smooth by decades of feet that knew where they were going. Three pontoons. Two boats — a working motor cruiser and a fishing boat someone has stripped to the bones. A low cinder-block office at the middle of the run. A floating dock that flexes when Marrow pushes off it with her pole.
-  - if: {flags_unset: [visited]}
-    text: |-
-      The chord behind you is on the other side of a chain-link that is not going to last the afternoon. Past the office, at the seawall end, three people sit who are not Vance's. The older one has a windbreaker over a denim shirt. He has already seen you.
-  - if: {flags: [child_rescued, child_alive], flags_unset: [visited]}
-    text: |-
-      Mara has not let go of the strap of the bag since the gate. She is looking at the woman with the pole.
-  - if: {flags: [child_rescued, child_alive, visited]}
-    text: |-
-      Mara is watching Marrow again. She does that now, with things that move in water.
-  - if: {flags: [scouted_boat, visited_office, read_seawall]}
-    text: |-
-      The back-stretch chord is not steady any more. It is louder by the breath. Sully is moving towards the office with his radio out.
-  - if: {flags_unset: [scouted_boat, visited_office, read_seawall]}
-    text: |-
-      You can do two things here before the fence stops holding. Maybe one. The way the back stretch sounds, maybe one.
-
+- if: visited
+  text: You come back out onto the apron. The chord at the back fence is steadier
+    than it was. Marrow is still on the floating dock with her pole. The body in the
+    water is still the body in the water.
+  else: The apron is concrete worn smooth by decades of feet that knew where they
+    were going. Three pontoons. Two boats — a working motor cruiser and a fishing
+    boat someone has stripped to the bones. A low cinder-block office at the middle
+    of the run. A floating dock that flexes when Marrow pushes off it with her pole.
+- if:
+    flags_unset:
+    - visited
+  text: The chord behind you is on the other side of a chain-link that is not going
+    to last the afternoon. Past the office, at the seawall end, three people sit who
+    are not Vance's. The older one has a windbreaker over a denim shirt. He has already
+    seen you.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+    flags_unset:
+    - visited
+  text: Mara has not let go of the strap of the bag since the gate. She is looking
+    at the woman with the pole.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+    - visited
+  text: Mara is watching Marrow again. She does that now, with things that move in
+    water.
+- if:
+    flags:
+    - scouted_boat
+    - visited_office
+    - read_seawall
+  text: The back-stretch chord is not steady any more. It is louder by the breath.
+    Sully is moving towards the office with his radio out.
+- if:
+    flags_unset:
+    - scouted_boat
+    - visited_office
+    - read_seawall
+  text: You can do two things here before the fence stops holding. Maybe one. The
+    way the back stretch sounds, maybe one.
 choices:
-  - text: |-
-      Walk the floating dock. Look at the cruiser.
-    next: act3/scout_boat
-    requires:
-      flags_unset: [scouted_boat]
-    effects:
-      flags:
-        scouted_boat: true
-  - text: |-
-      Go to the office. The crew's space.
-    next: act3/marina_office
-    requires:
-      flags_unset: [visited_office]
-    effects:
-      flags:
-        visited_office: true
-  - text: |-
-      Walk to the seawall. The other group.
-    next: act3/seawall_tomas
-    requires:
-      flags_unset: [read_seawall]
-    effects:
-      flags:
-        read_seawall: true
-  - text: |-
-      Drive the truck round to the boathouse. Bypass the seawall.
-    next: act3/truck_to_boathouse
-    requires:
-      flags: [has_keys]
-      flags_unset: [drove_truck_marina]
-    hide_if_failed: true
-    effects:
-      flags:
-        has_keys: false
-        drove_truck_marina: true
-        boathouse_seen: true
-        arrived_via_truck: true
-  - text: |-
-      The fence is going. Move.
-    next: act3/perimeter_breach
-    requires:
-      flags: [scouted_boat, visited_office, read_seawall]
-    hide_if_failed: true
+- text: Walk the floating dock. Look at the cruiser.
+  next: act3/scout_boat
+  requires:
+    flags_unset:
+    - scouted_boat
+  effects:
+    flags:
+      scouted_boat: true
+- text: Go to the office. The crew's space.
+  next: act3/marina_office
+  requires:
+    flags_unset:
+    - visited_office
+  effects:
+    flags:
+      visited_office: true
+- text: Walk to the seawall. The other group.
+  next: act3/seawall_tomas
+  requires:
+    flags_unset:
+    - read_seawall
+  effects:
+    flags:
+      read_seawall: true
+- text: Drive the truck round to the boathouse. Bypass the seawall.
+  next: act3/truck_to_boathouse
+  requires:
+    flags:
+    - has_keys
+    flags_unset:
+    - drove_truck_marina
+  hide_if_failed: true
+  effects:
+    flags:
+      has_keys: false
+      drove_truck_marina: true
+      boathouse_seen: true
+      arrived_via_truck: true
+- text: The fence is going. Move.
+  next: act3/perimeter_breach
+  requires:
+    flags:
+    - scouted_boat
+    - visited_office
+    - read_seawall
+  hide_if_failed: true

@@ -1,71 +1,117 @@
 text:
-  - |-
-    The seawall is the long edge of the apron. The river is on the other side of it. Three of them. The older man on a coil of rope, glasses pushed up on grey hair. A younger woman standing, hand near a pry-bar through her belt loop, eyes on the back fence not on you. A man in a windbreaker sitting on the wall with a thermos in his good hand. The other arm is bandaged from elbow to wrist.
-  - |-
-    The older man looks at you. He does not stand.
-  - if: {flags: [child_rescued, child_alive, neighbour_alive], flags_unset: [teen_alive, elder_alive, stranger_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the man and the kid. Sit.
-  - if: {flags: [child_rescued, child_alive, teen_alive], flags_unset: [elder_alive, stranger_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the boy and the kid. Sit.
-  - if: {flags: [child_rescued, child_alive, elder_alive], flags_unset: [teen_alive, stranger_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the older lady and the kid. Sit.
-  - if: {flags: [child_rescued, child_alive, stranger_alive], flags_unset: [teen_alive, elder_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the one with the bag and the kid. Sit.
-  - if: {flags: [child_rescued, child_alive], flags_unset: [teen_alive, elder_alive, stranger_alive, neighbour_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the kid. Sit.
-  - if: {flags: [teen_alive], flags_unset: [child_rescued, elder_alive, stranger_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the boy. Sit.
-  - if: {flags: [elder_alive], flags_unset: [child_rescued, teen_alive, stranger_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the older lady. Sit.
-  - if: {flags: [stranger_alive], flags_unset: [child_rescued, teen_alive, elder_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        You and the one with the bag. Sit.
-  - if: {flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive, neighbour_alive]}
-    text: |-
-      male_elder_american_wise_approachable: |-
-        Just you. Sit.
-  - |-
-    He named your headcount before you opened your mouth. He did it the way Hollis did it — and then his next sentence is not the sentence Hollis would have said.
-  - male_elder_american_wise_approachable: |-
-      I'm Tomás. We're trying to get out the way you are.
-  - |-
-    The woman has not introduced herself. The man with the bandaged arm has not looked up.
-
+- The seawall is the long edge of the apron. The river is on the other side of it.
+  Three of them. The older man on a coil of rope, glasses pushed up on grey hair.
+  A younger woman standing, hand near a pry-bar through her belt loop, eyes on the
+  back fence not on you. A man in a windbreaker sitting on the wall with a thermos
+  in his good hand. The other arm is bandaged from elbow to wrist.
+- The older man looks at you. He does not stand.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+    - neighbour_alive
+    flags_unset:
+    - teen_alive
+    - elder_alive
+    - stranger_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the man and the kid.\
+    \ Sit."
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+    - teen_alive
+    flags_unset:
+    - elder_alive
+    - stranger_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the boy and the kid.\
+    \ Sit."
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+    - elder_alive
+    flags_unset:
+    - teen_alive
+    - stranger_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the older lady and the\
+    \ kid. Sit."
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+    - stranger_alive
+    flags_unset:
+    - teen_alive
+    - elder_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the one with the bag\
+    \ and the kid. Sit."
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+    flags_unset:
+    - teen_alive
+    - elder_alive
+    - stranger_alive
+    - neighbour_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the kid. Sit."
+- if:
+    flags:
+    - teen_alive
+    flags_unset:
+    - child_rescued
+    - elder_alive
+    - stranger_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the boy. Sit."
+- if:
+    flags:
+    - elder_alive
+    flags_unset:
+    - child_rescued
+    - teen_alive
+    - stranger_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the older lady. Sit."
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - child_rescued
+    - teen_alive
+    - elder_alive
+  text: "male_elder_american_wise_approachable: |-\n  You and the one with the bag.\
+    \ Sit."
+- if:
+    flags_unset:
+    - child_rescued
+    - teen_alive
+    - elder_alive
+    - stranger_alive
+    - neighbour_alive
+  text: "male_elder_american_wise_approachable: |-\n  Just you. Sit."
+- He named your headcount before you opened your mouth. He did it the way Hollis did
+  it — and then his next sentence is not the sentence Hollis would have said.
+- male_elder_american_wise_approachable: I'm Tomás. We're trying to get out the way
+    you are.
+- The woman has not introduced herself. The man with the bandaged arm has not looked
+  up.
 choices:
-  - text: |-
-      Sit. Listen to him first.
-    next: act3/talk_tomas
-    effects:
-      flags:
-        met_tomas: true
-  - text: |-
-      Stand. Make him say what he wants up front.
-    next: act3/talk_tomas
-    effects:
-      flags:
-        met_tomas: true
-        pushed_tomas: true
-  - text: |-
-      Refuse him before he's spoken. Walk back.
-    next: act3/tomas_refused
-    effects:
-      stats:
-        bond: -1
-      flags:
-        met_tomas: true
-        refused_tomas: true
+- text: Sit. Listen to him first.
+  next: act3/talk_tomas
+  effects:
+    flags:
+      met_tomas: true
+- text: Stand. Make him say what he wants up front.
+  next: act3/talk_tomas
+  effects:
+    flags:
+      met_tomas: true
+      pushed_tomas: true
+- text: Refuse him before he's spoken. Walk back.
+  next: act3/tomas_refused
+  effects:
+    stats:
+      bond: -1
+    flags:
+      met_tomas: true
+      refused_tomas: true

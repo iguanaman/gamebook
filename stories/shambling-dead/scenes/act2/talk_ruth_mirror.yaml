@@ -1,18 +1,15 @@
 text:
-  - |-
-    She looks at you over the top of the reading glasses. Takes her time about it. The look does not change for a long second, and then it changes, and you can see her decide what kind of thing to say.
-  - |-
-    There are two ways this lands. She picks the one that fits.
-
+- She looks at you over the top of the reading glasses. Takes her time about it. The
+  look does not change for a long second, and then it changes, and you can see her
+  decide what kind of thing to say.
+- There are two ways this lands. She picks the one that fits.
 choices:
-  - text: |-
-      Listen.
-    next: act2/talk_ruth_mirror_warm
-    requires:
-      stats:
-        bond: 2
-    hide_if_failed: true
-  - text: |-
-      Listen.
-    next: act2/talk_ruth_mirror_cold
-    hide_if_failed: true
+- text: Listen.
+  next: act2/talk_ruth_mirror_warm
+  requires:
+    stats:
+      bond: 2
+  hide_if_failed: true
+- text: Listen.
+  next: act2/talk_ruth_mirror_cold
+  hide_if_failed: true

@@ -1,20 +1,18 @@
-journal: |-
-  You sat down at his fire. You traded one threat for a worse one.
-
+journal: You sat down at his fire. You traded one threat for a worse one.
 text:
-  - |-
-    You sit down. You set the bag at your feet, then — when his eyes go to it — you slide it across the dirt to him, and he takes it without breaking eye contact, and that is the part that tells you what you have done.
-  - male_midlife_american_loud_confident_cocky: |-
-      Good. Good, neighbour. That's good. We're going to take care of you here. We take care of people. That's what we do.
-  - |-
-    He does not stop smiling. Reece, at his shoulder, is finally looking at Hollis and not at your bag. He looks at Hollis for a long moment and then he looks somewhere else, at his own boots, and he does not look up again.
-  - |-
-    The lieutenant comes up behind you. You feel the shape of him at the back of your head. He is not in a hurry. There is no hurry now. Hollis is still talking when it happens.
-  - male_midlife_american_loud_confident_cocky: |-
-      [sigh] You'd be amazed, friend. You really would. Two weeks ago I was a man who held a meeting. Now I am the meeting.
-  - |-
-    *You traded one threat for a worse one.*
-  - |-
-    *— Death ending D6 — Yielded at the fire —*
-
+- You sit down. You set the bag at your feet, then — when his eyes go to it — you
+  slide it across the dirt to him, and he takes it without breaking eye contact, and
+  that is the part that tells you what you have done.
+- male_midlife_american_loud_confident_cocky: Good. Good, neighbour. That's good.
+    We're going to take care of you here. We take care of people. That's what we do.
+- He does not stop smiling. Reece, at his shoulder, is finally looking at Hollis and
+  not at your bag. He looks at Hollis for a long moment and then he looks somewhere
+  else, at his own boots, and he does not look up again.
+- The lieutenant comes up behind you. You feel the shape of him at the back of your
+  head. He is not in a hurry. There is no hurry now. Hollis is still talking when
+  it happens.
+- male_midlife_american_loud_confident_cocky: '[sigh] You''d be amazed, friend. You
+    really would. Two weeks ago I was a man who held a meeting. Now I am the meeting.'
+- '*You traded one threat for a worse one.*'
+- '*— Death ending D6 — Yielded at the fire —*'
 choices: []

@@ -1,93 +1,105 @@
 text:
-  - female_adult_american_sultry_villainous: |-
-      Show me the arm.
-  - |-
-    She does not raise her voice. Marrow stops loading. Sully steps off the gangplank again, further this time. The clipboard is at her hip, closed.
-  - |-
-    You show her the arm. The cloth comes back darker than it was an hour ago. She looks at it the way she looked at the body on the floating dock — without flinching, without covering. The steadiness is what tells you what she is going to say.
-  - female_adult_american_sultry_villainous: |-
-      You are not getting on this boat. I am sorry. I am not going to be sorry twice.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara is at your hip. She has seen the arm. She has not asked. She is waiting for you to say a thing she will know how to repeat.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is two steps behind you. He is picking the thumb. The thumb is bleeding.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth's hand finds the small of your back. The hand is steady. The hand is the steady thing in the frame.
-  - if: {flags: [stranger_alive]}
-    text: |-
-      Wren is reading the cruiser, the kayak, the gangplank, in that order. The bag is across her body still.
-  - |-
-    The dead at the back fence are loud. The cruiser is loaded. The math is what it is.
-
+- female_adult_american_sultry_villainous: Show me the arm.
+- She does not raise her voice. Marrow stops loading. Sully steps off the gangplank
+  again, further this time. The clipboard is at her hip, closed.
+- You show her the arm. The cloth comes back darker than it was an hour ago. She looks
+  at it the way she looked at the body on the floating dock — without flinching, without
+  covering. The steadiness is what tells you what she is going to say.
+- female_adult_american_sultry_villainous: You are not getting on this boat. I am
+    sorry. I am not going to be sorry twice.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara is at your hip. She has seen the arm. She has not asked. She is waiting
+    for you to say a thing she will know how to repeat.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is two steps behind you. He is picking the thumb. The thumb is bleeding.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth's hand finds the small of your back. The hand is steady. The hand is
+    the steady thing in the frame.
+- if:
+    flags:
+    - stranger_alive
+  text: Wren is reading the cruiser, the kayak, the gangplank, in that order. The
+    bag is across her body still.
+- The dead at the back fence are loud. The cruiser is loaded. The math is what it
+  is.
 choices:
-  - text: |-
-      Walk to the gangplank anyway.
-    next: act3/death_d_bitten_marina
-    effects:
-      flags:
-        chose_cruiser_bitten: true
-  - text: |-
-      Tell Mara to go on the boat. Hold the dock yourself.
-    next: act3/hold_the_dock_bitten
-    requires:
-      flags: [child_rescued, child_alive]
-      stats:
-        bond: 4
-    hide_if_failed: true
-    effects:
-      flags:
-        held_the_dock_offered: true
-        chose_hold_dock: true
-        bitten_dock_hold: true
-  - text: |-
-      Tell them to go on the boat. Hold the dock yourself.
-    next: act3/hold_the_dock_bitten
-    requires:
-      flags: [teen_alive]
-      stats:
-        bond: 4
-      flags_unset: [child_rescued]
-    hide_if_failed: true
-    effects:
-      flags:
-        held_the_dock_offered: true
-        chose_hold_dock: true
-        bitten_dock_hold: true
-  - text: |-
-      Tell them to go on the boat. Hold the dock yourself.
-    next: act3/hold_the_dock_bitten
-    requires:
-      flags: [elder_alive]
-      stats:
-        bond: 4
-      flags_unset: [child_rescued, teen_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        held_the_dock_offered: true
-        chose_hold_dock: true
-        bitten_dock_hold: true
-  - text: |-
-      Tell them to go on the boat. Hold the dock yourself.
-    next: act3/hold_the_dock_bitten
-    requires:
-      flags: [stranger_alive]
-      stats:
-        bond: 4
-      flags_unset: [child_rescued, teen_alive, elder_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        held_the_dock_offered: true
-        chose_hold_dock: true
-        bitten_dock_hold: true
-  - text: |-
-      Walk back through the gate. End it on your own terms.
-    next: act3/stay_behind_bitten
-    effects:
-      flags:
-        chose_stay_behind: true
-        bitten_stay: true
+- text: Walk to the gangplank anyway.
+  next: act3/death_d_bitten_marina
+  effects:
+    flags:
+      chose_cruiser_bitten: true
+- text: Tell Mara to go on the boat. Hold the dock yourself.
+  next: act3/hold_the_dock_bitten
+  requires:
+    flags:
+    - child_rescued
+    - child_alive
+    stats:
+      bond: 4
+  hide_if_failed: true
+  effects:
+    flags:
+      held_the_dock_offered: true
+      chose_hold_dock: true
+      bitten_dock_hold: true
+- text: Tell them to go on the boat. Hold the dock yourself.
+  next: act3/hold_the_dock_bitten
+  requires:
+    flags:
+    - teen_alive
+    stats:
+      bond: 4
+    flags_unset:
+    - child_rescued
+  hide_if_failed: true
+  effects:
+    flags:
+      held_the_dock_offered: true
+      chose_hold_dock: true
+      bitten_dock_hold: true
+- text: Tell them to go on the boat. Hold the dock yourself.
+  next: act3/hold_the_dock_bitten
+  requires:
+    flags:
+    - elder_alive
+    stats:
+      bond: 4
+    flags_unset:
+    - child_rescued
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      held_the_dock_offered: true
+      chose_hold_dock: true
+      bitten_dock_hold: true
+- text: Tell them to go on the boat. Hold the dock yourself.
+  next: act3/hold_the_dock_bitten
+  requires:
+    flags:
+    - stranger_alive
+    stats:
+      bond: 4
+    flags_unset:
+    - child_rescued
+    - teen_alive
+    - elder_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      held_the_dock_offered: true
+      chose_hold_dock: true
+      bitten_dock_hold: true
+- text: Walk back through the gate. End it on your own terms.
+  next: act3/stay_behind_bitten
+  effects:
+    flags:
+      chose_stay_behind: true
+      bitten_stay: true

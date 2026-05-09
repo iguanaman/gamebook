@@ -1,12 +1,12 @@
 text:
-  - |-
-    You walk alone. The road is empty in the way that the city was not empty. There is no one at your shoulder and no one half a step behind. The bag is on you. The weight is on you. The choices are on you and they are not heavy because you have already made them.
-  - |-
-    The river is loud. The cul-de-sac is two days behind you and it is not coming with you. You do not say a name. You did not say a name when you left them. You do not say one now.
-  - |-
-    Downstream — the marina.
-
+- You walk alone. The road is empty in the way that the city was not empty. There
+  is no one at your shoulder and no one half a step behind. The bag is on you. The
+  weight is on you. The choices are on you and they are not heavy because you have
+  already made them.
+- The river is loud. The cul-de-sac is two days behind you and it is not coming with
+  you. You do not say a name. You did not say a name when you left them. You do not
+  say one now.
+- Downstream — the marina.
 choices:
-  - text: |-
-      Walk.
-    next: act3/act3_entry_router
+- text: Walk.
+  next: act3/act3_entry_router

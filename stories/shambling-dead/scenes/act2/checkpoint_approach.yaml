@@ -1,28 +1,25 @@
 text:
-  - |-
-    Concertina across the access road. Two soldiers behind it — one upright at a megaphone, one at the sandbag with a rifle propped against his thigh and his hands folded at his belt buckle in a way you do not like. A radio at his hip plays something on a loop. Three words. Three words again.
-  - |-
-    A body is in the wire. It has been there a while. Flies have made their decisions about it.
-  - male_young_american_forthright: |-
-      Show your hands. Do not approach the wire. We are not authorised to admit.
-  - |-
-    His hands shake on the megaphone. The shake is not in his voice.
-  - male_young_american_forthright: |-
-      Show your hands. Do not approach the wire. We are not authorised to admit.
-
+- Concertina across the access road. Two soldiers behind it — one upright at a megaphone,
+  one at the sandbag with a rifle propped against his thigh and his hands folded at
+  his belt buckle in a way you do not like. A radio at his hip plays something on
+  a loop. Three words. Three words again.
+- A body is in the wire. It has been there a while. Flies have made their decisions
+  about it.
+- male_young_american_forthright: Show your hands. Do not approach the wire. We are
+    not authorised to admit.
+- His hands shake on the megaphone. The shake is not in his voice.
+- male_young_american_forthright: Show your hands. Do not approach the wire. We are
+    not authorised to admit.
 choices:
-  - text: |-
-      Hands up. Stand still. Do not speak.
-    next: act2/checkpoint_wait_1
-    effects:
-      flags:
-        met_checkpoint: true
-  - text: |-
-      Call out — "we have a wounded man, we need to come in."
-    next: act2/checkpoint_speak_1
-    effects:
-      flags:
-        met_checkpoint: true
-  - text: |-
-      Push the wire. He is going to fold.
-    next: act2/death_d2_checkpoint
+- text: Hands up. Stand still. Do not speak.
+  next: act2/checkpoint_wait_1
+  effects:
+    flags:
+      met_checkpoint: true
+- text: Call out — "we have a wounded man, we need to come in."
+  next: act2/checkpoint_speak_1
+  effects:
+    flags:
+      met_checkpoint: true
+- text: Push the wire. He is going to fold.
+  next: act2/death_d2_checkpoint

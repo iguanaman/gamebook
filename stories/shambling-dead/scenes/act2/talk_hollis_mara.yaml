@@ -1,22 +1,22 @@
 text:
-  - |-
-    You ask him directly. Why is he asking about the kid. He has not stopped asking since you walked in — what's her name, where'd you find her, how old is she.
-  - |-
-    Hollis smiles. Not the host smile. A smaller one, the one underneath.
-  - male_midlife_american_loud_confident_cocky: |-
-      [sigh] Honest answer? We've been hearing her, neighbour. Two days now. Crying. East side, fourth-floor window. We didn't go up because going up costs people. We figured we'd wait. Sound like that, the dead come for it eventually, and someone has to come down with her, and that someone walks past us on the only road there is.
-  - male_midlife_american_loud_confident_cocky: |-
-      [chuckle] And here you are. Mara, you said. Mara. Hi, Mara.
-  - |-
-    He says her name to her, gently, across the fire. He has not asked you for it. You did not give it to him. He has been listening for two days.
-  - |-
-    Mara has stopped looking at the fire. She is looking at the strap of your bag, and her hand is on it, very small.
-
+- You ask him directly. Why is he asking about the kid. He has not stopped asking
+  since you walked in — what's her name, where'd you find her, how old is she.
+- Hollis smiles. Not the host smile. A smaller one, the one underneath.
+- male_midlife_american_loud_confident_cocky: '[sigh] Honest answer? We''ve been hearing
+    her, neighbour. Two days now. Crying. East side, fourth-floor window. We didn''t
+    go up because going up costs people. We figured we''d wait. Sound like that, the
+    dead come for it eventually, and someone has to come down with her, and that someone
+    walks past us on the only road there is.'
+- male_midlife_american_loud_confident_cocky: '[chuckle] And here you are. Mara, you
+    said. Mara. Hi, Mara.'
+- He says her name to her, gently, across the fire. He has not asked you for it. You
+  did not give it to him. He has been listening for two days.
+- Mara has stopped looking at the fire. She is looking at the strap of your bag, and
+  her hand is on it, very small.
 choices:
-  - text: |-
-      Back.
-    next: act2/talk_hollis_camp
-    effects:
-      flags:
-        asked_hollis_mara: true
-        hollis_named_mara: true
+- text: Back.
+  next: act2/talk_hollis_camp
+  effects:
+    flags:
+      asked_hollis_mara: true
+      hollis_named_mara: true

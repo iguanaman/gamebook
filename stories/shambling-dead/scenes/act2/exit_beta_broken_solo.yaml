@@ -1,12 +1,11 @@
 text:
-  - |-
-    You walk alone. The road takes the bend and the city goes behind it and you keep going. There is a list of people in your head and the list is shorter than it was at dawn. You did not break them. The world broke them. You did not break.
-  - |-
-    The river is loud. You set the strap of the bag higher on your shoulder. You think about the names without saying them. The thinking is enough. The thinking will have to be enough.
-  - |-
-    Downstream — the marina.
-
+- You walk alone. The road takes the bend and the city goes behind it and you keep
+  going. There is a list of people in your head and the list is shorter than it was
+  at dawn. You did not break them. The world broke them. You did not break.
+- The river is loud. You set the strap of the bag higher on your shoulder. You think
+  about the names without saying them. The thinking is enough. The thinking will have
+  to be enough.
+- Downstream — the marina.
 choices:
-  - text: |-
-      Walk.
-    next: act3/act3_entry_router
+- text: Walk.
+  next: act3/act3_entry_router

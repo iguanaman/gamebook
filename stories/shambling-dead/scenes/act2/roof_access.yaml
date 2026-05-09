@@ -1,74 +1,87 @@
 text:
-  - |-
-    The service door at the back of the top landing opens onto a steel stair that opens onto the roof. Gravel and tar and one rusted satellite dish. A waist-high parapet on all four sides.
-  - |-
-    The city in panorama for the first time in two days. Fires in the middle distance — three of them, blue-edged, the kind that happen when a gas line gives up. Cars stopped where they ran out of road, doors hung open. And at the far edge of everything, where the streets fall toward where streets fall, a flat grey line that is the river. You did not know you could see it from here.
-  - |-
-    A closer building, four blocks south, has a *stain* moving through it — a horde working floor by floor, the windows lighting and unlighting as bodies pass them.
-  - if: {flags: [met_wren]}
-    text: |-
-      Wren is on the parapet. Bag across her body. She has come up after you, the long way, and made no effort to hide that she did.
-  - if: {flags: [met_wren]}
-    female_adult_american_droll_wry_dry: |-
-        I followed you up. I'm going to keep doing things like that and you're going to keep noticing. Let's just call it.
-  - if: {flags_unset: [met_wren]}
-    text: |-
-      A woman is on the parapet. Early thirties, hair pulled back, a canvas bag across her body. She has not looked at you. She knows you are here.
-  - if: {flags_unset: [met_wren]}
-    female_adult_american_droll_wry_dry: |-
-        I'm not going to pretend I don't know how this looks. I came up the back stairs five minutes after you started up the front. Hi.
-
+- The service door at the back of the top landing opens onto a steel stair that opens
+  onto the roof. Gravel and tar and one rusted satellite dish. A waist-high parapet
+  on all four sides.
+- The city in panorama for the first time in two days. Fires in the middle distance
+  — three of them, blue-edged, the kind that happen when a gas line gives up. Cars
+  stopped where they ran out of road, doors hung open. And at the far edge of everything,
+  where the streets fall toward where streets fall, a flat grey line that is the river.
+  You did not know you could see it from here.
+- A closer building, four blocks south, has a *stain* moving through it — a horde
+  working floor by floor, the windows lighting and unlighting as bodies pass them.
+- if:
+    flags:
+    - met_wren
+  text: Wren is on the parapet. Bag across her body. She has come up after you, the
+    long way, and made no effort to hide that she did.
+- if:
+    flags:
+    - met_wren
+  female_adult_american_droll_wry_dry: I followed you up. I'm going to keep doing
+    things like that and you're going to keep noticing. Let's just call it.
+- if:
+    flags_unset:
+    - met_wren
+  text: A woman is on the parapet. Early thirties, hair pulled back, a canvas bag
+    across her body. She has not looked at you. She knows you are here.
+- if:
+    flags_unset:
+    - met_wren
+  female_adult_american_droll_wry_dry: I'm not going to pretend I don't know how this
+    looks. I came up the back stairs five minutes after you started up the front.
+    Hi.
 choices:
-  - text: |-
-      Stand at the parapet. Talk to her.
-    next: act2/talk_wren_hub
-    effects:
-      flags:
-        met_wren: true
-        seen_river: true
-  - text: |-
-      Stand at the parapet. Don't speak. Back to the stairwell.
-    next: act2/apartments_courtyard
-    effects:
-      stats:
-        apartments_visits: 1
-      flags:
-        seen_river: true
-  - text: |-
-      Look harder at the closer building. The horde moving through it.
-    next: act2/apartments_courtyard
-    requires:
-      flags: [neighbour_alive]
-    effects:
-      stats:
-        bond: 1
-        apartments_visits: 1
-      flags:
-        seen_river: true
-    hide_if_failed: true
-  - text: |-
-      Look harder at the closer building. The horde moving through it.
-    next: act2/apartments_courtyard
-    requires:
-      flags: [teen_alive]
-      flags_unset: [neighbour_alive]
-    effects:
-      stats:
-        bond: 1
-        apartments_visits: 1
-      flags:
-        seen_river: true
-    hide_if_failed: true
-  - text: |-
-      Look harder at the closer building. The horde moving through it.
-    next: act2/apartments_courtyard
-    requires:
-      flags: [elder_alive]
-      flags_unset: [neighbour_alive, teen_alive]
-    effects:
-      stats:
-        bond: 1
-        apartments_visits: 1
-      flags:
-        seen_river: true
-    hide_if_failed: true
+- text: Stand at the parapet. Talk to her.
+  next: act2/talk_wren_hub
+  effects:
+    flags:
+      met_wren: true
+      seen_river: true
+- text: Stand at the parapet. Don't speak. Back to the stairwell.
+  next: act2/apartments_courtyard
+  effects:
+    stats:
+      apartments_visits: 1
+    flags:
+      seen_river: true
+- text: Look harder at the closer building. The horde moving through it.
+  next: act2/apartments_courtyard
+  requires:
+    flags:
+    - neighbour_alive
+  effects:
+    stats:
+      bond: 1
+      apartments_visits: 1
+    flags:
+      seen_river: true
+  hide_if_failed: true
+- text: Look harder at the closer building. The horde moving through it.
+  next: act2/apartments_courtyard
+  requires:
+    flags:
+    - teen_alive
+    flags_unset:
+    - neighbour_alive
+  effects:
+    stats:
+      bond: 1
+      apartments_visits: 1
+    flags:
+      seen_river: true
+  hide_if_failed: true
+- text: Look harder at the closer building. The horde moving through it.
+  next: act2/apartments_courtyard
+  requires:
+    flags:
+    - elder_alive
+    flags_unset:
+    - neighbour_alive
+    - teen_alive
+  effects:
+    stats:
+      bond: 1
+      apartments_visits: 1
+    flags:
+      seen_river: true
+  hide_if_failed: true

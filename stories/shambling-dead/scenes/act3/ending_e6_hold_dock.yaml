@@ -1,42 +1,58 @@
-journal: |-
-  You held the dock. The boat went. They went on it.
-
+journal: You held the dock. The boat went. They went on it.
 text:
-  - |-
-    The line goes off the bollard. The engine pushes. The cruiser pulls.
-  - |-
-    The dock takes weight when the cruiser leaves it. The dead are at the dock-side bollard. They are slow. You have time, the way a man has time who has decided how the rest of it will go.
-  - if: {flags: [dock_pipe_early]}
-    text: |-
-      The pipe is in your hands. It has been in your hands since before the cruiser was out of the channel. You are ready before they need you to be.
-  - if: {flags_unset: [dock_pipe_early]}
-    text: |-
-      The pipe is at your feet. You pick it up.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara is at the rail. The shoes are still on the wrong feet. She has not let go of the strap.
-  - if: {stats: {bond: 5}, flags: [child_rescued, child_alive]}
-    text: |-
-      female_young_american_sweet_youthful_clear: |-
-        I see you.
-  - if: {stats: {bond: 5}, flags: [child_rescued, child_alive]}
-    text: |-
-      She says your name. She says it across the water. The cruiser is small enough now that the word arrives thin and arrives anyway.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is on the deck behind her. He is not picking the thumb. He is watching you, and he is watching her, and he is the man who will keep her on the boat.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth is on the deck behind her. The cardigan is across Mara's shoulders.
-  - if: {flags: [stranger_alive]}
-    text: |-
-      Wren is on the deck behind her. The bag is on Mara's lap. The dryness has dropped.
-  - if: {flags: [dock_named_them]}
-    text: |-
-      You said the thing on the dock. You said the thing you wanted them to remember. They heard it. The wind took the rest.
-  - |-
-    The dead reach the bollard. Then the dock. Then you.
-  - |-
-    The cruiser is east, on the river, getting smaller. It does not stop.
-
+- The line goes off the bollard. The engine pushes. The cruiser pulls.
+- The dock takes weight when the cruiser leaves it. The dead are at the dock-side
+  bollard. They are slow. You have time, the way a man has time who has decided how
+  the rest of it will go.
+- if:
+    flags:
+    - dock_pipe_early
+  text: The pipe is in your hands. It has been in your hands since before the cruiser
+    was out of the channel. You are ready before they need you to be.
+- if:
+    flags_unset:
+    - dock_pipe_early
+  text: The pipe is at your feet. You pick it up.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara is at the rail. The shoes are still on the wrong feet. She has not let
+    go of the strap.
+- if:
+    stats:
+      bond: 5
+    flags:
+    - child_rescued
+    - child_alive
+  text: "female_young_american_sweet_youthful_clear: |-\n  I see you."
+- if:
+    stats:
+      bond: 5
+    flags:
+    - child_rescued
+    - child_alive
+  text: She says your name. She says it across the water. The cruiser is small enough
+    now that the word arrives thin and arrives anyway.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is on the deck behind her. He is not picking the thumb. He is watching
+    you, and he is watching her, and he is the man who will keep her on the boat.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth is on the deck behind her. The cardigan is across Mara's shoulders.
+- if:
+    flags:
+    - stranger_alive
+  text: Wren is on the deck behind her. The bag is on Mara's lap. The dryness has
+    dropped.
+- if:
+    flags:
+    - dock_named_them
+  text: You said the thing on the dock. You said the thing you wanted them to remember.
+    They heard it. The wind took the rest.
+- The dead reach the bollard. Then the dock. Then you.
+- The cruiser is east, on the river, getting smaller. It does not stop.
 choices: []

@@ -1,21 +1,20 @@
 text:
-  - |-
-    You give him your name. You say the number of your house and the colour of the door he can see from his window. You say it the way you'd say it to a dog that's been kicked.
-  - male_young_american_weak: |-
-      I — I know which one. I've seen you.
-  - |-
-    On the other side of the wood, the slow finding-of-the-floor has reached the third step. There is a wet sound underneath it that isn't a footfall.
-  - male_young_american_weak: |-
-      My — my dad. He's. He's on the stairs. I don't — I mean, he isn't, anymore, he's. [sniff] I'm sorry.
-  - |-
-    He says sorry like he's the one who has to apologise. You tell him you'll wait outside. You tell him you're not going anywhere until he opens the door, and if he never opens the door you'll still be here. The thing on the stairs is at the fourth step.
-
+- You give him your name. You say the number of your house and the colour of the door
+  he can see from his window. You say it the way you'd say it to a dog that's been
+  kicked.
+- male_young_american_weak: I — I know which one. I've seen you.
+- On the other side of the wood, the slow finding-of-the-floor has reached the third
+  step. There is a wet sound underneath it that isn't a footfall.
+- male_young_american_weak: My — my dad. He's. He's on the stairs. I don't — I mean,
+    he isn't, anymore, he's. [sniff] I'm sorry.
+- He says sorry like he's the one who has to apologise. You tell him you'll wait outside.
+  You tell him you're not going anywhere until he opens the door, and if he never
+  opens the door you'll still be here. The thing on the stairs is at the fourth step.
 choices:
-  - text: |-
-      Keep talking. Tell him you'll wait outside if he wants.
-    next: act1/caleb_door_resolve
-    effects:
-      flags:
-        teen_alive: true
-      stats:
-        bond: 1
+- text: Keep talking. Tell him you'll wait outside if he wants.
+  next: act1/caleb_door_resolve
+  effects:
+    flags:
+      teen_alive: true
+    stats:
+      bond: 1

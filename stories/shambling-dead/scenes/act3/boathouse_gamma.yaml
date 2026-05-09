@@ -1,56 +1,52 @@
 text:
-  - |-
-    The boathouse door is propped. You push past it. The kayak is on the rack along the back wall — long, red, the kind of boat a person could put on a roof rack and forget for a year.
-  - |-
-    Mara stops in the doorway. She is looking at the rack. She is looking at the door of the boathouse and at the rack and at the cleat by the water side, and her face does the thing a face does when it has seen something a second time.
-  - female_young_american_sweet_youthful_clear: |-
-      I came out of here.
-  - |-
-    Her hand has gone tight on the strap of the bag. She is not looking at you yet.
-  - |-
-    Above you the joist creaks. Something on the roof is working out a shingle.
-  - female_young_american_sweet_youthful_clear: |-
-      Is my mom in the dark.
-  - |-
-    The question comes the way her questions come — flat, in series, a thing she has been holding for one beat too long. She is looking at you now.
-
+- The boathouse door is propped. You push past it. The kayak is on the rack along
+  the back wall — long, red, the kind of boat a person could put on a roof rack and
+  forget for a year.
+- Mara stops in the doorway. She is looking at the rack. She is looking at the door
+  of the boathouse and at the rack and at the cleat by the water side, and her face
+  does the thing a face does when it has seen something a second time.
+- female_young_american_sweet_youthful_clear: I came out of here.
+- Her hand has gone tight on the strap of the bag. She is not looking at you yet.
+- Above you the joist creaks. Something on the roof is working out a shingle.
+- female_young_american_sweet_youthful_clear: Is my mom in the dark.
+- The question comes the way her questions come — flat, in series, a thing she has
+  been holding for one beat too long. She is looking at you now.
 choices:
-  - text: |-
-      Tell her the truth. Her mother is dead.
-    next: act3/talk_mara_dark
-    requires:
-      flags_unset: [mara_dark_asked]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: 1
-      flags:
-        mara_dark_asked: true
-        told_mara_truth_dark: true
-  - text: |-
-      Tell her her mother is somewhere safe.
-    next: act3/talk_mara_dark
-    requires:
-      flags_unset: [mara_dark_asked]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: -1
-      flags:
-        mara_dark_asked: true
-        lied_to_mara: true
-  - text: |-
-      Tell her you don't know. And that you won't lie about it.
-    next: act3/talk_mara_dark
-    requires:
-      flags_unset: [mara_dark_asked]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: 1
-      flags:
-        mara_dark_asked: true
-        told_mara_truth_dark: true
-  - text: |-
-      Pick her up. Move now. Talk later.
-    next: act3/boathouse_gamma_resolve
+- text: Tell her the truth. Her mother is dead.
+  next: act3/talk_mara_dark
+  requires:
+    flags_unset:
+    - mara_dark_asked
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: 1
+    flags:
+      mara_dark_asked: true
+      told_mara_truth_dark: true
+- text: Tell her her mother is somewhere safe.
+  next: act3/talk_mara_dark
+  requires:
+    flags_unset:
+    - mara_dark_asked
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: -1
+    flags:
+      mara_dark_asked: true
+      lied_to_mara: true
+- text: Tell her you don't know. And that you won't lie about it.
+  next: act3/talk_mara_dark
+  requires:
+    flags_unset:
+    - mara_dark_asked
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: 1
+    flags:
+      mara_dark_asked: true
+      told_mara_truth_dark: true
+- text: Pick her up. Move now. Talk later.
+  next: act3/boathouse_gamma_resolve

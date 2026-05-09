@@ -1,12 +1,9 @@
 text:
-  - |-
-    The service road is just road. A grocery cart on its side. A child's bike chained to a fence with no child near it.
-  - |-
-    Somewhere behind the fence — not far — something moves through dry leaves. You stop. It stops. You move. It does not.
-  - |-
-    You do not look back to see if it followed.
-
+- The service road is just road. A grocery cart on its side. A child's bike chained
+  to a fence with no child near it.
+- Somewhere behind the fence — not far — something moves through dry leaves. You stop.
+  It stops. You move. It does not.
+- You do not look back to see if it followed.
 choices:
-  - text: |-
-      Keep going.
-    next: act2/checkpoint_approach
+- text: Keep going.
+  next: act2/checkpoint_approach

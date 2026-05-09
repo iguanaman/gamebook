@@ -1,31 +1,27 @@
 text:
-  - |-
-    Dale is sitting against the parapet with the leg out. He is turning the wedding band with the thumb of the same hand. Slow. He stops when he sees you watching. Then he starts again. He has decided to keep doing it.
-  - male_midlife_american_dark_tough: |-
-      Hey.
-  - male_midlife_american_dark_tough: |-
-      Twenty-six years next month. Janie. She — she went last summer. The cancer. The fast kind, after the slow kind.
-  - male_midlife_american_dark_tough: |-
-      I been turning this damn thing on my finger since the morning of. Since the lawn. I don't think I'd noticed I was doing it.
-  - |-
-    Below the parapet the fire-door hum starts up again. Dale flinches at it. He used not to flinch. Tonight he does.
-  - male_midlife_american_dark_tough: |-
-      Anyway. That's the ring.
-
+- Dale is sitting against the parapet with the leg out. He is turning the wedding
+  band with the thumb of the same hand. Slow. He stops when he sees you watching.
+  Then he starts again. He has decided to keep doing it.
+- male_midlife_american_dark_tough: Hey.
+- male_midlife_american_dark_tough: Twenty-six years next month. Janie. She — she
+    went last summer. The cancer. The fast kind, after the slow kind.
+- male_midlife_american_dark_tough: I been turning this damn thing on my finger since
+    the morning of. Since the lawn. I don't think I'd noticed I was doing it.
+- Below the parapet the fire-door hum starts up again. Dale flinches at it. He used
+  not to flinch. Tonight he does.
+- male_midlife_american_dark_tough: Anyway. That's the ring.
 choices:
-  - text: |-
-      Ask about the ring. Listen to whatever he says.
-    next: act2/arterial_dawn
-    effects:
-      stats:
-        bond: 1
-      flags:
-        talked_dale_brief_done: true
-  - text: |-
-      Don't ask. Sit with him in silence.
-    next: act2/arterial_dawn
-    effects:
-      stats:
-        bond: 1
-      flags:
-        talked_dale_brief_done: true
+- text: Ask about the ring. Listen to whatever he says.
+  next: act2/arterial_dawn
+  effects:
+    stats:
+      bond: 1
+    flags:
+      talked_dale_brief_done: true
+- text: Don't ask. Sit with him in silence.
+  next: act2/arterial_dawn
+  effects:
+    stats:
+      bond: 1
+    flags:
+      talked_dale_brief_done: true

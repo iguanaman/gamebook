@@ -1,40 +1,50 @@
 text:
-  - |-
-    You tell them to go.
-  - |-
-    The supplies go down into the cabin — yours, all four bags' worth, the last of what you carried out of the city. Marrow takes them without comment. Vance does not write the number. She is reading you the way she read Sully on the first day of the job.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is on the gangplank. He is looking at you. He is not picking the thumb. He is saying nothing and the saying-nothing is a sentence.
-  - if: {flags: [elder_alive], flags_unset: [teen_alive]}
-    text: |-
-      Ruth is on the gangplank. She has Mara's hand. Her other hand finds your face for one breath and then is gone.
-  - if: {flags: [stranger_alive], flags_unset: [teen_alive, elder_alive]}
-    text: |-
-      Wren is on the gangplank. The bag is across her body. She has not opened it. She does not open it now. She nods the way a person nods who has decided to say a thing later, on the river, and not now.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara is at the rail. Her shoes are still on the wrong feet. She has not let go of the strap of your bag.
-  - female_adult_american_sultry_villainous: |-
-      I will get them to the cove.
-  - |-
-    She does not say it loud. She does not have to. She has the keys at her throat and the math has paid out the way she always reads it: a person stays. The person staying is you.
-  - |-
-    The line goes off the bollard. The engine pushes. The cruiser pulls.
-
+- You tell them to go.
+- The supplies go down into the cabin — yours, all four bags' worth, the last of what
+  you carried out of the city. Marrow takes them without comment. Vance does not write
+  the number. She is reading you the way she read Sully on the first day of the job.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is on the gangplank. He is looking at you. He is not picking the thumb.
+    He is saying nothing and the saying-nothing is a sentence.
+- if:
+    flags:
+    - elder_alive
+    flags_unset:
+    - teen_alive
+  text: Ruth is on the gangplank. She has Mara's hand. Her other hand finds your face
+    for one breath and then is gone.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - teen_alive
+    - elder_alive
+  text: Wren is on the gangplank. The bag is across her body. She has not opened it.
+    She does not open it now. She nods the way a person nods who has decided to say
+    a thing later, on the river, and not now.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara is at the rail. Her shoes are still on the wrong feet. She has not let
+    go of the strap of your bag.
+- female_adult_american_sultry_villainous: I will get them to the cove.
+- 'She does not say it loud. She does not have to. She has the keys at her throat
+  and the math has paid out the way she always reads it: a person stays. The person
+  staying is you.'
+- The line goes off the bollard. The engine pushes. The cruiser pulls.
 choices:
-  - text: |-
-      Watch the boat go. Don't speak.
-    next: act3/endings_router
-  - text: |-
-      Tell them what you wanted them to remember about you. Then watch.
-    next: act3/endings_router
-    effects:
-      flags:
-        dock_named_them: true
-  - text: |-
-      Pick up the pipe before the cruiser is out of the channel.
-    next: act3/endings_router
-    effects:
-      flags:
-        dock_pipe_early: true
+- text: Watch the boat go. Don't speak.
+  next: act3/endings_router
+- text: Tell them what you wanted them to remember about you. Then watch.
+  next: act3/endings_router
+  effects:
+    flags:
+      dock_named_them: true
+- text: Pick up the pipe before the cruiser is out of the channel.
+  next: act3/endings_router
+  effects:
+    flags:
+      dock_pipe_early: true

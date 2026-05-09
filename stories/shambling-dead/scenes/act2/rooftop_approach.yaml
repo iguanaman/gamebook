@@ -1,37 +1,53 @@
 text:
-  - |-
-    The parking structure is six floors of grey concrete and the kind of stairwell that holds noise like a bottle. You go up. The light goes down. By the third turn the stairwell is humming — somewhere two floors below you, dead are working on a fire door, and the building remembers every footfall they take.
-  - |-
-    The roof is open sky and the city laid flat. Fires now, not flickers. The river is a black line at the eastern edge with the smoke pulling sideways above it. Evening of day two.
-  - if: {flags: [sewer_survivor]}
-    text: |-
-      Your boots are still wet. They have been wet since the storm-drain. The wet does not feel like a thing you are going to lose tonight.
-  - if: {flags: [killed_survivor]}
-    text: |-
-      The hand that fired in the firelight is yours and it is doing the small shake it has been doing since. You set it on the parapet flat and you wait for it to stop. It does not stop.
-  - |-
-    Somewhere a radio is looping. You can hear it in the next block over, faint, on the wind. It is Apt 3's broadcast, with the coordinates changed. Hollis's loop, still going — the camp has a generator and a man at it. It will go all night.
-  - if: {flags_unset: [stranger_alive], flags: [met_wren]}
-    text: |-
-      Wren is not on the roof. Wren is not anywhere now. The wind moves the smoke and you do not look for her in it.
-
+- The parking structure is six floors of grey concrete and the kind of stairwell that
+  holds noise like a bottle. You go up. The light goes down. By the third turn the
+  stairwell is humming — somewhere two floors below you, dead are working on a fire
+  door, and the building remembers every footfall they take.
+- The roof is open sky and the city laid flat. Fires now, not flickers. The river
+  is a black line at the eastern edge with the smoke pulling sideways above it. Evening
+  of day two.
+- if:
+    flags:
+    - sewer_survivor
+  text: Your boots are still wet. They have been wet since the storm-drain. The wet
+    does not feel like a thing you are going to lose tonight.
+- if:
+    flags:
+    - killed_survivor
+  text: The hand that fired in the firelight is yours and it is doing the small shake
+    it has been doing since. You set it on the parapet flat and you wait for it to
+    stop. It does not stop.
+- Somewhere a radio is looping. You can hear it in the next block over, faint, on
+  the wind. It is Apt 3's broadcast, with the coordinates changed. Hollis's loop,
+  still going — the camp has a generator and a man at it. It will go all night.
+- if:
+    flags_unset:
+    - stranger_alive
+    flags:
+    - met_wren
+  text: Wren is not on the roof. Wren is not anywhere now. The wind moves the smoke
+    and you do not look for her in it.
 choices:
-  - text: |-
-      Up. Find a spot at the edge.
-    next: act2/rooftop_wren_truth
-    requires:
-      flags: [stranger_alive, probed_wren]
-    hide_if_failed: true
-  - text: |-
-      Up. Find a spot at the edge.
-    next: act2/rooftop_wren_betrayal_setup
-    requires:
-      flags: [stranger_alive, trusted_wren]
-      flags_unset: [probed_wren]
-    hide_if_failed: true
-  - text: |-
-      Up. Find a spot at the edge.
-    next: act2/rooftop_quiet
-    requires:
-      flags_unset: [probed_wren, trusted_wren]
-    hide_if_failed: true
+- text: Up. Find a spot at the edge.
+  next: act2/rooftop_wren_truth
+  requires:
+    flags:
+    - stranger_alive
+    - probed_wren
+  hide_if_failed: true
+- text: Up. Find a spot at the edge.
+  next: act2/rooftop_wren_betrayal_setup
+  requires:
+    flags:
+    - stranger_alive
+    - trusted_wren
+    flags_unset:
+    - probed_wren
+  hide_if_failed: true
+- text: Up. Find a spot at the edge.
+  next: act2/rooftop_quiet
+  requires:
+    flags_unset:
+    - probed_wren
+    - trusted_wren
+  hide_if_failed: true

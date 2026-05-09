@@ -1,15 +1,19 @@
 text:
-  - |-
-    You crouch. The jacket is wet at the back where it has been in the water. You do not move it any more than you have to.
-  - |-
-    A wallet, soft. Two protein bars from the kind of vending machine that used to live in marinas. A small folding knife with a name you don't read scratched into the handle. A photo, stuck to the inside of the wallet, of a girl about Mara's age. The shoe missing from the dock is not on him; the shoe is not anywhere.
-  - |-
-    Marrow has not moved. Her pole is across her shoulders now, both hands resting on it. She is watching the back fence, not you. That is a courtesy and you both know it.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara has not moved either. You can feel her looking at you the way she looked at the man on the lawn.
-
+- You crouch. The jacket is wet at the back where it has been in the water. You do
+  not move it any more than you have to.
+- A wallet, soft. Two protein bars from the kind of vending machine that used to live
+  in marinas. A small folding knife with a name you don't read scratched into the
+  handle. A photo, stuck to the inside of the wallet, of a girl about Mara's age.
+  The shoe missing from the dock is not on him; the shoe is not anywhere.
+- Marrow has not moved. Her pole is across her shoulders now, both hands resting on
+  it. She is watching the back fence, not you. That is a courtesy and you both know
+  it.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara has not moved either. You can feel her looking at you the way she looked
+    at the man on the lawn.
 choices:
-  - text: |-
-      Pocket it. Walk back.
-    next: act3/marina_hub
+- text: Pocket it. Walk back.
+  next: act3/marina_hub

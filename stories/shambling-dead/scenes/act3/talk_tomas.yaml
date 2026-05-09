@@ -1,57 +1,62 @@
 text:
-  - if: {flags_unset: [visited]}
-    text: |-
-      Tomás takes his glasses off. He cleans them on the inside of the windbreaker and puts them back on. He has time for this. He is making time for it.
-  - if: visited
-    text: |-
-      He is still on the rope coil. Iris is still standing. Hayes is still sitting. The thermos has not moved.
-  - if: {flags: [tomas_people_asked, tomas_boats_asked, tomas_mirror_asked]}
-    text: |-
-      You have asked him what you came to ask. He is waiting for you.
-    else: |-
-      Hayes coughs once into his sleeve. Iris's hand has not left the pry-bar.
-
+- if:
+    flags_unset:
+    - visited
+  text: Tomás takes his glasses off. He cleans them on the inside of the windbreaker
+    and puts them back on. He has time for this. He is making time for it.
+- if: visited
+  text: He is still on the rope coil. Iris is still standing. Hayes is still sitting.
+    The thermos has not moved.
+- if:
+    flags:
+    - tomas_people_asked
+    - tomas_boats_asked
+    - tomas_mirror_asked
+  text: You have asked him what you came to ask. He is waiting for you.
+  else: Hayes coughs once into his sleeve. Iris's hand has not left the pry-bar.
 choices:
-  - text: |-
-      Your people. Who they are.
-    next: act3/talk_tomas_people
-    requires:
-      flags_unset: [tomas_people_asked]
-    hide_if_failed: true
-    effects:
-      flags:
-        tomas_people_asked: true
-  - text: |-
-      The boats. What you've seen.
-    next: act3/talk_tomas_boats
-    requires:
-      flags_unset: [tomas_boats_asked]
-    hide_if_failed: true
-    effects:
-      flags:
-        tomas_boats_asked: true
-        boathouse_seen: true
-  - text: |-
-      What you'd do, if it were you.
-    next: act3/talk_tomas_mirror
-    requires:
-      flags_unset: [tomas_mirror_asked]
-    hide_if_failed: true
-    effects:
-      flags:
-        tomas_mirror_asked: true
-  - text: |-
-      You've heard him. Back to the apron.
-    next: act3/marina_hub
-    requires:
-      flags: [tomas_people_asked, tomas_boats_asked, tomas_mirror_asked]
-    hide_if_failed: true
-    effects:
-      flags:
-        read_tomas: true
-  - text: |-
-      Back to the apron.
-    next: act3/marina_hub
-    requires:
-      flags_unset: [read_tomas]
-    hide_if_failed: true
+- text: Your people. Who they are.
+  next: act3/talk_tomas_people
+  requires:
+    flags_unset:
+    - tomas_people_asked
+  hide_if_failed: true
+  effects:
+    flags:
+      tomas_people_asked: true
+- text: The boats. What you've seen.
+  next: act3/talk_tomas_boats
+  requires:
+    flags_unset:
+    - tomas_boats_asked
+  hide_if_failed: true
+  effects:
+    flags:
+      tomas_boats_asked: true
+      boathouse_seen: true
+- text: What you'd do, if it were you.
+  next: act3/talk_tomas_mirror
+  requires:
+    flags_unset:
+    - tomas_mirror_asked
+  hide_if_failed: true
+  effects:
+    flags:
+      tomas_mirror_asked: true
+- text: You've heard him. Back to the apron.
+  next: act3/marina_hub
+  requires:
+    flags:
+    - tomas_people_asked
+    - tomas_boats_asked
+    - tomas_mirror_asked
+  hide_if_failed: true
+  effects:
+    flags:
+      read_tomas: true
+- text: Back to the apron.
+  next: act3/marina_hub
+  requires:
+    flags_unset:
+    - read_tomas
+  hide_if_failed: true

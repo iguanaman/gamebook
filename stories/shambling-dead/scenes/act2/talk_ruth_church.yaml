@@ -1,17 +1,19 @@
 text:
-  - female_elder_american_relatable_likeable: |-
-      My grandmother's. She came over with not very much and she got married in this room — well, the nave, not this room — and she had three children baptised at that font and she is buried out the back under a stone I can't read in the dark anymore.
-  - female_elder_american_relatable_likeable: |-
-      So when this started, I drove. Honey, I drove with both hands on the wheel like a woman half my age. I have been here three days. I keep the bar on the front and the kettle on the back and I keep on. That's the answer to your question. Everything else is just where I sit.
-  - |-
-    She taps the chain on her glasses, twice. Listens past you for half a second. Comes back.
-
+- female_elder_american_relatable_likeable: My grandmother's. She came over with not
+    very much and she got married in this room — well, the nave, not this room — and
+    she had three children baptised at that font and she is buried out the back under
+    a stone I can't read in the dark anymore.
+- female_elder_american_relatable_likeable: So when this started, I drove. Honey,
+    I drove with both hands on the wheel like a woman half my age. I have been here
+    three days. I keep the bar on the front and the kettle on the back and I keep
+    on. That's the answer to your question. Everything else is just where I sit.
+- She taps the chain on her glasses, twice. Listens past you for half a second. Comes
+  back.
 choices:
-  - text: |-
-      Back.
-    next: act2/talk_ruth_hub
-    effects:
-      flags:
-        asked_ruth_church: true
-      stats:
-        bond: 1
+- text: Back.
+  next: act2/talk_ruth_hub
+  effects:
+    flags:
+      asked_ruth_church: true
+    stats:
+      bond: 1

@@ -1,32 +1,26 @@
 text:
-  - |-
-    Dale is sweating in a way that has nothing to do with the heat. He sees you looking and shifts the bad leg under the other one, a small movement disguised as comfort.
-  - male_midlife_american_dark_tough: |-
-      I'm fine. [sigh] Just need a minute. I'm fine.
-  - |-
-    He says it the way a man says a price he is hoping you won't haggle.
-
+- Dale is sweating in a way that has nothing to do with the heat. He sees you looking
+  and shifts the bad leg under the other one, a small movement disguised as comfort.
+- male_midlife_american_dark_tough: I'm fine. [sigh] Just need a minute. I'm fine.
+- He says it the way a man says a price he is hoping you won't haggle.
 choices:
-  - text: |-
-      Crouch. Take a real look at the leg.
-    next: act1/neighbourhood_hub
-    effects:
-      flags:
-        saw_dale_leg: true
-      stats:
-        home_loud_count: 1
-        hub_visits: 1
-  - text: |-
-      Ask him plain. "Show me the leg, Dale."
-    next: act1/neighbourhood_hub
-    effects:
-      flags:
-        dale_lied: true
-      stats:
-        hub_visits: 1
-  - text: |-
-      Squeeze his shoulder. Ask if he can keep walking.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        hub_visits: 1
+- text: Crouch. Take a real look at the leg.
+  next: act1/neighbourhood_hub
+  effects:
+    flags:
+      saw_dale_leg: true
+    stats:
+      home_loud_count: 1
+      hub_visits: 1
+- text: Ask him plain. "Show me the leg, Dale."
+  next: act1/neighbourhood_hub
+  effects:
+    flags:
+      dale_lied: true
+    stats:
+      hub_visits: 1
+- text: Squeeze his shoulder. Ask if he can keep walking.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      hub_visits: 1

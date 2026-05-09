@@ -1,72 +1,83 @@
 text:
-  - |-
-    Whatever you have left to eat is in the side pocket. Half a tin. A protein bar with the wrapper sweat-soft. A water bottle two-thirds gone.
-  - if: {flags: [child_rescued]}
-    text: |-
-      Mara is awake again. She is not asking. She is doing the thing children do when they have decided not to ask — she is watching the bag.
-  - if: {flags: [wren_truthed]}
-    text: |-
-      Wren has set her bag down for the first time in two days. The strap is loose on the concrete. She is leaning against the parapet and she is — for the first time in two days — leaning her shoulder against it the way a person does when they are letting a wall hold them up.
-  - if: {flags: [wren_peaceful]}
-    text: |-
-      Wren is on the parapet beside you, on watch. The dryness is back in her voice. The bag is on the ground.
-  - |-
-    The stairwell hums under the roof. The dead two floors down working on the fire door. The radio in the next block. Day three is some hours off.
-
+- Whatever you have left to eat is in the side pocket. Half a tin. A protein bar with
+  the wrapper sweat-soft. A water bottle two-thirds gone.
+- if:
+    flags:
+    - child_rescued
+  text: Mara is awake again. She is not asking. She is doing the thing children do
+    when they have decided not to ask — she is watching the bag.
+- if:
+    flags:
+    - wren_truthed
+  text: Wren has set her bag down for the first time in two days. The strap is loose
+    on the concrete. She is leaning against the parapet and she is — for the first
+    time in two days — leaning her shoulder against it the way a person does when
+    they are letting a wall hold them up.
+- if:
+    flags:
+    - wren_peaceful
+  text: Wren is on the parapet beside you, on watch. The dryness is back in her voice.
+    The bag is on the ground.
+- The stairwell hums under the roof. The dead two floors down working on the fire
+  door. The radio in the next block. Day three is some hours off.
 choices:
-  - text: |-
-      Share the food. With everyone.
-    next: act2/talk_caleb_hub
-    requires:
-      flags: [teen_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-        bond: 1
-      flags:
-        shared_supplies: true
-  - text: |-
-      Share the food. With everyone.
-    next: act2/talk_dale_brief
-    requires:
-      flags: [neighbour_alive]
-      flags_unset: [teen_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-        bond: 1
-      flags:
-        shared_supplies: true
-  - text: |-
-      Share the food. With everyone.
-    next: act2/arterial_dawn
-    requires:
-      flags_unset: [teen_alive, neighbour_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-        bond: 1
-      flags:
-        shared_supplies: true
-  - text: |-
-      Eat alone. Pass watch.
-    next: act2/talk_caleb_hub
-    requires:
-      flags: [teen_alive]
-    hide_if_failed: true
-  - text: |-
-      Eat alone. Pass watch.
-    next: act2/talk_dale_brief
-    requires:
-      flags: [neighbour_alive]
-      flags_unset: [teen_alive]
-    hide_if_failed: true
-  - text: |-
-      Eat alone. Pass watch.
-    next: act2/arterial_dawn
-    requires:
-      flags_unset: [teen_alive, neighbour_alive]
-    hide_if_failed: true
+- text: Share the food. With everyone.
+  next: act2/talk_caleb_hub
+  requires:
+    flags:
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+      bond: 1
+    flags:
+      shared_supplies: true
+- text: Share the food. With everyone.
+  next: act2/talk_dale_brief
+  requires:
+    flags:
+    - neighbour_alive
+    flags_unset:
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+      bond: 1
+    flags:
+      shared_supplies: true
+- text: Share the food. With everyone.
+  next: act2/arterial_dawn
+  requires:
+    flags_unset:
+    - teen_alive
+    - neighbour_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+      bond: 1
+    flags:
+      shared_supplies: true
+- text: Eat alone. Pass watch.
+  next: act2/talk_caleb_hub
+  requires:
+    flags:
+    - teen_alive
+  hide_if_failed: true
+- text: Eat alone. Pass watch.
+  next: act2/talk_dale_brief
+  requires:
+    flags:
+    - neighbour_alive
+    flags_unset:
+    - teen_alive
+  hide_if_failed: true
+- text: Eat alone. Pass watch.
+  next: act2/arterial_dawn
+  requires:
+    flags_unset:
+    - teen_alive
+    - neighbour_alive
+  hide_if_failed: true

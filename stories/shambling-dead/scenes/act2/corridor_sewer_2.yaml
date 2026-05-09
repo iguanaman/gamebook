@@ -1,24 +1,22 @@
 text:
-  - |-
-    Round a bend, the pipe widens at a junction box. A single shambler standing in the water, head tipped back, jaw working at nothing. Slow. Alone. The kind of one you can solve.
-  - |-
-    The route looks empty past it. That is the part of the prose you should not have trusted.
-
+- Round a bend, the pipe widens at a junction box. A single shambler standing in the
+  water, head tipped back, jaw working at nothing. Slow. Alone. The kind of one you
+  can solve.
+- The route looks empty past it. That is the part of the prose you should not have
+  trusted.
 choices:
-  - text: |-
-      Step around it. Quiet.
-    next: act2/corridor_sewer_3
-  - text: |-
-      Knife it. Quiet.
-    next: act2/corridor_sewer_3
-    effects:
-      stats:
-        health: -1
-  - text: |-
-      Shoot it.
-    next: act2/corridor_sewer_3
-    requires:
-      flags: [has_pistol]
-    effects:
-      flags:
-        sewer_loud: true
+- text: Step around it. Quiet.
+  next: act2/corridor_sewer_3
+- text: Knife it. Quiet.
+  next: act2/corridor_sewer_3
+  effects:
+    stats:
+      health: -1
+- text: Shoot it.
+  next: act2/corridor_sewer_3
+  requires:
+    flags:
+    - has_pistol
+  effects:
+    flags:
+      sewer_loud: true

@@ -1,82 +1,89 @@
 text:
-  - |-
-    The courtyard is a square of cracked concrete between four storeys on each side. Plant pots tipped, a child's bike on its side, the lobby door jammed half-open on a wedge somebody hammered in. You step over the wedge.
-  - |-
-    Inside: a stairwell. Three apartment doors visible from the landings — ground, first, top — and a service door at the back stamped *Roof Access*. The lift shaft beside the stairs is dark and the shaft is *talking*. Not on the floors you can see. Somewhere else in this building. Working on it.
-  - if: {flags: [apt1_loud]}
-    text: |-
-      A door rattles two floors up. The cupboard noise from the kitchen carried further than you wanted it to.
-  - if: {flags: [apt2_loud]}
-    text: |-
-      The bathroom door upstairs is open now. Wet prints on the landing tile. Not yours.
-  - if: {flags: [apt3_loud]}
-    text: |-
-      A long groan from above and answering ones from below. The shaft has stopped being something and started being someone.
-  - if: visited
-    text: |-
-      The hum is louder than it was. The building is doing addition.
-
+- The courtyard is a square of cracked concrete between four storeys on each side.
+  Plant pots tipped, a child's bike on its side, the lobby door jammed half-open on
+  a wedge somebody hammered in. You step over the wedge.
+- 'Inside: a stairwell. Three apartment doors visible from the landings — ground,
+  first, top — and a service door at the back stamped *Roof Access*. The lift shaft
+  beside the stairs is dark and the shaft is *talking*. Not on the floors you can
+  see. Somewhere else in this building. Working on it.'
+- if:
+    flags:
+    - apt1_loud
+  text: A door rattles two floors up. The cupboard noise from the kitchen carried
+    further than you wanted it to.
+- if:
+    flags:
+    - apt2_loud
+  text: The bathroom door upstairs is open now. Wet prints on the landing tile. Not
+    yours.
+- if:
+    flags:
+    - apt3_loud
+  text: A long groan from above and answering ones from below. The shaft has stopped
+    being something and started being someone.
+- if: visited
+  text: The hum is louder than it was. The building is doing addition.
 choices:
-  - text: |-
-      Apt 1 — ground floor. The kitchen.
-    next: act2/apt1_kitchen
-    requires:
-      flags_unset: [apt1_done]
-    effects:
-      flags:
-        apt1_done: true
-    hide_if_failed: true
-  - text: |-
-      Apt 2 — first floor. The bathroom cabinet.
-    next: act2/apt2_bath
-    requires:
-      flags_unset: [apt2_done]
-    effects:
-      flags:
-        apt2_done: true
-    hide_if_failed: true
-  - text: |-
-      Apt 3 — top floor. Locked.
-    next: act2/apt3_breakthrough_choice
-    requires:
-      flags_unset: [apt3_done]
-    hide_if_failed: true
-  - text: |-
-      Roof access. Take the stairs all the way up.
-    next: act2/roof_access
-    requires:
-      flags_unset: [roof_done]
-    effects:
-      flags:
-        roof_done: true
-    hide_if_failed: true
-  - text: |-
-      Talk to Wren. She came up after you.
-    next: act2/talk_wren_hub
-    requires:
-      flags: [met_wren]
-      flags_unset: [wren_resolved]
-    failed_text: |-
-      *(She isn't here — not yet, or not anymore.)*
-  - text: |-
-      Leave the building. South, toward the church.
-    next: act2/church_approach
-    requires:
-      flags_unset: [apt3_done]
-      stats:
-        apartments_visits: 2
-    effects:
-      flags:
-        apartments_left: true
-    failed_text: |-
-      *(You haven't seen enough of this place yet to leave it.)*
-  - text: |-
-      Leave the building. South, toward the church.
-    next: act2/church_approach
-    requires:
-      flags: [apt3_done]
-      flags_unset: [apartments_left]
-    effects:
-      flags:
-        apartments_left: true
-    hide_if_failed: true
+- text: Apt 1 — ground floor. The kitchen.
+  next: act2/apt1_kitchen
+  requires:
+    flags_unset:
+    - apt1_done
+  effects:
+    flags:
+      apt1_done: true
+  hide_if_failed: true
+- text: Apt 2 — first floor. The bathroom cabinet.
+  next: act2/apt2_bath
+  requires:
+    flags_unset:
+    - apt2_done
+  effects:
+    flags:
+      apt2_done: true
+  hide_if_failed: true
+- text: Apt 3 — top floor. Locked.
+  next: act2/apt3_breakthrough_choice
+  requires:
+    flags_unset:
+    - apt3_done
+  hide_if_failed: true
+- text: Roof access. Take the stairs all the way up.
+  next: act2/roof_access
+  requires:
+    flags_unset:
+    - roof_done
+  effects:
+    flags:
+      roof_done: true
+  hide_if_failed: true
+- text: Talk to Wren. She came up after you.
+  next: act2/talk_wren_hub
+  requires:
+    flags:
+    - met_wren
+    flags_unset:
+    - wren_resolved
+  failed_text: '*(She isn''t here — not yet, or not anymore.)*'
+- text: Leave the building. South, toward the church.
+  next: act2/church_approach
+  requires:
+    flags_unset:
+    - apt3_done
+    stats:
+      apartments_visits: 2
+  effects:
+    flags:
+      apartments_left: true
+  failed_text: '*(You haven''t seen enough of this place yet to leave it.)*'
+- text: Leave the building. South, toward the church.
+  next: act2/church_approach
+  requires:
+    flags:
+    - apt3_done
+    flags_unset:
+    - apartments_left
+  effects:
+    flags:
+      apartments_left: true
+  hide_if_failed: true

@@ -1,36 +1,34 @@
 text:
-  - |-
-    Three of you on the arterial. Dale ahead. Caleb tucked between. You at the back. The shape of it is the same as a clean party and the weight of it is not.
-  - |-
-    Caleb is watching Dale. Not the road. Not the doors. Dale. Every few steps his eyes flick forward to the kerb and back.
-  - |-
-    Dale is breathing through his mouth. Not loud. Steady. Wrong, in the way that only the careful listener catches.
-  - |-
-    The chord of the city has a new throat in it — closer than the rest, freshly-dead, the difference between a moan that's been moaning for a day and a moan that's only just learning the shape. Caleb hears it first.
-  - male_young_american_weak: |-
-      [sniff] Did you — did you hear that one?
-
+- Three of you on the arterial. Dale ahead. Caleb tucked between. You at the back.
+  The shape of it is the same as a clean party and the weight of it is not.
+- Caleb is watching Dale. Not the road. Not the doors. Dale. Every few steps his eyes
+  flick forward to the kerb and back.
+- Dale is breathing through his mouth. Not loud. Steady. Wrong, in the way that only
+  the careful listener catches.
+- The chord of the city has a new throat in it — closer than the rest, freshly-dead,
+  the difference between a moan that's been moaning for a day and a moan that's only
+  just learning the shape. Caleb hears it first.
+- male_young_american_weak: '[sniff] Did you — did you hear that one?'
 choices:
-  - text: |-
-      Push the pace. Keep his eyes on the street, not on Dale.
-    next: act2/route_resolve
-  - text: |-
-      Stop. Talk to Dale. The leg.
-    next: act2/route_resolve
-    requires:
-      flags_unset: [saw_dale_leg]
-    hide_if_failed: true
-    effects:
-      flags:
-        saw_dale_leg: true
-  - text: |-
-      Pull Caleb aside. Tell him you've seen it too.
-    next: act2/route_resolve
-    requires:
-      flags: [saw_dale_leg]
-    hide_if_failed: true
-    effects:
-      flags:
-        told_caleb_dale: true
-      stats:
-        bond: 1
+- text: Push the pace. Keep his eyes on the street, not on Dale.
+  next: act2/route_resolve
+- text: Stop. Talk to Dale. The leg.
+  next: act2/route_resolve
+  requires:
+    flags_unset:
+    - saw_dale_leg
+  hide_if_failed: true
+  effects:
+    flags:
+      saw_dale_leg: true
+- text: Pull Caleb aside. Tell him you've seen it too.
+  next: act2/route_resolve
+  requires:
+    flags:
+    - saw_dale_leg
+  hide_if_failed: true
+  effects:
+    flags:
+      told_caleb_dale: true
+    stats:
+      bond: 1

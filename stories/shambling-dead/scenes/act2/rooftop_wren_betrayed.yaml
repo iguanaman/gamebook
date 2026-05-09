@@ -1,32 +1,40 @@
-journal: |-
-  You slept. Wren did not. She is gone.
+journal: You slept. Wren did not. She is gone.
 text:
-  - |-
-    You sleep the sleep of a man who has walked a city in two days. It is not really sleep. It is the body taking what it can while it can. You wake to a grey sky and a wind that is colder than the wind was when you closed your eyes.
-  - |-
-    The parapet where she sat is empty. Her bag is gone. Of course her bag is gone — it was always going to be gone, she never set it down, the bag was the tell.
-  - if: {flags: [has_pistol]}
-    text: |-
-      Your pistol is gone too. The holster is unsnapped flat against your hip. She unsnapped it while you slept. She did not have to wake you to do it.
-  - |-
-    Your pack has been opened. Two cans, the bandage roll, the tape. Whatever she could carry one-handed and quiet. The pack has been closed again afterwards. Tidy. Apologetic. The way a person leaves a room they are sorry they were in.
-  - if: {flags: [teen_alive, caleb_was_lied_to]}
-    text: |-
-      Caleb's bag has been opened too. His school lanyard is on the concrete next to it, where she set it down so she could get to the can underneath. He is still asleep against the parapet. He did not wake. He had been told there were people you could trust on watch, and he had believed that.
-  - if: {flags: [child_rescued]}
-    text: |-
-      Mara is awake. She has been awake. She is sitting against the wall with her knees up and she is looking at the place Wren was, and she is not asking the question.
-  - |-
-    Eastern horizon. Smoke off the river. Day three. She is somewhere ahead of you on the road and she has the keys and she is not going to wait for you at the fence.
-
+- You sleep the sleep of a man who has walked a city in two days. It is not really
+  sleep. It is the body taking what it can while it can. You wake to a grey sky and
+  a wind that is colder than the wind was when you closed your eyes.
+- The parapet where she sat is empty. Her bag is gone. Of course her bag is gone —
+  it was always going to be gone, she never set it down, the bag was the tell.
+- if:
+    flags:
+    - has_pistol
+  text: Your pistol is gone too. The holster is unsnapped flat against your hip. She
+    unsnapped it while you slept. She did not have to wake you to do it.
+- Your pack has been opened. Two cans, the bandage roll, the tape. Whatever she could
+  carry one-handed and quiet. The pack has been closed again afterwards. Tidy. Apologetic.
+  The way a person leaves a room they are sorry they were in.
+- if:
+    flags:
+    - teen_alive
+    - caleb_was_lied_to
+  text: Caleb's bag has been opened too. His school lanyard is on the concrete next
+    to it, where she set it down so she could get to the can underneath. He is still
+    asleep against the parapet. He did not wake. He had been told there were people
+    you could trust on watch, and he had believed that.
+- if:
+    flags:
+    - child_rescued
+  text: Mara is awake. She has been awake. She is sitting against the wall with her
+    knees up and she is looking at the place Wren was, and she is not asking the question.
+- Eastern horizon. Smoke off the river. Day three. She is somewhere ahead of you on
+  the road and she has the keys and she is not going to wait for you at the fence.
 choices:
-  - text: |-
-      Wake at dawn. She's gone.
-    next: act2/rooftop_bond_beat_betrayed
-    effects:
-      stats:
-        supplies: -2
-      flags:
-        stranger_alive: false
-        betrayed_by_wren: true
-        has_pistol: false
+- text: Wake at dawn. She's gone.
+  next: act2/rooftop_bond_beat_betrayed
+  effects:
+    stats:
+      supplies: -2
+    flags:
+      stranger_alive: false
+      betrayed_by_wren: true
+      has_pistol: false

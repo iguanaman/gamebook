@@ -1,38 +1,45 @@
 text:
-  - |-
-    Sully writes the number. Vance reads it once.
-  - if: {flags: [companion_sacrificed]}
-    text: |-
-      The frame is missing what was in it five minutes ago. The body of the kid is somewhere on the dock and you have decided not to look at it. You have decided.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb walks the gangplank in front of you. He is picking the thumb and the thumb is bleeding and he is not looking back at the dock. He has decided not to.
-  - if: {flags: [elder_alive], flags_unset: [teen_alive]}
-    text: |-
-      Ruth walks the gangplank in front of you. She does not use the rail. She has not used a rail this week.
-  - if: {flags: [stranger_alive], flags_unset: [teen_alive, elder_alive]}
-    text: |-
-      Wren walks the gangplank in front of you. The bag is across her body still. She does not look at the dock. She has not looked at the dock since you said the words.
-  - female_adult_american_sultry_villainous: |-
-      Get on the boat.
-  - |-
-    The line goes off the bollard. The engine pushes. The cruiser pulls.
-  - |-
-    The marina recedes. The chord recedes. There is one person beside you and the river and the sound of a boat that is not yours but is carrying you.
-
+- Sully writes the number. Vance reads it once.
+- if:
+    flags:
+    - companion_sacrificed
+  text: The frame is missing what was in it five minutes ago. The body of the kid
+    is somewhere on the dock and you have decided not to look at it. You have decided.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb walks the gangplank in front of you. He is picking the thumb and the
+    thumb is bleeding and he is not looking back at the dock. He has decided not to.
+- if:
+    flags:
+    - elder_alive
+    flags_unset:
+    - teen_alive
+  text: Ruth walks the gangplank in front of you. She does not use the rail. She has
+    not used a rail this week.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - teen_alive
+    - elder_alive
+  text: Wren walks the gangplank in front of you. The bag is across her body still.
+    She does not look at the dock. She has not looked at the dock since you said the
+    words.
+- female_adult_american_sultry_villainous: Get on the boat.
+- The line goes off the bollard. The engine pushes. The cruiser pulls.
+- The marina recedes. The chord recedes. There is one person beside you and the river
+  and the sound of a boat that is not yours but is carrying you.
 choices:
-  - text: |-
-      Sit beside them. Don't talk.
-    next: act3/endings_router
-  - text: |-
-      Make them say one full sentence on the river.
-    next: act3/endings_router
-    effects:
-      flags:
-        companion_spoke_river: true
-  - text: |-
-      Open the bag. Show them what's left.
-    next: act3/endings_router
-    effects:
-      flags:
-        bag_opened: true
+- text: Sit beside them. Don't talk.
+  next: act3/endings_router
+- text: Make them say one full sentence on the river.
+  next: act3/endings_router
+  effects:
+    flags:
+      companion_spoke_river: true
+- text: Open the bag. Show them what's left.
+  next: act3/endings_router
+  effects:
+    flags:
+      bag_opened: true

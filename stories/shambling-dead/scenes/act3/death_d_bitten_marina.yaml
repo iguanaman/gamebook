@@ -1,19 +1,17 @@
-journal: |-
-  You tried to lie to a woman who keeps a clipboard.
-
+journal: You tried to lie to a woman who keeps a clipboard.
 text:
-  - |-
-    You stepped onto the gangplank. The bite-arm was visible the way the body on the floating dock was visible — fifty feet of wood, no shadow, nowhere to put a thing that does not belong on a boat.
-  - female_adult_american_sultry_villainous: |-
-      No.
-  - |-
-    She did not say it loud. She did not raise the gun. She raised the gun.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara was on the deck. Mara saw. Marrow turned her face into the cabin wall before the second sound. Marrow does not turn for a child for nothing.
-  - |-
-    The plank has the give of a thing crossed too many times. The cruiser is loaded. The line goes off the bollard. The engine pushes.
-  - |-
-    The boat leaves. The clipboard does not write your number.
-
+- You stepped onto the gangplank. The bite-arm was visible the way the body on the
+  floating dock was visible — fifty feet of wood, no shadow, nowhere to put a thing
+  that does not belong on a boat.
+- female_adult_american_sultry_villainous: No.
+- She did not say it loud. She did not raise the gun. She raised the gun.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara was on the deck. Mara saw. Marrow turned her face into the cabin wall
+    before the second sound. Marrow does not turn for a child for nothing.
+- The plank has the give of a thing crossed too many times. The cruiser is loaded.
+  The line goes off the bollard. The engine pushes.
+- The boat leaves. The clipboard does not write your number.
 choices: []

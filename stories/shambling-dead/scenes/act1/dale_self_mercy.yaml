@@ -1,28 +1,28 @@
 text:
-  - |-
-    You take the pistol out of your coat and you put it in his hand and you close his fingers on it. His hand is hot. He knows what you are doing without you saying any of it.
-  - male_midlife_american_dark_tough: |-
-      [breath] Yeah. [pause] Yeah, okay. Okay. Go.
-  - male_midlife_american_dark_tough: |-
-      Go on. Don't — don't be near. I don't want you near for it.
-  - |-
-    You stand up. Your knees do not want to. You stand up anyway.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is already walking. He is walking the way a boy walks who has decided he is not going to be the one who looks back. You catch up to him at the kerb and you do not put a hand on his shoulder because you do not trust your hand to be steady.
-  - |-
-    You get fifty paces. A hundred. The arterial is open ahead and the horde is still behind and the sound, when it comes, is a sound from another street, a small dry crack you would not have heard if you had not been listening for it.
-  - |-
-    The forecourt shambler turns its head. The corner-horde does not — they did not hear it, or they did not understand it as a thing to follow. The shot was further down the road than they are tracking.
-  - |-
-    You do not turn around.
-  - |-
-    *He kept the gun. He didn't make you do it. He gave you that.*
-
-journal: |-
-  Dale stayed. You walked. The shot, when it came, was further down the road than the horde was listening for.
-
+- You take the pistol out of your coat and you put it in his hand and you close his
+  fingers on it. His hand is hot. He knows what you are doing without you saying any
+  of it.
+- male_midlife_american_dark_tough: '[breath] Yeah. [pause] Yeah, okay. Okay. Go.'
+- male_midlife_american_dark_tough: Go on. Don't — don't be near. I don't want you
+    near for it.
+- You stand up. Your knees do not want to. You stand up anyway.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is already walking. He is walking the way a boy walks who has decided
+    he is not going to be the one who looks back. You catch up to him at the kerb
+    and you do not put a hand on his shoulder because you do not trust your hand to
+    be steady.
+- You get fifty paces. A hundred. The arterial is open ahead and the horde is still
+  behind and the sound, when it comes, is a sound from another street, a small dry
+  crack you would not have heard if you had not been listening for it.
+- The forecourt shambler turns its head. The corner-horde does not — they did not
+  hear it, or they did not understand it as a thing to follow. The shot was further
+  down the road than they are tracking.
+- You do not turn around.
+- '*He kept the gun. He didn''t make you do it. He gave you that.*'
+journal: Dale stayed. You walked. The shot, when it came, was further down the road
+  than the horde was listening for.
 choices:
-  - text: |-
-      Keep walking. Don't turn around.
-    next: act1/act1_exit_router
+- text: Keep walking. Don't turn around.
+  next: act1/act1_exit_router

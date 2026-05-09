@@ -1,35 +1,44 @@
 text:
-  - |-
-    Three of you on the river road. Mara has the strap of the bag in one hand and the back of a jacket in the other and the jacket is not always yours. The adult at her other side is half a step ahead, reading the perimeter the way the perimeter wants to be read.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is on the side Mara is not on. Lanyard, bag, the half-step that says he is the one watching the back. He has been a brother for an hour and the hour has not stopped.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth has Mara's free hand in hers. The cardigan is tied at her waist and Mara has the knot of it in her fingers when she is not holding the strap. Ruth is saying small things to her at small intervals. None of them are a son's name.
-  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
-    text: |-
-      Wren walks the outside line. Bag across her body, knife at her hip. Mara on the inside, your shoulder closer than Wren's. They have not asked each other their names. The not-asking has become the trust.
-  - |-
-    Across the marina, on the far concrete jetty, a small group is working its slow way down a parked-up jet ski. Mara sees them before you do. She does not flinch. She has been doing this since the building.
-  - |-
-    The chord at your back is closer than it has been all day. The river is loud. The gate is fifty feet on, and one of the guards is already writing something down.
-  - |-
-    This is the closest you will get.
-
+- Three of you on the river road. Mara has the strap of the bag in one hand and the
+  back of a jacket in the other and the jacket is not always yours. The adult at her
+  other side is half a step ahead, reading the perimeter the way the perimeter wants
+  to be read.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is on the side Mara is not on. Lanyard, bag, the half-step that says
+    he is the one watching the back. He has been a brother for an hour and the hour
+    has not stopped.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth has Mara's free hand in hers. The cardigan is tied at her waist and Mara
+    has the knot of it in her fingers when she is not holding the strap. Ruth is saying
+    small things to her at small intervals. None of them are a son's name.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - betrayed_by_wren
+  text: Wren walks the outside line. Bag across her body, knife at her hip. Mara on
+    the inside, your shoulder closer than Wren's. They have not asked each other their
+    names. The not-asking has become the trust.
+- Across the marina, on the far concrete jetty, a small group is working its slow
+  way down a parked-up jet ski. Mara sees them before you do. She does not flinch.
+  She has been doing this since the building.
+- The chord at your back is closer than it has been all day. The river is loud. The
+  gate is fifty feet on, and one of the guards is already writing something down.
+- This is the closest you will get.
 choices:
-  - text: |-
-      Bag on Mara, adult half a step ahead. Move.
-    next: act3/gate_approach
-  - text: |-
-      Stop the three of you. Look at each other once. Then move.
-    next: act3/gate_approach
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Whisper the gate plan. Names. Roles.
-    next: act3/gate_approach
-    effects:
-      flags:
-        gate_plan: true
+- text: Bag on Mara, adult half a step ahead. Move.
+  next: act3/gate_approach
+- text: Stop the three of you. Look at each other once. Then move.
+  next: act3/gate_approach
+  effects:
+    stats:
+      bond: 1
+- text: Whisper the gate plan. Names. Roles.
+  next: act3/gate_approach
+  effects:
+    flags:
+      gate_plan: true

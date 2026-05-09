@@ -1,20 +1,25 @@
 text:
-  - |-
-    You move first. Not fast. Steady. Three steps backward to the wire and then a turn that is not quite a run, the way you walk away from a dog that has not decided whether to bite.
-  - male_midlife_american_loud_confident_cocky: |-
-      [chuckle] Hey. Hey, neighbour. You forgot something.
-  - |-
-    He doesn't follow. He doesn't have to. You hear the lieutenant's voice — quiet, cordial — telling someone to *let them go, let them go.* And then you hear him at the back of you, twenty yards out, picking his pace.
-  - if: {flags: [child_rescued]}
-    text: |-
-      Mara's pack. The small one. Not on her shoulder anymore. The lieutenant has it, somewhere back in the firelight, and you cannot go back for it. She does not understand why. You cannot explain.
-  - if: {flags_unset: [child_rescued]}
-    text: |-
-      Your bag is half a kilo lighter when you reach the corner. You don't remember when his hand touched the strap.
-  - |-
-    The breach in the wire is on the east side, where they pulled the body off. You make for it.
-
+- You move first. Not fast. Steady. Three steps backward to the wire and then a turn
+  that is not quite a run, the way you walk away from a dog that has not decided whether
+  to bite.
+- male_midlife_american_loud_confident_cocky: '[chuckle] Hey. Hey, neighbour. You
+    forgot something.'
+- He doesn't follow. He doesn't have to. You hear the lieutenant's voice — quiet,
+  cordial — telling someone to *let them go, let them go.* And then you hear him at
+  the back of you, twenty yards out, picking his pace.
+- if:
+    flags:
+    - child_rescued
+  text: Mara's pack. The small one. Not on her shoulder anymore. The lieutenant has
+    it, somewhere back in the firelight, and you cannot go back for it. She does not
+    understand why. You cannot explain.
+- if:
+    flags_unset:
+    - child_rescued
+  text: Your bag is half a kilo lighter when you reach the corner. You don't remember
+    when his hand touched the strap.
+- The breach in the wire is on the east side, where they pulled the body off. You
+  make for it.
 choices:
-  - text: |-
-      Out. Don't look back.
-    next: act2/hostile_perimeter_break
+- text: Out. Don't look back.
+  next: act2/hostile_perimeter_break

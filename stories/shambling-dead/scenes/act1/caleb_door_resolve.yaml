@@ -1,21 +1,24 @@
 text:
-  - |-
-    Caleb is on the porch. School lanyard at his collarbone, a name and a photograph he is not the same boy as anymore. His backpack hangs off one shoulder. He does not look back through the open door.
-  - |-
-    Inside the house, the thing in the hallway has reached the bottom of the stairs. Its weight comes off the last step onto the lino with a sound that is almost the sound of a man.
-  - if: {flags: [dale_helped]}
-    text: |-
-      Dale is at the kerb behind you. He is watching the upstairs window for whoever else might be in there. There isn't anyone else in there. He knows that and he watches anyway.
-  - if: {flags: [dale_helped]}
-    male_midlife_american_dark_tough: |-
-      Move. Now, son. Don't look in.
-  - |-
-    Caleb does not look in. You pull the door shut behind him. The deadbolt is on the inside; there is nothing to lock from out here. The handle starts to turn from the other side before the latch has finished settling.
-
-journal: |-
-  Caleb came out. His father was on the stairs. You did not stop to look.
-
+- Caleb is on the porch. School lanyard at his collarbone, a name and a photograph
+  he is not the same boy as anymore. His backpack hangs off one shoulder. He does
+  not look back through the open door.
+- Inside the house, the thing in the hallway has reached the bottom of the stairs.
+  Its weight comes off the last step onto the lino with a sound that is almost the
+  sound of a man.
+- if:
+    flags:
+    - dale_helped
+  text: Dale is at the kerb behind you. He is watching the upstairs window for whoever
+    else might be in there. There isn't anyone else in there. He knows that and he
+    watches anyway.
+- if:
+    flags:
+    - dale_helped
+  male_midlife_american_dark_tough: Move. Now, son. Don't look in.
+- Caleb does not look in. You pull the door shut behind him. The deadbolt is on the
+  inside; there is nothing to lock from out here. The handle starts to turn from the
+  other side before the latch has finished settling.
+journal: Caleb came out. His father was on the stairs. You did not stop to look.
 choices:
-  - text: |-
-      Move. Back to the street.
-    next: act1/route_choice_arterial
+- text: Move. Back to the street.
+  next: act1/route_choice_arterial

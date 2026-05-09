@@ -1,28 +1,36 @@
 text:
-  - |-
-    First trip: them. You row, you tell them to wait at the far bank, you swim back.
-  - if: {flags: [companion_sacrificed]}
-    text: |-
-      The frame is missing what was in it five minutes ago. You are not going to look at the dock when you swim past.
-  - |-
-    Second trip: you. The yellow plastic, the cold water, the seawall behind. The far bank takes you. The adult is there.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is at the rocks with the bow line in his hand. He is not picking the thumb. He is doing a thing with both his hands. He is being useful.
-  - if: {flags: [elder_alive], flags_unset: [teen_alive]}
-    text: |-
-      Ruth is at the rocks. She has made a place to sit on a flat stone. She is patting the place beside her without looking up.
-  - if: {flags: [stranger_alive], flags_unset: [teen_alive, elder_alive]}
-    text: |-
-      Wren is at the rocks. The bag is on her lap. The strap is wet.
-
+- 'First trip: them. You row, you tell them to wait at the far bank, you swim back.'
+- if:
+    flags:
+    - companion_sacrificed
+  text: The frame is missing what was in it five minutes ago. You are not going to
+    look at the dock when you swim past.
+- 'Second trip: you. The yellow plastic, the cold water, the seawall behind. The far
+  bank takes you. The adult is there.'
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is at the rocks with the bow line in his hand. He is not picking the
+    thumb. He is doing a thing with both his hands. He is being useful.
+- if:
+    flags:
+    - elder_alive
+    flags_unset:
+    - teen_alive
+  text: Ruth is at the rocks. She has made a place to sit on a flat stone. She is
+    patting the place beside her without looking up.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - teen_alive
+    - elder_alive
+  text: Wren is at the rocks. The bag is on her lap. The strap is wet.
 choices:
-  - text: |-
-      Cross with them. Don't speak till the far bank.
-    next: act3/endings_router
-  - text: |-
-      Make them name something they want to do after. Out loud.
-    next: act3/endings_router
-    effects:
-      flags:
-        companion_spoke_river: true
+- text: Cross with them. Don't speak till the far bank.
+  next: act3/endings_router
+- text: Make them name something they want to do after. Out loud.
+  next: act3/endings_router
+  effects:
+    flags:
+      companion_spoke_river: true

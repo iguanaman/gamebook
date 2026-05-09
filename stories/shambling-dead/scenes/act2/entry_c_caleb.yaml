@@ -1,37 +1,40 @@
 text:
-  - |-
-    Caleb is half a step behind you, picking at the scab on his thumb. It bleeds again. He has not spoken since the cul-de-sac.
-  - |-
-    A ground-floor apartment — frosted glass, something inside scratching against it slow and steady, like it has all the time in the world. He flinches and keeps walking. You both pretend you didn't see the flinch.
-  - if: {flags: [caleb_was_lied_to]}
-    text: |-
-      He clears his throat.
-  - if: {flags: [caleb_was_lied_to]}
-    text:
-      - male_young_american_weak: |-
-          When we — when we get somewhere. You think you'll be able to — like, look at his leg? Properly?
-  - if: {flags: [caleb_was_lied_to]}
-    text: |-
-      He believes it. He's still carrying the lie like it's a thing he can hand to you.
-
+- Caleb is half a step behind you, picking at the scab on his thumb. It bleeds again.
+  He has not spoken since the cul-de-sac.
+- A ground-floor apartment — frosted glass, something inside scratching against it
+  slow and steady, like it has all the time in the world. He flinches and keeps walking.
+  You both pretend you didn't see the flinch.
+- if:
+    flags:
+    - caleb_was_lied_to
+  text: He clears his throat.
+- if:
+    flags:
+    - caleb_was_lied_to
+  text:
+  - male_young_american_weak: When we — when we get somewhere. You think you'll be
+      able to — like, look at his leg? Properly?
+- if:
+    flags:
+    - caleb_was_lied_to
+  text: He believes it. He's still carrying the lie like it's a thing he can hand
+    to you.
 choices:
-  - text: |-
-      Keep moving. Let him follow.
-    next: act2/route_resolve
-  - text: |-
-      Stop. Tell him to stay close. Use his name.
-    next: act2/route_resolve
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Tell him the truth — you're not a paramedic.
-    next: act2/route_resolve
-    requires:
-      flags: [caleb_was_lied_to]
-    hide_if_failed: true
-    effects:
-      flags:
-        caleb_was_lied_to: false
-      stats:
-        bond: 1
+- text: Keep moving. Let him follow.
+  next: act2/route_resolve
+- text: Stop. Tell him to stay close. Use his name.
+  next: act2/route_resolve
+  effects:
+    stats:
+      bond: 1
+- text: Tell him the truth — you're not a paramedic.
+  next: act2/route_resolve
+  requires:
+    flags:
+    - caleb_was_lied_to
+  hide_if_failed: true
+  effects:
+    flags:
+      caleb_was_lied_to: false
+    stats:
+      bond: 1

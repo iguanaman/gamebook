@@ -1,26 +1,29 @@
-journal: |-
-  You tried to board after she counted.
-
+journal: You tried to board after she counted.
 text:
-  - |-
-    The plank had one foot of give left in it. You stepped onto the foot.
-  - female_adult_american_sultry_villainous: |-
-      One. Two. Three.
-  - |-
-    She counted again. The math did not change because you wanted it to.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara heard the count. Mara heard the shot. The cabin door was open. The cabin door was always going to be open at the wrong moment.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb caught Mara before she moved. He held her with his face against her hair. The thumb was not in his mouth.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth caught Mara. She did not put her hand over the child's eyes. She let the child see, the way Ruth had decided to let the child see things, and held her.
-  - if: {flags: [stranger_alive]}
-    text: |-
-      Wren caught Mara. The bag was on the deck. It opened in the catching.
-  - |-
-    The cruiser pulls. The line goes off the bollard. The clipboard does not write your number.
-
+- The plank had one foot of give left in it. You stepped onto the foot.
+- female_adult_american_sultry_villainous: One. Two. Three.
+- She counted again. The math did not change because you wanted it to.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara heard the count. Mara heard the shot. The cabin door was open. The cabin
+    door was always going to be open at the wrong moment.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb caught Mara before she moved. He held her with his face against her
+    hair. The thumb was not in his mouth.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth caught Mara. She did not put her hand over the child's eyes. She let
+    the child see, the way Ruth had decided to let the child see things, and held
+    her.
+- if:
+    flags:
+    - stranger_alive
+  text: Wren caught Mara. The bag was on the deck. It opened in the catching.
+- The cruiser pulls. The line goes off the bollard. The clipboard does not write your
+  number.
 choices: []

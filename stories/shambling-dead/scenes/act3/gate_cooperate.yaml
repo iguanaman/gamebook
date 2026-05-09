@@ -1,42 +1,36 @@
 text:
-  - |-
-    You stop at the line. Hands visible. You answer in the order he asks.
-  - male_adult_american_casual_relaxed_light: |-
-      Name. Got it. Headcount.
-  - |-
-    He writes. The clipboard has columns. Headcount in one, supply-load in another, a third he does not name.
-  - male_adult_american_casual_relaxed_light: |-
-      Bag.
-  - |-
-    You open it. He looks. He does not touch. He writes a number.
-  - if: {flags: [has_pistol]}
-    text: |-
-      He sees the pistol. He writes that down separately.
-  - if: {flags: [has_keys]}
-    text: |-
-      He sees the keys. The shape of them registers on his face for a second and then he writes nothing about them, which is its own kind of writing.
-  - male_adult_american_casual_relaxed_light: |-
-      Thanks, friend.
-  - |-
-    The gate slides on its track. The radio loop comes through louder for the half-second it is open. Past him on the apron, the woman with the pole is pushing something off the floating dock. The water at her feet does not stop moving.
-  - |-
-    The body is twenty feet inside the gate now. You will walk past it on your way in.
-
+- You stop at the line. Hands visible. You answer in the order he asks.
+- male_adult_american_casual_relaxed_light: Name. Got it. Headcount.
+- He writes. The clipboard has columns. Headcount in one, supply-load in another,
+  a third he does not name.
+- male_adult_american_casual_relaxed_light: Bag.
+- You open it. He looks. He does not touch. He writes a number.
+- if:
+    flags:
+    - has_pistol
+  text: He sees the pistol. He writes that down separately.
+- if:
+    flags:
+    - has_keys
+  text: He sees the keys. The shape of them registers on his face for a second and
+    then he writes nothing about them, which is its own kind of writing.
+- male_adult_american_casual_relaxed_light: Thanks, friend.
+- The gate slides on its track. The radio loop comes through louder for the half-second
+  it is open. Past him on the apron, the woman with the pole is pushing something
+  off the floating dock. The water at her feet does not stop moving.
+- The body is twenty feet inside the gate now. You will walk past it on your way in.
 choices:
-  - text: |-
-      Step inside. Walk past the body without looking.
-    next: act3/marina_hub
-  - text: |-
-      Step inside. Look at the body. Make the guard see you look.
-    next: act3/marina_hub
-    effects:
-      stats:
-        bond: 1
-      flags:
-        vance_warned: true
-  - text: |-
-      Step inside. Ask whose shoe.
-    next: act3/marina_hub
-    effects:
-      flags:
-        vance_warned: true
+- text: Step inside. Walk past the body without looking.
+  next: act3/marina_hub
+- text: Step inside. Look at the body. Make the guard see you look.
+  next: act3/marina_hub
+  effects:
+    stats:
+      bond: 1
+    flags:
+      vance_warned: true
+- text: Step inside. Ask whose shoe.
+  next: act3/marina_hub
+  effects:
+    flags:
+      vance_warned: true

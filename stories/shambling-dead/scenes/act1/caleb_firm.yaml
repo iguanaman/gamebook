@@ -1,19 +1,17 @@
 text:
-  - |-
-    You keep your voice level and you do not raise it. You tell him to open the door. You tell him to grab a bag with whatever he can carry in one hand. You tell him he has thirty seconds.
-  - male_young_american_weak: |-
-      I — yeah. Yeah. Okay. Okay.
-  - |-
-    He says okay the way a kid says it to a teacher. You hear him hate it. You hear him do it anyway.
-  - |-
-    Inside, the wet finding-of-the-stairs has reached the fifth step. The deadbolt clicks back. The door comes open the width of a face, and then the width of a boy.
-
+- You keep your voice level and you do not raise it. You tell him to open the door.
+  You tell him to grab a bag with whatever he can carry in one hand. You tell him
+  he has thirty seconds.
+- male_young_american_weak: I — yeah. Yeah. Okay. Okay.
+- He says okay the way a kid says it to a teacher. You hear him hate it. You hear
+  him do it anyway.
+- Inside, the wet finding-of-the-stairs has reached the fifth step. The deadbolt clicks
+  back. The door comes open the width of a face, and then the width of a boy.
 choices:
-  - text: |-
-      Keep your voice level. Tell him to grab a bag.
-    next: act1/caleb_door_resolve
-    effects:
-      flags:
-        teen_alive: true
-      stats:
-        bond: -1
+- text: Keep your voice level. Tell him to grab a bag.
+  next: act1/caleb_door_resolve
+  effects:
+    flags:
+      teen_alive: true
+    stats:
+      bond: -1

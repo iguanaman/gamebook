@@ -1,90 +1,95 @@
 text:
-  - |-
-    She does not sit. She leans on the parapet with her hip and lets the bag rest against her ribs. The bag does not slide off her shoulder when she leans, because she does not let it. You file that.
-  - if: visited
-    text: |-
-      The conversation is the conversation it was a minute ago — the city is still loud below, the elevator shaft is still working on it, and she is still doing the small thing she does with her mouth before she answers a question.
-  - |-
-    Below the parapet, somewhere two floors down inside the building, a sound. She does not look toward it. You both let it pass.
-
+- She does not sit. She leans on the parapet with her hip and lets the bag rest against
+  her ribs. The bag does not slide off her shoulder when she leans, because she does
+  not let it. You file that.
+- if: visited
+  text: The conversation is the conversation it was a minute ago — the city is still
+    loud below, the elevator shaft is still working on it, and she is still doing
+    the small thing she does with her mouth before she answers a question.
+- Below the parapet, somewhere two floors down inside the building, a sound. She does
+  not look toward it. You both let it pass.
 choices:
-  - text: |-
-      Where are you from?
-    next: act2/talk_wren_geography
-    requires:
-      flags_unset: [asked_wren_geo]
-    effects:
-      flags:
-        asked_wren_geo: true
-    hide_if_failed: true
-  - text: |-
-      What's in the bag?
-    next: act2/talk_wren_bag
-    requires:
-      flags_unset: [asked_wren_bag]
-    effects:
-      flags:
-        asked_wren_bag: true
-    hide_if_failed: true
-  - text: |-
-      What do you want?
-    next: act2/talk_wren_want
-    requires:
-      flags_unset: [asked_wren_want]
-    effects:
-      flags:
-        asked_wren_want: true
-    hide_if_failed: true
-  - text: |-
-      Come with us.
-    next: act2/apartments_courtyard
-    requires:
-      flags_unset: [asked_wren_geo, asked_wren_bag, asked_wren_want]
-    effects:
-      flags:
-        stranger_alive: true
-        wren_resolved: true
-        trusted_wren: true
-    hide_if_failed: true
-  - text: |-
-      Come with us.
-    next: act2/apartments_courtyard
-    requires:
-      flags: [asked_wren_geo]
-    effects:
-      flags:
-        stranger_alive: true
-        wren_resolved: true
-        probed_wren: true
-    hide_if_failed: true
-  - text: |-
-      Come with us.
-    next: act2/apartments_courtyard
-    requires:
-      flags: [asked_wren_bag]
-      flags_unset: [asked_wren_geo]
-    effects:
-      flags:
-        stranger_alive: true
-        wren_resolved: true
-        probed_wren: true
-    hide_if_failed: true
-  - text: |-
-      Come with us.
-    next: act2/apartments_courtyard
-    requires:
-      flags: [asked_wren_want]
-      flags_unset: [asked_wren_geo, asked_wren_bag]
-    effects:
-      flags:
-        stranger_alive: true
-        wren_resolved: true
-        probed_wren: true
-    hide_if_failed: true
-  - text: |-
-      Not this time. Walk away from her.
-    next: act2/apartments_courtyard
-    effects:
-      flags:
-        wren_resolved: true
-        refused_wren: true
+- text: Where are you from?
+  next: act2/talk_wren_geography
+  requires:
+    flags_unset:
+    - asked_wren_geo
+  effects:
+    flags:
+      asked_wren_geo: true
+  hide_if_failed: true
+- text: What's in the bag?
+  next: act2/talk_wren_bag
+  requires:
+    flags_unset:
+    - asked_wren_bag
+  effects:
+    flags:
+      asked_wren_bag: true
+  hide_if_failed: true
+- text: What do you want?
+  next: act2/talk_wren_want
+  requires:
+    flags_unset:
+    - asked_wren_want
+  effects:
+    flags:
+      asked_wren_want: true
+  hide_if_failed: true
+- text: Come with us.
+  next: act2/apartments_courtyard
+  requires:
+    flags_unset:
+    - asked_wren_geo
+    - asked_wren_bag
+    - asked_wren_want
+  effects:
+    flags:
+      stranger_alive: true
+      wren_resolved: true
+      trusted_wren: true
+  hide_if_failed: true
+- text: Come with us.
+  next: act2/apartments_courtyard
+  requires:
+    flags:
+    - asked_wren_geo
+  effects:
+    flags:
+      stranger_alive: true
+      wren_resolved: true
+      probed_wren: true
+  hide_if_failed: true
+- text: Come with us.
+  next: act2/apartments_courtyard
+  requires:
+    flags:
+    - asked_wren_bag
+    flags_unset:
+    - asked_wren_geo
+  effects:
+    flags:
+      stranger_alive: true
+      wren_resolved: true
+      probed_wren: true
+  hide_if_failed: true
+- text: Come with us.
+  next: act2/apartments_courtyard
+  requires:
+    flags:
+    - asked_wren_want
+    flags_unset:
+    - asked_wren_geo
+    - asked_wren_bag
+  effects:
+    flags:
+      stranger_alive: true
+      wren_resolved: true
+      probed_wren: true
+  hide_if_failed: true
+- text: Not this time. Walk away from her.
+  next: act2/apartments_courtyard
+  effects:
+    flags:
+      wren_resolved: true
+      refused_wren: true

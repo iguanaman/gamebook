@@ -1,21 +1,17 @@
 text:
-  - |-
-    He turns when you call low. Hands open. He has done this before — the open-hand thing — but not in a way that feels rehearsed. The way it feels when a man has been alone enough that he has forgotten which gestures are for strangers.
-  - male_adult_african-american_uneducated: |-
-      Painkillers. Anything. I got water. Fresh.
-  - |-
-    You see his eyes go to a place behind a wall where the water is. He does not point.
-  - male_adult_african-american_uneducated: |-
-      Thank you. For the warning. Thank you.
-  - |-
-    He flinches at a sound from the underpass overhead that you did not hear. He is gone before you have finished tucking the bottle into your bag.
-
+- He turns when you call low. Hands open. He has done this before — the open-hand
+  thing — but not in a way that feels rehearsed. The way it feels when a man has been
+  alone enough that he has forgotten which gestures are for strangers.
+- male_adult_african-american_uneducated: Painkillers. Anything. I got water. Fresh.
+- You see his eyes go to a place behind a wall where the water is. He does not point.
+- male_adult_african-american_uneducated: Thank you. For the warning. Thank you.
+- He flinches at a sound from the underpass overhead that you did not hear. He is
+  gone before you have finished tucking the bottle into your bag.
 choices:
-  - text: |-
-      Trade. Move on.
-    next: act2/checkpoint_approach
-    effects:
-      stats:
-        bond: 1
-      flags:
-        traded_walker: true
+- text: Trade. Move on.
+  next: act2/checkpoint_approach
+  effects:
+    stats:
+      bond: 1
+    flags:
+      traded_walker: true

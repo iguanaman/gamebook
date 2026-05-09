@@ -1,19 +1,20 @@
-journal: |-
-  You walked back through the gate. The river was at your back. The chord was at your front.
-
+journal: You walked back through the gate. The river was at your back. The chord was
+  at your front.
 text:
-  - |-
-    The arterial is a corridor. The corridor has the dead in it.
-  - if: {flags: [e7_almost]}
-    text: |-
-      You looked back. Once. You almost stayed.
-  - if: {flags: [e7_stopped_at_body]}
-    text: |-
-      You stopped at the body on the floating dock. You did not say a thing to it. You only stood for a beat, the way a person stands at a grave.
-  - if: {flags: [e7_bitten]}
-    text: |-
-      The bite-arm is the cold the rest of you will catch up to. You did not want to do this on Vance's clock.
-  - |-
-    The chord rises. The narrator stops.
-
+- The arterial is a corridor. The corridor has the dead in it.
+- if:
+    flags:
+    - e7_almost
+  text: You looked back. Once. You almost stayed.
+- if:
+    flags:
+    - e7_stopped_at_body
+  text: You stopped at the body on the floating dock. You did not say a thing to it.
+    You only stood for a beat, the way a person stands at a grave.
+- if:
+    flags:
+    - e7_bitten
+  text: The bite-arm is the cold the rest of you will catch up to. You did not want
+    to do this on Vance's clock.
+- The chord rises. The narrator stops.
 choices: []

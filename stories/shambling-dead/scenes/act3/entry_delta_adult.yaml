@@ -1,43 +1,54 @@
 text:
-  - |-
-    The bag is split across two backs. The splitting is small and it matters.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is at your shoulder. Lanyard still around his neck. He is not picking the thumb anymore. He is reading the road the way you have been reading it, and he is the one who sees the far-jetty group across the water before you do.
-  - if: {flags: [teen_alive]}
-    text: |-
-      male_young_american_weak: |-
-        That one. On the jet ski. There's more behind it.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth walks half a step behind on your strong side. The cardigan is tied at her waist now. Her hands are steady. She sees the far-jetty group at the same moment you do and does not say anything for a count of three, which is her way of saying it.
-  - if: {flags: [elder_alive]}
-    text: |-
-      female_elder_american_relatable_likeable: |-
-        Sweetheart. The one in the orange. He's not on his feet because of the jet ski.
-  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
-    text: |-
-      Wren walks at your shoulder. Bag across her body, knife at her hip. She does not look at the city. She is looking at where the city ends, and she has been looking there for a mile.
-  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
-    text: |-
-      female_adult_american_droll_wry_dry: |-
-        Two on the gate. One on a clipboard. That's not a checkpoint, that's a counter.
-  - |-
-    The gate is fifty feet on. The river is loud. Two of you. That is more than one.
-
+- The bag is split across two backs. The splitting is small and it matters.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is at your shoulder. Lanyard still around his neck. He is not picking
+    the thumb anymore. He is reading the road the way you have been reading it, and
+    he is the one who sees the far-jetty group across the water before you do.
+- if:
+    flags:
+    - teen_alive
+  text: "male_young_american_weak: |-\n  That one. On the jet ski. There's more behind\
+    \ it."
+- if:
+    flags:
+    - elder_alive
+  text: Ruth walks half a step behind on your strong side. The cardigan is tied at
+    her waist now. Her hands are steady. She sees the far-jetty group at the same
+    moment you do and does not say anything for a count of three, which is her way
+    of saying it.
+- if:
+    flags:
+    - elder_alive
+  text: "female_elder_american_relatable_likeable: |-\n  Sweetheart. The one in the\
+    \ orange. He's not on his feet because of the jet ski."
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - betrayed_by_wren
+  text: Wren walks at your shoulder. Bag across her body, knife at her hip. She does
+    not look at the city. She is looking at where the city ends, and she has been
+    looking there for a mile.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - betrayed_by_wren
+  text: "female_adult_american_droll_wry_dry: |-\n  Two on the gate. One on a clipboard.\
+    \ That's not a checkpoint, that's a counter."
+- The gate is fifty feet on. The river is loud. Two of you. That is more than one.
 choices:
-  - text: |-
-      Walk in shoulder-to-shoulder. They've earned it.
-    next: act3/gate_approach
-  - text: |-
-      Half a step behind. Let them read the gate first.
-    next: act3/gate_approach
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Tell them: whatever happens, the bag goes with whichever of us makes it.
-    next: act3/gate_approach
-    effects:
-      flags:
-        made_pact: true
+- text: Walk in shoulder-to-shoulder. They've earned it.
+  next: act3/gate_approach
+- text: Half a step behind. Let them read the gate first.
+  next: act3/gate_approach
+  effects:
+    stats:
+      bond: 1
+- text: 'Tell them: whatever happens, the bag goes with whichever of us makes it.'
+  next: act3/gate_approach
+  effects:
+    flags:
+      made_pact: true

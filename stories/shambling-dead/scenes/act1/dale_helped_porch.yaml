@@ -1,16 +1,17 @@
 text:
-  - |-
-    You take the steps two at a time. The lawn smells like meat in the sun. You get under Dale's left arm — he's heavier than he looks, all of his weight is on you in one shift — and he makes a noise through his teeth that he is trying to make into something other than what it is.
-  - male_midlife_american_dark_tough: |-
-      Easy. Easy. I got it. I got it.
-  - |-
-    He doesn't have it. You take him to the kerb. He won't look at his own leg, and he won't let you look at it either; he angles it away the way a man hides a bad hand at cards.
-  - male_midlife_american_dark_tough: |-
-      Thank you. [sigh] I owe you. I won't slow you down.
-  - |-
-    The lawn-thing at the mouth of the cul-de-sac has stood up. Whatever was happening on the lawn across the road has finished happening. Behind you the front door is still open; you should close it, you do not close it.
-
+- You take the steps two at a time. The lawn smells like meat in the sun. You get
+  under Dale's left arm — he's heavier than he looks, all of his weight is on you
+  in one shift — and he makes a noise through his teeth that he is trying to make
+  into something other than what it is.
+- male_midlife_american_dark_tough: Easy. Easy. I got it. I got it.
+- He doesn't have it. You take him to the kerb. He won't look at his own leg, and
+  he won't let you look at it either; he angles it away the way a man hides a bad
+  hand at cards.
+- male_midlife_american_dark_tough: Thank you. [sigh] I owe you. I won't slow you
+    down.
+- The lawn-thing at the mouth of the cul-de-sac has stood up. Whatever was happening
+  on the lawn across the road has finished happening. Behind you the front door is
+  still open; you should close it, you do not close it.
 choices:
-  - text: |-
-      Get him to the kerb. Look both ways down the street.
-    next: act1/neighbourhood_hub
+- text: Get him to the kerb. Look both ways down the street.
+  next: act1/neighbourhood_hub

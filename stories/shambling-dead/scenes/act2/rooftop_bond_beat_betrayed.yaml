@@ -1,81 +1,92 @@
 text:
-  - |-
-    The pack is lighter than you closed it. The watch she did not have to ask for is the watch she did her work in. The roof has the colour of grey concrete in grey light and you have a few minutes before the party will need to know what they are walking into.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is awake. He has worked out part of it. He has not worked out all of it. He is looking at the place she was sitting and not at you.
-  - if: {flags: [neighbour_alive]}
-    text: |-
-      Dale is sitting against the parapet with the leg out. He has worked it out before you have. He doesn't say anything. He is the kind of man who knows when a thing said does not help.
-  - if: {flags: [child_rescued]}
-    text: |-
-      Mara is asleep. You are glad she is asleep.
-  - |-
-    Below, the stairwell. The dead, still patient. The arterial east is hours off and the day will be cold before it warms.
-
+- The pack is lighter than you closed it. The watch she did not have to ask for is
+  the watch she did her work in. The roof has the colour of grey concrete in grey
+  light and you have a few minutes before the party will need to know what they are
+  walking into.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is awake. He has worked out part of it. He has not worked out all of
+    it. He is looking at the place she was sitting and not at you.
+- if:
+    flags:
+    - neighbour_alive
+  text: Dale is sitting against the parapet with the leg out. He has worked it out
+    before you have. He doesn't say anything. He is the kind of man who knows when
+    a thing said does not help.
+- if:
+    flags:
+    - child_rescued
+  text: Mara is asleep. You are glad she is asleep.
+- Below, the stairwell. The dead, still patient. The arterial east is hours off and
+  the day will be cold before it warms.
 choices:
-  - text: |-
-      Share what's left.
-    next: act2/talk_caleb_hub
-    requires:
-      flags: [teen_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-        bond: 1
-      flags:
-        shared_supplies: true
-  - text: |-
-      Share what's left.
-    next: act2/talk_dale_brief
-    requires:
-      flags: [neighbour_alive]
-      flags_unset: [teen_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-        bond: 1
-      flags:
-        shared_supplies: true
-  - text: |-
-      Share what's left.
-    next: act2/arterial_dawn
-    requires:
-      flags_unset: [teen_alive, neighbour_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-        bond: 1
-      flags:
-        shared_supplies: true
-  - text: |-
-      Don't talk about it.
-    next: act2/talk_caleb_hub
-    requires:
-      flags: [teen_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: -1
-  - text: |-
-      Don't talk about it.
-    next: act2/talk_dale_brief
-    requires:
-      flags: [neighbour_alive]
-      flags_unset: [teen_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: -1
-  - text: |-
-      Don't talk about it.
-    next: act2/arterial_dawn
-    requires:
-      flags_unset: [teen_alive, neighbour_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: -1
+- text: Share what's left.
+  next: act2/talk_caleb_hub
+  requires:
+    flags:
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+      bond: 1
+    flags:
+      shared_supplies: true
+- text: Share what's left.
+  next: act2/talk_dale_brief
+  requires:
+    flags:
+    - neighbour_alive
+    flags_unset:
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+      bond: 1
+    flags:
+      shared_supplies: true
+- text: Share what's left.
+  next: act2/arterial_dawn
+  requires:
+    flags_unset:
+    - teen_alive
+    - neighbour_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+      bond: 1
+    flags:
+      shared_supplies: true
+- text: Don't talk about it.
+  next: act2/talk_caleb_hub
+  requires:
+    flags:
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: -1
+- text: Don't talk about it.
+  next: act2/talk_dale_brief
+  requires:
+    flags:
+    - neighbour_alive
+    flags_unset:
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: -1
+- text: Don't talk about it.
+  next: act2/arterial_dawn
+  requires:
+    flags_unset:
+    - teen_alive
+    - neighbour_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: -1

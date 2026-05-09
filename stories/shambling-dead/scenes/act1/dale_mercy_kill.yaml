@@ -1,30 +1,38 @@
 text:
-  - if: {flags: [dale_bitten, saw_dale_leg]}
-    text: |-
-      He nods before you ask. He has been waiting for you to come to it. The thing in him would have done what it does whether you were here or not — you saw the leg, you saw the cloth, you know. This is not a kindness you are offering him. It is one he is offering you, by not making you watch the other thing.
-    else: |-
-      He looks at you when you raise the pistol. He looks at you a moment longer than you needed him to.
-  - if: {flags_unset: [dale_bitten]}
-    text: |-
-      You will not know, after, whether he was going to make it. He was hurt. He was slow. He was not, maybe, a man who was already gone. The doubt is yours to carry now. He gave it to you when he didn't argue.
-  - male_midlife_american_dark_tough: |-
-      [quiet] Behind the ear. Don't — [pause] don't make me see it coming.
-  - |-
-    You put your hand on the back of his head the way a man puts his hand on a friend's shoulder. He closes his eyes.
-  - |-
-    The shot is louder than any sound has been today. The forecourt shambler turns its head. So does something in the apartments. So does something at the corner where the horde is. The sound goes a long way in a city that has stopped making other sounds.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb has not flinched. That is not a good thing. That is the thing about him you will think about later — that there is already a child on this road who does not flinch at the sound of a man being shot.
-  - |-
-    You wipe the pistol on your sleeve. You do not look at him. You do not have time to look at him.
-  - |-
-    *Walk. Don't stop. Don't stop.*
-
-journal: |-
-  Dale is dead. You did it. The shot carried.
-
+- if:
+    flags:
+    - dale_bitten
+    - saw_dale_leg
+  text: He nods before you ask. He has been waiting for you to come to it. The thing
+    in him would have done what it does whether you were here or not — you saw the
+    leg, you saw the cloth, you know. This is not a kindness you are offering him.
+    It is one he is offering you, by not making you watch the other thing.
+  else: He looks at you when you raise the pistol. He looks at you a moment longer
+    than you needed him to.
+- if:
+    flags_unset:
+    - dale_bitten
+  text: You will not know, after, whether he was going to make it. He was hurt. He
+    was slow. He was not, maybe, a man who was already gone. The doubt is yours to
+    carry now. He gave it to you when he didn't argue.
+- male_midlife_american_dark_tough: '[quiet] Behind the ear. Don''t — [pause] don''t
+    make me see it coming.'
+- You put your hand on the back of his head the way a man puts his hand on a friend's
+  shoulder. He closes his eyes.
+- The shot is louder than any sound has been today. The forecourt shambler turns its
+  head. So does something in the apartments. So does something at the corner where
+  the horde is. The sound goes a long way in a city that has stopped making other
+  sounds.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb has not flinched. That is not a good thing. That is the thing about
+    him you will think about later — that there is already a child on this road who
+    does not flinch at the sound of a man being shot.
+- You wipe the pistol on your sleeve. You do not look at him. You do not have time
+  to look at him.
+- '*Walk. Don''t stop. Don''t stop.*'
+journal: Dale is dead. You did it. The shot carried.
 choices:
-  - text: |-
-      Walk. Don't stop.
-    next: act1/act1_exit_router
+- text: Walk. Don't stop.
+  next: act1/act1_exit_router

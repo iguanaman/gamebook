@@ -1,52 +1,51 @@
 text:
-  - |-
-    You shoulder the door shut. The bolt slides home with a small, domestic sound. You stand with your forehead against the painted wood and listen to your own breathing, which is too loud, and then to the breathing on the other side of the door, which is not yours.
-  - |-
-    Something hits the door. Not hard. Once, a slap, a wet hand. Then a low sound out of a throat that is not finishing words anymore. From the porch. From your porch.
-  - |-
-    The radio in the kitchen is still on. Same calm woman, same loop, but the line is different now — there is a third sentence in it that wasn't there before.
-  - narrator_female_warm_reflective: |-
-      This is an emergency broadcast. Do not approach the infected. Shelter in place. No rescue is being mounted at this time.
-  - |-
-    Outside, somebody is screaming a name. Not a name you know. The screaming stops in the middle of the second syllable.
-  - |-
-    The house is yours. The house is also a box.
-
+- You shoulder the door shut. The bolt slides home with a small, domestic sound. You
+  stand with your forehead against the painted wood and listen to your own breathing,
+  which is too loud, and then to the breathing on the other side of the door, which
+  is not yours.
+- Something hits the door. Not hard. Once, a slap, a wet hand. Then a low sound out
+  of a throat that is not finishing words anymore. From the porch. From your porch.
+- The radio in the kitchen is still on. Same calm woman, same loop, but the line is
+  different now — there is a third sentence in it that wasn't there before.
+- narrator_female_warm_reflective: This is an emergency broadcast. Do not approach
+    the infected. Shelter in place. No rescue is being mounted at this time.
+- Outside, somebody is screaming a name. Not a name you know. The screaming stops
+  in the middle of the second syllable.
+- The house is yours. The house is also a box.
 choices:
-  - text: |-
-      Pick up the handset. Try 911.
-    next: act1/wait_inside_loop2
-    requires:
-      flags_unset: [tried_911]
-    effects:
-      flags:
-        tried_911: true
-        heard_no_rescue: true
-  - text: |-
-      Try the landline in the hall.
-    next: act1/wait_inside_loop2
-    requires:
-      flags_unset: [tried_landline]
-    effects:
-      flags:
-        tried_landline: true
-        heard_no_rescue: true
-  - text: |-
-      Drag the bookcase across the front door.
-    next: act1/wait_inside_loop2
-    requires:
-      flags_unset: [barricaded]
-    effects:
-      flags:
-        barricaded: true
-  - text: |-
-      Up the stairs. Look out the bedroom window.
-    next: act1/wait_inside_loop2
-    requires:
-      flags_unset: [looked_window]
-    effects:
-      flags:
-        looked_window: true
-  - text: |-
-      Open the door. You can't stay.
-    next: act1/wait_inside_door_open
+- text: Pick up the handset. Try 911.
+  next: act1/wait_inside_loop2
+  requires:
+    flags_unset:
+    - tried_911
+  effects:
+    flags:
+      tried_911: true
+      heard_no_rescue: true
+- text: Try the landline in the hall.
+  next: act1/wait_inside_loop2
+  requires:
+    flags_unset:
+    - tried_landline
+  effects:
+    flags:
+      tried_landline: true
+      heard_no_rescue: true
+- text: Drag the bookcase across the front door.
+  next: act1/wait_inside_loop2
+  requires:
+    flags_unset:
+    - barricaded
+  effects:
+    flags:
+      barricaded: true
+- text: Up the stairs. Look out the bedroom window.
+  next: act1/wait_inside_loop2
+  requires:
+    flags_unset:
+    - looked_window
+  effects:
+    flags:
+      looked_window: true
+- text: Open the door. You can't stay.
+  next: act1/wait_inside_door_open

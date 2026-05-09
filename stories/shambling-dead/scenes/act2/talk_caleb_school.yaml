@@ -1,19 +1,18 @@
 text:
-  - male_young_american_weak: |-
-      Mr. Almeida. He had — he had this thing where he, um, would put a candy on your desk if you got the equation. Like, a Werther's. The wrappers were everywhere by lunch.
-  - male_young_american_weak: |-
-      He lived two streets over from us. I don't know if — I don't know.
-  - |-
-    He stops because he hears something below. The fire-door hum. He waits. It goes back to being hum and not voice. He picks at the thumb.
-  - male_young_american_weak: |-
-      Sorry. I, um. He had a candy in his pocket on Halloween. The good ones. I don't know.
-
+- male_young_american_weak: Mr. Almeida. He had — he had this thing where he, um,
+    would put a candy on your desk if you got the equation. Like, a Werther's. The
+    wrappers were everywhere by lunch.
+- male_young_american_weak: He lived two streets over from us. I don't know if — I
+    don't know.
+- He stops because he hears something below. The fire-door hum. He waits. It goes
+  back to being hum and not voice. He picks at the thumb.
+- male_young_american_weak: Sorry. I, um. He had a candy in his pocket on Halloween.
+    The good ones. I don't know.
 choices:
-  - text: |-
-      Back.
-    next: act2/talk_caleb_hub
-    effects:
-      stats:
-        bond: 1
-      flags:
-        asked_caleb_school: true
+- text: Back.
+  next: act2/talk_caleb_hub
+  effects:
+    stats:
+      bond: 1
+    flags:
+      asked_caleb_school: true

@@ -1,18 +1,15 @@
-journal: |-
-  You took an old woman's larder while she fed her dead husband in the next room. You will not see her again.
+journal: You took an old woman's larder while she fed her dead husband in the next
+  room. You will not see her again.
 text:
-  - |-
-    Tins into the bag. Water bottles. The pickled jar last because it rattles. You're at the front door before the rattle settles. The bar lifts. The hinge sighs.
-  - |-
-    Behind you, in the church, a long crack — the side door giving up an hour earlier than it would have if you'd stayed. Then her voice, not raised, calling out something that has your shape in it.
-  - female_elder_american_relatable_likeable: |-
-      Sweetheart? Did you —
-  - |-
-    She does not finish the sentence. You hear the side door go the rest of the way. You hear what comes through it. You do not hear her again.
-  - |-
-    You walk. You do not run. Running would mean you knew what you'd done.
-
+- Tins into the bag. Water bottles. The pickled jar last because it rattles. You're
+  at the front door before the rattle settles. The bar lifts. The hinge sighs.
+- Behind you, in the church, a long crack — the side door giving up an hour earlier
+  than it would have if you'd stayed. Then her voice, not raised, calling out something
+  that has your shape in it.
+- female_elder_american_relatable_likeable: Sweetheart? Did you —
+- She does not finish the sentence. You hear the side door go the rest of the way.
+  You hear what comes through it. You do not hear her again.
+- You walk. You do not run. Running would mean you knew what you'd done.
 choices:
-  - text: |-
-      South. Toward the office building.
-    next: act2/mara_approach
+- text: South. Toward the office building.
+  next: act2/mara_approach

@@ -1,20 +1,23 @@
 text:
-  - if: {flags: [pushed_tomas_aside]}
-    text: |-
-      Iris steps between you and the kayak. Tomás puts a hand on her elbow and pulls her back. He has decided not to fight you for it. He has decided this in the time it took you to put your hand on her shoulder.
-    else: |-
-      You break the lock. The chain goes loud against the inside of the door — a chord of metal that the marina hears. The whole marina hears.
-  - male_elder_american_wise_approachable: |-
-      Take it. Take it and go.
-  - if: {flags: [pushed_tomas_aside]}
-    text: |-
-      He is not looking at you when he says it. He is looking at Hayes. Iris is looking at the floor.
-  - |-
-    The marina is one sound now. The breach-chord, the back-fence chord, the seawall chord — and on top of them, a new pressure: the dead at the seawall have heard the boathouse and they are coming up the riprap. You have minutes. Maybe minutes.
-  - |-
-    Above you the joist gives. A length of shingle and a wet thing the size of a man come through the roof together. You are not looking up either.
-
+- if:
+    flags:
+    - pushed_tomas_aside
+  text: Iris steps between you and the kayak. Tomás puts a hand on her elbow and pulls
+    her back. He has decided not to fight you for it. He has decided this in the time
+    it took you to put your hand on her shoulder.
+  else: You break the lock. The chain goes loud against the inside of the door — a
+    chord of metal that the marina hears. The whole marina hears.
+- male_elder_american_wise_approachable: Take it. Take it and go.
+- if:
+    flags:
+    - pushed_tomas_aside
+  text: He is not looking at you when he says it. He is looking at Hayes. Iris is
+    looking at the floor.
+- 'The marina is one sound now. The breach-chord, the back-fence chord, the seawall
+  chord — and on top of them, a new pressure: the dead at the seawall have heard the
+  boathouse and they are coming up the riprap. You have minutes. Maybe minutes.'
+- Above you the joist gives. A length of shingle and a wet thing the size of a man
+  come through the roof together. You are not looking up either.
 choices:
-  - text: |-
-      Drag the kayak out. Run.
-    next: act3/climax_setup
+- text: Drag the kayak out. Run.
+  next: act3/climax_setup

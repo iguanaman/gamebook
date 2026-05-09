@@ -1,16 +1,19 @@
 text:
-  - female_adult_american_droll_wry_dry: |-
-      Belmont. Up north of the freight yard. I'd say *home* but a real-estate agent would call me on it.
-  - |-
-    She says it the way someone says a thing they have rehearsed. Setup, punch. Two beats.
-  - if: {flags: [read_road_sign]}
-    text: |-
-      Belmont is north. The fire-escape she came down opens onto a street that runs *south* off the artery — you read the sign in the corridor and it has not moved since. The geography does not work the way she has put it.
-  - if: {flags_unset: [read_road_sign]}
-    text: |-
-      You file the name. You do not know this part of the city well enough to know whether it sits where she says it does.
-
+- female_adult_american_droll_wry_dry: Belmont. Up north of the freight yard. I'd
+    say *home* but a real-estate agent would call me on it.
+- She says it the way someone says a thing they have rehearsed. Setup, punch. Two
+  beats.
+- if:
+    flags:
+    - read_road_sign
+  text: Belmont is north. The fire-escape she came down opens onto a street that runs
+    *south* off the artery — you read the sign in the corridor and it has not moved
+    since. The geography does not work the way she has put it.
+- if:
+    flags_unset:
+    - read_road_sign
+  text: You file the name. You do not know this part of the city well enough to know
+    whether it sits where she says it does.
 choices:
-  - text: |-
-      Back.
-    next: act2/talk_wren_hub
+- text: Back.
+  next: act2/talk_wren_hub

@@ -1,42 +1,49 @@
-journal: |-
-  Mara made it. You made it. The river is the only sound.
-
+journal: Mara made it. You made it. The river is the only sound.
 text:
-  - |-
-    The boat is on the river. The marina is behind. The chord at the shore is still the chord.
-  - |-
-    She sits beside you. Her hand is on the rail. Her shoes are still on the wrong feet and you have not told her.
-  - female_young_american_sweet_youthful_clear: |-
-      Where are we going.
-  - |-
-    You name the cove. You name it the way a person names a room they have not been in but have heard about. She accepts the name because you said it.
-  - if: {flags: [told_mara_truth_dark]}
-    text: |-
-      She does not ask about her mother again. You told her the truth in the boathouse and the truth has held.
-  - if: {flags: [lied_to_mara]}
-    text: |-
-      She does not ask about her mother again. You told her a lie in the boathouse and the lie has held, for now. You will pay for that lie on a different day.
-  - if: {flags: [pip_rescued]}
-    text: |-
-      Pip is asleep against Mara's shoulder. They have not spoken to each other yet. They will. The kayak run was not a thing the run had earned, and you got it anyway.
-  - if: {flags_unset: [neighbour_alive]}
-    text: |-
-      Dale is not here. He is on the lawn where you first saw him.
-  - if: {flags_unset: [teen_alive]}
-    text: |-
-      Caleb is not here.
-  - if: {flags_unset: [elder_alive]}
-    text: |-
-      Ruth is not here. The cardigan stopped being a cardigan a beat ago.
-  - if: {flags_unset: [stranger_alive]}
-    text: |-
-      Wren is not here. The keys did their job.
-  - if: {flags: [told_mara_made_it]}
-    text: |-
-      You said the words. We made it. You are trying to mean them.
-  - |-
-    The river is the only sound. The chord at the receding shore is still the chord. It will be the chord for a long time.
-  - |-
-    Her hand stays on the rail.
-
+- The boat is on the river. The marina is behind. The chord at the shore is still
+  the chord.
+- She sits beside you. Her hand is on the rail. Her shoes are still on the wrong feet
+  and you have not told her.
+- female_young_american_sweet_youthful_clear: Where are we going.
+- You name the cove. You name it the way a person names a room they have not been
+  in but have heard about. She accepts the name because you said it.
+- if:
+    flags:
+    - told_mara_truth_dark
+  text: She does not ask about her mother again. You told her the truth in the boathouse
+    and the truth has held.
+- if:
+    flags:
+    - lied_to_mara
+  text: She does not ask about her mother again. You told her a lie in the boathouse
+    and the lie has held, for now. You will pay for that lie on a different day.
+- if:
+    flags:
+    - pip_rescued
+  text: Pip is asleep against Mara's shoulder. They have not spoken to each other
+    yet. They will. The kayak run was not a thing the run had earned, and you got
+    it anyway.
+- if:
+    flags_unset:
+    - neighbour_alive
+  text: Dale is not here. He is on the lawn where you first saw him.
+- if:
+    flags_unset:
+    - teen_alive
+  text: Caleb is not here.
+- if:
+    flags_unset:
+    - elder_alive
+  text: Ruth is not here. The cardigan stopped being a cardigan a beat ago.
+- if:
+    flags_unset:
+    - stranger_alive
+  text: Wren is not here. The keys did their job.
+- if:
+    flags:
+    - told_mara_made_it
+  text: You said the words. We made it. You are trying to mean them.
+- The river is the only sound. The chord at the receding shore is still the chord.
+  It will be the chord for a long time.
+- Her hand stays on the rail.
 choices: []

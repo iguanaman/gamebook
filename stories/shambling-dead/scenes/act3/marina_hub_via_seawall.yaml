@@ -1,15 +1,15 @@
 text:
-  - |-
-    The easement holds. You climb the last twenty feet on rust-bloomed handrail and drop onto the apron at the seawall corner, behind a stack of crab traps that has been here since before any of this.
-  - |-
-    The chord at your back is on the other side of the easement now. The marina's chord is in front of you. They are not the same chord. You know the difference by ear.
-  - |-
-    Nobody has seen you yet. The booth is at the far end of the apron, the office is in the middle, and the seawall end has people on it — three of them, one older, sitting low. Not Vance's. The other group.
-
+- The easement holds. You climb the last twenty feet on rust-bloomed handrail and
+  drop onto the apron at the seawall corner, behind a stack of crab traps that has
+  been here since before any of this.
+- The chord at your back is on the other side of the easement now. The marina's chord
+  is in front of you. They are not the same chord. You know the difference by ear.
+- Nobody has seen you yet. The booth is at the far end of the apron, the office is
+  in the middle, and the seawall end has people on it — three of them, one older,
+  sitting low. Not Vance's. The other group.
 choices:
-  - text: |-
-      Slip onto the apron.
-    next: act3/marina_hub
-    effects:
-      flags:
-        arrived_seawall: true
+- text: Slip onto the apron.
+  next: act3/marina_hub
+  effects:
+    flags:
+      arrived_seawall: true

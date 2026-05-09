@@ -1,42 +1,48 @@
 text:
-  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
-    text: |-
-      Wren peels off without being told. She has Mara's hand and the strap of the bag and she is at the seawall corner before the guard with the clipboard has finished his second question. She does not look back. The not-looking is the competence.
-  - if: {flags: [stranger_alive, child_rescued, child_alive], flags_unset: [betrayed_by_wren]}
-    text: |-
-      female_adult_american_droll_wry_dry: |-
-        Hold this a minute, kiddo. Don't look at the man with the pole.
-  - if: {flags_unset: [stranger_alive]}
-    text: |-
-      You pulled the tin out and put it behind the wheel of a dead Honda before you came up the road. The bag is lighter now. The lighter bag is the lie.
-  - |-
-    You stop at the line. You give him a name and a number. The number is short. The bag, when you open it, is the version of the bag you decided he should see.
-  - male_adult_american_casual_relaxed_light: |-
-      Headcount.
-  - |-
-    You give him the number. He writes it. He looks at the bag again. He does not write a second number. He looks past you, briefly, at the woman with the pole.
-  - female_midlife_african-american_casual_opinionated: |-
-      He's clear. Let him through.
-  - |-
-    She does not look at you while she says it. Her eyes are on the bag. The bag, the strap, the way you are standing.
-  - male_adult_american_casual_relaxed_light: |-
-      Thanks, friend.
-  - |-
-    The gate slides. He smiles the kind of smile a man makes when he has been told a lie he was expecting. Marrow has not moved. She is going to watch you the whole way to the apron.
-
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - betrayed_by_wren
+  text: Wren peels off without being told. She has Mara's hand and the strap of the
+    bag and she is at the seawall corner before the guard with the clipboard has finished
+    his second question. She does not look back. The not-looking is the competence.
+- if:
+    flags:
+    - stranger_alive
+    - child_rescued
+    - child_alive
+    flags_unset:
+    - betrayed_by_wren
+  text: "female_adult_american_droll_wry_dry: |-\n  Hold this a minute, kiddo. Don't\
+    \ look at the man with the pole."
+- if:
+    flags_unset:
+    - stranger_alive
+  text: You pulled the tin out and put it behind the wheel of a dead Honda before
+    you came up the road. The bag is lighter now. The lighter bag is the lie.
+- You stop at the line. You give him a name and a number. The number is short. The
+  bag, when you open it, is the version of the bag you decided he should see.
+- male_adult_american_casual_relaxed_light: Headcount.
+- You give him the number. He writes it. He looks at the bag again. He does not write
+  a second number. He looks past you, briefly, at the woman with the pole.
+- female_midlife_african-american_casual_opinionated: He's clear. Let him through.
+- She does not look at you while she says it. Her eyes are on the bag. The bag, the
+  strap, the way you are standing.
+- male_adult_american_casual_relaxed_light: Thanks, friend.
+- The gate slides. He smiles the kind of smile a man makes when he has been told a
+  lie he was expecting. Marrow has not moved. She is going to watch you the whole
+  way to the apron.
 choices:
-  - text: |-
-      Walk in steady. Don't react to her watching.
-    next: act3/marina_hub
-  - text: |-
-      Walk in. Make a small joke. Disarm.
-    next: act3/marina_hub
-    effects:
-      flags:
-        marrow_marked: true
-  - text: |-
-      Walk in. Stop. Look back at her once. Hold it.
-    next: act3/marina_hub
-    effects:
-      flags:
-        held_marrow_eye: true
+- text: Walk in steady. Don't react to her watching.
+  next: act3/marina_hub
+- text: Walk in. Make a small joke. Disarm.
+  next: act3/marina_hub
+  effects:
+    flags:
+      marrow_marked: true
+- text: Walk in. Stop. Look back at her once. Hold it.
+  next: act3/marina_hub
+  effects:
+    flags:
+      held_marrow_eye: true

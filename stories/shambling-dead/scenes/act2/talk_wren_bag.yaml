@@ -1,12 +1,11 @@
 text:
-  - female_adult_american_droll_wry_dry: |-
-      A change of clothes and a moral compass. Heavier than it sounds.
-  - |-
-    Setup, punch. The same shape as the fire-escape line down on the asphalt. *Fancy meeting you here, but I think we've all retired the line.* The rhythm matches. She has a deflection and she has tuned it.
-  - |-
-    The bag does not move when she shrugs. Whatever is in it is solid and it is not folded.
-
+- female_adult_american_droll_wry_dry: A change of clothes and a moral compass. Heavier
+    than it sounds.
+- Setup, punch. The same shape as the fire-escape line down on the asphalt. *Fancy
+  meeting you here, but I think we've all retired the line.* The rhythm matches. She
+  has a deflection and she has tuned it.
+- The bag does not move when she shrugs. Whatever is in it is solid and it is not
+  folded.
 choices:
-  - text: |-
-      Back.
-    next: act2/talk_wren_hub
+- text: Back.
+  next: act2/talk_wren_hub

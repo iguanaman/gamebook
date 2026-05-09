@@ -1,26 +1,25 @@
 text:
-  - |-
-    The top-floor door is solid wood and bolted from inside. A peephole. No light through it. Behind the door — through it, the way sound comes through cheap construction — a voice, flat and looped: *…repeating coordinates. Forty-one degrees…* and then a buzz of static and the same line again.
-  - |-
-    A radio. Mid-broadcast. Not the emergency loop you have heard until now. This one has numbers in it.
-  - |-
-    The lock is a deadbolt over a Yale. The hinges are on the inside. The frame is older than the door — softer wood, one good shove and it goes. Or the panel under the handle, kicked careful, would crack quiet.
-
+- 'The top-floor door is solid wood and bolted from inside. A peephole. No light through
+  it. Behind the door — through it, the way sound comes through cheap construction
+  — a voice, flat and looped: *…repeating coordinates. Forty-one degrees…* and then
+  a buzz of static and the same line again.'
+- A radio. Mid-broadcast. Not the emergency loop you have heard until now. This one
+  has numbers in it.
+- The lock is a deadbolt over a Yale. The hinges are on the inside. The frame is older
+  than the door — softer wood, one good shove and it goes. Or the panel under the
+  handle, kicked careful, would crack quiet.
 choices:
-  - text: |-
-      Break the door. Now. The shoulder.
-    next: act2/apt3_locked_loud
-    effects:
-      flags:
-        apt3_done: true
-        apt3_loud: true
-        apartments_close_now: true
-  - text: |-
-      Work the lock. Quiet. Take the time.
-    next: act2/apt3_locked_quiet
-    effects:
-      flags:
-        apt3_done: true
-  - text: |-
-      Skip Apt 3. Back to the stairwell.
-    next: act2/apartments_courtyard
+- text: Break the door. Now. The shoulder.
+  next: act2/apt3_locked_loud
+  effects:
+    flags:
+      apt3_done: true
+      apt3_loud: true
+      apartments_close_now: true
+- text: Work the lock. Quiet. Take the time.
+  next: act2/apt3_locked_quiet
+  effects:
+    flags:
+      apt3_done: true
+- text: Skip Apt 3. Back to the stairwell.
+  next: act2/apartments_courtyard

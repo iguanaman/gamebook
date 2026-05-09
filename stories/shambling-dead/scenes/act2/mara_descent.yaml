@@ -1,77 +1,91 @@
 text:
-  - |-
-    Mara takes your hand without being asked. Her hand is small and very warm. The corridor outside the closet is empty when you open the door — empty for now. The footsteps you heard have moved.
-  - |-
-    Down the stair to the third floor. Down again. The lobby is no use to you — you can hear what is in the lobby, and so can she. The fire escape is the way out.
-  - |-
-    The fourth-floor window onto the alley is the one you came through. The fire-escape platform runs down switchback to the alley below. You step out onto it and Mara steps out behind you and the ladder is —
-  - |-
-    The bottom of the fire escape, where you climbed up: there is now a *thing* on the rung. It came up after you, slow, the way they come, and got two flights and stopped. It is between you and the asphalt.
-  - |-
-    Above its head, an eight-foot drop to the dumpster lid. Past the dumpster lid, the alley.
-
+- Mara takes your hand without being asked. Her hand is small and very warm. The corridor
+  outside the closet is empty when you open the door — empty for now. The footsteps
+  you heard have moved.
+- Down the stair to the third floor. Down again. The lobby is no use to you — you
+  can hear what is in the lobby, and so can she. The fire escape is the way out.
+- The fourth-floor window onto the alley is the one you came through. The fire-escape
+  platform runs down switchback to the alley below. You step out onto it and Mara
+  steps out behind you and the ladder is —
+- 'The bottom of the fire escape, where you climbed up: there is now a *thing* on
+  the rung. It came up after you, slow, the way they come, and got two flights and
+  stopped. It is between you and the asphalt.'
+- Above its head, an eight-foot drop to the dumpster lid. Past the dumpster lid, the
+  alley.
 choices:
-  - text: |-
-      Drop down. Companion below catches her.
-    next: act2/hostile_funnel
-    requires:
-      flags: [neighbour_alive]
-    effects:
-      stats:
-        health: -1
-    hide_if_failed: true
-  - text: |-
-      Drop down. Companion below catches her.
-    next: act2/hostile_funnel
-    requires:
-      flags: [teen_alive]
-      flags_unset: [neighbour_alive]
-    effects:
-      stats:
-        health: -1
-    hide_if_failed: true
-  - text: |-
-      Drop down. Companion below catches her.
-    next: act2/hostile_funnel
-    requires:
-      flags: [elder_alive]
-      flags_unset: [neighbour_alive, teen_alive]
-    effects:
-      stats:
-        health: -1
-    hide_if_failed: true
-  - text: |-
-      Drop down. Companion below catches her.
-    next: act2/hostile_funnel
-    requires:
-      flags: [stranger_alive]
-      flags_unset: [neighbour_alive, teen_alive, elder_alive]
-    effects:
-      stats:
-        health: -1
-    hide_if_failed: true
-  - text: |-
-      Drop down. Solo. Use the pistol on the way.
-    next: act2/hostile_funnel
-    requires:
-      flags: [has_pistol]
-      flags_unset: [neighbour_alive, teen_alive, elder_alive, stranger_alive]
-    effects:
-      stats:
-        health: -1
-      flags:
-        mara_pistol_used: true
-    failed_text: |-
-      *(Need the pistol, and no one to catch her below.)*
-  - text: |-
-      Drop down. Solo. Improvise.
-    next: act2/hostile_funnel
-    requires:
-      flags_unset: [has_pistol, neighbour_alive, teen_alive, elder_alive, stranger_alive]
-    effects:
-      stats:
-        health: -2
-      flags:
-        bitten: true
-    failed_text: |-
-      *(Only if you're alone and unarmed.)*
+- text: Drop down. Companion below catches her.
+  next: act2/hostile_funnel
+  requires:
+    flags:
+    - neighbour_alive
+  effects:
+    stats:
+      health: -1
+  hide_if_failed: true
+- text: Drop down. Companion below catches her.
+  next: act2/hostile_funnel
+  requires:
+    flags:
+    - teen_alive
+    flags_unset:
+    - neighbour_alive
+  effects:
+    stats:
+      health: -1
+  hide_if_failed: true
+- text: Drop down. Companion below catches her.
+  next: act2/hostile_funnel
+  requires:
+    flags:
+    - elder_alive
+    flags_unset:
+    - neighbour_alive
+    - teen_alive
+  effects:
+    stats:
+      health: -1
+  hide_if_failed: true
+- text: Drop down. Companion below catches her.
+  next: act2/hostile_funnel
+  requires:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - neighbour_alive
+    - teen_alive
+    - elder_alive
+  effects:
+    stats:
+      health: -1
+  hide_if_failed: true
+- text: Drop down. Solo. Use the pistol on the way.
+  next: act2/hostile_funnel
+  requires:
+    flags:
+    - has_pistol
+    flags_unset:
+    - neighbour_alive
+    - teen_alive
+    - elder_alive
+    - stranger_alive
+  effects:
+    stats:
+      health: -1
+    flags:
+      mara_pistol_used: true
+  failed_text: '*(Need the pistol, and no one to catch her below.)*'
+- text: Drop down. Solo. Improvise.
+  next: act2/hostile_funnel
+  requires:
+    flags_unset:
+    - has_pistol
+    - neighbour_alive
+    - teen_alive
+    - elder_alive
+    - stranger_alive
+  effects:
+    stats:
+      health: -2
+    flags:
+      bitten: true
+  failed_text: '*(Only if you''re alone and unarmed.)*'

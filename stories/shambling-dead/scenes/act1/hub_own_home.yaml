@@ -1,31 +1,29 @@
 text:
-  - |-
-    You step back into your own hallway. The smell is the same and that is somehow the worst part — your house still smells like your house, the laundry detergent and the cold coffee and the old wood, and on top of that smell there is now this morning.
-  - |-
-    The kitchen handset is still off the cradle. The radio loop is on it, faint, a woman's voice not pausing for breath. The thing that was pressing on the kitchen window has stopped pressing. Either it moved on or it is listening.
-  - |-
-    On the fridge is a photograph held by a magnet shaped like a slice of pizza. You took the picture two summers ago. You are not in it.
-
+- You step back into your own hallway. The smell is the same and that is somehow the
+  worst part — your house still smells like your house, the laundry detergent and
+  the cold coffee and the old wood, and on top of that smell there is now this morning.
+- The kitchen handset is still off the cradle. The radio loop is on it, faint, a woman's
+  voice not pausing for breath. The thing that was pressing on the kitchen window
+  has stopped pressing. Either it moved on or it is listening.
+- On the fridge is a photograph held by a magnet shaped like a slice of pizza. You
+  took the picture two summers ago. You are not in it.
 choices:
-  - text: |-
-      Sweep what you missed. Cans. Batteries. The painkillers in the bathroom.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        supplies: 1
-        hub_visits: 1
-  - text: |-
-      Stand at the fridge. Take the photo down. Pocket it.
-    next: act1/neighbourhood_hub
-    effects:
-      flags:
-        took_photo: true
-      stats:
-        bond: 1
-        hub_visits: 1
-  - text: |-
-      Stand in the doorway. Don't go in.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        hub_visits: 1
+- text: Sweep what you missed. Cans. Batteries. The painkillers in the bathroom.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      supplies: 1
+      hub_visits: 1
+- text: Stand at the fridge. Take the photo down. Pocket it.
+  next: act1/neighbourhood_hub
+  effects:
+    flags:
+      took_photo: true
+    stats:
+      bond: 1
+      hub_visits: 1
+- text: Stand in the doorway. Don't go in.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      hub_visits: 1

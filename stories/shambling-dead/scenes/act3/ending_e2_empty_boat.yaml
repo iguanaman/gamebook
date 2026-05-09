@@ -1,32 +1,40 @@
-journal: |-
-  You made it. They didn't. You did not stop trying.
-
+journal: You made it. They didn't. You did not stop trying.
 text:
-  - |-
-    The cruiser pushes east. The marina is a small grey rectangle behind you and the rectangle is shrinking.
-  - |-
-    The river is the only sound that is not them. At the receding shore, the chord is still audible, and will be audible for a while yet.
-  - if: {flags_unset: [neighbour_alive]}
-    text: |-
-      Dale Pearson, on his own lawn, on the first day. He turned his wedding band with his thumb when he didn't know what to say.
-  - if: {flags_unset: [teen_alive]}
-    text: |-
-      Caleb. He picked the thumb. He told you the truth about his father without you asking.
-  - if: {flags_unset: [elder_alive]}
-    text: |-
-      Ruth Hollander. She made supper for you in a building that was not safe and she knew it was not safe and she fed you anyway.
-  - if: {flags_unset: [stranger_alive]}
-    text: |-
-      Wren. She was a liar with tells. She came clean. The bag was the keys and you got the keys and she did not come.
-  - if: {flags_unset: [child_alive, child_rescued]}
-    text: |-
-      Mara. Seven years old. Shoes on the wrong feet. She asked you about the dark and you answered.
-  - if: {flags: [passed_second_child]}
-    text: |-
-      Pip, in the boathouse. You walked past her. You will see that as long as you live.
-  - |-
-    The river opens. The wind takes the chord and carries it east, where you are going.
-  - |-
-    You did not break yourself. You only ran out of people to bring.
-
+- The cruiser pushes east. The marina is a small grey rectangle behind you and the
+  rectangle is shrinking.
+- The river is the only sound that is not them. At the receding shore, the chord is
+  still audible, and will be audible for a while yet.
+- if:
+    flags_unset:
+    - neighbour_alive
+  text: Dale Pearson, on his own lawn, on the first day. He turned his wedding band
+    with his thumb when he didn't know what to say.
+- if:
+    flags_unset:
+    - teen_alive
+  text: Caleb. He picked the thumb. He told you the truth about his father without
+    you asking.
+- if:
+    flags_unset:
+    - elder_alive
+  text: Ruth Hollander. She made supper for you in a building that was not safe and
+    she knew it was not safe and she fed you anyway.
+- if:
+    flags_unset:
+    - stranger_alive
+  text: Wren. She was a liar with tells. She came clean. The bag was the keys and
+    you got the keys and she did not come.
+- if:
+    flags_unset:
+    - child_alive
+    - child_rescued
+  text: Mara. Seven years old. Shoes on the wrong feet. She asked you about the dark
+    and you answered.
+- if:
+    flags:
+    - passed_second_child
+  text: Pip, in the boathouse. You walked past her. You will see that as long as you
+    live.
+- The river opens. The wind takes the chord and carries it east, where you are going.
+- You did not break yourself. You only ran out of people to bring.
 choices: []

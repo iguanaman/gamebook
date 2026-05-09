@@ -1,62 +1,63 @@
 text:
-  - |-
-    You ease the front door open. The morning air is wrong on your face — warm, with a smell underneath it that you don't have a name for and don't want one.
-  - |-
-    Dale is on your lawn. Dale Pearson, who lives three houses down, who shovelled your drive last winter without being asked. He is dragging himself across the grass toward your porch on his elbows, leaving a long dark smear behind him in the dew. His right leg is the wrong colour from the knee up — the trouser dark and heavy with something that is not the morning damp.
-  - male_midlife_american_dark_tough: |-
-      [groan] Hey. Hey, it's me. Don't — don't shoot, don't shoot.
-  - |-
-    Across the road, the neighbour-thing is on its knees over what is left of someone smaller. Its head is cocked, the way a dog cocks its head. It hasn't seen you yet. Six seconds, maybe. Sound carries in a cul-de-sac.
-  - |-
-    At the mouth of the road, two more shapes step out from between the houses. They walk like Dale would walk if he were drunk and trying not to look it.
-  - if: {flags: [pistol_used_porch]}
-    text: |-
-      The lawn-thing is no longer a problem. It is on its side in the gutter where you put it. The sound of the shot is still ringing somewhere in your skull.
-  - |-
-    Dale gets another foot of lawn. Looks up at you. Tries a smile.
-
+- You ease the front door open. The morning air is wrong on your face — warm, with
+  a smell underneath it that you don't have a name for and don't want one.
+- Dale is on your lawn. Dale Pearson, who lives three houses down, who shovelled your
+  drive last winter without being asked. He is dragging himself across the grass toward
+  your porch on his elbows, leaving a long dark smear behind him in the dew. His right
+  leg is the wrong colour from the knee up — the trouser dark and heavy with something
+  that is not the morning damp.
+- male_midlife_american_dark_tough: '[groan] Hey. Hey, it''s me. Don''t — don''t shoot,
+    don''t shoot.'
+- Across the road, the neighbour-thing is on its knees over what is left of someone
+  smaller. Its head is cocked, the way a dog cocks its head. It hasn't seen you yet.
+  Six seconds, maybe. Sound carries in a cul-de-sac.
+- At the mouth of the road, two more shapes step out from between the houses. They
+  walk like Dale would walk if he were drunk and trying not to look it.
+- if:
+    flags:
+    - pistol_used_porch
+  text: The lawn-thing is no longer a problem. It is on its side in the gutter where
+    you put it. The sound of the shot is still ringing somewhere in your skull.
+- Dale gets another foot of lawn. Looks up at you. Tries a smile.
 choices:
-  - text: |-
-      Down the steps. Get under his arm. Take his weight.
-    next: act1/dale_helped_porch
-    effects:
-      flags:
-        dale_helped: true
-        saw_dale_leg: true
-  - text: |-
-      Shout from the porch. "Dale — can you walk?"
-    next: act1/dale_shouted_porch
-    effects:
-      flags:
-        dale_helped: true
-      stats:
-        home_loud_count: 1
-  - text: |-
-      Step back inside. Bolt the door. He is not your problem.
-    next: act1/wait_inside_loop1
-    effects:
-      flags:
-        route_wait: true
-  - text: |-
-      Pistol up. Drop the lawn-thing first, then the door.
-    next: act1/front_door_pistol_drop
-    requires:
-      flags: [has_pistol]
-      flags_unset: [pistol_used_porch]
-    effects:
-      flags:
-        pistol_used_porch: true
-      stats:
-        home_loud_count: 2
-    failed_text: |-
-      *(You don't have a gun. Or you've already used the round.)*
-  - text: |-
-      Kneel low. Look harder before you decide.
-    next: act1/front_door_porch_look
-    requires:
-      flags_unset: [porch_looked]
-    effects:
-      flags:
-        porch_looked: true
-        saw_dale_leg: true
-    hide_if_failed: true
+- text: Down the steps. Get under his arm. Take his weight.
+  next: act1/dale_helped_porch
+  effects:
+    flags:
+      dale_helped: true
+      saw_dale_leg: true
+- text: Shout from the porch. "Dale — can you walk?"
+  next: act1/dale_shouted_porch
+  effects:
+    flags:
+      dale_helped: true
+    stats:
+      home_loud_count: 1
+- text: Step back inside. Bolt the door. He is not your problem.
+  next: act1/wait_inside_loop1
+  effects:
+    flags:
+      route_wait: true
+- text: Pistol up. Drop the lawn-thing first, then the door.
+  next: act1/front_door_pistol_drop
+  requires:
+    flags:
+    - has_pistol
+    flags_unset:
+    - pistol_used_porch
+  effects:
+    flags:
+      pistol_used_porch: true
+    stats:
+      home_loud_count: 2
+  failed_text: '*(You don''t have a gun. Or you''ve already used the round.)*'
+- text: Kneel low. Look harder before you decide.
+  next: act1/front_door_porch_look
+  requires:
+    flags_unset:
+    - porch_looked
+  effects:
+    flags:
+      porch_looked: true
+      saw_dale_leg: true
+  hide_if_failed: true

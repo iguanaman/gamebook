@@ -1,35 +1,31 @@
 text:
-  - |-
-    She looks down at her shoes. The wrong feet. The jacket is her mother's, you can see it now — the cuffs are turned up too many times, the way an adult's coat is turned up on a small body.
-  - female_young_american_sweet_youthful_clear: |-
-      She said wait here. She said don't open the door. She said she'd come back when it was safe.
-  - female_young_american_sweet_youthful_clear: |-
-      Did you see her? Out there?
-  - |-
-    She looks up at your face. She is, for the first time since you opened the closet, asking a question whose answer she does not already know.
-
+- She looks down at her shoes. The wrong feet. The jacket is her mother's, you can
+  see it now — the cuffs are turned up too many times, the way an adult's coat is
+  turned up on a small body.
+- female_young_american_sweet_youthful_clear: She said wait here. She said don't open
+    the door. She said she'd come back when it was safe.
+- female_young_american_sweet_youthful_clear: Did you see her? Out there?
+- She looks up at your face. She is, for the first time since you opened the closet,
+  asking a question whose answer she does not already know.
 choices:
-  - text: |-
-      Tell her the truth — you don't know where her mother is.
-    next: act2/talk_mara_hub
-    effects:
-      stats:
-        bond: 1
-      flags:
-        asked_mara_mother: true
-        told_mara_truth: true
-  - text: |-
-      Tell her her mother is coming.
-    next: act2/talk_mara_hub
-    effects:
-      stats:
-        bond: -1
-      flags:
-        asked_mara_mother: true
-        lied_to_mara: true
-  - text: |-
-      Tell her you'll find out.
-    next: act2/talk_mara_hub
-    effects:
-      flags:
-        asked_mara_mother: true
+- text: Tell her the truth — you don't know where her mother is.
+  next: act2/talk_mara_hub
+  effects:
+    stats:
+      bond: 1
+    flags:
+      asked_mara_mother: true
+      told_mara_truth: true
+- text: Tell her her mother is coming.
+  next: act2/talk_mara_hub
+  effects:
+    stats:
+      bond: -1
+    flags:
+      asked_mara_mother: true
+      lied_to_mara: true
+- text: Tell her you'll find out.
+  next: act2/talk_mara_hub
+  effects:
+    flags:
+      asked_mara_mother: true

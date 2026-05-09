@@ -1,16 +1,14 @@
 text:
-  - |-
-    The alley between the third block and the fourth runs blind for fifty metres — dumpsters, a chain-link, a turn at the end you cannot see past. The doors on either side are fire exits. They do not open from out here.
-  - |-
-    You take it because the alternative is the road, and the road has more eyes on it.
-
+- The alley between the third block and the fourth runs blind for fifty metres — dumpsters,
+  a chain-link, a turn at the end you cannot see past. The doors on either side are
+  fire exits. They do not open from out here.
+- You take it because the alternative is the road, and the road has more eyes on it.
 choices:
-  - text: |-
-      Take the alley.
-    next:
-      - scene: act2/random_uneventful_apartments
-        weight: 3
-      - scene: act2/random_lone_walker_apartments
-        weight: 2
-      - scene: act2/random_window_sound_apartments
-        weight: 2
+- text: Take the alley.
+  next:
+  - scene: act2/random_uneventful_apartments
+    weight: 3
+  - scene: act2/random_lone_walker_apartments
+    weight: 2
+  - scene: act2/random_window_sound_apartments
+    weight: 2

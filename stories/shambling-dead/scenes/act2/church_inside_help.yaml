@@ -1,37 +1,40 @@
-journal: |-
-  Ruth let you in. You sat with her at the side door of her grandmother's church and built a wall against what was on the other side.
+journal: Ruth let you in. You sat with her at the side door of her grandmother's church
+  and built a wall against what was on the other side.
 text:
-  - |-
-    The bar comes off in two hands and you are inside. Cool air, dust, the smell of old hymnals. She slides the bar back across the front behind you the way someone closes a hatch. Practised.
-  - |-
-    The side door is in the vestry, a low-ceilinged room with a row of robes on hooks and a chest of music stands. The door is bracketed but the brackets are old. She has a stack of pew planks against the near wall and a box of long screws.
-  - female_elder_american_relatable_likeable: |-
-      You hold, I drive. I'd do it the other way round but my wrists aren't what they were and you're younger than I am by some way.
-  - if: {flags: [teen_alive]}
-    text: |-
-      She finds Caleb a job he can do — holding the level — and calls him *honey* once, and he straightens about an inch.
-  - |-
-    Half an hour. Plank, screw, plank. The scratching does not stop. Once, deep in it, a sound on the other side that is *not* scratching — a wet, throat-shaped sound — and she hums over the top of it without looking at you.
-  - |-
-    When the last screw goes in she sits on the chest, takes her glasses off, and lets her hands shake for the first time. Then she puts the glasses back on.
-  - female_elder_american_relatable_likeable: |-
-      All right. Supper, such as it is. Sit with me a minute.
-
+- The bar comes off in two hands and you are inside. Cool air, dust, the smell of
+  old hymnals. She slides the bar back across the front behind you the way someone
+  closes a hatch. Practised.
+- The side door is in the vestry, a low-ceilinged room with a row of robes on hooks
+  and a chest of music stands. The door is bracketed but the brackets are old. She
+  has a stack of pew planks against the near wall and a box of long screws.
+- female_elder_american_relatable_likeable: You hold, I drive. I'd do it the other
+    way round but my wrists aren't what they were and you're younger than I am by
+    some way.
+- if:
+    flags:
+    - teen_alive
+  text: She finds Caleb a job he can do — holding the level — and calls him *honey*
+    once, and he straightens about an inch.
+- Half an hour. Plank, screw, plank. The scratching does not stop. Once, deep in it,
+  a sound on the other side that is *not* scratching — a wet, throat-shaped sound
+  — and she hums over the top of it without looking at you.
+- When the last screw goes in she sits on the chest, takes her glasses off, and lets
+  her hands shake for the first time. Then she puts the glasses back on.
+- female_elder_american_relatable_likeable: All right. Supper, such as it is. Sit
+    with me a minute.
 choices:
-  - text: |-
-      Sit with her. Talk.
-    next: act2/talk_ruth_hub
-    effects:
-      flags:
-        elder_alive: true
-      stats:
-        bond: 1
-  - text: |-
-      Take watch. Let her rest.
-    next: act2/talk_ruth_hub
-    effects:
-      flags:
-        elder_alive: true
-        shared_watch: true
-      stats:
-        bond: 1
+- text: Sit with her. Talk.
+  next: act2/talk_ruth_hub
+  effects:
+    flags:
+      elder_alive: true
+    stats:
+      bond: 1
+- text: Take watch. Let her rest.
+  next: act2/talk_ruth_hub
+  effects:
+    flags:
+      elder_alive: true
+      shared_watch: true
+    stats:
+      bond: 1

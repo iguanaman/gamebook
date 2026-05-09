@@ -1,18 +1,16 @@
 text:
-  - male_elder_american_wise_approachable: |-
-      Iris is my niece. Hayes was a foreman on the river boats out of Pittsburgh, before he came to live near us. We've been moving five days.
-  - |-
-    Iris steps forward half a foot. She does not look at Tomás when she speaks.
-  - female_adult_american_crisp_direct_clear: |-
-      We don't have an hour. He's giving you the long version.
-  - |-
-    Tomás does not contradict her. He nods like he is being corrected by somebody who is right.
-  - male_elder_american_wise_approachable: |-
-      We pay our way. We don't take what isn't offered. If we ride out, you ride out.
-  - |-
-    Hayes has not looked up the entire time. The thermos in his good hand is still steaming a little. The bandage on the other arm is two days fresh.
-
+- male_elder_american_wise_approachable: Iris is my niece. Hayes was a foreman on
+    the river boats out of Pittsburgh, before he came to live near us. We've been
+    moving five days.
+- Iris steps forward half a foot. She does not look at Tomás when she speaks.
+- female_adult_american_crisp_direct_clear: We don't have an hour. He's giving you
+    the long version.
+- Tomás does not contradict her. He nods like he is being corrected by somebody who
+  is right.
+- male_elder_american_wise_approachable: We pay our way. We don't take what isn't
+    offered. If we ride out, you ride out.
+- Hayes has not looked up the entire time. The thermos in his good hand is still steaming
+  a little. The bandage on the other arm is two days fresh.
 choices:
-  - text: |-
-      Back to the conversation.
-    next: act3/talk_tomas
+- text: Back to the conversation.
+  next: act3/talk_tomas

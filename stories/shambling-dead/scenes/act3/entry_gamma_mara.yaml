@@ -1,28 +1,25 @@
 text:
-  - |-
-    Mara has the strap of the bag in one hand and the back of your jacket in the other. She has not let go of either since the corner. Her shoes are still on the wrong feet. You have not told her.
-  - |-
-    A pigeon is dead on the asphalt halfway to the gate. She looks at it once. She looks at it again. She does not ask.
-  - |-
-    Every sound you notice she has noticed first by half a beat — the chord at your back, the far-jetty group across the water, the fence rattle the gate guards have not turned to deal with yet. Her grip tightens on the strap each time, then eases. She has been doing this since the building.
-  - |-
-    The river is loud. She has not asked about the dark.
-  - |-
-    Two of the gate guards have already seen you. One of them is writing something down.
-
+- Mara has the strap of the bag in one hand and the back of your jacket in the other.
+  She has not let go of either since the corner. Her shoes are still on the wrong
+  feet. You have not told her.
+- A pigeon is dead on the asphalt halfway to the gate. She looks at it once. She looks
+  at it again. She does not ask.
+- Every sound you notice she has noticed first by half a beat — the chord at your
+  back, the far-jetty group across the water, the fence rattle the gate guards have
+  not turned to deal with yet. Her grip tightens on the strap each time, then eases.
+  She has been doing this since the building.
+- The river is loud. She has not asked about the dark.
+- Two of the gate guards have already seen you. One of them is writing something down.
 choices:
-  - text: |-
-      Hold her hand. Walk her in.
-    next: act3/gate_approach
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Tell her plainly: stay close, don't speak unless I tell you to.
-    next: act3/gate_approach
-  - text: |-
-      Crouch. Eye level. Tell her you see her.
-    next: act3/gate_approach
-    effects:
-      stats:
-        bond: 1
+- text: Hold her hand. Walk her in.
+  next: act3/gate_approach
+  effects:
+    stats:
+      bond: 1
+- text: 'Tell her plainly: stay close, don''t speak unless I tell you to.'
+  next: act3/gate_approach
+- text: Crouch. Eye level. Tell her you see her.
+  next: act3/gate_approach
+  effects:
+    stats:
+      bond: 1

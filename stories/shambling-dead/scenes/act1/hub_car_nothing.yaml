@@ -1,15 +1,11 @@
 text:
-  - |-
-    Cup holders empty. Glove box empty. Boot empty.
-  - |-
-    A child's car seat is buckled in the back. The straps are open. The straps are the wrong way around — undone in a hurry, by someone whose hands were shaking.
-  - |-
-    You close the door as quietly as you can.
-
+- Cup holders empty. Glove box empty. Boot empty.
+- A child's car seat is buckled in the back. The straps are open. The straps are the
+  wrong way around — undone in a hurry, by someone whose hands were shaking.
+- You close the door as quietly as you can.
 choices:
-  - text: |-
-      Back to the street.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        hub_visits: 1
+- text: Back to the street.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      hub_visits: 1

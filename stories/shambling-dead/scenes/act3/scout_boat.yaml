@@ -1,52 +1,56 @@
 text:
-  - |-
-    The floating dock takes your weight differently to the apron — a half-second of give before it answers. Marrow looks up once. Goes back to her pole.
-  - |-
-    The cruiser is real. White, scratched, the kind of boat a marina would lend out by the half-day. The fuel gauge is visible through the windscreen — the needle is at half. Enough for the river. Not enough for whatever is past the river.
-  - |-
-    The cabin sleeps two. The deck holds the rest. Four adults plus what they brought; or three plus a child plus what they brought; or two plus enough to get further than the cove.
-  - |-
-    The body is twenty feet down the dock from the cruiser. A man, face down, jacket pulled up over the back of the head. Marrow's pole has been keeping the water clear of him for three days. One small shoe is missing.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara has stopped at the foot of the dock. She is not coming further. She is also not looking away.
-  - female_midlife_african-american_casual_opinionated: |-
-      You four, stay clear of the edge. Body in the water doesn't mean what you think it means.
-
+- The floating dock takes your weight differently to the apron — a half-second of
+  give before it answers. Marrow looks up once. Goes back to her pole.
+- The cruiser is real. White, scratched, the kind of boat a marina would lend out
+  by the half-day. The fuel gauge is visible through the windscreen — the needle is
+  at half. Enough for the river. Not enough for whatever is past the river.
+- The cabin sleeps two. The deck holds the rest. Four adults plus what they brought;
+  or three plus a child plus what they brought; or two plus enough to get further
+  than the cove.
+- The body is twenty feet down the dock from the cruiser. A man, face down, jacket
+  pulled up over the back of the head. Marrow's pole has been keeping the water clear
+  of him for three days. One small shoe is missing.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara has stopped at the foot of the dock. She is not coming further. She is
+    also not looking away.
+- female_midlife_african-american_casual_opinionated: You four, stay clear of the
+    edge. Body in the water doesn't mean what you think it means.
 choices:
-  - text: |-
-      Search the body. Take what's on it.
-    next: act3/scout_boat_search
-    requires:
-      flags_unset: [child_rescued]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: 1
-      flags:
-        boat_searched: true
-  - text: |-
-      Search the body. Mara is watching.
-    next: act3/scout_boat_search
-    requires:
-      flags: [child_rescued, child_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: 1
-        bond: -1
-      flags:
-        boat_searched: true
-  - text: |-
-      Step over. Read the gauges. Walk back.
-    next: act3/marina_hub
-    effects:
-      flags:
-        boat_searched: true
-  - text: |-
-      Ask Marrow what the body's name is.
-    next: act3/scout_boat_marrow
-    effects:
-      flags:
-        boat_searched: true
-        marrow_named_body: true
+- text: Search the body. Take what's on it.
+  next: act3/scout_boat_search
+  requires:
+    flags_unset:
+    - child_rescued
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: 1
+    flags:
+      boat_searched: true
+- text: Search the body. Mara is watching.
+  next: act3/scout_boat_search
+  requires:
+    flags:
+    - child_rescued
+    - child_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: 1
+      bond: -1
+    flags:
+      boat_searched: true
+- text: Step over. Read the gauges. Walk back.
+  next: act3/marina_hub
+  effects:
+    flags:
+      boat_searched: true
+- text: Ask Marrow what the body's name is.
+  next: act3/scout_boat_marrow
+  effects:
+    flags:
+      boat_searched: true
+      marrow_named_body: true

@@ -1,36 +1,34 @@
 text:
-  - |-
-    You walk the long way round. Down the side street, past a delivery bay with its shutter half down, into the alley that runs the building's blind side.
-  - |-
-    The alley is narrow and littered with the kind of paper that gets blown out of an office and never picked up. A dumpster on its side. Above you, a fire escape — black painted steel, switchback flights all the way to the roof.
-  - |-
-    The bottom rung is up. Someone pulled it up from inside, a long time ago by the look of the rust. It hangs nine feet above the asphalt.
-  - if: visited
-    text: |-
-      The crying is louder back here. The alley funnels it down. You did not stop hearing it on the street and you do not stop hearing it now.
-  - |-
-    No bodies in the alley. Nothing else moving. The lobby groan is a wall away — present, muted, not coming closer.
-
+- You walk the long way round. Down the side street, past a delivery bay with its
+  shutter half down, into the alley that runs the building's blind side.
+- The alley is narrow and littered with the kind of paper that gets blown out of an
+  office and never picked up. A dumpster on its side. Above you, a fire escape — black
+  painted steel, switchback flights all the way to the roof.
+- The bottom rung is up. Someone pulled it up from inside, a long time ago by the
+  look of the rust. It hangs nine feet above the asphalt.
+- if: visited
+  text: The crying is louder back here. The alley funnels it down. You did not stop
+    hearing it on the street and you do not stop hearing it now.
+- No bodies in the alley. Nothing else moving. The lobby groan is a wall away — present,
+  muted, not coming closer.
 choices:
-  - text: |-
-      Climb. Boost yourself to the rung. Find a way.
-    next: act2/mara_climb_check
-  - text: |-
-      Look for a third way. Roof access from the next building.
-    next: act2/mara_perimeter_third
-    requires:
-      flags_unset: [tried_third_way]
-    effects:
-      stats:
-        supplies: -1
-      flags:
-        tried_third_way: true
-  - text: |-
-      Back. Refuse after all.
-    next: act2/mara_refused
-    effects:
-      stats:
-        bond: -1
-      flags:
-        refused_mara: true
-        refused_after_looking: true
+- text: Climb. Boost yourself to the rung. Find a way.
+  next: act2/mara_climb_check
+- text: Look for a third way. Roof access from the next building.
+  next: act2/mara_perimeter_third
+  requires:
+    flags_unset:
+    - tried_third_way
+  effects:
+    stats:
+      supplies: -1
+    flags:
+      tried_third_way: true
+- text: Back. Refuse after all.
+  next: act2/mara_refused
+  effects:
+    stats:
+      bond: -1
+    flags:
+      refused_mara: true
+      refused_after_looking: true

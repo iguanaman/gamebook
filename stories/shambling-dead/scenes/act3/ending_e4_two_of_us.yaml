@@ -1,61 +1,105 @@
-journal: |-
-  The two of you. East. The marina is gone.
-
+journal: The two of you. East. The marina is gone.
 text:
-  - |-
-    The boat pushes east. The marina is a grey rectangle behind. The chord at the receding shore is still the chord, and will be for a while yet.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is in the seat across from you. The hood is down for the first time in three days. The thumb is not in his mouth.
-  - if: {flags: [teen_alive, companion_spoke_river]}
-    text: |-
-      male_young_american_weak: |-
-        I want to learn to drive a boat.
-  - if: {flags: [teen_alive, companion_spoke_river]}
-    text: |-
-      He says it without "I mean" and without "I don't." He says it the way a person says a thing they have decided about. You did not know he had decided about anything.
-  - if: {flags: [teen_alive], flags_unset: [companion_spoke_river]}
-    text: |-
-      He does not speak. He watches the bank. Once, he looks at you, and the look is enough to count.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth is in the seat across from you. The cardigan is still the cardigan. The cuff is still the cuff.
-  - if: {flags: [elder_alive, companion_spoke_river]}
-    text: |-
-      female_elder_american_relatable_likeable: |-
-        My son's name was Daniel. Sweetheart, I want you to hear it once before I stop saying it.
-  - if: {flags: [elder_alive, companion_spoke_river]}
-    text: |-
-      She names him. She does not name him again.
-  - if: {flags: [elder_alive], flags_unset: [companion_spoke_river]}
-    text: |-
-      She watches the bank. Her hand finds yours, the way it found yours at the church door. She does not let go for a while.
-  - if: {flags: [stranger_alive, probed_wren]}
-    text: |-
-      Wren is in the seat across from you. The bag is between you, on the deck.
-  - if: {flags: [stranger_alive, probed_wren, bag_opened]}
-    text: |-
-      female_adult_american_droll_wry_dry: |-
-        One more thing. I lied about it twice and now I'm not.
-  - if: {flags: [stranger_alive, probed_wren, bag_opened]}
-    text: |-
-      She opens the bag. There is a photograph in it. The photograph is of a man at a barbeque. The man is the brother she said the truck belonged to. He is laughing. She closes the bag.
-  - if: {flags: [stranger_alive, probed_wren], flags_unset: [bag_opened]}
-    text: |-
-      She does not open the bag. She watches the bank. The dryness has dropped, the way it dropped at Hollis's camp. Whatever is in the bag is going east with the two of you, unopened, until it is opened.
-  - if: {flags_unset: [neighbour_alive]}
-    text: |-
-      Dale is not here. He is on a lawn.
-  - if: {flags: [killed_survivor]}
-    text: |-
-      The man you killed at the camp is not here either. He is in your hands when you look at them. He will be there for a while.
-  - if: {flags: [looked_back_at_companion, child_rescued], flags_unset: [child_alive]}
-    text: |-
-      And Mara is not here. The small shoe is on the floating dock at the marina. You looked back. Vance kept her, the way the math said.
-  - if: {flags_unset: [child_alive, child_rescued]}
-    text: |-
-      Mara is somewhere you did not reach in time. The river does not say it for you.
-  - |-
-    The river is the only sound. The chord at the receding shore is still the chord. The two of you are east of where you started.
-
+- The boat pushes east. The marina is a grey rectangle behind. The chord at the receding
+  shore is still the chord, and will be for a while yet.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is in the seat across from you. The hood is down for the first time
+    in three days. The thumb is not in his mouth.
+- if:
+    flags:
+    - teen_alive
+    - companion_spoke_river
+  text: "male_young_american_weak: |-\n  I want to learn to drive a boat."
+- if:
+    flags:
+    - teen_alive
+    - companion_spoke_river
+  text: He says it without "I mean" and without "I don't." He says it the way a person
+    says a thing they have decided about. You did not know he had decided about anything.
+- if:
+    flags:
+    - teen_alive
+    flags_unset:
+    - companion_spoke_river
+  text: He does not speak. He watches the bank. Once, he looks at you, and the look
+    is enough to count.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth is in the seat across from you. The cardigan is still the cardigan. The
+    cuff is still the cuff.
+- if:
+    flags:
+    - elder_alive
+    - companion_spoke_river
+  text: "female_elder_american_relatable_likeable: |-\n  My son's name was Daniel.\
+    \ Sweetheart, I want you to hear it once before I stop saying it."
+- if:
+    flags:
+    - elder_alive
+    - companion_spoke_river
+  text: She names him. She does not name him again.
+- if:
+    flags:
+    - elder_alive
+    flags_unset:
+    - companion_spoke_river
+  text: She watches the bank. Her hand finds yours, the way it found yours at the
+    church door. She does not let go for a while.
+- if:
+    flags:
+    - stranger_alive
+    - probed_wren
+  text: Wren is in the seat across from you. The bag is between you, on the deck.
+- if:
+    flags:
+    - stranger_alive
+    - probed_wren
+    - bag_opened
+  text: "female_adult_american_droll_wry_dry: |-\n  One more thing. I lied about it\
+    \ twice and now I'm not."
+- if:
+    flags:
+    - stranger_alive
+    - probed_wren
+    - bag_opened
+  text: She opens the bag. There is a photograph in it. The photograph is of a man
+    at a barbeque. The man is the brother she said the truck belonged to. He is laughing.
+    She closes the bag.
+- if:
+    flags:
+    - stranger_alive
+    - probed_wren
+    flags_unset:
+    - bag_opened
+  text: She does not open the bag. She watches the bank. The dryness has dropped,
+    the way it dropped at Hollis's camp. Whatever is in the bag is going east with
+    the two of you, unopened, until it is opened.
+- if:
+    flags_unset:
+    - neighbour_alive
+  text: Dale is not here. He is on a lawn.
+- if:
+    flags:
+    - killed_survivor
+  text: The man you killed at the camp is not here either. He is in your hands when
+    you look at them. He will be there for a while.
+- if:
+    flags:
+    - looked_back_at_companion
+    - child_rescued
+    flags_unset:
+    - child_alive
+  text: And Mara is not here. The small shoe is on the floating dock at the marina.
+    You looked back. Vance kept her, the way the math said.
+- if:
+    flags_unset:
+    - child_alive
+    - child_rescued
+  text: Mara is somewhere you did not reach in time. The river does not say it for
+    you.
+- The river is the only sound. The chord at the receding shore is still the chord.
+  The two of you are east of where you started.
 choices: []

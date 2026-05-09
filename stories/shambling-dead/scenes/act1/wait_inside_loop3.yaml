@@ -1,30 +1,30 @@
 text:
-  - |-
-    The upstairs window has finished cracking. It came in. You heard it come in — a single sheeted sound and then, after a pause that you used to hope, a foot on your bedroom floor.
-  - |-
-    Now there is something on the landing. It is dragging itself. It does not lift its feet because it has forgotten how. Each step down is the same sound: the wet slap of a hand finding the next tread, the slow weight of the body following. One stair. Pause. One stair. Pause.
-  - |-
-    Down here, the bookcase is at an angle that is no longer holding the door. The kitchen window has stopped being a window. There is a smell in the house that wasn't here this morning, and you cannot pretend you don't know whose house this is anymore.
-  - narrator_female_warm_reflective: |-
-      Shelter in place. No rescue is being mounted at this time.
-  - |-
-    She says it the same way she said the weather forecast on Tuesday.
-  - |-
-    Another step on the staircase. The thing on the porch hears it too — there is a sound out of it that is almost a voice answering.
-
+- The upstairs window has finished cracking. It came in. You heard it come in — a
+  single sheeted sound and then, after a pause that you used to hope, a foot on your
+  bedroom floor.
+- 'Now there is something on the landing. It is dragging itself. It does not lift
+  its feet because it has forgotten how. Each step down is the same sound: the wet
+  slap of a hand finding the next tread, the slow weight of the body following. One
+  stair. Pause. One stair. Pause.'
+- Down here, the bookcase is at an angle that is no longer holding the door. The kitchen
+  window has stopped being a window. There is a smell in the house that wasn't here
+  this morning, and you cannot pretend you don't know whose house this is anymore.
+- narrator_female_warm_reflective: Shelter in place. No rescue is being mounted at
+    this time.
+- She says it the same way she said the weather forecast on Tuesday.
+- Another step on the staircase. The thing on the porch hears it too — there is a
+  sound out of it that is almost a voice answering.
 choices:
-  - text: |-
-      Open the door anyway. Run for it.
-    next: act1/death_d1a_stairs
-  - text: |-
-      The back door. There has to be a back door.
-    next: act1/death_d1a_stairs
-  - text: |-
-      Pistol in your mouth before they reach the landing.
-    next: act1/death_d1a_stairs
-    requires:
-      flags: [has_pistol]
-    effects:
-      flags:
-        wait_self_inflicted: true
-    hide_if_failed: true
+- text: Open the door anyway. Run for it.
+  next: act1/death_d1a_stairs
+- text: The back door. There has to be a back door.
+  next: act1/death_d1a_stairs
+- text: Pistol in your mouth before they reach the landing.
+  next: act1/death_d1a_stairs
+  requires:
+    flags:
+    - has_pistol
+  effects:
+    flags:
+      wait_self_inflicted: true
+  hide_if_failed: true

@@ -1,14 +1,14 @@
 text:
-  - |-
-    She does not answer for long enough that you think she is not going to. Then she does, and the dryness is gone — not hidden, *gone*, the way a coat comes off when the room is finally warm enough.
-  - female_adult_american_droll_wry_dry: |-
-      I want someone with me when I go to a place I need to get to. That's it. That's the whole thing. I don't want to walk into it alone.
-  - |-
-    She does not name the place. She does not look at the bag while she says it. She looks at you the way a person looks at a person whose answer is going to matter.
-  - |-
-    From two floors down, a sound. She stops. Listens. The quiet is the kind of quiet that comes after a sentence somebody meant.
-
+- She does not answer for long enough that you think she is not going to. Then she
+  does, and the dryness is gone — not hidden, *gone*, the way a coat comes off when
+  the room is finally warm enough.
+- female_adult_american_droll_wry_dry: I want someone with me when I go to a place
+    I need to get to. That's it. That's the whole thing. I don't want to walk into
+    it alone.
+- She does not name the place. She does not look at the bag while she says it. She
+  looks at you the way a person looks at a person whose answer is going to matter.
+- From two floors down, a sound. She stops. Listens. The quiet is the kind of quiet
+  that comes after a sentence somebody meant.
 choices:
-  - text: |-
-      Back.
-    next: act2/talk_wren_hub
+- text: Back.
+  next: act2/talk_wren_hub

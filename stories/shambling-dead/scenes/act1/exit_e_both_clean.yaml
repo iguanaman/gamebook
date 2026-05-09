@@ -1,15 +1,14 @@
 text:
-  - |-
-    Three of you. Dale on the left, naming the streets before you ask. Caleb tucked between. You at the back, watching the road behind. The shape of a small group that has decided, without saying it, who watches what.
-  - |-
-    The cul-de-sac is behind the bend. The arterial opens. The chord of the city is bigger than the three of you and you all hear it and none of you names it. Dale's leg is slow but it is keeping up. Caleb's footsteps have stopped being a boy's footsteps and started being the footsteps of a person who is moving.
-  - |-
-    It feels, for a length of road you could measure in steps, like something you could keep. You know better than to say so out loud.
-
-journal: |-
-  Dale and Caleb are both with you. The three of you walked into the city together.
-
+- Three of you. Dale on the left, naming the streets before you ask. Caleb tucked
+  between. You at the back, watching the road behind. The shape of a small group that
+  has decided, without saying it, who watches what.
+- The cul-de-sac is behind the bend. The arterial opens. The chord of the city is
+  bigger than the three of you and you all hear it and none of you names it. Dale's
+  leg is slow but it is keeping up. Caleb's footsteps have stopped being a boy's footsteps
+  and started being the footsteps of a person who is moving.
+- It feels, for a length of road you could measure in steps, like something you could
+  keep. You know better than to say so out loud.
+journal: Dale and Caleb are both with you. The three of you walked into the city together.
 choices:
-  - text: |-
-      Into the city.
-    next: act2/act2_entry_router
+- text: Into the city.
+  next: act2/act2_entry_router

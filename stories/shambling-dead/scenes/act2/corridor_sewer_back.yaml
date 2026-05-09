@@ -1,14 +1,13 @@
 text:
-  - |-
-    You wade out the way you came in. The light at the mouth has shifted — afternoon now, where it was midday. The hour you spent down there is an hour you will eat later.
-  - |-
-    On the embankment you stand for a count of ten and let your boots stop dripping. The arterial is two blocks west. Either road from here goes somewhere.
-
+- You wade out the way you came in. The light at the mouth has shifted — afternoon
+  now, where it was midday. The hour you spent down there is an hour you will eat
+  later.
+- On the embankment you stand for a count of ten and let your boots stop dripping.
+  The arterial is two blocks west. Either road from here goes somewhere.
 choices:
-  - text: |-
-      Surface. Take whatever route is left.
-    next:
-      - scene: act2/corridor_apartments_1
-        weight: 1
-      - scene: act2/corridor_underpass_1
-        weight: 1
+- text: Surface. Take whatever route is left.
+  next:
+  - scene: act2/corridor_apartments_1
+    weight: 1
+  - scene: act2/corridor_underpass_1
+    weight: 1

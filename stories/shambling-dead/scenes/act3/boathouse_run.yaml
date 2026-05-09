@@ -1,62 +1,103 @@
 text:
-  - |-
-    You break for the seawall. The breach is behind you. The cul-de-sac chord is behind you. Whatever Vance is shouting at Sully is behind you.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara's hand is in yours and her feet are not slowing you down. She is small and quiet and she walks where she is told.
-  - if: {flags: [teen_alive], flags_unset: [stranger_alive, elder_alive, child_rescued]}
-    text: |-
-      Caleb is at your shoulder. He is picking the thumb again. He is keeping up.
-  - if: {flags: [elder_alive], flags_unset: [stranger_alive, child_rescued]}
-    text: |-
-      Ruth's hand is in the small of your back. She is older than this run and she is moving anyway.
-  - if: {flags: [stranger_alive], flags_unset: [elder_alive, teen_alive, child_rescued]}
-    text: |-
-      Wren is half a step ahead. The bag on the long strap is a metronome.
-  - if: {flags: [arrived_via_truck]}
-    text: |-
-      The truck is on the verge above where you are going. You came round the long way an hour ago and now the long way is the only way left.
-  - |-
-    The boathouse sits at the foot of the seawall — a low wooden shed on stilts with one door that faces the water. It rattles before you reach it. Above the door, on the roof, something is working out the joist seams. A foot-and-a-half of shingle has gone sideways.
-
+- You break for the seawall. The breach is behind you. The cul-de-sac chord is behind
+  you. Whatever Vance is shouting at Sully is behind you.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara's hand is in yours and her feet are not slowing you down. She is small
+    and quiet and she walks where she is told.
+- if:
+    flags:
+    - teen_alive
+    flags_unset:
+    - stranger_alive
+    - elder_alive
+    - child_rescued
+  text: Caleb is at your shoulder. He is picking the thumb again. He is keeping up.
+- if:
+    flags:
+    - elder_alive
+    flags_unset:
+    - stranger_alive
+    - child_rescued
+  text: Ruth's hand is in the small of your back. She is older than this run and she
+    is moving anyway.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - elder_alive
+    - teen_alive
+    - child_rescued
+  text: Wren is half a step ahead. The bag on the long strap is a metronome.
+- if:
+    flags:
+    - arrived_via_truck
+  text: The truck is on the verge above where you are going. You came round the long
+    way an hour ago and now the long way is the only way left.
+- The boathouse sits at the foot of the seawall — a low wooden shed on stilts with
+  one door that faces the water. It rattles before you reach it. Above the door, on
+  the roof, something is working out the joist seams. A foot-and-a-half of shingle
+  has gone sideways.
 choices:
-  - text: |-
-      Reach the boathouse the way Tomás named.
-    next: act3/boathouse_alpha_beta
-    requires:
-      flags: [read_tomas]
-      flags_unset: [child_rescued, teen_alive, elder_alive, stranger_alive]
-    hide_if_failed: true
-  - text: |-
-      Reach the boathouse the way Tomás named.
-    next: act3/boathouse_alpha_beta
-    requires:
-      flags: [read_tomas, stranger_alive, betrayed_by_wren]
-      flags_unset: [child_rescued, teen_alive, elder_alive]
-    hide_if_failed: true
-  - text: |-
-      Reach the boathouse the way Tomás named.
-    next: act3/boathouse_gamma
-    requires:
-      flags: [read_tomas, child_rescued, child_alive]
-      flags_unset: [teen_alive, elder_alive, stranger_alive]
-    hide_if_failed: true
-  - text: |-
-      Reach the boathouse the way Tomás named.
-    next: act3/boathouse_gamma
-    requires:
-      flags: [read_tomas, child_rescued, child_alive, stranger_alive, betrayed_by_wren]
-      flags_unset: [teen_alive, elder_alive]
-    hide_if_failed: true
-  - text: |-
-      Reach the boathouse the way Tomás named.
-    next: act3/boathouse_delta_epsilon
-    requires:
-      flags: [read_tomas]
-    hide_if_failed: true
-  - text: |-
-      Force the boathouse door. You did not probe him.
-    next: act3/boathouse_locked
-    requires:
-      flags_unset: [read_tomas]
-    hide_if_failed: true
+- text: Reach the boathouse the way Tomás named.
+  next: act3/boathouse_alpha_beta
+  requires:
+    flags:
+    - read_tomas
+    flags_unset:
+    - child_rescued
+    - teen_alive
+    - elder_alive
+    - stranger_alive
+  hide_if_failed: true
+- text: Reach the boathouse the way Tomás named.
+  next: act3/boathouse_alpha_beta
+  requires:
+    flags:
+    - read_tomas
+    - stranger_alive
+    - betrayed_by_wren
+    flags_unset:
+    - child_rescued
+    - teen_alive
+    - elder_alive
+  hide_if_failed: true
+- text: Reach the boathouse the way Tomás named.
+  next: act3/boathouse_gamma
+  requires:
+    flags:
+    - read_tomas
+    - child_rescued
+    - child_alive
+    flags_unset:
+    - teen_alive
+    - elder_alive
+    - stranger_alive
+  hide_if_failed: true
+- text: Reach the boathouse the way Tomás named.
+  next: act3/boathouse_gamma
+  requires:
+    flags:
+    - read_tomas
+    - child_rescued
+    - child_alive
+    - stranger_alive
+    - betrayed_by_wren
+    flags_unset:
+    - teen_alive
+    - elder_alive
+  hide_if_failed: true
+- text: Reach the boathouse the way Tomás named.
+  next: act3/boathouse_delta_epsilon
+  requires:
+    flags:
+    - read_tomas
+  hide_if_failed: true
+- text: Force the boathouse door. You did not probe him.
+  next: act3/boathouse_locked
+  requires:
+    flags_unset:
+    - read_tomas
+  hide_if_failed: true

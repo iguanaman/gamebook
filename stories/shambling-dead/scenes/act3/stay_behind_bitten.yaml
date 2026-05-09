@@ -1,15 +1,11 @@
 text:
-  - |-
-    You turn. The gate is the way out and it is also the way in. You take the way in.
-  - |-
-    Vance does not stop you. The bite is on its own clock and she does not need to be the one to wind it down.
-  - |-
-    The arterial. The chord. The city.
-
+- You turn. The gate is the way out and it is also the way in. You take the way in.
+- Vance does not stop you. The bite is on its own clock and she does not need to be
+  the one to wind it down.
+- The arterial. The chord. The city.
 choices:
-  - text: |-
-      Through the gate. End it on your own terms.
-    next: act3/endings_router
-    effects:
-      flags:
-        e7_bitten: true
+- text: Through the gate. End it on your own terms.
+  next: act3/endings_router
+  effects:
+    flags:
+      e7_bitten: true

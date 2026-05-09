@@ -1,27 +1,38 @@
-journal: |-
-  You drew first at a man's fire. Hollis didn't get up.
-
+journal: You drew first at a man's fire. Hollis didn't get up.
 text:
-  - |-
-    Hollis is still saying *neighbour* when you put one in the centre of him. The pot rocks on the grate. The lieutenant is moving before Hollis is on the dirt — knife clearing the sheath, a step toward your wrist — and you put the second one in his shoulder and he goes down sideways into the fire pit. The smell is immediate. He screams.
-  - |-
-    Reece — the quiet one — is not coming. Reece is at the back tent already, ducked low, hands empty, moving away from this. Reece has been waiting two days for an excuse and you just gave it to him.
-  - if: {flags: [neighbour_alive]}
-    text: |-
-      Dale catches a knife meant for you across the forearm — sleeve open, blood sudden, jaw clamped down on whatever sound he isn't making. He doesn't slow.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is on the ground behind you. You don't see when. You don't see the third one, the one who came in from the perimeter at your blind side. He is on his hands and knees and the side of his hood is dark.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth has the pot grate in both hands and she swings it across the third one's face the way a woman swings a coal scuttle. He goes down. She does not look at what she did.
-  - if: {flags: [stranger_alive]}
-    text: |-
-      Wren is already past you, already at the wire — she saw the breach before you did, the place the lieutenant had cleared earlier, and she is calling your name without raising her voice.
-  - |-
-    The wire has a breach in it where the lieutenant pulled the body off. The dead outside have not gone anywhere.
-
+- Hollis is still saying *neighbour* when you put one in the centre of him. The pot
+  rocks on the grate. The lieutenant is moving before Hollis is on the dirt — knife
+  clearing the sheath, a step toward your wrist — and you put the second one in his
+  shoulder and he goes down sideways into the fire pit. The smell is immediate. He
+  screams.
+- Reece — the quiet one — is not coming. Reece is at the back tent already, ducked
+  low, hands empty, moving away from this. Reece has been waiting two days for an
+  excuse and you just gave it to him.
+- if:
+    flags:
+    - neighbour_alive
+  text: Dale catches a knife meant for you across the forearm — sleeve open, blood
+    sudden, jaw clamped down on whatever sound he isn't making. He doesn't slow.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is on the ground behind you. You don't see when. You don't see the third
+    one, the one who came in from the perimeter at your blind side. He is on his hands
+    and knees and the side of his hood is dark.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth has the pot grate in both hands and she swings it across the third one's
+    face the way a woman swings a coal scuttle. He goes down. She does not look at
+    what she did.
+- if:
+    flags:
+    - stranger_alive
+  text: Wren is already past you, already at the wire — she saw the breach before
+    you did, the place the lieutenant had cleared earlier, and she is calling your
+    name without raising her voice.
+- The wire has a breach in it where the lieutenant pulled the body off. The dead outside
+  have not gone anywhere.
 choices:
-  - text: |-
-      Move. Now. Use the breach.
-    next: act2/hostile_perimeter_break
+- text: Move. Now. Use the breach.
+  next: act2/hostile_perimeter_break

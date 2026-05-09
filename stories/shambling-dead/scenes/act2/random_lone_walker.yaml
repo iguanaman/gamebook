@@ -1,24 +1,21 @@
 text:
-  - |-
-    A man on the road ahead. Mid-thirties, back to you, canvas duffel slung crosswise with bicycle tubing wrapped around the strap. He's hauling at a careful pace — not running, not strolling. The pace of someone with somewhere to put the bag down.
-  - |-
-    He has not seen you yet. East of him, the chord is pulling. He is walking toward it because he does not know that.
-
+- A man on the road ahead. Mid-thirties, back to you, canvas duffel slung crosswise
+  with bicycle tubing wrapped around the strap. He's hauling at a careful pace — not
+  running, not strolling. The pace of someone with somewhere to put the bag down.
+- He has not seen you yet. East of him, the chord is pulling. He is walking toward
+  it because he does not know that.
 choices:
-  - text: |-
-      Whistle low. Warn him about the pack east.
-    next: act2/checkpoint_approach
-    effects:
-      stats:
-        bond: 1
-      flags:
-        warned_walker: true
-  - text: |-
-      Approach. Offer to trade. Quiet.
-    next: act2/random_walker_trade
-  - text: |-
-      Walk on. Keep him out of your story.
-    next: act2/checkpoint_approach
-    effects:
-      stats:
-        bond: -1
+- text: Whistle low. Warn him about the pack east.
+  next: act2/checkpoint_approach
+  effects:
+    stats:
+      bond: 1
+    flags:
+      warned_walker: true
+- text: Approach. Offer to trade. Quiet.
+  next: act2/random_walker_trade
+- text: Walk on. Keep him out of your story.
+  next: act2/checkpoint_approach
+  effects:
+    stats:
+      bond: -1

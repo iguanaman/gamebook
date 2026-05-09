@@ -1,16 +1,18 @@
 text:
-  - |-
-    You walk back through the gate. Sully says something you don't catch. You are not stopping for it.
-  - |-
-    The truck is where Wren said it would be — short of the kerb, two blocks down, parked on a verge. The keys you have been carrying since the eastern arterial slot in the way keys do for a vehicle that has been waiting for them.
-  - |-
-    The engine catches on the second turn. The far-jetty group is across the water and you can see two of their heads come up at the noise. They start to turn. The marina hears it too. Sully looks back at the gate.
-  - |-
-    You take the access road around the seawall side, fast, and you put the truck on the verge above the boathouse. The seawall is below you now — Tomás and his three are off to your right at the apron's far end, looking up. You have come round the long way in five minutes.
-  - |-
-    The boathouse door is at the foot of a short ramp. The engine ticks behind you. You leave the keys in.
-
+- You walk back through the gate. Sully says something you don't catch. You are not
+  stopping for it.
+- The truck is where Wren said it would be — short of the kerb, two blocks down, parked
+  on a verge. The keys you have been carrying since the eastern arterial slot in the
+  way keys do for a vehicle that has been waiting for them.
+- The engine catches on the second turn. The far-jetty group is across the water and
+  you can see two of their heads come up at the noise. They start to turn. The marina
+  hears it too. Sully looks back at the gate.
+- You take the access road around the seawall side, fast, and you put the truck on
+  the verge above the boathouse. The seawall is below you now — Tomás and his three
+  are off to your right at the apron's far end, looking up. You have come round the
+  long way in five minutes.
+- The boathouse door is at the foot of a short ramp. The engine ticks behind you.
+  You leave the keys in.
 choices:
-  - text: |-
-      Park. Get out. Walk to the boathouse.
-    next: act3/marina_hub
+- text: Park. Get out. Walk to the boathouse.
+  next: act3/marina_hub

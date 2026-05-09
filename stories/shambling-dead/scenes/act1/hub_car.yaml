@@ -1,31 +1,27 @@
 text:
-  - |-
-    The car is a hatchback you have seen parked at the corner shop a hundred times. Driver's door wide. Keys still in the ignition. A coffee cup in the holder, a skin on the surface of the coffee.
-  - |-
-    The cabin smells of someone's morning. The boot is closed. You don't know what's in it until you open it.
-  - |-
-    The thing standing in the road has turned its head a quarter, listening.
-
+- The car is a hatchback you have seen parked at the corner shop a hundred times.
+  Driver's door wide. Keys still in the ignition. A coffee cup in the holder, a skin
+  on the surface of the coffee.
+- The cabin smells of someone's morning. The boot is closed. You don't know what's
+  in it until you open it.
+- The thing standing in the road has turned its head a quarter, listening.
 choices:
-  - text: |-
-      Force the driver's door wider. Sweep the cabin.
-    next:
-      - scene: act1/hub_car_supplies
-        weight: 3
-      - scene: act1/hub_car_alarm
-        weight: 2
-      - scene: act1/hub_car_nothing
-        weight: 2
-  - text: |-
-      Just check the boot. Quieter.
-    next:
-      - scene: act1/hub_car_supplies
-        weight: 2
-      - scene: act1/hub_car_nothing
-        weight: 3
-  - text: |-
-      Skip it. Back to the street.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        hub_visits: 1
+- text: Force the driver's door wider. Sweep the cabin.
+  next:
+  - scene: act1/hub_car_supplies
+    weight: 3
+  - scene: act1/hub_car_alarm
+    weight: 2
+  - scene: act1/hub_car_nothing
+    weight: 2
+- text: Just check the boot. Quieter.
+  next:
+  - scene: act1/hub_car_supplies
+    weight: 2
+  - scene: act1/hub_car_nothing
+    weight: 3
+- text: Skip it. Back to the street.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      hub_visits: 1

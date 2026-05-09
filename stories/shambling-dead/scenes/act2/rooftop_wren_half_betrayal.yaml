@@ -1,22 +1,21 @@
-journal: |-
-  You confronted Wren on the rooftop. She fought you and left.
+journal: You confronted Wren on the rooftop. She fought you and left.
 text:
-  - |-
-    She does not show you the bag. She steps back from your hand on the strap and the dryness comes off her face the wrong way — not honest, *cornered*.
-  - female_adult_american_droll_wry_dry: |-
-      You don't know me well enough for this.
-  - |-
-    There is a half-second where you could have said something and you don't have it. She gets her shoulder past your shoulder. The bag does not come off her. She gets the stairwell door open and a can out of your pack as she goes — one can, the one nearest her hand, no pistol, no bandage roll, just the can and the door closing behind her.
-  - |-
-    The dead two floors down hear the door go and the hum becomes a voice. She takes her chances with them. You don't go after her.
-
+- She does not show you the bag. She steps back from your hand on the strap and the
+  dryness comes off her face the wrong way — not honest, *cornered*.
+- female_adult_american_droll_wry_dry: You don't know me well enough for this.
+- There is a half-second where you could have said something and you don't have it.
+  She gets her shoulder past your shoulder. The bag does not come off her. She gets
+  the stairwell door open and a can out of your pack as she goes — one can, the one
+  nearest her hand, no pistol, no bandage roll, just the can and the door closing
+  behind her.
+- The dead two floors down hear the door go and the hum becomes a voice. She takes
+  her chances with them. You don't go after her.
 choices:
-  - text: |-
-      Let her go. Don't escalate.
-    next: act2/rooftop_bond_beat_betrayed
-    effects:
-      stats:
-        supplies: -1
-      flags:
-        stranger_alive: false
-        betrayed_by_wren: true
+- text: Let her go. Don't escalate.
+  next: act2/rooftop_bond_beat_betrayed
+  effects:
+    stats:
+      supplies: -1
+    flags:
+      stranger_alive: false
+      betrayed_by_wren: true

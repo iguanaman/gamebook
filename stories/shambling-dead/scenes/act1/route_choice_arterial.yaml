@@ -1,101 +1,112 @@
 text:
-  - |-
-    The cul-de-sac empties onto the arterial — the four-lane that takes you out toward the city, or used to. The traffic lights are on. Nothing is moving under them except a plastic bag.
-  - |-
-    Behind you, the horde from your street is rounding the corner. Not fast. Constant. The sound of them has become a single sound now, the way rain is a single sound.
-  - |-
-    Three ways from here.
-  - |-
-    North, the highway underpass — open ground for a hundred yards, no cover, but you can see a long way. There is a single shambler under it, oriented at the wall, doing nothing. One.
-  - |-
-    East, the apartment courtyards — concrete blocks four storeys tall, washing lines, a cut-through between buildings. Two figures in the courtyard. They are walking the way they walk now.
-  - |-
-    Down — a storm-drain mouth set into the kerb, the grate already pulled aside by someone who is not here anymore. Dark. Cool air coming up out of it. Quiet, in the way deep water is quiet.
-  - if: {flags: [dale_helped]}
-    text: |-
-      Dale is at your elbow, breathing through his teeth. He has lived on this street for twenty years.
-  - if: {flags: [dale_helped]}
-    male_midlife_american_dark_tough: |-
-      Underpass is where I'd send a stranger. Apartments is where I'd go myself. Drain is — [pause] — the drain is where you go when you've stopped thinking.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is at your other side, both hands wrapped around the strap of his backpack like he's holding it down. He is staring at the storm drain.
-  - if: {flags: [teen_alive]}
-    male_young_american_weak: |-
-      Not — not down there. Please. Anywhere but down there.
-  - |-
-    The horde is half a block back. You can hear the wet of them now under the moaning. You have to choose.
-
+- The cul-de-sac empties onto the arterial — the four-lane that takes you out toward
+  the city, or used to. The traffic lights are on. Nothing is moving under them except
+  a plastic bag.
+- Behind you, the horde from your street is rounding the corner. Not fast. Constant.
+  The sound of them has become a single sound now, the way rain is a single sound.
+- Three ways from here.
+- North, the highway underpass — open ground for a hundred yards, no cover, but you
+  can see a long way. There is a single shambler under it, oriented at the wall, doing
+  nothing. One.
+- East, the apartment courtyards — concrete blocks four storeys tall, washing lines,
+  a cut-through between buildings. Two figures in the courtyard. They are walking
+  the way they walk now.
+- Down — a storm-drain mouth set into the kerb, the grate already pulled aside by
+  someone who is not here anymore. Dark. Cool air coming up out of it. Quiet, in the
+  way deep water is quiet.
+- if:
+    flags:
+    - dale_helped
+  text: Dale is at your elbow, breathing through his teeth. He has lived on this street
+    for twenty years.
+- if:
+    flags:
+    - dale_helped
+  male_midlife_american_dark_tough: Underpass is where I'd send a stranger. Apartments
+    is where I'd go myself. Drain is — [pause] — the drain is where you go when you've
+    stopped thinking.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is at your other side, both hands wrapped around the strap of his backpack
+    like he's holding it down. He is staring at the storm drain.
+- if:
+    flags:
+    - teen_alive
+  male_young_american_weak: Not — not down there. Please. Anywhere but down there.
+- The horde is half a block back. You can hear the wet of them now under the moaning.
+  You have to choose.
 choices:
-  - text: |-
-      North. Highway underpass. Open ground.
-    next: act1/dale_decision_corridor
-    requires:
-      flags: [dale_helped]
-    effects:
-      flags:
-        route_underpass: true
-    hide_if_failed: true
-  - text: |-
-      North. Highway underpass. Open ground.
-    next: act1/act1_exit_router
-    requires:
-      flags_unset: [dale_helped]
-    effects:
-      flags:
-        route_underpass: true
-    hide_if_failed: true
-  - text: |-
-      East. Through the apartment courtyards.
-    next: act1/dale_decision_corridor
-    requires:
-      flags: [dale_helped]
-    effects:
-      flags:
-        route_apartments: true
-    hide_if_failed: true
-  - text: |-
-      East. Through the apartment courtyards.
-    next: act1/act1_exit_router
-    requires:
-      flags_unset: [dale_helped]
-    effects:
-      flags:
-        route_apartments: true
-    hide_if_failed: true
-  - text: |-
-      Down. The storm drain. Looks empty.
-    next: act1/dale_decision_corridor
-    requires:
-      flags: [dale_helped]
-    effects:
-      flags:
-        route_sewer: true
-    hide_if_failed: true
-  - text: |-
-      Down. The storm drain. Looks empty.
-    next: act1/act1_exit_router
-    requires:
-      flags_unset: [dale_helped]
-    effects:
-      flags:
-        route_sewer: true
-    hide_if_failed: true
-  - text: |-
-      Talk to Dale first. He'd know these streets.
-    next: act1/talk_dale_hub
-    requires:
-      flags: [dale_helped]
-      flags_unset: [talked_dale_done]
-    failed_text: |-
-      *(Not now — or not anymore.)*
-  - text: |-
-      Ask Caleb which way.
-    next: act1/caleb_route_bark
-    requires:
-      flags: [teen_alive]
-      flags_unset: [asked_caleb_route]
-    effects:
-      flags:
-        asked_caleb_route: true
-    hide_if_failed: true
+- text: North. Highway underpass. Open ground.
+  next: act1/dale_decision_corridor
+  requires:
+    flags:
+    - dale_helped
+  effects:
+    flags:
+      route_underpass: true
+  hide_if_failed: true
+- text: North. Highway underpass. Open ground.
+  next: act1/act1_exit_router
+  requires:
+    flags_unset:
+    - dale_helped
+  effects:
+    flags:
+      route_underpass: true
+  hide_if_failed: true
+- text: East. Through the apartment courtyards.
+  next: act1/dale_decision_corridor
+  requires:
+    flags:
+    - dale_helped
+  effects:
+    flags:
+      route_apartments: true
+  hide_if_failed: true
+- text: East. Through the apartment courtyards.
+  next: act1/act1_exit_router
+  requires:
+    flags_unset:
+    - dale_helped
+  effects:
+    flags:
+      route_apartments: true
+  hide_if_failed: true
+- text: Down. The storm drain. Looks empty.
+  next: act1/dale_decision_corridor
+  requires:
+    flags:
+    - dale_helped
+  effects:
+    flags:
+      route_sewer: true
+  hide_if_failed: true
+- text: Down. The storm drain. Looks empty.
+  next: act1/act1_exit_router
+  requires:
+    flags_unset:
+    - dale_helped
+  effects:
+    flags:
+      route_sewer: true
+  hide_if_failed: true
+- text: Talk to Dale first. He'd know these streets.
+  next: act1/talk_dale_hub
+  requires:
+    flags:
+    - dale_helped
+    flags_unset:
+    - talked_dale_done
+  failed_text: '*(Not now — or not anymore.)*'
+- text: Ask Caleb which way.
+  next: act1/caleb_route_bark
+  requires:
+    flags:
+    - teen_alive
+    flags_unset:
+    - asked_caleb_route
+  effects:
+    flags:
+      asked_caleb_route: true
+  hide_if_failed: true

@@ -1,12 +1,11 @@
 text:
-  - |-
-    Alone on the road. Your shadow is the only one. You knew that already. You keep noticing it again every time the road bends.
-  - |-
-    A man at a bus stop two blocks up — slumped, dark coat, broad in the shoulders the way Dale was broad in the shoulders. From behind he looks like him. He is not him. You have already done what you did about him.
-  - |-
-    The chord of the city has a single throat detached from the rest. It stops moaning when you stop walking. You start walking again.
-
+- Alone on the road. Your shadow is the only one. You knew that already. You keep
+  noticing it again every time the road bends.
+- A man at a bus stop two blocks up — slumped, dark coat, broad in the shoulders the
+  way Dale was broad in the shoulders. From behind he looks like him. He is not him.
+  You have already done what you did about him.
+- The chord of the city has a single throat detached from the rest. It stops moaning
+  when you stop walking. You start walking again.
 choices:
-  - text: |-
-      Keep moving.
-    next: act2/route_resolve
+- text: Keep moving.
+  next: act2/route_resolve

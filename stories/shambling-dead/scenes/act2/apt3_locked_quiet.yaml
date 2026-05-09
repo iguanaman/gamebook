@@ -1,20 +1,22 @@
 text:
-  - |-
-    The lock takes a minute and a half. You are not a locksmith but the door is older than its hardware and the panel under the handle gives to the right kind of pressure. The Yale clicks. The deadbolt comes back the way deadbolts do when nobody is on the other side to argue.
-  - |-
-    Inside: a single room, curtain half-drawn. A man on the floor by the window — older, dressed, two days dead from the look of him, no bite you can see. A canvas bag at his hip, half-packed. A radio on the windowsill, plugged into a battery, the dial pegged to a frequency that is not the emergency loop.
-  - |-
-    A woman's voice, taped, clear: *Survivors. Eastern marina. River crossing held. Forty-one degrees, one-eight north — eighty-seven degrees, four-three west. Repeat.* The line cycles.
-  - |-
-    The stairwell hums on, the way it has been humming. You did not give it anything.
-
+- The lock takes a minute and a half. You are not a locksmith but the door is older
+  than its hardware and the panel under the handle gives to the right kind of pressure.
+  The Yale clicks. The deadbolt comes back the way deadbolts do when nobody is on
+  the other side to argue.
+- 'Inside: a single room, curtain half-drawn. A man on the floor by the window — older,
+  dressed, two days dead from the look of him, no bite you can see. A canvas bag at
+  his hip, half-packed. A radio on the windowsill, plugged into a battery, the dial
+  pegged to a frequency that is not the emergency loop.'
+- 'A woman''s voice, taped, clear: *Survivors. Eastern marina. River crossing held.
+  Forty-one degrees, one-eight north — eighty-seven degrees, four-three west. Repeat.*
+  The line cycles.'
+- The stairwell hums on, the way it has been humming. You did not give it anything.
 choices:
-  - text: |-
-      Pocket the radio frequency. Back to the stairwell.
-    next: act2/apartments_courtyard
-    effects:
-      stats:
-        supplies: 1
-        apartments_visits: 1
-      flags:
-        heard_marina: true
+- text: Pocket the radio frequency. Back to the stairwell.
+  next: act2/apartments_courtyard
+  effects:
+    stats:
+      supplies: 1
+      apartments_visits: 1
+    flags:
+      heard_marina: true

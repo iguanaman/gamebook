@@ -1,45 +1,54 @@
 text:
-  - if: {flags_unset: [asked_ruth_church, asked_ruth_son, asked_ruth_mirror]}
-    text: |-
-      She pours hot water over a tea bag that has been used at least once before. Two mugs. She sits across from you on the chest in the vestry and folds her hands over the seam of her cardigan.
-  - if: visited
-    text: |-
-      The mug is still warm. She's still here. The scratching past the vestry wall is still here. Three things in this room, in their places.
-  - female_elder_american_relatable_likeable: |-
-      All right, sweetheart. You've got questions and I've got a few minutes before the next thing wants something from one of us. Ask.
-  - if: {flags_unset: [ruth_room_break]}
-    text: |-
-      Somewhere off the nave, a sound — soft, throat-shaped. She stops with the mug halfway to her mouth. Listens. Does not look toward it. Sets the mug down.
-  - if: {flags_unset: [ruth_room_break]}
-    female_elder_american_relatable_likeable: |-
-      The pipes in this place. Honestly.
-  - if: {flags_unset: [ruth_room_break]}
-    text: |-
-      She picks the mug back up. She drinks from it. The hands are not quite steady on the way down.
-
+- if:
+    flags_unset:
+    - asked_ruth_church
+    - asked_ruth_son
+    - asked_ruth_mirror
+  text: She pours hot water over a tea bag that has been used at least once before.
+    Two mugs. She sits across from you on the chest in the vestry and folds her hands
+    over the seam of her cardigan.
+- if: visited
+  text: The mug is still warm. She's still here. The scratching past the vestry wall
+    is still here. Three things in this room, in their places.
+- female_elder_american_relatable_likeable: All right, sweetheart. You've got questions
+    and I've got a few minutes before the next thing wants something from one of us.
+    Ask.
+- if:
+    flags_unset:
+    - ruth_room_break
+  text: Somewhere off the nave, a sound — soft, throat-shaped. She stops with the
+    mug halfway to her mouth. Listens. Does not look toward it. Sets the mug down.
+- if:
+    flags_unset:
+    - ruth_room_break
+  female_elder_american_relatable_likeable: The pipes in this place. Honestly.
+- if:
+    flags_unset:
+    - ruth_room_break
+  text: She picks the mug back up. She drinks from it. The hands are not quite steady
+    on the way down.
 choices:
-  - text: |-
-      The church. How long have you been here?
-    next: act2/talk_ruth_church
-    requires:
-      flags_unset: [asked_ruth_church]
-    hide_if_failed: true
-  - text: |-
-      Your son.
-    next: act2/talk_ruth_son
-    requires:
-      flags_unset: [asked_ruth_son]
-    hide_if_failed: true
-  - text: |-
-      What do you make of me?
-    next: act2/talk_ruth_mirror
-    requires:
-      flags_unset: [asked_ruth_mirror]
-    hide_if_failed: true
-  - text: |-
-      Time to move. Out.
-    next: act2/mara_approach
-    effects:
-      flags:
-        talked_ruth_done: true
-        ruth_room_break: true
+- text: The church. How long have you been here?
+  next: act2/talk_ruth_church
+  requires:
+    flags_unset:
+    - asked_ruth_church
+  hide_if_failed: true
+- text: Your son.
+  next: act2/talk_ruth_son
+  requires:
+    flags_unset:
+    - asked_ruth_son
+  hide_if_failed: true
+- text: What do you make of me?
+  next: act2/talk_ruth_mirror
+  requires:
+    flags_unset:
+    - asked_ruth_mirror
+  hide_if_failed: true
+- text: Time to move. Out.
+  next: act2/mara_approach
+  effects:
+    flags:
+      talked_ruth_done: true
+      ruth_room_break: true

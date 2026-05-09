@@ -1,16 +1,16 @@
 text:
-  - |-
-    You crouch on the top step. From here you can see what the panic at the front door wouldn't let you see.
-  - |-
-    Dale's right trouser leg is torn high on the inner thigh — not at the knee, not at the shin where you'd tear cloth dragging yourself across grass. *High*. The cloth is split outward, not inward. The dark patch has a shape to it; it is not blood from a graze.
-  - |-
-    He is holding the leg flat against the lawn so you cannot see the underside. He is doing this on purpose.
-  - male_midlife_american_dark_tough: |-
-      Caught it on a fence climbing out the back. Stupid. Hurts like hell.
-  - |-
-    The lawn-thing across the road shifts its weight. You have been still long enough that the cocked head is starting to track sounds.
-
+- You crouch on the top step. From here you can see what the panic at the front door
+  wouldn't let you see.
+- Dale's right trouser leg is torn high on the inner thigh — not at the knee, not
+  at the shin where you'd tear cloth dragging yourself across grass. *High*. The cloth
+  is split outward, not inward. The dark patch has a shape to it; it is not blood
+  from a graze.
+- He is holding the leg flat against the lawn so you cannot see the underside. He
+  is doing this on purpose.
+- male_midlife_american_dark_tough: Caught it on a fence climbing out the back. Stupid.
+    Hurts like hell.
+- The lawn-thing across the road shifts its weight. You have been still long enough
+  that the cocked head is starting to track sounds.
 choices:
-  - text: |-
-      Back to the porch. Decide now.
-    next: act1/front_door_porch
+- text: Back to the porch. Decide now.
+  next: act1/front_door_porch

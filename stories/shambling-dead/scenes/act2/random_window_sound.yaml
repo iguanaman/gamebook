@@ -1,18 +1,13 @@
 text:
-  - |-
-    A window in a row-house above the service road. Open six inches. Behind it, a sound — a chair leg dragged across a floor, then a voice. One syllable. Not a word.
-  - |-
-    Then quiet. Then the chair leg again.
-  - |-
-    Could be someone alive in there, hurt, calling. Could be a curtain on a body's foot.
-
+- A window in a row-house above the service road. Open six inches. Behind it, a sound
+  — a chair leg dragged across a floor, then a voice. One syllable. Not a word.
+- Then quiet. Then the chair leg again.
+- Could be someone alive in there, hurt, calling. Could be a curtain on a body's foot.
 choices:
-  - text: |-
-      Investigate. Maybe someone is alive in there.
-    next: act2/random_window_inside
-    effects:
-      stats:
-        supplies: -1
-  - text: |-
-      Mark the door. Walk on.
-    next: act2/checkpoint_approach
+- text: Investigate. Maybe someone is alive in there.
+  next: act2/random_window_inside
+  effects:
+    stats:
+      supplies: -1
+- text: Mark the door. Walk on.
+  next: act2/checkpoint_approach

@@ -1,15 +1,15 @@
 text:
-  - |-
-    You take the kayak back. Third trip. The water is what it is. The dead are what they are. The plop-and-drag of the dock-side body is in the same water you are in now, and you have stopped pretending it is not.
-  - |-
-    You row. The yellow plastic is loud. The far bank rises a third time. Mara is on the rocks. The adult is on the rocks. They are holding each other and you have minutes left in your arms.
-  - |-
-    You make it. Your hands are bleeding. Your arms are not yours. The far bank is what is under you.
-
+- You take the kayak back. Third trip. The water is what it is. The dead are what
+  they are. The plop-and-drag of the dock-side body is in the same water you are in
+  now, and you have stopped pretending it is not.
+- You row. The yellow plastic is loud. The far bank rises a third time. Mara is on
+  the rocks. The adult is on the rocks. They are holding each other and you have minutes
+  left in your arms.
+- You make it. Your hands are bleeding. Your arms are not yours. The far bank is what
+  is under you.
 choices:
-  - text: |-
-      Pull. Don't stop.
-    next: act3/endings_router
-    effects:
-      stats:
-        health: -1
+- text: Pull. Don't stop.
+  next: act3/endings_router
+  effects:
+    stats:
+      health: -1

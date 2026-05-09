@@ -1,21 +1,19 @@
 text:
-  - |-
-    Your knee catches the steering column on the way out. The ignition coughs once — half a second of starter motor, the loudest thing in the cul-de-sac since your front door opened.
-  - |-
-    The thing in the road is no longer in the road. It is walking. The two between the Carters' house are walking too. Heads up now, not down.
-
+- Your knee catches the steering column on the way out. The ignition coughs once —
+  half a second of starter motor, the loudest thing in the cul-de-sac since your front
+  door opened.
+- The thing in the road is no longer in the road. It is walking. The two between the
+  Carters' house are walking too. Heads up now, not down.
 choices:
-  - text: |-
-      Out of the car. Walk fast. Don't run.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        home_loud_count: 1
-        hub_visits: 1
-  - text: |-
-      Run.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        home_loud_count: 1
-        hub_visits: 1
+- text: Out of the car. Walk fast. Don't run.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      home_loud_count: 1
+      hub_visits: 1
+- text: Run.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      home_loud_count: 1
+      hub_visits: 1

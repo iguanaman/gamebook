@@ -1,22 +1,18 @@
 text:
-  - |-
-    You step onto the gangplank. The plank has the give of a thing that has been crossed too many times this week. Vance does not move.
-  - female_adult_american_sultry_villainous: |-
-      One. Two. Three.
-  - |-
-    She has not raised her voice. She is reading the dock the way she reads the clipboard. The hand near the keys at her belt is also near the holster.
-  - |-
-    Mara is on the deck. The adult is on the deck. You are on the plank. The plank has one foot of give left in it.
-
+- You step onto the gangplank. The plank has the give of a thing that has been crossed
+  too many times this week. Vance does not move.
+- female_adult_american_sultry_villainous: One. Two. Three.
+- She has not raised her voice. She is reading the dock the way she reads the clipboard.
+  The hand near the keys at her belt is also near the holster.
+- Mara is on the deck. The adult is on the deck. You are on the plank. The plank has
+  one foot of give left in it.
 choices:
-  - text: |-
-      Step on. She lets you on.
-    next: act3/endings_router
-    requires:
-      stats:
-        bond: 5
-        supplies: 5
-    hide_if_failed: true
-  - text: |-
-      Step on. She counts again.
-    next: act3/death_d_threading_fail
+- text: Step on. She lets you on.
+  next: act3/endings_router
+  requires:
+    stats:
+      bond: 5
+      supplies: 5
+  hide_if_failed: true
+- text: Step on. She counts again.
+  next: act3/death_d_threading_fail

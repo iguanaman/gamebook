@@ -1,84 +1,106 @@
 text:
-  - |-
-    The roof has corners. Concrete bollards. Bags down. The wind moves cold off the river. The radio in the next block over is still looping Hollis's spoof and will be all night.
-  - if: {flags: [met_wren], flags_unset: [stranger_alive]}
-    text: |-
-      Wren is not on the roof. The wind moves the smoke and you do not look for her in it.
-  - if: {flags: [refused_wren, stranger_alive]}
-    text: |-
-      Wren is not on the roof either. She had her own road. You hope she found it.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth is sitting against the parapet with her cardigan pulled tight, the reading-glasses chain tapping against her chest in the wind. She looks at the city the way an older woman looks at a thing she has already grieved.
-    else: |-
-      The party — what is left of it — settles where the wind is least sharp.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb is on the concrete picking at his thumb. The scab from the cul-de-sac has come open again. He does not notice. The school lanyard is still around his neck.
-  - if: {flags: [neighbour_alive]}
-    text: |-
-      Dale is favouring the leg. He sits down slow. He turns the wedding band with his thumb and he does not pretend tonight that he is not.
-  - if: {flags: [child_rescued]}
-    text: |-
-      Mara is asleep against your hip in two breaths. Her shoes are still on the wrong feet. You have not corrected it. She did them herself.
-  - |-
-    Below the parapet, in the stairwell, the dead are working on a fire door. The building hums with it. Two floors down, slow, patient. They have all night too.
-
+- The roof has corners. Concrete bollards. Bags down. The wind moves cold off the
+  river. The radio in the next block over is still looping Hollis's spoof and will
+  be all night.
+- if:
+    flags:
+    - met_wren
+    flags_unset:
+    - stranger_alive
+  text: Wren is not on the roof. The wind moves the smoke and you do not look for
+    her in it.
+- if:
+    flags:
+    - refused_wren
+    - stranger_alive
+  text: Wren is not on the roof either. She had her own road. You hope she found it.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth is sitting against the parapet with her cardigan pulled tight, the reading-glasses
+    chain tapping against her chest in the wind. She looks at the city the way an
+    older woman looks at a thing she has already grieved.
+  else: The party — what is left of it — settles where the wind is least sharp.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb is on the concrete picking at his thumb. The scab from the cul-de-sac
+    has come open again. He does not notice. The school lanyard is still around his
+    neck.
+- if:
+    flags:
+    - neighbour_alive
+  text: Dale is favouring the leg. He sits down slow. He turns the wedding band with
+    his thumb and he does not pretend tonight that he is not.
+- if:
+    flags:
+    - child_rescued
+  text: Mara is asleep against your hip in two breaths. Her shoes are still on the
+    wrong feet. You have not corrected it. She did them herself.
+- Below the parapet, in the stairwell, the dead are working on a fire door. The building
+  hums with it. Two floors down, slow, patient. They have all night too.
 choices:
-  - text: |-
-      Engage. Listen.
-    next: act2/rooftop_bond_beat
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Keep watch alone. Let them rest.
-    next: act2/rooftop_bond_beat
-    requires:
-      flags: [neighbour_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Keep watch alone. Let them rest.
-    next: act2/rooftop_bond_beat
-    requires:
-      flags: [teen_alive]
-      flags_unset: [neighbour_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Keep watch alone. Let them rest.
-    next: act2/rooftop_bond_beat
-    requires:
-      flags: [elder_alive]
-      flags_unset: [neighbour_alive, teen_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Keep watch alone. Let them rest.
-    next: act2/rooftop_bond_beat
-    requires:
-      flags: [child_rescued]
-      flags_unset: [neighbour_alive, teen_alive, elder_alive]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: 1
-  - text: |-
-      Keep watch alone. No one to rest.
-    next: act2/rooftop_bond_beat
-    requires:
-      flags_unset: [neighbour_alive, teen_alive, elder_alive, child_rescued]
-    hide_if_failed: true
-  - text: |-
-      Sit alone. Don't speak.
-    next: act2/rooftop_bond_beat
-    effects:
-      stats:
-        bond: -1
+- text: Engage. Listen.
+  next: act2/rooftop_bond_beat
+  effects:
+    stats:
+      bond: 1
+- text: Keep watch alone. Let them rest.
+  next: act2/rooftop_bond_beat
+  requires:
+    flags:
+    - neighbour_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: 1
+- text: Keep watch alone. Let them rest.
+  next: act2/rooftop_bond_beat
+  requires:
+    flags:
+    - teen_alive
+    flags_unset:
+    - neighbour_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: 1
+- text: Keep watch alone. Let them rest.
+  next: act2/rooftop_bond_beat
+  requires:
+    flags:
+    - elder_alive
+    flags_unset:
+    - neighbour_alive
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: 1
+- text: Keep watch alone. Let them rest.
+  next: act2/rooftop_bond_beat
+  requires:
+    flags:
+    - child_rescued
+    flags_unset:
+    - neighbour_alive
+    - teen_alive
+    - elder_alive
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: 1
+- text: Keep watch alone. No one to rest.
+  next: act2/rooftop_bond_beat
+  requires:
+    flags_unset:
+    - neighbour_alive
+    - teen_alive
+    - elder_alive
+    - child_rescued
+  hide_if_failed: true
+- text: Sit alone. Don't speak.
+  next: act2/rooftop_bond_beat
+  effects:
+    stats:
+      bond: -1

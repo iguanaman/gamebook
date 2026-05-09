@@ -1,52 +1,75 @@
 text:
-  - |-
-    Dawn comes in like dirty water. Day three. The light is the colour of an old bruise and the river is somewhere ahead — you cannot see it yet, but you can hear it. Open water. The first open sound in two days, and the dead can hear it too.
-  - |-
-    Behind you, the chord. The cul-de-sac horde you walked away from on day one, the apartments-block dead, the church side-door ones, the camp's perimeter — all of it has rolled together by attrition into one long throat at your back, and it is closer this morning than it was last night. There is a nearer one in it now, working a fence three streets back. You can hear that one separate.
-  - if: {flags: [child_rescued]}
-    text: |-
-      Mara walks where you walk. She has the strap of your bag in one hand and she has not let go of it since the rooftop. She does not ask about the noise behind. She has decided not to.
-  - if: {flags: [neighbour_alive, dale_bitten]}
-    text: |-
-      Dale is sweating through the cloth. He is no longer angling the leg away. He has stopped turning the wedding band. He is keeping up, and the keeping-up is the work he is doing.
-  - if: {flags: [neighbour_alive], flags_unset: [dale_bitten]}
-    text: |-
-      Dale is favouring the leg. He named the next street before you asked. The leg is just hurt. He is keeping up.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb has stopped picking the thumb. The scab has finished bleeding on its own. He walks closer to you than he did yesterday and does not pretend not to.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth has the cardigan pulled tight. She is finishing her sentences. The reading-glasses chain is tapping at her chest as she walks.
-  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
-    text: |-
-      Wren is half a step behind your right shoulder. The bag is across her body. She has not opened it.
-  - |-
-    Two blocks ahead of you, on the corner of the arterial, there is a pharmacy with the front shutter wrenched up. The glass is gone. The signage still reads. Beyond it, the road east — and beyond that, the river.
-
+- Dawn comes in like dirty water. Day three. The light is the colour of an old bruise
+  and the river is somewhere ahead — you cannot see it yet, but you can hear it. Open
+  water. The first open sound in two days, and the dead can hear it too.
+- Behind you, the chord. The cul-de-sac horde you walked away from on day one, the
+  apartments-block dead, the church side-door ones, the camp's perimeter — all of
+  it has rolled together by attrition into one long throat at your back, and it is
+  closer this morning than it was last night. There is a nearer one in it now, working
+  a fence three streets back. You can hear that one separate.
+- if:
+    flags:
+    - child_rescued
+  text: Mara walks where you walk. She has the strap of your bag in one hand and she
+    has not let go of it since the rooftop. She does not ask about the noise behind.
+    She has decided not to.
+- if:
+    flags:
+    - neighbour_alive
+    - dale_bitten
+  text: Dale is sweating through the cloth. He is no longer angling the leg away.
+    He has stopped turning the wedding band. He is keeping up, and the keeping-up
+    is the work he is doing.
+- if:
+    flags:
+    - neighbour_alive
+    flags_unset:
+    - dale_bitten
+  text: Dale is favouring the leg. He named the next street before you asked. The
+    leg is just hurt. He is keeping up.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb has stopped picking the thumb. The scab has finished bleeding on its
+    own. He walks closer to you than he did yesterday and does not pretend not to.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth has the cardigan pulled tight. She is finishing her sentences. The reading-glasses
+    chain is tapping at her chest as she walks.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - betrayed_by_wren
+  text: Wren is half a step behind your right shoulder. The bag is across her body.
+    She has not opened it.
+- Two blocks ahead of you, on the corner of the arterial, there is a pharmacy with
+  the front shutter wrenched up. The glass is gone. The signage still reads. Beyond
+  it, the road east — and beyond that, the river.
 choices:
-  - text: |-
-      Pharmacy. We need bandages and bullets.
-    next: act2/pharmacy_entry
-    requires:
-      flags_unset: [looted_pharmacy]
-    hide_if_failed: true
-  - text: |-
-      Ruth's clinic. The key works.
-    next: act2/ruth_clinic
-    requires:
-      flags: [ruth_key]
-      flags_unset: [used_ruth_clinic]
-    failed_text: |-
-      *(There is no clinic key on this run.)*
-  - text: |-
-      Both. Clinic first, pharmacy after.
-    next: act2/ruth_clinic_then_pharmacy
-    requires:
-      flags: [ruth_key]
-      flags_unset: [used_ruth_clinic, looted_pharmacy]
-    failed_text: |-
-      *(Either the key or the pharmacy is already off the table.)*
-  - text: |-
-      Skip both. Straight to the arterial.
-    next: act2/arterial_run
+- text: Pharmacy. We need bandages and bullets.
+  next: act2/pharmacy_entry
+  requires:
+    flags_unset:
+    - looted_pharmacy
+  hide_if_failed: true
+- text: Ruth's clinic. The key works.
+  next: act2/ruth_clinic
+  requires:
+    flags:
+    - ruth_key
+    flags_unset:
+    - used_ruth_clinic
+  failed_text: '*(There is no clinic key on this run.)*'
+- text: Both. Clinic first, pharmacy after.
+  next: act2/ruth_clinic_then_pharmacy
+  requires:
+    flags:
+    - ruth_key
+    flags_unset:
+    - used_ruth_clinic
+    - looted_pharmacy
+  failed_text: '*(Either the key or the pharmacy is already off the table.)*'
+- text: Skip both. Straight to the arterial.
+  next: act2/arterial_run

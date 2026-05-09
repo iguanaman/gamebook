@@ -1,31 +1,34 @@
 text:
-  - |-
-    You stop one step short of the gate. Hand still half-raised, the way you would if you were thinking about a coat in a doorway.
-  - |-
-    Hollis keeps his hand out. He smiles — patient, not annoyed, in a way someone learns. He has waited people out before.
-  - |-
-    The road outside the wire isn't just clean. It has been *cleared*. The dead have been carried somewhere — there is a drag-track in the dust where two heels went, and the heels stopped at the ditch. Someone moved a body for a reason, and the reason was that they didn't want it where it was.
-  - |-
-    Inside the perimeter, the man on his back has those boots. The same boots as the one at the wire. You count two pairs of those boots, on two different men, one of them dead.
-  - |-
-    The quieter man at Hollis's shoulder is still looking at your bag. He has not moved his eyes since you stopped. Hollis is talking — something about the fire, something about the food. The quieter man does not check Hollis's face once.
-  - male_midlife_american_loud_confident_cocky: |-
-      [chuckle] Take your time, friend. You're already inside the wire in your head, you just haven't moved your feet.
-  - if: {flags: [child_rescued]}
-    text: |-
-      He lets his eyes go to the small one beside you, and back, with an effort that's *almost* casual.
-
+- You stop one step short of the gate. Hand still half-raised, the way you would if
+  you were thinking about a coat in a doorway.
+- Hollis keeps his hand out. He smiles — patient, not annoyed, in a way someone learns.
+  He has waited people out before.
+- The road outside the wire isn't just clean. It has been *cleared*. The dead have
+  been carried somewhere — there is a drag-track in the dust where two heels went,
+  and the heels stopped at the ditch. Someone moved a body for a reason, and the reason
+  was that they didn't want it where it was.
+- Inside the perimeter, the man on his back has those boots. The same boots as the
+  one at the wire. You count two pairs of those boots, on two different men, one of
+  them dead.
+- The quieter man at Hollis's shoulder is still looking at your bag. He has not moved
+  his eyes since you stopped. Hollis is talking — something about the fire, something
+  about the food. The quieter man does not check Hollis's face once.
+- male_midlife_american_loud_confident_cocky: '[chuckle] Take your time, friend. You''re
+    already inside the wire in your head, you just haven''t moved your feet.'
+- if:
+    flags:
+    - child_rescued
+  text: He lets his eyes go to the small one beside you, and back, with an effort
+    that's *almost* casual.
 choices:
-  - text: |-
-      Step in anyway. Now you know what you're walking into.
-    next: act2/hostile_camp
-    effects:
-      flags:
-        entered_hostile_camp: true
-        read_camp: true
-  - text: |-
-      Step back. Walk away while you can.
-    next: act2/hostile_pass_attempt
-    effects:
-      flags:
-        read_camp: true
+- text: Step in anyway. Now you know what you're walking into.
+  next: act2/hostile_camp
+  effects:
+    flags:
+      entered_hostile_camp: true
+      read_camp: true
+- text: Step back. Walk away while you can.
+  next: act2/hostile_pass_attempt
+  effects:
+    flags:
+      read_camp: true

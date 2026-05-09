@@ -1,24 +1,24 @@
 text:
-  - |-
-    The side panel is plywood and three-inch screws into a soft frame. You take the screws one at a time. The first one is fast. The second is fast. The third has been in for ten years and it remembers.
-  - |-
-    You work it out. The roof above you creaks once, twice; the wet-mouth sound moves a foot west and stays there. The pack at the seawall is louder than it was — you can hear individuals now, not the chord.
-  - |-
-    The panel gives. The kayak is inside. You take it off the rack one-handed. Tomás's group has gone — the back door has been propped open from the outside, the way a person does when they are leaving in a hurry but trying not to be loud.
-
+- The side panel is plywood and three-inch screws into a soft frame. You take the
+  screws one at a time. The first one is fast. The second is fast. The third has been
+  in for ten years and it remembers.
+- You work it out. The roof above you creaks once, twice; the wet-mouth sound moves
+  a foot west and stays there. The pack at the seawall is louder than it was — you
+  can hear individuals now, not the chord.
+- The panel gives. The kayak is inside. You take it off the rack one-handed. Tomás's
+  group has gone — the back door has been propped open from the outside, the way a
+  person does when they are leaving in a hurry but trying not to be loud.
 choices:
-  - text: |-
-      Take the kayak. Carry it to the water. Move fast.
-    next: act3/climax_setup
-    effects:
-      stats:
-        health: -1
-      flags:
-        kayak_solo: true
-  - text: |-
-      Stop halfway. Listen. Wait out a passing pack.
-    next: act3/climax_setup
-    effects:
-      flags:
-        kayak_solo: true
-        kayak_solo_clean: true
+- text: Take the kayak. Carry it to the water. Move fast.
+  next: act3/climax_setup
+  effects:
+    stats:
+      health: -1
+    flags:
+      kayak_solo: true
+- text: Stop halfway. Listen. Wait out a passing pack.
+  next: act3/climax_setup
+  effects:
+    flags:
+      kayak_solo: true
+      kayak_solo_clean: true

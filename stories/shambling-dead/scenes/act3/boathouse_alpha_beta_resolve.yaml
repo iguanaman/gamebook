@@ -1,19 +1,20 @@
 text:
-  - if: {flags: [pip_chose_you]}
-    text: |-
-      You crouch. You wait. She does not move for a count of four. Then she does — out of the foot well, two steps, a hand on your sleeve. She does not put her arms up. She has decided not to.
-    else: |-
-      You lift her out of the foot well. She weighs less than the bag. Her hands close on your collar and stay closed.
-  - female_young_american_youthful_sweet: |-
-      Pip. My name is Pip.
-  - |-
-    She tells you on the second asking, not the first. The kayak is heavy in your other hand — you are dragging it now, half-walking, towards the water side of the boathouse.
-  - |-
-    Above you the joist gives. A shingle drops, then a long wet length of something that was a person two days ago, and the boathouse roof has the shape of a man-sized hole in it for as long as it takes you to reach the door.
-  - |-
-    The river is on the other side. Pip is half-asleep against your chest before you have got the kayak to the water.
-
+- if:
+    flags:
+    - pip_chose_you
+  text: You crouch. You wait. She does not move for a count of four. Then she does
+    — out of the foot well, two steps, a hand on your sleeve. She does not put her
+    arms up. She has decided not to.
+  else: You lift her out of the foot well. She weighs less than the bag. Her hands
+    close on your collar and stay closed.
+- female_young_american_youthful_sweet: Pip. My name is Pip.
+- She tells you on the second asking, not the first. The kayak is heavy in your other
+  hand — you are dragging it now, half-walking, towards the water side of the boathouse.
+- Above you the joist gives. A shingle drops, then a long wet length of something
+  that was a person two days ago, and the boathouse roof has the shape of a man-sized
+  hole in it for as long as it takes you to reach the door.
+- The river is on the other side. Pip is half-asleep against your chest before you
+  have got the kayak to the water.
 choices:
-  - text: |-
-      To the water. Now.
-    next: act3/climax_setup
+- text: To the water. Now.
+  next: act3/climax_setup

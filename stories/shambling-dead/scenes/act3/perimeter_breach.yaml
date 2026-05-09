@@ -1,68 +1,72 @@
-journal: |-
-  The fence broke. The dead were inside the wire by mid-afternoon.
-
+journal: The fence broke. The dead were inside the wire by mid-afternoon.
 text:
-  - |-
-    Sully shouts from the back fence and the shout has nothing of the gate-guard left in it. The chain-link along the back stretch is bowing — not pushed, leaned on by weight, by more bodies than the player wanted to count. A ten-foot section folds inward. The post comes out of the concrete with a sound like a tooth being pulled.
-  - |-
-    The back third of the apron is suddenly inside-the-wire. The dead are slow. They are also already walking it.
-  - male_adult_american_casual_relaxed_light: |-
-      Breach. Breach, breach — Marrow.
-  - female_midlife_african-american_casual_opinionated: |-
-      I see it. Move.
-  - |-
-    Marrow is at the floating dock with her pole; she is moving with it before she has finished the word. Sully has a length of pipe and is looking for someone to tell him what to do with it.
-  - if: {flags: [child_rescued, child_alive]}
-    text: |-
-      Mara is at the office wall, hands flat against the cinder-block. She is not crying. She has stopped doing that.
-  - if: {flags: [teen_alive], flags_unset: [stranger_alive, elder_alive]}
-    text: |-
-      male_young_american_weak: |-
-        I — I can swing. I can swing something. Tell me where.
-  - if: {flags: [elder_alive]}
-    text: |-
-      female_elder_american_relatable_likeable: |-
-        Sweetheart. Tell me where you want me.
-  - if: {flags: [stranger_alive]}
-    text: |-
-      female_adult_american_droll_wry_dry: |-
-        I'm with you. Whichever way you go.
-  - |-
-    The breach is forty feet from where you are standing. The boathouse is the other way, behind the office, past the seawall. The office door is six feet to your left.
-
+- Sully shouts from the back fence and the shout has nothing of the gate-guard left
+  in it. The chain-link along the back stretch is bowing — not pushed, leaned on by
+  weight, by more bodies than the player wanted to count. A ten-foot section folds
+  inward. The post comes out of the concrete with a sound like a tooth being pulled.
+- The back third of the apron is suddenly inside-the-wire. The dead are slow. They
+  are also already walking it.
+- male_adult_american_casual_relaxed_light: Breach. Breach, breach — Marrow.
+- female_midlife_african-american_casual_opinionated: I see it. Move.
+- Marrow is at the floating dock with her pole; she is moving with it before she has
+  finished the word. Sully has a length of pipe and is looking for someone to tell
+  him what to do with it.
+- if:
+    flags:
+    - child_rescued
+    - child_alive
+  text: Mara is at the office wall, hands flat against the cinder-block. She is not
+    crying. She has stopped doing that.
+- if:
+    flags:
+    - teen_alive
+    flags_unset:
+    - stranger_alive
+    - elder_alive
+  text: "male_young_american_weak: |-\n  I — I can swing. I can swing something. Tell\
+    \ me where."
+- if:
+    flags:
+    - elder_alive
+  text: "female_elder_american_relatable_likeable: |-\n  Sweetheart. Tell me where\
+    \ you want me."
+- if:
+    flags:
+    - stranger_alive
+  text: "female_adult_american_droll_wry_dry: |-\n  I'm with you. Whichever way you\
+    \ go."
+- The breach is forty feet from where you are standing. The boathouse is the other
+  way, behind the office, past the seawall. The office door is six feet to your left.
 choices:
-  - text: |-
-      Hold the line at the breach. Fight.
-    next: act3/breach_fight
-    effects:
-      flags:
-        held_breach: true
-  - text: |-
-      Fight, but smart. Fall back twice. Draw them into the funnel.
-    next: act3/breach_fight
-    effects:
-      flags:
-        held_breach: true
-        held_breach_smart: true
-  - text: |-
-      Run for the boathouse.
-    next: act3/boathouse_run
-  - text: |-
-      Back to the office. Let Vance's people hold it.
-    next: act3/breach_back_off
-    effects:
-      flags:
-        dock_crew_suspicious: true
-  - text: |-
-      Drive the truck into the breach. Wedge it.
-    next: act3/breach_truck
-    requires:
-      flags: [has_keys]
-      flags_unset: [drove_truck_marina]
-    hide_if_failed: true
-    effects:
-      flags:
-        has_keys: false
-        drove_truck_marina: true
-        held_breach: true
-        truck_wedged: true
+- text: Hold the line at the breach. Fight.
+  next: act3/breach_fight
+  effects:
+    flags:
+      held_breach: true
+- text: Fight, but smart. Fall back twice. Draw them into the funnel.
+  next: act3/breach_fight
+  effects:
+    flags:
+      held_breach: true
+      held_breach_smart: true
+- text: Run for the boathouse.
+  next: act3/boathouse_run
+- text: Back to the office. Let Vance's people hold it.
+  next: act3/breach_back_off
+  effects:
+    flags:
+      dock_crew_suspicious: true
+- text: Drive the truck into the breach. Wedge it.
+  next: act3/breach_truck
+  requires:
+    flags:
+    - has_keys
+    flags_unset:
+    - drove_truck_marina
+  hide_if_failed: true
+  effects:
+    flags:
+      has_keys: false
+      drove_truck_marina: true
+      held_breach: true
+      truck_wedged: true

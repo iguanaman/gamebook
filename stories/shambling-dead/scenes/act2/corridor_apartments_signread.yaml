@@ -1,10 +1,9 @@
 text:
-  - |-
-    The sign at the corner is bent but legible. North on this artery: Belmont, the residential, the schools. South: Kerrigan Freight, the rail yards, the river-edge warehouses.
-  - |-
-    The fire escape Wren is on opens onto a street that runs *south* off this artery. You file the geography. You do not look back at her while you do.
-
+- 'The sign at the corner is bent but legible. North on this artery: Belmont, the
+  residential, the schools. South: Kerrigan Freight, the rail yards, the river-edge
+  warehouses.'
+- The fire escape Wren is on opens onto a street that runs *south* off this artery.
+  You file the geography. You do not look back at her while you do.
 choices:
-  - text: |-
-      Back to the road.
-    next: act2/corridor_apartments_1
+- text: Back to the road.
+  next: act2/corridor_apartments_1

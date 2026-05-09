@@ -1,20 +1,21 @@
 text:
-  - |-
-    Behind him, in the tent, the radio is on. A woman's voice you have heard before — the same calm rhythm as the broadcast in the apartment at the top of the stairs.
-  - if: {flags: [heard_marina]}
-    text: |-
-      You know the cadence. You know the words after the cadence. You wait for the coordinates and they come, and they are not the coordinates you heard from the apartment radio. The numbers are different. The voice is the same.
-  - |-
-    Hollis sees you listening. Hollis stops talking about the camp.
-  - male_midlife_american_loud_confident_cocky: |-
-      Hah. That. That's just the survivor frequency, friend. Everybody's got it on. Background noise. Like the tide. Tell me — that bag of yours, you carry that everywhere, or do you set it down to eat?
-  - |-
-    The subject, mid-sentence, in the same breath. You did not see him pivot. He has done it before.
-
+- Behind him, in the tent, the radio is on. A woman's voice you have heard before
+  — the same calm rhythm as the broadcast in the apartment at the top of the stairs.
+- if:
+    flags:
+    - heard_marina
+  text: You know the cadence. You know the words after the cadence. You wait for the
+    coordinates and they come, and they are not the coordinates you heard from the
+    apartment radio. The numbers are different. The voice is the same.
+- Hollis sees you listening. Hollis stops talking about the camp.
+- male_midlife_american_loud_confident_cocky: Hah. That. That's just the survivor
+    frequency, friend. Everybody's got it on. Background noise. Like the tide. Tell
+    me — that bag of yours, you carry that everywhere, or do you set it down to eat?
+- The subject, mid-sentence, in the same breath. You did not see him pivot. He has
+  done it before.
 choices:
-  - text: |-
-      Back.
-    next: act2/talk_hollis_camp
-    effects:
-      flags:
-        asked_hollis_radio: true
+- text: Back.
+  next: act2/talk_hollis_camp
+  effects:
+    flags:
+      asked_hollis_radio: true

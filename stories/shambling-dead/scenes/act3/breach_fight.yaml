@@ -1,155 +1,181 @@
 text:
-  - if: {flags: [held_breach_smart]}
-    text: |-
-      You move backwards before they reach you — not running, walking, the way Marrow is walking. Two steps back, then two, drawing the front of the dead into the gap between the office and the cinder-block wall. The funnel narrows them into ones and twos. The maths becomes possible.
-    else: |-
-      You go to the breach. Sully follows because somebody has to. The first one comes at you before you have finished deciding which side to swing from.
-  - if: {flags: [has_pistol]}
-    text: |-
-      You bring the pistol up. You have practised this on cans in a backyard fifteen years ago and not since. The first shot is too high; the second is the one that does it. The third is for the next one. You stop counting after four. The slide locks back on a magazine you do not have a second of.
-  - if: {flags: [held_breach_smart, teen_alive]}
-    text: |-
-      male_young_american_weak: |-
-        I see what you're doing. I see it.
-  - if: {flags: [held_breach_smart, elder_alive]}
-    text: |-
-      female_elder_american_relatable_likeable: |-
-        Good. Take your time, sweetheart.
-  - if: {flags: [held_breach_smart, stranger_alive]}
-    text: |-
-      female_adult_american_droll_wry_dry: |-
-        Smart. Look at us, being smart.
-  - female_midlife_african-american_casual_opinionated: |-
-      Hold this line. Don't push past it.
-  - |-
-    The breach moans — a layered chord, more throats than the player wanted to count. The cul-de-sac chord behind has merged with the breach chord. They are one sound now.
-  - if: {flags_unset: [held_breach_smart]}
-    text: |-
-      One of them gets a hand on you before you put it down. Not teeth — a hand. Cloth tears. Skin tears under the cloth. You finish it and step back and your shirt is wet.
-
+- if:
+    flags:
+    - held_breach_smart
+  text: You move backwards before they reach you — not running, walking, the way Marrow
+    is walking. Two steps back, then two, drawing the front of the dead into the gap
+    between the office and the cinder-block wall. The funnel narrows them into ones
+    and twos. The maths becomes possible.
+  else: You go to the breach. Sully follows because somebody has to. The first one
+    comes at you before you have finished deciding which side to swing from.
+- if:
+    flags:
+    - has_pistol
+  text: You bring the pistol up. You have practised this on cans in a backyard fifteen
+    years ago and not since. The first shot is too high; the second is the one that
+    does it. The third is for the next one. You stop counting after four. The slide
+    locks back on a magazine you do not have a second of.
+- if:
+    flags:
+    - held_breach_smart
+    - teen_alive
+  text: "male_young_american_weak: |-\n  I see what you're doing. I see it."
+- if:
+    flags:
+    - held_breach_smart
+    - elder_alive
+  text: "female_elder_american_relatable_likeable: |-\n  Good. Take your time, sweetheart."
+- if:
+    flags:
+    - held_breach_smart
+    - stranger_alive
+  text: "female_adult_american_droll_wry_dry: |-\n  Smart. Look at us, being smart."
+- female_midlife_african-american_casual_opinionated: Hold this line. Don't push past
+    it.
+- The breach moans — a layered chord, more throats than the player wanted to count.
+  The cul-de-sac chord behind has merged with the breach chord. They are one sound
+  now.
+- if:
+    flags_unset:
+    - held_breach_smart
+  text: One of them gets a hand on you before you put it down. Not teeth — a hand.
+    Cloth tears. Skin tears under the cloth. You finish it and step back and your
+    shirt is wet.
 choices:
-  - text: |-
-      Hold until they ease off. Then look around.
-    next: act3/breach_resolved
-    requires:
-      flags: [held_breach_smart]
-    hide_if_failed: true
-  - text: |-
-      Hold until they ease off. Then look around.
-    next: act3/breach_resolved
-    requires:
-      flags: [has_pistol]
-      flags_unset: [held_breach_smart]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-      flags:
-        has_pistol: false
-  - text: |-
-      Hold until they ease off. Then look around.
-    next: act3/breach_resolved
-    requires:
-      stats: {health: 3}
-      flags_unset: [held_breach_smart, has_pistol]
-    hide_if_failed: true
-    effects:
-      stats:
-        health: -1
-  - text: |-
-      Hold until they ease off. Then look around.
-    next: act3/breach_resolved
-    requires:
-      flags_unset: [held_breach_smart, has_pistol]
-    hide_if_failed: true
-    effects:
-      stats:
-        health: -2
-  - text: |-
-      Fall back when Marrow does. Trust her read.
-    next: act3/breach_resolved
-    requires:
-      flags: [held_breach_smart]
-    hide_if_failed: true
-    effects:
-      flags:
-        respected_marrow: true
-  - text: |-
-      Fall back when Marrow does. Trust her read.
-    next: act3/breach_resolved
-    requires:
-      flags: [has_pistol]
-      flags_unset: [held_breach_smart]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-      flags:
-        has_pistol: false
-        respected_marrow: true
-  - text: |-
-      Fall back when Marrow does. Trust her read.
-    next: act3/breach_resolved
-    requires:
-      stats: {health: 3}
-      flags_unset: [held_breach_smart, has_pistol]
-    hide_if_failed: true
-    effects:
-      stats:
-        health: -1
-      flags:
-        respected_marrow: true
-  - text: |-
-      Fall back when Marrow does. Trust her read.
-    next: act3/breach_resolved
-    requires:
-      flags_unset: [held_breach_smart, has_pistol]
-    hide_if_failed: true
-    effects:
-      stats:
-        health: -2
-      flags:
-        respected_marrow: true
-  - text: |-
-      Push past the line. Pick one. End it personally.
-    next: act3/breach_resolved
-    requires:
-      flags: [held_breach_smart]
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: -1
-  - text: |-
-      Push past the line. Pick one. End it personally.
-    next: act3/breach_resolved
-    requires:
-      flags: [has_pistol]
-      flags_unset: [held_breach_smart]
-    hide_if_failed: true
-    effects:
-      stats:
-        supplies: -1
-        bond: -1
-      flags:
-        has_pistol: false
-  - text: |-
-      Push past the line. Pick one. End it personally.
-    next: act3/breach_resolved
-    requires:
-      stats: {health: 3}
-      flags_unset: [held_breach_smart, has_pistol]
-    hide_if_failed: true
-    effects:
-      stats:
-        health: -1
-        bond: -1
-  - text: |-
-      Push past the line. Pick one. End it personally.
-    next: act3/breach_resolved
-    requires:
-      flags_unset: [held_breach_smart, has_pistol]
-    hide_if_failed: true
-    effects:
-      stats:
-        health: -2
-        bond: -1
+- text: Hold until they ease off. Then look around.
+  next: act3/breach_resolved
+  requires:
+    flags:
+    - held_breach_smart
+  hide_if_failed: true
+- text: Hold until they ease off. Then look around.
+  next: act3/breach_resolved
+  requires:
+    flags:
+    - has_pistol
+    flags_unset:
+    - held_breach_smart
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+    flags:
+      has_pistol: false
+- text: Hold until they ease off. Then look around.
+  next: act3/breach_resolved
+  requires:
+    stats:
+      health: 3
+    flags_unset:
+    - held_breach_smart
+    - has_pistol
+  hide_if_failed: true
+  effects:
+    stats:
+      health: -1
+- text: Hold until they ease off. Then look around.
+  next: act3/breach_resolved
+  requires:
+    flags_unset:
+    - held_breach_smart
+    - has_pistol
+  hide_if_failed: true
+  effects:
+    stats:
+      health: -2
+- text: Fall back when Marrow does. Trust her read.
+  next: act3/breach_resolved
+  requires:
+    flags:
+    - held_breach_smart
+  hide_if_failed: true
+  effects:
+    flags:
+      respected_marrow: true
+- text: Fall back when Marrow does. Trust her read.
+  next: act3/breach_resolved
+  requires:
+    flags:
+    - has_pistol
+    flags_unset:
+    - held_breach_smart
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+    flags:
+      has_pistol: false
+      respected_marrow: true
+- text: Fall back when Marrow does. Trust her read.
+  next: act3/breach_resolved
+  requires:
+    stats:
+      health: 3
+    flags_unset:
+    - held_breach_smart
+    - has_pistol
+  hide_if_failed: true
+  effects:
+    stats:
+      health: -1
+    flags:
+      respected_marrow: true
+- text: Fall back when Marrow does. Trust her read.
+  next: act3/breach_resolved
+  requires:
+    flags_unset:
+    - held_breach_smart
+    - has_pistol
+  hide_if_failed: true
+  effects:
+    stats:
+      health: -2
+    flags:
+      respected_marrow: true
+- text: Push past the line. Pick one. End it personally.
+  next: act3/breach_resolved
+  requires:
+    flags:
+    - held_breach_smart
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: -1
+- text: Push past the line. Pick one. End it personally.
+  next: act3/breach_resolved
+  requires:
+    flags:
+    - has_pistol
+    flags_unset:
+    - held_breach_smart
+  hide_if_failed: true
+  effects:
+    stats:
+      supplies: -1
+      bond: -1
+    flags:
+      has_pistol: false
+- text: Push past the line. Pick one. End it personally.
+  next: act3/breach_resolved
+  requires:
+    stats:
+      health: 3
+    flags_unset:
+    - held_breach_smart
+    - has_pistol
+  hide_if_failed: true
+  effects:
+    stats:
+      health: -1
+      bond: -1
+- text: Push past the line. Pick one. End it personally.
+  next: act3/breach_resolved
+  requires:
+    flags_unset:
+    - held_breach_smart
+    - has_pistol
+  hide_if_failed: true
+  effects:
+    stats:
+      health: -2
+      bond: -1

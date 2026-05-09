@@ -1,19 +1,20 @@
 text:
-  - |-
-    Clinic first. The kit, the chair, fifteen minutes you do not have to give. You give them anyway. The body comes back to you a little. Saline on the cuts that will close on their own, bandages on the ones that will not. The bottle of pain medicine into the side pocket.
-  - if: {flags: [elder_alive]}
-    text: |-
-      female_elder_american_relatable_likeable: |-
-        Now go and get the rest of it. The pharmacy. Don't be foolish in there, sweetheart.
-  - |-
-    The back door of the clinic locks behind you. Two blocks back to the pharmacy. The chord is a half-degree closer than it was when you came in.
-
+- Clinic first. The kit, the chair, fifteen minutes you do not have to give. You give
+  them anyway. The body comes back to you a little. Saline on the cuts that will close
+  on their own, bandages on the ones that will not. The bottle of pain medicine into
+  the side pocket.
+- if:
+    flags:
+    - elder_alive
+  text: "female_elder_american_relatable_likeable: |-\n  Now go and get the rest of\
+    \ it. The pharmacy. Don't be foolish in there, sweetheart."
+- The back door of the clinic locks behind you. Two blocks back to the pharmacy. The
+  chord is a half-degree closer than it was when you came in.
 choices:
-  - text: |-
-      Now the pharmacy.
-    next: act2/pharmacy_entry
-    effects:
-      stats:
-        health: 2
-      flags:
-        used_ruth_clinic: true
+- text: Now the pharmacy.
+  next: act2/pharmacy_entry
+  effects:
+    stats:
+      health: 2
+    flags:
+      used_ruth_clinic: true

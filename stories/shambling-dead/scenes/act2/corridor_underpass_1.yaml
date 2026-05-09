@@ -1,21 +1,19 @@
 text:
-  - |-
-    The underpass is open ground in a city that has stopped pretending it has any. Concrete pillars holding up six lanes of nothing. Pigeons gone. The shadows under the deck are deep enough that the dead in them are sound, not shape.
-  - |-
-    Down the slope, sandbags. A flicker of high-vis. Concertina wire across the access road. Somebody has built a checkpoint here in the last forty-eight hours.
-  - |-
-    East of you, a burst of automatic fire — three taps, then a longer one, then nothing. The chord shifts in that direction. Whatever it was drawing, it is drawing it harder now.
-
+- The underpass is open ground in a city that has stopped pretending it has any. Concrete
+  pillars holding up six lanes of nothing. Pigeons gone. The shadows under the deck
+  are deep enough that the dead in them are sound, not shape.
+- Down the slope, sandbags. A flicker of high-vis. Concertina wire across the access
+  road. Somebody has built a checkpoint here in the last forty-eight hours.
+- East of you, a burst of automatic fire — three taps, then a longer one, then nothing.
+  The chord shifts in that direction. Whatever it was drawing, it is drawing it harder
+  now.
 choices:
-  - text: |-
-      Straight to the checkpoint. Hands visible, slow.
-    next: act2/checkpoint_approach
-  - text: |-
-      Side stair. Service road. Skirt the wire on foot.
-    next: act2/corridor_underpass_random
-  - text: |-
-      Wait. Let the gunfire finish drawing.
-    next: act2/checkpoint_approach
-    effects:
-      flags:
-        learned_listen: true
+- text: Straight to the checkpoint. Hands visible, slow.
+  next: act2/checkpoint_approach
+- text: Side stair. Service road. Skirt the wire on foot.
+  next: act2/corridor_underpass_random
+- text: Wait. Let the gunfire finish drawing.
+  next: act2/checkpoint_approach
+  effects:
+    flags:
+      learned_listen: true

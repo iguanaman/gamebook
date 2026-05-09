@@ -1,7 +1,7 @@
 id: shambling-dead
 genre: Horror
 title: The Shambling Dead
-narrator: narrator_male_last-of-us_joel
+narrator: narrator_male_wayne_june
 description: You wake to screaming in your street. The dead are slow. They are also everywhere.
 cover: images/cover.jpg
 start: act1/wake_bedroom

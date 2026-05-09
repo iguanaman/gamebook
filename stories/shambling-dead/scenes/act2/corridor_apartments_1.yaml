@@ -1,41 +1,39 @@
 text:
-  - |-
-    The block runs four storeys, balconies sagging into each other, doors that hang where the frame has shifted. You pass them at a pace. From behind the closed ones — the ones still closed — comes the sound that means somebody is in the room and somebody is not coming out.
-  - |-
-    One door rattles as you pass it. Not hard. The way a door rattles when the thing on the other side has not yet figured out doors.
-  - |-
-    A fire escape on the third block. A woman on the second landing. Early thirties, hair pulled back, canvas bag at her feet. Her hand is up — not waving, not warning. The flat hand of a woman who has decided you should see her.
-  - |-
-    Her bag is on the grating, not on her shoulder. You will not know yet why that matters.
-
+- The block runs four storeys, balconies sagging into each other, doors that hang
+  where the frame has shifted. You pass them at a pace. From behind the closed ones
+  — the ones still closed — comes the sound that means somebody is in the room and
+  somebody is not coming out.
+- One door rattles as you pass it. Not hard. The way a door rattles when the thing
+  on the other side has not yet figured out doors.
+- A fire escape on the third block. A woman on the second landing. Early thirties,
+  hair pulled back, canvas bag at her feet. Her hand is up — not waving, not warning.
+  The flat hand of a woman who has decided you should see her.
+- Her bag is on the grating, not on her shoulder. You will not know yet why that matters.
 choices:
-  - text: |-
-      Lift a hand back. Acknowledge her.
-    next: act2/corridor_apartments_meet_wren
-    effects:
-      flags:
-        met_wren: true
-        acknowledged_wren: true
-  - text: |-
-      Walk past. Do not stop.
-    next: act2/corridor_apartments_random
-    effects:
-      flags:
-        met_wren: true
-        ignored_wren: true
-  - text: |-
-      Stop. Watch her watch you. See what she does.
-    next: act2/corridor_apartments_meet_wren
-    effects:
-      flags:
-        met_wren: true
-        read_wren_first: true
-  - text: |-
-      Read the road sign at the corner.
-    next: act2/corridor_apartments_signread
-    requires:
-      flags_unset: [read_road_sign]
-    hide_if_failed: true
-    effects:
-      flags:
-        read_road_sign: true
+- text: Lift a hand back. Acknowledge her.
+  next: act2/corridor_apartments_meet_wren
+  effects:
+    flags:
+      met_wren: true
+      acknowledged_wren: true
+- text: Walk past. Do not stop.
+  next: act2/corridor_apartments_random
+  effects:
+    flags:
+      met_wren: true
+      ignored_wren: true
+- text: Stop. Watch her watch you. See what she does.
+  next: act2/corridor_apartments_meet_wren
+  effects:
+    flags:
+      met_wren: true
+      read_wren_first: true
+- text: Read the road sign at the corner.
+  next: act2/corridor_apartments_signread
+  requires:
+    flags_unset:
+    - read_road_sign
+  hide_if_failed: true
+  effects:
+    flags:
+      read_road_sign: true

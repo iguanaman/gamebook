@@ -1,21 +1,18 @@
 text:
-  - |-
-    Tomás and Iris are at the water side of the boathouse — the door propped with the same two-by-four that propped the front. They have been holding it for you. They did not say so.
-  - |-
-    Iris looks at Mara. Mara looks at Iris. Iris does the thing she does — names what she sees without making a point of it.
-  - female_adult_american_crisp_direct_clear: |-
-      Your shoes are on the wrong feet.
-  - |-
-    Mara looks down at her shoes. She does not change them. Iris does not push it. The kayak is in the water already; Tomás has the bow line in his good hand.
-  - male_elder_american_wise_approachable: |-
-      Get her in. We'll be behind you.
-  - |-
-    Above you the roof gives a sound that is not a creak any more. A shingle drops past Tomás's ear. He does not flinch.
-
+- Tomás and Iris are at the water side of the boathouse — the door propped with the
+  same two-by-four that propped the front. They have been holding it for you. They
+  did not say so.
+- Iris looks at Mara. Mara looks at Iris. Iris does the thing she does — names what
+  she sees without making a point of it.
+- female_adult_american_crisp_direct_clear: Your shoes are on the wrong feet.
+- Mara looks down at her shoes. She does not change them. Iris does not push it. The
+  kayak is in the water already; Tomás has the bow line in his good hand.
+- male_elder_american_wise_approachable: Get her in. We'll be behind you.
+- Above you the roof gives a sound that is not a creak any more. A shingle drops past
+  Tomás's ear. He does not flinch.
 choices:
-  - text: |-
-      To the water. Now.
-    next: act3/climax_setup
-    effects:
-      flags:
-        boathouse_coop: true
+- text: To the water. Now.
+  next: act3/climax_setup
+  effects:
+    flags:
+      boathouse_coop: true

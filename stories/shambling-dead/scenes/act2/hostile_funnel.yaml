@@ -1,33 +1,35 @@
-journal: |-
-  You came around a corner of collapsed road and walked into a man in clean boots smiling at you over a wire fence.
-
+journal: You came around a corner of collapsed road and walked into a man in clean
+  boots smiling at you over a wire fence.
 text:
-  - |-
-    The road bends and ends. A truck on its side, a hill of furniture, the dead pawing the underside of the truck for a way through. The only road that isn't theirs goes left, between two apartment blocks, and at the end of it there is a fence and a fire and a smell of cooking.
-  - |-
-    The fence is wire on stakes, head-high, with a gap at the middle for a gate. The gate is open. Past it: tents, a generator humming clean, a man at the wire pulling a body off the spikes the way you might pull a sheet off a line. He nods at it like an old colleague and lets it drop on the outside.
-  - |-
-    A second man steps to the gap. Heavy through the shoulders. A short beard kept neat in a city where nobody else has trimmed in two weeks. Hand out, already.
-  - male_midlife_american_loud_confident_cocky: |-
-      [chuckle] Easy. Easy. You found us. Hot food, fire, four walls of wire — neighbour, you don't know how good you got just now. I'm Hollis.
-  - |-
-    Behind him, a quieter man stands at his shoulder and does not look at you. He looks at your bag.
-  - |-
-    The road outside the perimeter is clean. No bodies left where they fell. Inside the wire, a dead man on his back with the wrong feet — boots that fit him too well, polished at the toe, and you saw a pair like them on a man pulling shamblers off the wire ten seconds ago.
-
+- The road bends and ends. A truck on its side, a hill of furniture, the dead pawing
+  the underside of the truck for a way through. The only road that isn't theirs goes
+  left, between two apartment blocks, and at the end of it there is a fence and a
+  fire and a smell of cooking.
+- 'The fence is wire on stakes, head-high, with a gap at the middle for a gate. The
+  gate is open. Past it: tents, a generator humming clean, a man at the wire pulling
+  a body off the spikes the way you might pull a sheet off a line. He nods at it like
+  an old colleague and lets it drop on the outside.'
+- A second man steps to the gap. Heavy through the shoulders. A short beard kept neat
+  in a city where nobody else has trimmed in two weeks. Hand out, already.
+- male_midlife_american_loud_confident_cocky: '[chuckle] Easy. Easy. You found us.
+    Hot food, fire, four walls of wire — neighbour, you don''t know how good you got
+    just now. I''m Hollis.'
+- Behind him, a quieter man stands at his shoulder and does not look at you. He looks
+  at your bag.
+- The road outside the perimeter is clean. No bodies left where they fell. Inside
+  the wire, a dead man on his back with the wrong feet — boots that fit him too well,
+  polished at the toe, and you saw a pair like them on a man pulling shamblers off
+  the wire ten seconds ago.
 choices:
-  - text: |-
-      Step in. Take the handshake.
-    next: act2/hostile_camp
-    effects:
-      flags:
-        entered_hostile_camp: true
-  - text: |-
-      Stop at the wire. Look harder before you cross.
-    next: act2/hostile_camp_read
-    effects:
-      flags:
-        read_camp_first: true
-  - text: |-
-      Pretend you're passing. Wave him off.
-    next: act2/hostile_pass_attempt
+- text: Step in. Take the handshake.
+  next: act2/hostile_camp
+  effects:
+    flags:
+      entered_hostile_camp: true
+- text: Stop at the wire. Look harder before you cross.
+  next: act2/hostile_camp_read
+  effects:
+    flags:
+      read_camp_first: true
+- text: Pretend you're passing. Wave him off.
+  next: act2/hostile_pass_attempt

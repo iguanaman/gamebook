@@ -1,16 +1,15 @@
 text:
-  - |-
-    You tell her, through the panel, that you can't stay. That you've got further to go before dark. You don't lie about why.
-  - female_elder_american_relatable_likeable: |-
-      All right, honey. You'll have your reasons.
-  - |-
-    A pause. Then a small metal sound — a key on a leather tab, slid through the panel into your palm.
-  - female_elder_american_relatable_likeable: |-
-      Walden Street clinic, three blocks east of here. Side entrance. The lock sticks if you don't lift the handle. There's a cabinet behind the front desk that I haven't been brave enough to walk to, and you might be. God bless, sweetheart. Don't come back this way.
-  - |-
-    The panel slides shut. The bar settles back on the inside of the door. You hear her, on the other side, walk away humming.
-
+- You tell her, through the panel, that you can't stay. That you've got further to
+  go before dark. You don't lie about why.
+- female_elder_american_relatable_likeable: All right, honey. You'll have your reasons.
+- A pause. Then a small metal sound — a key on a leather tab, slid through the panel
+  into your palm.
+- female_elder_american_relatable_likeable: Walden Street clinic, three blocks east
+    of here. Side entrance. The lock sticks if you don't lift the handle. There's
+    a cabinet behind the front desk that I haven't been brave enough to walk to, and
+    you might be. God bless, sweetheart. Don't come back this way.
+- The panel slides shut. The bar settles back on the inside of the door. You hear
+  her, on the other side, walk away humming.
 choices:
-  - text: |-
-      South. Toward the office building.
-    next: act2/mara_approach
+- text: South. Toward the office building.
+  next: act2/mara_approach

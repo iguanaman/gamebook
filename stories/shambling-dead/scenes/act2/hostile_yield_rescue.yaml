@@ -1,91 +1,149 @@
 text:
-  - |-
-    You sit. You set the bag at your feet. You let your hands open on your knees the way a man does when he is showing he is done.
-  - |-
-    Hollis takes the bag. Hollis is still talking. *We take care of people here, neighbour, that's what we do —*
-  - if: {flags: [neighbour_alive]}
-    text: |-
-      Dale stands up.
-  - if: {flags: [neighbour_alive]}
-    text: |-
-      He stands up the way he stood up off his lawn the morning of the bite — the slow one, the one with the leg, the one that costs him something. He says your first name once. He says it the way a neighbour says a thing he has decided. He says it for you, not at you. Then he picks up the pot off the grate by the metal handle and he throws it into the back tent where the radio is.
-  - if: {flags: [neighbour_alive]}
-    text: |-
-      Hot soup, hot grease, the radio's woman-voice sudden and very loud and then not voice anymore. The lieutenant is shouting. Hollis is shouting. Dale is in the firelight and he has the lieutenant's knife now, the lieutenant's, and he is between you and the wire.
-  - if: {flags: [neighbour_alive]}
-    text: |-
-      He says — go.
-  - if: {flags_unset: [neighbour_alive], flags: [elder_alive]}
-    text: |-
-      Ruth stands up.
-  - if: {flags_unset: [neighbour_alive], flags: [elder_alive]}
-    text: |-
-      She stands up the way an older woman stands up in a church when something has to be said. She crosses the firelight to Hollis, hands open, voice warm — *honey, sweetheart, listen, listen to me a minute* — and she is so warm that for one second nobody is looking at you. She tips the pot into the fire pit on her way past. The flame goes up two metres. The lieutenant is shouting. She does not look back at you.
-  - if: {flags_unset: [neighbour_alive], flags: [elder_alive]}
-    text: |-
-      Her voice over the noise: *Go.*
-  - if: {flags_unset: [neighbour_alive], flags_unset: [elder_alive], flags: [teen_alive]}
-    text: |-
-      Caleb stands up.
-  - if: {flags_unset: [neighbour_alive], flags_unset: [elder_alive], flags: [teen_alive]}
-    text: |-
-      He stands up the way a kid does when he has decided to do a thing he is too small for. He picks up a burning brand out of the pit two-handed — both hands, both his small thin hands — and he runs it at the back tent. The radio. The canvas. The generator behind it. Something catches that catches everything else. Hollis is on his feet. The lieutenant is shouting his name.
-  - if: {flags_unset: [neighbour_alive], flags_unset: [elder_alive], flags: [teen_alive]}
-    text: |-
-      Caleb does not look at you. He says — *go.* He says it like he has been practising it.
-  - if: {flags_unset: [neighbour_alive], flags_unset: [elder_alive], flags_unset: [teen_alive], flags: [stranger_alive]}
-    text: |-
-      Wren stands up.
-  - if: {flags_unset: [neighbour_alive], flags_unset: [elder_alive], flags_unset: [teen_alive], flags: [stranger_alive]}
-    text: |-
-      She stands up dry-eyed. She steps into the firelight between you and Hollis and she opens the canvas bag — the one she has not opened, the one she has carried two days across her body — and she upends it. Whatever is in it, whatever she came this far with, it is on the dirt at his feet. She says — *take that. Take it and let them walk.* And the rehearsed dryness is gone from her voice. She is not joking now.
-  - if: {flags_unset: [neighbour_alive], flags_unset: [elder_alive], flags_unset: [teen_alive], flags: [stranger_alive]}
-    text: |-
-      She says, without looking back — *go.*
-  - |-
-    The wire has a breach in it on the east side where the lieutenant pulled a body off an hour ago. You make for it.
-
+- You sit. You set the bag at your feet. You let your hands open on your knees the
+  way a man does when he is showing he is done.
+- Hollis takes the bag. Hollis is still talking. *We take care of people here, neighbour,
+  that's what we do —*
+- if:
+    flags:
+    - neighbour_alive
+  text: Dale stands up.
+- if:
+    flags:
+    - neighbour_alive
+  text: He stands up the way he stood up off his lawn the morning of the bite — the
+    slow one, the one with the leg, the one that costs him something. He says your
+    first name once. He says it the way a neighbour says a thing he has decided. He
+    says it for you, not at you. Then he picks up the pot off the grate by the metal
+    handle and he throws it into the back tent where the radio is.
+- if:
+    flags:
+    - neighbour_alive
+  text: Hot soup, hot grease, the radio's woman-voice sudden and very loud and then
+    not voice anymore. The lieutenant is shouting. Hollis is shouting. Dale is in
+    the firelight and he has the lieutenant's knife now, the lieutenant's, and he
+    is between you and the wire.
+- if:
+    flags:
+    - neighbour_alive
+  text: He says — go.
+- if:
+    flags_unset:
+    - neighbour_alive
+    flags:
+    - elder_alive
+  text: Ruth stands up.
+- if:
+    flags_unset:
+    - neighbour_alive
+    flags:
+    - elder_alive
+  text: She stands up the way an older woman stands up in a church when something
+    has to be said. She crosses the firelight to Hollis, hands open, voice warm —
+    *honey, sweetheart, listen, listen to me a minute* — and she is so warm that for
+    one second nobody is looking at you. She tips the pot into the fire pit on her
+    way past. The flame goes up two metres. The lieutenant is shouting. She does not
+    look back at you.
+- if:
+    flags_unset:
+    - neighbour_alive
+    flags:
+    - elder_alive
+  text: 'Her voice over the noise: *Go.*'
+- if:
+    flags_unset:
+    - elder_alive
+    flags:
+    - teen_alive
+  text: Caleb stands up.
+- if:
+    flags_unset:
+    - elder_alive
+    flags:
+    - teen_alive
+  text: He stands up the way a kid does when he has decided to do a thing he is too
+    small for. He picks up a burning brand out of the pit two-handed — both hands,
+    both his small thin hands — and he runs it at the back tent. The radio. The canvas.
+    The generator behind it. Something catches that catches everything else. Hollis
+    is on his feet. The lieutenant is shouting his name.
+- if:
+    flags_unset:
+    - elder_alive
+    flags:
+    - teen_alive
+  text: Caleb does not look at you. He says — *go.* He says it like he has been practising
+    it.
+- if:
+    flags_unset:
+    - teen_alive
+    flags:
+    - stranger_alive
+  text: Wren stands up.
+- if:
+    flags_unset:
+    - teen_alive
+    flags:
+    - stranger_alive
+  text: She stands up dry-eyed. She steps into the firelight between you and Hollis
+    and she opens the canvas bag — the one she has not opened, the one she has carried
+    two days across her body — and she upends it. Whatever is in it, whatever she
+    came this far with, it is on the dirt at his feet. She says — *take that. Take
+    it and let them walk.* And the rehearsed dryness is gone from her voice. She is
+    not joking now.
+- if:
+    flags_unset:
+    - teen_alive
+    flags:
+    - stranger_alive
+  text: She says, without looking back — *go.*
+- The wire has a breach in it on the east side where the lieutenant pulled a body
+  off an hour ago. You make for it.
 choices:
-  - text: |-
-      Run. Don't look back. (Dale stays.)
-    next: act2/hostile_perimeter_break
-    requires:
-      flags: [neighbour_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        neighbour_alive: false
-        dale_sacrificed: true
-  - text: |-
-      Run. Don't look back. (Ruth stays.)
-    next: act2/hostile_perimeter_break
-    requires:
-      flags: [elder_alive]
-      flags_unset: [neighbour_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        elder_alive: false
-        ruth_sacrificed: true
-  - text: |-
-      Run. Don't look back. (Caleb stays.)
-    next: act2/hostile_perimeter_break
-    requires:
-      flags: [teen_alive]
-      flags_unset: [neighbour_alive, elder_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        teen_alive: false
-        caleb_sacrificed: true
-  - text: |-
-      Run. Don't look back. (Wren stays.)
-    next: act2/hostile_perimeter_break
-    requires:
-      flags: [stranger_alive]
-      flags_unset: [neighbour_alive, elder_alive, teen_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        stranger_alive: false
-        wren_sacrificed: true
+- text: Run. Don't look back. (Dale stays.)
+  next: act2/hostile_perimeter_break
+  requires:
+    flags:
+    - neighbour_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      neighbour_alive: false
+      dale_sacrificed: true
+- text: Run. Don't look back. (Ruth stays.)
+  next: act2/hostile_perimeter_break
+  requires:
+    flags:
+    - elder_alive
+    flags_unset:
+    - neighbour_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      elder_alive: false
+      ruth_sacrificed: true
+- text: Run. Don't look back. (Caleb stays.)
+  next: act2/hostile_perimeter_break
+  requires:
+    flags:
+    - teen_alive
+    flags_unset:
+    - neighbour_alive
+    - elder_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      teen_alive: false
+      caleb_sacrificed: true
+- text: Run. Don't look back. (Wren stays.)
+  next: act2/hostile_perimeter_break
+  requires:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - neighbour_alive
+    - elder_alive
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      stranger_alive: false
+      wren_sacrificed: true

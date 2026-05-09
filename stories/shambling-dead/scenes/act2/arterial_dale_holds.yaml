@@ -1,36 +1,43 @@
 text:
-  - if: {stats: {bond: 2}}
-    text: |-
-      male_midlife_american_dark_tough: |-
-        Hey. Hey, listen.
-  - if: {stats: {bond: 2}}
-    text: |-
-      He says your first name. He has not said your first name since the lawn. He turns the wedding band one last time on the finger and he closes the hand around it.
-  - if: {stats: {bond: 2}}
-    text: |-
-      male_midlife_american_dark_tough: |-
-        I get to be the one who slowed them down. Not the one who slowed *you* down. Take the kids. Go.
-  - if: {stats: {bond: 2}}
-    text: |-
-      He looks past you at the bus and the road and the two at the end of the street that are now four. The hand on the bus is steady. The leg is not. The leg has decided.
-    else: |-
-      He does not say it out loud. He looks past you at the road and at the two at the end of the street that are now four, and he tries to take a step and the step is not there. The look he gives you is not a look that is going to ask. He is going to turn somewhere on this road, and he knows it, and the cloth at the leg is past pretending.
-
+- if:
+    stats:
+      bond: 2
+  text: "male_midlife_american_dark_tough: |-\n  Hey. Hey, listen."
+- if:
+    stats:
+      bond: 2
+  text: He says your first name. He has not said your first name since the lawn. He
+    turns the wedding band one last time on the finger and he closes the hand around
+    it.
+- if:
+    stats:
+      bond: 2
+  text: "male_midlife_american_dark_tough: |-\n  I get to be the one who slowed them\
+    \ down. Not the one who slowed *you* down. Take the kids. Go."
+- if:
+    stats:
+      bond: 2
+  text: He looks past you at the bus and the road and the two at the end of the street
+    that are now four. The hand on the bus is steady. The leg is not. The leg has
+    decided.
+  else: He does not say it out loud. He looks past you at the road and at the two
+    at the end of the street that are now four, and he tries to take a step and the
+    step is not there. The look he gives you is not a look that is going to ask. He
+    is going to turn somewhere on this road, and he knows it, and the cloth at the
+    leg is past pretending.
 choices:
-  - text: |-
-      Let him hold. Run.
-    next: act2/arterial_run_resolve
-    requires:
-      stats:
-        bond: 2
-    hide_if_failed: true
-    effects:
-      stats:
-        bond: 1
-      flags:
-        neighbour_alive: false
-        dale_bitten: false
-        dale_held_arterial: true
-  - text: |-
-      Refuse. Carry him further.
-    next: act2/arterial_dale_turns
+- text: Let him hold. Run.
+  next: act2/arterial_run_resolve
+  requires:
+    stats:
+      bond: 2
+  hide_if_failed: true
+  effects:
+    stats:
+      bond: 1
+    flags:
+      neighbour_alive: false
+      dale_bitten: false
+      dale_held_arterial: true
+- text: Refuse. Carry him further.
+  next: act2/arterial_dale_turns

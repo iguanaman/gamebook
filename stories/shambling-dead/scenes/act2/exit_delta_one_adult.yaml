@@ -1,21 +1,27 @@
 text:
-  - |-
-    There is one of you and one of them. The arterial is behind you both. The bag is split across two backs now and the splitting is small and it matters.
-  - if: {flags: [teen_alive]}
-    text: |-
-      Caleb walks at your shoulder. The lanyard is still around his neck. He is not picking the thumb anymore. He is reading the road the way you read it.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth walks half a step behind on your strong side. Her cardigan is tied at the waist. Her hands are steady. She is finishing a sentence she started at the corner and the sentence is — *we made it to the water* — and she does not say it twice.
-  - if: {flags: [stranger_alive], flags_unset: [betrayed_by_wren]}
-    text: |-
-      Wren walks at your shoulder. The bag across her body. The knife at her hip. She is not looking at the city. She is looking at where the city ends.
-  - |-
-    The river is loud. Two of you. That is more than one.
-  - |-
-    Downstream — the marina.
-
+- There is one of you and one of them. The arterial is behind you both. The bag is
+  split across two backs now and the splitting is small and it matters.
+- if:
+    flags:
+    - teen_alive
+  text: Caleb walks at your shoulder. The lanyard is still around his neck. He is
+    not picking the thumb anymore. He is reading the road the way you read it.
+- if:
+    flags:
+    - elder_alive
+  text: Ruth walks half a step behind on your strong side. Her cardigan is tied at
+    the waist. Her hands are steady. She is finishing a sentence she started at the
+    corner and the sentence is — *we made it to the water* — and she does not say
+    it twice.
+- if:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - betrayed_by_wren
+  text: Wren walks at your shoulder. The bag across her body. The knife at her hip.
+    She is not looking at the city. She is looking at where the city ends.
+- The river is loud. Two of you. That is more than one.
+- Downstream — the marina.
 choices:
-  - text: |-
-      Walk.
-    next: act3/act3_entry_router
+- text: Walk.
+  next: act3/act3_entry_router

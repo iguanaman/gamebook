@@ -1,12 +1,13 @@
 text:
-  - |-
-    The next building is a parking structure with its own access ramp and no useful roofline against the office building's. You spend twenty minutes finding that out. You climb a maintenance ladder for nothing. You drop a bottle of water somewhere on the ramp and do not go back for it.
-  - |-
-    By the time you stand again in the alley you have given the building twenty minutes you did not have. You know what you knew before you started. The fire escape is the way in.
-  - |-
-    The crying has not stopped. The crying is louder now, or you have stopped not hearing it.
-
+- The next building is a parking structure with its own access ramp and no useful
+  roofline against the office building's. You spend twenty minutes finding that out.
+  You climb a maintenance ladder for nothing. You drop a bottle of water somewhere
+  on the ramp and do not go back for it.
+- By the time you stand again in the alley you have given the building twenty minutes
+  you did not have. You know what you knew before you started. The fire escape is
+  the way in.
+- The crying has not stopped. The crying is louder now, or you have stopped not hearing
+  it.
 choices:
-  - text: |-
-      Back to the alley.
-    next: act2/mara_perimeter
+- text: Back to the alley.
+  next: act2/mara_perimeter

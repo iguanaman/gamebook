@@ -1,18 +1,17 @@
 text:
-  - male_elder_american_wise_approachable: |-
-      The cruiser keys are in Vance's pocket. The single one on the lanyard. She's not selling the trip — she's selling the address.
-  - |-
-    He says it the way you would tell a stranger which lane is closed on the freeway. Not warning you. Just naming what is.
-  - male_elder_american_wise_approachable: |-
-      The fishing boat — the stripped one — could run with two hours' work. We don't have two hours.
-  - female_adult_american_crisp_direct_clear: |-
-      We don't have one.
-  - male_elder_american_wise_approachable: |-
-      There's a sea-kayak under the boathouse on the seawall side. Single seat. A strong arm gets one across at a time and comes back. We'd run it together if you'd run it.
-  - |-
-    He gives you the kayak the way he would give you a name — flat, unhedged, expecting nothing. The boathouse is at the far end of the apron, at the seawall side, two pontoons over from where you are sitting.
-
+- male_elder_american_wise_approachable: The cruiser keys are in Vance's pocket. The
+    single one on the lanyard. She's not selling the trip — she's selling the address.
+- He says it the way you would tell a stranger which lane is closed on the freeway.
+  Not warning you. Just naming what is.
+- male_elder_american_wise_approachable: The fishing boat — the stripped one — could
+    run with two hours' work. We don't have two hours.
+- female_adult_american_crisp_direct_clear: We don't have one.
+- male_elder_american_wise_approachable: There's a sea-kayak under the boathouse on
+    the seawall side. Single seat. A strong arm gets one across at a time and comes
+    back. We'd run it together if you'd run it.
+- He gives you the kayak the way he would give you a name — flat, unhedged, expecting
+  nothing. The boathouse is at the far end of the apron, at the seawall side, two
+  pontoons over from where you are sitting.
 choices:
-  - text: |-
-      Back to the conversation.
-    next: act3/talk_tomas
+- text: Back to the conversation.
+  next: act3/talk_tomas

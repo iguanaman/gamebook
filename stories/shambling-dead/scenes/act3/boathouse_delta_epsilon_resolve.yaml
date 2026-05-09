@@ -1,13 +1,14 @@
 text:
-  - |-
-    Tomás takes the supplies the way a man takes a thing he has been promised. He weighs the bag in his hand once and puts it in the kayak's stern locker without looking at it.
-  - if: {flags: [asked_hayes]}
-    text: |-
-      Hayes does not answer. He looks at Iris. Iris looks at the floor. Tomás looks at you and the look is the answer Hayes did not give.
-  - |-
-    Iris has the bow line. The kayak is in the water. The marina behind you is one sound now — the breach-chord and the back-fence chord and the seawall chord, merged.
-
+- Tomás takes the supplies the way a man takes a thing he has been promised. He weighs
+  the bag in his hand once and puts it in the kayak's stern locker without looking
+  at it.
+- if:
+    flags:
+    - asked_hayes
+  text: Hayes does not answer. He looks at Iris. Iris looks at the floor. Tomás looks
+    at you and the look is the answer Hayes did not give.
+- Iris has the bow line. The kayak is in the water. The marina behind you is one sound
+  now — the breach-chord and the back-fence chord and the seawall chord, merged.
 choices:
-  - text: |-
-      To the kayak. Together.
-    next: act3/climax_setup
+- text: To the kayak. Together.
+  next: act3/climax_setup

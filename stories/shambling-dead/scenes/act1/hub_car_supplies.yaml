@@ -1,14 +1,13 @@
 text:
-  - |-
-    Glove box: a half-empty bottle of water, a packet of paracetamol with two left, a granola bar gone soft in the heat. Under the passenger seat, a torch with batteries that still work.
-  - |-
-    You pocket what fits. The car was somebody's small life thirty minutes ago. You don't think about it.
-
+- 'Glove box: a half-empty bottle of water, a packet of paracetamol with two left,
+  a granola bar gone soft in the heat. Under the passenger seat, a torch with batteries
+  that still work.'
+- You pocket what fits. The car was somebody's small life thirty minutes ago. You
+  don't think about it.
 choices:
-  - text: |-
-      Back to the street.
-    next: act1/neighbourhood_hub
-    effects:
-      stats:
-        supplies: 1
-        hub_visits: 1
+- text: Back to the street.
+  next: act1/neighbourhood_hub
+  effects:
+    stats:
+      supplies: 1
+      hub_visits: 1

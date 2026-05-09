@@ -1,12 +1,9 @@
-journal: |-
-  You knew the water and you went anyway.
-
+journal: You knew the water and you went anyway.
 text:
-  - |-
-    The water is cold and the water is fast and the water has the dock-body in it, somewhere upstream, plop-and-drag.
-  - |-
-    You knew before you went in. The bag was too heavy or the body was too tired or the bank was too far. The river kept the math you did not do.
-  - |-
-    The far bank does not arrive. You stop reaching for it before the river stops carrying you.
-
+- The water is cold and the water is fast and the water has the dock-body in it, somewhere
+  upstream, plop-and-drag.
+- You knew before you went in. The bag was too heavy or the body was too tired or
+  the bank was too far. The river kept the math you did not do.
+- The far bank does not arrive. You stop reaching for it before the river stops carrying
+  you.
 choices: []

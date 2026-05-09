@@ -1,45 +1,43 @@
 text:
-  - |-
-    You row Mara across. She sits in the foot well with the strap of your bag in both hands. She does not speak. The yellow plastic is loud against the water.
-  - |-
-    The far bank rises. You drag the bow onto the rocks. You tell her to wait. You tell her where to wait.
-  - female_young_american_sweet_youthful_clear: |-
-      Are you coming back?
-  - |-
-    She has asked the question the brief said she would ask in Act 3. You have a second to answer it.
-
+- You row Mara across. She sits in the foot well with the strap of your bag in both
+  hands. She does not speak. The yellow plastic is loud against the water.
+- The far bank rises. You drag the bow onto the rocks. You tell her to wait. You tell
+  her where to wait.
+- female_young_american_sweet_youthful_clear: Are you coming back?
+- She has asked the question the brief said she would ask in Act 3. You have a second
+  to answer it.
 choices:
-  - text: |-
-      Tell her: yes. Push off. Swim back.
-    next: act3/endings_router
-    requires:
-      flags_unset: [pip_rescued]
-    hide_if_failed: true
-  - text: |-
-      Tell her: yes. And tell her you love her, in case. Swim back.
-    next: act3/endings_router
-    requires:
-      flags_unset: [pip_rescued]
-    hide_if_failed: true
-    effects:
-      flags:
-        told_mara_love: true
-  - text: |-
-      Tell her: yes. Push off. Swim back.
-    next: act3/endings_router
-    requires:
-      flags: [pip_rescued]
-    hide_if_failed: true
-    effects:
-      flags:
-        pip_and_mara_brief: true
-  - text: |-
-      Tell her: yes. Tell her you love her. Swim back.
-    next: act3/endings_router
-    requires:
-      flags: [pip_rescued]
-    hide_if_failed: true
-    effects:
-      flags:
-        told_mara_love: true
-        pip_and_mara_brief: true
+- text: 'Tell her: yes. Push off. Swim back.'
+  next: act3/endings_router
+  requires:
+    flags_unset:
+    - pip_rescued
+  hide_if_failed: true
+- text: 'Tell her: yes. And tell her you love her, in case. Swim back.'
+  next: act3/endings_router
+  requires:
+    flags_unset:
+    - pip_rescued
+  hide_if_failed: true
+  effects:
+    flags:
+      told_mara_love: true
+- text: 'Tell her: yes. Push off. Swim back.'
+  next: act3/endings_router
+  requires:
+    flags:
+    - pip_rescued
+  hide_if_failed: true
+  effects:
+    flags:
+      pip_and_mara_brief: true
+- text: 'Tell her: yes. Tell her you love her. Swim back.'
+  next: act3/endings_router
+  requires:
+    flags:
+    - pip_rescued
+  hide_if_failed: true
+  effects:
+    flags:
+      told_mara_love: true
+      pip_and_mara_brief: true

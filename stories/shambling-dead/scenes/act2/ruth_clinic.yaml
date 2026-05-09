@@ -1,32 +1,35 @@
 text:
-  - |-
-    The clinic is two rooms behind a steel door three blocks south of the pharmacy. The key turns. Inside: a chair, a folded examination table, a tall cabinet that has not been touched. Saline. A sealed kit. Bandages a child could have sorted, in colour-coded packets. A small bottle of something for pain.
-  - if: {flags: [elder_alive]}
-    text: |-
-      Ruth comes in last and shuts the door behind her. She stands at the cabinet a moment with one hand on the doorframe — she is the one who knows what is in here, and she is letting you do the using, because the using is yours.
-    else: |-
-      She is not here. The kit is. She told you which shelf, three days ago, on the way out of the church. The shelf is where she said it would be.
-  - if: {flags: [elder_alive]}
-    text: |-
-      female_elder_american_relatable_likeable: |-
-        Sit down, sweetheart. Fifteen minutes. The dead at the alley don't get a vote.
-  - |-
-    Behind the building, in the alley, the dead are working on the back door. The door holds. The door is the kind that holds.
-
+- 'The clinic is two rooms behind a steel door three blocks south of the pharmacy.
+  The key turns. Inside: a chair, a folded examination table, a tall cabinet that
+  has not been touched. Saline. A sealed kit. Bandages a child could have sorted,
+  in colour-coded packets. A small bottle of something for pain.'
+- if:
+    flags:
+    - elder_alive
+  text: Ruth comes in last and shuts the door behind her. She stands at the cabinet
+    a moment with one hand on the doorframe — she is the one who knows what is in
+    here, and she is letting you do the using, because the using is yours.
+  else: She is not here. The kit is. She told you which shelf, three days ago, on
+    the way out of the church. The shelf is where she said it would be.
+- if:
+    flags:
+    - elder_alive
+  text: "female_elder_american_relatable_likeable: |-\n  Sit down, sweetheart. Fifteen\
+    \ minutes. The dead at the alley don't get a vote."
+- Behind the building, in the alley, the dead are working on the back door. The door
+  holds. The door is the kind that holds.
 choices:
-  - text: |-
-      Use the kit. Rest fifteen minutes.
-    next: act2/arterial_run
-    effects:
-      stats:
-        health: 2
-      flags:
-        used_ruth_clinic: true
-  - text: |-
-      Leave the kit. Take only what fits.
-    next: act2/arterial_run
-    effects:
-      stats:
-        bond: 1
-      flags:
-        used_ruth_clinic: true
+- text: Use the kit. Rest fifteen minutes.
+  next: act2/arterial_run
+  effects:
+    stats:
+      health: 2
+    flags:
+      used_ruth_clinic: true
+- text: Leave the kit. Take only what fits.
+  next: act2/arterial_run
+  effects:
+    stats:
+      bond: 1
+    flags:
+      used_ruth_clinic: true

@@ -1,18 +1,15 @@
 text:
-  - |-
-    The phone, when you check it, gives you the engaged tone. Three times. Then nothing.
-  - |-
-    You cross to the window. The blind is half up. You don't pull it further — you just look through the gap.
-  - |-
-    Your neighbour from two doors down is on your front lawn. He is on his knees. He is bent over someone you also recognise, and he is not helping them.
-  - |-
-    He is slow. That's the part your brain refuses for a second. Whatever he's doing, he is doing it without hurry, without noise, without lifting his head. Like a man eating a meal he isn't enjoying but won't stop.
-  - |-
-    The radio in the bedroom keeps looping. The car alarm keeps going. The phone in your hand keeps not connecting.
-  - narrator_female_warm_reflective: |-
-      [sigh] Shelter in place. Do not approach the infected.
-
+- The phone, when you check it, gives you the engaged tone. Three times. Then nothing.
+- You cross to the window. The blind is half up. You don't pull it further — you just
+  look through the gap.
+- Your neighbour from two doors down is on your front lawn. He is on his knees. He
+  is bent over someone you also recognise, and he is not helping them.
+- He is slow. That's the part your brain refuses for a second. Whatever he's doing,
+  he is doing it without hurry, without noise, without lifting his head. Like a man
+  eating a meal he isn't enjoying but won't stop.
+- The radio in the bedroom keeps looping. The car alarm keeps going. The phone in
+  your hand keeps not connecting.
+- narrator_female_warm_reflective: '[sigh] Shelter in place. Do not approach the infected.'
 choices:
-  - text: |-
-      Step back from the window.
-    next: act1/grab_kit_landing
+- text: Step back from the window.
+  next: act1/grab_kit_landing

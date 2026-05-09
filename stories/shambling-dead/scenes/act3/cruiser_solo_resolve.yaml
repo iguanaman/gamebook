@@ -1,16 +1,16 @@
 text:
-  - |-
-    Sully writes the number down. Vance does not look at the page; she looks at the bollard. Marrow steps off the gangplank to let you on.
-  - |-
-    The engine starts on the second turn. The water under the cruiser goes from green to brown and back. Sully unties the line. Vance is at the wheel before you have found a place to sit.
-  - |-
-    The marina pulls away — the apron, the office, the breach. The dead are at the bollard the way she said they would be. The chord is one chord now and then two chords as the boat picks up and you hear the seawall pack working the riprap behind.
-  - |-
-    The river opens. The marina goes small. By the second bend it is a sound, only a sound, and the sound is one of the sounds the river has and not the loudest one.
-  - |-
-    You are alone on the deck. There is no one who knew your name on this boat. Vance does not turn around.
-
+- Sully writes the number down. Vance does not look at the page; she looks at the
+  bollard. Marrow steps off the gangplank to let you on.
+- The engine starts on the second turn. The water under the cruiser goes from green
+  to brown and back. Sully unties the line. Vance is at the wheel before you have
+  found a place to sit.
+- The marina pulls away — the apron, the office, the breach. The dead are at the bollard
+  the way she said they would be. The chord is one chord now and then two chords as
+  the boat picks up and you hear the seawall pack working the riprap behind.
+- The river opens. The marina goes small. By the second bend it is a sound, only a
+  sound, and the sound is one of the sounds the river has and not the loudest one.
+- You are alone on the deck. There is no one who knew your name on this boat. Vance
+  does not turn around.
 choices:
-  - text: |-
-      On the deck. Watch the marina go.
-    next: act3/endings_router
+- text: On the deck. Watch the marina go.
+  next: act3/endings_router

@@ -1,19 +1,15 @@
 text:
-  - |-
-    Caleb does not look at the routes. He looks at his shoes.
-  - male_young_american_weak: |-
-      I don't — I don't know the streets. I'm sorry. I just — I just know I can't go down there. In the dark. I can't.
-  - |-
-    He says *can't* the way someone older says *won't*. It is not a refusal. It is a statement about the body he is in.
-  - male_young_american_weak: |-
-      Anywhere else. I'll go anywhere else.
-  - |-
-    He has named the drain for you. Out loud. You will not be able to choose it now without choosing it over him.
-
+- Caleb does not look at the routes. He looks at his shoes.
+- male_young_american_weak: I don't — I don't know the streets. I'm sorry. I just
+    — I just know I can't go down there. In the dark. I can't.
+- He says *can't* the way someone older says *won't*. It is not a refusal. It is a
+  statement about the body he is in.
+- male_young_american_weak: Anywhere else. I'll go anywhere else.
+- He has named the drain for you. Out loud. You will not be able to choose it now
+  without choosing it over him.
 choices:
-  - text: |-
-      Back to the corner. Decide.
-    next: act1/route_choice_arterial
-    effects:
-      flags:
-        caleb_route_marked_drain: true
+- text: Back to the corner. Decide.
+  next: act1/route_choice_arterial
+  effects:
+    flags:
+      caleb_route_marked_drain: true

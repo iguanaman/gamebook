@@ -1,13 +1,16 @@
 text:
-  - |-
-    Two more turns and the lieutenant's boots are gone from your gravel. Then a third turn and they are gone from your ears.
-  - if: {flags: [child_rescued]}
-    text: |-
-      Mara has not made a sound the entire walk. She is holding the strap of your bag with both hands. The pack she had — small, hers — is no longer on her shoulder. You don't remember when it left. Somewhere back there, on the road, in the lieutenant's hand. You don't say anything about it. She doesn't either.
-  - |-
-    The afternoon dims. The arterial is east. You don't have the daylight for another fight. Somewhere ahead the silhouette of a parking structure rises against the smoke — high, defensible, somewhere to put your back against until morning.
-
+- Two more turns and the lieutenant's boots are gone from your gravel. Then a third
+  turn and they are gone from your ears.
+- if:
+    flags:
+    - child_rescued
+  text: Mara has not made a sound the entire walk. She is holding the strap of your
+    bag with both hands. The pack she had — small, hers — is no longer on her shoulder.
+    You don't remember when it left. Somewhere back there, on the road, in the lieutenant's
+    hand. You don't say anything about it. She doesn't either.
+- The afternoon dims. The arterial is east. You don't have the daylight for another
+  fight. Somewhere ahead the silhouette of a parking structure rises against the smoke
+  — high, defensible, somewhere to put your back against until morning.
 choices:
-  - text: |-
-      Keep walking. Find somewhere to rest.
-    next: act2/rooftop_approach
+- text: Keep walking. Find somewhere to rest.
+  next: act2/rooftop_approach

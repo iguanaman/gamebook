@@ -1,16 +1,14 @@
 text:
-  - male_adult_american_casual_relaxed_light: |-
-      Hare Cove. Forty miles. Vance's people are there.
-  - |-
-    He says the name without a beat in front of it. He has not learned to lie about it yet — he is naming an address the way he would name his own street. The radio loop calls Hare Cove a moment after he does.
-  - male_adult_american_casual_relaxed_light: |-
-      They run a tent line on the south dock. You ask for Reyes when you tie up.
-  - |-
-    He gives you a name to ask for. Vance would not have given you that. Sully has handed you a small thing without knowing it was small.
-  - male_adult_american_casual_relaxed_light: |-
-      Cruiser gets you there before dark.
-
+- male_adult_american_casual_relaxed_light: Hare Cove. Forty miles. Vance's people
+    are there.
+- He says the name without a beat in front of it. He has not learned to lie about
+  it yet — he is naming an address the way he would name his own street. The radio
+  loop calls Hare Cove a moment after he does.
+- male_adult_american_casual_relaxed_light: They run a tent line on the south dock.
+    You ask for Reyes when you tie up.
+- He gives you a name to ask for. Vance would not have given you that. Sully has handed
+  you a small thing without knowing it was small.
+- male_adult_american_casual_relaxed_light: Cruiser gets you there before dark.
 choices:
-  - text: |-
-      Back to the conversation.
-    next: act3/talk_sully_office
+- text: Back to the conversation.
+  next: act3/talk_sully_office

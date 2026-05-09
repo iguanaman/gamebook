@@ -1,15 +1,17 @@
 text:
-  - |-
-    You turn before he has finished his sentence. He does not finish it. He does not call after you.
-  - |-
-    Iris's hand is still on the pry-bar.
-  - |-
-    The seawall is at your back now. The apron is in front of you and the office and the cruiser and Vance. You have just closed a door without knowing what was on the other side of it. The careful part of you — the part that read Wren and Hollis right — knows that.
-  - if: {stats: {bond: 1}, flags_unset: [pushed_tomas]}
-    text: |-
-      The other part of you is the reason you are still alive.
-
+- You turn before he has finished his sentence. He does not finish it. He does not
+  call after you.
+- Iris's hand is still on the pry-bar.
+- The seawall is at your back now. The apron is in front of you and the office and
+  the cruiser and Vance. You have just closed a door without knowing what was on the
+  other side of it. The careful part of you — the part that read Wren and Hollis right
+  — knows that.
+- if:
+    stats:
+      bond: 1
+    flags_unset:
+    - pushed_tomas
+  text: The other part of you is the reason you are still alive.
 choices:
-  - text: |-
-      Back to the apron.
-    next: act3/marina_hub
+- text: Back to the apron.
+  next: act3/marina_hub

@@ -1,152 +1,207 @@
 text:
-  - if: {flags: [bitten]}
-    text: |-
-      Vance has already read the bite. She does not look at the cuff where you have it covered. She looks at your eyes and then at Sully, and Sully steps off the gangplank. The math has shifted without anyone speaking it.
-  - if: {flags: [bitten]}
-    text: |-
-      The cruiser is in the slip. The crew is loading. The dead are inside the back fence. You have one conversation left and she has already decided how it ends.
-  - if: {flags_unset: [bitten]}
-    text: |-
-      Late afternoon. The light has gone the colour of old paper. The back of the apron is overrun — you can see them between the cinder blocks of the breach, slow and thick and many. The office wall is the next thing they will reach.
-  - if: {flags_unset: [bitten]}
-    text: |-
-      Vance is at the cruiser. The keys are on the lanyard at her throat. Marrow is on the gunwale, handing tins down into the cabin. Sully is on the gangplank with the clipboard, watching you the way a man watches a thing that is about to be priced.
-  - if: {flags: [boathouse_coop]}
-    text: |-
-      Across the apron at the seawall the boathouse is open. The kayak is in the water. Tomás is at the bow with his hand on the rope. He sees you. He does not wave.
-  - if: {flags: [boathouse_loud]}
-    text: |-
-      Across the apron at the seawall the kayak is in the water. Iris has the rope. She sees you and then looks past you at the breach. The boathouse roof has a hole in it the shape of a man.
-  - if: {flags: [kayak_solo]}
-    text: |-
-      The kayak is at the water. You carried it there. There is no one at the seawall now but you and the dead at the riprap.
-  - female_adult_american_sultry_villainous: |-
-      Three supplies. One person. I'll read the math twice if you need me to.
-  - if: {flags: [held_breach], flags_unset: [dock_crew_logged]}
-    text: |-
-      She is reading her own clipboard upside down to do you the courtesy. She has not adjusted the price for you. She has not adjusted the price for anyone.
-  - if: {flags: [dock_crew_logged]}
-    text: |-
-      She knows your headcount. She knows your supply load. The clipboard is open at your line. She does not need to look at it.
-  - if: {flags: [boathouse_coop, child_rescued, child_alive]}
-    text: |-
-      Tomás's voice carries across the apron. Not loud. He is naming the kayak math the way he named the price at the seawall — once, the same both times.
-  - if: {flags: [boathouse_coop, child_rescued, child_alive]}
-    male_elder_american_wise_approachable: |-
-      One trip, two trips, three trips. We have minutes for two. We have luck for three.
-  - if: {flags_unset: [bitten]}
-    text: |-
-      The dead at the back fence have heard the breach-side moan and have answered it. The chord is the loudest it has been all week. Whatever you do, you do now.
-
+- if:
+    flags:
+    - bitten
+  text: Vance has already read the bite. She does not look at the cuff where you have
+    it covered. She looks at your eyes and then at Sully, and Sully steps off the
+    gangplank. The math has shifted without anyone speaking it.
+- if:
+    flags:
+    - bitten
+  text: The cruiser is in the slip. The crew is loading. The dead are inside the back
+    fence. You have one conversation left and she has already decided how it ends.
+- if:
+    flags_unset:
+    - bitten
+  text: Late afternoon. The light has gone the colour of old paper. The back of the
+    apron is overrun — you can see them between the cinder blocks of the breach, slow
+    and thick and many. The office wall is the next thing they will reach.
+- if:
+    flags_unset:
+    - bitten
+  text: Vance is at the cruiser. The keys are on the lanyard at her throat. Marrow
+    is on the gunwale, handing tins down into the cabin. Sully is on the gangplank
+    with the clipboard, watching you the way a man watches a thing that is about to
+    be priced.
+- if:
+    flags:
+    - boathouse_coop
+  text: Across the apron at the seawall the boathouse is open. The kayak is in the
+    water. Tomás is at the bow with his hand on the rope. He sees you. He does not
+    wave.
+- if:
+    flags:
+    - boathouse_loud
+  text: Across the apron at the seawall the kayak is in the water. Iris has the rope.
+    She sees you and then looks past you at the breach. The boathouse roof has a hole
+    in it the shape of a man.
+- if:
+    flags:
+    - kayak_solo
+  text: The kayak is at the water. You carried it there. There is no one at the seawall
+    now but you and the dead at the riprap.
+- female_adult_american_sultry_villainous: Three supplies. One person. I'll read the
+    math twice if you need me to.
+- if:
+    flags:
+    - held_breach
+    flags_unset:
+    - dock_crew_logged
+  text: She is reading her own clipboard upside down to do you the courtesy. She has
+    not adjusted the price for you. She has not adjusted the price for anyone.
+- if:
+    flags:
+    - dock_crew_logged
+  text: She knows your headcount. She knows your supply load. The clipboard is open
+    at your line. She does not need to look at it.
+- if:
+    flags:
+    - boathouse_coop
+    - child_rescued
+    - child_alive
+  text: Tomás's voice carries across the apron. Not loud. He is naming the kayak math
+    the way he named the price at the seawall — once, the same both times.
+- if:
+    flags:
+    - boathouse_coop
+    - child_rescued
+    - child_alive
+  male_elder_american_wise_approachable: One trip, two trips, three trips. We have
+    minutes for two. We have luck for three.
+- if:
+    flags_unset:
+    - bitten
+  text: The dead at the back fence have heard the breach-side moan and have answered
+    it. The chord is the loudest it has been all week. Whatever you do, you do now.
 choices:
-  - text: |-
-      Take the cruiser. Pay Vance.
-    next: act3/cruiser_choose
-    requires:
-      flags_unset: [bitten]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_cruiser: true
-  - text: |-
-      Take the kayak. Cross with Tomás.
-    next: act3/kayak_choose
-    requires:
-      flags: [boathouse_coop]
-      flags_unset: [bitten]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_kayak: true
-  - text: |-
-      Take the kayak. Cross alone.
-    next: act3/kayak_choose
-    requires:
-      flags: [kayak_solo]
-      flags_unset: [bitten, boathouse_coop]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_kayak: true
-  - text: |-
-      Take the kayak. Run the math without him.
-    next: act3/kayak_choose
-    requires:
-      flags: [boathouse_loud]
-      flags_unset: [bitten, boathouse_coop, kayak_solo]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_kayak: true
-  - text: |-
-      Hold the dock. Let them leave.
-    next: act3/hold_the_dock
-    requires:
-      flags: [child_rescued, child_alive]
-      stats:
-        bond: 4
-        supplies: 4
-        health: 2
-      flags_unset: [bitten]
-    hide_if_failed: true
-    effects:
-      flags:
-        held_the_dock_offered: true
-        chose_hold_dock: true
-  - text: |-
-      Walk back. Through the gate. Into the city.
-    next: act3/stay_behind
-    requires:
-      flags: [refused_tomas, refused_vance_offer]
-      flags_unset: [bitten]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_stay_behind: true
-  - text: |-
-      Send them one way. Run the other yourself.
-    next: act3/split_attempt
-    requires:
-      flags: [child_rescued, child_alive]
-      flags_unset: [bitten]
-    failed_text: |-
-      *(There is no one to split from.)*
-    effects:
-      flags:
-        chose_split: true
-  - text: |-
-      Send them one way. Run the other yourself.
-    next: act3/split_attempt
-    requires:
-      flags: [teen_alive]
-      flags_unset: [bitten, child_rescued]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_split: true
-  - text: |-
-      Send them one way. Run the other yourself.
-    next: act3/split_attempt
-    requires:
-      flags: [elder_alive]
-      flags_unset: [bitten, child_rescued, teen_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_split: true
-  - text: |-
-      Send them one way. Run the other yourself.
-    next: act3/split_attempt
-    requires:
-      flags: [stranger_alive]
-      flags_unset: [bitten, child_rescued, teen_alive, elder_alive]
-    hide_if_failed: true
-    effects:
-      flags:
-        chose_split: true
-  - text: |-
-      She has read you. Hear what she does next.
-    next: act3/climax_bitten
-    requires:
-      flags: [bitten]
-    hide_if_failed: true
+- text: Take the cruiser. Pay Vance.
+  next: act3/cruiser_choose
+  requires:
+    flags_unset:
+    - bitten
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_cruiser: true
+- text: Take the kayak. Cross with Tomás.
+  next: act3/kayak_choose
+  requires:
+    flags:
+    - boathouse_coop
+    flags_unset:
+    - bitten
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_kayak: true
+- text: Take the kayak. Cross alone.
+  next: act3/kayak_choose
+  requires:
+    flags:
+    - kayak_solo
+    flags_unset:
+    - bitten
+    - boathouse_coop
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_kayak: true
+- text: Take the kayak. Run the math without him.
+  next: act3/kayak_choose
+  requires:
+    flags:
+    - boathouse_loud
+    flags_unset:
+    - bitten
+    - boathouse_coop
+    - kayak_solo
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_kayak: true
+- text: Hold the dock. Let them leave.
+  next: act3/hold_the_dock
+  requires:
+    flags:
+    - child_rescued
+    - child_alive
+    stats:
+      bond: 4
+      supplies: 4
+      health: 2
+    flags_unset:
+    - bitten
+  hide_if_failed: true
+  effects:
+    flags:
+      held_the_dock_offered: true
+      chose_hold_dock: true
+- text: Walk back. Through the gate. Into the city.
+  next: act3/stay_behind
+  requires:
+    flags:
+    - refused_tomas
+    - refused_vance_offer
+    flags_unset:
+    - bitten
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_stay_behind: true
+- text: Send them one way. Run the other yourself.
+  next: act3/split_attempt
+  requires:
+    flags:
+    - child_rescued
+    - child_alive
+    flags_unset:
+    - bitten
+  failed_text: '*(There is no one to split from.)*'
+  effects:
+    flags:
+      chose_split: true
+- text: Send them one way. Run the other yourself.
+  next: act3/split_attempt
+  requires:
+    flags:
+    - teen_alive
+    flags_unset:
+    - bitten
+    - child_rescued
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_split: true
+- text: Send them one way. Run the other yourself.
+  next: act3/split_attempt
+  requires:
+    flags:
+    - elder_alive
+    flags_unset:
+    - bitten
+    - child_rescued
+    - teen_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_split: true
+- text: Send them one way. Run the other yourself.
+  next: act3/split_attempt
+  requires:
+    flags:
+    - stranger_alive
+    flags_unset:
+    - bitten
+    - child_rescued
+    - teen_alive
+    - elder_alive
+  hide_if_failed: true
+  effects:
+    flags:
+      chose_split: true
+- text: She has read you. Hear what she does next.
+  next: act3/climax_bitten
+  requires:
+    flags:
+    - bitten
+  hide_if_failed: true
