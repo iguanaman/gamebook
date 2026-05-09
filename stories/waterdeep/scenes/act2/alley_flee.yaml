@@ -18,7 +18,7 @@ text:
 choices:
 - text: |-
     Back to the Trades Ward corner
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       alley_witness_lost: true

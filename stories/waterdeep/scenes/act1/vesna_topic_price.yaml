@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Back to Vesna
-  next: talk_vesna
+  next: act1/talk_vesna
   effects:
     flags:
       asked_vesna_price: true

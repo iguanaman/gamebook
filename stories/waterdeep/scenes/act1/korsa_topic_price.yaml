@@ -8,7 +8,7 @@ text:
 choices:
 - text: |-
     Back to Korsa
-  next: talk_korsa
+  next: act1/talk_korsa
   effects:
     flags:
       asked_korsa_price: true

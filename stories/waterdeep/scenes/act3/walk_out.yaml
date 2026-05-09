@@ -103,7 +103,7 @@ text:
 choices:
 - text: |-
     Out into the street.
-  next: ending_6_worse_door
+  next: act3/ending_6_worse_door
   effects:
     flags:
       walked_out: true

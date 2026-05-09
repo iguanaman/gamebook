@@ -24,7 +24,7 @@ text:
 choices:
 - text: |-
     Take Mirt's hand.
-  next: ending_5_sworn
+  next: act3/ending_5_sworn
   effects:
     flags:
       mirt_offer_resolved: true
@@ -33,7 +33,7 @@ choices:
       Coin: 5
 - text: |-
     Decline — politely, with thanks.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       mirt_offer_resolved: true
@@ -48,7 +48,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Decline — politely, with thanks.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       mirt_offer_resolved: true
@@ -59,7 +59,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Decline — politely, with thanks.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       mirt_offer_resolved: true
@@ -71,14 +71,14 @@ choices:
   hide_if_failed: true
 - text: |-
     Decline — bluntly. You have business elsewhere.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       mirt_offer_resolved: true
       mirt_offer_declined: true
 - text: |-
     Hear him out. What's the room above the shopfront like?
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       mirt_offer_resolved: true

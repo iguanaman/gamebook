@@ -33,19 +33,19 @@ text:
 choices:
 - text: |-
     Find Joren — or what he left behind.
-  next: client_handover
+  next: act3/client_handover
   requires:
     flags_unset:
     - client_handed_over
 - text: |-
     A word with Durnan.
-  next: durnan_final
+  next: act3/durnan_final
   requires:
     flags_unset:
     - durnan_final_done
 - text: |-
     A word with Korsa.
-  next: farewell_korsa
+  next: act3/farewell_korsa
   requires:
     flags:
     - recruited_korsa
@@ -55,7 +55,7 @@ choices:
   hide_if_failed: true
 - text: |-
     A word with Vesna.
-  next: farewell_vesna
+  next: act3/farewell_vesna
   requires:
     flags:
     - recruited_vesna
@@ -65,7 +65,7 @@ choices:
   hide_if_failed: true
 - text: |-
     A word with Pip.
-  next: farewell_pip
+  next: act3/farewell_pip
   requires:
     flags:
     - recruited_pip
@@ -75,7 +75,7 @@ choices:
   hide_if_failed: true
 - text: |-
     A word with Thessaly.
-  next: farewell_thessaly
+  next: act3/farewell_thessaly
   requires:
     flags:
     - recruited_thessaly
@@ -85,7 +85,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Cross to Mirt's table — he's lifted his tankard at you.
-  next: mirt_offer
+  next: act3/mirt_offer
   requires:
     flags:
     - mirt_owes_favour
@@ -97,7 +97,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Pay the night's tab unprompted.
-  next: pay_tab_unprompted
+  next: act3/pay_tab_unprompted
   requires:
     stats:
       Coin: 2
@@ -108,7 +108,7 @@ choices:
     *(Not enough coin — the tab will have to wait.)*
 - text: |-
     Stand a round for the regulars.
-  next: stand_a_round
+  next: act3/stand_a_round
   requires:
     stats:
       Coin: 1
@@ -119,7 +119,7 @@ choices:
     *(The room doesn't know you well enough for the gesture to land yet.)*
 - text: |-
     Close the books — sit into the night.
-  next: closing_books
+  next: act3/closing_books
   requires:
     flags:
     - client_handed_over
@@ -127,7 +127,7 @@ choices:
     *(Settle the apprentice's fate first.)*
 - text: |-
     Walk to the door without settling.
-  next: walk_out
+  next: act3/walk_out
   effects:
     flags:
       left_without_settling: true

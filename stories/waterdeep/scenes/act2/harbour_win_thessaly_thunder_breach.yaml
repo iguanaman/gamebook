@@ -14,7 +14,7 @@ text:
 choices:
 - text: |-
     Drag yourself onto the quay — everyone accounted for
-  next: harbour_resolution
+  next: act2/harbour_resolution
   effects:
     flags:
       weapon_taken_from_kuo_toa: true

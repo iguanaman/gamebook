@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Bribe him — 3 Coin, the rest of what he knows
-  next: harbour_approach
+  next: act2/harbour_approach
   requires:
     stats:
       Coin: 3
@@ -27,7 +27,7 @@ choices:
       Coin: -3
 - text: |-
     Read him — what's he actually afraid of?
-  next: harbour_approach
+  next: act2/harbour_approach
   requires:
     stats:
       Wits: 6
@@ -42,7 +42,7 @@ choices:
       knows_bargeman_terrified: true
 - text: |-
     Korsa steps forward — the bargeman reconsiders his silence
-  next: harbour_approach
+  next: act2/harbour_approach
   requires:
     flags:
     - recruited_korsa
@@ -59,7 +59,7 @@ choices:
       Renown: -1
 - text: |-
     Walk away — he's not worth it
-  next: harbour_approach
+  next: act2/harbour_approach
   requires:
     flags_unset:
     - harbour_bargeman_done

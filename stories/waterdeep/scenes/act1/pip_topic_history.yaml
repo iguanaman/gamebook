@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Back to Pip
-  next: talk_pip
+  next: act1/talk_pip
   effects:
     flags:
       asked_pip_history: true

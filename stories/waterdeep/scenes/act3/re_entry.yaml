@@ -128,7 +128,7 @@ text:
 choices:
 - text: |-
     Cross to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       re_entered_portal: true

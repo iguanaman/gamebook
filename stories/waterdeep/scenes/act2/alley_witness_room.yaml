@@ -17,7 +17,7 @@ text:
 choices:
 - text: |-
     Press him — you know who paid him, and the name isn't worth what's coming up that well
-  next: alley_witness_speaks
+  next: act2/alley_witness_speaks
   requires:
     stats:
       Wits: 5
@@ -27,7 +27,7 @@ choices:
       alley_pressed: true
 - text: |-
     Press him — you know who paid him to keep quiet
-  next: alley_witness_speaks
+  next: act2/alley_witness_speaks
   requires:
     flags:
     - knows_alley_protector
@@ -37,7 +37,7 @@ choices:
       alley_pressed: true
 - text: |-
     Let Vesna speak — calm him down, no threats
-  next: alley_witness_speaks
+  next: act2/alley_witness_speaks
   requires:
     flags:
     - recruited_vesna
@@ -51,7 +51,7 @@ choices:
       alley_calmed: true
 - text: |-
     A knife on the table. His choice.
-  next: alley_witness_speaks
+  next: act2/alley_witness_speaks
   effects:
     flags:
       alley_witness_named: true
@@ -60,7 +60,7 @@ choices:
       Renown: -1
 - text: |-
     Let him bolt — you heard enough from the doorway
-  next: alley_witness_bolts
+  next: act2/alley_witness_bolts
   effects:
     flags:
       alley_witness_lost: true

@@ -36,7 +36,7 @@ text:
 choices:
 - text: |-
     Back to the corner
-  next: spoke_hub
+  next: act2/spoke_hub
   effects:
     flags:
       harbour_spoke_done: true

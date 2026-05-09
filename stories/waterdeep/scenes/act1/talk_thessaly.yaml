@@ -16,25 +16,25 @@ text:
 choices:
 - text: |-
     Compare arcane registers — your spells and hers
-  next: thessaly_topic_arcane
+  next: act1/thessaly_topic_arcane
   requires:
     flags_unset:
     - asked_thessaly_arcane
 - text: |-
     Ask what's down there
-  next: thessaly_topic_below
+  next: act1/thessaly_topic_below
   requires:
     flags_unset:
     - asked_thessaly_below
 - text: |-
     Ask her terms
-  next: thessaly_topic_terms
+  next: act1/thessaly_topic_terms
   requires:
     flags_unset:
     - asked_thessaly_terms
 - text: |-
     Press her — why this job?
-  next: thessaly_topic_why
+  next: act1/thessaly_topic_why
   requires:
     flags:
     - asked_thessaly_below
@@ -46,7 +46,7 @@ choices:
     [Wits 6 required / Hear her out first]
 - text: |-
     Accept her terms — recruit her
-  next: recruit_thessaly
+  next: act1/recruit_thessaly
   requires:
     flags:
     - asked_thessaly_below
@@ -59,4 +59,4 @@ choices:
     [Hear her out first / Party full]
 - text: |-
     Step away
-  next: common_room
+  next: act1/common_room

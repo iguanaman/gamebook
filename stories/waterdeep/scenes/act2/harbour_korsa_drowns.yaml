@@ -14,7 +14,7 @@ journal: |-
 choices:
 - text: |-
     Climb out — nothing for him below
-  next: harbour_resolution
+  next: act2/harbour_resolution
   effects:
     flags:
       korsa_died: true

@@ -8,7 +8,7 @@ text:
 choices:
 - text: |-
     Talk to the bargeman
-  next: harbour_bargeman_talk
+  next: act2/harbour_bargeman_talk
   requires:
     flags_unset:
     - harbour_bargeman_done
@@ -17,13 +17,13 @@ choices:
       harbour_bargeman_started: true
 - text: |-
     Up the hill — harbour-master's office, see the records
-  next: harbour_records
+  next: act2/harbour_records
   requires:
     flags_unset:
     - harbour_records_done
 - text: |-
     Pip — slip aboard first, scout what's on the deck
-  next: harbour_pip_scout
+  next: act2/harbour_pip_scout
   requires:
     flags:
     - recruited_pip
@@ -37,10 +37,10 @@ choices:
       harbour_pip_scouted: true
 - text: |-
     Board the Repose — let's see what she's hiding
-  next: harbour_board
+  next: act2/harbour_board
   effects:
     flags:
       harbour_boarded: true
 - text: |-
     Pull back — head to the corner. Not yet.
-  next: spoke_hub
+  next: act2/spoke_hub

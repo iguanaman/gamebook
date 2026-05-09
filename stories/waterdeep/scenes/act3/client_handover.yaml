@@ -150,7 +150,7 @@ text:
 choices:
 - text: |-
     Take what they offer. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       client_handed_over: true
@@ -166,7 +166,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Take the partial purse. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       client_handed_over: true
@@ -182,7 +182,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Take the partial pay. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       client_handed_over: true
@@ -196,7 +196,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Take it. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       client_handed_over: true
@@ -212,7 +212,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Leave it. Keep it — I didn't earn it.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       client_handed_over: true
@@ -228,7 +228,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Take the three coins. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       client_handed_over: true
@@ -244,7 +244,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Nothing to be done here. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       client_handed_over: true

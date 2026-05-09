@@ -108,7 +108,7 @@ choices:
       tactic_straight: true
 - text: |-
     Break and run — out the back before this gets worse
-  next: alley_flee
+  next: act2/alley_flee
   requires:
     stats:
       Vigor: 4

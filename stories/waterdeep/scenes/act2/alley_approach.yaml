@@ -11,7 +11,7 @@ text:
 choices:
 - text: |-
     Bluff him — you're with the chandler's accountant, tallying the night's wax
-  next: alley_witness_room
+  next: act2/alley_witness_room
   requires:
     stats:
       Wits: 5
@@ -20,7 +20,7 @@ choices:
       alley_bluffed_watchman: true
 - text: |-
     Bribe him — three coin, nothing said
-  next: alley_witness_room
+  next: act2/alley_witness_room
   requires:
     stats:
       Coin: 3
@@ -33,7 +33,7 @@ choices:
       Coin: -3
 - text: |-
     Pip — up the chandler's roof, in through the skylight
-  next: alley_witness_room
+  next: act2/alley_witness_room
   requires:
     flags:
     - recruited_pip
@@ -47,7 +47,7 @@ choices:
       pip_led_entry: true
 - text: |-
     Hoist Vesna up to the side window — she'll unlatch from inside
-  next: alley_witness_room
+  next: act2/alley_witness_room
   requires:
     flags:
     - recruited_vesna
@@ -60,7 +60,7 @@ choices:
       alley_entered_window: true
 - text: |-
     Through the front. Korsa first.
-  next: alley_brawl_open
+  next: act2/alley_brawl_open
   requires:
     flags:
     - recruited_korsa
@@ -73,7 +73,7 @@ choices:
       alley_kicked_door: true
 - text: |-
     Wait in the shadows — let the toughs come out to you
-  next: alley_brawl_open
+  next: act2/alley_brawl_open
   effects:
     flags:
       alley_ambushed_first: true

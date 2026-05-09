@@ -16,7 +16,7 @@ text:
 choices:
 - text: |-
     Back to Thessaly
-  next: talk_thessaly
+  next: act1/talk_thessaly
   effects:
     flags:
       asked_thessaly_terms: true

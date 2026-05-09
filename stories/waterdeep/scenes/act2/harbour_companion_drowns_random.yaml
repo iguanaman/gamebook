@@ -10,7 +10,7 @@ text:
 choices:
 - text: |-
     Climb out — Korsa is gone
-  next: harbour_resolution
+  next: act2/harbour_resolution
   requires:
     flags:
     - recruited_korsa
@@ -31,7 +31,7 @@ choices:
       Vigor: -3
 - text: |-
     Climb out — Vesna is gone
-  next: harbour_resolution
+  next: act2/harbour_resolution
   requires:
     flags:
     - recruited_vesna
@@ -50,7 +50,7 @@ choices:
       Vigor: -3
 - text: |-
     Climb out — Pip is gone
-  next: harbour_resolution
+  next: act2/harbour_resolution
   requires:
     flags:
     - recruited_pip
@@ -70,7 +70,7 @@ choices:
       Vigor: -3
 - text: |-
     Climb out — Thessaly is gone
-  next: harbour_resolution
+  next: act2/harbour_resolution
   requires:
     flags:
     - recruited_thessaly
@@ -89,7 +89,7 @@ choices:
       Vigor: -3
 - text: |-
     Climb out
-  next: harbour_resolution
+  next: act2/harbour_resolution
   effects:
     flags:
       met_the_thing_below_glimpse: true

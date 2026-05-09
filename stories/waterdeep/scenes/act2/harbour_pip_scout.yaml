@@ -16,7 +16,7 @@ text:
 choices:
 - text: |-
     Back to the dock — we go in ready
-  next: harbour_approach
+  next: act2/harbour_approach
   effects:
     flags:
       harbour_pip_scouted: true

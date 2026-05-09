@@ -42,7 +42,7 @@ text:
 choices:
 - text: |-
     Back to the corner — decide what's next
-  next: spoke_hub
+  next: act2/spoke_hub
   effects:
     flags:
       alley_spoke_done: true

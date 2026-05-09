@@ -14,7 +14,7 @@ journal: |-
 choices:
 - text: |-
     Climb out — she'd want you to
-  next: harbour_resolution
+  next: act2/harbour_resolution
   effects:
     flags:
       pip_died: true

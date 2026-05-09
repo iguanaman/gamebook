@@ -17,7 +17,7 @@ journal: |-
 choices:
 - text: |-
     Carry her out — she deserves better than this lane
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       pip_died: true
@@ -28,7 +28,7 @@ choices:
       Vigor: -3
 - text: |-
     Leave her. Get out while you can.
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       pip_died: true

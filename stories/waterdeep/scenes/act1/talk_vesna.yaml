@@ -14,13 +14,13 @@ text:
 choices:
 - text: |-
     Ask about Tymora
-  next: vesna_topic_tymora
+  next: act1/vesna_topic_tymora
   requires:
     flags_unset:
     - asked_vesna_tymora
 - text: |-
     Ask if she knew the apprentice
-  next: vesna_topic_apprentice
+  next: act1/vesna_topic_apprentice
   requires:
     flags:
     - job_taken
@@ -30,19 +30,19 @@ choices:
     [Take the job first]
 - text: |-
     Ask what she sees in the descent
-  next: vesna_topic_descent
+  next: act1/vesna_topic_descent
   requires:
     flags_unset:
     - asked_vesna_descent
 - text: |-
     Ask her price
-  next: vesna_topic_price
+  next: act1/vesna_topic_price
   requires:
     flags_unset:
     - asked_vesna_price
 - text: |-
     Promise her what she asks — recruit her
-  next: recruit_vesna
+  next: act1/recruit_vesna
   requires:
     flags:
     - asked_vesna_descent
@@ -55,4 +55,4 @@ choices:
     [Hear her out first / Party full]
 - text: |-
     Step away
-  next: common_room
+  next: act1/common_room

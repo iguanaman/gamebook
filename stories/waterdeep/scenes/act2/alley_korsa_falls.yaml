@@ -21,7 +21,7 @@ journal: |-
 choices:
 - text: |-
     Carry him out — leave no one in this alley
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       korsa_died: true
@@ -32,7 +32,7 @@ choices:
       Vigor: -3
 - text: |-
     Leave him. Get the witness's name and run.
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       korsa_died: true

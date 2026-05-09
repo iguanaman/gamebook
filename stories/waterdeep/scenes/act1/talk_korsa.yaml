@@ -14,31 +14,31 @@ text:
 choices:
 - text: |-
     Buy him a drink, hear his last job
-  next: korsa_topic_lastjob
+  next: act1/korsa_topic_lastjob
   requires:
     flags_unset:
     - asked_korsa_lastjob
 - text: |-
     Ask about the well
-  next: korsa_topic_well
+  next: act1/korsa_topic_well
   requires:
     flags_unset:
     - asked_korsa_well
 - text: |-
     Ask his price
-  next: korsa_topic_price
+  next: act1/korsa_topic_price
   requires:
     flags_unset:
     - asked_korsa_price
 - text: |-
     Ask why he isn't scared
-  next: korsa_topic_fear
+  next: act1/korsa_topic_fear
   requires:
     flags_unset:
     - asked_korsa_fear
 - text: |-
     Recruit him — 3 Coin advance
-  next: recruit_korsa
+  next: act1/recruit_korsa
   requires:
     flags:
     - asked_korsa_well
@@ -52,4 +52,4 @@ choices:
     [Hear about the well first / 3 Coin required / Party full]
 - text: |-
     Step away
-  next: common_room
+  next: act1/common_room

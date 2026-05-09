@@ -15,13 +15,13 @@ text:
 choices:
 - text: |-
     Down into the hold
-  next: harbour_ambush_open
+  next: act2/harbour_ambush_open
   effects:
     flags:
       harbour_descended_hold: true
 - text: |-
     Stay topside — let whatever's below come up to you
-  next: harbour_ambush_open
+  next: act2/harbour_ambush_open
   effects:
     flags:
       harbour_held_topside: true

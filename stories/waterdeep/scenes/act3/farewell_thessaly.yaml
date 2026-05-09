@@ -202,7 +202,7 @@ text:
 choices:
 - text: |-
     Stay inside the wall. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       thessaly_farewell_done: true
@@ -216,7 +216,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Fellowship, or appetite. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       thessaly_farewell_done: true
@@ -232,7 +232,7 @@ choices:
   hide_if_failed: true
 - text: |-
     A Manifest. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       thessaly_farewell_done: true
@@ -248,7 +248,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Don't come back. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       thessaly_farewell_done: true

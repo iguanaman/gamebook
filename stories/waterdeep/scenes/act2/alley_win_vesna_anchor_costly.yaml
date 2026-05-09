@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Bind her wound, loot the bodies, get moving
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       bloodied_in_alley: true

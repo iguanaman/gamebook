@@ -247,7 +247,7 @@ text:
 choices:
 - text: |-
     Pocket the coin. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       pip_farewell_done: true
@@ -261,7 +261,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Take the cut. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       pip_farewell_done: true
@@ -279,7 +279,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Take the lot. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       pip_farewell_done: true
@@ -297,7 +297,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Catch the copper. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       pip_farewell_done: true

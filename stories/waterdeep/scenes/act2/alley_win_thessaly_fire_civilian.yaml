@@ -14,7 +14,7 @@ text:
 choices:
 - text: |-
     Out the alley mouth — fast, before the Watch arrives
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       bloodied_in_alley: true

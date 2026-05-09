@@ -10,7 +10,7 @@ text:
 choices:
 - text: |-
     Bind her ribs, collect the coin, head back
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       bloodied_in_alley: true

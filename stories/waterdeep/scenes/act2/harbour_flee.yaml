@@ -10,7 +10,7 @@ text:
 choices:
 - text: |-
     Back to the Trades Ward corner — wet and empty-handed
-  next: harbour_resolution
+  next: act2/harbour_resolution
   effects:
     flags:
       harbour_fled: true

@@ -8,7 +8,7 @@ text:
 choices:
 - text: |-
     Brace at the top of the stairs — they're coming up either way
-  next: alley_brawl_open
+  next: act2/alley_brawl_open
   effects:
     flags:
       lead_followed_alley: true

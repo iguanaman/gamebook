@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Read the manifest — work out what he's already noticed
-  next: harbour_approach
+  next: act2/harbour_approach
   requires:
     stats:
       Wits: 5
@@ -28,7 +28,7 @@ choices:
       Coin: 4
 - text: |-
     It's beyond you — back to the dock
-  next: harbour_approach
+  next: act2/harbour_approach
   requires:
     flags_unset:
     - harbour_records_done

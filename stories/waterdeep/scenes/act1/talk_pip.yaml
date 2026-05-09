@@ -16,31 +16,31 @@ text:
 choices:
 - text: |-
     Ask about Undermountain rumours
-  next: pip_topic_rumours
+  next: act1/pip_topic_rumours
   requires:
     flags_unset:
     - asked_pip_rumours
 - text: |-
     Ask her rate
-  next: pip_topic_rate
+  next: act1/pip_topic_rate
   requires:
     flags_unset:
     - asked_pip_rate
 - text: |-
     Ask who else has hired her
-  next: pip_topic_history
+  next: act1/pip_topic_history
   requires:
     flags_unset:
     - asked_pip_history
 - text: |-
     Ask what she steals
-  next: pip_topic_steals
+  next: act1/pip_topic_steals
   requires:
     flags_unset:
     - asked_pip_steals
 - text: |-
     Pay her rate — 5 Coin — recruit her
-  next: recruit_pip
+  next: act1/recruit_pip
   requires:
     flags:
     - asked_pip_rate
@@ -54,4 +54,4 @@ choices:
     [Hear her rate first / 5 Coin required / Party full]
 - text: |-
     Step away
-  next: common_room
+  next: act1/common_room

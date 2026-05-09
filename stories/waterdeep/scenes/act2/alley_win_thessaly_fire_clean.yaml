@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Through the smoke, back to the Trades Ward corner
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       bloodied_in_alley: true

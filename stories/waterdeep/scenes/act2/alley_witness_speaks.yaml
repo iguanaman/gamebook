@@ -29,7 +29,7 @@ journal: |-
 choices:
 - text: |-
     Down — meet them on the stairs
-  next: alley_brawl_open
+  next: act2/alley_brawl_open
   effects:
     flags:
       lead_followed_alley: true

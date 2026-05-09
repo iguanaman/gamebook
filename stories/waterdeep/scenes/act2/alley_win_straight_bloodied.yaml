@@ -10,7 +10,7 @@ text:
 choices:
 - text: |-
     Bind wounds, take the purses, back to the corner
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       bloodied_in_alley: true

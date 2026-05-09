@@ -16,7 +16,7 @@ journal: |-
 choices:
 - text: |-
     Climb out — there's nothing left to fight here
-  next: harbour_resolution
+  next: act2/harbour_resolution
   effects:
     flags:
       vesna_died: true

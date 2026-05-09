@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Bind her arm and get off this boat
-  next: harbour_resolution
+  next: act2/harbour_resolution
   effects:
     flags:
       weapon_taken_from_thrall: true

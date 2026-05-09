@@ -113,7 +113,7 @@ choices:
       tactic_straight_harbour: true
 - text: |-
     Over the rail — swim for the next quay
-  next: harbour_flee
+  next: act2/harbour_flee
   requires:
     stats:
       Vigor: 4

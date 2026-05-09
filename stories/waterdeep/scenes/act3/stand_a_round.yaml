@@ -13,7 +13,7 @@ text:
 choices:
 - text: |-
     Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       stood_a_round: true

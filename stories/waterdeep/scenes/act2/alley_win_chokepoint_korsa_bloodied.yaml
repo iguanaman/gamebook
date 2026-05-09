@@ -12,7 +12,7 @@ text:
 choices:
 - text: |-
     Bind his leg, loot what you can, head back to the corner
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       bloodied_in_alley: true

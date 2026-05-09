@@ -26,7 +26,7 @@ text:
 choices:
 - text: |-
     Back to the room
-  next: common_room
+  next: act1/common_room
   effects:
     flags:
       recruited_pip: true

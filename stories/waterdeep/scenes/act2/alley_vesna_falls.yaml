@@ -12,7 +12,7 @@ journal: |-
 choices:
 - text: |-
     Carry her out — she prayed over the dead, she deserves better
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       vesna_died: true
@@ -24,7 +24,7 @@ choices:
       Renown: 1
 - text: |-
     Leave her — Tymora keeps her own
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       vesna_died: true

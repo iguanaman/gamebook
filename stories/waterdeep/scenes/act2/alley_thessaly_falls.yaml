@@ -14,7 +14,7 @@ journal: |-
 choices:
 - text: |-
     Get her out of the alley — she goes where you go
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       thessaly_died: true
@@ -27,7 +27,7 @@ choices:
       Renown: -1
 - text: |-
     Leave her in the wax. There's no carrying someone that far gone.
-  next: alley_resolution
+  next: act2/alley_resolution
   effects:
     flags:
       thessaly_died: true

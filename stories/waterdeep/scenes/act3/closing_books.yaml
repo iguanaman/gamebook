@@ -33,14 +33,14 @@ text:
 choices:
 - text: |-
     Get up. Go to the door.
-  next: walk_out
+  next: act3/walk_out
   requires:
     flags:
     - stirred_something
   hide_if_failed: true
 - text: |-
     Sit with your drink. Watch the door close.
-  next: ending_3_bargain
+  next: act3/ending_3_bargain
   requires:
     flags:
     - rescued
@@ -50,7 +50,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Sit. Take the drink. Let the room know you're staying.
-  next: ending_1_hero
+  next: act3/ending_1_hero
   requires:
     flags:
     - rescued
@@ -65,7 +65,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Sit. The night is over.
-  next: ending_2_quiet_good
+  next: act3/ending_2_quiet_good
   requires:
     flags:
     - rescued
@@ -76,7 +76,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Sit. The night is over.
-  next: ending_4_lost
+  next: act3/ending_4_lost
   requires:
     flags_unset:
     - rescued

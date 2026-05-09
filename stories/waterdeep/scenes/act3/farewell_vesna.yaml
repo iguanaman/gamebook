@@ -247,7 +247,7 @@ text:
 choices:
 - text: |-
     Let her look away. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       vesna_farewell_done: true
@@ -261,7 +261,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Nod. Pocket the coin. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       vesna_farewell_done: true
@@ -276,7 +276,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Not yet is enough. Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       vesna_farewell_done: true
@@ -293,7 +293,7 @@ choices:
   hide_if_failed: true
 - text: |-
     Go back to the bar.
-  next: bar_settle_up
+  next: act3/bar_settle_up
   effects:
     flags:
       vesna_farewell_done: true
